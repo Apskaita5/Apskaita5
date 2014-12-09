@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<FinancialReportingStructure>
+  <ConsolidatedReportItem>
+    <Name>Finansinė atskaitomybė</Name>
+    <IsCredit>0</IsCredit>
+    <Type>4</Type>
+    <Children>
+      <ConsolidatedReportItem>
+        <Name>Balanso ataskaita</Name>
+        <IsCredit>0</IsCredit>
+        <Type>2</Type>
+        <Children>
+          <ConsolidatedReportItem>
+            <Name>TURTAS</Name>
+            <IsCredit>0</IsCredit>
+            <Type>0</Type>
+            <Children>
+              <ConsolidatedReportItem>
+                <Name>ILGALAIKIS TURTAS</Name>
+                <IsCredit>0</IsCredit>
+                <Type>0</Type>
+                <Children>
+                  <ConsolidatedReportItem>
+                    <Name>NEMATERIALUSIS TURTAS</Name>
+                    <IsCredit>0</IsCredit>
+                    <Type>0</Type>
+                    <Children />
+                  </ConsolidatedReportItem>
+                  <ConsolidatedReportItem>
+                    <Name>MATERIALUSIS TURTAS</Name>
+                    <IsCredit>0</IsCredit>
+                    <Type>0</Type>
+                    <Children />
+                  </ConsolidatedReportItem>
+                  <ConsolidatedReportItem>
+                    <Name>FINANSINIS TURTAS</Name>
+                    <IsCredit>0</IsCredit>
+                    <Type>0</Type>
+                    <Children />
+                  </ConsolidatedReportItem>
+                </Children>
+              </ConsolidatedReportItem>
+              <ConsolidatedReportItem>
+                <Name>TRUMPALAIKIS TURTAS</Name>
+                <IsCredit>0</IsCredit>
+                <Type>0</Type>
+                <Children>
+                  <ConsolidatedReportItem>
+                    <Name>ATSARGOS, IŠANKSTINIAI APMOKĖJIMAI IR NEBAIGTOS VYKDYTI SUTARTYS</Name>
+                    <IsCredit>0</IsCredit>
+                    <Type>0</Type>
+                    <Children />
+                  </ConsolidatedReportItem>
+                  <ConsolidatedReportItem>
+                    <Name>PER VIENERIUS METUS GAUTINOS SUMOS</Name>
+                    <IsCredit>0</IsCredit>
+                    <Type>0</Type>
+                    <Children />
+                  </ConsolidatedReportItem>
+                  <ConsolidatedReportItem>
+                    <Name>KITAS TRUMPALAIKIS TURTAS</Name>
+                    <IsCredit>0</IsCredit>
+                    <Type>0</Type>
+                    <Children />
+                  </ConsolidatedReportItem>
+                  <ConsolidatedReportItem>
+                    <Name>PINIGAI IR PINIGŲ EKVIVALENTAI</Name>
+                    <IsCredit>0</IsCredit>
+                    <Type>0</Type>
+                    <Children />
+                  </ConsolidatedReportItem>
+                </Children>
+              </ConsolidatedReportItem>
+            </Children>
+          </ConsolidatedReportItem>
+          <ConsolidatedReportItem>
+            <Name>NUOSAVAS KAPITALAS IR ĮSIPAREIGOJIMAI</Name>
+            <IsCredit>1</IsCredit>
+            <Type>0</Type>
+            <Children>
+              <ConsolidatedReportItem>
+                <Name>NUOSAVAS KAPITALAS</Name>
+                <IsCredit>1</IsCredit>
+                <Type>0</Type>
+                <Children>
+                  <ConsolidatedReportItem>
+                    <Name>KAPITALAS</Name>
+                    <IsCredit>1</IsCredit>
+                    <Type>0</Type>
+                    <Children />
+                  </ConsolidatedReportItem>
+                  <ConsolidatedReportItem>
+                    <Name>PERKAINOJIMO REZERVAS (REZULTATAI)</Name>
+                    <IsCredit>1</IsCredit>
+                    <Type>0</Type>
+                    <Children />
+                  </ConsolidatedReportItem>
+                  <ConsolidatedReportItem>
+                    <Name>REZERVAI</Name>
+                    <IsCredit>1</IsCredit>
+                    <Type>0</Type>
+                    <Children />
+                  </ConsolidatedReportItem>
+                  <ConsolidatedReportItem>
+                    <Name>NEPASKIRSTYTASIS PELNAS (NUOSTOLIAI)</Name>
+                    <IsCredit>1</IsCredit>
+                    <Type>0</Type>
+                    <Children />
+                  </ConsolidatedReportItem>
+                </Children>
+              </ConsolidatedReportItem>
+              <ConsolidatedReportItem>
+                <Name>DOTACIJOS, SUBSIDIJOS</Name>
+                <IsCredit>1</IsCredit>
+                <Type>0</Type>
+                <Children />
+              </ConsolidatedReportItem>
+              <ConsolidatedReportItem>
+                <Name>MOKĖTINOS SUMOS IR ĮSIPAREIGOJIMAI</Name>
+                <IsCredit>1</IsCredit>
+                <Type>0</Type>
+                <Children>
+                  <ConsolidatedReportItem>
+                    <Name>PO VIENERIŲ METŲ MOKĖTINOS SUMOS IR ILGALAIKIAI ĮSIPAREIGOJIMAI</Name>
+                    <IsCredit>1</IsCredit>
+                    <Type>0</Type>
+                    <Children />
+                  </ConsolidatedReportItem>
+                  <ConsolidatedReportItem>
+                    <Name>PER VIENERIUS METUS MOKĖTINOS SUMOS IR TRUMPALAIKIAI ĮSIPAREIGOJIMAI</Name>
+                    <IsCredit>1</IsCredit>
+                    <Type>0</Type>
+                    <Children />
+                  </ConsolidatedReportItem>
+                </Children>
+              </ConsolidatedReportItem>
+            </Children>
+          </ConsolidatedReportItem>
+        </Children>
+      </ConsolidatedReportItem>
+      <ConsolidatedReportItem>
+        <Name>Pelno (nuostolio) ataskaita</Name>
+        <IsCredit>1</IsCredit>
+        <Type>3</Type>
+        <Children>
+          <ConsolidatedReportItem>
+            <Name>GRYNASIS PELNAS (NUOSTOLIAI)</Name>
+            <IsCredit>1</IsCredit>
+            <Type>1</Type>
+            <Children>
+              <ConsolidatedReportItem>
+                <Name>PELNO MOKESTIS</Name>
+                <IsCredit>1</IsCredit>
+                <Type>1</Type>
+                <Children />
+              </ConsolidatedReportItem>
+              <ConsolidatedReportItem>
+                <Name>PELNAS (NUOSTOLIAI) PRIEŠ APMOKESTINIMĄ</Name>
+                <IsCredit>1</IsCredit>
+                <Type>1</Type>
+                <Children>
+                  <ConsolidatedReportItem>
+                    <Name>NETEKIMAI</Name>
+                    <IsCredit>1</IsCredit>
+                    <Type>1</Type>
+                    <Children />
+                  </ConsolidatedReportItem>
+                  <ConsolidatedReportItem>
+                    <Name>PAGAUTĖ</Name>
+                    <IsCredit>1</IsCredit>
+                    <Type>1</Type>
+                    <Children />
+                  </ConsolidatedReportItem>
+                  <ConsolidatedReportItem>
+                    <Name>ĮPRASTINĖS VEIKLOS PELNAS (NUOSTOLIAI)</Name>
+                    <IsCredit>1</IsCredit>
+                    <Type>1</Type>
+                    <Children>
+                      <ConsolidatedReportItem>
+                        <Name>FINANSINĖ IR INVESTICINĖ VEIKLA</Name>
+                        <IsCredit>1</IsCredit>
+                        <Type>1</Type>
+                        <Children />
+                      </ConsolidatedReportItem>
+                      <ConsolidatedReportItem>
+                        <Name>KITA VEIKLA</Name>
+                        <IsCredit>1</IsCredit>
+                        <Type>1</Type>
+                        <Children />
+                      </ConsolidatedReportItem>
+                      <ConsolidatedReportItem>
+                        <Name>VEIKLOS SĄNAUDOS</Name>
+                        <IsCredit>1</IsCredit>
+                        <Type>1</Type>
+                        <Children />
+                      </ConsolidatedReportItem>
+                      <ConsolidatedReportItem>
+                        <Name>TIPINĖS VEIKLOS PELNAS (NUOSTOLIAI)</Name>
+                        <IsCredit>1</IsCredit>
+                        <Type>1</Type>
+                        <Children>
+                          <ConsolidatedReportItem>
+                            <Name>PARDAVIMO SAVIKAINA</Name>
+                            <IsCredit>1</IsCredit>
+                            <Type>1</Type>
+                            <Children />
+                          </ConsolidatedReportItem>
+                          <ConsolidatedReportItem>
+                            <Name>PARDAVIMO PAJAMOS</Name>
+                            <IsCredit>1</IsCredit>
+                            <Type>1</Type>
+                            <Children />
+                          </ConsolidatedReportItem>
+                        </Children>
+                      </ConsolidatedReportItem>
+                    </Children>
+                  </ConsolidatedReportItem>
+                </Children>
+              </ConsolidatedReportItem>
+            </Children>
+          </ConsolidatedReportItem>
+        </Children>
+      </ConsolidatedReportItem>
+    </Children>
+  </ConsolidatedReportItem>
+</FinancialReportingStructure>

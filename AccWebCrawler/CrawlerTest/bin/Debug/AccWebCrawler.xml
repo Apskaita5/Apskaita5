@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+AccWebCrawler
+</name>
+</assembly>
+<members>
+<member name="M:AccWebCrawler.CommonMethods.ResolveAvailableUpdatesResult(System.String,System.String,System.Text.Encoding,System.Text.Encoding,AccWebCrawler.CommonMethods.ConvertStringToDateDelegate,System.Net.DownloadDataCompletedEventArgs,System.Boolean)">
+	<summary>
+ Evaluates data fetched by CheckForAvailableUpdatesAsync method, compares
+ fetched remote date with the local file date and returns remote date. 
+ </summary>
+	<param name="FileUrl">Url of a remote text file containing available update date.</param>
+	<param name="ComparisionFilePath">Path to local text file 
+ containing the last installed update date.</param>
+	<param name="FileEncoding">Local text file encoding.</param>
+	<param name="RemoteFileEncoding">Remote text file encoding.</param>
+	<param name="DateConversionFunction">If date string format is NOT YYYY-MM-DD, 
+ function for conversion should be provided. Else set to nothing.</param>
+	<param name="e">DownloadDataCompletedEventArgs object returned by WebClient
+ and containing info about remote text file with the available update date.</param>
+	<returns>Available update date if it is later then last installed update date.
+ Else returns Date.MinValue</returns>
+</member>
+</members>
+</doc>

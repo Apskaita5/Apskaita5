@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Field FieldName="CommonSettings" FieldType="ApskaitaObjects.Settings.CommonSettings" FieldTypeIsTrivial="False" FieldValueIsNull="False" IsICustomXmlSerialized="True" IsBinarySerialized="False" IsCollectionNode="False">
+  <Field FieldName="_CodeWageGPM" FieldType="System.String" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">
+  </Field>
+  <Field FieldName="_TaxRates" FieldType="ApskaitaObjects.Settings.TaxRateList" FieldTypeIsTrivial="False" FieldValueIsNull="False" IsICustomXmlSerialized="True" IsBinarySerialized="False" IsCollectionNode="False">
+    <Field FieldName="_TaxRates" FieldType="ApskaitaObjects.Settings.TaxRateList" FieldTypeIsTrivial="False" FieldValueIsNull="False" IsICustomXmlSerialized="True" IsBinarySerialized="False" IsCollectionNode="True">
+      <Field FieldName="TaxRateItem" FieldType="ApskaitaObjects.Settings.TaxRate" FieldTypeIsTrivial="False" FieldValueIsNull="False" IsICustomXmlSerialized="True" IsBinarySerialized="False" IsCollectionNode="False">
+        <Field FieldName="_TaxRate" FieldType="System.Double" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">0</Field>
+        <Field FieldName="_TaxToken" FieldType="System.String" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">PVM</Field>
+        <Field FieldName="_IsObsolete" FieldType="System.Boolean" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">False</Field>
+      </Field>
+      <Field FieldName="TaxRateItem" FieldType="ApskaitaObjects.Settings.TaxRate" FieldTypeIsTrivial="False" FieldValueIsNull="False" IsICustomXmlSerialized="True" IsBinarySerialized="False" IsCollectionNode="False">
+        <Field FieldName="_TaxRate" FieldType="System.Double" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">21</Field>
+        <Field FieldName="_TaxToken" FieldType="System.String" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">PVM</Field>
+        <Field FieldName="_IsObsolete" FieldType="System.Boolean" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">False</Field>
+      </Field>
+      <Field FieldName="TaxRateItem" FieldType="ApskaitaObjects.Settings.TaxRate" FieldTypeIsTrivial="False" FieldValueIsNull="False" IsICustomXmlSerialized="True" IsBinarySerialized="False" IsCollectionNode="False">
+        <Field FieldName="_TaxRate" FieldType="System.Double" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">0</Field>
+        <Field FieldName="_TaxToken" FieldType="System.String" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">GPM</Field>
+        <Field FieldName="_IsObsolete" FieldType="System.Boolean" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">False</Field>
+      </Field>
+      <Field FieldName="TaxRateItem" FieldType="ApskaitaObjects.Settings.TaxRate" FieldTypeIsTrivial="False" FieldValueIsNull="False" IsICustomXmlSerialized="True" IsBinarySerialized="False" IsCollectionNode="False">
+        <Field FieldName="_TaxRate" FieldType="System.Double" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">15</Field>
+        <Field FieldName="_TaxToken" FieldType="System.String" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">GPM</Field>
+        <Field FieldName="_IsObsolete" FieldType="System.Boolean" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">False</Field>
+      </Field>
+      <Field FieldName="TaxRateItem" FieldType="ApskaitaObjects.Settings.TaxRate" FieldTypeIsTrivial="False" FieldValueIsNull="False" IsICustomXmlSerialized="True" IsBinarySerialized="False" IsCollectionNode="False">
+        <Field FieldName="_TaxRate" FieldType="System.Double" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">0</Field>
+        <Field FieldName="_TaxToken" FieldType="System.String" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">PSDP</Field>
+        <Field FieldName="_IsObsolete" FieldType="System.Boolean" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">False</Field>
+      </Field>
+      <Field FieldName="TaxRateItem" FieldType="ApskaitaObjects.Settings.TaxRate" FieldTypeIsTrivial="False" FieldValueIsNull="False" IsICustomXmlSerialized="True" IsBinarySerialized="False" IsCollectionNode="False">
+        <Field FieldName="_TaxRate" FieldType="System.Double" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">0</Field>
+        <Field FieldName="_TaxToken" FieldType="System.String" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">PSDI</Field>
+        <Field FieldName="_IsObsolete" FieldType="System.Boolean" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">False</Field>
+      </Field>
+      <Field FieldName="TaxRateItem" FieldType="ApskaitaObjects.Settings.TaxRate" FieldTypeIsTrivial="False" FieldValueIsNull="False" IsICustomXmlSerialized="True" IsBinarySerialized="False" IsCollectionNode="False">
+        <Field FieldName="_TaxRate" FieldType="System.Double" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">0</Field>
+        <Field FieldName="_TaxToken" FieldType="System.String" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">SODRAP</Field>
+        <Field FieldName="_IsObsolete" FieldType="System.Boolean" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">False</Field>
+      </Field>
+      <Field FieldName="TaxRateItem" FieldType="ApskaitaObjects.Settings.TaxRate" FieldTypeIsTrivial="False" FieldValueIsNull="False" IsICustomXmlSerialized="True" IsBinarySerialized="False" IsCollectionNode="False">
+        <Field FieldName="_TaxRate" FieldType="System.Double" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">0</Field>
+        <Field FieldName="_TaxToken" FieldType="System.String" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">SODRAI</Field>
+        <Field FieldName="_IsObsolete" FieldType="System.Boolean" FieldTypeIsTrivial="True" FieldValueIsNull="False" IsICustomXmlSerialized="False" IsBinarySerialized="False" IsCollectionNode="False">False</Field>
+      </Field>
+    </Field>
+  </Field>
+</Field>

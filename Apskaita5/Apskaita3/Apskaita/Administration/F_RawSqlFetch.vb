@@ -1,0 +1,104 @@
+Imports AccDataAccessLayer.DatabaseAccess.DatabaseStructure
+Imports AccDataAccessLayer
+Public Class F_RawSqlFetch
+    Dim Obj As DatabaseStructure
+
+    Private Sub F_Q_Browser_Activated(ByVal sender As System.Object, _
+            ByVal e As System.EventArgs) Handles MyBase.Activated
+        If Me.WindowState = FormWindowState.Maximized AndAlso MyCustomSettings.AutoSizeForm Then _
+            Me.WindowState = FormWindowState.Normal
+    End Sub
+
+    Private Sub F_RawSqlFetch_Load(ByVal sender As System.Object, _
+        ByVal e As System.EventArgs) Handles MyBase.Load
+
+        Using busy As New StatusBusy
+            Try
+                Obj = DatabaseStructure.GetDatabaseStructure()
+            Catch ex As Exception
+                ShowError(ex)
+                DisableAllControls(Me)
+                Exit Sub
+            End Try
+
+            For Each item As DatabaseTable In Obj.TableList
+                Dim CurrentTableNode As System.Windows.Forms.TreeNode = _
+                    DatabaseGaugeTreeView.Nodes.Add(item.Name)
+                CurrentTableNode.ToolTipText = item.Description
+                For Each fieldItem As DatabaseField In item.FieldList
+                    Dim CurrentFieldNode As System.Windows.Forms.TreeNode = _
+                        CurrentTableNode.Nodes.Add(fieldItem.Name)
+                    CurrentFieldNode.ToolTipText = fieldItem.GetFieldDbDefinition( _
+                        GetSqlGenerator(SqlServerType.MySQL)) & vbCrLf & fieldItem.Description
+                Next
+            Next
+
+            For Each item As DatabaseStoredProcedure In Obj.StoredProcedureList
+                Dim CurrentProcedureNode As System.Windows.Forms.TreeNode = _
+                    DatabaseGaugeTreeView.Nodes.Add(item.Name)
+                CurrentProcedureNode.ToolTipText = item.Description
+            Next
+
+        End Using
+
+    End Sub
+
+    Private Sub ExecuteButton_Click(ByVal sender As System.Object, _
+        ByVal e As System.EventArgs) Handles ExecuteButton.Click
+
+        Try
+
+            Using busy As New StatusBusy
+
+                Dim result As RawSQLFetch = RawSQLFetch.GetRawSQLFetch(SqlQueryTextBox.Text.Trim)
+
+                If Not ResultDataGridView.DataSource Is Nothing Then
+                    CType(ResultDataGridView.DataSource, DataTable).Dispose()
+                    ResultDataGridView.DataSource = Nothing
+                End If
+
+                ResultDataGridView.DataSource = result.GetDataTable
+
+            End Using
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Exclamation, "Error")
+            Exit Sub
+        End Try
+
+    End Sub
+
+    Private Sub SqlQueryTextBox_DragDrop(ByVal sender As Object, _
+        ByVal e As System.Windows.Forms.DragEventArgs) Handles SqlQueryTextBox.DragDrop
+
+        If Not SqlQueryTextBox.Text Is Nothing AndAlso Not String.IsNullOrEmpty(SqlQueryTextBox.Text.Trim) _
+            AndAlso SqlQueryTextBox.Text.Chars(SqlQueryTextBox.Text.Length - 1) <> " " AndAlso _
+            SqlQueryTextBox.Text.Chars(SqlQueryTextBox.Text.Length - 1) <> "," AndAlso _
+            SqlQueryTextBox.Text.Chars(SqlQueryTextBox.Text.Length - 1) <> "." Then
+
+            SqlQueryTextBox.Text = SqlQueryTextBox.Text & ", " & _
+                e.Data.GetData(System.Windows.Forms.DataFormats.Text).ToString()
+
+        Else
+            SqlQueryTextBox.Text = SqlQueryTextBox.Text & e.Data.GetData( _
+                System.Windows.Forms.DataFormats.Text).ToString()
+        End If
+
+    End Sub
+
+    Private Sub DatabaseGaugeTreeView_ItemDrag(ByVal sender As Object, _
+        ByVal e As System.Windows.Forms.ItemDragEventArgs) Handles DatabaseGaugeTreeView.ItemDrag
+        DatabaseGaugeTreeView.DoDragDrop(CType(e.Item, System.Windows.Forms.TreeNode).Text, _
+            System.Windows.Forms.DragDropEffects.Copy)
+    End Sub
+
+    Private Sub SqlQueryTextBox_DragEnter(ByVal sender As Object, _
+        ByVal e As System.Windows.Forms.DragEventArgs) Handles SqlQueryTextBox.DragEnter
+        If (e.Data.GetDataPresent(System.Windows.Forms.DataFormats.Text)) Then
+            e.Effect = System.Windows.Forms.DragDropEffects.Copy
+        Else
+            e.Effect = System.Windows.Forms.DragDropEffects.None
+        End If
+    End Sub
+
+End Class

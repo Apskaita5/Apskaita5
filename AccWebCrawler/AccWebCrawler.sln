@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AccWebCrawler", "AccWebCrawler\AccWebCrawler.vbproj", "{089AC5CD-97A9-445F-9EF4-92A52A73E817}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CrawlerTest", "CrawlerTest\CrawlerTest.vbproj", "{8229F942-4EAD-451C-A706-8F72B90A21E1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{089AC5CD-97A9-445F-9EF4-92A52A73E817} = {089AC5CD-97A9-445F-9EF4-92A52A73E817}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{089AC5CD-97A9-445F-9EF4-92A52A73E817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{089AC5CD-97A9-445F-9EF4-92A52A73E817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{089AC5CD-97A9-445F-9EF4-92A52A73E817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{089AC5CD-97A9-445F-9EF4-92A52A73E817}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8229F942-4EAD-451C-A706-8F72B90A21E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8229F942-4EAD-451C-A706-8F72B90A21E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8229F942-4EAD-451C-A706-8F72B90A21E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8229F942-4EAD-451C-A706-8F72B90A21E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Comment CommentText="Objects are used for maping a RoleListForDatabase object to SQL privilege system. E.g. If a user has role &quot;A&quot; for a database it means that he has SQL privilege on a certain database table or tables (SELECT, INSERT, UPDATE, DELETE - depending on a role level).&#xD;&#xA;&#xD;&#xA;RoleList -&gt; Role -&gt; TableList -&gt; Table&#xD;&#xA;&#xD;&#xA;Object DatabaseTableAccessRoleList describes SQL privilege equivalents (maps) for all the roles (list of the roles) defined for the program. (stored as xml file)&#xD;&#xA;Object DatabaseTableAccessRole describes SQL privilege equivalent (map) for a single role.&#xD;&#xA;Object DatabaseTableAccessItemList is a list of SQL tables that the role has access to.&#xD;&#xA;Object DatabaseTableAccessItem is a pointer to a database table which the role shall have access to.">
+    <Position X="0.5" Y="0.5" Height="1.635" Width="7.033" />
+  </Comment>
+  <Class Name="AccDataAccessLayer.Security.DatabaseTableAccess.DatabaseTableAccessRoleList">
+    <Position X="0.5" Y="2.25" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>Security\DatabaseTableAccess\DatabaseTableAccessRoleList.vb</FileName>
+      <HashCode>IAADAIYAAAIQVAAAAAoAAAASAKAAwCEQAVhAAAAAFYA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_Cache" Hidden="true" />
+      <Field Name="_FilePath" Hidden="true" />
+      <Field Name="_IsNew" Hidden="true" />
+      <Field Name="_Type" Hidden="true" />
+      <Method Name="AddAllTableAccessLevels" Hidden="true" />
+      <Method Name="AddNewCore" Hidden="true" />
+      <Method Name="AddTableAccessLevel" Hidden="true" />
+      <Method Name="DataPortal_Fetch" Hidden="true" />
+      <Method Name="DataPortal_Update" Hidden="true" />
+      <Method Name="DoSave" Hidden="true" />
+      <Method Name="FetchFromFile" Hidden="true" />
+      <Method Name="GetAllRolesServerSide" Hidden="true" />
+      <Method Name="GetRoleDatabaseAccessListServerSide" Hidden="true" />
+      <Method Name="IsHigherDatabaseTableAccessType" Hidden="true" />
+      <Method Name="MarkOld" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="AccDataAccessLayer.Security.DatabaseTableAccess.DatabaseTableAccessRoleList.Criteria" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Security\DatabaseTableAccess\DatabaseTableAccessRoleList.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+  </Class>
+  <Class Name="AccDataAccessLayer.Security.DatabaseTableAccess.DatabaseTableAccessRole">
+    <Position X="3" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <FileName>Security\DatabaseTableAccess\DatabaseTableAccessRole.vb</FileName>
+      <HashCode>AAEAAEAAAAAAAAAAAAkMAAAAAAAAAQAAAEADUEAIiAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TableAccessList" />
+    </ShowAsAssociation>
+    <Members>
+      <Field Name="_GID" Hidden="true" />
+      <Field Name="_RoleName" Hidden="true" />
+      <Field Name="_RoleNameHumanReadable" Hidden="true" />
+      <Field Name="_TableAccessList" Hidden="true" />
+      <Method Name="AddAuthorizationRules" Hidden="true" />
+      <Method Name="AddBusinessRules" Hidden="true" />
+      <Method Name="Fetch" Hidden="true" />
+      <Method Name="GetIdValue" Hidden="true" />
+      <Method Name="GetRoleDatabaseAccess" Hidden="true" />
+      <Method Name="Insert" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+      <Method Name="NewRoleDatabaseAccess" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="AccDataAccessLayer.Security.DatabaseTableAccess.DatabaseTableAccessItemList">
+    <Position X="6.5" Y="2.25" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>Security\DatabaseTableAccess\DatabaseTableAccessItemList.vb</FileName>
+      <HashCode>AAQEAAAAAAAAAAAAAAkAAAAIACAAQAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="AddNewCore" Hidden="true" />
+      <Method Name="Fetch" Hidden="true" />
+      <Method Name="GetDatabaseTableAccessList" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+      <Method Name="NewDatabaseTableAccessList" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="AccDataAccessLayer.Security.DatabaseTableAccess.DatabaseTableAccessItem">
+    <Position X="6.5" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>Security\DatabaseTableAccess\DatabaseTableAccessItem.vb</FileName>
+      <HashCode>AQAAAEAAAAAAAAAAAAOIAAAAAIAAAQAAABAAAQAAiAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_GID" Hidden="true" />
+      <Field Name="_InsertNeedsToUpdate" Hidden="true" />
+      <Field Name="_TableName" Hidden="true" />
+      <Method Name="AddAuthorizationRules" Hidden="true" />
+      <Method Name="AddBusinessRules" Hidden="true" />
+      <Method Name="Fetch" Hidden="true" />
+      <Method Name="GetDatabaseTableAccess" Hidden="true" />
+      <Method Name="GetIdValue" Hidden="true" />
+      <Method Name="Insert" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+      <Method Name="NewDatabaseTableAccess" Hidden="true" />
+    </Members>
+  </Class>
+  <Struct Name="AccDataAccessLayer.Security.DatabaseTableAccess.TableAccessLevel">
+    <Position X="2.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Security\DatabaseTableAccess\TableAccessLevel.vb</FileName>
+      <HashCode>ABBAQAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="GetGrantStatementMySQL" Hidden="true" />
+      <Method Name="GetGrantStatementSQLite" Hidden="true" />
+    </Members>
+  </Struct>
+</ClassDiagram>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FFData Version="1" CreatedByApp="ABBYY eFormFiller 2.5 v6 (build 187)" CreatedByLogin="Marius" CreatedOn="2009-03-01">
+<Form FormDefId="{92F661B8-2B7B-44D3-BCAE-F6E34514BE99}" FormLocation="">
+<DocumentPages>
+<Group Name="Visa forma">
+<ListPages>
+<ListPage>FR0671</ListPage>
+</ListPages>
+<Group Name="Priedas_FR0671P">
+<ListPages>
+<ListPage>FR0671P</ListPage>
+</ListPages>
+</Group>
+</Group>
+</DocumentPages>
+<Pages Count="2">
+<Page PageDefName="FR0671" PageNumber="1">
+<Fields Count="12">
+<Field Name="B_FormNr"></Field>
+<Field Name="B_FormVerNr"></Field>
+<Field Name="E1">LT</Field>
+<Field Name="B_MM_PVM"></Field>
+<Field Name="B_MM_Pavad"></Field>
+<Field Name="B_UzpildData"></Field>
+<Field Name="B_ML_Nuo"></Field>
+<Field Name="B_ML_Iki"></Field>
+<Field Name="E14">0</Field>
+<Field Name="E19">0,00</Field>
+<Field Name="E20">0,00</Field>
+<Field Name="E6">-1</Field>
+</Fields>
+</Page>
+<Page PageDefName="FR0671P" PageNumber="2">
+<Fields Count="43">
+<Field Name="B_FormNr"></Field>
+<Field Name="B_FormVerNr"></Field>
+<Field Name="E1">LT</Field>
+<Field Name="B_MM_PVM"></Field>
+<Field Name="LapoNr">1</Field>
+<Field Name="B_UzpildData"></Field>
+<Field Name="B_ML_Nuo"></Field>
+<Field Name="B_ML_Iki"></Field>
+<Field Name="P7-1"></Field>
+<Field Name="P8-1"></Field>
+<Field Name="P9-1"></Field>
+<Field Name="P10-1"></Field>
+<Field Name="P11-1"></Field>
+<Field Name="P16-1">0</Field>
+<Field Name="P12-1"></Field>
+<Field Name="P13-1"></Field>
+<Field Name="P7-2"></Field>
+<Field Name="P8-2"></Field>
+<Field Name="P9-2"></Field>
+<Field Name="P10-2"></Field>
+<Field Name="P11-2"></Field>
+<Field Name="P16-2">0</Field>
+<Field Name="P12-2"></Field>
+<Field Name="P13-2"></Field>
+<Field Name="P7-3"></Field>
+<Field Name="P8-3"></Field>
+<Field Name="P9-3"></Field>
+<Field Name="P10-3"></Field>
+<Field Name="P11-3"></Field>
+<Field Name="P16-3">0</Field>
+<Field Name="P12-3"></Field>
+<Field Name="P13-3"></Field>
+<Field Name="P7-4"></Field>
+<Field Name="P8-4"></Field>
+<Field Name="P9-4"></Field>
+<Field Name="P10-4"></Field>
+<Field Name="P11-4"></Field>
+<Field Name="P16-4">0</Field>
+<Field Name="P12-4"></Field>
+<Field Name="P13-4"></Field>
+<Field Name="P17"></Field>
+<Field Name="P18"></Field>
+<Field Name="E6">-1</Field>
+</Fields>
+</Page>
+</Pages>
+</Form>
+</FFData>

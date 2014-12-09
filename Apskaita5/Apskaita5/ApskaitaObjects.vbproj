@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5F12CA52-9B64-42A3-B168-7861C44FD24E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ApskaitaObjects</RootNamespace>
+    <AssemblyName>ApskaitaObjects</AssemblyName>
+    <MyType>Windows</MyType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>ApskaitaObjects.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>ApskaitaObjects.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Csla, Version=2.1.4.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\csla20vb\csla20vb\Csla\bin\Release\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="InvoiceInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\InvoiceInfo\InvoiceInfo\bin\Release\InvoiceInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="AccDataAccessLayer" />
+    <Import Include="AccDataAccessLayer.DatabaseAccess" />
+    <Import Include="ApskaitaObjects" />
+    <Import Include="ApskaitaObjects.HelperLists" />
+    <Import Include="Csla" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActiveReports\AccountTurnoverInfo.vb" />
+    <Compile Include="ActiveReports\AccountTurnoverInfoList.vb" />
+    <Compile Include="ActiveReports\AdvanceReportInfo.vb" />
+    <Compile Include="ActiveReports\AdvanceReportInfoList.vb" />
+    <Compile Include="ActiveReports\BalanceSheetInfo.vb" />
+    <Compile Include="ActiveReports\BalanceSheetInfoList.vb" />
+    <Compile Include="ActiveReports\CashOperationInfo.vb" />
+    <Compile Include="ActiveReports\CashOperationInfoList.vb" />
+    <Compile Include="ActiveReports\ContractInfo.vb" />
+    <Compile Include="ActiveReports\ContractInfoList.vb" />
+    <Compile Include="ActiveReports\DebtInfo.vb" />
+    <Compile Include="ActiveReports\DebtInfoList.vb" />
+    <Compile Include="ActiveReports\FinancialStatementsInfo.vb" />
+    <Compile Include="ActiveReports\GoodsOperationInfo.vb" />
+    <Compile Include="ActiveReports\GoodsOperationInfoList.vb" />
+    <Compile Include="ActiveReports\GoodsTurnoverInfo.vb" />
+    <Compile Include="ActiveReports\GoodsTurnoverInfoList.vb" />
+    <Compile Include="ActiveReports\GoodsOperationInfoListParent.vb" />
+    <Compile Include="ActiveReports\IncomeStatementInfo.vb" />
+    <Compile Include="ActiveReports\IncomeStatementInfoList.vb" />
+    <Compile Include="ActiveReports\InvoiceInfoItem.vb" />
+    <Compile Include="ActiveReports\InvoiceInfoItemList.vb" />
+    <Compile Include="ActiveReports\InvoiceInfoType.vb" />
+    <Compile Include="ActiveReports\LabourContractUpdateInfo.vb" />
+    <Compile Include="ActiveReports\LabourContractUpdateInfoList.vb" />
+    <Compile Include="ActiveReports\PayOutNaturalPersonInfo.vb" />
+    <Compile Include="ActiveReports\PayOutNaturalPersonInfoList.vb" />
+    <Compile Include="ActiveReports\PersonInfoItem.vb" />
+    <Compile Include="ActiveReports\PersonInfoItemList.vb" />
+    <Compile Include="ActiveReports\ProductionCalculationItem.vb" />
+    <Compile Include="ActiveReports\ProductionCalculationItemList.vb" />
+    <Compile Include="ActiveReports\WorkerWageInfo.vb" />
+    <Compile Include="ActiveReports\WorkerWageInfoList.vb" />
+    <Compile Include="ActiveReports\WorkerWageInfoReport.vb" />
+    <Compile Include="ActiveReports\WorkTimeSheetInfo.vb" />
+    <Compile Include="ActiveReports\WorkTimeSheetInfoList.vb" />
+    <Compile Include="Assets\AcquisitionChronologicValidator.vb" />
+    <Compile Include="Assets\LongTermAsset.vb" />
+    <Compile Include="Assets\LongTermAssetAmortizationCalculation.vb" />
+    <Compile Include="Assets\LongTermAssetAmortizationCalculationList.vb" />
+    <Compile Include="Assets\LongTermAssetComplexDocument.vb" />
+    <Compile Include="Assets\LongTermAssetComplexDocumentInfo.vb" />
+    <Compile Include="Assets\LongTermAssetComplexDocumentInfoList.vb" />
+    <Compile Include="Assets\LongTermAssetCustomGroup.vb" />
+    <Compile Include="Assets\LtaAccountChangeType.vb" />
+    <Compile Include="Assets\LtaOperationType.vb" />
+    <Compile Include="Assets\OperationChronologicValidator.vb" />
+    <Compile Include="Assets\OperationChronologicValidatorItem.vb" />
+    <Compile Include="CommonObjects\BookEntryType.vb" />
+    <Compile Include="CommonObjects\ComplexChronologicValidator.vb" />
+    <Compile Include="CommonObjects\DeclarationType.vb" />
+    <Compile Include="CommonObjects\EmptyChronologicValidator.vb" />
+    <Compile Include="CommonObjects\IChronologicValidator.vb" />
+    <Compile Include="CommonObjects\SimpleChronologicValidator.vb" />
+    <Compile Include="Documents\AccumulativeCosts.vb" />
+    <Compile Include="Documents\AccumulativeCostsChronologicValidator.vb" />
+    <Compile Include="Documents\AccumulativeCostsItem.vb" />
+    <Compile Include="Documents\AccumulativeCostsItemList.vb" />
+    <Compile Include="Documents\InvoiceReceivedNumberUnique.vb" />
+    <Compile Include="General\PersonObjects\ImportedPerson.vb" />
+    <Compile Include="General\PersonObjects\ImportedPersonList.vb" />
+    <Compile Include="General\TransferOfBalanceChronologicValidator.vb" />
+    <Compile Include="Goods\GoodsOperationIdInfo.vb" />
+    <Compile Include="Goods\ImportedGoodsItem.vb" />
+    <Compile Include="Goods\ImportedGoodsItemList.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsComplexOperationProduction.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsComplexOperationTransferOfBalance.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsComponentItem.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsComponentItemList.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsProductionCostItem.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsProductionCostItemList.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsTransferOfBalanceItem.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsTransferOfBalanceItemList.vb" />
+    <Compile Include="Goods\OperationsSimple\GoodsOperationAccountChange.vb" />
+    <Compile Include="Goods\OperationsSimple\GoodsOperationValuationMethod.vb" />
+    <Compile Include="Goods\PersistenceObjects\ComplexOperationPersistenceObject.vb" />
+    <Compile Include="Goods\PersistenceObjects\ConsignmentDiscardPersistenceObject.vb" />
+    <Compile Include="Goods\PersistenceObjects\ConsignmentDiscardPersistenceObjectList.vb" />
+    <Compile Include="Goods\OperationsSimple\ConsignmentItem.vb" />
+    <Compile Include="Goods\OperationsSimple\ConsignmentItemList.vb" />
+    <Compile Include="Goods\PersistenceObjects\ConsignmentPersistenceObject.vb" />
+    <Compile Include="Goods\PersistenceObjects\ConsignmentPersistenceObjectList.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsComplexOperationDiscard.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsComplexOperationInternalTransfer.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsComplexOperationPriceCut.vb" />
+    <Compile Include="Goods\GoodsComplexOperationType.vb" />
+    <Compile Include="Goods\InfoObjects\GoodsCostItem.vb" />
+    <Compile Include="Goods\InfoObjects\GoodsCostItemList.vb" />
+    <Compile Include="Goods\InfoObjects\GoodsCostParam.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsDiscardItem.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsDiscardItemList.vb" />
+    <Compile Include="Goods\GoodsGroup.vb" />
+    <Compile Include="Goods\GoodsGroupList.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsInternalTransferItem.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsInternalTransferItemList.vb" />
+    <Compile Include="Goods\OperationsSimple\GoodsOperationAdditionalCosts.vb" />
+    <Compile Include="Goods\OperationsSimple\GoodsOperationDiscount.vb" />
+    <Compile Include="Goods\OperationsSimple\GoodsOperationPriceCut.vb" />
+    <Compile Include="Goods\OperationsSimple\GoodsOperationTransfer.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsPriceCutItem.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsPriceCutItemList.vb" />
+    <Compile Include="Goods\InfoObjects\GoodsPriceInWarehouseParam.vb" />
+    <Compile Include="Goods\InfoObjects\GoodsPriceInWarehouseItem.vb" />
+    <Compile Include="Goods\InfoObjects\GoodsPriceInWarehouseItemList.vb" />
+    <Compile Include="Goods\InfoObjects\GoodsSummary.vb" />
+    <Compile Include="Goods\OperationalLimit.vb" />
+    <Compile Include="Goods\OperationalLimitList.vb" />
+    <Compile Include="Goods\PersistenceObjects\OperationPersistenceObject.vb" />
+    <Compile Include="Goods\ProductionCalculation.vb" />
+    <Compile Include="Goods\ProductionComponentItem.vb" />
+    <Compile Include="Goods\ProductionComponentItemList.vb" />
+    <Compile Include="Goods\ProductionComponentType.vb" />
+    <Compile Include="Goods\ProductionCostItem.vb" />
+    <Compile Include="Goods\ProductionCostItemList.vb" />
+    <Compile Include="HelperLists\GoodsInfo.vb" />
+    <Compile Include="HelperLists\GoodsInfoList.vb" />
+    <Compile Include="HelperLists\ProductionCalculationInfo.vb" />
+    <Compile Include="HelperLists\ProductionCalculationInfoList.vb" />
+    <Compile Include="OperationChronologyType.vb" />
+    <Compile Include="Goods\Warehouse.vb" />
+    <Compile Include="Goods\WarehouseList.vb" />
+    <Compile Include="HelperLists\IndirectRelationInfo.vb" />
+    <Compile Include="HelperLists\IndirectRelationInfoList.vb" />
+    <Compile Include="HelperLists\IndirectRelationType.vb" />
+    <Compile Include="CommonObjects\RateType.vb" />
+    <Compile Include="Documents\AdvanceReport.vb" />
+    <Compile Include="Documents\AdvanceReportItem.vb" />
+    <Compile Include="Documents\AdvanceReportItemList.vb" />
+    <Compile Include="Documents\BankOperationImportSourceType.vb" />
+    <Compile Include="Documents\BankOperationItem.vb" />
+    <Compile Include="Documents\BankOperationItemList.vb" />
+    <Compile Include="Documents\CashAccount.vb" />
+    <Compile Include="Documents\CashAccountList.vb" />
+    <Compile Include="Documents\CashAccountType.vb" />
+    <Compile Include="Documents\BankOperation.vb" />
+    <Compile Include="Documents\CommandDocumentIdByExternalId.vb" />
+    <Compile Include="Documents\InvoiceAttachedObject.vb" />
+    <Compile Include="Documents\InvoiceAttachedObjectType.vb" />
+    <Compile Include="Documents\InvoiceType.vb" />
+    <Compile Include="Documents\IRegionalDataObject.vb" />
+    <Compile Include="Documents\Offset.vb" />
+    <Compile Include="Documents\OffsetItem.vb" />
+    <Compile Include="Documents\OffsetItemList.vb" />
+    <Compile Include="Documents\RegionalContent.vb" />
+    <Compile Include="Documents\RegionalContentList.vb" />
+    <Compile Include="Documents\RegionalPrice.vb" />
+    <Compile Include="Documents\RegionalPriceList.vb" />
+    <Compile Include="Documents\Service.vb" />
+    <Compile Include="Documents\TradedItemType.vb" />
+    <Compile Include="Documents\TillIncomeOrder.vb" />
+    <Compile Include="Documents\TillSpendingsOrder.vb" />
+    <Compile Include="Documents\InvoiceMade.vb" />
+    <Compile Include="Documents\InvoiceMadeItem.vb" />
+    <Compile Include="Documents\InvoiceMadeItemList.vb" />
+    <Compile Include="Documents\InvoiceMadeList.vb" />
+    <Compile Include="Documents\InvoiceReceived.vb" />
+    <Compile Include="Documents\InvoiceReceivedItem.vb" />
+    <Compile Include="Documents\InvoiceReceivedItemList.vb" />
+    <Compile Include="CommonObjects\DocumentType.vb" />
+    <Compile Include="General\ConsolidatedReportItemType.vb" />
+    <Compile Include="General\ConsolidatedReportType.vb" />
+    <Compile Include="General\DefaultAccountType.vb" />
+    <Compile Include="General\FinancialStatementType.vb" />
+    <Compile Include="Goods\GoodsAccountingMethod.vb" />
+    <Compile Include="Goods\GoodsOperationType.vb" />
+    <Compile Include="Goods\GoodsValuationMethod.vb" />
+    <Compile Include="HelperLists\CashAccountInfo.vb" />
+    <Compile Include="HelperLists\CashAccountInfoList.vb" />
+    <Compile Include="HelperLists\LongTermAssetCustomGroupInfo.vb" />
+    <Compile Include="HelperLists\LongTermAssetCustomGroupInfoList.vb" />
+    <Compile Include="Assets\LongTermAssetCustomGroupList.vb" />
+    <Compile Include="Assets\LongTermAssetInfo.vb" />
+    <Compile Include="Assets\LongTermAssetInfoList.vb" />
+    <Compile Include="Assets\LongTermAssetOperation.vb" />
+    <Compile Include="Assets\LongTermAssetOperationChild.vb" />
+    <Compile Include="Assets\LongTermAssetOperationChildList.vb" />
+    <Compile Include="Assets\LongTermAssetOperationInfo.vb" />
+    <Compile Include="Assets\LongTermAssetOperationInfoList.vb" />
+    <Compile Include="Assets\LongTermAssetOperationInfoListParent.vb" />
+    <Compile Include="CommonObjects\BookEntryInternal.vb" />
+    <Compile Include="CommonObjects\BookEntryInternalList.vb" />
+    <Compile Include="CustomDatabaseStructureErrorManager.vb" />
+    <Compile Include="CommonValidation.vb" />
+    <Compile Include="Constants.vb" />
+    <Compile Include="CustomCacheManager.vb" />
+    <Compile Include="FormulaSolver.vb" />
+    <Compile Include="General\Account.vb" />
+    <Compile Include="General\AccountList.vb" />
+    <Compile Include="General\BookEntry.vb" />
+    <Compile Include="ActiveReports\BookEntryInfo.vb" />
+    <Compile Include="ActiveReports\BookEntryInfoList.vb" />
+    <Compile Include="ActiveReports\BookEntryInfoListParent.vb" />
+    <Compile Include="General\BookEntryList.vb" />
+    <Compile Include="General\ClosingEntriesCommand.vb" />
+    <Compile Include="General\CompanyObjects\CompanyAccount.vb" />
+    <Compile Include="General\TransferOfBalanceAnalytics.vb" />
+    <Compile Include="General\TransferOfBalanceAnalyticsList.vb" />
+    <Compile Include="HelperLists\DocumentSerialInfo.vb" />
+    <Compile Include="HelperLists\DocumentSerialInfoList.vb" />
+    <Compile Include="HelperLists\RegionalContentInfo.vb" />
+    <Compile Include="HelperLists\RegionalContentInfoList.vb" />
+    <Compile Include="HelperLists\RegionalPriceInfo.vb" />
+    <Compile Include="HelperLists\RegionalPriceInfoList.vb" />
+    <Compile Include="HelperLists\ServiceInfo.vb" />
+    <Compile Include="HelperLists\ServiceInfoList.vb" />
+    <Compile Include="HelperLists\TemplateJournalEntryInfo.vb" />
+    <Compile Include="HelperLists\TemplateJournalEntryInfoList.vb" />
+    <Compile Include="HelperLists\WarehouseInfo.vb" />
+    <Compile Include="HelperLists\WarehouseInfoList.vb" />
+    <Compile Include="HelperLists\WorkTimeClassInfo.vb" />
+    <Compile Include="HelperLists\WorkTimeClassInfoList.vb" />
+    <Compile Include="Settings\CommandLastDocumentNumber.vb" />
+    <Compile Include="Settings\CompanyAccountInfo.vb" />
+    <Compile Include="Settings\CompanyAccountInfoList.vb" />
+    <Compile Include="General\CompanyObjects\CompanyAccountList.vb" />
+    <Compile Include="General\CompanyObjects\CompanyRate.vb" />
+    <Compile Include="Settings\CompanyRateInfo.vb" />
+    <Compile Include="Settings\CompanyRateInfoList.vb" />
+    <Compile Include="General\CompanyObjects\CompanyRateList.vb" />
+    <Compile Include="General\CompanyObjects\CompanyRegionalData.vb" />
+    <Compile Include="HelperLists\CompanyRegionalInfo.vb" />
+    <Compile Include="HelperLists\CompanyRegionalInfoList.vb" />
+    <Compile Include="HelperLists\PersonGroupInfo.vb" />
+    <Compile Include="HelperLists\PersonGroupInfoList.vb" />
+    <Compile Include="HelperLists\PersonInfoList.vb" />
+    <Compile Include="General\TemplateBookEntry.vb" />
+    <Compile Include="Settings\DocumentSerial.vb" />
+    <Compile Include="Settings\DocumentSerialList.vb" />
+    <Compile Include="General\JournalEntry.vb" />
+    <Compile Include="ActiveReports\JournalEntryInfo.vb" />
+    <Compile Include="ActiveReports\JournalEntryInfoList.vb" />
+    <Compile Include="HelperLists\PersonInfo.vb" />
+    <Compile Include="HelperLists\AssignableCRItemList.vb" />
+    <Compile Include="Settings\CommonSettings.vb" />
+    <Compile Include="General\CompanyObjects\Company.vb" />
+    <Compile Include="Settings\CompanyInfo.vb" />
+    <Compile Include="General\FinancialStatementsStructure\ConsolidatedReport.vb" />
+    <Compile Include="General\FinancialStatementsStructure\ConsolidatedReportItem.vb" />
+    <Compile Include="General\FinancialStatementsStructure\ConsolidatedReportItemList.vb" />
+    <Compile Include="General\PersonObjects\Person.vb" />
+    <Compile Include="General\PersonObjects\PersonGroup.vb" />
+    <Compile Include="General\PersonObjects\PersonGroupAssignment.vb" />
+    <Compile Include="General\PersonObjects\PersonGroupAssignmentList.vb" />
+    <Compile Include="General\PersonObjects\PersonGroupList.vb" />
+    <Compile Include="General\SetupTypicalAccountsCommand.vb" />
+    <Compile Include="Settings\DocumentSerialType.vb" />
+    <Compile Include="Settings\TaxRate.vb" />
+    <Compile Include="Settings\TaxRateList.vb" />
+    <Compile Include="General\TemplateBookEntryList.vb" />
+    <Compile Include="General\TemplateJournalEntry.vb" />
+    <Compile Include="General\TransferOfBalance.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsComplexOperationInventorization.vb" />
+    <Compile Include="HelperLists\GoodsGroupInfo.vb" />
+    <Compile Include="HelperLists\GoodsGroupInfoList.vb" />
+    <Compile Include="Goods\GoodsItem.vb" />
+    <Compile Include="Goods\OperationsSimple\GoodsOperationAcquisition.vb" />
+    <Compile Include="Goods\OperationsSimple\GoodsOperationDiscard.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsInventorizationItem.vb" />
+    <Compile Include="Goods\OperationsComplex\GoodsInventorizationItemList.vb" />
+    <Compile Include="HelperLists\AccountInfo.vb" />
+    <Compile Include="HelperLists\AccountInfoList.vb" />
+    <Compile Include="CommonObjects\IGetErrorForListItem.vb" />
+    <Compile Include="CommonObjects\IIsDirtyEnough.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="HelperLists\NameValueItem.vb" />
+    <Compile Include="HelperLists\NameValueItemList.vb" />
+    <Compile Include="HelperLists\SettingListType.vb" />
+    <Compile Include="CommonObjects\TaxTarifType.vb" />
+    <Compile Include="Utilities.vb" />
+    <Compile Include="Workers\BonusType.vb" />
+    <Compile Include="Workers\Contract.vb" />
+    <Compile Include="Workers\ContractChronologicValidator.vb" />
+    <Compile Include="Workers\ContractUpdate.vb" />
+    <Compile Include="Workers\DayWorkTime.vb" />
+    <Compile Include="Workers\DayWorkTimeList.vb" />
+    <Compile Include="Workers\SheetChronologicValidator.vb" />
+    <Compile Include="Workers\SodraRateInfo.vb" />
+    <Compile Include="Workers\SpecialWorkTimeItem.vb" />
+    <Compile Include="Workers\SpecialWorkTimeItemList.vb" />
+    <Compile Include="Workers\WageType.vb" />
+    <Compile Include="Workers\WorkerStatusType.vb" />
+    <Compile Include="Workers\CompanyWageRates.vb" />
+    <Compile Include="Workers\Declaration.vb" />
+    <Compile Include="Workers\ImprestItem.vb" />
+    <Compile Include="Workers\ImprestItemList.vb" />
+    <Compile Include="Workers\ImprestSheet.vb" />
+    <Compile Include="ActiveReports\ImprestSheetInfo.vb" />
+    <Compile Include="ActiveReports\ImprestSheetInfoList.vb" />
+    <Compile Include="ActiveReports\LabourContractInfo.vb" />
+    <Compile Include="ActiveReports\LabourContractInfoList.vb" />
+    <Compile Include="Workers\PayOutNaturalPerson.vb" />
+    <Compile Include="Workers\ShortLabourContract.vb" />
+    <Compile Include="Workers\ShortLabourContractList.vb" />
+    <Compile Include="Workers\UnusedHolidayInfo.vb" />
+    <Compile Include="Workers\WageItem.vb" />
+    <Compile Include="Workers\WageItemList.vb" />
+    <Compile Include="Workers\WagePayOutDocument.vb" />
+    <Compile Include="Workers\WagePayOutItemList.vb" />
+    <Compile Include="Workers\WageSheet.vb" />
+    <Compile Include="ActiveReports\WageSheetInfo.vb" />
+    <Compile Include="ActiveReports\WageSheetInfoList.vb" />
+    <Compile Include="Workers\WagePayOutItem.vb" />
+    <Compile Include="Workers\WorkersVDUInfo.vb" />
+    <Compile Include="Workers\WorkersVDUInfoList.vb" />
+    <Compile Include="Workers\WorkTime.vb" />
+    <Compile Include="Workers\WorkTimeClass.vb" />
+    <Compile Include="Workers\WorkTimeClassList.vb" />
+    <Compile Include="Workers\WorkTimeItem.vb" />
+    <Compile Include="Workers\WorkTimeItemList.vb" />
+    <Compile Include="Workers\WorkTimeSheet.vb" />
+    <Compile Include="Workers\WorkTimeType.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="WorkTime.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlDepositories\MySQL_Depository.sqld">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DbStructure\DatabaseStructureGauge.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DbStructure\RoleDatabaseAccessGauge.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Goods\GoodsDiscardBalancerItem.txt" />
+    <Content Include="Info\HowToAddNewRole.txt" />
+    <Content Include="Info\KnownBugz.txt" />
+    <Content Include="Info\SQLServerTypeUnsafeObjects.txt" />
+    <Content Include="Info\MissingSettings.txt" />
+    <Content Include="CommonSettings.xmls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CommonCodes.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FinancialStatements_Short.str">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Info\TestUpgradeSuccess.txt" />
+    <Content Include="PublicHolidays.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\LanguageCodes.txt" />
+    <Content Include="SqlDepositories\SQLite_Depository.sqld">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WTClasses.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="tsp.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\AccDataAccessLayer\AccDataAccessLayer\AccDataAccessLayer.vbproj">
+      <Project>{13ADAA16-3D3A-4F2A-A5D4-D6DE94A31614}</Project>
+      <Name>AccDataAccessLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

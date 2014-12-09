@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FFData Version="1" CreatedByApp="ABBYY eFormFiller 2.5 v6 (build 190)" CreatedByLogin="Administrator" CreatedOn="2014-02-03">
+<Form FormDefId="{FEB97FE2-5DC6-4388-B22E-5237B3DB7F86}" FormLocation="c:\documents and settings\administrator\desktop\deklaracijos\fr0572(4)_.mxfd">
+<DocumentPages>
+<Group Name="Visa forma">
+<ListPages>
+<ListPage>FR0572</ListPage>
+</ListPages>
+<Group Name="Priedas_FR0572A">
+<ListPages>
+<ListPage>FR0572A</ListPage>
+</ListPages>
+</Group>
+</Group>
+</DocumentPages>
+<Pages Count="2">
+<Page PageDefName="FR0572" PageNumber="1">
+<Fields Count="28">
+<Field Name="B_MM_ID"></Field>
+<Field Name="B_MM_SavKodas"></Field>
+<Field Name="B_MM_Pavad"></Field>
+<Field Name="B_MM_Adresas"></Field>
+<Field Name="B_MM_Tel"></Field>
+<Field Name="B_MM_Faksas"></Field>
+<Field Name="B_MM_Epastas"></Field>
+<Field Name="B_UzpildData"></Field>
+<Field Name="B_ML_Metai"></Field>
+<Field Name="B_ML_Menuo"></Field>
+<Field Name="E11"></Field>
+<Field Name="E12">1</Field>
+<Field Name="E13">0</Field>
+<Field Name="E16">1</Field>
+<Field Name="E17">0</Field>
+<Field Name="E18"></Field>
+<Field Name="E19"></Field>
+<Field Name="E20"></Field>
+<Field Name="E21"></Field>
+<Field Name="E22"></Field>
+<Field Name="E23"></Field>
+<Field Name="E24"></Field>
+<Field Name="E25"></Field>
+<Field Name="E26"></Field>
+<Field Name="E27"></Field>
+<Field Name="E28"></Field>
+<Field Name="B_FormNr"></Field>
+<Field Name="B_FormVerNr"></Field>
+</Fields>
+</Page>
+<Page PageDefName="FR0572A" PageNumber="2">
+<Fields Count="75">
+<Field Name="A1-1"></Field>
+<Field Name="A3-1"></Field>
+<Field Name="A4-1"></Field>
+<Field Name="A5-1"></Field>
+<Field Name="A6-1"></Field>
+<Field Name="A22-1"></Field>
+<Field Name="A23-1"></Field>
+<Field Name="A7-1"></Field>
+<Field Name="A9-1"></Field>
+<Field Name="A8-1"></Field>
+<Field Name="A16-1"></Field>
+<Field Name="A17-1"></Field>
+<Field Name="A18-1"></Field>
+<Field Name="A19-1"></Field>
+<Field Name="A20-1"></Field>
+<Field Name="A4_1-1"></Field>
+<Field Name="A1-2"></Field>
+<Field Name="A3-2"></Field>
+<Field Name="A4-2"></Field>
+<Field Name="A5-2"></Field>
+<Field Name="A6-2"></Field>
+<Field Name="A22-2"></Field>
+<Field Name="A23-2"></Field>
+<Field Name="A7-2"></Field>
+<Field Name="A9-2"></Field>
+<Field Name="A8-2"></Field>
+<Field Name="A16-2"></Field>
+<Field Name="A17-2"></Field>
+<Field Name="A18-2"></Field>
+<Field Name="A19-2"></Field>
+<Field Name="A20-2"></Field>
+<Field Name="A4_1-2"></Field>
+<Field Name="A1-3"></Field>
+<Field Name="A3-3"></Field>
+<Field Name="A4-3"></Field>
+<Field Name="A5-3"></Field>
+<Field Name="A6-3"></Field>
+<Field Name="A22-3"></Field>
+<Field Name="A23-3"></Field>
+<Field Name="A7-3"></Field>
+<Field Name="A9-3"></Field>
+<Field Name="A8-3"></Field>
+<Field Name="A16-3"></Field>
+<Field Name="A17-3"></Field>
+<Field Name="A18-3"></Field>
+<Field Name="A19-3"></Field>
+<Field Name="A20-3"></Field>
+<Field Name="A4_1-3"></Field>
+<Field Name="A1-4"></Field>
+<Field Name="A3-4"></Field>
+<Field Name="A4-4"></Field>
+<Field Name="A5-4"></Field>
+<Field Name="A6-4"></Field>
+<Field Name="A22-4"></Field>
+<Field Name="A23-4"></Field>
+<Field Name="A7-4"></Field>
+<Field Name="A9-4"></Field>
+<Field Name="A8-4"></Field>
+<Field Name="A16-4"></Field>
+<Field Name="A17-4"></Field>
+<Field Name="A18-4"></Field>
+<Field Name="A19-4"></Field>
+<Field Name="A20-4"></Field>
+<Field Name="A4_1-4"></Field>
+<Field Name="A10"></Field>
+<Field Name="A11"></Field>
+<Field Name="A21"></Field>
+<Field Name="B_MM_ID"></Field>
+<Field Name="B_MM_SavKodas"></Field>
+<Field Name="LapoNr">1</Field>
+<Field Name="B_FormNr"></Field>
+<Field Name="B_FormVerNr"></Field>
+<Field Name="B_UzpildData"></Field>
+<Field Name="B_ML_Metai"></Field>
+<Field Name="B_ML_Menuo"></Field>
+</Fields>
+</Page>
+</Pages>
+</Form>
+</FFData>

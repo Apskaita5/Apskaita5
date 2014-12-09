@@ -1,0 +1,657 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <LastAuthor>Marius</LastAuthor>
+  <LastSaved>2014-04-11T15:24:04Z</LastSaved>
+  <Version>11.5606</Version>
+ </DocumentProperties>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>10005</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
+  <WindowTopX>120</WindowTopX>
+  <WindowTopY>135</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s21">
+   <Font ss:FontName="Times New Roman" x:Family="Roman"/>
+  </Style>
+  <Style ss:ID="s22">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Font ss:FontName="Times New Roman" x:Family="Roman"/>
+  </Style>
+  <Style ss:ID="s23">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s24">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Times New Roman" x:Family="Roman" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s25">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Font ss:FontName="Times New Roman" x:Family="Roman" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s26">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Times New Roman" x:Family="Roman"/>
+  </Style>
+  <Style ss:ID="s27">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Times New Roman" x:Family="Roman"/>
+  </Style>
+  <Style ss:ID="s28">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Font ss:FontName="Times New Roman" x:Family="Roman"/>
+  </Style>
+  <Style ss:ID="s29">
+   <Alignment ss:Vertical="Top"/>
+   <Font ss:FontName="Times New Roman" x:Family="Roman"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Sheet2">
+  <Table ss:ExpandedColumnCount="20" ss:ExpandedRowCount="28" x:FullColumns="1"
+   x:FullRows="1">
+   <Column ss:StyleID="s21" ss:AutoFitWidth="0" ss:Width="104.25"/>
+   <Column ss:StyleID="s21" ss:AutoFitWidth="0" ss:Width="223.5" ss:Span="7"/>
+   <Column ss:Index="10" ss:StyleID="s21" ss:AutoFitWidth="0" ss:Width="212.25"/>
+   <Column ss:StyleID="s21" ss:AutoFitWidth="0" ss:Width="223.5" ss:Span="5"/>
+   <Column ss:Index="17" ss:StyleID="s21" ss:AutoFitWidth="0" ss:Span="3"/>
+   <Row ss:AutoFitHeight="0" ss:Height="51" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">GoodsOperationAcquisition</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">GoodsOperationTransfer</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">GoodsOperationDiscard</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">GoodsOperationDiscount</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">GoodsOperationAdditionalCosts</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">GoodsOperationPriceCut</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">GoodsOperationValuationMethod</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">GoodsComplexOperationInventorization</Data></Cell>
+    <Cell ss:StyleID="s25"><Data ss:Type="String">AccountSalesNetCostsChange AccountPurchasesChange AccountDiscountsChange  AccountValueReductionChange</Data></Cell>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">OperationDate</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Attached JournalEntry date</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Attached JournalEntry date</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationDiscard.Date; In case of  GoodsComplexOperationDiscard - parent object Date.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Attached JournalEntry date</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Attached JournalEntry date</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationPriceCut.Date</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationValuationMethod.Date</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsComplexOperationInventorization.Date; Readonly, assigned when creating new operation</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationAccountChange.Date</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="54.75" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">JournalEntryID</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Journal entry is attached, not generated; Journal Entry is generated in case of complex operation GoodsComplexOperationInternalTransfer</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Journal entry is attached, not generated; Journal Entry is generated in case of complex operation GoodsComplexOperationInternalTransfer</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Generated Journal Entry ID. In case of GoodsAccountingMethod.Periodic - 0. In case of  GoodsComplexOperationDiscard - parent object Journal Entry ID.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Journal entry is attached, not generated.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Journal entry is attached, not generated.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Journal Entry is generated.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Journal Entry is generated.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Journal Entry is generated.</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">DocNo</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Attached JournalEntry doc number, not handled by operation</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Attached JournalEntry doc number, not handled by operation</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationDiscard.DocumentNumber; In case of  GoodsComplexOperationDiscard - parent object DocumentNumber.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Attached JournalEntry doc number, not handled by operation</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Attached JournalEntry doc number, not handled by operation</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationPriceCut.DocumentNumber</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsComplexOperationInventorization.DocumentNumber</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationAccountChange.DocumentNumber</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">Content</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationAcquisition.Description</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationTransfer.Description</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationDiscard.Description; In case of  GoodsComplexOperationDiscard - parent object Description.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationDiscount.Description</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationAdditionalCosts.Description</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationPriceCut.Description</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationValuationMethod.Description</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsComplexOperationInventorization.Content</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationAccountChange.Content</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">GoodsID</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Readonly, attached when creating new operation</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Readonly, attached when creating new operation</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Readonly, attached when creating new operation</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Readonly, attached when creating new operation</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Readonly, attached when creating new operation</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Readonly, attached when creating new operation</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Readonly, attached when creating new operation</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Readonly, attached when creating new operation</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Readonly, attached when creating new operation</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">WarehouseID</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationAcquisition.Warehouse</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationTransfer.Warehouse</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationDiscard.Warehouse</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Readonly, attached when creating new operation</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Readonly, attached when creating new operation</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Readonly, attached when creating new operation</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Not relevant</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="25.5" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">ComplexOperationID</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Operation is encapsulated within GoodsComplexOperationInternalTransfer</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Operation is encapsulated within GoodsComplexOperationInternalTransfer</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Operation is encapsulated within GoodsComplexOperationDiscard</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">None</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">None</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsComplexOperationPriceCut - operation behaviour is copy/pasted.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">None</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Is complex operation by nature.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">None</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">Amount</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Total Consignments amount: GoodsOperationAcquisition.Ammount or set by GoodsComplexOperationInternalTransfer</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">minus GoodsOperationTransfer.Amount</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">minus GoodsOperationDiscard.Amount</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">AmountChange</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:Height="38.25" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">UnitValue</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationAcquisition.UnitCost or calculated by GoodsCostItem in case of GoodsComplexOperationInternalTransfer</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Calculated by GoodsCostItem</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - Calculated by GoodsCostItem, else -GoodsOperationDiscard.NormativeUnitValue.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">UnitValueCalculated (readonly, calculated programmaticaly)</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="51" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">TotalValue</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Total Consignments value: GoodsOperationAcquisition.TotalCost or calculated by  GoodsCostItem in case of GoodsComplexOperationInternalTransfer</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - calculated by GoodsCostItem, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - calculated by GoodsCostItem, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">minus GoodsOperationDiscount.TotalValueChange</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationAdditionalCosts.TotalValueChange</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">AmountChange * UnitValueCalculated</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="76.5" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">AccountGeneral</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - TotalValue, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - minus TotalCost, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - minus TotalCost, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - minus GoodsOperationDiscount.TotalGoodsValueChange, else if AccountPurchasesIsClosed then minus GoodsOperationDiscount.TotalGoodsValueChange else - 0.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent -  GoodsOperationAdditionalCosts.TotalGoodsValueChange, else if AccountPurchasesIsClosed then  GoodsOperationAdditionalCosts.TotalGoodsValueChange else - 0.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Periodic = TotalValueAfterInventorization - TotalValueLastInventorization, else = AmountChange * UnitValueCalculated</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="76.5" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">AccountSalesNetCosts</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - minus GoodsOperationDiscount.TotalNetValueChange, else if AccountPurchasesIsClosed then GoodsOperationDiscount.TotalNetValueChange else - 0.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - GoodsOperationAdditionalCosts.TotalNetValueChange, else if AccountPurchasesIsClosed then GoodsOperationAdditionalCosts.TotalNetValueChange else - 0.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Periodic = TotalValueLastInventorization - TotalValueAfterInventorization + TotalValueAcquisitions + TotalValueAdditionalCosts - TotalValueDiscount, else =0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="51" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">AccountPurchases</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Periodic - TotalValue, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Periodic andalso not AccountPurchasesIsClosed - GoodsOperationAdditionalCosts.TotalValueChange, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Periodic = -TotalValueAcquisitions - TotalValueAdditionalCosts, else = 0.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">AccountDiscounts</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Periodic and also not AccountPurchasesIsClosed - TotalValue, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Periodic = TotalValueDiscount, else = 0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">AccountPriceCut</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">minus GoodsOperationPriceCut.TotalValuePriceCut</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">AccountOperation</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - GoodsOperationTransfer.AccountGoodsCost, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationDiscard.AccountGoodsDiscardCosts</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - GoodsOperationDiscount.AccountGoodsNetCosts, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - GoodsOperationAdditionalCosts.AccountGoodsNetCosts, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationPriceCut.AccountPriceCutCosts</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistant - AccountCorresponding, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Stored in separate table goodsaccounts field AccountValue. Buisiness object field GoodsOperationAccountChange.NewAccount</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">AccountOperationValue</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - TotalCost, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - TotalCost, else - GoodsOperationDiscard.NormativeTotalValue.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - GoodsOperationDiscount.TotalNetValueChange, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - GoodsOperationAdditionalCosts.TotalNetValueChange, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">GoodsOperationPriceCut.TotalValuePriceCut</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistant - AccountCorresponding, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Derived from journal entry.</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="38.25" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">AmountInWarehouse</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - Amount, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - minus Amount, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistent - minus Amount, else - 0.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Persistant = AmountChange, else = AmountAcquisitions + AmountChange - AmountDisposed.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">AmountInPurchases</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Periodic - GoodsOperationAcquisition.Ammount, else - 0. </Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Periodic = minus AmountAcquisitions, else = 0</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="76.5" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">Consignments</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Generates one Consignment object using values of - ID, Amount, UnitValue, TotalValue. In case of GoodsComplexOperationInternalTransfer, consignment objects created are equal to objects discarded with new ParentID and WarehouseID (keeping original AcquisitionID).</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Not generated.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Not generated.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Consignments affected are cloned (with ajusted values) preserving AquisitionID. Affected (original) consignments are discarded.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Consignments affected are cloned (with ajusted values) preserving AquisitionID. Affected (original) consignments are discarded.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Not affected.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not affected.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Periodic - new aggregated consignment is created (if total amount after inventorization &gt; 0) and all original consignments are discarded. Else - new consignemnt is created for positive amount change (when unexpected goods are found).</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="51" ss:StyleID="s23">
+    <Cell ss:StyleID="s24"><Data ss:Type="String">Consignment Discards</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Not generated.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Generated by ConsignmentPersistenceObjectList. In case of GoodsComplexOperationInternalTransfer generation is overriden in order to clone the discarded consignments in new warehouse.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Generated by ConsignmentPersistenceObjectList. </Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Consignments affected are cloned (with ajusted values) preserving AquisitionID. Affected (original) consignments are discarded. Operation is handled by ConsignmentItemList.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Consignments affected are cloned (with ajusted values) preserving AquisitionID. Affected (original) consignments are discarded. Operation is handled by ConsignmentItemList.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">Not affected.</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not affected.</Data></Cell>
+    <Cell ss:StyleID="s26"><Data ss:Type="String">In case of GoodsAccountingMethod.Periodic - all original consignments are discarded. Else - new consignment discard is created for negative amount change (when expected goods are not found).</Data></Cell>
+    <Cell ss:StyleID="s27"><Data ss:Type="String">Not relevant.</Data></Cell>
+    <Cell ss:StyleID="s26"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+    <Cell ss:StyleID="s22"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s28"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+    <Cell ss:StyleID="s29"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
+   <TopRowVisible>3</TopRowVisible>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <ActivePane>1</ActivePane>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+     <ActiveRow>9</ActiveRow>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

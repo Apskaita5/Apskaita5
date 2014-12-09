@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FFData Version="1" CreatedByApp="ABBYY eFormFiller 2.5 v6 (build 187)" CreatedByLogin="Marius" CreatedOn="2008-07-27">
+<Form FormDefId="{AE191E03-940C-42B9-8484-86E519971110}" FormLocation="">
+<DocumentPages>
+<Group Name="Visa forma">
+<ListPages>
+<ListPage>FR0672</ListPage>
+</ListPages>
+<Group Name="Priedas_FR0672P">
+<ListPages>
+<ListPage>FR0672P</ListPage>
+</ListPages>
+</Group>
+</Group>
+</DocumentPages>
+<Pages Count="2">
+<Page PageDefName="FR0672" PageNumber="1">
+<Fields Count="52">
+<Field Name="B_FormNr"></Field>
+<Field Name="B_FormVerNr"></Field>
+<Field Name="B_MM_Pavad"></Field>
+<Field Name="Text7"></Field>
+<Field Name="B_MM_PVM"></Field>
+<Field Name="B_UzpildData"></Field>
+<Field Name="B_ML_Nuo"></Field>
+<Field Name="B_ML_Iki"></Field>
+<Field Name="E7-1"></Field>
+<Field Name="E8-1"></Field>
+<Field Name="E9-1"></Field>
+<Field Name="E10-1"></Field>
+<Field Name="E11-1"></Field>
+<Field Name="E12-1"></Field>
+<Field Name="E13-1"></Field>
+<Field Name="E7-2"></Field>
+<Field Name="E8-2"></Field>
+<Field Name="E9-2"></Field>
+<Field Name="E10-2"></Field>
+<Field Name="E11-2"></Field>
+<Field Name="E12-2"></Field>
+<Field Name="E13-2"></Field>
+<Field Name="E7-3"></Field>
+<Field Name="E8-3"></Field>
+<Field Name="E9-3"></Field>
+<Field Name="E10-3"></Field>
+<Field Name="E11-3"></Field>
+<Field Name="E12-3"></Field>
+<Field Name="E13-3"></Field>
+<Field Name="E7-4"></Field>
+<Field Name="E8-4"></Field>
+<Field Name="E9-4"></Field>
+<Field Name="E10-4"></Field>
+<Field Name="E11-4"></Field>
+<Field Name="E12-4"></Field>
+<Field Name="E13-4"></Field>
+<Field Name="E7-5"></Field>
+<Field Name="E8-5"></Field>
+<Field Name="E9-5"></Field>
+<Field Name="E10-5"></Field>
+<Field Name="E11-5"></Field>
+<Field Name="E12-5"></Field>
+<Field Name="E13-5"></Field>
+<Field Name="E7-6"></Field>
+<Field Name="E8-6"></Field>
+<Field Name="E9-6"></Field>
+<Field Name="E10-6"></Field>
+<Field Name="E11-6"></Field>
+<Field Name="E12-6"></Field>
+<Field Name="E13-6"></Field>
+<Field Name="E14">1</Field>
+<Field Name="E6">-1</Field>
+</Fields>
+</Page>
+<Page PageDefName="FR0672P" PageNumber="2">
+<Fields Count="65">
+<Field Name="B_FormNr"></Field>
+<Field Name="B_FormVerNr"></Field>
+<Field Name="Text6"></Field>
+<Field Name="B_MM_PVM"></Field>
+<Field Name="LapoNr">1</Field>
+<Field Name="B_UzpildData"></Field>
+<Field Name="B_ML_Nuo"></Field>
+<Field Name="B_ML_Iki"></Field>
+<Field Name="E7-1"></Field>
+<Field Name="E8-1"></Field>
+<Field Name="E9-1"></Field>
+<Field Name="E10-1"></Field>
+<Field Name="E11-1"></Field>
+<Field Name="E12-1"></Field>
+<Field Name="E13-1"></Field>
+<Field Name="E7-2"></Field>
+<Field Name="E8-2"></Field>
+<Field Name="E9-2"></Field>
+<Field Name="E10-2"></Field>
+<Field Name="E11-2"></Field>
+<Field Name="E12-2"></Field>
+<Field Name="E13-2"></Field>
+<Field Name="E7-3"></Field>
+<Field Name="E8-3"></Field>
+<Field Name="E9-3"></Field>
+<Field Name="E10-3"></Field>
+<Field Name="E11-3"></Field>
+<Field Name="E12-3"></Field>
+<Field Name="E13-3"></Field>
+<Field Name="E7-4"></Field>
+<Field Name="E8-4"></Field>
+<Field Name="E9-4"></Field>
+<Field Name="E10-4"></Field>
+<Field Name="E11-4"></Field>
+<Field Name="E12-4"></Field>
+<Field Name="E13-4"></Field>
+<Field Name="E7-5"></Field>
+<Field Name="E8-5"></Field>
+<Field Name="E9-5"></Field>
+<Field Name="E10-5"></Field>
+<Field Name="E11-5"></Field>
+<Field Name="E12-5"></Field>
+<Field Name="E13-5"></Field>
+<Field Name="E7-6"></Field>
+<Field Name="E8-6"></Field>
+<Field Name="E9-6"></Field>
+<Field Name="E10-6"></Field>
+<Field Name="E11-6"></Field>
+<Field Name="E12-6"></Field>
+<Field Name="E13-6"></Field>
+<Field Name="E7-7"></Field>
+<Field Name="E8-7"></Field>
+<Field Name="E9-7"></Field>
+<Field Name="E10-7"></Field>
+<Field Name="E11-7"></Field>
+<Field Name="E12-7"></Field>
+<Field Name="E13-7"></Field>
+<Field Name="E7-8"></Field>
+<Field Name="E8-8"></Field>
+<Field Name="E9-8"></Field>
+<Field Name="E10-8"></Field>
+<Field Name="E11-8"></Field>
+<Field Name="E12-8"></Field>
+<Field Name="E13-8"></Field>
+<Field Name="E6">-1</Field>
+</Fields>
+</Page>
+</Pages>
+</Form>
+</FFData>
