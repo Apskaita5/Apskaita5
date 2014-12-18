@@ -1264,7 +1264,7 @@
                       </Style>
                       <ZIndex>1</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>LTL, ct.</Value>
+                      <Value>=First(Fields!Column19.Value, "ReportData_TableCompany") &amp; ", ct."</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>

@@ -1678,7 +1678,7 @@
                       </Style>
                       <ZIndex>19</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>Suma LTL</Value>
+                      <Value>="Suma " &amp; First(Fields!Column19.Value, "ReportData_TableCompany")</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>

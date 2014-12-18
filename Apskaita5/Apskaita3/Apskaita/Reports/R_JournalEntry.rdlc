@@ -648,7 +648,7 @@
                       </Style>
                       <ZIndex>9</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>Suma (Lt.)</Value>
+                      <Value>="Suma (" &amp; First(Fields!Column19.Value, "ReportData_TableCompany") &amp; ")"</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -987,7 +987,7 @@
                       </Style>
                       <ZIndex>9</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>Suma (Lt.)</Value>
+                      <Value>="Suma (" &amp; First(Fields!Column19.Value, "ReportData_TableCompany") &amp; ")"</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>

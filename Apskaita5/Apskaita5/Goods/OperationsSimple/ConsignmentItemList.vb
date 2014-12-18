@@ -52,16 +52,17 @@ Namespace Goods
 
         Friend Shared Function NewConsignmentItemList(ByVal GoodsID As Integer, _
             ByVal WarehouseID As Integer, ByVal ChangeIsNegative As Boolean, _
-            ByVal FinancialDataCanChange As Boolean) As ConsignmentItemList
+            ByVal FinancialDataCanChange As Boolean, ByVal accountingMethod As GoodsAccountingMethod) As ConsignmentItemList
             Return New ConsignmentItemList(0, GoodsID, WarehouseID, _
-                ChangeIsNegative, FinancialDataCanChange)
+                ChangeIsNegative, FinancialDataCanChange, accountingMethod)
         End Function
 
         Friend Shared Function GetConsignmentItemList(ByVal OperationID As Integer, _
             ByVal GoodsID As Integer, ByVal WarehouseID As Integer, _
-            ByVal ChangeIsNegative As Boolean, ByVal FinancialDataCanChange As Boolean) As ConsignmentItemList
+            ByVal ChangeIsNegative As Boolean, ByVal FinancialDataCanChange As Boolean, _
+            ByVal accountingMethod As GoodsAccountingMethod) As ConsignmentItemList
             Return New ConsignmentItemList(OperationID, GoodsID, WarehouseID, _
-                ChangeIsNegative, FinancialDataCanChange)
+                ChangeIsNegative, FinancialDataCanChange, accountingMethod)
         End Function
 
 
@@ -75,13 +76,13 @@ Namespace Goods
 
         Private Sub New(ByVal OperationID As Integer, ByVal GoodsID As Integer, _
             ByVal WarehouseID As Integer, ByVal ChangeIsNegative As Boolean, _
-            ByVal FinancialDataCanChange As Boolean)
+            ByVal FinancialDataCanChange As Boolean, ByVal accountingMethod As GoodsAccountingMethod)
             ' require use of factory methods
             MarkAsChild()
             Me.AllowEdit = FinancialDataCanChange
             Me.AllowNew = False
             Me.AllowRemove = False
-            Fetch(OperationID, GoodsID, WarehouseID, ChangeIsNegative, FinancialDataCanChange)
+            Fetch(OperationID, GoodsID, WarehouseID, ChangeIsNegative, FinancialDataCanChange, accountingMethod)
         End Sub
 
 #End Region
@@ -90,7 +91,9 @@ Namespace Goods
 
         Private Sub Fetch(ByVal OperationID As Integer, ByVal GoodsID As Integer, _
             ByVal WarehouseID As Integer, ByVal ChangeIsNegative As Boolean, _
-            ByVal FinancialDataCanChange As Boolean)
+            ByVal FinancialDataCanChange As Boolean, ByVal accountingMethod As GoodsAccountingMethod)
+
+            If accountingMethod = GoodsAccountingMethod.Periodic Then Exit Sub
 
             Dim myComm As New SQLCommand("FetchConsignmentItemList")
             myComm.AddParam("?OD", OperationID)

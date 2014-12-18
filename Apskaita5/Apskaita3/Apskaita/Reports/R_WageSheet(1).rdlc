@@ -2023,7 +2023,7 @@
         <CanGrow>true</CanGrow>
         <Left>22.56746cm</Left>
         <Height>0.75cm</Height>
-        <Value>Lt.</Value>
+        <Value>=First(Fields!Column19.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox44">
         <Top>6.50397cm</Top>
@@ -2210,7 +2210,7 @@
         <CanGrow>true</CanGrow>
         <Left>22.56746cm</Left>
         <Height>0.75cm</Height>
-        <Value>Lt.</Value>
+        <Value>=First(Fields!Column19.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox29">
         <Top>5.50397cm</Top>
@@ -2367,7 +2367,7 @@
         <CanGrow>true</CanGrow>
         <Left>23.64682cm</Left>
         <Height>0.5cm</Height>
-        <Value>Lt.</Value>
+        <Value>=First(Fields!Column19.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox15">
         <Top>2.9cm</Top>

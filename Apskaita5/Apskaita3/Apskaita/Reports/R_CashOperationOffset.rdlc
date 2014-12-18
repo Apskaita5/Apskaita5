@@ -14,32 +14,29 @@
   <InteractiveWidth>8.27in</InteractiveWidth>
   <rd:SnapToGrid>true</rd:SnapToGrid>
   <RightMargin>1cm</RightMargin>
-  <LeftMargin>2cm</LeftMargin>
+  <LeftMargin>3cm</LeftMargin>
   <PageHeader>
     <PrintOnFirstPage>true</PrintOnFirstPage>
     <ReportItems>
-      <Image Name="image3">
-        <Sizing>FitProportional</Sizing>
-        <Top>0.31746cm</Top>
-        <MIMEType>image/jpeg</MIMEType>
-        <Source>Embedded</Source>
-        <Style />
-        <ZIndex>1</ZIndex>
-        <Left>12.38095cm</Left>
-        <Value>viaconventus_galutinis</Value>
-      </Image>
-      <Image Name="image1">
-        <Sizing>Fit</Sizing>
-        <MIMEType>image/jpeg</MIMEType>
-        <Source>Embedded</Source>
-        <Style />
-        <Height>0.31746cm</Height>
-        <Value>header</Value>
-      </Image>
+      <Textbox Name="textbox13">
+        <rd:DefaultName>textbox13</rd:DefaultName>
+        <Style>
+          <FontFamily>Times New Roman</FontFamily>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Left>12.06349cm</Left>
+        <Value>="Psl. " &amp; Globals!PageNumber.ToString &amp; " Iš " &amp; Globals!TotalPages.ToString</Value>
+      </Textbox>
     </ReportItems>
-    <Height>1.90476cm</Height>
+    <Height>0.25in</Height>
     <PrintOnLastPage>true</PrintOnLastPage>
   </PageHeader>
+  <BottomMargin>2cm</BottomMargin>
   <rd:ReportID>c1bfeeac-8fae-468c-96fe-1de87d0e3dba</rd:ReportID>
   <EmbeddedImages>
     <EmbeddedImage Name="viaconventus_galutinis">
@@ -341,15 +338,123 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
-  <Width>7in</Width>
+  <Width>6.625in</Width>
   <Body>
     <ReportItems>
       <Textbox Name="textbox23">
-        <Top>15.55557cm</Top>
+        <Top>17.14285cm</Top>
         <Width>5.07937cm</Width>
         <Style>
-          <FontSize>7pt</FontSize>
-          <TextAlign>Center</TextAlign>
+          <FontSize>5pt</FontSize>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>28</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>3.1746cm</Left>
+        <Height>0.125in</Height>
+        <Value>Pareigos, Vardas, Pavardė                      </Value>
+      </Textbox>
+      <Textbox Name="textbox7">
+        <rd:DefaultName>textbox7</rd:DefaultName>
+        <Top>16.50793cm</Top>
+        <Width>7.93651cm</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>27</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.31746cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>Aktą sudarė: ______________________________</Value>
+      </Textbox>
+      <Textbox Name="textbox39">
+        <Top>15.87301cm</Top>
+        <Width>1.26984cm</Width>
+        <Style>
+          <FontSize>5pt</FontSize>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>26</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>9.52381cm</Left>
+        <Height>0.31746cm</Height>
+        <Value>Parašas                      </Value>
+      </Textbox>
+      <Textbox Name="textbox40">
+        <Top>15.23809cm</Top>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>25</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>8.88889cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>___________________________________</Value>
+      </Textbox>
+      <Textbox Name="textbox41">
+        <Top>13.96825cm</Top>
+        <Style>
+          <FontSize>9pt</FontSize>
+          <TextDecoration>Underline</TextDecoration>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>24</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>8.88889cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>Siuntėjo atstovo pareigos, vardas, pavardė</Value>
+      </Textbox>
+      <Textbox Name="textbox37">
+        <Top>15.87301cm</Top>
+        <Width>1.26984cm</Width>
+        <Style>
+          <FontSize>5pt</FontSize>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>23</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.63492cm</Left>
+        <Height>0.31746cm</Height>
+        <Value>Parašas                      </Value>
+      </Textbox>
+      <Textbox Name="textbox36">
+        <Top>15.23809cm</Top>
+        <Width>8.25397cm</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>22</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Height>0.63492cm</Height>
+        <Value>___________________________________</Value>
+      </Textbox>
+      <Textbox Name="textbox35">
+        <Top>13.96825cm</Top>
+        <Width>8.25397cm</Width>
+        <Style>
+          <FontSize>9pt</FontSize>
+          <TextDecoration>Underline</TextDecoration>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -357,14 +462,16 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
         </Style>
         <ZIndex>21</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>12.06349cm</Left>
-        <Value>(Vardas, pavardė)</Value>
+        <Height>0.63492cm</Height>
+        <Value>Siuntėjo atstovo pareigos, vardas, pavardė</Value>
       </Textbox>
-      <Textbox Name="textbox24">
-        <Top>14.92063cm</Top>
-        <Width>5.07937cm</Width>
+      <Textbox Name="textbox42">
+        <Top>13.01587cm</Top>
+        <Width>4.44444cm</Width>
         <Style>
-          <TextAlign>Center</TextAlign>
+          <FontSize>9pt</FontSize>
+          <FontWeight>700</FontWeight>
+          <TextDecoration>Underline</TextDecoration>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -372,16 +479,17 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
         </Style>
         <ZIndex>20</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>12.06349cm</Left>
+        <Left>8.88889cm</Left>
         <Height>0.63492cm</Height>
-        <Value>=First(Fields!Column8.Value)</Value>
+        <Value>=First(Fields!Column32.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
-      <Textbox Name="textbox21">
-        <Top>15.55556cm</Top>
-        <Width>5.07937cm</Width>
+      <Textbox Name="textbox34">
+        <Top>13.01587cm</Top>
+        <Width>4.44444cm</Width>
         <Style>
-          <FontSize>7pt</FontSize>
-          <TextAlign>Center</TextAlign>
+          <FontSize>9pt</FontSize>
+          <FontWeight>700</FontWeight>
+          <TextDecoration>Underline</TextDecoration>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -389,14 +497,14 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
         </Style>
         <ZIndex>19</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>0.95238cm</Left>
-        <Value>(Parašas)</Value>
+        <Height>0.63492cm</Height>
+        <Value>=First(Fields!Column2.Value, "ReportData_TableCompany")</Value>
       </Textbox>
-      <Textbox Name="textbox22">
-        <Top>14.92063cm</Top>
-        <Width>5.07937cm</Width>
+      <Textbox Name="textbox33">
+        <Top>12.06349cm</Top>
+        <Width>3.49206cm</Width>
         <Style>
-          <TextAlign>Center</TextAlign>
+          <FontSize>9pt</FontSize>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -404,16 +512,14 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
         </Style>
         <ZIndex>18</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>0.95238cm</Left>
         <Height>0.63492cm</Height>
-        <Value>_____________________</Value>
+        <Value>Šalių parašai:</Value>
       </Textbox>
-      <Textbox Name="textbox17">
-        <Top>13.65079cm</Top>
-        <Width>7.61905cm</Width>
+      <Textbox Name="textbox26">
+        <rd:DefaultName>textbox26</rd:DefaultName>
+        <Top>11.11111cm</Top>
         <Style>
-          <FontSize>7pt</FontSize>
-          <TextAlign>Center</TextAlign>
+          <FontSize>9pt</FontSize>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -421,32 +527,235 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
         </Style>
         <ZIndex>17</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>9.84127cm</Left>
         <Height>0.63492cm</Height>
-        <Value>(Vaiko vardas, pavardė)</Value>
+        <Value>="Šalys susitaria atlikti tarpusavio skolų užkaitymą " &amp; First(Fields!Column18.Value, "ReportData_TableGeneral") &amp; "Lt sumai."</Value>
       </Textbox>
-      <Textbox Name="textbox20">
-        <Top>13.01587cm</Top>
-        <Width>7.61905cm</Width>
-        <Style>
-          <TextAlign>Center</TextAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
+      <Table Name="table1">
         <ZIndex>16</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>9.84127cm</Left>
-        <Height>0.63492cm</Height>
-        <Value>3. ________________________________</Value>
-      </Textbox>
-      <Textbox Name="textbox15">
-        <Top>12.38095cm</Top>
-        <Width>7.61905cm</Width>
+        <DataSetName>ReportData_Table1</DataSetName>
+        <Top>9.52381cm</Top>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Column2">
+                      <rd:DefaultName>Column2</rd:DefaultName>
+                      <Style>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <TextAlign>Left</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>3</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>=RowNumber("ReportData_Table1")</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Column7">
+                      <rd:DefaultName>Column7</rd:DefaultName>
+                      <Style>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>2</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Column7.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Column3">
+                      <rd:DefaultName>Column3</rd:DefaultName>
+                      <Style>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>1</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Column1.Value &amp; ", " &amp; Fields!Column8.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox30">
+                      <rd:DefaultName>textbox30</rd:DefaultName>
+                      <Style>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!Column16.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox20">
+                      <rd:DefaultName>textbox20</rd:DefaultName>
+                      <Style>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>7</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>Eil. Nr.</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox21">
+                      <rd:DefaultName>textbox21</rd:DefaultName>
+                      <Style>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>6</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>Data</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox22">
+                      <rd:DefaultName>textbox22</rd:DefaultName>
+                      <Style>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>5</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>Apskaitos dokumento pavadinimas, Nr.</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox29">
+                      <rd:DefaultName>textbox29</rd:DefaultName>
+                      <Style>
+                        <BorderStyle>
+                          <Left>Solid</Left>
+                          <Right>Solid</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontSize>8pt</FontSize>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>4</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>Įsiskolinimo suma, Lt</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.63492cm</Height>
+            </TableRow>
+          </TableRows>
+        </Header>
+        <TableColumns>
+          <TableColumn>
+            <Width>2.40363cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>4.5068cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>6.00908cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>3.90589cm</Width>
+          </TableColumn>
+        </TableColumns>
+        <Height>1.26984cm</Height>
+      </Table>
+      <Textbox Name="textbox17">
+        <Top>8.57143cm</Top>
         <Style>
-          <FontSize>7pt</FontSize>
-          <TextAlign>Center</TextAlign>
+          <FontSize>9pt</FontSize>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -454,15 +763,16 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
         </Style>
         <ZIndex>15</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>9.84127cm</Left>
+        <Left>11.42857cm</Left>
         <Height>0.63492cm</Height>
-        <Value>(Vaiko vardas, pavardė)</Value>
+        <Value>pagal šiuos apskaitos dokumentus</Value>
       </Textbox>
       <Textbox Name="textbox16">
-        <Top>11.74603cm</Top>
-        <Width>7.61905cm</Width>
+        <Top>8.57143cm</Top>
+        <Width>3.49206cm</Width>
         <Style>
-          <TextAlign>Center</TextAlign>
+          <FontSize>9pt</FontSize>
+          <TextDecoration>Underline</TextDecoration>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -470,16 +780,15 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
         </Style>
         <ZIndex>14</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>9.84127cm</Left>
+        <Left>7.93651cm</Left>
         <Height>0.63492cm</Height>
-        <Value>2. ________________________________</Value>
+        <Value>=First(Fields!Column2.Value, "ReportData_TableCompany")</Value>
       </Textbox>
-      <Textbox Name="textbox13">
-        <Top>11.11111cm</Top>
-        <Width>7.61905cm</Width>
+      <Textbox Name="textbox15">
+        <Top>8.57143cm</Top>
+        <Width>2.22221cm</Width>
         <Style>
-          <FontSize>7pt</FontSize>
-          <TextAlign>Center</TextAlign>
+          <FontSize>9pt</FontSize>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -487,15 +796,16 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
         </Style>
         <ZIndex>13</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>9.84127cm</Left>
+        <Left>5.71429cm</Left>
         <Height>0.63492cm</Height>
-        <Value>(Vaiko vardas, pavardė)</Value>
+        <Value>yra skolinga</Value>
       </Textbox>
       <Textbox Name="textbox14">
-        <Top>10.47619cm</Top>
-        <Width>7.61905cm</Width>
+        <Top>8.57143cm</Top>
+        <Width>5.71429cm</Width>
         <Style>
-          <TextAlign>Center</TextAlign>
+          <FontSize>9pt</FontSize>
+          <TextDecoration>Underline</TextDecoration>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -503,14 +813,13 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
         </Style>
         <ZIndex>12</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>9.84127cm</Left>
         <Height>0.63492cm</Height>
-        <Value>1. ________________________________</Value>
+        <Value>=First(Fields!Column32.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
-      <Textbox Name="textbox12">
-        <Top>10.47619cm</Top>
-        <Width>8.57143cm</Width>
+      <Textbox Name="textbox1">
+        <Top>7.61905cm</Top>
         <Style>
+          <FontSize>9pt</FontSize>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -518,15 +827,14 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
         </Style>
         <ZIndex>11</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>0.95238cm</Left>
         <Height>0.63492cm</Height>
-        <Value>Informacija apie vaikus (iki 18 m.):</Value>
+        <Value>surašėme šį tarpusavio skolų užskaitymo aktą pagal ________ m. ________ mėn. ____ d. apskaitos duomenis.</Value>
       </Textbox>
-      <Textbox Name="textbox11">
-        <rd:DefaultName>textbox11</rd:DefaultName>
-        <Top>9.84127cm</Top>
-        <Width>8.57143cm</Width>
+      <Textbox Name="textbox12">
+        <Top>6.66667cm</Top>
+        <Width>0.63492cm</Width>
         <Style>
+          <FontSize>9pt</FontSize>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -534,15 +842,15 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
         </Style>
         <ZIndex>10</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>0.95238cm</Left>
+        <Left>0in</Left>
         <Height>0.63492cm</Height>
-        <Value>Papildoma informacija kai taikomas PNPD:</Value>
+        <Value>ir</Value>
       </Textbox>
-      <Textbox Name="textbox10">
-        <rd:DefaultName>textbox10</rd:DefaultName>
-        <Top>7.93651cm</Top>
-        <Width>16.19048cm</Width>
+      <Textbox Name="textbox11">
+        <Top>6.66667cm</Top>
         <Style>
+          <FontSize>9pt</FontSize>
+          <TextDecoration>Underline</TextDecoration>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -551,14 +859,14 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
         <ZIndex>9</ZIndex>
         <CanGrow>true</CanGrow>
         <Left>0.95238cm</Left>
-        <Height>1.5873cm</Height>
-        <Value>Prašau įmonėje UAB "ViaConventus: gaunamas su darbo santykiais susijusias pajamas nuo 20.... m. ........................ mėn. .... d. apmokestinti taikant pagrindinį neapmokestinamąjį pajamų dydį (NPD), taikant papildomą neapmokestinamąjį pajamų dydį (PNPD).</Value>
+        <Height>0.63492cm</Height>
+        <Value>Gavėjo įmonės atstovo vardas, pavardė</Value>
       </Textbox>
-      <Textbox Name="textbox9">
-        <Top>6.66667cm</Top>
-        <Width>7.61905cm</Width>
+      <Textbox Name="textbox10">
+        <Top>5.71429cm</Top>
         <Style>
-          <TextAlign>Center</TextAlign>
+          <FontSize>9pt</FontSize>
+          <TextDecoration>Underline</TextDecoration>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -566,17 +874,15 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
         </Style>
         <ZIndex>8</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>5.39683cm</Left>
         <Height>0.63492cm</Height>
-        <Value>=First(Fields!Column1.Value)</Value>
+        <Value>Siuntėjo įmonės atstovo vardas, pavardė</Value>
       </Textbox>
       <Textbox Name="textbox8">
-        <Top>6.03175cm</Top>
-        <Width>7.61905cm</Width>
+        <Top>3.80952cm</Top>
+        <Width>3.49206cm</Width>
         <Style>
-          <FontSize>12pt</FontSize>
-          <FontWeight>700</FontWeight>
-          <TextAlign>Center</TextAlign>
+          <FontSize>9pt</FontSize>
+          <TextDecoration>Underline</TextDecoration>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -584,16 +890,17 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
         </Style>
         <ZIndex>7</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>5.39683cm</Left>
+        <Left>8.88889cm</Left>
         <Height>0.63492cm</Height>
-        <Value>PRAŠYMAS</Value>
+        <Value>="Nr. " &amp; First(Fields!Column3.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
-      <Textbox Name="textbox6">
-        <Top>5.07937cm</Top>
-        <Width>7.61905cm</Width>
+      <Textbox Name="Column1">
+        <rd:DefaultName>Column1</rd:DefaultName>
+        <Top>3.80952cm</Top>
+        <Width>3.49206cm</Width>
         <Style>
-          <FontSize>7pt</FontSize>
-          <TextAlign>Center</TextAlign>
+          <FontSize>9pt</FontSize>
+          <TextDecoration>Underline</TextDecoration>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -603,13 +910,13 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
         <CanGrow>true</CanGrow>
         <Left>5.39683cm</Left>
         <Height>0.63492cm</Height>
-        <Value>(Adresas)</Value>
+        <Value>=First(Fields!Column1.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
-      <Textbox Name="textbox7">
-        <Top>4.44445cm</Top>
-        <Width>7.61905cm</Width>
+      <Textbox Name="textbox6">
+        <Top>4.7619cm</Top>
+        <Width>6.34921cm</Width>
         <Style>
-          <TextAlign>Center</TextAlign>
+          <FontSize>9pt</FontSize>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -617,62 +924,11 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
         </Style>
         <ZIndex>5</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>5.39683cm</Left>
         <Height>0.63492cm</Height>
-        <Value>_____________________________________</Value>
+        <Value>Mes, žemiau pasirašiusieji,</Value>
       </Textbox>
       <Textbox Name="textbox5">
-        <Top>3.80952cm</Top>
-        <Width>7.61905cm</Width>
-        <Style>
-          <FontSize>7pt</FontSize>
-          <TextAlign>Center</TextAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-        <ZIndex>4</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>5.39683cm</Left>
-        <Height>0.63492cm</Height>
-        <Value>(Asmens kodas)</Value>
-      </Textbox>
-      <Textbox Name="textbox4">
         <Top>3.1746cm</Top>
-        <Width>7.61905cm</Width>
-        <Style>
-          <TextAlign>Center</TextAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-        <ZIndex>3</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>5.39683cm</Left>
-        <Height>0.63492cm</Height>
-        <Value>_____________________________________</Value>
-      </Textbox>
-      <Textbox Name="textbox3">
-        <Top>2.22222cm</Top>
-        <Width>7.61905cm</Width>
-        <Style>
-          <TextAlign>Center</TextAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-        <ZIndex>2</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>5.39683cm</Left>
-        <Height>0.63492cm</Height>
-        <Value>=First(Fields!Column8.Value)</Value>
-      </Textbox>
-      <Textbox Name="textbox2">
-        <Top>0.95238cm</Top>
-        <Width>7.61905cm</Width>
         <Style>
           <FontSize>12pt</FontSize>
           <FontWeight>700</FontWeight>
@@ -682,16 +938,56 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
           <PaddingTop>2pt</PaddingTop>
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
+        <ZIndex>4</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Height>0.63492cm</Height>
+        <Value>TARPUSAVIO SKOLŲ UŽSKAITYMO AKTAS</Value>
+      </Textbox>
+      <Textbox Name="textbox4">
+        <Top>2.22222cm</Top>
+        <Width>12.06349cm</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>3</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Height>0.63492cm</Height>
+        <Value>=First(Fields!Column35.Value, "ReportData_TableGeneral")</Value>
+      </Textbox>
+      <Textbox Name="textbox3">
+        <Top>1.5873cm</Top>
+        <Width>12.06349cm</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>2</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Height>0.63492cm</Height>
+        <Value>=First(Fields!Column32.Value, "ReportData_TableGeneral") &amp; ", Įm. kodas: " &amp; First(Fields!Column33.Value, "ReportData_TableGeneral")</Value>
+      </Textbox>
+      <Textbox Name="textbox2">
+        <Top>0.63492cm</Top>
+        <Style>
+          <TextAlign>Center</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
         <ZIndex>1</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>5.39683cm</Left>
-        <Height>0.63492cm</Height>
-        <Value>BUHALTERIJAI</Value>
+        <Height>0.25in</Height>
+        <Value>="Įm. kodas " &amp; First(Fields!Column3.Value, "ReportData_TableCompany")</Value>
       </Textbox>
-      <Textbox Name="textbox1">
-        <rd:DefaultName>textbox1</rd:DefaultName>
-        <Top>0.31746cm</Top>
-        <Width>7.61905cm</Width>
+      <Textbox Name="Column2_2">
+        <rd:DefaultName>Column2_2</rd:DefaultName>
+        <Top>0in</Top>
         <Style>
           <TextAlign>Center</TextAlign>
           <PaddingLeft>2pt</PaddingLeft>
@@ -700,60 +996,13 @@ f/hE4P8AnsP++P8A69H/AAiUH/PYf9+//r0/bRD2kTh6Su4/4RKD/nsP+/f/ANej/hEYP+ew/wC+P/r0
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
         <CanGrow>true</CanGrow>
-        <Left>5.39683cm</Left>
         <Height>0.63492cm</Height>
-        <Value>UAB "ViaConventus"</Value>
+        <Value>=First(Fields!Column2.Value, "ReportData_TableCompany")</Value>
       </Textbox>
     </ReportItems>
-    <Height>6.37501in</Height>
+    <Height>7in</Height>
   </Body>
   <Language>en-US</Language>
-  <PageFooter>
-    <PrintOnFirstPage>true</PrintOnFirstPage>
-    <ReportItems>
-      <Textbox Name="textbox19">
-        <Top>0.63492cm</Top>
-        <Style>
-          <FontSize>6pt</FontSize>
-          <TextAlign>Right</TextAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-        <ZIndex>2</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>0.63492cm</Left>
-        <Height>0.63492cm</Height>
-        <Value>Tel. +370 5 2000780, Faks. +370 5 2000782, info@viaconventus.com, www.viaconventus.com</Value>
-      </Textbox>
-      <Textbox Name="textbox18">
-        <rd:DefaultName>textbox18</rd:DefaultName>
-        <Top>0.31746cm</Top>
-        <Style>
-          <FontSize>6pt</FontSize>
-          <TextAlign>Right</TextAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-        <ZIndex>1</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>0.63492cm</Left>
-        <Height>0.63492cm</Height>
-        <Value>UAB ViaConventus. Konferencijų organizavimo, DMC paslaugų ir asociacijų valdymo kompanija, Vilniaus g. 31-14, LT-01402 Vilnius</Value>
-      </Textbox>
-      <Image Name="image2">
-        <Sizing>Fit</Sizing>
-        <MIMEType>image/jpeg</MIMEType>
-        <Source>Embedded</Source>
-        <Style />
-        <Value>footer</Value>
-      </Image>
-    </ReportItems>
-    <Height>1.39683cm</Height>
-    <PrintOnLastPage>true</PrintOnLastPage>
-  </PageFooter>
+  <TopMargin>2cm</TopMargin>
   <PageHeight>11.69in</PageHeight>
 </Report>

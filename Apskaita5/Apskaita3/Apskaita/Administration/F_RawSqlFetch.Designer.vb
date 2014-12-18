@@ -85,6 +85,7 @@ Partial Class F_RawSqlFetch
         '
         Me.ResultDataGridView.AllowUserToAddRows = False
         Me.ResultDataGridView.AllowUserToDeleteRows = False
+        Me.ResultDataGridView.AllowUserToOrderColumns = True
         Me.ResultDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.ResultDataGridView.CausesValidation = False
         Me.ResultDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -101,7 +102,6 @@ Partial Class F_RawSqlFetch
         Me.ResultDataGridView.Location = New System.Drawing.Point(0, 159)
         Me.ResultDataGridView.Name = "ResultDataGridView"
         Me.ResultDataGridView.RowHeadersVisible = False
-        Me.ResultDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
         Me.ResultDataGridView.Size = New System.Drawing.Size(681, 279)
         Me.ResultDataGridView.TabIndex = 1
         '

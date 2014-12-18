@@ -640,7 +640,7 @@
       </Textbox>
       <Textbox Name="textbox43">
         <Top>8cm</Top>
-        <Width>0.75cm</Width>
+        <Width>1cm</Width>
         <Style>
           <BorderStyle>
             <Left>None</Left>
@@ -657,13 +657,13 @@
         </Style>
         <ZIndex>36</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>15cm</Left>
+        <Left>14.75cm</Left>
         <Height>0.75cm</Height>
-        <Value>Lt.</Value>
+        <Value>=First(Fields!Column19.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox44">
         <Top>8cm</Top>
-        <Width>1.25cm</Width>
+        <Width>1cm</Width>
         <Style>
           <BorderStyle>
             <Left>None</Left>
@@ -849,7 +849,7 @@
       </Textbox>
       <Textbox Name="textbox31">
         <Top>6.5cm</Top>
-        <Width>0.75cm</Width>
+        <Width>1cm</Width>
         <Style>
           <BorderStyle>
             <Left>None</Left>
@@ -866,13 +866,13 @@
         </Style>
         <ZIndex>27</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>15cm</Left>
+        <Left>14.75cm</Left>
         <Height>0.75cm</Height>
-        <Value>Lt.</Value>
+        <Value>=First(Fields!Column19.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox32">
         <Top>6.5cm</Top>
-        <Width>1.25cm</Width>
+        <Width>1cm</Width>
         <Style>
           <BorderStyle>
             <Left>None</Left>
@@ -1408,7 +1408,7 @@
       </Textbox>
       <Textbox Name="textbox17">
         <Top>3.5cm</Top>
-        <Width>0.75cm</Width>
+        <Width>1cm</Width>
         <Style>
           <BorderStyle>
             <Left>None</Left>
@@ -1425,9 +1425,9 @@
         </Style>
         <ZIndex>18</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>14.75cm</Left>
+        <Left>14.5cm</Left>
         <Height>0.5cm</Height>
-        <Value>Lt.</Value>
+        <Value>=First(Fields!Column19.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox15">
         <Top>3.5cm</Top>
@@ -1448,7 +1448,7 @@
         </Style>
         <ZIndex>17</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>12.75cm</Left>
+        <Left>12.5cm</Left>
         <Height>0.5cm</Height>
         <Value>=First(Fields!Column8.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
@@ -1472,13 +1472,13 @@
         </Style>
         <ZIndex>16</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>12.25cm</Left>
+        <Left>12cm</Left>
         <Height>0.5cm</Height>
         <Value>(</Value>
       </Textbox>
       <Textbox Name="textbox1">
         <Top>3.5cm</Top>
-        <Width>10.5cm</Width>
+        <Width>10.25cm</Width>
         <Style>
           <BorderStyle>
             <Left>None</Left>

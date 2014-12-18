@@ -2119,3 +2119,5 @@ E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\obj\x86\Debug\ApskaitaW
 E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\obj\x86\Release\ApskaitaWUI.F_GoodsComplexOperationTransferOfBalance.resources
 E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\obj\x86\Debug\ApskaitaWUI.F_ImportedPersonList.resources
 E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\obj\x86\Debug\ApskaitaWUI.F_ImportedGoodsItemList.resources
+E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\obj\x86\Release\ApskaitaWUI.F_ImportedPersonList.resources
+E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\obj\x86\Release\ApskaitaWUI.F_ImportedGoodsItemList.resources

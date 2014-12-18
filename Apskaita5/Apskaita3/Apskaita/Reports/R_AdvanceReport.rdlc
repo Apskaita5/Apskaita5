@@ -2735,7 +2735,7 @@
                       </Style>
                       <ZIndex>14</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>Lt.</Value>
+                      <Value>=First(Fields!Column7.Value, "ReportData_TableGeneral")</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
