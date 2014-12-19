@@ -432,6 +432,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ApskaitaService.asmx" />
     <Content Include="DbStructure\DatabaseStructureGauge.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -457,6 +458,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\LanguageCodes.txt" />
+    <None Include="web.config" />
     <Content Include="SqlDepositories\SQLite_Depository.sqld">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
