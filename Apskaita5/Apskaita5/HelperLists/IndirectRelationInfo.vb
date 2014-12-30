@@ -125,7 +125,7 @@ Namespace HelperLists
                 _TypeHumanReadable = _TypeHumanReadable & ":" & ConvertEnumHumanReadable(_GoodsOperationType)
             ElseIf _Type = IndirectRelationType.LongTermAssetsOperation Then
                 _AssetOperationType = ConvertEnumDatabaseStringCode(Of Assets.LtaOperationType) _
-                    (CIntSafe(dr.Item(5), 1))
+                    (CStrSafe(dr.Item(5)))
                 _TypeHumanReadable = _TypeHumanReadable & ":" & ConvertEnumHumanReadable(_AssetOperationType)
             End If
 

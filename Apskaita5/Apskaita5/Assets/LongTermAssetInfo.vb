@@ -682,8 +682,8 @@ Namespace Assets
             _AcquisitionDate = CDateSafe(AcquisitionDataRow.Item(7), Today)
             _AcquisitionJournalEntryDocNumber = CStrSafe(AcquisitionDataRow.Item(8)).Trim
             _AcquisitionJournalEntryDocContent = CStrSafe(AcquisitionDataRow.Item(9)).Trim
-            _AcquisitionJournalEntryDocType = ConvertEnumDatabaseStringCode(Of DocumentType) _
-                (CStrSafe(AcquisitionDataRow.Item(10)))
+            _AcquisitionJournalEntryDocType = ConvertEnumHumanReadable( _
+                ConvertEnumDatabaseStringCode(Of DocumentType)(CStrSafe(AcquisitionDataRow.Item(10))))
             _AccountAcquisition = CIntSafe(AcquisitionDataRow.Item(11), 0)
             _AccountAccumulatedAmortization = CIntSafe(AcquisitionDataRow.Item(12), 0)
             _AccountValueDecrease = CIntSafe(AcquisitionDataRow.Item(13), 0)

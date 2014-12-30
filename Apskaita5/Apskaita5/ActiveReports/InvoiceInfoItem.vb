@@ -296,7 +296,7 @@ Namespace ActiveReports
             _SumVatLTL = CRound(CDblSafe(dr.Item(17), 2, 0) - _SumVatDiscountLTL)
             _TotalSumLTL = CRound(_SumLTL + _SumVatLTL)
 
-            _PersonAccount = CDblSafe(dr.Item(22), 2, 0)
+            _PersonAccount = CLongSafe(dr.Item(22), 0)
 
         End Sub
 

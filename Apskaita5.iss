@@ -34,6 +34,7 @@ Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Releas
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\HtmlAgilityPack.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\System.Data.SQLite.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ApskaitaObjects.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccCommon.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Csla.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Microsoft.ReportViewer.Common.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Microsoft.ReportViewer.ProcessingObjectModel.dll"; DestDir: "{app}"; Flags: ignoreversion

@@ -20,7 +20,7 @@ Public Class F_LoginSecondary
     End Sub
 
     Private Sub OkButton_Click(ByVal sender As System.Object, _
-        ByVal e As System.EventArgs) Handles OkButton.Click
+        ByVal e As System.EventArgs) Handles nOkButton.Click
 
         Try
             If AccPrincipal.Login(_Database.DatabaseName, New CustomCacheManager, PasswordTextBox.Text) Then
@@ -35,7 +35,7 @@ Public Class F_LoginSecondary
     End Sub
 
     Private Sub CancelButton_Click(ByVal sender As System.Object, _
-        ByVal e As System.EventArgs) Handles CancelButton.Click
+        ByVal e As System.EventArgs) Handles nCancelButton.Click
         Me.Hide()
         Me.Close()
     End Sub

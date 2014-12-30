@@ -111,7 +111,7 @@ Public Class DatabaseStructureError
             Dim result As New List(Of String)
             If _ErrorType <> DatabaseStructureErrorType.ProcedureDefinitionObsolete _
                 AndAlso _ErrorType <> DatabaseStructureErrorType.ProcedureMissing Then
-                For Each s As String In _SqlStatementsToCorrect.Trim.Split(New Char() {";"}, _
+                For Each s As String In _SqlStatementsToCorrect.Trim.Split(New Char() {";"c}, _
                 StringSplitOptions.RemoveEmptyEntries)
                     result.Add(s & ";")
                 Next

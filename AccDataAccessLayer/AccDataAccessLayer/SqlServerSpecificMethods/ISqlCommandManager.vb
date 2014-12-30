@@ -12,7 +12,7 @@ Namespace SqlServerSpecificMethods
         Sub TryLogin(ByVal CurrentIdentity As Security.AccIdentity, ByRef cRoles As List(Of String))
 
         Function ExecuteCommand(ByVal CommandToExecute As SQLCommand, _
-            Optional ByRef RowsAffected As Integer = 0) As Integer
+            Optional ByRef RowsAffected As Integer = 0) As Long
 
         Function FetchCommand(ByVal SelectCommand As SQLCommand) As DataTable
 

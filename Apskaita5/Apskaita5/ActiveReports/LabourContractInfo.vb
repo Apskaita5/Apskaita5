@@ -182,7 +182,7 @@ Namespace ActiveReports
             If CIntSafe(dr.Item(5), 0) > 0 Then
                 _ContractNumber = CStrSafe(dr.Item(4)).Trim & CStrSafe(dr.Item(5)).Trim
                 _HasContract = True
-                _ContractDate = CStrSafe(dr.Item(6)).Trim
+                _ContractDate = CDateSafe(dr.Item(6), Date.MinValue)
                 _Position = CStrSafe(dr.Item(7)).Trim
                 _Wage = CDblSafe(dr.Item(8), 2, 0)
                 _WageType = ConvertEnumHumanReadable(ConvertEnumDatabaseStringCode(Of WageType) _

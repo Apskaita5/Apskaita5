@@ -108,15 +108,9 @@
     <Reference Include="System.Data">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Design" />
     <Reference Include="System.Drawing">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.EnterpriseServices" />
-    <Reference Include="System.Runtime.Remoting" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms">
       <Private>True</Private>
     </Reference>
@@ -125,13 +119,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Import Include="AccCommon" />
     <Import Include="AccControls" />
     <Import Include="AccControls.PublicFunctions" />
     <Import Include="AccDataAccessLayer.DatabaseAccess" />
     <Import Include="ApskaitaObjects" />
     <Import Include="ApskaitaWUI" />
-    <Import Include="ApskaitaWUI.Aprasai" />
-    <Import Include="ApskaitaWUI.Tipai" />
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
@@ -533,12 +526,6 @@
     <Compile Include="MySplashScreen.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProgressSplashScreen.Designer.vb">
-      <DependentUpon>ProgressSplashScreen.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ProgressSplashScreen.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="General\F_Person.Designer.vb">
       <DependentUpon>F_Person.vb</DependentUpon>
     </Compile>
@@ -739,7 +726,6 @@
     <Compile Include="MDIParent1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Helpers\Vmodulis.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -1070,10 +1056,6 @@
       <SubType>Designer</SubType>
       <DependentUpon>MySplashScreen.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgressSplashScreen.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>ProgressSplashScreen.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="General\F_Person.resx">
       <SubType>Designer</SubType>
       <DependentUpon>F_Person.vb</DependentUpon>
@@ -1380,12 +1362,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Pictures\Print.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Pictures\Preview.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\SP.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -1573,8 +1549,6 @@
     <None Include="My Project\DataSources\ApskaitaObjects.Workers.WorkTimeClassList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Workers.WorkTimeSheet.datasource" />
     <None Include="My Project\DataSources\LocalSettings.datasource" />
-    <None Include="Pictures\Calc.bmp" />
-    <Content Include="Pictures\logo.ico" />
     <None Include="Resources\FromFillerIcon_24x24alt.png" />
     <None Include="Resources\FromFillerIcon_48x48.png" />
     <None Include="Resources\FromFillerIcon_32x32.png" />
@@ -1731,65 +1705,65 @@
   <ItemGroup>
     <PublishFile Include="AccControls.pdb">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ADODB">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Apskaita.pdb">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="MsgBoxLT.pdb">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="office">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Techninis\DBStatus.exe">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
@@ -1797,6 +1771,10 @@
     <ProjectReference Include="..\..\..\AccDataAccessLayer\AccDataAccessLayer\AccDataAccessLayer.vbproj">
       <Project>{13ADAA16-3D3A-4F2A-A5D4-D6DE94A31614}</Project>
       <Name>AccDataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AccCommon\AccCommon.vbproj">
+      <Project>{380B0551-D15D-4072-A72C-406274CCB50E}</Project>
+      <Name>AccCommon</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Apskaita5\ApskaitaObjects.vbproj">
       <Project>{5F12CA52-9B64-42A3-B168-7861C44FD24E}</Project>

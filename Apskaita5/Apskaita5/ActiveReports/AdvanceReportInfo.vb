@@ -30,7 +30,7 @@ Namespace ActiveReports
         Private _IncomeSumTotalLTL As Double = 0
         Private _Comments As String = ""
         Private _CommentsInternal As String = ""
-        Private _TillOrderID As String = ""
+        Private _TillOrderID As Integer = 0
         Private _IsIncomeTillOrder As Boolean = False
         Private _TillOrderData As String = ""
 

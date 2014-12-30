@@ -22,7 +22,7 @@ Public NotInheritable Class ConfigProxy
         Dim o As Object = baseconf.GetSection(configKey)
         If configKey = "appSettings" AndAlso TypeOf o Is NameValueCollection Then
             ' create a new collection because the underlying collection is read-only
-            Dim cfg = New NameValueCollection(DirectCast(o, NameValueCollection))
+            Dim cfg As Object = New NameValueCollection(DirectCast(o, NameValueCollection))
             o = InlineAssignHelper(Me.appsettings, cfg)
         End If
         Return o

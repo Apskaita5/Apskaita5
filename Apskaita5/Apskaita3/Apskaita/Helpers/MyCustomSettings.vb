@@ -1051,7 +1051,7 @@ Public Class SettingsPersistenceObject
                 My.Settings.ShowToolStrip = _ShowToolStrip
                 My.Settings.AutoUpdate = _AutoUpdate
                 My.Settings.EmailMessageText = _EmailMessageText
-                My.Settings.CacheTimeout = _CacheTimeout
+                My.Settings.CacheTimeout = Convert.ToUInt32(_CacheTimeout)
                 My.Settings.SignInvoicesWithCompanySignature = _SignInvoicesWithCompanySignature
                 My.Settings.SignInvoicesWithLocalUserSignature = _SignInvoicesWithLocalUserSignature
                 My.Settings.SignInvoicesWithRemoteUserSignature = _SignInvoicesWithRemoteUserSignature
@@ -1154,7 +1154,7 @@ Public Class SettingsPersistenceObject
             _ShowToolStrip = My.Settings.ShowToolStrip
             _AutoUpdate = My.Settings.AutoUpdate
             _EmailMessageText = My.Settings.EmailMessageText
-            _CacheTimeout = My.Settings.CacheTimeout
+            _CacheTimeout = Convert.ToInt32(My.Settings.CacheTimeout)
             _SignInvoicesWithCompanySignature = My.Settings.SignInvoicesWithCompanySignature
             _SignInvoicesWithLocalUserSignature = My.Settings.SignInvoicesWithLocalUserSignature
             _SignInvoicesWithRemoteUserSignature = My.Settings.SignInvoicesWithRemoteUserSignature

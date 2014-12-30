@@ -69,14 +69,8 @@ Public Class GoodsGroupInfo
 #Region " Data Access "
 
         Private Sub Fetch(ByVal dr As DataRow, ByVal Offset As Integer)
-            If Not (dr.Item(Offset) Is Nothing OrElse IsDBNull(dr.Item(Offset)) OrElse _
-                Not Integer.TryParse(dr.Item(Offset), New Integer) OrElse _
-                dr.Item(Offset + 1) Is Nothing OrElse IsDBNull(dr.Item(Offset + 1))) Then
-
-                _ID = CInt(dr.Item(Offset))
-                _Name = dr.Item(Offset + 1).ToString.Trim
-
-            End If
+            _ID = CIntSafe(dr.Item(Offset), 0)
+            _Name = CStrSafe(dr.Item(Offset + 1)).Trim
         End Sub
 
 #End Region

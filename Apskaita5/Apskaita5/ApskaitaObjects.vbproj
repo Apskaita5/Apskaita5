@@ -32,10 +32,12 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
     <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>ApskaitaObjects.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
     <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>ApskaitaObjects.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Csla, Version=2.1.4.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
@@ -49,23 +51,16 @@
     <Reference Include="System">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.configuration">
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Data">
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Drawing" />
-    <Reference Include="System.EnterpriseServices">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml">
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Import Include="AccCommon" />
     <Import Include="AccDataAccessLayer" />
     <Import Include="AccDataAccessLayer.DatabaseAccess" />
     <Import Include="ApskaitaObjects" />
@@ -473,6 +468,10 @@
     <ProjectReference Include="..\..\AccDataAccessLayer\AccDataAccessLayer\AccDataAccessLayer.vbproj">
       <Project>{13ADAA16-3D3A-4F2A-A5D4-D6DE94A31614}</Project>
       <Name>AccDataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AccCommon\AccCommon.vbproj">
+      <Project>{380B0551-D15D-4072-A72C-406274CCB50E}</Project>
+      <Name>AccCommon</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />

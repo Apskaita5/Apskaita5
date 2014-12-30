@@ -2084,7 +2084,7 @@
                       </Style>
                       <ZIndex>17</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>=IIF(First(Fields!Column21.Value, "ReportData_TableGeneral")=1, "Suma su PVM Eurais:", "Suma su PVM Litais:")</Value>
+                      <Value>=IIF(First(Fields!Column4.Value, "ReportData_TableCompany")&lt;&gt;"", IIF(First(Fields!Column21.Value, "ReportData_TableGeneral")=1, "Suma su PVM Eurais:", "Suma su PVM Litais:"), IIF(First(Fields!Column21.Value, "ReportData_TableGeneral")=1, "Suma Eurais:", "Suma Litais:"))</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>

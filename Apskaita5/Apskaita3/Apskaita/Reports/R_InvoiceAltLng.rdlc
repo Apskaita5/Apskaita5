@@ -2078,7 +2078,7 @@
                       </Style>
                       <ZIndex>17</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>=IIF(First(Fields!Column21.Value, "ReportData_TableGeneral")=1, "Sum incl. VAT in Euro", "Sum incl. VAT in Litas")</Value>
+                      <Value>=IIF(First(Fields!Column4.Value, "ReportData_TableCompany")&lt;&gt;"", IIF(First(Fields!Column21.Value, "ReportData_TableGeneral")=1, "Sum incl. VAT in Euro", "Sum incl. VAT in Litas"), IIF(First(Fields!Column21.Value, "ReportData_TableGeneral")=1, "Sum in Euro", "Sum in Litas"))</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>

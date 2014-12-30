@@ -247,8 +247,8 @@ Namespace ActiveReports
             _RateSODRAForPerson = CDblSafe(dr.Item(12), 2, 0)
             _RateSODRAForCompany = CDblSafe(dr.Item(13), 2, 0)
             _SumBruto = CDblSafe(dr.Item(14), 2, 0)
-            _CodeVMI = CIntSafe(dr.Item(15), 0)
-            _CodeSODRA = CIntSafe(dr.Item(16), 0)
+            _CodeVMI = CStrSafe(dr.Item(15))
+            _CodeSODRA = CStrSafe(dr.Item(16))
             _SODRABase = 100 - CIntSafe(dr.Item(17), 0)
 
             ' To support old version

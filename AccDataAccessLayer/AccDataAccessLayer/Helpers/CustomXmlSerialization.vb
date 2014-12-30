@@ -3,16 +3,16 @@ Imports System.Reflection
 
 Public Module CustomXmlSerialization
 
-    Private Const Name_Field = "Field"
-    Private Const Name_FieldName = "FieldName"
-    Private Const Name_FieldType = "FieldType"
-    Private Const Name_FieldTypeIsTrivial = "FieldTypeIsTrivial"
-    Private Const Name_FieldValueIsNull = "FieldValueIsNull"
-    Private Const Name_IsICustomXmlSerialized = "IsICustomXmlSerialized"
-    Private Const Name_IsBinarySerialized = "IsBinarySerialized"
-    Private Const Name_IsCollectionNode = "IsCollectionNode"
-    Private Const ValueKey_Null = "Null"
-    Private Const ValueKey_CustomXmlSerialized = "CustomXmlSerialized"
+    Private Const Name_Field As String = "Field"
+    Private Const Name_FieldName As String = "FieldName"
+    Private Const Name_FieldType As String = "FieldType"
+    Private Const Name_FieldTypeIsTrivial As String = "FieldTypeIsTrivial"
+    Private Const Name_FieldValueIsNull As String = "FieldValueIsNull"
+    Private Const Name_IsICustomXmlSerialized As String = "IsICustomXmlSerialized"
+    Private Const Name_IsBinarySerialized As String = "IsBinarySerialized"
+    Private Const Name_IsCollectionNode As String = "IsCollectionNode"
+    Private Const ValueKey_Null As String = "Null"
+    Private Const ValueKey_CustomXmlSerialized As String = "CustomXmlSerialized"
 
     Public Sub AddChildNode(ByRef GroupNode As XmlNode, ByVal fieldName As String, _
         ByVal fieldValue As Object, Optional ByVal fieldType As Type = Nothing)
@@ -174,7 +174,7 @@ Public Module CustomXmlSerialization
 
     End Sub
 
-    Public Function GetCollectionNode(ByVal node As XmlNode)
+    Public Function GetCollectionNode(ByVal node As XmlNode) As XmlNode
         For Each n As XmlNode In node.ChildNodes
             If GetBooleanString(n.Attributes.GetNamedItem(Name_IsCollectionNode).Value) Then Return n
         Next
@@ -230,20 +230,20 @@ Public Module CustomXmlSerialization
         Dim result As XmlNode = OwnerXmlDocument.CreateNode(XmlNodeType.Element, _
             Name_Field, "")
 
-        Dim fieldNameNode As XmlNode = OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
-            Name_FieldName, "")
-        Dim fieldTypeNode As XmlNode = OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
-            Name_FieldType, "")
-        Dim fieldTypeIsTrivialNode As XmlNode = OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
-            Name_FieldTypeIsTrivial, "")
-        Dim fieldValueIsNullNode As XmlNode = OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
-            Name_FieldValueIsNull, "")
-        Dim fieldIsICustomXmlSerialized As XmlNode = OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
-            Name_IsICustomXmlSerialized, "")
-        Dim fieldIsBinarySerialized As XmlNode = OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
-            Name_IsBinarySerialized, "")
-        Dim fieldIsCollectionNode As XmlNode = OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
-            Name_IsCollectionNode, "")
+        Dim fieldNameNode As XmlAttribute = DirectCast(OwnerXmlDocument.CreateNode( _
+            XmlNodeType.Attribute, Name_FieldName, ""), XmlAttribute)
+        Dim fieldTypeNode As XmlAttribute = DirectCast(OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
+            Name_FieldType, ""), XmlAttribute)
+        Dim fieldTypeIsTrivialNode As XmlAttribute = DirectCast(OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
+            Name_FieldTypeIsTrivial, ""), XmlAttribute)
+        Dim fieldValueIsNullNode As XmlAttribute = DirectCast(OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
+            Name_FieldValueIsNull, ""), XmlAttribute)
+        Dim fieldIsICustomXmlSerialized As XmlAttribute = DirectCast(OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
+            Name_IsICustomXmlSerialized, ""), XmlAttribute)
+        Dim fieldIsBinarySerialized As XmlAttribute = DirectCast(OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
+            Name_IsBinarySerialized, ""), XmlAttribute)
+        Dim fieldIsCollectionNode As XmlAttribute = DirectCast(OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
+            Name_IsCollectionNode, ""), XmlAttribute)
 
         fieldNameNode.Value = fieldName.Trim
         fieldTypeNode.Value = GetSerializedType(fieldType)
@@ -308,20 +308,20 @@ Public Module CustomXmlSerialization
         Dim result As XmlNode = OwnerXmlDocument.CreateNode(XmlNodeType.Element, _
             Name_Field, "")
 
-        Dim fieldNameNode As XmlNode = OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
-            Name_FieldName, "")
-        Dim fieldTypeNode As XmlNode = OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
-            Name_FieldType, "")
-        Dim fieldTypeIsTrivialNode As XmlNode = OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
-            Name_FieldTypeIsTrivial, "")
-        Dim fieldValueIsNullNode As XmlNode = OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
-            Name_FieldValueIsNull, "")
-        Dim fieldIsICustomXmlSerialized As XmlNode = OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
-            Name_IsICustomXmlSerialized, "")
-        Dim fieldIsBinarySerialized As XmlNode = OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
-            Name_IsBinarySerialized, "")
-        Dim fieldIsCollectionNode As XmlNode = OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
-            Name_IsCollectionNode, "")
+        Dim fieldNameNode As XmlAttribute = DirectCast(OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
+            Name_FieldName, ""), XmlAttribute)
+        Dim fieldTypeNode As XmlAttribute = DirectCast(OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
+            Name_FieldType, ""), XmlAttribute)
+        Dim fieldTypeIsTrivialNode As XmlAttribute = DirectCast(OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
+            Name_FieldTypeIsTrivial, ""), XmlAttribute)
+        Dim fieldValueIsNullNode As XmlAttribute = DirectCast(OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
+            Name_FieldValueIsNull, ""), XmlAttribute)
+        Dim fieldIsICustomXmlSerialized As XmlAttribute = DirectCast(OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
+            Name_IsICustomXmlSerialized, ""), XmlAttribute)
+        Dim fieldIsBinarySerialized As XmlAttribute = DirectCast(OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
+            Name_IsBinarySerialized, ""), XmlAttribute)
+        Dim fieldIsCollectionNode As XmlAttribute = DirectCast(OwnerXmlDocument.CreateNode(XmlNodeType.Attribute, _
+            Name_IsCollectionNode, ""), XmlAttribute)
 
         fieldNameNode.Value = fieldName.Trim
         fieldTypeNode.Value = fieldValue.GetType.FullName
