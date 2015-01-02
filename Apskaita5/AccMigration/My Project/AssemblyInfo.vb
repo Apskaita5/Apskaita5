@@ -10,9 +10,9 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("AccMigration")> 
 <Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("Marius")> 
+<Assembly: AssemblyCompany("Marius Dagys")> 
 <Assembly: AssemblyProduct("AccMigration")> 
-<Assembly: AssemblyCopyright("Copyright © Marius 2014")> 
+<Assembly: AssemblyCopyright("Copyright © Marius Dagys 2014")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

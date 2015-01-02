@@ -214,6 +214,7 @@
     <Compile Include="Assets\F_LongTermAssetComplexDocumentInfoList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Constants.vb" />
     <Compile Include="Documents\F_AccumulativeCosts.Designer.vb">
       <DependentUpon>F_AccumulativeCosts.vb</DependentUpon>
     </Compile>
@@ -1721,14 +1722,59 @@
       </TargetPath>
       <FileType>Assembly</FileType>
     </PublishFile>
-    <PublishFile Include="Apskaita.pdb">
+    <PublishFile Include="DevExpress.Data.v11.2">
       <Visible>False</Visible>
       <PublishState>Exclude</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <FileType>File</FileType>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Printing.v11.2.Core">
+      <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.Utils.v11.2">
+      <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraEditors.v11.2">
+      <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraGrid.v11.2">
+      <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraLayout.v11.2">
+      <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
@@ -1738,33 +1784,6 @@
       <TargetPath>
       </TargetPath>
       <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="MsgBoxLT.pdb">
-      <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <FileType>File</FileType>
-    </PublishFile>
-    <PublishFile Include="office">
-      <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="Techninis\DBStatus.exe">
-      <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
   <ItemGroup>

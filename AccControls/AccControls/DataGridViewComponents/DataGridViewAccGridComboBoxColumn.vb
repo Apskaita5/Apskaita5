@@ -1,6 +1,7 @@
 Imports System.ComponentModel
 Public Class DataGridViewAccGridComboBoxColumn
     Inherits DataGridViewTextBoxColumn
+    Implements IGridComboBox
 
     Public Sub New()
         Dim cell As AccGridComboBoxDataGridViewCell = New AccGridComboBoxDataGridViewCell
@@ -107,6 +108,44 @@ Public Class DataGridViewAccGridComboBoxColumn
                 myDataGridView.Dispose()
         End If
         MyBase.Dispose(disposing)
+    End Sub
+
+
+    Public Function GetBindingContext() As System.Windows.Forms.BindingContext _
+        Implements IGridComboBox.GetBindingContext
+        If Me.DataGridView Is Nothing OrElse Me.DataGridView.FindForm Is Nothing Then Return Nothing
+        Return Me.DataGridView.FindForm.BindingContext
+    End Function
+
+    Public Function HasAtachedGrid() As Boolean _
+        Implements IGridComboBox.HasAtachedGrid
+        Return Not myDataGridView Is Nothing
+    End Function
+
+    Public Sub SetCloseOnSingleClick(ByVal nCloseOnSingleClick As Boolean) _
+        Implements IGridComboBox.SetCloseOnSingleClick
+        _CloseOnSingleClick = nCloseOnSingleClick
+        If Not myDataGridView Is Nothing Then myDataGridView.CloseOnSingleClick = nCloseOnSingleClick
+    End Sub
+
+    Public Sub SetFilterPropertyName(ByVal nFilterPropertyName As String) _
+        Implements IGridComboBox.SetFilterPropertyName
+        If nFilterPropertyName Is Nothing Then nFilterPropertyName = ""
+        _FilterPropertyName = nFilterPropertyName
+    End Sub
+
+    Public Sub SetNestedDataGridView(ByVal grid As System.Windows.Forms.DataGridView) _
+        Implements IGridComboBox.SetNestedDataGridView
+        If Not grid Is Nothing Then
+            myDataGridView = New ToolStripDataGridView(grid, Nothing, _CloseOnSingleClick)
+        Else
+            myDataGridView = Nothing
+        End If
+    End Sub
+
+    Public Sub SetValueMember(ByVal nValueMember As String) _
+        Implements IGridComboBox.SetValueMember
+        Me.ValueMember = nValueMember
     End Sub
 
 End Class

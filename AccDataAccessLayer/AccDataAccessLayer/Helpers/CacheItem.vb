@@ -96,8 +96,8 @@ Public Class CacheItem
         If a Is Nothing OrElse b Is Nothing Then Return False
         Return a._BaseType Is b._BaseType AndAlso a._Type Is b._Type _
             AndAlso a._IsApplicationWide = b._IsApplicationWide _
-            AndAlso (a.IsApplicationWide OrElse a.DatabaseName.Trim.ToLower = b.DatabaseName.Trim.ToLower) AndAlso _
-            a.AreFilterArgumentsEqual(b._FilterArguments)
+            AndAlso (a.IsApplicationWide OrElse a.DatabaseName.Trim.ToLower = b.DatabaseName.Trim.ToLower) _
+            AndAlso a.AreFilterArgumentsEqual(b._FilterArguments)
     End Operator
 
     Public Shared Operator <>(ByVal a As CacheItem, ByVal b As CacheItem) As Boolean

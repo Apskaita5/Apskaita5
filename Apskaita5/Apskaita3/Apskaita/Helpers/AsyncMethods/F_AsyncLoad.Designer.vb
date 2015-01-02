@@ -20,7 +20,7 @@ Partial Class F_AsyncLoad
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar
-        Me.CancelButton = New System.Windows.Forms.Button
+        Me.nCancelButton = New System.Windows.Forms.Button
         Me.SuspendLayout()
         '
         'ProgressBar1
@@ -31,16 +31,16 @@ Partial Class F_AsyncLoad
         Me.ProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee
         Me.ProgressBar1.TabIndex = 0
         '
-        'CancelButton
+        'nCancelButton
         '
-        Me.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.CancelButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CancelButton.Location = New System.Drawing.Point(167, 36)
-        Me.CancelButton.Name = "CancelButton"
-        Me.CancelButton.Size = New System.Drawing.Size(66, 23)
-        Me.CancelButton.TabIndex = 1
-        Me.CancelButton.Text = "Atšaukti"
-        Me.CancelButton.UseVisualStyleBackColor = True
+        Me.nCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.nCancelButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nCancelButton.Location = New System.Drawing.Point(167, 36)
+        Me.nCancelButton.Name = "nCancelButton"
+        Me.nCancelButton.Size = New System.Drawing.Size(66, 23)
+        Me.nCancelButton.TabIndex = 1
+        Me.nCancelButton.Text = "Atšaukti"
+        Me.nCancelButton.UseVisualStyleBackColor = True
         '
         'F_AsyncLoad
         '
@@ -48,7 +48,7 @@ Partial Class F_AsyncLoad
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(245, 67)
         Me.ControlBox = False
-        Me.Controls.Add(Me.CancelButton)
+        Me.Controls.Add(Me.nCancelButton)
         Me.Controls.Add(Me.ProgressBar1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "F_AsyncLoad"
@@ -60,5 +60,5 @@ Partial Class F_AsyncLoad
 
     End Sub
     Friend WithEvents ProgressBar1 As System.Windows.Forms.ProgressBar
-    Friend WithEvents CancelButton As System.Windows.Forms.Button
+    Friend WithEvents nCancelButton As System.Windows.Forms.Button
 End Class

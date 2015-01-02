@@ -100,7 +100,7 @@ Namespace HelperLists
             _Content = CStrSafe(dr.Item(2)).Trim
 
             Dim Corespondations As String() = CStrSafe(dr.Item(3)).Trim.Split( _
-                New Char() {","}, StringSplitOptions.RemoveEmptyEntries)
+                New Char() {","c}, StringSplitOptions.RemoveEmptyEntries)
 
             Dim DebetList As New List(Of String)
             Dim CreditList As New List(Of String)

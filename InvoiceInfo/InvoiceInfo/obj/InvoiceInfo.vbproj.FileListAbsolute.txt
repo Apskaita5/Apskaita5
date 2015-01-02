@@ -1,9 +1,0 @@
-E:\My Documents\My Projects\InvoiceInfo\InvoiceInfo\bin\Release\InvoiceInfo.dll
-E:\My Documents\My Projects\InvoiceInfo\InvoiceInfo\bin\Release\InvoiceInfo.pdb
-E:\My Documents\My Projects\InvoiceInfo\InvoiceInfo\bin\Release\InvoiceInfo.xml
-E:\My Documents\My Projects\InvoiceInfo\InvoiceInfo\obj\Release\ResolveAssemblyReference.cache
-E:\My Documents\My Projects\InvoiceInfo\InvoiceInfo\obj\Release\InvoiceInfo.Resources.resources
-E:\My Documents\My Projects\InvoiceInfo\InvoiceInfo\obj\Release\InvoiceInfo.vbproj.GenerateResource.Cache
-E:\My Documents\My Projects\InvoiceInfo\InvoiceInfo\obj\Release\InvoiceInfo.dll
-E:\My Documents\My Projects\InvoiceInfo\InvoiceInfo\obj\Release\InvoiceInfo.xml
-E:\My Documents\My Projects\InvoiceInfo\InvoiceInfo\obj\Release\InvoiceInfo.pdb

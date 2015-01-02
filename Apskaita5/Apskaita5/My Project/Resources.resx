@@ -120,8 +120,4 @@
   <data name="Goods_InvalidAmountAfterInventorization" xml:space="preserve">
     <value>Kiekis po inventorizacijos negali būti neigiamas - prekė {0}.</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="LanguageCodes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LanguageCodes.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
-  </data>
 </root>

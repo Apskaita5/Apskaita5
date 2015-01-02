@@ -156,6 +156,7 @@
     <Compile Include="F_PrintReport.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="IGridComboBox.vb" />
     <Compile Include="MenuControl.vb" />
     <Compile Include="MessageBoxEx\MessageBoxEx.vb" />
     <Compile Include="MessageBoxEx\MessageBoxExButton.vb" />

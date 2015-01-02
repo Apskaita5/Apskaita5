@@ -883,7 +883,7 @@
                       </Style>
                       <ZIndex>1</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>=First(Fields!Column17.Value, "ReportData_TableCompany")</Value>
+                      <Value>=IIF(CInt(First(Fields!Column20.Value, "ReportData_TableCompany"))=1, First(Fields!Column17.Value, "ReportData_TableCompany"), IIF(CInt(First(Fields!Column20.Value, "ReportData_TableCompany"))=2, First(Fields!Column22.Value, "ReportData_TableCompany"), ""))</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -905,7 +905,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                       <CanGrow>true</CanGrow>
-                      <Value>=First(Fields!Column8.Value, "ReportData_TableCompany")</Value>
+                      <Value>=IIF(CInt(First(Fields!Column20.Value, "ReportData_TableCompany"))=1, First(Fields!Column8.Value, "ReportData_TableCompany"), IIF(CInt(First(Fields!Column20.Value, "ReportData_TableCompany"))=2, First(Fields!Column23.Value, "ReportData_TableCompany"), IIF(CInt(First(Fields!Column20.Value, "ReportData_TableCompany"))=3, First(Fields!Column21.Value, "ReportData_TableCompany"), "")))</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>

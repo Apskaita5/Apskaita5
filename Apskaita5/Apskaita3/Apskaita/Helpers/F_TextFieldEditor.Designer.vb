@@ -21,8 +21,8 @@ Partial Class F_TextFieldEditor
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_TextFieldEditor))
         Me.Panel2 = New System.Windows.Forms.Panel
-        Me.CancelButton = New System.Windows.Forms.Button
-        Me.OkButton = New System.Windows.Forms.Button
+        Me.nCancelButton = New System.Windows.Forms.Button
+        Me.nOkButton = New System.Windows.Forms.Button
         Me.TextFieldTextBox = New System.Windows.Forms.TextBox
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -30,8 +30,8 @@ Partial Class F_TextFieldEditor
         'Panel2
         '
         Me.Panel2.AutoSize = True
-        Me.Panel2.Controls.Add(Me.CancelButton)
-        Me.Panel2.Controls.Add(Me.OkButton)
+        Me.Panel2.Controls.Add(Me.nCancelButton)
+        Me.Panel2.Controls.Add(Me.nOkButton)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel2.Location = New System.Drawing.Point(0, 303)
         Me.Panel2.Name = "Panel2"
@@ -39,28 +39,28 @@ Partial Class F_TextFieldEditor
         Me.Panel2.Size = New System.Drawing.Size(435, 42)
         Me.Panel2.TabIndex = 3
         '
-        'CancelButton
+        'nCancelButton
         '
-        Me.CancelButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.CancelButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CancelButton.Location = New System.Drawing.Point(348, 12)
-        Me.CancelButton.Name = "CancelButton"
-        Me.CancelButton.Size = New System.Drawing.Size(75, 23)
-        Me.CancelButton.TabIndex = 2
-        Me.CancelButton.Text = "Atšaukti"
-        Me.CancelButton.UseVisualStyleBackColor = True
+        Me.nCancelButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.nCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.nCancelButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nCancelButton.Location = New System.Drawing.Point(348, 12)
+        Me.nCancelButton.Name = "nCancelButton"
+        Me.nCancelButton.Size = New System.Drawing.Size(75, 23)
+        Me.nCancelButton.TabIndex = 2
+        Me.nCancelButton.Text = "Atšaukti"
+        Me.nCancelButton.UseVisualStyleBackColor = True
         '
-        'OkButton
+        'nOkButton
         '
-        Me.OkButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OkButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OkButton.Location = New System.Drawing.Point(255, 12)
-        Me.OkButton.Name = "OkButton"
-        Me.OkButton.Size = New System.Drawing.Size(75, 23)
-        Me.OkButton.TabIndex = 0
-        Me.OkButton.Text = "OK"
-        Me.OkButton.UseVisualStyleBackColor = True
+        Me.nOkButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.nOkButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nOkButton.Location = New System.Drawing.Point(255, 12)
+        Me.nOkButton.Name = "nOkButton"
+        Me.nOkButton.Size = New System.Drawing.Size(75, 23)
+        Me.nOkButton.TabIndex = 0
+        Me.nOkButton.Text = "OK"
+        Me.nOkButton.UseVisualStyleBackColor = True
         '
         'TextFieldTextBox
         '
@@ -79,7 +79,6 @@ Partial Class F_TextFieldEditor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.CancelButton = Me.CancelButton
         Me.ClientSize = New System.Drawing.Size(435, 345)
         Me.Controls.Add(Me.TextFieldTextBox)
         Me.Controls.Add(Me.Panel2)
@@ -95,7 +94,7 @@ Partial Class F_TextFieldEditor
 
     End Sub
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents CancelButton As System.Windows.Forms.Button
-    Friend WithEvents OkButton As System.Windows.Forms.Button
+    Friend WithEvents nCancelButton As System.Windows.Forms.Button
+    Friend WithEvents nOkButton As System.Windows.Forms.Button
     Friend WithEvents TextFieldTextBox As System.Windows.Forms.TextBox
 End Class

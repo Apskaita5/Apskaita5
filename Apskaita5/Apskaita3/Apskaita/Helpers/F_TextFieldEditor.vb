@@ -49,7 +49,7 @@ Public Class F_TextFieldEditor
     End Sub
 
     Private Sub OkButton_Click(ByVal sender As System.Object, _
-        ByVal e As System.EventArgs) Handles OkButton.Click
+        ByVal e As System.EventArgs) Handles nOkButton.Click
 
         If _IsReadOnly Then
             _AcceptChanges = False
@@ -59,14 +59,14 @@ Public Class F_TextFieldEditor
             _TextField = TextFieldTextBox.Text
             Me.DialogResult = Windows.Forms.DialogResult.OK
         End If
-        
+
         Me.Hide()
         Me.Close()
 
     End Sub
 
     Private Sub CancelButton_Click(ByVal sender As System.Object, _
-        ByVal e As System.EventArgs) Handles CancelButton.Click
+        ByVal e As System.EventArgs) Handles nCancelButton.Click
 
         Me.DialogResult = Windows.Forms.DialogResult.Cancel
         Me.Hide()

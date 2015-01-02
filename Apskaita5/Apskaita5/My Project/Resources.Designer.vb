@@ -68,42 +68,5 @@ Namespace My.Resources
                 Return ResourceManager.GetString("Goods_InvalidAmountAfterInventorization", resourceCulture)
             End Get
         End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to aa	Afarų kalba
-        '''ab	Abchazų kalba
-        '''ae	Avestos kalba
-        '''af	Afrikanų kalba
-        '''ak	Akanų kalba
-        '''am	Amherų kalba
-        '''an	Aragoniečių kalba
-        '''ar	Arabų kalba
-        '''as	Asamų kalba
-        '''av	Avarų kalba
-        '''ay	Aimarų kalba
-        '''az	Azerbaidžaniečių kalba
-        '''ba	Baškirų kalba
-        '''be	Baltarusių kalba
-        '''bg	Bulgarų kalba
-        '''bh	Biharų kalba
-        '''bi	Bislama
-        '''bm	Bambarų kalba
-        '''bn	Bengalų kalba
-        '''bo	Tibetiečių kalba
-        '''br	Bretonų kalba
-        '''bs	Bosnių kalba
-        '''ca	Katalonų kalba
-        '''ce	Čečėnų kalba
-        '''ch	Čamorų kalba
-        '''co	Korsikiečių kalba
-        '''cr	Kri kalba
-        '''cs	Čekų kalba
-        '''cu	Bažnytinė [rest of string was truncated]&quot;;.
-        '''</summary>
-        Friend ReadOnly Property LanguageCodes() As String
-            Get
-                Return ResourceManager.GetString("LanguageCodes", resourceCulture)
-            End Get
-        End Property
     End Module
 End Namespace

@@ -6,8 +6,7 @@ Public Module CacheManager
 
     Public Event BaseTypeCacheIsAdded(ByVal e As CacheChangedEventArgs)
 
-    Public Function GetItemFromCache(ByVal nBaseType As Type, ByVal nType As Type, _
-        ByVal nFilterArguments As Object()) As Object
+    Public Function GetItemFromCache(Of T)(ByVal nBaseType As Type, ByVal nFilterArguments As Object()) As T
 
         Dim DatabaseName As String = ""
 
@@ -21,10 +20,10 @@ Public Module CacheManager
 
         If _CacheItemList Is Nothing Then Return Nothing
 
-        Dim ItemToFind As New CacheItem(nBaseType, nType, nFilterArguments, DatabaseName)
+        Dim ItemToFind As New CacheItem(nBaseType, GetType(T), nFilterArguments, DatabaseName)
 
         For Each item As CacheItem In _CacheItemList
-            If item = ItemToFind Then Return item.CachedObject
+            If item = ItemToFind Then Return DirectCast(item.CachedObject, T)
         Next
 
         Return Nothing

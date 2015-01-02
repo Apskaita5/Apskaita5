@@ -44,7 +44,7 @@ Public Class F_AsyncLoad
     End Sub
 
     Private Sub CancelButton_Click(ByVal sender As System.Object, _
-        ByVal e As System.EventArgs) Handles CancelButton.Click
+        ByVal e As System.EventArgs) Handles nCancelButton.Click
 
         If _Operation.Cancel() Then
             _Result = Nothing

@@ -64,7 +64,7 @@ Partial Class F_RawSqlFetch
         '
         Me.SqlQueryTextBox.AllowDrop = True
         Me.SqlQueryTextBox.Location = New System.Drawing.Point(3, 3)
-        Me.SqlQueryTextBox.MaxLength = 5000
+        Me.SqlQueryTextBox.MaxLength = 15000
         Me.SqlQueryTextBox.Multiline = True
         Me.SqlQueryTextBox.Name = "SqlQueryTextBox"
         Me.SqlQueryTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both

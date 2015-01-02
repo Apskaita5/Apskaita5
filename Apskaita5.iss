@@ -47,7 +47,7 @@ Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Releas
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\InvoiceInfo.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Microsoft.Office.Interop.Excel.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\sqlite3.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccMigration.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\My Documents\My Projects\Apskaita5\AccMigration\bin\x86\Release\AccMigration.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\*"; DestDir: "{app}\FFData"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\*"; DestDir: "{app}\MXFD"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Reports\*"; DestDir: "{app}\Reports"; Flags: ignoreversion recursesubdirs createallsubdirs

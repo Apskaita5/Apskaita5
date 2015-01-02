@@ -1,3 +1,0 @@
-E:\My Documents\My Projects\Apskaita5\Apskaita5\obj\Debug\ResolveAssemblyReference.cache
-E:\My Documents\My Projects\Apskaita5\Apskaita5\obj\Debug\ApskaitaObjects.Resources.resources
-E:\My Documents\My Projects\Apskaita5\Apskaita5\obj\Debug\Apskaita5.vbproj.GenerateResource.Cache

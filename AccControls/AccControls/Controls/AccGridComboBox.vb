@@ -7,6 +7,7 @@ Imports System.Reflection
 <System.ComponentModel.LookupBindingProperties("DataSource", "DisplayMember", "ValueMember", "SelectedValue")> _
 Partial Public Class AccGridComboBox
     Inherits ComboBox
+    Implements IGridComboBox
 
     Private Const WM_LBUTTONDOWN As UInt32 = &H201
     Private Const WM_LBUTTONDBLCLK As UInt32 = &H203
@@ -328,5 +329,39 @@ Partial Public Class AccGridComboBox
         End Try
         Return newValue
     End Function
+
+
+    Public Function GetBindingContext() As System.Windows.Forms.BindingContext _
+        Implements IGridComboBox.GetBindingContext
+        If Me.FindForm Is Nothing Then Return Nothing
+        Return Me.FindForm.BindingContext
+    End Function
+
+    Public Function GridIsAttached() As Boolean _
+        Implements IGridComboBox.HasAtachedGrid
+        Return Not myDataGridView Is Nothing
+    End Function
+
+    Public Sub SetCloseOnSingleClick(ByVal nCloseOnSingleClick As Boolean) _
+        Implements IGridComboBox.SetCloseOnSingleClick
+        If myDataGridView Is Nothing Then Exit Sub
+        myDataGridView.CloseOnSingleClick = nCloseOnSingleClick
+    End Sub
+
+    Public Sub SetFilterPropertyName(ByVal nFilterPropertyName As String) _
+        Implements IGridComboBox.SetFilterPropertyName
+        If nFilterPropertyName Is Nothing Then nFilterPropertyName = ""
+        _FilterPropertyName = nFilterPropertyName.Trim
+    End Sub
+
+    Public Sub SetNestedDataGridView(ByVal grid As System.Windows.Forms.DataGridView) _
+        Implements IGridComboBox.SetNestedDataGridView
+        AddDataGridView(grid, True)
+    End Sub
+
+    Public Sub SetValueMember(ByVal nValueMember As String) _
+        Implements IGridComboBox.SetValueMember
+        Me.ValueMember = nValueMember
+    End Sub
 
 End Class
