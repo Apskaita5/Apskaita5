@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Public Class AccGridComboBoxDataGridViewCell
     Inherits DataGridViewTextBoxCell
 
-    Friend ReadOnly Property EditingAccGridComboBox() As AccGridComboBox
+    Friend ReadOnly Property EditingAccGridComboBox() As AccGridComboBoxEditingControl
         Get
             Return TryCast(Me.DataGridView.EditingControl, AccGridComboBoxEditingControl)
         End Get
@@ -25,7 +25,7 @@ Public Class AccGridComboBoxDataGridViewCell
 
         MyBase.InitializeEditingControl(nRowIndex, nInitialFormattedValue, nDataGridViewCellStyle)
 
-        Dim cEditBox As AccGridComboBox = TryCast(Me.DataGridView.EditingControl, AccGridComboBox)
+        Dim cEditBox As AccGridComboBoxEditingControl = TryCast(Me.DataGridView.EditingControl, AccGridComboBoxEditingControl)
 
         If cEditBox IsNot Nothing Then
 
@@ -37,6 +37,7 @@ Public Class AccGridComboBoxDataGridViewCell
                 cEditBox.ValueMember = DirectCast(MyBase.OwningColumn, DataGridViewAccGridComboBoxColumn).ValueMember
                 cEditBox.InstantBinding = DirectCast(MyBase.OwningColumn, DataGridViewAccGridComboBoxColumn).InstantBinding
                 cEditBox.FilterPropertyName = DirectCast(MyBase.OwningColumn, DataGridViewAccGridComboBoxColumn).FilterPropertyName
+                cEditBox.EmptyValueString = DirectCast(MyBase.OwningColumn, DataGridViewAccGridComboBoxColumn).EmptyValueString
 
             End If
 
@@ -57,7 +58,7 @@ Public Class AccGridComboBoxDataGridViewCell
             Throw New InvalidOperationException("Cell is detached or its grid has no editing control.")
         End If
 
-        Dim EditBox As AccGridComboBox = TryCast(cDataGridView.EditingControl, AccGridComboBox)
+        Dim EditBox As AccGridComboBoxEditingControl = TryCast(cDataGridView.EditingControl, AccGridComboBoxEditingControl)
         If EditBox IsNot Nothing Then
             ' avoid interferences between the editing sessions
             'EditBox.ClearUndo()
@@ -94,9 +95,9 @@ Public Class AccGridComboBoxDataGridViewCell
 
     Protected Overrides Function SetValue(ByVal rowIndex As Integer, ByVal value As Object) As Boolean
         If Not Me.DataGridView Is Nothing AndAlso Not Me.DataGridView.EditingControl Is Nothing _
-            AndAlso TypeOf Me.DataGridView.EditingControl Is AccGridComboBox Then
+            AndAlso TypeOf Me.DataGridView.EditingControl Is AccGridComboBoxEditingControl Then
             Return MyBase.SetValue(rowIndex, DirectCast(Me.DataGridView.EditingControl, _
-                AccGridComboBox).SelectedValue)
+                AccGridComboBoxEditingControl).SelectedValue)
         Else
             Return MyBase.SetValue(rowIndex, value)
         End If

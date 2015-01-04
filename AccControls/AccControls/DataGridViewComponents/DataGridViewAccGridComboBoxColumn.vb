@@ -3,6 +3,8 @@ Public Class DataGridViewAccGridComboBoxColumn
     Inherits DataGridViewTextBoxColumn
     Implements IGridComboBox
 
+    Private _IsLegalDispose As Boolean = False
+
     Public Sub New()
         Dim cell As AccGridComboBoxDataGridViewCell = New AccGridComboBoxDataGridViewCell
         MyBase.CellTemplate = cell
@@ -32,18 +34,31 @@ Public Class DataGridViewAccGridComboBoxColumn
         End Set
     End Property
 
-    Private myDataGridView As ToolStripDataGridView = Nothing
+    Private WithEvents myDataGridView As ToolStripDataGridView = Nothing
     Public Property ComboDataGridView() As DataGridView
         Get
             If Not myDataGridView Is Nothing Then Return myDataGridView.DataGridViewControl
             Return Nothing
         End Get
         Set(ByVal value As DataGridView)
-            If Not value Is Nothing Then
-                myDataGridView = New ToolStripDataGridView(value, Nothing, _CloseOnSingleClick)
-            Else
+
+            If Not myDataGridView Is Nothing Then
+                Try
+                    RemoveHandler myDataGridView.Disposed, AddressOf CheckForInvalidDispose
+                Catch ex As Exception
+                End Try
+                DoDispose()
                 myDataGridView = Nothing
+                _IsLegalDispose = False
             End If
+
+            If Not value Is Nothing Then
+
+                myDataGridView = New ToolStripDataGridView(value, Nothing, _CloseOnSingleClick)
+                AddHandler myDataGridView.Disposed, AddressOf CheckForInvalidDispose
+
+            End If
+
         End Set
     End Property
 
@@ -90,6 +105,17 @@ Public Class DataGridViewAccGridComboBoxColumn
         End Set
     End Property
 
+    Private _EmptyValueString As String = ""
+    Public Property EmptyValueString() As String
+        Get
+            Return _EmptyValueString
+        End Get
+        Set(ByVal value As String)
+            If value Is Nothing Then value = ""
+            _EmptyValueString = value
+        End Set
+    End Property
+
     Public Overrides Function ToString() As String
         Return "DataGridViewAccGridComboBoxColumn{Name=" & Me.Name & ", Index=" & Me.Index.ToString & "}"
     End Function
@@ -100,14 +126,28 @@ Public Class DataGridViewAccGridComboBoxColumn
 
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing Then
-            If Not myDataGridView Is Nothing _
-                AndAlso Not myDataGridView.DataGridViewControl Is Nothing _
-                AndAlso Not myDataGridView.DataGridViewControl.IsDisposed Then _
-                myDataGridView.DataGridViewControl.Dispose()
-            If Not myDataGridView Is Nothing AndAlso Not myDataGridView.IsDisposed Then _
-                myDataGridView.Dispose()
+            DoDispose()
         End If
         MyBase.Dispose(disposing)
+    End Sub
+
+
+    Private Sub DoDispose()
+        _IsLegalDispose = True
+        If Not myDataGridView Is Nothing _
+            AndAlso Not myDataGridView.DataGridViewControl Is Nothing _
+            AndAlso Not myDataGridView.DataGridViewControl.IsDisposed Then _
+            myDataGridView.DataGridViewControl.Dispose()
+        If Not myDataGridView Is Nothing AndAlso Not myDataGridView.IsDisposed Then _
+            myDataGridView.Dispose()
+    End Sub
+
+    Private Sub CheckForInvalidDispose(ByVal sender As Object, ByVal e As EventArgs)
+
+        If Not _IsLegalDispose Then
+            Throw New InvalidOperationException("ToolStripDataGridView was disposed prior to DataGridViewAccGridComboBoxColumn.")
+        End If
+
     End Sub
 
 
@@ -136,16 +176,17 @@ Public Class DataGridViewAccGridComboBoxColumn
 
     Public Sub SetNestedDataGridView(ByVal grid As System.Windows.Forms.DataGridView) _
         Implements IGridComboBox.SetNestedDataGridView
-        If Not grid Is Nothing Then
-            myDataGridView = New ToolStripDataGridView(grid, Nothing, _CloseOnSingleClick)
-        Else
-            myDataGridView = Nothing
-        End If
+        Me.ComboDataGridView = grid
     End Sub
 
     Public Sub SetValueMember(ByVal nValueMember As String) _
         Implements IGridComboBox.SetValueMember
         Me.ValueMember = nValueMember
+    End Sub
+
+    Public Sub SetEmptyValueString(ByVal nEmptyValueString As String) _
+        Implements IGridComboBox.SetEmptyValueString
+        Me.EmptyValueString = nEmptyValueString
     End Sub
 
 End Class

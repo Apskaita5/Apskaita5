@@ -67,7 +67,14 @@ Public Class ToolStripDataGridView
         If DataGridViewControl Is Nothing OrElse _Parent Is Nothing Then Exit Sub
         If Char.IsLetterOrDigit(e.KeyChar) OrElse Char.IsPunctuation(e.KeyChar) OrElse Char.IsSymbol(e.KeyChar) _
             OrElse Char.IsWhiteSpace(e.KeyChar) Then
-            _Parent.Text = _Parent.Text & e.KeyChar
+            If Not _Parent.EmptyValueString Is Nothing AndAlso _
+                Not String.IsNullOrEmpty(_Parent.EmptyValueString.Trim) AndAlso _
+                _Parent.Text.Trim.ToLower = _Parent.EmptyValueString.Trim.ToLower Then
+                _Parent.Text = e.KeyChar
+            Else
+                _Parent.Text = _Parent.Text & e.KeyChar
+            End If
+
         ElseIf Convert.ToChar(Keys.Back) = e.KeyChar AndAlso _Parent.Text.Length > 0 Then
             _Parent.Text = _Parent.Text.Substring(0, _Parent.Text.Length - 1)
         Else

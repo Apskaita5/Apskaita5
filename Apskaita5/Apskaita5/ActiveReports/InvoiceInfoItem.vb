@@ -240,7 +240,7 @@ Namespace ActiveReports
         End Function
 
         Public Overrides Function ToString() As String
-            Return _Content
+            Return String.Format("{0} Nr. {1}: {2}", _Date.ToString("yyyy-MM-dd"), _Number, _Content)
         End Function
 
 #End Region

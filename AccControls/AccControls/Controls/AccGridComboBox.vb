@@ -20,6 +20,8 @@ Partial Public Class AccGridComboBox
     Private _InstantBinding As Boolean = True
     Private _FilterPropertyName As String = ""
     Private _InternalTextChange As Boolean = False
+    Private _EmptyValueString As String = ""
+
 
 #Region "Disabled properties"
 
@@ -96,6 +98,16 @@ Partial Public Class AccGridComboBox
         Set(ByVal value As Object)
             SetValue(value, True)
             MyBase.OnSelectedValueChanged(New EventArgs)
+        End Set
+    End Property
+
+    Public Property EmptyValueString() As String
+        Get
+            Return _EmptyValueString
+        End Get
+        Set(ByVal value As String)
+            If value Is Nothing Then value = ""
+            _EmptyValueString = value
         End Set
     End Property
 
@@ -362,6 +374,11 @@ Partial Public Class AccGridComboBox
     Public Sub SetValueMember(ByVal nValueMember As String) _
         Implements IGridComboBox.SetValueMember
         Me.ValueMember = nValueMember
+    End Sub
+
+    Public Sub SetEmptyValueString(ByVal nEmptyValueString As String) _
+        Implements IGridComboBox.SetEmptyValueString
+        Me.EmptyValueString = nEmptyValueString
     End Sub
 
 End Class
