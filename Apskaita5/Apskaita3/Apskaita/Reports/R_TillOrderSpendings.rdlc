@@ -1093,7 +1093,7 @@
         <CanGrow>true</CanGrow>
         <Left>1.26984cm</Left>
         <Height>0.35cm</Height>
-        <Value>(įmonės pavadinimas, kodas, pinigus mokančio asmens pareigos, vardas, pavardė, parašas)</Value>
+        <Value>(įmonės pavadinimas, kodas, pinigus gaunančio asmens pareigos, vardas, pavardė, parašas)</Value>
       </Textbox>
       <Textbox Name="textbox2">
         <Top>5.71429cm</Top>

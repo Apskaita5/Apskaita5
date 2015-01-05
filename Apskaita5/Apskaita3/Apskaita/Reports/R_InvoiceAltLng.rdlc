@@ -14,12 +14,13 @@
   <InteractiveWidth>8.27in</InteractiveWidth>
   <rd:GridSpacing>0.25cm</rd:GridSpacing>
   <rd:SnapToGrid>true</rd:SnapToGrid>
+  <RightMargin>1cm</RightMargin>
+  <LeftMargin>3cm</LeftMargin>
   <PageHeader>
     <PrintOnFirstPage>true</PrintOnFirstPage>
     <ReportItems>
       <Textbox Name="textbox48">
         <rd:DefaultName>textbox48</rd:DefaultName>
-        <Top>0.7875in</Top>
         <Width>6.49688in</Width>
         <Style>
           <FontFamily>Calibri</FontFamily>
@@ -31,13 +32,14 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
         <CanGrow>true</CanGrow>
-        <Left>1.08281in</Left>
+        <Height>0.25in</Height>
         <Value>="Page " &amp; Globals!PageNumber &amp; " of " &amp; Globals!TotalPages</Value>
       </Textbox>
     </ReportItems>
-    <Height>1.0375in</Height>
+    <Height>0.29531in</Height>
     <PrintOnLastPage>true</PrintOnLastPage>
   </PageHeader>
+  <BottomMargin>2cm</BottomMargin>
   <rd:ReportID>38e6f409-c908-4f97-a361-15d2f81a572e</rd:ReportID>
   <PageWidth>8.27in</PageWidth>
   <DataSets>
@@ -783,7 +785,7 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
-  <Width>8.27in</Width>
+  <Width>6.50729in</Width>
   <Body>
     <ColumnSpacing>1cm</ColumnSpacing>
     <ReportItems>
@@ -795,7 +797,7 @@
         <Source>Database</Source>
         <Style />
         <ZIndex>10</ZIndex>
-        <Left>5.21719in</Left>
+        <Left>4.13438in</Left>
         <Height>0.75in</Height>
         <Value>=First(Fields!P_Column2.Value, "ReportData_TableGeneral")</Value>
       </Image>
@@ -814,7 +816,6 @@
         </Style>
         <ZIndex>9</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>1.08281in</Left>
         <Height>1.75cm</Height>
         <Value>="Other remarks: " &amp; vbcrlf &amp; First(Fields!Column16.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
@@ -833,7 +834,6 @@
         </Style>
         <ZIndex>8</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>1.08281in</Left>
         <Height>1.75cm</Height>
         <Value>="VAT exeptions: " &amp; vbcrlf &amp; First(Fields!Column18.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
@@ -920,7 +920,6 @@
           </TableColumn>
         </TableColumns>
         <Height>0.75in</Height>
-        <Left>1.08281in</Left>
       </Table>
       <Table Name="table4">
         <ZIndex>6</ZIndex>
@@ -1063,7 +1062,6 @@
           </TableColumn>
         </TableColumns>
         <Height>0.99997cm</Height>
-        <Left>1.08281in</Left>
       </Table>
       <Table Name="table3">
         <ZIndex>5</ZIndex>
@@ -1194,7 +1192,7 @@
           </TableColumn>
         </TableColumns>
         <Height>2.25003cm</Height>
-        <Left>4.52813in</Left>
+        <Left>3.44532in</Left>
       </Table>
       <Table Name="table2">
         <ZIndex>4</ZIndex>
@@ -1440,13 +1438,11 @@
           </TableColumn>
         </TableColumns>
         <Height>4.27497cm</Height>
-        <Left>1.08281in</Left>
       </Table>
       <Table Name="table1">
         <ZIndex>3</ZIndex>
         <DataSetName>ReportData_Table1</DataSetName>
         <Top>9.25cm</Top>
-        <Width>6.50729in</Width>
         <Details>
           <TableRows>
             <TableRow>
@@ -2111,7 +2107,6 @@
             </TableRow>
           </TableRows>
         </Footer>
-        <Left>1.08281in</Left>
       </Table>
       <Textbox Name="textbox3">
         <rd:DefaultName>textbox3</rd:DefaultName>
@@ -2127,7 +2122,6 @@
         </Style>
         <ZIndex>2</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>1.08281in</Left>
         <Height>1cm</Height>
         <Value>=IIF(First(Fields!Column19.Value, "ReportData_TableGeneral")="1","CREDIT ", IIF(First(Fields!Column19.Value, "ReportData_TableGeneral")="2","DEBIT ","")) &amp; IIF(First(Fields!Column4.Value, "ReportData_TableCompany")&lt;&gt;"", "VAT ","") &amp; "INVOICE"</Value>
       </Textbox>
@@ -2144,7 +2138,6 @@
         </Style>
         <ZIndex>1</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>1.08281in</Left>
         <Height>2.25cm</Height>
         <Value>Please ensure the invoice number and the payment pupose are indicated on the payment orders. 
 
@@ -2156,7 +2149,6 @@ Thank you for cooperation! </Value>
         <MIMEType>image/jpeg</MIMEType>
         <Source>Database</Source>
         <Style />
-        <Left>1.08281in</Left>
         <Height>0.88594in</Height>
         <Value>=First(Fields!P_Column1.Value, "ReportData_TableGeneral")</Value>
       </Image>
@@ -2164,5 +2156,6 @@ Thank you for cooperation! </Value>
     <Height>9.05625in</Height>
   </Body>
   <Language>en</Language>
+  <TopMargin>2cm</TopMargin>
   <PageHeight>11.69in</PageHeight>
 </Report>

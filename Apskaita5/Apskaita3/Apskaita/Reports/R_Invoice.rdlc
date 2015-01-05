@@ -14,12 +14,14 @@
   <InteractiveWidth>8.27in</InteractiveWidth>
   <rd:GridSpacing>0.25cm</rd:GridSpacing>
   <rd:SnapToGrid>true</rd:SnapToGrid>
+  <RightMargin>1cm</RightMargin>
+  <LeftMargin>3cm</LeftMargin>
   <PageHeader>
     <PrintOnFirstPage>true</PrintOnFirstPage>
     <ReportItems>
       <Textbox Name="textbox48">
         <rd:DefaultName>textbox48</rd:DefaultName>
-        <Top>0.68906in</Top>
+        <Top>0.09844in</Top>
         <Width>6.49688in</Width>
         <Style>
           <FontFamily>Calibri</FontFamily>
@@ -31,13 +33,14 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
         <CanGrow>true</CanGrow>
-        <Left>1.08281in</Left>
+        <Height>0.25in</Height>
         <Value>="Psl. " &amp; Globals!PageNumber &amp; " iš " &amp; Globals!TotalPages</Value>
       </Textbox>
     </ReportItems>
-    <Height>0.93906in</Height>
+    <Height>0.39375in</Height>
     <PrintOnLastPage>true</PrintOnLastPage>
   </PageHeader>
+  <BottomMargin>2cm</BottomMargin>
   <rd:ReportID>38e6f409-c908-4f97-a361-15d2f81a572e</rd:ReportID>
   <PageWidth>8.27in</PageWidth>
   <DataSets>
@@ -783,7 +786,7 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
-  <Width>8.27in</Width>
+  <Width>6.59531in</Width>
   <Body>
     <ColumnSpacing>1cm</ColumnSpacing>
     <ReportItems>
@@ -795,7 +798,7 @@
         <Source>Database</Source>
         <Style />
         <ZIndex>10</ZIndex>
-        <Left>5.21719in</Left>
+        <Left>4.13438in</Left>
         <Height>0.75in</Height>
         <Value>=First(Fields!P_Column2.Value, "ReportData_TableGeneral")</Value>
       </Image>
@@ -814,7 +817,6 @@
         </Style>
         <ZIndex>9</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>1.08281in</Left>
         <Height>1.75cm</Height>
         <Value>="Papildomos pastabos: " &amp; vbcrlf &amp; First(Fields!Column15.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
@@ -833,7 +835,6 @@
         </Style>
         <ZIndex>8</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>1.08281in</Left>
         <Height>1.75cm</Height>
         <Value>="PVM tarifų paaiškinimai: " &amp; vbcrlf &amp; First(Fields!Column17.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
@@ -920,7 +921,6 @@
           </TableColumn>
         </TableColumns>
         <Height>0.75in</Height>
-        <Left>1.08281in</Left>
       </Table>
       <Table Name="table4">
         <ZIndex>6</ZIndex>
@@ -1063,7 +1063,6 @@
           </TableColumn>
         </TableColumns>
         <Height>0.99997cm</Height>
-        <Left>1.08281in</Left>
       </Table>
       <Table Name="table3">
         <ZIndex>5</ZIndex>
@@ -1194,7 +1193,7 @@
           </TableColumn>
         </TableColumns>
         <Height>2.25003cm</Height>
-        <Left>4.52813in</Left>
+        <Left>3.44532in</Left>
       </Table>
       <Table Name="table2">
         <ZIndex>4</ZIndex>
@@ -1446,7 +1445,6 @@
           </TableColumn>
         </TableColumns>
         <Height>4.27497cm</Height>
-        <Left>1.08281in</Left>
       </Table>
       <Table Name="table1">
         <ZIndex>3</ZIndex>
@@ -2117,7 +2115,6 @@
             </TableRow>
           </TableRows>
         </Footer>
-        <Left>1.08281in</Left>
       </Table>
       <Textbox Name="textbox3">
         <rd:DefaultName>textbox3</rd:DefaultName>
@@ -2133,7 +2130,6 @@
         </Style>
         <ZIndex>2</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>1.08281in</Left>
         <Height>1cm</Height>
         <Value>=IIF(First(Fields!Column19.Value, "ReportData_TableGeneral")="1","KREDITINĖ ", IIF(First(Fields!Column19.Value, "ReportData_TableGeneral")="2","DEBETINĖ ","")) &amp; IIF(First(Fields!Column4.Value, "ReportData_TableCompany")&lt;&gt;"", "PVM ","") &amp; "SĄSKAITA FAKTŪRA"</Value>
       </Textbox>
@@ -2150,7 +2146,6 @@
         </Style>
         <ZIndex>1</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>1.08281in</Left>
         <Height>2.25cm</Height>
         <Value>Atliekant mokėjimą, prašome nurodyti sąskaitos numerį ir mokėjimo paskirtį.
 
@@ -2162,7 +2157,6 @@ Dėkojame už bendradarbiavimą!</Value>
         <MIMEType>image/jpeg</MIMEType>
         <Source>Database</Source>
         <Style />
-        <Left>1.08281in</Left>
         <Height>0.88594in</Height>
         <Value>=First(Fields!P_Column1.Value, "ReportData_TableGeneral")</Value>
       </Image>
@@ -2170,5 +2164,6 @@ Dėkojame už bendradarbiavimą!</Value>
     <Height>9.15469in</Height>
   </Body>
   <Language>en</Language>
+  <TopMargin>2cm</TopMargin>
   <PageHeight>11.69in</PageHeight>
 </Report>
