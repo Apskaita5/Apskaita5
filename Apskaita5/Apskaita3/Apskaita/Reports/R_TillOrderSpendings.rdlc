@@ -444,7 +444,7 @@
         <ZIndex>43</ZIndex>
         <CanGrow>true</CanGrow>
         <Left>11.11111cm</Left>
-        <Value />
+        <Value>=First(Fields!Column25.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox48">
         <Top>15.71429cm</Top>
@@ -771,7 +771,7 @@
         <CanGrow>true</CanGrow>
         <Left>11.11111cm</Left>
         <Height>0.5cm</Height>
-        <Value />
+        <Value>=First(Fields!Column24.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox22">
         <Top>11.46429cm</Top>
@@ -810,7 +810,7 @@
         <CanGrow>true</CanGrow>
         <Left>2.53968cm</Left>
         <Height>0.5cm</Height>
-        <Value />
+        <Value>=First(Fields!Column8.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox12">
         <Top>11.46429cm</Top>

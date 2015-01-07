@@ -790,9 +790,26 @@
   <Body>
     <ColumnSpacing>1cm</ColumnSpacing>
     <ReportItems>
+      <Textbox Name="textbox11">
+        <rd:DefaultName>textbox11</rd:DefaultName>
+        <Top>5.90625in</Top>
+        <Width>6.49688in</Width>
+        <Style>
+          <FontFamily>Calibri</FontFamily>
+          <FontSize>11pt</FontSize>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>11</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>="Suma su PVM: " &amp; First(Fields!Column22.Value, "ReportData_TableGeneral")</Value>
+      </Textbox>
       <Image Name="image2">
         <Sizing>FitProportional</Sizing>
-        <Top>8.36717in</Top>
+        <Top>8.76092in</Top>
         <Width>2.3625in</Width>
         <MIMEType>image/jpeg</MIMEType>
         <Source>Database</Source>
@@ -806,7 +823,7 @@
         <Visibility>
           <Hidden>=Len(Trim(First(Fields!Column15.Value, "ReportData_TableGeneral")))&lt;2</Hidden>
         </Visibility>
-        <Top>16.75cm</Top>
+        <Top>17.75cm</Top>
         <Width>6.50081in</Width>
         <Style>
           <FontFamily>Calibri</FontFamily>
@@ -824,7 +841,7 @@
         <Visibility>
           <Hidden>=Len(Trim(First(Fields!Column17.Value, "ReportData_TableGeneral")))&lt;2</Hidden>
         </Visibility>
-        <Top>15cm</Top>
+        <Top>16cm</Top>
         <Width>6.50081in</Width>
         <Style>
           <FontFamily>Calibri</FontFamily>
@@ -841,7 +858,7 @@
       <Table Name="table5">
         <ZIndex>7</ZIndex>
         <DataSetName>ReportData_TableCompany</DataSetName>
-        <Top>8.36717in</Top>
+        <Top>8.76092in</Top>
         <Width>4.03594in</Width>
         <Header>
           <TableRows>
@@ -945,7 +962,7 @@
                       </Style>
                       <ZIndex>5</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>Sąskaitos nr</Value>
+                      <Value>Sąskaitos Nr.</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -1627,7 +1644,7 @@
                       </Style>
                       <ZIndex>23</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>Paslauga</Value>
+                      <Value>Prekė/Paslauga</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -2135,7 +2152,7 @@
       </Textbox>
       <Textbox Name="textbox5">
         <rd:DefaultName>textbox5</rd:DefaultName>
-        <Top>18.75cm</Top>
+        <Top>19.75cm</Top>
         <Width>6.50081in</Width>
         <Style>
           <FontFamily>Calibri</FontFamily>
@@ -2161,7 +2178,7 @@ Dėkojame už bendradarbiavimą!</Value>
         <Value>=First(Fields!P_Column1.Value, "ReportData_TableGeneral")</Value>
       </Image>
     </ReportItems>
-    <Height>9.15469in</Height>
+    <Height>9.54844in</Height>
   </Body>
   <Language>en</Language>
   <TopMargin>2cm</TopMargin>

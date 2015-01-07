@@ -466,7 +466,7 @@
         <CanGrow>true</CanGrow>
         <Left>2.76191cm</Left>
         <Height>0.5cm</Height>
-        <Value />
+        <Value>=First(Fields!Column25.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox60">
         <Top>23.28968cm</Top>
@@ -501,7 +501,7 @@
         <CanGrow>true</CanGrow>
         <Left>4.7619cm</Left>
         <Height>0.5cm</Height>
-        <Value />
+        <Value>=First(Fields!Column24.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox62">
         <Top>22.53968cm</Top>
@@ -983,7 +983,7 @@
         <CanGrow>true</CanGrow>
         <Left>2.5873cm</Left>
         <Height>0.5cm</Height>
-        <Value />
+        <Value>=First(Fields!Column25.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox34">
         <Top>12.46429cm</Top>
@@ -1018,7 +1018,7 @@
         <CanGrow>true</CanGrow>
         <Left>4.5873cm</Left>
         <Height>0.5cm</Height>
-        <Value />
+        <Value>=First(Fields!Column24.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox32">
         <Top>11.71429cm</Top>

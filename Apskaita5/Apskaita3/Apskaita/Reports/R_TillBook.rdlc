@@ -1022,7 +1022,7 @@
         <CanGrow>true</CanGrow>
         <Left>10.79365cm</Left>
         <Height>0.19687in</Height>
-        <Value />
+        <Value>=First(Fields!Column25.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox39">
         <Top>6.98413cm</Top>
@@ -1061,7 +1061,7 @@
         <CanGrow>true</CanGrow>
         <Left>3.25cm</Left>
         <Height>0.19687in</Height>
-        <Value />
+        <Value>=First(Fields!Column24.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox41">
         <Top>6.98413cm</Top>
