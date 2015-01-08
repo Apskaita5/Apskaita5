@@ -22,10 +22,10 @@ Public Class AccComboBoxEditingControl
     Public Property EditingControlFormattedValue() As Object _
         Implements System.Windows.Forms.IDataGridViewEditingControl.EditingControlFormattedValue
         Get
-            Return Me.SelectedItem
+            Return Me.SelectedValue
         End Get
         Set(ByVal value As Object)
-            Me.SelectedItem = value
+            Me.SelectedValue = value
         End Set
     End Property
 
@@ -42,8 +42,7 @@ Public Class AccComboBoxEditingControl
     Protected Overrides Sub OnSelectedValueChanged(ByVal e As System.EventArgs)
         _hasValueChanged = True
         Me.EditingControlDataGridView.NotifyCurrentCellDirty(True)
-        MyBase.OnSelectedItemChanged(e)
-
+        MyBase.OnSelectedValueChanged(e)
     End Sub
 
     Protected Overrides Sub OnDropDownClosed(ByVal e As System.EventArgs)

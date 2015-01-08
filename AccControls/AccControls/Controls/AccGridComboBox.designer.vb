@@ -19,10 +19,6 @@ Partial Class AccGridComboBox
                     myDataGridView.DataGridViewControl.Dispose()
                 If Not myDataGridView Is Nothing AndAlso Not myDataGridView.IsDisposed Then _
                     myDataGridView.Dispose()
-            ElseIf Not DisposeToolStripDataGridView AndAlso Not myDropDown Is Nothing _
-                 AndAlso Not myDropDown.IsDisposed Then
-                If Not myDataGridView Is Nothing Then myDropDown.Items.Remove(myDataGridView)
-                myDropDown.Dispose()
             End If
         End If
         MyBase.Dispose(disposing)

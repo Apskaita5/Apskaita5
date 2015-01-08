@@ -14,7 +14,7 @@ Partial Public Class AccGridComboBox
     Private Const WM_KEYF4 As UInt32 = &H134
 
     Private myDataGridView As ToolStripDataGridView = Nothing
-    Private myDropDown As ToolStripDropDown
+    Private myDropDown As ToolStripDropDown = Nothing
     Private _SelectedValue As Object = Nothing
     Private _CloseOnSingleClick As Boolean = True
     Private _InstantBinding As Boolean = True
@@ -46,9 +46,7 @@ Partial Public Class AccGridComboBox
 
         InitializeComponent()
 
-        myDropDown = New ToolStripDropDown()
-        myDropDown.AutoSize = False
-        AddHandler myDropDown.Closed, AddressOf ToolStripDropDown_Closed
+        InitializeToolStripDropDown()
 
     End Sub
 
@@ -127,6 +125,7 @@ Partial Public Class AccGridComboBox
             AndAlso myDataGridView Is nToolStripDataGridView) Then Exit Sub
         myDataGridView = nToolStripDataGridView
         myDataGridView.SetParent(Me)
+        InitializeToolStripDropDown()
         myDropDown.Width = Math.Max(Me.Width, myDataGridView.MinDropDownWidth)
         myDropDown.Height = myDataGridView.DropDownHeight
         myDropDown.Items.Clear()
@@ -341,6 +340,13 @@ Partial Public Class AccGridComboBox
         End Try
         Return newValue
     End Function
+
+    Private Sub InitializeToolStripDropDown()
+        If Not myDropDown Is Nothing AndAlso Not myDropDown.IsDisposed Then Exit Sub
+        myDropDown = New ToolStripDropDown()
+        myDropDown.AutoSize = False
+        AddHandler myDropDown.Closed, AddressOf ToolStripDropDown_Closed
+    End Sub
 
 
     Public Function GetBindingContext() As System.Windows.Forms.BindingContext _

@@ -32,8 +32,7 @@ Public Class AccGridComboBoxDataGridViewCell
             If Not MyBase.OwningColumn Is Nothing AndAlso Not DirectCast(MyBase.OwningColumn, _
                 DataGridViewAccGridComboBoxColumn).ComboDataGridView Is Nothing Then
 
-                cEditBox.AddToolStripDataGridView(DirectCast(MyBase.OwningColumn, _
-                    DataGridViewAccGridComboBoxColumn).GetToolStripDataGridView)
+                cEditBox.AddToolStripDataGridView(DirectCast(MyBase.OwningColumn, DataGridViewAccGridComboBoxColumn).GetToolStripDataGridView)
                 cEditBox.ValueMember = DirectCast(MyBase.OwningColumn, DataGridViewAccGridComboBoxColumn).ValueMember
                 cEditBox.InstantBinding = DirectCast(MyBase.OwningColumn, DataGridViewAccGridComboBoxColumn).InstantBinding
                 cEditBox.FilterPropertyName = DirectCast(MyBase.OwningColumn, DataGridViewAccGridComboBoxColumn).FilterPropertyName
