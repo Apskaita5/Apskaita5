@@ -184,7 +184,7 @@
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>DocumentSerialExists2</Key>
-    <Statement>SELECT COUNT(b.Op_Dok) FROM bz b WHERE b.Op_dok_rusis='sf' AND LOCATE(?SR, b.Op_Dok)=1;</Statement>
+    <Statement>SELECT COUNT(i.InvoiceSerial) FROM invoicesmade i WHERE UPPER(TRIM(i.InvoiceSerial))=UPPER(TRIM(?SR)) ;</Statement>
     <Objects>Settings.DocumentSerialList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -299,7 +299,7 @@
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>ClosingResultsSelect</Key>
-    <Statement>SELECT s.Saskaitosnr, SUM(CASE WHEN d.Op_tipas='Debetas' THEN d.Op_suma ELSE 0 END) AS SumDebit, SUM(CASE WHEN d.Op_tipas='Kreditas' THEN d.Op_suma ELSE 0 END) AS SumCredit FROM saskaitupl s LEFT JOIN bzdata d ON d.Op_saskaita = s.Saskaitosnr LEFT JOIN bz b ON b.Op_ID=d.Op_ID_BZ WHERE (LOCATE(?AA, s.Saskaitosnr)=1 OR LOCATE(?AB, s.Saskaitosnr)=1 OR LOCATE(?AC, s.Saskaitosnr)=1 OR LOCATE(?AD, s.Saskaitosnr)=1) AND b.Op_data&lt;=?DT GROUP BY s.Saskaitosnr;</Statement>
+    <Statement>SELECT s.Saskaitosnr, SUM(CASE WHEN d.Op_tipas='Debetas' THEN d.Op_suma ELSE 0 END) AS SumDebit, SUM(CASE WHEN d.Op_tipas='Kreditas' THEN d.Op_suma ELSE 0 END) AS SumCredit FROM saskaitupl s LEFT JOIN bzdata d ON d.Op_saskaita = s.Saskaitosnr LEFT JOIN bz b ON b.Op_ID=d.Op_ID_BZ WHERE (s.Saskaitosnr LIKE ?AA OR s.Saskaitosnr LIKE ?AB OR s.Saskaitosnr LIKE ?AC OR s.Saskaitosnr LIKE ?AD) AND b.Op_data&lt;=?DT GROUP BY s.Saskaitosnr;</Statement>
     <Objects>General.ClosingEntriesCommand</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -444,7 +444,7 @@
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>DocumentSerialExists3</Key>
-    <Statement>SELECT COUNT(k.BZ_ID) FROM kio k WHERE k.Serija=?SR ;</Statement>
+    <Statement>SELECT COUNT(k.BZ_ID) FROM kio k WHERE UPPER(TRIM(k.Serija))=UPPER(TRIM(?SR)) ;</Statement>
     <Objects>Settings.DocumentSerialList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -2049,7 +2049,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>CreateWorkTimeItemList</Key>
-    <Statement>SELECT a.ID, a.Pavad, d.DU_tipas, d.DS_Serija, d.DS_NR, (SELECT t.Dydis FROM darbuotojai_d t WHERE t.DS_NR=d.DS_NR AND t.DS_Serija=d.DS_Serija AND t.Tipas='k' AND t.Nuo&lt;=?DT ORDER BY t.Nuo DESC LIMIT 1) AS WorkLoad FROM darbuotojai_d d LEFT JOIN asmenys a ON a.ID=d.AK WHERE d.Nuo&lt;=?DT AND d.Tipas='d' AND (SELECT COUNT(t.Tipas) FROM darbuotojai_d t WHERE t.DS_NR=d.DS_NR AND t.DS_Serija=d.DS_Serija AND t.Tipas='n' AND t.Nuo&lt;=?DT)=0 AND (SELECT COUNT(G.ID) FROM WorkTimeItems G LEFT JOIN WorkTimeSheets W ON W.ID=G.ParentID WHERE G.ContractSerial=d.DS_Serija AND G.ContractNumber=d.DS_NR AND W.SheetYear=?YR AND W.SheetMonth=?MN)&lt;1 GROUP BY d.DS_NR, d.DS_Serija;</Statement>
+    <Statement>SELECT a.ID, a.Pavad, d.DU_tipas, d.DS_Serija, d.DS_NR, (SELECT t.Dydis FROM darbuotojai_d t WHERE t.DS_NR=d.DS_NR AND t.DS_Serija=d.DS_Serija AND t.Tipas='k' AND t.Nuo&lt;=?DT ORDER BY t.Nuo DESC LIMIT 1) AS WorkLoad FROM darbuotojai_d d LEFT JOIN asmenys a ON a.ID=d.AK WHERE d.Nuo&lt;=?DT AND d.Tipas='d' AND (SELECT COUNT(t.Tipas) FROM darbuotojai_d t WHERE t.DS_NR=d.DS_NR AND t.DS_Serija=d.DS_Serija AND t.Tipas='n' AND t.Nuo&lt;?DF)=0 AND (SELECT COUNT(G.ID) FROM WorkTimeItems G LEFT JOIN WorkTimeSheets W ON W.ID=G.ParentID WHERE G.ContractSerial=d.DS_Serija AND G.ContractNumber=d.DS_NR AND W.SheetYear=?YR AND W.SheetMonth=?MN)&lt;1 GROUP BY d.DS_NR, d.DS_Serija;</Statement>
     <Objects>Workers.WorkTimeItemList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>

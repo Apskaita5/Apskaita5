@@ -76,6 +76,7 @@ Namespace Workers
             Dim myComm As New SQLCommand("CreateWorkTimeItemList")
             myComm.AddParam("?DT", New Date(parent.Year, parent.Month, _
                 Date.DaysInMonth(parent.Year, parent.Month)).Date)
+            myComm.AddParam("?DF", New Date(parent.Year, parent.Month, 1).Date)
             myComm.AddParam("?YR", parent.Year)
             myComm.AddParam("?MN", parent.Month)
 
