@@ -11,12 +11,12 @@ Namespace HelperLists
         Private _ID As Integer = 0
         Private _Code As String = ""
         Private _Name As String = ""
-        Private _Type As WorkTimeType = WorkTimeType.OtherIncluded
+        Private _Type As WorkTimeType = WorkTimeType.OtherExcluded
         Private _TypeHumanReadable As String = ""
         Private _InclusionPercentage As Double = 100
         Private _SpecialWageShemaApplicable As Boolean = False
         Private _SpecialWageShema As String = ""
-        Private _WithoutWorkHours As Boolean = False
+        Private _WithoutWorkHours As Boolean = True
         Private _AlreadyIncludedInGeneralTime As Boolean = True
 
 
