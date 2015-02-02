@@ -789,9 +789,30 @@
   <Body>
     <ColumnSpacing>1cm</ColumnSpacing>
     <ReportItems>
+      <Textbox Name="textbox11">
+        <rd:DefaultName>textbox11</rd:DefaultName>
+        <Visibility>
+          <Hidden>=(TRIM(First(Fields!Column14.Value, "ReportData_TableCompany"))="")</Hidden>
+        </Visibility>
+        <Top>0.91in</Top>
+        <Width>6.49688in</Width>
+        <Style>
+          <FontFamily>Calibri</FontFamily>
+          <FontSize>11pt</FontSize>
+          <TextAlign>Center</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>11</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Height>0.25in</Height>
+        <Value>=First(Fields!Column14.Value, "ReportData_TableCompany")</Value>
+      </Textbox>
       <Image Name="image2">
         <Sizing>FitProportional</Sizing>
-        <Top>8.26876in</Top>
+        <Top>8.56407in</Top>
         <Width>2.3625in</Width>
         <MIMEType>image/jpeg</MIMEType>
         <Source>Database</Source>
@@ -805,7 +826,7 @@
         <Visibility>
           <Hidden>=Len(Trim(First(Fields!Column15.Value, "ReportData_TableGeneral")))&lt;2</Hidden>
         </Visibility>
-        <Top>16.5cm</Top>
+        <Top>17.25cm</Top>
         <Width>6.50081in</Width>
         <Style>
           <FontFamily>Calibri</FontFamily>
@@ -823,7 +844,7 @@
         <Visibility>
           <Hidden>=Len(Trim(First(Fields!Column17.Value, "ReportData_TableGeneral")))&lt;2</Hidden>
         </Visibility>
-        <Top>14.75cm</Top>
+        <Top>15.5cm</Top>
         <Width>6.50081in</Width>
         <Style>
           <FontFamily>Calibri</FontFamily>
@@ -840,7 +861,7 @@
       <Table Name="table5">
         <ZIndex>7</ZIndex>
         <DataSetName>ReportData_TableCompany</DataSetName>
-        <Top>8.26876in</Top>
+        <Top>8.56407in</Top>
         <Width>4.03594in</Width>
         <Header>
           <TableRows>
@@ -924,7 +945,7 @@
       <Table Name="table4">
         <ZIndex>6</ZIndex>
         <DataSetName>ReportData_TableGeneral</DataSetName>
-        <Top>8cm</Top>
+        <Top>8.75cm</Top>
         <Width>6.49687in</Width>
         <Header>
           <TableRows>
@@ -1066,7 +1087,7 @@
       <Table Name="table3">
         <ZIndex>5</ZIndex>
         <DataSetName>ReportData_TableGeneral</DataSetName>
-        <Top>0.98438in</Top>
+        <Top>1.27969in</Top>
         <Width>3.05156in</Width>
         <Header>
           <TableRows>
@@ -1197,7 +1218,7 @@
       <Table Name="table2">
         <ZIndex>4</ZIndex>
         <DataSetName>ReportData_TableCompany</DataSetName>
-        <Top>0.98438in</Top>
+        <Top>1.27969in</Top>
         <Width>8.57001cm</Width>
         <Style>
           <FontFamily>Calibri</FontFamily>
@@ -1442,7 +1463,7 @@
       <Table Name="table1">
         <ZIndex>3</ZIndex>
         <DataSetName>ReportData_Table1</DataSetName>
-        <Top>9.25cm</Top>
+        <Top>10cm</Top>
         <Details>
           <TableRows>
             <TableRow>
@@ -2110,7 +2131,7 @@
       </Table>
       <Textbox Name="textbox3">
         <rd:DefaultName>textbox3</rd:DefaultName>
-        <Top>7cm</Top>
+        <Top>7.75cm</Top>
         <Width>16.50001cm</Width>
         <Style>
           <FontFamily>Calibri</FontFamily>
@@ -2127,7 +2148,7 @@
       </Textbox>
       <Textbox Name="textbox5">
         <rd:DefaultName>textbox5</rd:DefaultName>
-        <Top>18.5cm</Top>
+        <Top>19.25cm</Top>
         <Width>6.50081in</Width>
         <Style>
           <FontFamily>Calibri</FontFamily>
@@ -2145,6 +2166,9 @@ Thank you for cooperation! </Value>
       </Textbox>
       <Image Name="image1">
         <Sizing>Clip</Sizing>
+        <Visibility>
+          <Hidden>=(IsNothing(First(Fields!P_Column1.Value, "ReportData_TableGeneral")))</Hidden>
+        </Visibility>
         <Width>6.49688in</Width>
         <MIMEType>image/jpeg</MIMEType>
         <Source>Database</Source>
@@ -2153,7 +2177,7 @@ Thank you for cooperation! </Value>
         <Value>=First(Fields!P_Column1.Value, "ReportData_TableGeneral")</Value>
       </Image>
     </ReportItems>
-    <Height>9.05625in</Height>
+    <Height>9.35156in</Height>
   </Body>
   <Language>en</Language>
   <TopMargin>2cm</TopMargin>
