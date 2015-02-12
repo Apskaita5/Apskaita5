@@ -60,11 +60,20 @@ Namespace HelperLists
             Return New RegionalContentInfo(dr)
         End Function
 
+        Friend Shared Function GetRegionalContentInfo(ByVal dr As DataRow) As RegionalContentInfo
+            Return New RegionalContentInfo(dr)
+        End Function
+
+
         Private Sub New()
             ' require use of factory methods
         End Sub
 
         Private Sub New(ByVal dr As String)
+            Fetch(dr)
+        End Sub
+
+        Private Sub New(ByVal dr As DataRow)
             Fetch(dr)
         End Sub
 
@@ -80,6 +89,15 @@ Namespace HelperLists
             _ContentInvoice = DataArray(2).Trim
             _MeasureUnit = DataArray(3).Trim
             _VatExempt = DataArray(4).Trim
+
+        End Sub
+
+        Private Sub Fetch(ByVal dr As DataRow)
+
+            _LanguageCode = CStrSafe(dr.Item(2))
+            _ContentInvoice = CStrSafe(dr.Item(3))
+            _MeasureUnit = CStrSafe(dr.Item(4))
+            _VatExempt = CStrSafe(dr.Item(5))
 
         End Sub
 

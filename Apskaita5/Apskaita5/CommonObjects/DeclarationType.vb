@@ -6,10 +6,12 @@ Public Enum DeclarationType
     FR0572_4
     SD13_1
     SD13_2
+    SD13_5
     SAM_1
     SAM_Aut_1
     SAM_2
     SAM_3
+    SAM_4
     FR0671_1
     FR0671_2
     FR0672_1

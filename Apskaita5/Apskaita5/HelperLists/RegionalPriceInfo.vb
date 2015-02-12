@@ -92,11 +92,20 @@ Namespace HelperLists
             Return New RegionalPriceInfo(dr)
         End Function
 
+        Friend Shared Function GetRegionalPriceInfo(ByVal dr As DataRow) As RegionalPriceInfo
+            Return New RegionalPriceInfo(dr)
+        End Function
+
+
         Private Sub New()
             ' require use of factory methods
         End Sub
 
         Private Sub New(ByVal dr As String)
+            Fetch(dr)
+        End Sub
+
+        Private Sub New(ByVal dr As DataRow)
             Fetch(dr)
         End Sub
 
@@ -111,6 +120,14 @@ Namespace HelperLists
             _CurrencyCode = DataArray(1).Trim
             _ValuePerUnitSales = CRound(CLongSafe(DataArray(2).Trim, 0) / 10000, 4)
             _ValuePerUnitPurchases = CRound(CLongSafe(DataArray(3).Trim, 0) / 10000, 4)
+
+        End Sub
+
+        Private Sub Fetch(ByVal dr As DataRow)
+
+            _CurrencyCode = CStrSafe(dr.Item(2))
+            _ValuePerUnitSales = CDblSafe(dr.Item(3), ROUNDUNITINVOICEMADE, 0)
+            _ValuePerUnitPurchases = CDblSafe(dr.Item(4), ROUNDUNITINVOICERECEIVED, 0)
 
         End Sub
 

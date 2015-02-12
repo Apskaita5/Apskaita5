@@ -37,14 +37,18 @@ Namespace Documents
 #Region " Factory Methods "
 
         Friend Shared Function NewRegionalContentList() As RegionalContentList
-            Dim result As RegionalContentList = New RegionalContentList
-            Return result
+            Return New RegionalContentList
         End Function
 
         Friend Shared Function GetRegionalContentList(ByVal ConcetanatedString As String) As RegionalContentList
-            Dim result As RegionalContentList = New RegionalContentList(ConcetanatedString)
-            Return result
+            Return New RegionalContentList(ConcetanatedString)
         End Function
+
+        Friend Shared Function GetRegionalContentList(Of T As Documents.IRegionalDataObject) _
+            (ByVal parentID As Integer) As RegionalContentList
+            Return New RegionalContentList(GetType(T), parentID)
+        End Function
+
 
         Private Sub New()
             ' require use of factory methods
@@ -63,6 +67,15 @@ Namespace Documents
             Fetch(ConcetanatedString)
         End Sub
 
+        Private Sub New(ByVal parentType As Type, ByVal parentID As Integer)
+            ' require use of factory methods
+            MarkAsChild()
+            Me.AllowEdit = True
+            Me.AllowNew = True
+            Me.AllowRemove = True
+            Fetch(parentType, parentID)
+        End Sub
+
 #End Region
 
 #Region " Data Access "
@@ -78,6 +91,33 @@ Namespace Documents
             Next
 
             RaiseListChangedEvents = True
+
+        End Sub
+
+        Private Sub Fetch(ByVal parentType As Type, ByVal parentID As Integer)
+
+            Dim myComm As New SQLCommand("FetchRegionalContentInfoListByParent")
+            If parentType Is GetType(Documents.Service) Then
+                myComm.AddParam("?AA", 0)
+            ElseIf parentType Is GetType(Goods.GoodsItem) Then
+                myComm.AddParam("?AA", 1)
+            Else
+                Throw New NotImplementedException(String.Format("Type {0} is not implemented in method {1}.GetRegionalPriceInfoListDataTable.", _
+                    parentType.FullName, GetType(RegionalPriceInfoList).FullName))
+            End If
+            myComm.AddParam("?AB", parentID)
+
+            Using myData As DataTable = myComm.Fetch
+
+                RaiseListChangedEvents = False
+
+                For Each dr As DataRow In myData.Rows
+                    Add(RegionalContent.GetRegionalContent(dr))
+                Next
+
+                RaiseListChangedEvents = True
+
+            End Using
 
         End Sub
 

@@ -2399,7 +2399,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>CheckIfUpgradeSucceded</Key>
-    <Statement>SELECT (SELECT COUNT(*) FROM apyskaitos a LEFT JOIN asmenys b ON b.ID=a.Analit WHERE b.ID IS NULL and a.Analit&gt;0) AS LostPersonApysk, (SELECT COUNT(*) FROM bz a LEFT JOIN asmenys b ON b.ID=a.Op_analitika WHERE b.ID IS NULL and a.Op_analitika&gt;0) AS LostPersonBZ, (SELECT COUNT(*) FROM bzdata a LEFT JOIN asmenys b ON b.ID=a.Op_ana WHERE b.ID IS NULL and a.Op_ana&gt;0) AS LostPersonBZDATA, (SELECT COUNT(*) FROM d_avansai_d a LEFT JOIN asmenys b ON b.ID=a.AK WHERE b.ID IS NULL and a.AK&gt;0) AS LostPersonAvansai, (SELECT COUNT(*) FROM darbuotojai_d a LEFT JOIN asmenys b ON b.ID=a.AK WHERE b.ID IS NULL and a.AK&gt;0) AS LostPersonDarbuotojai, (SELECT COUNT(*) FROM du_ziniarastis_d a LEFT JOIN asmenys b ON b.ID=a.AK WHERE b.ID IS NULL and a.AK&gt;0) AS LostPersonDUZ, (SELECT COUNT(*) FROM offsetitems a LEFT JOIN asmenys b ON b.ID=a.PersonID WHERE b.ID IS NULL and a.PersonID&gt;0) AS LostPersonOffsets, (SELECT COUNT(*) FROM advancereports a WHERE NOT a.Account&gt;0) AS AdvanceReportsWithoutAccount, (SELECT COUNT(*) FROM kio k WHERE NOT k.CashAccountID&gt;0) AS KioWithoutCashAccount, (SELECT COUNT(*) FROM kpo k WHERE NOT k.CashAccountID&gt;0) AS KpoWithoutCashAccount, (SELECT COUNT(*) FROM bankoperations b WHERE NOT b.CashAccountID&gt;0) AS BankWithoutCashAccount, (SELECT COUNT(*) FROM bz b LEFT JOIN kio d ON d.BZ_ID=b.Op_ID WHERE b.Op_dok_rusis='kio' AND d.BZ_ID IS NULL) AS LostKio, (SELECT COUNT(*) FROM bz b LEFT JOIN kpo d ON d.BZ_ID=b.Op_ID WHERE b.Op_dok_rusis='kpo' AND d.BZ_ID IS NULL) AS LostKpo, (SELECT COUNT(*) FROM bz b LEFT JOIN bankoperations d ON d.ParentID=b.Op_ID WHERE b.Op_dok_rusis='b' AND d.ParentID IS NULL) AS LostBank, (SELECT COUNT(*) FROM bz b LEFT JOIN invoicesmade d ON d.ID=b.Op_ID WHERE b.Op_dok_rusis='sf' AND d.ID IS NULL) AS LostInvoicesMade, (SELECT COUNT(*) FROM bz b LEFT JOIN invoicesreceived d ON d.ID=b.Op_ID WHERE b.Op_dok_rusis='sg' AND d.ID IS NULL) AS LostInvoicesReceived, (SELECT COUNT(*) FROM bz b LEFT JOIN offsetitems d ON d.ParentID=b.Op_ID WHERE b.Op_dok_rusis='sk' AND d.ParentID IS NULL) AS LostOffsets, (SELECT COUNT(*) FROM invoicesmade i WHERE NOT i.InvoiceNumber&gt;0 OR TRIM(i.InvoiceSerial)='') AS InvoicesWithoutNumber, (SELECT COUNT(*) FROM invoicesreceived i WHERE NOT i.AccountSupplier&gt;0) AS InvoicesReceivedWithoutAccount, (SELECT COUNT(*) FROM bz b LEFT JOIN turtas_op d ON d.JE_ID=b.Op_ID WHERE (b.Op_dok_rusis='amo' OR b.Op_dok_rusis='t' OR b.Op_dok_rusis='tsp') AND d.JE_ID IS NULL) AS LostAssetOperations, (SELECT COUNT(*) FROM turtas_op d LEFT JOIN bz b ON b.Op_ID=d.JE_ID WHERE (d.OperationType='aac' OR d.OperationType='amo' OR d.OperationType='nur' OR d.OperationType='per') AND b.Op_ID IS NULL) AS LostAssetOperations2, (SELECT COUNT(*) FROM turtas t LEFT JOIN bz b ON b.OP_ID=t.ID WHERE b.Op_ID IS NULL) AS LostAssets;</Statement>
+    <Statement>SELECT (SELECT COUNT(*) FROM apyskaitos a LEFT JOIN asmenys b ON b.ID=a.Analit WHERE b.ID IS NULL and a.Analit&gt;0) AS LostPersonApysk, (SELECT COUNT(*) FROM bz a LEFT JOIN asmenys b ON b.ID=a.Op_analitika WHERE b.ID IS NULL and a.Op_analitika&gt;0) AS LostPersonBZ, (SELECT COUNT(*) FROM bzdata a LEFT JOIN asmenys b ON b.ID=a.Op_ana WHERE b.ID IS NULL and a.Op_ana&gt;0) AS LostPersonBZDATA, (SELECT COUNT(*) FROM d_avansai_d a LEFT JOIN asmenys b ON b.ID=a.AK WHERE b.ID IS NULL and a.AK&gt;0) AS LostPersonAvansai, (SELECT COUNT(*) FROM darbuotojai_d a LEFT JOIN asmenys b ON b.ID=a.AK WHERE b.ID IS NULL and a.AK&gt;0) AS LostPersonDarbuotojai, (SELECT COUNT(*) FROM du_ziniarastis_d a LEFT JOIN asmenys b ON b.ID=a.AK WHERE b.ID IS NULL and a.AK&gt;0) AS LostPersonDUZ, (SELECT COUNT(*) FROM offsetitems a LEFT JOIN asmenys b ON b.ID=a.PersonID WHERE b.ID IS NULL and a.PersonID&gt;0) AS LostPersonOffsets, (SELECT COUNT(*) FROM advancereports a WHERE NOT a.Account&gt;0) AS AdvanceReportsWithoutAccount, (SELECT COUNT(*) FROM kio k WHERE NOT k.CashAccountID&gt;0) AS KioWithoutCashAccount, (SELECT COUNT(*) FROM kpo k WHERE NOT k.CashAccountID&gt;0) AS KpoWithoutCashAccount, (SELECT COUNT(*) FROM bankoperations b WHERE NOT b.CashAccountID&gt;0) AS BankWithoutCashAccount, (SELECT COUNT(*) FROM bz b LEFT JOIN kio d ON d.BZ_ID=b.Op_ID WHERE b.Op_dok_rusis='kio' AND d.BZ_ID IS NULL) AS LostKio, (SELECT COUNT(*) FROM bz b LEFT JOIN kpo d ON d.BZ_ID=b.Op_ID WHERE b.Op_dok_rusis='kpo' AND d.BZ_ID IS NULL) AS LostKpo, (SELECT COUNT(*) FROM bz b LEFT JOIN bankoperations d ON d.ParentID=b.Op_ID WHERE b.Op_dok_rusis='b' AND d.ParentID IS NULL) AS LostBank, (SELECT COUNT(*) FROM bz b LEFT JOIN invoicesmade d ON d.ID=b.Op_ID WHERE b.Op_dok_rusis='sf' AND d.ID IS NULL) AS LostInvoicesMade, (SELECT COUNT(*) FROM bz b LEFT JOIN invoicesreceived d ON d.ID=b.Op_ID WHERE b.Op_dok_rusis='sg' AND d.ID IS NULL) AS LostInvoicesReceived, (SELECT COUNT(*) FROM bz b LEFT JOIN offsetitems d ON d.ParentID=b.Op_ID WHERE b.Op_dok_rusis='sk' AND d.ParentID IS NULL) AS LostOffsets, (SELECT COUNT(*) FROM invoicesmade i WHERE NOT i.InvoiceNumber&gt;0 OR TRIM(i.InvoiceSerial)='') AS InvoicesWithoutNumber, (SELECT COUNT(*) FROM invoicesreceived i WHERE NOT i.AccountSupplier&gt;0) AS InvoicesReceivedWithoutAccount, (SELECT COUNT(*) FROM bz b LEFT JOIN turtas_op d ON d.JE_ID=b.Op_ID WHERE (b.Op_dok_rusis='amo' OR b.Op_dok_rusis='t' OR b.Op_dok_rusis='tsp') AND d.JE_ID IS NULL) AS LostAssetOperations, (SELECT COUNT(*) FROM turtas_op d LEFT JOIN bz b ON b.Op_ID=d.JE_ID WHERE (d.OperationType='aac' OR d.OperationType='amo' OR d.OperationType='nur' OR d.OperationType='per') AND b.Op_ID IS NULL) AS LostAssetOperations2, (SELECT COUNT(*) FROM turtas t LEFT JOIN bz b ON b.Op_ID=t.Isigijimo_dok WHERE b.Op_ID IS NULL) AS LostAssets;</Statement>
     <Objects>Administration.CustomDatabaseStructureErrorManager</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3186,5 +3186,45 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
     <Key>FetchGoodsNameGroupList</Key>
     <Statement>SELECT d.Name, g.Name FROM goods d LEFT JOIN prekes_gr g ON g.ID=d.GroupID ORDER BY d.Name;</Statement>
     <Objects>Goods.ImportedGoodsItemList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FixLongTermAssetsInvoiceRelations1</Key>
+    <Statement>UPDATE turtas t SET t.Isigijimo_dok=(SELECT b.Op_ID FROM bz b LEFT JOIN sfg s ON s.BZ_ID=b.Op_ID WHERE s.Rus=3 AND s.P_ID=t.ID) WHERE t.ID = ANY(SELECT s.P_ID FROM sfg s WHERE s.Rus=3);</Statement>
+    <Objects>Administration.CustomDatabaseStructureErrorManager</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FixGoodsInvoiceRelations1</Key>
+    <Statement>UPDATE prekes_op p SET p.BZ_ID=(SELECT s.BZ_ID FROM sfg s WHERE s.P_ID=p.ID AND s.Rus=1 LIMIT 1) WHERE p.ID=ANY(SELECT z.P_ID FROM sfg z WHERE z.Rus=1);</Statement>
+    <Objects>Administration.CustomDatabaseStructureErrorManager</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FixGoodsInvoiceRelations2</Key>
+    <Statement>UPDATE prekes_op p SET p.BZ_ID=(SELECT s.SF_ID FROM sfd s WHERE s.P_ID=p.ID AND s.Rusis=1 LIMIT 1) WHERE p.ID=ANY(SELECT z.P_ID FROM sfd z WHERE z.Rusis=1);</Statement>
+    <Objects>Administration.CustomDatabaseStructureErrorManager</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FixLongTermAssetsInvoiceRelations2</Key>
+    <Statement>UPDATE turtas_op t SET t.BZ_ID=(SELECT b.Op_ID FROM bz b LEFT JOIN sfd s ON s.SF_ID=b.Op_ID WHERE s.Rusis=3 AND s.P_ID=t.ID) WHERE t.ID = ANY(SELECT s.P_ID FROM sfd s WHERE s.Rusis=3);</Statement>
+    <Objects>Administration.CustomDatabaseStructureErrorManager</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchRegionalPriceInfoListByType</Key>
+    <Statement>SELECT r.ParentID, r.ID, r.CurrencyCode, r.ValuePerUnitSales, r.ValuePerUnitPurchases FROM regionalprices r WHERE r.ParentType=?AA ;</Statement>
+    <Objects>HelperLists.RegionalPriceInfoList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchRegionalPriceInfoListByParent</Key>
+    <Statement>SELECT r.ParentID, r.ID, r.CurrencyCode, r.ValuePerUnitSales, r.ValuePerUnitPurchases FROM regionalprices r WHERE r.ParentType=?AA AND r.ParentID=?AB ;</Statement>
+    <Objects>HelperLists.RegionalPriceInfoList, Documents.RegionalPriceList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchRegionalContentInfoListByType</Key>
+    <Statement>SELECT r.ParentID, r.ID, r.LanguageCode, r.ContentInvoice, r.MeasureUnit, r.VatExempt FROM regionalcontents r WHERE r.ParentType=?AA ;</Statement>
+    <Objects>HelperLists.RegionalContentInfoList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchRegionalContentInfoListByParent</Key>
+    <Statement>SELECT r.ParentID, r.ID, r.LanguageCode, r.ContentInvoice, r.MeasureUnit, r.VatExempt FROM regionalcontents r WHERE r.ParentType=?AA AND r.ParentID=?AB ;</Statement>
+    <Objects>HelperLists.RegionalContentInfoList, Documents.RegionalContentList</Objects>
   </MySQL_Statement>
 </NewDataSet>

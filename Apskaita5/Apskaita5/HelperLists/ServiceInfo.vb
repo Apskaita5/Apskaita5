@@ -205,20 +205,22 @@ Namespace HelperLists
             Return result
         End Function
 
-        Friend Shared Function GetServiceInfo(ByVal dr As DataRow) As ServiceInfo
-            Return New ServiceInfo(dr)
+        Friend Shared Function GetServiceInfo(ByVal dr As DataRow, ByVal contentData As DataTable, _
+            ByVal priceData As DataTable) As ServiceInfo
+            Return New ServiceInfo(dr, contentData, priceData)
         End Function
 
         Friend Shared Function GetServiceInfo(ByVal ServiceID As Integer) As ServiceInfo
             Return New ServiceInfo(ServiceID)
         End Function
 
+
         Private Sub New()
             ' require use of factory methods
         End Sub
 
-        Private Sub New(ByVal dr As DataRow)
-            Fetch(dr)
+        Private Sub New(ByVal dr As DataRow, ByVal contentData As DataTable, ByVal priceData As DataTable)
+            Fetch(dr, contentData, priceData)
         End Sub
 
         Private Sub New(ByVal ServiceID As Integer)
@@ -229,7 +231,8 @@ Namespace HelperLists
 
 #Region " Data Access "
 
-        Private Sub Fetch(ByVal dr As DataRow)
+        Private Sub Fetch(ByVal dr As DataRow, ByVal contentData As DataTable, _
+            ByVal priceData As DataTable)
 
             _ID = CIntSafe(dr.Item(0), 0)
             _Type = ConvertEnumDatabaseCode(Of Documents.TradedItemType)(CIntSafe(dr.Item(1), 0))
@@ -244,8 +247,17 @@ Namespace HelperLists
             _AccountPurchase = CLongSafe(dr.Item(9), 0)
             _AccountVatPurchase = CLongSafe(dr.Item(10), 0)
 
-            _RegionalContents = RegionalContentInfoList.GetRegionalContentInfoList(CStrSafe(dr.Item(11)))
-            _RegionalPrices = RegionalPriceInfoList.GetRegionalPriceInfoList(CStrSafe(dr.Item(12)))
+            If contentData Is Nothing Then
+                _RegionalContents = RegionalContentInfoList.GetRegionalContentInfoList(Of Documents.Service)(_ID)
+            Else
+                _RegionalContents = RegionalContentInfoList.GetRegionalContentInfoList(_ID, contentData)
+            End If
+
+            If priceData Is Nothing Then
+                _RegionalPrices = RegionalPriceInfoList.GetRegionalPriceInfoList(Of Documents.Service)(_ID)
+            Else
+                _RegionalPrices = RegionalPriceInfoList.GetRegionalPriceInfoList(_ID, priceData)
+            End If
 
             '_IsInUse = ConvertDbBoolean(CIntSafe(dr.Item(0), 0))
 
@@ -258,7 +270,7 @@ Namespace HelperLists
 
             Using myData As DataTable = myComm.Fetch
                 If myData.Rows.Count < 1 Then Exit Sub
-                Fetch(myData.Rows(0))
+                Fetch(myData.Rows(0), Nothing, Nothing)
             End Using
 
         End Sub
