@@ -29,6 +29,11 @@ Namespace Workers
 
 #Region " Factory Methods "
 
+        ' used to implement automatic sort in datagridview
+        <NonSerialized()> _
+        Private _SortedList As Csla.SortedBindingList(Of WorkTimeItem) = Nothing
+
+
         Friend Shared Function NewWorkTimeItemList(ByVal parent As WorkTimeSheet, _
             ByVal RestDayInfo As WorkTimeClassInfo, ByVal PublicHolydaysInfo As WorkTimeClassInfo) As WorkTimeItemList
             Return New WorkTimeItemList(parent, RestDayInfo, PublicHolydaysInfo)
@@ -38,6 +43,13 @@ Namespace Workers
             Dim result As WorkTimeItemList = New WorkTimeItemList(parent)
             Return result
         End Function
+
+
+        Public Function GetSortedList() As Csla.SortedBindingList(Of WorkTimeItem)
+            If _SortedList Is Nothing Then _SortedList = New Csla.SortedBindingList(Of WorkTimeItem)(Me)
+            Return _SortedList
+        End Function
+
 
         Private Sub New()
             ' require use of factory methods

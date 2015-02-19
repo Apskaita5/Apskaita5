@@ -4,6 +4,7 @@ Public Enum DeclarationType
     FR0572_3
     FR0573_3
     FR0572_4
+    FR0573_4
     SD13_1
     SD13_2
     SD13_5
