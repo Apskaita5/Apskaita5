@@ -413,7 +413,7 @@
         <ZIndex>11</ZIndex>
         <DataSetName>ReportData_Table1</DataSetName>
         <Top>4.25cm</Top>
-        <Width>25.85582cm</Width>
+        <Width>25.85581cm</Width>
         <Details>
           <TableRows>
             <TableRow>
@@ -1530,7 +1530,7 @@
         <CanGrow>true</CanGrow>
         <Left>0.25cm</Left>
         <Height>0.63492cm</Height>
-        <Value>=First(Fields!Column1.Value, "ReportData_TableGeneral") &amp; " SĄSKAITOS APYVARTOS ŽINIARAŠTIS"</Value>
+        <Value>=First(Fields!Column1.Value, "ReportData_TableGeneral") &amp; " " &amp; UCase(First(Fields!Column13.Value, "ReportData_TableGeneral")) &amp; " SĄSKAITOS APYVARTOS ŽINIARAŠTIS"</Value>
       </Textbox>
       <Textbox Name="textbox2">
         <rd:DefaultName>textbox2</rd:DefaultName>

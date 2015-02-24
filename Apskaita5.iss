@@ -15,7 +15,7 @@ DefaultGroupName=Apskaita5
 DisableProgramGroupPage=yes
 OutputDir=E:\My Documents\Inno Output
 OutputBaseFilename=Apskaita5_setup_full
-MinVersion=0,4.0.1381sp4
+MinVersion=0,5.0
 Compression=lzma
 SolidCompression=yes
 

@@ -63,10 +63,10 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="AutoSizeForm" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="AutoSizeDataGridViewColumns" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="FormPropertiesList" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
