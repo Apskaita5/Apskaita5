@@ -153,6 +153,14 @@ Namespace ActiveReports
         End Property
 
 
+        Public Function HasTurnover() As Boolean
+            Return (CRound(_CreditBalanceCurrentPeriodEnd) > 0 OrElse CRound(_DebitBalanceCurrentPeriodEnd) > 0 _
+                OrElse CRound(_CreditClosingCurrentPeriod) > 0 OrElse CRound(_DebitClosingCurrentPeriod) > 0 _
+                OrElse CRound(_CreditTurnoverCurrentPeriod) > 0 OrElse CRound(_DebitTurnoverCurrentPeriod) > 0 _
+                OrElse CRound(_CreditClosingFormerPeriod) > 0 OrElse CRound(_DebitClosingFormerPeriod) > 0 _
+                OrElse CRound(_CreditTurnoverFormerPeriod) > 0 OrElse CRound(_DebitTurnoverFormerPeriod) > 0)
+        End Function
+
 
         Protected Overrides Function GetIdValue() As Object
             Return _ID

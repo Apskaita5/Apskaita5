@@ -95,6 +95,10 @@ Namespace General
                 AddRow(myData, DefaultAccountType.ClosingSummary)
                 AddRow(myData, DefaultAccountType.CurrentProfit)
                 AddRow(myData, DefaultAccountType.FormerProfit)
+                AddRow(myData, DefaultAccountType.GoodsSalesNetCosts)
+                AddRow(myData, DefaultAccountType.GoodsPurchases)
+                AddRow(myData, DefaultAccountType.GoodsDiscounts)
+                AddRow(myData, DefaultAccountType.GoodsValueReduction)
 
                 RaiseListChangedEvents = True
 

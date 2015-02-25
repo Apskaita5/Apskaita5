@@ -21,6 +21,10 @@ Namespace General
         OtherSodraPayable
         OtherPsdPayable
         OtherGpmPayable
+        GoodsSalesNetCosts
+        GoodsPurchases
+        GoodsDiscounts
+        GoodsValueReduction
     End Enum
 
 End Namespace

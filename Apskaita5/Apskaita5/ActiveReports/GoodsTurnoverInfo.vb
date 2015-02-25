@@ -546,6 +546,19 @@ Namespace ActiveReports
         End Property
 
 
+        Public Function HasTurnover() As Boolean
+
+            Return (CRound(_AmountAcquisitions, ROUNDAMOUNTGOODS) > 0 OrElse CRound(_AmountAcquisitionsInWarehouse, ROUNDAMOUNTGOODS) > 0 OrElse _
+                    CRound(_AmountChangeInventorization, ROUNDAMOUNTGOODS) > 0 OrElse CRound(_AmountDiscarded, ROUNDAMOUNTGOODS) > 0 OrElse _
+                    CRound(_AmountDiscardedInWarehouse, ROUNDAMOUNTGOODS) > 0 OrElse CRound(_AmountInWarehousePeriodEnd, ROUNDAMOUNTGOODS) > 0 OrElse _
+                    CRound(_AmountPeriodEnd, ROUNDAMOUNTGOODS) > 0 OrElse CRound(_AmountPurchasesPeriodEnd, ROUNDAMOUNTGOODS) > 0 OrElse _
+                    CRound(_AmountTransfered, ROUNDAMOUNTGOODS) > 0 OrElse CRound(_AmountTransferedInWarehouse, ROUNDAMOUNTGOODS) > 0 OrElse _
+                    CRound(_TotalAdditionalCosts, 2) > 0 OrElse CRound(_TotalDiscounts, 2) > 0 OrElse _
+                    CRound(_TotalValuePeriodEnd, 2) > 0)
+
+        End Function
+
+
         Protected Overrides Function GetIdValue() As Object
             Return _ID
         End Function
