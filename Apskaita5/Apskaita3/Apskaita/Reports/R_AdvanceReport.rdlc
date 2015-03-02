@@ -1074,6 +1074,88 @@
   <Width>6.75in</Width>
   <Body>
     <ReportItems>
+      <Table Name="table6">
+        <ZIndex>28</ZIndex>
+        <DataSetName>ReportData_TableGeneral</DataSetName>
+        <Top>4.125in</Top>
+        <Width>2.375in</Width>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox20">
+                      <rd:DefaultName>textbox20</rd:DefaultName>
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>2</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>Priedas</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox21">
+                      <rd:DefaultName>textbox21</rd:DefaultName>
+                      <Style>
+                        <BorderStyle>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <TextAlign>Center</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>1</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>=First(Fields!Column20.Value, "ReportData_TableGeneral")</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox22">
+                      <rd:DefaultName>textbox22</rd:DefaultName>
+                      <Style>
+                        <FontFamily>Times New Roman</FontFamily>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <CanGrow>true</CanGrow>
+                      <Value>dokumentų.</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.25in</Height>
+            </TableRow>
+          </TableRows>
+        </Header>
+        <TableColumns>
+          <TableColumn>
+            <Width>0.625in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.75in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1in</Width>
+          </TableColumn>
+        </TableColumns>
+        <Height>0.63492cm</Height>
+      </Table>
       <Textbox Name="textbox19">
         <Visibility>
           <Hidden>=NOT LEN(TRIM(First(Fields!Column15.Value, "ReportData_TableGeneral")))&gt;0</Hidden>
@@ -1090,13 +1172,13 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>28</ZIndex>
+        <ZIndex>27</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>0.17719in</Height>
         <Value>=IIF(LEN(TRIM(First(Fields!Column15.Value, "ReportData_TableGeneral")))&gt;0,"Pastabos. " &amp; First(Fields!Column15.Value, "ReportData_TableGeneral"),"")</Value>
       </Textbox>
       <Table Name="table1">
-        <ZIndex>27</ZIndex>
+        <ZIndex>26</ZIndex>
         <DataSetName>ReportData_Table2</DataSetName>
         <Top>2.55952cm</Top>
         <Width>2.39376in</Width>
@@ -1286,7 +1368,7 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>26</ZIndex>
+        <ZIndex>25</ZIndex>
         <CanGrow>true</CanGrow>
         <Left>2.78175cm</Left>
         <Height>0.45cm</Height>
@@ -1305,28 +1387,11 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>25</ZIndex>
+        <ZIndex>24</ZIndex>
         <CanGrow>true</CanGrow>
         <Left>0.0125in</Left>
         <Height>0.45cm</Height>
         <Value>Avanso valiuta</Value>
-      </Textbox>
-      <Textbox Name="textbox17">
-        <rd:DefaultName>textbox17</rd:DefaultName>
-        <Top>10.47619cm</Top>
-        <Width>6cm</Width>
-        <Style>
-          <FontFamily>Times New Roman</FontFamily>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-        <ZIndex>24</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>0.0125in</Left>
-        <Height>0.63492cm</Height>
-        <Value>Priedas __________ dokumentų.</Value>
       </Textbox>
       <Table Name="table5">
         <ZIndex>23</ZIndex>

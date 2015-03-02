@@ -35,5 +35,7 @@ Namespace My
         Protected Overrides Sub OnCreateMainForm()
             Me.MainForm = Global.ApskaitaWUI.MDIParent1
         End Sub
+
     End Class
+
 End Namespace

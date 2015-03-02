@@ -5,7 +5,6 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5F12CA52-9B64-42A3-B168-7861C44FD24E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>ApskaitaObjects</RootNamespace>
     <AssemblyName>ApskaitaObjects</AssemblyName>
