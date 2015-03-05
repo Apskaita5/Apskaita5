@@ -430,7 +430,7 @@
   <Body>
     <ReportItems>
       <Textbox Name="textbox17">
-        <Top>9.16429cm</Top>
+        <Top>8.32699cm</Top>
         <Width>1.5873cm</Width>
         <Style>
           <BorderStyle>
@@ -443,14 +443,14 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>57</ZIndex>
+        <ZIndex>49</ZIndex>
         <CanGrow>true</CanGrow>
         <Left>14.28571cm</Left>
         <Height>0.5cm</Height>
         <Value>=First(Fields!Column25.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
       <Textbox Name="textbox59">
-        <Top>23.28968cm</Top>
+        <Top>21.43571cm</Top>
         <Style>
           <BorderStyle>
             <Bottom>Solid</Bottom>
@@ -462,14 +462,13 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>56</ZIndex>
+        <ZIndex>48</ZIndex>
         <CanGrow>true</CanGrow>
         <Left>2.76191cm</Left>
-        <Height>0.5cm</Height>
         <Value>=First(Fields!Column25.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox60">
-        <Top>23.28968cm</Top>
+        <Top>21.43571cm</Top>
         <Width>2.7619cm</Width>
         <Style>
           <FontFamily>Times New Roman</FontFamily>
@@ -479,13 +478,12 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>55</ZIndex>
+        <ZIndex>47</ZIndex>
         <CanGrow>true</CanGrow>
-        <Height>0.5cm</Height>
         <Value>Gavo kasininkas</Value>
       </Textbox>
       <Textbox Name="textbox61">
-        <Top>22.53968cm</Top>
+        <Top>20.68571cm</Top>
         <Style>
           <BorderStyle>
             <Bottom>Solid</Bottom>
@@ -497,14 +495,14 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>54</ZIndex>
+        <ZIndex>46</ZIndex>
         <CanGrow>true</CanGrow>
         <Left>4.7619cm</Left>
         <Height>0.5cm</Height>
         <Value>=First(Fields!Column24.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox62">
-        <Top>22.53968cm</Top>
+        <Top>20.68571cm</Top>
         <Width>4.7619cm</Width>
         <Style>
           <FontFamily>Times New Roman</FontFamily>
@@ -514,13 +512,13 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>53</ZIndex>
+        <ZIndex>45</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>0.5cm</Height>
         <Value>Vyr. finansininkas (buhalteris)</Value>
       </Textbox>
       <Textbox Name="textbox58">
-        <Top>21.53968cm</Top>
+        <Top>19.68571cm</Top>
         <Style>
           <BorderStyle>
             <Left>None</Left>
@@ -536,13 +534,13 @@
           <PaddingTop>2pt</PaddingTop>
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
-        <ZIndex>52</ZIndex>
+        <ZIndex>44</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>0.5cm</Height>
         <Value>=First(Fields!Column2.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
       <Textbox Name="textbox43">
-        <Top>20.33968cm</Top>
+        <Top>18.48571cm</Top>
         <Style>
           <FontFamily>Times New Roman</FontFamily>
           <TextAlign>Left</TextAlign>
@@ -551,14 +549,14 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>51</ZIndex>
+        <ZIndex>43</ZIndex>
         <CanGrow>true</CanGrow>
         <Left>15.87302cm</Left>
         <Height>0.5cm</Height>
         <Value>ct.</Value>
       </Textbox>
       <Textbox Name="textbox44">
-        <Top>20.33968cm</Top>
+        <Top>18.48571cm</Top>
         <Width>1.5873cm</Width>
         <Style>
           <BorderStyle>
@@ -571,14 +569,14 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>50</ZIndex>
+        <ZIndex>42</ZIndex>
         <CanGrow>true</CanGrow>
         <Left>14.28571cm</Left>
         <Height>0.5cm</Height>
         <Value>=First(Fields!Column25.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
       <Textbox Name="textbox45">
-        <Top>20.33968cm</Top>
+        <Top>18.48571cm</Top>
         <Width>0.95238cm</Width>
         <Style>
           <FontFamily>Times New Roman</FontFamily>
@@ -588,14 +586,14 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>49</ZIndex>
+        <ZIndex>41</ZIndex>
         <CanGrow>true</CanGrow>
         <Left>13.33333cm</Left>
         <Height>0.5cm</Height>
         <Value>=First(Fields!Column7.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
       <Textbox Name="textbox46">
-        <Top>20.88968cm</Top>
+        <Top>19.03571cm</Top>
         <Width>13.33333cm</Width>
         <Style>
           <BorderStyle>
@@ -608,154 +606,14 @@
           <PaddingRight>1pt</PaddingRight>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>48</ZIndex>
+        <ZIndex>40</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>0.35cm</Height>
         <Value>(sumos žodžiais tęsinys)</Value>
       </Textbox>
       <Textbox Name="textbox47">
-        <Top>20.33968cm</Top>
+        <Top>18.48571cm</Top>
         <Width>13.33333cm</Width>
-        <Style>
-          <BorderStyle>
-            <Bottom>Solid</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <PaddingLeft>3pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-        <ZIndex>47</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Height>0.5cm</Height>
-        <Value>=First(Fields!Column32.Value, "ReportData_TableGeneral")</Value>
-      </Textbox>
-      <Textbox Name="textbox49">
-        <Top>19.93968cm</Top>
-        <Style>
-          <BorderStyle>
-            <Top>Solid</Top>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <FontSize>8pt</FontSize>
-          <TextAlign>Center</TextAlign>
-          <PaddingLeft>3pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-        <ZIndex>46</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Height>0.35cm</Height>
-        <Value>(suma žodžiais)</Value>
-      </Textbox>
-      <Textbox Name="textbox50">
-        <Top>19.43968cm</Top>
-        <Style>
-          <BorderStyle>
-            <Top>Solid</Top>
-            <Bottom>Solid</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <PaddingLeft>3pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-        <ZIndex>45</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Height>0.5cm</Height>
-        <Value>=First(Fields!Column31.Value, "ReportData_TableGeneral")</Value>
-      </Textbox>
-      <Textbox Name="textbox51">
-        <Top>18.93968cm</Top>
-        <Style>
-          <BorderStyle>
-            <Bottom>Solid</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <PaddingLeft>3pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-        <ZIndex>44</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Height>0.5cm</Height>
-        <Value>=First(Fields!Column30.Value, "ReportData_TableGeneral")</Value>
-      </Textbox>
-      <Textbox Name="textbox52">
-        <Top>18.33968cm</Top>
-        <Style>
-          <BorderStyle>
-            <Bottom>Solid</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <PaddingLeft>3pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-        <ZIndex>43</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>1.7619cm</Left>
-        <Height>0.5cm</Height>
-        <Value>=First(Fields!Column29.Value, "ReportData_TableGeneral")</Value>
-      </Textbox>
-      <Textbox Name="textbox53">
-        <Top>18.33968cm</Top>
-        <Width>1.7619cm</Width>
-        <Style>
-          <FontFamily>Times New Roman</FontFamily>
-          <TextAlign>Left</TextAlign>
-          <PaddingLeft>1pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-        <ZIndex>42</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Height>0.5cm</Height>
-        <Value>Pagrindas</Value>
-      </Textbox>
-      <Textbox Name="textbox54">
-        <Top>17.78968cm</Top>
-        <Style>
-          <BorderStyle>
-            <Bottom>Solid</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <PaddingLeft>3pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-        <ZIndex>41</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Height>0.5cm</Height>
-        <Value>=First(Fields!Column28.Value, "ReportData_TableGeneral")</Value>
-      </Textbox>
-      <Textbox Name="textbox55">
-        <Top>17.43968cm</Top>
-        <Style>
-          <BorderStyle>
-            <Top>Solid</Top>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <FontSize>8pt</FontSize>
-          <TextAlign>Center</TextAlign>
-          <PaddingLeft>3pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-        <ZIndex>40</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>1.90476cm</Left>
-        <Height>0.35cm</Height>
-        <Value>(įmonės pavadinimas, kodas, pinigus mokančio asmens pareigos, vardas, pavardė, parašas)</Value>
-      </Textbox>
-      <Textbox Name="textbox56">
-        <Top>16.93968cm</Top>
         <Style>
           <BorderStyle>
             <Bottom>Solid</Bottom>
@@ -768,12 +626,82 @@
         </Style>
         <ZIndex>39</ZIndex>
         <CanGrow>true</CanGrow>
+        <Height>0.5cm</Height>
+        <Value>=First(Fields!Column32.Value, "ReportData_TableGeneral")</Value>
+      </Textbox>
+      <Textbox Name="textbox49">
+        <Top>18.08571cm</Top>
+        <Style>
+          <BorderStyle>
+            <Top>Solid</Top>
+          </BorderStyle>
+          <FontFamily>Times New Roman</FontFamily>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Center</TextAlign>
+          <PaddingLeft>3pt</PaddingLeft>
+          <PaddingRight>1pt</PaddingRight>
+          <PaddingBottom>1pt</PaddingBottom>
+        </Style>
+        <ZIndex>38</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Height>0.35cm</Height>
+        <Value>(suma žodžiais)</Value>
+      </Textbox>
+      <Textbox Name="textbox50">
+        <Top>17.58571cm</Top>
+        <Style>
+          <BorderStyle>
+            <Top>Solid</Top>
+            <Bottom>Solid</Bottom>
+          </BorderStyle>
+          <FontFamily>Times New Roman</FontFamily>
+          <PaddingLeft>3pt</PaddingLeft>
+          <PaddingRight>1pt</PaddingRight>
+          <PaddingTop>1pt</PaddingTop>
+          <PaddingBottom>1pt</PaddingBottom>
+        </Style>
+        <ZIndex>37</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Height>0.5cm</Height>
+        <Value>=First(Fields!Column31.Value, "ReportData_TableGeneral")</Value>
+      </Textbox>
+      <Textbox Name="textbox51">
+        <Top>17.08571cm</Top>
+        <Style>
+          <BorderStyle>
+            <Bottom>Solid</Bottom>
+          </BorderStyle>
+          <FontFamily>Times New Roman</FontFamily>
+          <PaddingLeft>3pt</PaddingLeft>
+          <PaddingRight>1pt</PaddingRight>
+          <PaddingTop>1pt</PaddingTop>
+          <PaddingBottom>1pt</PaddingBottom>
+        </Style>
+        <ZIndex>36</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Height>0.5cm</Height>
+        <Value>=First(Fields!Column30.Value, "ReportData_TableGeneral")</Value>
+      </Textbox>
+      <Textbox Name="textbox52">
+        <Top>16.48571cm</Top>
+        <Style>
+          <BorderStyle>
+            <Bottom>Solid</Bottom>
+          </BorderStyle>
+          <FontFamily>Times New Roman</FontFamily>
+          <PaddingLeft>3pt</PaddingLeft>
+          <PaddingRight>1pt</PaddingRight>
+          <PaddingTop>1pt</PaddingTop>
+          <PaddingBottom>1pt</PaddingBottom>
+        </Style>
+        <ZIndex>35</ZIndex>
+        <CanGrow>true</CanGrow>
         <Left>1.7619cm</Left>
         <Height>0.5cm</Height>
-        <Value>=First(Fields!Column27.Value, "ReportData_TableGeneral")</Value>
+        <Value>=First(Fields!Column29.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
-      <Textbox Name="textbox57">
-        <Top>16.93968cm</Top>
+      <Textbox Name="textbox53">
+        <Top>16.48571cm</Top>
         <Width>1.7619cm</Width>
         <Style>
           <FontFamily>Times New Roman</FontFamily>
@@ -783,113 +711,19 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>38</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Height>0.5cm</Height>
-        <Value>Priimta iš</Value>
-      </Textbox>
-      <Textbox Name="textbox39">
-        <Top>15.55556cm</Top>
-        <Width>2.53968cm</Width>
-        <Style>
-          <BorderStyle>
-            <Left>None</Left>
-            <Right>None</Right>
-            <Top>None</Top>
-            <Bottom>None</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <FontWeight>700</FontWeight>
-          <TextAlign>Center</TextAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-        <ZIndex>37</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>11.74603cm</Left>
-        <Height>0.5cm</Height>
-        <Value>=First(Fields!Column3.Value, "ReportData_TableGeneral")</Value>
-      </Textbox>
-      <Textbox Name="textbox40">
-        <Top>15.55556cm</Top>
-        <Width>1.26984cm</Width>
-        <Style>
-          <BorderStyle>
-            <Left>None</Left>
-            <Right>None</Right>
-            <Top>None</Top>
-            <Bottom>None</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <FontWeight>700</FontWeight>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-        <ZIndex>36</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>10.47619cm</Left>
-        <Height>0.5cm</Height>
-        <Value>Serija</Value>
-      </Textbox>
-      <Textbox Name="textbox41">
-        <Top>15.55556cm</Top>
-        <Style>
-          <BorderStyle>
-            <Left>None</Left>
-            <Right>None</Right>
-            <Top>None</Top>
-            <Bottom>None</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <FontWeight>700</FontWeight>
-          <TextAlign>Center</TextAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-        <ZIndex>35</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>15.2381cm</Left>
-        <Height>0.5cm</Height>
-        <Value>=First(Fields!Column4.Value, "ReportData_TableGeneral")</Value>
-      </Textbox>
-      <Textbox Name="textbox42">
-        <Top>15.55556cm</Top>
-        <Width>0.95238cm</Width>
-        <Style>
-          <BorderStyle>
-            <Left>None</Left>
-            <Right>None</Right>
-            <Top>None</Top>
-            <Bottom>None</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <FontWeight>700</FontWeight>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
         <ZIndex>34</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>14.28571cm</Left>
         <Height>0.5cm</Height>
-        <Value>Nr.</Value>
+        <Value>Pagrindas</Value>
       </Textbox>
-      <Textbox Name="textbox38">
-        <Top>16.13968cm</Top>
-        <Width>5.0119cm</Width>
+      <Textbox Name="textbox54">
+        <Top>15.93571cm</Top>
         <Style>
+          <BorderStyle>
+            <Bottom>Solid</Bottom>
+          </BorderStyle>
           <FontFamily>Times New Roman</FontFamily>
-          <FontSize>12pt</FontSize>
-          <FontWeight>700</FontWeight>
-          <TextAlign>Left</TextAlign>
-          <PaddingLeft>1pt</PaddingLeft>
+          <PaddingLeft>3pt</PaddingLeft>
           <PaddingRight>1pt</PaddingRight>
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
@@ -897,10 +731,86 @@
         <ZIndex>33</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>0.5cm</Height>
-        <Value>KVITAS</Value>
+        <Value>=First(Fields!Column28.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
-      <Textbox Name="textbox37">
-        <Top>15.58968cm</Top>
+      <Textbox Name="textbox55">
+        <Top>15.58571cm</Top>
+        <Style>
+          <BorderStyle>
+            <Top>Solid</Top>
+          </BorderStyle>
+          <FontFamily>Times New Roman</FontFamily>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Center</TextAlign>
+          <PaddingLeft>3pt</PaddingLeft>
+          <PaddingRight>1pt</PaddingRight>
+          <PaddingBottom>1pt</PaddingBottom>
+        </Style>
+        <ZIndex>32</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>1.90476cm</Left>
+        <Height>0.35cm</Height>
+        <Value>(įmonės pavadinimas, kodas, pinigus mokančio asmens pareigos, vardas, pavardė, parašas)</Value>
+      </Textbox>
+      <Textbox Name="textbox56">
+        <Top>15.08571cm</Top>
+        <Style>
+          <BorderStyle>
+            <Bottom>Solid</Bottom>
+          </BorderStyle>
+          <FontFamily>Times New Roman</FontFamily>
+          <PaddingLeft>3pt</PaddingLeft>
+          <PaddingRight>1pt</PaddingRight>
+          <PaddingTop>1pt</PaddingTop>
+          <PaddingBottom>1pt</PaddingBottom>
+        </Style>
+        <ZIndex>31</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>1.7619cm</Left>
+        <Height>0.5cm</Height>
+        <Value>=First(Fields!Column27.Value, "ReportData_TableGeneral")</Value>
+      </Textbox>
+      <Textbox Name="textbox57">
+        <Top>15.08571cm</Top>
+        <Width>1.7619cm</Width>
+        <Style>
+          <FontFamily>Times New Roman</FontFamily>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>1pt</PaddingLeft>
+          <PaddingRight>1pt</PaddingRight>
+          <PaddingTop>1pt</PaddingTop>
+          <PaddingBottom>1pt</PaddingBottom>
+        </Style>
+        <ZIndex>30</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Height>0.5cm</Height>
+        <Value>Priimta iš</Value>
+      </Textbox>
+      <Textbox Name="textbox40">
+        <Top>13.70159cm</Top>
+        <Style>
+          <BorderStyle>
+            <Left>None</Left>
+            <Right>None</Right>
+            <Top>None</Top>
+            <Bottom>None</Bottom>
+          </BorderStyle>
+          <FontFamily>Times New Roman</FontFamily>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>29</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>9.20635cm</Left>
+        <Height>0.5cm</Height>
+        <Value>="Serija " &amp; First(Fields!Column3.Value, "ReportData_TableGeneral") &amp; " Nr. " &amp; First(Fields!Column5.Value, "ReportData_TableGeneral")</Value>
+      </Textbox>
+      <Textbox Name="textbox38">
+        <Top>14.28571cm</Top>
         <Width>5.0119cm</Width>
         <Style>
           <FontFamily>Times New Roman</FontFamily>
@@ -912,33 +822,35 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>32</ZIndex>
+        <ZIndex>28</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Height>0.5cm</Height>
+        <Value>KVITAS</Value>
+      </Textbox>
+      <Textbox Name="textbox37">
+        <Top>13.73571cm</Top>
+        <Width>5.0119cm</Width>
+        <Style>
+          <FontFamily>Times New Roman</FontFamily>
+          <FontSize>12pt</FontSize>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>1pt</PaddingLeft>
+          <PaddingRight>1pt</PaddingRight>
+          <PaddingTop>1pt</PaddingTop>
+          <PaddingBottom>1pt</PaddingBottom>
+        </Style>
+        <ZIndex>27</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>0.55cm</Height>
         <Value>Kasos pajamų orderio</Value>
       </Textbox>
-      <Textbox Name="textbox35">
-        <Top>14.58968cm</Top>
+      <Textbox Name="textbox36">
+        <Top>12.69841cm</Top>
         <Style>
           <BorderStyle>
-            <Bottom>Groove</Bottom>
+            <Bottom>Solid</Bottom>
           </BorderStyle>
-          <BorderWidth>
-            <Default>2pt</Default>
-          </BorderWidth>
-          <FontFamily>Times New Roman</FontFamily>
-          <FontSize>9pt</FontSize>
-          <TextAlign>Center</TextAlign>
-        </Style>
-        <ZIndex>31</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>0.0119cm</Left>
-        <Height>0.75cm</Height>
-        <Value>=First(Fields!Column14.Value, "ReportData_TableCompany")</Value>
-      </Textbox>
-      <Textbox Name="textbox36">
-        <Top>13.83968cm</Top>
-        <Style>
           <FontFamily>Georgia</FontFamily>
           <FontSize>14pt</FontSize>
           <TextAlign>Center</TextAlign>
@@ -947,14 +859,13 @@
           <PaddingTop>2pt</PaddingTop>
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
-        <ZIndex>30</ZIndex>
+        <ZIndex>26</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>0.0119cm</Left>
         <Height>0.75cm</Height>
-        <Value>=First(Fields!Column2.Value, "ReportData_TableCompany")</Value>
+        <Value>=First(Fields!Column2.Value, "ReportData_TableCompany") &amp; ", įm. k. " &amp; First(Fields!Column3.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Line Name="line1">
-        <Top>13.33333cm</Top>
+        <Top>12.38095cm</Top>
         <Style>
           <BorderStyle>
             <Default>Dashed</Default>
@@ -963,11 +874,11 @@
             <Default>2pt</Default>
           </BorderWidth>
         </Style>
-        <ZIndex>29</ZIndex>
+        <ZIndex>25</ZIndex>
         <Height>0cm</Height>
       </Line>
       <Textbox Name="textbox33">
-        <Top>12.46429cm</Top>
+        <Top>11.62699cm</Top>
         <Style>
           <BorderStyle>
             <Bottom>Solid</Bottom>
@@ -979,14 +890,14 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>28</ZIndex>
+        <ZIndex>24</ZIndex>
         <CanGrow>true</CanGrow>
         <Left>2.5873cm</Left>
         <Height>0.5cm</Height>
         <Value>=First(Fields!Column25.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox34">
-        <Top>12.46429cm</Top>
+        <Top>11.62699cm</Top>
         <Width>2.5873cm</Width>
         <Style>
           <FontFamily>Times New Roman</FontFamily>
@@ -996,13 +907,13 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>27</ZIndex>
+        <ZIndex>23</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>0.5cm</Height>
         <Value>Gavo kasininkas</Value>
       </Textbox>
       <Textbox Name="textbox31">
-        <Top>11.71429cm</Top>
+        <Top>10.87699cm</Top>
         <Style>
           <BorderStyle>
             <Bottom>Solid</Bottom>
@@ -1014,14 +925,14 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>26</ZIndex>
+        <ZIndex>22</ZIndex>
         <CanGrow>true</CanGrow>
         <Left>4.5873cm</Left>
         <Height>0.5cm</Height>
         <Value>=First(Fields!Column24.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="textbox32">
-        <Top>11.71429cm</Top>
+        <Top>10.87699cm</Top>
         <Width>4.5873cm</Width>
         <Style>
           <FontFamily>Times New Roman</FontFamily>
@@ -1031,13 +942,13 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>25</ZIndex>
+        <ZIndex>21</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>0.5cm</Height>
         <Value>Vyr. finansininkas (buhalteris)</Value>
       </Textbox>
       <Textbox Name="textbox28">
-        <Top>10.71429cm</Top>
+        <Top>9.87699cm</Top>
         <Style>
           <BorderStyle>
             <Bottom>Solid</Bottom>
@@ -1048,13 +959,13 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>24</ZIndex>
+        <ZIndex>20</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>0.5cm</Height>
         <Value>=First(Fields!Column34.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
       <Textbox Name="textbox29">
-        <Top>10.11429cm</Top>
+        <Top>9.27699cm</Top>
         <Style>
           <BorderStyle>
             <Bottom>Solid</Bottom>
@@ -1065,14 +976,14 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>23</ZIndex>
+        <ZIndex>19</ZIndex>
         <CanGrow>true</CanGrow>
         <Left>1.5873cm</Left>
         <Height>0.5cm</Height>
         <Value>=First(Fields!Column33.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
       <Textbox Name="textbox30">
-        <Top>10.11429cm</Top>
+        <Top>9.27699cm</Top>
         <Width>1.5873cm</Width>
         <Style>
           <FontFamily>Times New Roman</FontFamily>
@@ -1082,13 +993,13 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>22</ZIndex>
+        <ZIndex>18</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>0.5cm</Height>
         <Value>Priedėlis</Value>
       </Textbox>
       <Textbox Name="textbox27">
-        <Top>9.16429cm</Top>
+        <Top>8.32699cm</Top>
         <Style>
           <FontFamily>Times New Roman</FontFamily>
           <TextAlign>Left</TextAlign>
@@ -1097,14 +1008,14 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>21</ZIndex>
+        <ZIndex>17</ZIndex>
         <CanGrow>true</CanGrow>
         <Left>15.87302cm</Left>
         <Height>0.5cm</Height>
         <Value>ct.</Value>
       </Textbox>
       <Textbox Name="textbox25">
-        <Top>9.16429cm</Top>
+        <Top>8.32699cm</Top>
         <Width>0.95238cm</Width>
         <Style>
           <FontFamily>Times New Roman</FontFamily>
@@ -1114,14 +1025,14 @@
           <PaddingTop>1pt</PaddingTop>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>20</ZIndex>
+        <ZIndex>16</ZIndex>
         <CanGrow>true</CanGrow>
         <Left>13.33333cm</Left>
         <Height>0.5cm</Height>
         <Value>=First(Fields!Column7.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
       <Textbox Name="textbox24">
-        <Top>9.71429cm</Top>
+        <Top>8.87699cm</Top>
         <Width>13.33333cm</Width>
         <Style>
           <BorderStyle>
@@ -1134,84 +1045,14 @@
           <PaddingRight>1pt</PaddingRight>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
-        <ZIndex>19</ZIndex>
+        <ZIndex>15</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>0.35cm</Height>
         <Value>(sumos žodžiais tęsinys)</Value>
       </Textbox>
       <Textbox Name="textbox23">
-        <Top>9.16429cm</Top>
+        <Top>8.32699cm</Top>
         <Width>13.33333cm</Width>
-        <Style>
-          <BorderStyle>
-            <Bottom>Solid</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <PaddingLeft>3pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-        <ZIndex>18</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Height>0.5cm</Height>
-        <Value>=First(Fields!Column32.Value, "ReportData_TableGeneral")</Value>
-      </Textbox>
-      <Textbox Name="textbox21">
-        <Top>8.71429cm</Top>
-        <Style>
-          <BorderStyle>
-            <Top>Solid</Top>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <FontSize>8pt</FontSize>
-          <TextAlign>Center</TextAlign>
-          <PaddingLeft>3pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-        <ZIndex>17</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Height>0.35cm</Height>
-        <Value>(suma žodžiais)</Value>
-      </Textbox>
-      <Textbox Name="textbox20">
-        <Top>8.21429cm</Top>
-        <Style>
-          <BorderStyle>
-            <Top>Solid</Top>
-            <Bottom>Solid</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <PaddingLeft>3pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-        <ZIndex>16</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Height>0.5cm</Height>
-        <Value>=First(Fields!Column31.Value, "ReportData_TableGeneral")</Value>
-      </Textbox>
-      <Textbox Name="textbox16">
-        <Top>7.71429cm</Top>
-        <Style>
-          <BorderStyle>
-            <Bottom>Solid</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <PaddingLeft>3pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-        <ZIndex>15</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Height>0.5cm</Height>
-        <Value>=First(Fields!Column30.Value, "ReportData_TableGeneral")</Value>
-      </Textbox>
-      <Textbox Name="textbox7">
-        <Top>7.11429cm</Top>
         <Style>
           <BorderStyle>
             <Bottom>Solid</Bottom>
@@ -1224,45 +1065,11 @@
         </Style>
         <ZIndex>14</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>1.5873cm</Left>
         <Height>0.5cm</Height>
-        <Value>=First(Fields!Column29.Value, "ReportData_TableGeneral")</Value>
+        <Value>=First(Fields!Column32.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
-      <Textbox Name="textbox10">
-        <Top>7.11429cm</Top>
-        <Width>1.5873cm</Width>
-        <Style>
-          <FontFamily>Times New Roman</FontFamily>
-          <TextAlign>Left</TextAlign>
-          <PaddingLeft>1pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-        <ZIndex>13</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Height>0.5cm</Height>
-        <Value>Pagrindas</Value>
-      </Textbox>
-      <Textbox Name="textbox6">
-        <Top>6.56429cm</Top>
-        <Style>
-          <BorderStyle>
-            <Bottom>Solid</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <PaddingLeft>3pt</PaddingLeft>
-          <PaddingRight>1pt</PaddingRight>
-          <PaddingTop>1pt</PaddingTop>
-          <PaddingBottom>1pt</PaddingBottom>
-        </Style>
-        <ZIndex>12</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Height>0.5cm</Height>
-        <Value>=First(Fields!Column28.Value, "ReportData_TableGeneral")</Value>
-      </Textbox>
-      <Textbox Name="textbox5">
-        <Top>6.21429cm</Top>
+      <Textbox Name="textbox21">
+        <Top>7.87699cm</Top>
         <Style>
           <BorderStyle>
             <Top>Solid</Top>
@@ -1274,14 +1081,48 @@
           <PaddingRight>1pt</PaddingRight>
           <PaddingBottom>1pt</PaddingBottom>
         </Style>
+        <ZIndex>13</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Height>0.35cm</Height>
+        <Value>(suma žodžiais)</Value>
+      </Textbox>
+      <Textbox Name="textbox20">
+        <Top>7.37699cm</Top>
+        <Style>
+          <BorderStyle>
+            <Top>Solid</Top>
+            <Bottom>Solid</Bottom>
+          </BorderStyle>
+          <FontFamily>Times New Roman</FontFamily>
+          <PaddingLeft>3pt</PaddingLeft>
+          <PaddingRight>1pt</PaddingRight>
+          <PaddingTop>1pt</PaddingTop>
+          <PaddingBottom>1pt</PaddingBottom>
+        </Style>
+        <ZIndex>12</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Height>0.5cm</Height>
+        <Value>=First(Fields!Column31.Value, "ReportData_TableGeneral")</Value>
+      </Textbox>
+      <Textbox Name="textbox16">
+        <Top>6.87699cm</Top>
+        <Style>
+          <BorderStyle>
+            <Bottom>Solid</Bottom>
+          </BorderStyle>
+          <FontFamily>Times New Roman</FontFamily>
+          <PaddingLeft>3pt</PaddingLeft>
+          <PaddingRight>1pt</PaddingRight>
+          <PaddingTop>1pt</PaddingTop>
+          <PaddingBottom>1pt</PaddingBottom>
+        </Style>
         <ZIndex>11</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>2.8373cm</Left>
-        <Height>0.35cm</Height>
-        <Value>(įmonės pavadinimas, kodas, pinigus mokančio asmens pareigos, vardas, pavardė, parašas)</Value>
+        <Height>0.5cm</Height>
+        <Value>=First(Fields!Column30.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
-      <Textbox Name="textbox2">
-        <Top>5.71429cm</Top>
+      <Textbox Name="textbox7">
+        <Top>6.27699cm</Top>
         <Style>
           <BorderStyle>
             <Bottom>Solid</Bottom>
@@ -1296,11 +1137,10 @@
         <CanGrow>true</CanGrow>
         <Left>1.5873cm</Left>
         <Height>0.5cm</Height>
-        <Value>=First(Fields!Column27.Value, "ReportData_TableGeneral")</Value>
+        <Value>=First(Fields!Column29.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
-      <Textbox Name="textbox1">
-        <rd:DefaultName>textbox1</rd:DefaultName>
-        <Top>5.71429cm</Top>
+      <Textbox Name="textbox10">
+        <Top>6.27699cm</Top>
         <Width>1.5873cm</Width>
         <Style>
           <FontFamily>Times New Roman</FontFamily>
@@ -1313,12 +1153,83 @@
         <ZIndex>9</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>0.5cm</Height>
+        <Value>Pagrindas</Value>
+      </Textbox>
+      <Textbox Name="textbox6">
+        <Top>5.72699cm</Top>
+        <Style>
+          <BorderStyle>
+            <Bottom>Solid</Bottom>
+          </BorderStyle>
+          <FontFamily>Times New Roman</FontFamily>
+          <PaddingLeft>3pt</PaddingLeft>
+          <PaddingRight>1pt</PaddingRight>
+          <PaddingTop>1pt</PaddingTop>
+          <PaddingBottom>1pt</PaddingBottom>
+        </Style>
+        <ZIndex>8</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Height>0.5cm</Height>
+        <Value>=First(Fields!Column28.Value, "ReportData_TableGeneral")</Value>
+      </Textbox>
+      <Textbox Name="textbox5">
+        <Top>5.37699cm</Top>
+        <Style>
+          <BorderStyle>
+            <Top>Solid</Top>
+          </BorderStyle>
+          <FontFamily>Times New Roman</FontFamily>
+          <FontSize>8pt</FontSize>
+          <TextAlign>Center</TextAlign>
+          <PaddingLeft>3pt</PaddingLeft>
+          <PaddingRight>1pt</PaddingRight>
+          <PaddingBottom>1pt</PaddingBottom>
+        </Style>
+        <ZIndex>7</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>2.8373cm</Left>
+        <Height>0.35cm</Height>
+        <Value>(įmonės pavadinimas, kodas, pinigus mokančio asmens pareigos, vardas, pavardė, parašas)</Value>
+      </Textbox>
+      <Textbox Name="textbox2">
+        <Top>4.87699cm</Top>
+        <Style>
+          <BorderStyle>
+            <Bottom>Solid</Bottom>
+          </BorderStyle>
+          <FontFamily>Times New Roman</FontFamily>
+          <PaddingLeft>3pt</PaddingLeft>
+          <PaddingRight>1pt</PaddingRight>
+          <PaddingTop>1pt</PaddingTop>
+          <PaddingBottom>1pt</PaddingBottom>
+        </Style>
+        <ZIndex>6</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>1.5873cm</Left>
+        <Height>0.5cm</Height>
+        <Value>=First(Fields!Column27.Value, "ReportData_TableGeneral")</Value>
+      </Textbox>
+      <Textbox Name="textbox1">
+        <rd:DefaultName>textbox1</rd:DefaultName>
+        <Top>4.87699cm</Top>
+        <Width>1.5873cm</Width>
+        <Style>
+          <FontFamily>Times New Roman</FontFamily>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>1pt</PaddingLeft>
+          <PaddingRight>1pt</PaddingRight>
+          <PaddingTop>1pt</PaddingTop>
+          <PaddingBottom>1pt</PaddingBottom>
+        </Style>
+        <ZIndex>5</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Height>0.5cm</Height>
         <Value>Priimta iš</Value>
       </Textbox>
       <Table Name="table1">
-        <ZIndex>8</ZIndex>
+        <ZIndex>4</ZIndex>
         <DataSetName>ReportData_TableGeneral</DataSetName>
-        <Top>3.7cm</Top>
+        <Top>2.8627cm</Top>
         <Width>8cm</Width>
         <Style>
           <BorderStyle>
@@ -1550,8 +1461,7 @@
         <Left>4.44444cm</Left>
       </Table>
       <Textbox Name="textbox4">
-        <Top>3.05952cm</Top>
-        <Width>7.30159cm</Width>
+        <Top>2.22222cm</Top>
         <Style>
           <BorderStyle>
             <Left>None</Left>
@@ -1562,100 +1472,6 @@
           <FontFamily>Times New Roman</FontFamily>
           <FontWeight>700</FontWeight>
           <TextAlign>Center</TextAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-        <ZIndex>7</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>4.7619cm</Left>
-        <Height>0.5cm</Height>
-        <Value>=First(Fields!Column2.Value, "ReportData_TableGeneral")</Value>
-      </Textbox>
-      <Textbox Name="textbox18">
-        <Top>2.55952cm</Top>
-        <Width>2.85714cm</Width>
-        <Style>
-          <BorderStyle>
-            <Left>None</Left>
-            <Right>None</Right>
-            <Top>None</Top>
-            <Bottom>None</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <FontWeight>700</FontWeight>
-          <TextAlign>Center</TextAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-        <ZIndex>6</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>6.34921cm</Left>
-        <Height>0.5cm</Height>
-        <Value>=First(Fields!Column3.Value, "ReportData_TableGeneral")</Value>
-      </Textbox>
-      <Textbox Name="textbox19">
-        <Top>2.55952cm</Top>
-        <Width>1.5873cm</Width>
-        <Style>
-          <BorderStyle>
-            <Left>None</Left>
-            <Right>None</Right>
-            <Top>None</Top>
-            <Bottom>None</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <FontWeight>700</FontWeight>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-        <ZIndex>5</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>4.7619cm</Left>
-        <Height>0.5cm</Height>
-        <Value>Serija</Value>
-      </Textbox>
-      <Textbox Name="textbox11">
-        <Top>2.55952cm</Top>
-        <Width>1.90476cm</Width>
-        <Style>
-          <BorderStyle>
-            <Left>None</Left>
-            <Right>None</Right>
-            <Top>None</Top>
-            <Bottom>None</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <FontWeight>700</FontWeight>
-          <TextAlign>Center</TextAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-        <ZIndex>4</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Left>10.15873cm</Left>
-        <Height>0.5cm</Height>
-        <Value>=First(Fields!Column5.Value, "ReportData_TableGeneral")</Value>
-      </Textbox>
-      <Textbox Name="textbox12">
-        <Top>2.55952cm</Top>
-        <Width>0.95238cm</Width>
-        <Style>
-          <BorderStyle>
-            <Left>None</Left>
-            <Right>None</Right>
-            <Top>None</Top>
-            <Bottom>None</Bottom>
-          </BorderStyle>
-          <FontFamily>Times New Roman</FontFamily>
-          <FontWeight>700</FontWeight>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -1663,13 +1479,34 @@
         </Style>
         <ZIndex>3</ZIndex>
         <CanGrow>true</CanGrow>
-        <Left>9.20635cm</Left>
         <Height>0.5cm</Height>
-        <Value>Nr.</Value>
+        <Value>=First(Fields!Column2.Value, "ReportData_TableGeneral")</Value>
+      </Textbox>
+      <Textbox Name="textbox19">
+        <Top>1.72222cm</Top>
+        <Style>
+          <BorderStyle>
+            <Left>None</Left>
+            <Right>None</Right>
+            <Top>None</Top>
+            <Bottom>None</Bottom>
+          </BorderStyle>
+          <FontFamily>Times New Roman</FontFamily>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Center</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>2</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Height>0.5cm</Height>
+        <Value>="Serija " &amp; First(Fields!Column3.Value, "ReportData_TableGeneral") &amp; " Nr. " &amp; First(Fields!Column5.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
       <Textbox Name="textbox3">
         <rd:DefaultName>textbox3</rd:DefaultName>
-        <Top>1.8cm</Top>
+        <Top>0.9627cm</Top>
         <Style>
           <FontFamily>Times New Roman</FontFamily>
           <FontSize>14pt</FontSize>
@@ -1680,34 +1517,18 @@
           <PaddingTop>2pt</PaddingTop>
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
-        <ZIndex>2</ZIndex>
+        <ZIndex>1</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>0.63492cm</Height>
         <Value>KASOS PAJAMŲ ORDERIS</Value>
-      </Textbox>
-      <Textbox Name="Column6_1">
-        <rd:DefaultName>Column6_1</rd:DefaultName>
-        <Top>0.78175cm</Top>
-        <Style>
-          <BorderStyle>
-            <Bottom>Groove</Bottom>
-          </BorderStyle>
-          <BorderWidth>
-            <Default>2pt</Default>
-          </BorderWidth>
-          <FontFamily>Times New Roman</FontFamily>
-          <FontSize>9pt</FontSize>
-          <TextAlign>Center</TextAlign>
-        </Style>
-        <ZIndex>1</ZIndex>
-        <CanGrow>true</CanGrow>
-        <Height>0.75cm</Height>
-        <Value>=First(Fields!Column14.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="Column1">
         <rd:DefaultName>Column1</rd:DefaultName>
         <Top>0.0125in</Top>
         <Style>
+          <BorderStyle>
+            <Bottom>Solid</Bottom>
+          </BorderStyle>
           <FontFamily>Georgia</FontFamily>
           <FontSize>14pt</FontSize>
           <TextAlign>Center</TextAlign>
@@ -1718,10 +1539,10 @@
         </Style>
         <CanGrow>true</CanGrow>
         <Height>0.75cm</Height>
-        <Value>=First(Fields!Column2.Value, "ReportData_TableCompany")</Value>
+        <Value>=First(Fields!Column2.Value, "ReportData_TableCompany") &amp; ", įm. k. " &amp; First(Fields!Column3.Value, "ReportData_TableCompany")</Value>
       </Textbox>
     </ReportItems>
-    <Height>9.375in</Height>
+    <Height>8.63719in</Height>
   </Body>
   <Language>en-US</Language>
   <TopMargin>2cm</TopMargin>
