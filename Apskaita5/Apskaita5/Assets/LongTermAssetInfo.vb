@@ -748,7 +748,7 @@ Namespace Assets
 
 
 
-            If _AcquisitionDate.Date > DateFrom.Date Then
+            If _AcquisitionDate.Date >= DateFrom.Date Then
                 _BeforeAcquisitionAccountValue = 0
                 _BeforeAcquisitionAccountValuePerUnit = 0
                 _BeforeValueDecreaseAccountValue = 0

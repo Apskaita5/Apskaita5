@@ -48,9 +48,15 @@ Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Releas
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\LastUpdateA5.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MySQL_accsecurity.sql"; DestDir: "{app}"; Flags: ignoreversion
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\FR0572(4).ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
+Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\FR0573(4).ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\SAM-v03.ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
+Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\SAM-v04.ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
+Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\13-SD-v05.ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\FR0572(4).mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
+Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\FR0573(4).mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
 Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\SAM-v03.mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
+Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\SAM-v04.mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
+Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\13-SD-v05.mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Run]
