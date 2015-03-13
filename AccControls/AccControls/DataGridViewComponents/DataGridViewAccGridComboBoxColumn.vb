@@ -57,6 +57,7 @@ Public Class DataGridViewAccGridComboBoxColumn
                 myDataGridView = New ToolStripDataGridView(value, Nothing, _CloseOnSingleClick)
                 AddHandler myDataGridView.Disposed, AddressOf CheckForInvalidDispose
 
+
             End If
 
         End Set

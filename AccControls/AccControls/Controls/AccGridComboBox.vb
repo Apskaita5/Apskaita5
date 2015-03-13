@@ -234,6 +234,7 @@ Partial Public Class AccGridComboBox
 
     End Sub
 
+
     Protected Overrides Sub OnResize(ByVal e As System.EventArgs)
         Dim minWidth As Integer = 0
         If Not Me.myDataGridView Is Nothing Then minWidth = Me.myDataGridView.MinDropDownWidth

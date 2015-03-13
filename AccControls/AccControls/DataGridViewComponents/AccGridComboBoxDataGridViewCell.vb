@@ -29,7 +29,7 @@ Public Class AccGridComboBoxDataGridViewCell
 
         If cEditBox IsNot Nothing Then
 
-            If Not MyBase.OwningColumn Is Nothing AndAlso Not DirectCast(MyBase.OwningColumn, _
+            If Not MyBase.OwningColumn Is Nothing AndAlso Not DirectCast(MyBase.OwningColumn,  _
                 DataGridViewAccGridComboBoxColumn).ComboDataGridView Is Nothing Then
 
                 cEditBox.AddToolStripDataGridView(DirectCast(MyBase.OwningColumn, DataGridViewAccGridComboBoxColumn).GetToolStripDataGridView)

@@ -3,8 +3,11 @@ Public Class AccGridComboBoxEditingControl
     Inherits AccGridComboBox
     Implements IDataGridViewEditingControl
 
+    Const WM_KEYDOWN As Integer = &H100
+    Const VK_TAB As Integer = &H9
+
     Public Sub New()
-        TabStop = False ' control must not be part of the tabbing loop ???
+        ' TabStop = False ' control must not be part of the tabbing loop ???
     End Sub
 
 
@@ -84,7 +87,7 @@ Public Class AccGridComboBoxEditingControl
 
     Public Function EditingControlWantsInputKey(ByVal keyData As Keys, ByVal dataGridViewWantsInputKey As Boolean) As Boolean Implements IDataGridViewEditingControl.EditingControlWantsInputKey
         Select Case keyData And Keys.KeyCode
-            Case Keys.Up, Keys.Down, Keys.PageDown, Keys.PageUp, Keys.Enter, Keys.Escape, Keys.Delete
+            Case Keys.Up, Keys.Down, Keys.PageDown, Keys.PageUp, Keys.Delete 'Keys.Enter, Keys.Escape, 
                 Return True
             Case Else
                 Return False
@@ -98,5 +101,15 @@ Public Class AccGridComboBoxEditingControl
     Public Sub PrepareEditingControlForEdit(ByVal selectAll As Boolean) Implements IDataGridViewEditingControl.PrepareEditingControlForEdit
 
     End Sub
+
+
+    'Protected Overrides Function ProcessCmdKey(ByRef msg As System.Windows.Forms.Message, _
+    '    ByVal keyData As System.Windows.Forms.Keys) As Boolean
+    '    ' msg.Msg = WM_KEYDOWN AndAlso
+    '    If keyData = Keys.Tab Then
+    '        Return True
+    '    End If
+    '    Return MyBase.ProcessCmdKey(msg, keyData)
+    'End Function
 
 End Class

@@ -453,6 +453,9 @@
     <Compile Include="Goods\F_WarehouseList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Helpers\DelegateContainer.vb" />
+    <Compile Include="Helpers\EditableDataGridViewHelper.vb" />
+    <Compile Include="Helpers\TooleStripHelper.vb" />
     <Compile Include="Tools\F_CurrencyRateChangeImpactCalculator.Designer.vb">
       <DependentUpon>F_CurrencyRateChangeImpactCalculator.vb</DependentUpon>
     </Compile>
@@ -1750,83 +1753,83 @@
   <ItemGroup>
     <PublishFile Include="AccControls.pdb">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="ADODB">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.Data.v11.2">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.Printing.v11.2.Core">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.Utils.v11.2">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.XtraEditors.v11.2">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.XtraGrid.v11.2">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.XtraLayout.v11.2">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

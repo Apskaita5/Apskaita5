@@ -349,8 +349,8 @@ Namespace ActiveReports
             _WorkersCount = CIntSafe(dr.Item(17), 0)
             _HoursWorked = CDblSafe(dr.Item(18), 2, 0)
             _DaysWorked = CIntSafe(dr.Item(19), 0)
-            _PayOutWage = CRound(CDblSafe(dr.Item(20), 0) + CDblSafe(dr.Item(25), 0) _
-                - CDblSafe(dr.Item(21), 0) - CDblSafe(dr.Item(22), 0) - CDblSafe(dr.Item(25), 0))
+            _PayOutWage = CRound(CDblSafe(dr.Item(20), 2, 0) + CDblSafe(dr.Item(25), 2, 0) _
+                - CDblSafe(dr.Item(21), 2, 0) - CDblSafe(dr.Item(22), 2, 0) - CDblSafe(dr.Item(25), 2, 0), 2)
             _PayOutHoliday = CDblSafe(dr.Item(21), 2, 0)
             _PayOutRedundancy = CDblSafe(dr.Item(22), 2, 0)
             _DeductionsOther = CDblSafe(dr.Item(23), 2, 0)
