@@ -7,7 +7,7 @@ Public Class SQLiteDay
         Dim result As Date = Date.MinValue
         If args Is Nothing OrElse Not args.Length = 1 OrElse _
             Not Date.TryParse(args(0).ToString, result) Then Return 0
-        Return result.Month
+        Return result.Day
     End Function
 
 End Class

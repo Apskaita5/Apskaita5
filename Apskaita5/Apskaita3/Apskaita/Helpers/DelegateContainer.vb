@@ -17,4 +17,9 @@
         If Not _Delegate Is Nothing Then _Delegate.Invoke(selectedItem)
     End Sub
 
+    Public Function GetActionName() As String
+        If _Delegate Is Nothing Then Return ""
+        Return _Delegate.Method.Name
+    End Function
+
 End Class

@@ -4,6 +4,11 @@
     Friend Const CancelButtonCaption As String = "Atšaukti"
     Friend Const CancelButtonToolTip As String = "Nieko nedaryti."
 
+    Public Delegate Function ActionAvailableForSelectedItemDelegate(ByVal selectedItem As T, _
+        ByVal actionName As String) As Boolean
+
+    Private _Delegate As ActionAvailableForSelectedItemDelegate = Nothing
+
     Private WithEvents _grid As DataGridView
     Private WithEvents _contextMenuStrip As ContextMenuStrip
     Private _handledItems As New List(Of ToolStripMenuItem)
@@ -13,7 +18,8 @@
 
 
     Public Sub New(ByRef grid As DataGridView, ByRef contextMenuStrip As ContextMenuStrip, _
-        ByVal dialogText As String, ByVal addCancelButton As Boolean)
+        ByVal dialogText As String, ByVal addCancelButton As Boolean, _
+        Optional ByVal actionIsAvailable As ActionAvailableForSelectedItemDelegate = Nothing)
 
         If grid Is Nothing Then Throw New ArgumentNullException("grid")
         If contextMenuStrip Is Nothing Then Throw New ArgumentNullException("contextMenuStrip")
@@ -22,6 +28,7 @@
         _contextMenuStrip = contextMenuStrip
         _AddCancelButton = addCancelButton
         _DialogText = dialogText
+        _Delegate = actionIsAvailable
         If _DialogText Is Nothing Then _DialogText = ""
         _DialogText = _DialogText.Trim
 
@@ -76,6 +83,8 @@
         End Try
         If currentItem Is Nothing Then Exit Sub
 
+        If Not ConfigureContextMenuStrip(currentItem) Then Exit Sub
+
         currentGrid.ClearSelection()
         currentGrid.Rows(e.RowIndex).Selected = True
 
@@ -125,13 +134,11 @@
         End Try
         If currentItem Is Nothing Then Exit Sub
 
-        Dim buttons As New List(Of ButtonStructure)
-        For Each k As KeyValuePair(Of String, KeyValuePair(Of String, DelegateContainer(Of T))) In _handledbuttons
-            buttons.Add(New ButtonStructure(k.Key, k.Value.Key))
-        Next
-        If _AddCancelButton Then buttons.Add(New ButtonStructure(CancelButtonCaption, CancelButtonToolTip))
+        Dim buttons As ButtonStructure() = GetButtons(currentItem)
 
-        Dim answer As String = Ask(_DialogText, buttons.ToArray)
+        If buttons Is Nothing Then Exit Sub
+
+        Dim answer As String = Ask(_DialogText, buttons)
 
         If Not _handledbuttons.ContainsKey(answer.Trim) OrElse _
             _handledbuttons(answer.Trim).Value Is Nothing Then Exit Sub
@@ -183,6 +190,61 @@
         End Try
 
     End Sub
+
+
+    Private Function ConfigureContextMenuStrip(ByVal item As T) As Boolean
+
+        If _contextMenuStrip Is Nothing OrElse Not _contextMenuStrip.Items.Count > 0 Then Return False
+
+        If _Delegate Is Nothing Then Return True
+
+        Dim anyActionAvailable As Boolean = False
+
+        For Each child As ToolStripItem In _contextMenuStrip.Items
+            If TypeOf child Is ToolStripMenuItem Then
+                ConfigureContextMenuStrip(item, DirectCast(child, ToolStripMenuItem), anyActionAvailable)
+            End If
+        Next
+
+        Return anyActionAvailable
+
+    End Function
+
+    Private Sub ConfigureContextMenuStrip(ByVal item As T, ByRef menuItem As ToolStripMenuItem, _
+        ByRef anyActionAvailable As Boolean)
+
+        If Not menuItem.Tag Is Nothing AndAlso TypeOf menuItem.Tag Is DelegateContainer(Of T) Then
+            menuItem.Available = _Delegate.Invoke(item, DirectCast(menuItem.Tag, DelegateContainer(Of T)).GetActionName)
+            If menuItem.Available Then anyActionAvailable = True
+        End If
+
+        For Each child As ToolStripItem In menuItem.DropDownItems
+            If TypeOf child Is ToolStripMenuItem Then
+                ConfigureContextMenuStrip(item, DirectCast(child, ToolStripMenuItem), anyActionAvailable)
+            End If
+        Next
+
+    End Sub
+
+    Private Function GetButtons(ByVal item As T) As ButtonStructure()
+
+        Dim result As New List(Of ButtonStructure)
+
+        For Each k As KeyValuePair(Of String, KeyValuePair(Of String, DelegateContainer(Of T))) In _handledbuttons
+            If Not k.Value.Value Is Nothing Then
+                If _Delegate Is Nothing OrElse _Delegate.Invoke(item, k.Value.Value.GetActionName) Then
+                    result.Add(New ButtonStructure(k.Key, k.Value.Key))
+                End If
+            End If
+        Next
+
+        If result.Count < 1 Then Return Nothing
+
+        If _AddCancelButton Then result.Add(New ButtonStructure(CancelButtonCaption, CancelButtonToolTip))
+
+        Return result.ToArray
+
+    End Function
 
 
 #Region " IDisposable Support "

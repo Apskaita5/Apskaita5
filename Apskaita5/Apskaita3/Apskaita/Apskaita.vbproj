@@ -455,7 +455,7 @@
     </Compile>
     <Compile Include="Helpers\DelegateContainer.vb" />
     <Compile Include="Helpers\EditableDataGridViewHelper.vb" />
-    <Compile Include="Helpers\TooleStripHelper.vb" />
+    <Compile Include="Helpers\ToolStripHelper.vb" />
     <Compile Include="Tools\F_CurrencyRateChangeImpactCalculator.Designer.vb">
       <DependentUpon>F_CurrencyRateChangeImpactCalculator.vb</DependentUpon>
     </Compile>
