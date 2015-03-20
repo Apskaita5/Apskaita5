@@ -147,6 +147,25 @@ Public Module CommonMethods
 
     End Function
 
+    ''' <summary>
+    ''' Checks if a string value is nothing or contains only white spaces.
+    ''' </summary>
+    ''' <param name="s">String value to check.</param>
+    Public Function StringIsNullOrEmpty(ByVal s As String) As Boolean
+        Return s Is Nothing OrElse String.IsNullOrEmpty(s.Trim)
+    End Function
+
+    ''' <summary>
+    ''' Gets a DateTime containing DateTime.Now timestamp with a second precision.
+    ''' </summary>
+    ''' <remarks>Required by most SQL engines.</remarks>
+    Public Function GetCurrentTimeStamp() As DateTime
+        Dim result As DateTime = DateTime.Now
+        result = New DateTime(Convert.ToInt64(Math.Floor(result.Ticks / TimeSpan.TicksPerSecond) _
+            * TimeSpan.TicksPerSecond))
+        Return result
+    End Function
+
 
 #Region " String manipulation methods "
 

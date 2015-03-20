@@ -117,7 +117,343 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Common_ContainsErrors" xml:space="preserve">
+    <value>Įvestuose duomenyse yra klaidų:{0}{1}</value>
+  </data>
+  <data name="Common_DocumentTypeNotImplemented" xml:space="preserve">
+    <value>Klaida. Dokumento tipas "{0}" neimplementuotas klasės {1} metode {2}.</value>
+  </data>
+  <data name="Common_ErrorInItem" xml:space="preserve">
+    <value>Klaida (-os) eilutėje '{0}':{1}{2}</value>
+  </data>
+  <data name="Common_FailedToCreateJournalEntry" xml:space="preserve">
+    <value>Klaida. Nepavyko generuoti bendrojo žurnalo įrašo: {0}{1}{2}{3}</value>
+  </data>
+  <data name="Common_ObjectNotFound" xml:space="preserve">
+    <value>Objektas, kurio tipas yra {0}, o ID={1}, nerastas duomenų bazėje.</value>
+  </data>
+  <data name="Common_SecurityExecuteDenied" xml:space="preserve">
+    <value>Klaida. Jūsų teisių nepakanka šiai operacijai įvykdyti.</value>
+  </data>
+  <data name="Common_SecurityInsertDenied" xml:space="preserve">
+    <value>Klaida. Jūsų teisių nepakanka naujiems duomenims įvesti.</value>
+  </data>
+  <data name="Common_SecuritySelectDenied" xml:space="preserve">
+    <value>Klaida. Jūsų teisių nepakanka šiems duomenims gauti.</value>
+  </data>
+  <data name="Common_SecurityUpdateDenied" xml:space="preserve">
+    <value>Klaida. Jūsų teisių nepakanka šiems duomenims pakeisti.</value>
+  </data>
+  <data name="Common_UpdateDateHasChanged" xml:space="preserve">
+    <value>Klaida. Dokumento atnaujinimo data pasikeitė. Teigtina, kad kitas vartotojas redagavo šį objektą.</value>
+  </data>
+  <data name="Common_WarningInItem" xml:space="preserve">
+    <value>Eilutėje '{0}' gali būti klaida:{1}{2}</value>
+  </data>
+  <data name="General_AccountList_AssignableCRItemListEmpty" xml:space="preserve">
+    <value>Klaida. Įmonei nėra sukurta finansinės atskaitomybės struktūra.</value>
+  </data>
+  <data name="General_AccountList_ClipBoardIsEmpty" xml:space="preserve">
+    <value>Klaida. Nėra ką paste'inti, clipboard'as tuščias.</value>
+  </data>
+  <data name="General_AccountList_FailedToFetchAssignableCRItemList" xml:space="preserve">
+    <value>Klaida. Nepavyko gauti finansinės atskaitomybės eilučių duomenų: {0}</value>
+  </data>
+  <data name="General_AccountList_IsEmpty" xml:space="preserve">
+    <value>Klaida. Neįvesta nė viena sąskaita.</value>
+  </data>
+  <data name="General_Account_AssociatedItem" xml:space="preserve">
+    <value>susieta finansinės atskaitomybės eilutė</value>
+  </data>
+  <data name="General_Account_ID" xml:space="preserve">
+    <value>sąskaitos numeris</value>
+  </data>
+  <data name="General_Account_Name" xml:space="preserve">
+    <value>sąskaitos pavadinimas</value>
+  </data>
+  <data name="General_Account_PasteColumns" xml:space="preserve">
+    <value>numeris&lt;BR&gt;pavadinimas&lt;BR&gt;finansinės atskaitomybės eilutės pavadinimas</value>
+  </data>
+  <data name="General_Account_PasteColumnsDescription" xml:space="preserve">
+    <value>Apskaitos sąskaitos duomenys privalo būti išdėstyti {0} stulpeliuose: {1}.</value>
+  </data>
+  <data name="General_Account_WasUsedByAccumulatedCosts" xml:space="preserve">
+    <value>sukauptų sąnaudų operacijoje</value>
+  </data>
+  <data name="General_Account_WasUsedByAdvanceReport" xml:space="preserve">
+    <value>avanso apyskaitoje</value>
+  </data>
+  <data name="General_Account_WasUsedByAsset" xml:space="preserve">
+    <value>ilgalaikio turto duomenyse</value>
+  </data>
+  <data name="General_Account_WasUsedByAssetOperation" xml:space="preserve">
+    <value>ilgalaikio turto operacijoje</value>
+  </data>
+  <data name="General_Account_WasUsedByBankOperation" xml:space="preserve">
+    <value>banko operacijoje</value>
+  </data>
+  <data name="General_Account_WasUsedByCashAccount" xml:space="preserve">
+    <value>lėšų apskaitos sąskaitos duomenyse</value>
+  </data>
+  <data name="General_Account_WasUsedByComplexGoodsOperation" xml:space="preserve">
+    <value>kompleksinėje prekių operacijoje</value>
+  </data>
+  <data name="General_Account_WasUsedByDefaultAccounts" xml:space="preserve">
+    <value>standartinėse įmonės sąskaitose</value>
+  </data>
+  <data name="General_Account_WasUsedByGeneralLedgerEntry" xml:space="preserve">
+    <value>bendrojo žurnalo operacijoje</value>
+  </data>
+  <data name="General_Account_WasUsedByGeneralLedgerTemplate" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos šablono duomenyse</value>
+  </data>
+  <data name="General_Account_WasUsedByGoodsAccountChangeOperation" xml:space="preserve">
+    <value>prekių apskaitos sąskaitų pakeitimo operacijoje</value>
+  </data>
+  <data name="General_Account_WasUsedByGoodsItem" xml:space="preserve">
+    <value>prekės duomenyse</value>
+  </data>
+  <data name="General_Account_WasUsedByGoodsOperation" xml:space="preserve">
+    <value>prekių operacijoje</value>
+  </data>
+  <data name="General_Account_WasUsedByGoodsWarehouse" xml:space="preserve">
+    <value>prekių sandėlio duomenyse</value>
+  </data>
+  <data name="General_Account_WasUsedByInvoiceMade" xml:space="preserve">
+    <value>išrašytoje sąskaitoje faktūroje</value>
+  </data>
+  <data name="General_Account_WasUsedByInvoiceReceived" xml:space="preserve">
+    <value>gautoje sąskaitoje faktūroje</value>
+  </data>
+  <data name="General_Account_WasUsedByOffset" xml:space="preserve">
+    <value>užskaitos operacijoje</value>
+  </data>
+  <data name="General_Account_WasUsedByPerson" xml:space="preserve">
+    <value>kontrahento duomenyse</value>
+  </data>
+  <data name="General_Account_WasUsedByProductionCalculation" xml:space="preserve">
+    <value>gamybos kalkuliacijos kortelės duomenyse</value>
+  </data>
+  <data name="General_Account_WasUsedByService" xml:space="preserve">
+    <value>paslaugos duomenys</value>
+  </data>
+  <data name="General_Account_WasUsedByTillIncomeOrder" xml:space="preserve">
+    <value>kasos pajamų orderyje</value>
+  </data>
+  <data name="General_Account_WasUsedByTillSpendingsOrder" xml:space="preserve">
+    <value>kasos išlaidų orderyje</value>
+  </data>
+  <data name="General_Account_WasUsedByUndefined" xml:space="preserve">
+    <value>nenustatytoje programos vietoje</value>
+  </data>
+  <data name="General_Account_WasUsedByWageSheet" xml:space="preserve">
+    <value>darbo užmokesčio žiniaraštyje</value>
+  </data>
+  <data name="General_Account_WasUsedError" xml:space="preserve">
+    <value>Klaida. Sąskaita {0} yra naudojama apskaitos duomenyse:</value>
+  </data>
+  <data name="General_Account_WasUsedItem" xml:space="preserve">
+    <value>* {0} -&gt; objekto ID={1}, operacijos ID={2}, operacijos data - {3}.</value>
+  </data>
+  <data name="General_BookEntryList_AccountListEmpty" xml:space="preserve">
+    <value>Klaida. Įmonėje nesuformuotas sąskaitų planas.</value>
+  </data>
+  <data name="General_BookEntryList_CharForCredit" xml:space="preserve">
+    <value>K</value>
+  </data>
+  <data name="General_BookEntryList_CharForDebit" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="General_BookEntryList_ClipBoardEmpty" xml:space="preserve">
+    <value>Klaida. Nėra ką paste'inti, clipboard'as tuščias.</value>
+  </data>
+  <data name="General_BookEntryList_FailedToFetchAccountInfoList" xml:space="preserve">
+    <value>Klaida. Nepavyko gauti sąskaitų duomenų: {0}</value>
+  </data>
+  <data name="General_BookEntryList_FailedToFetchPersonInfoList" xml:space="preserve">
+    <value>Klaida. Nepavyko gauti kontrahentų duomenų: {0}</value>
+  </data>
+  <data name="General_BookEntryList_FinancialDataChangeDenied" xml:space="preserve">
+    <value>Klaida. Finansinių bendrojo žurnalo operacijos duomenų keisti neleidžiama (įskaitant eilučių pridėjimą ar pašalinimą):{0}{1}</value>
+  </data>
+  <data name="General_BookEntry_AccountID" xml:space="preserve">
+    <value>sąskaitos numeris</value>
+  </data>
+  <data name="General_BookEntry_Amount" xml:space="preserve">
+    <value>korespondencijos vertė</value>
+  </data>
+  <data name="General_BookEntry_PasteColumns" xml:space="preserve">
+    <value>sąskaita&lt;BR&gt;suma&lt;BR&gt;asmens ar įmonės kodas (neprivalomas)</value>
+  </data>
+  <data name="General_BookEntry_PasteColumnsDescription" xml:space="preserve">
+    <value>Kontavimo duomenys privalo būti išdėstyti {0} stulpeliuose: {1}.</value>
+  </data>
+  <data name="General_ClosingEntriesCommand_AccountClassPrefixNull" xml:space="preserve">
+    <value>Klaida. Nenustatyti sąskaitų plano klasių prefiksai.</value>
+  </data>
+  <data name="General_ClosingEntriesCommand_ConsolidatedAccountNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta suvestinės sąskaita.</value>
+  </data>
+  <data name="General_ClosingEntriesCommand_DefaultContent" xml:space="preserve">
+    <value>5/6 klasių uždarymo įrašas</value>
+  </data>
+  <data name="General_ClosingEntriesCommand_DefaultNumber" xml:space="preserve">
+    <value>UZD</value>
+  </data>
+  <data name="General_ClosingEntriesCommand_InvalidDate" xml:space="preserve">
+    <value>Klaida. Nurodyta operacijos data {0} yra ankstesnė nei paskutinio 5/6 klasių uždarymo data {1}.</value>
+  </data>
+  <data name="General_ClosingEntriesCommand_InvalidFetchResult" xml:space="preserve">
+    <value>Klaida. Nekorektiškai gauti duomenys, lentelėje nenurodytas sąskaitos numeris.</value>
+  </data>
+  <data name="General_ClosingEntriesCommand_NoResidualAmount" xml:space="preserve">
+    <value>Klaida. Nėra 5/6 klasės likučių, kuriuos būtų galima uždaryti.</value>
+  </data>
+  <data name="General_JournalEntry_Content" xml:space="preserve">
+    <value>operacijos turinys</value>
+  </data>
+  <data name="General_JournalEntry_CreditSum" xml:space="preserve">
+    <value>kredituojama suma</value>
+  </data>
+  <data name="General_JournalEntry_Date" xml:space="preserve">
+    <value>Bendrojo žurnalo įrašo data</value>
+  </data>
+  <data name="General_JournalEntry_DebetSum" xml:space="preserve">
+    <value>debetuojama suma</value>
+  </data>
+  <data name="General_JournalEntry_DebitNotEqualsCredit" xml:space="preserve">
+    <value>Debeto korespondencijų suma nelygi kredito korespondencijų sumai.</value>
+  </data>
+  <data name="General_JournalEntry_DocNumber" xml:space="preserve">
+    <value>pagrindžiančio dokumento numeris</value>
+  </data>
+  <data name="General_JournalEntry_InvalidTypeOnSave" xml:space="preserve">
+    <value>Klaida. Negalima tiesiogiai išsaugoti registruojant dokumentą padaryto įrašo bendrajame žurnale.</value>
+  </data>
+  <data name="General_JournalEntry_OnDeletingAssetsModule" xml:space="preserve">
+    <value>Klaida. Su šiuo bendrojo žurnalo įrašu yra susietas dokumentas {0}. Bendrojo žurnalo įrašas gali būti pašalintas tik ištrinant atitinkamą dokumentą per ilgalaikio turto modulio suvestines.</value>
+  </data>
+  <data name="General_JournalEntry_OnDeletingDocumentModule" xml:space="preserve">
+    <value>Klaida. Su šiuo bendrojo žurnalo įrašu yra susietas dokumentas {0}. Bendrojo žurnalo įrašas gali būti pašalintas tik ištrinant atitinkamą dokumentą per dokumentų modulio suvestines.</value>
+  </data>
+  <data name="General_JournalEntry_OnDeletingGoodsModule" xml:space="preserve">
+    <value>Klaida. Su šiuo bendrojo žurnalo įrašu yra susietas dokumentas {0}. Bendrojo žurnalo įrašas gali būti pašalintas tik ištrinant atitinkamą dokumentą per prekių modulio suvestines.</value>
+  </data>
+  <data name="General_JournalEntry_OnDeletingWorkersModule" xml:space="preserve">
+    <value>Klaida. Su šiuo bendrojo žurnalo įrašu yra susietas dokumentas {0}. Bendrojo žurnalo įrašas gali būti pašalintas tik ištrinant atitinkamą dokumentą per darbuotojų modulio suvestines.</value>
+  </data>
+  <data name="General_JournalEntry_Person" xml:space="preserve">
+    <value>susietas kontrahentas</value>
+  </data>
+  <data name="General_JournalEntry_ToString" xml:space="preserve">
+    <value>{0} bendrojo žurnalo įrašas, ID={1}, data={2}, numeris=""{3}"", turinys=""{4}"", kontavimai={5}, {6}.</value>
+  </data>
+  <data name="General_JournalEntry_TypeName" xml:space="preserve">
+    <value>bendrojo žurnalo operacija</value>
+  </data>
+  <data name="General_JournalEntry_UnexpectedChildType" xml:space="preserve">
+    <value>Klaida. Nenurodytas Parent objekto dokumento tipas.</value>
+  </data>
+  <data name="General_JournalEntry_UnexpectedParentType" xml:space="preserve">
+    <value>Klaida. Bendrojo žurnalo įrašo, kurio ID={0}, dokumento tipas yra {1}, o tikėtąsi tipo {2}.</value>
+  </data>
+  <data name="General_SetupTypicalAccountsCommand_AccountsAlreadyExists" xml:space="preserve">
+    <value>Klaida. Tipinį sąskaitų planą galima generuoti tik nesant jau įvestų sąskaitų.</value>
+  </data>
+  <data name="General_SetupTypicalAccountsCommand_FinancialStatementsStructureAlreadyExists" xml:space="preserve">
+    <value>Klaida. Tipinį sąskaitų planą galima generuoti tik nesant jau įvestų finansinės atskaitomybės formų.</value>
+  </data>
+  <data name="General_TemplateBookEntry_Account" xml:space="preserve">
+    <value>sąskaita</value>
+  </data>
+  <data name="General_TemplateJournalEntry_Content" xml:space="preserve">
+    <value>operacijos turinys</value>
+  </data>
+  <data name="General_TemplateJournalEntry_CreditAccountsEmpty" xml:space="preserve">
+    <value>Nenurodyta nė viena kredituojama sąskaita.</value>
+  </data>
+  <data name="General_TemplateJournalEntry_DebitAccountsEmpty" xml:space="preserve">
+    <value>Nenurodyta nė viena debetuojama sąskaita.</value>
+  </data>
+  <data name="General_TemplateJournalEntry_DuplicateName" xml:space="preserve">
+    <value>Klaida. Bendrojo žurnalo operacijos šablonas tokiu pavadinimu jau egzistuoja.</value>
+  </data>
+  <data name="General_TemplateJournalEntry_Name" xml:space="preserve">
+    <value>operacijos šablono pavadinimas</value>
+  </data>
+  <data name="General_TemplateJournalEntry_TypeName" xml:space="preserve">
+    <value>šablonas</value>
+  </data>
+  <data name="General_TransferOfBalanceAnalyticsList_AccountListEmpty" xml:space="preserve">
+    <value>Klaida. Įmonėje nesuformuotas sąskaitų planas.</value>
+  </data>
+  <data name="General_TransferOfBalanceAnalyticsList_ClipBoardIsEmpty" xml:space="preserve">
+    <value>Klaida. Nėra ką paste'inti, clipboard'as tuščias.</value>
+  </data>
+  <data name="General_TransferOfBalanceAnalyticsList_FailedToFetchAccountInfoList" xml:space="preserve">
+    <value>Klaida. Nepavyko gauti sąskaitų duomenų: {0}</value>
+  </data>
+  <data name="General_TransferOfBalanceAnalyticsList_FailedToFetchPersonInfoList" xml:space="preserve">
+    <value>Klaida. Nepavyko gauti kontrahentų duomenų: {0}</value>
+  </data>
+  <data name="General_TransferOfBalanceAnalytics_Account" xml:space="preserve">
+    <value>apskaitos sąskaita</value>
+  </data>
+  <data name="General_TransferOfBalanceAnalytics_Amount" xml:space="preserve">
+    <value>likučio suma</value>
+  </data>
+  <data name="General_TransferOfBalanceAnalytics_PasteColumns" xml:space="preserve">
+    <value>tipas (Debetas/Kreditas)&lt;BR&gt;sąskaita&lt;BR&gt;suma&lt;BR&gt;asmens ar įmonės kodas</value>
+  </data>
+  <data name="General_TransferOfBalanceAnalytics_PasteColumnsDescription" xml:space="preserve">
+    <value>Likučių perkėlimo analitikos duomenys privalo būti išdėstyti {0} stulpeliais: {1}</value>
+  </data>
+  <data name="General_TransferOfBalanceAnalytics_Person" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="General_TransferOfBalanceChronologicValidator_ClosingLimit" xml:space="preserve">
+    <value />
+  </data>
+  <data name="General_TransferOfBalanceChronologicValidator_MaxDateLimit" xml:space="preserve">
+    <value>Likučių perkėlimo data negali būti vėlesnė nei {0}, nes šia data registruota pirma operacija.</value>
+  </data>
+  <data name="General_TransferOfBalance_Content" xml:space="preserve">
+    <value>Apskaitos likučių perkėlimas</value>
+  </data>
+  <data name="General_TransferOfBalance_CreditSum" xml:space="preserve">
+    <value>perkeliama kreditinių likučių suma</value>
+  </data>
+  <data name="General_TransferOfBalance_Date" xml:space="preserve">
+    <value>likučių perkėlimo data</value>
+  </data>
+  <data name="General_TransferOfBalance_DebetSum" xml:space="preserve">
+    <value>perkeliama debetinių likučių suma</value>
+  </data>
+  <data name="General_TransferOfBalance_DocNumber" xml:space="preserve">
+    <value>Lik. Perk.</value>
+  </data>
+  <data name="General_TransferOfBalance_FinancialDataChangeDenied" xml:space="preserve">
+    <value>Klaida. Likučių perkėlimo duomenys negali būti keičiami:{0}{1}</value>
+  </data>
+  <data name="General_TransferOfBalance_FinancialDataDeleteDenied" xml:space="preserve">
+    <value>Klaida. Likučių perkėlimo operacijos pašalinti neleidžiama:{0}{1}</value>
+  </data>
+  <data name="General_TransferOfBalance_FinancialDataInsertDenied" xml:space="preserve">
+    <value>Klaida. Įtraukti naują likučių perkėlimo operaciją neleidžiama:{0}{1}</value>
+  </data>
+  <data name="General_TransferOfBalance_IdHasChanged" xml:space="preserve">
+    <value>Klaida. Pasikeitė likučių perkėlimo operacijos ID.</value>
+  </data>
+  <data name="General_TransferOfBalance_ToString" xml:space="preserve">
+    <value>{0} {1} likučių perkėlimo operacija, ID={2}{3}Suminiai likučiai: {4}{5}{6}Analitiniai likučiai: {7}</value>
+  </data>
+  <data name="General_TransferOfBalance_TypeName" xml:space="preserve">
+    <value>likučių perkėlimo operacija</value>
+  </data>
   <data name="Goods_InvalidAmountAfterInventorization" xml:space="preserve">
     <value>Kiekis po inventorizacijos negali būti neigiamas - prekė {0}.</value>
+  </data>
+  <data name="ValidationRules_FutureDate" xml:space="preserve">
+    <value>{0} yra vėlesnė nei šios dienos data.</value>
   </data>
 </root>

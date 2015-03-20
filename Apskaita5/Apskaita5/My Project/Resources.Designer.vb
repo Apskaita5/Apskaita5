@@ -61,11 +61,1019 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Įvestuose duomenyse yra klaidų:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Common_ContainsErrors() As String
+            Get
+                Return ResourceManager.GetString("Common_ContainsErrors", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Dokumento tipas &quot;{0}&quot; neimplementuotas klasės {1} metode {2}..
+        '''</summary>
+        Friend ReadOnly Property Common_DocumentTypeNotImplemented() As String
+            Get
+                Return ResourceManager.GetString("Common_DocumentTypeNotImplemented", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida (-os) eilutėje &apos;{0}&apos;:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Common_ErrorInItem() As String
+            Get
+                Return ResourceManager.GetString("Common_ErrorInItem", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko generuoti bendrojo žurnalo įrašo: {0}{1}{2}{3}.
+        '''</summary>
+        Friend ReadOnly Property Common_FailedToCreateJournalEntry() As String
+            Get
+                Return ResourceManager.GetString("Common_FailedToCreateJournalEntry", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Objektas, kurio tipas yra {0}, o ID={1}, nerastas duomenų bazėje..
+        '''</summary>
+        Friend ReadOnly Property Common_ObjectNotFound() As String
+            Get
+                Return ResourceManager.GetString("Common_ObjectNotFound", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Jūsų teisių nepakanka šiai operacijai įvykdyti..
+        '''</summary>
+        Friend ReadOnly Property Common_SecurityExecuteDenied() As String
+            Get
+                Return ResourceManager.GetString("Common_SecurityExecuteDenied", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Jūsų teisių nepakanka naujiems duomenims įvesti..
+        '''</summary>
+        Friend ReadOnly Property Common_SecurityInsertDenied() As String
+            Get
+                Return ResourceManager.GetString("Common_SecurityInsertDenied", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Jūsų teisių nepakanka šiems duomenims gauti..
+        '''</summary>
+        Friend ReadOnly Property Common_SecuritySelectDenied() As String
+            Get
+                Return ResourceManager.GetString("Common_SecuritySelectDenied", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Jūsų teisių nepakanka šiems duomenims pakeisti..
+        '''</summary>
+        Friend ReadOnly Property Common_SecurityUpdateDenied() As String
+            Get
+                Return ResourceManager.GetString("Common_SecurityUpdateDenied", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Dokumento atnaujinimo data pasikeitė. Teigtina, kad kitas vartotojas redagavo šį objektą..
+        '''</summary>
+        Friend ReadOnly Property Common_UpdateDateHasChanged() As String
+            Get
+                Return ResourceManager.GetString("Common_UpdateDateHasChanged", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Eilutėje &apos;{0}&apos; gali būti klaida:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Common_WarningInItem() As String
+            Get
+                Return ResourceManager.GetString("Common_WarningInItem", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to susieta finansinės atskaitomybės eilutė.
+        '''</summary>
+        Friend ReadOnly Property General_Account_AssociatedItem() As String
+            Get
+                Return ResourceManager.GetString("General_Account_AssociatedItem", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sąskaitos numeris.
+        '''</summary>
+        Friend ReadOnly Property General_Account_ID() As String
+            Get
+                Return ResourceManager.GetString("General_Account_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sąskaitos pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property General_Account_Name() As String
+            Get
+                Return ResourceManager.GetString("General_Account_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to numeris&lt;BR&gt;pavadinimas&lt;BR&gt;finansinės atskaitomybės eilutės pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property General_Account_PasteColumns() As String
+            Get
+                Return ResourceManager.GetString("General_Account_PasteColumns", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Apskaitos sąskaitos duomenys privalo būti išdėstyti {0} stulpeliuose: {1}..
+        '''</summary>
+        Friend ReadOnly Property General_Account_PasteColumnsDescription() As String
+            Get
+                Return ResourceManager.GetString("General_Account_PasteColumnsDescription", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sukauptų sąnaudų operacijoje.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByAccumulatedCosts() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByAccumulatedCosts", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to avanso apyskaitoje.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByAdvanceReport() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByAdvanceReport", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto duomenyse.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByAsset() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByAsset", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto operacijoje.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByAssetOperation() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByAssetOperation", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to banko operacijoje.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByBankOperation() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByBankOperation", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to lėšų apskaitos sąskaitos duomenyse.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByCashAccount() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByCashAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kompleksinėje prekių operacijoje.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByComplexGoodsOperation() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByComplexGoodsOperation", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to standartinėse įmonės sąskaitose.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByDefaultAccounts() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByDefaultAccounts", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendrojo žurnalo operacijoje.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByGeneralLedgerEntry() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByGeneralLedgerEntry", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendrojo žurnalo operacijos šablono duomenyse.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByGeneralLedgerTemplate() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByGeneralLedgerTemplate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekių apskaitos sąskaitų pakeitimo operacijoje.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByGoodsAccountChangeOperation() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByGoodsAccountChangeOperation", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekės duomenyse.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByGoodsItem() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByGoodsItem", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekių operacijoje.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByGoodsOperation() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByGoodsOperation", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekių sandėlio duomenyse.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByGoodsWarehouse() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByGoodsWarehouse", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to išrašytoje sąskaitoje faktūroje.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByInvoiceMade() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByInvoiceMade", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gautoje sąskaitoje faktūroje.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByInvoiceReceived() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByInvoiceReceived", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to užskaitos operacijoje.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByOffset() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByOffset", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento duomenyse.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByPerson() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByPerson", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gamybos kalkuliacijos kortelės duomenyse.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByProductionCalculation() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByProductionCalculation", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to paslaugos duomenys.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByService() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByService", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kasos pajamų orderyje.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByTillIncomeOrder() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByTillIncomeOrder", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kasos išlaidų orderyje.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByTillSpendingsOrder() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByTillSpendingsOrder", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nenustatytoje programos vietoje.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByUndefined() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByUndefined", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to darbo užmokesčio žiniaraštyje.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedByWageSheet() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedByWageSheet", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Sąskaita {0} yra naudojama apskaitos duomenyse:.
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedError() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedError", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to * {0} -&gt; objekto ID={1}, operacijos ID={2}, operacijos data - {3}..
+        '''</summary>
+        Friend ReadOnly Property General_Account_WasUsedItem() As String
+            Get
+                Return ResourceManager.GetString("General_Account_WasUsedItem", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Įmonei nėra sukurta finansinės atskaitomybės struktūra..
+        '''</summary>
+        Friend ReadOnly Property General_AccountList_AssignableCRItemListEmpty() As String
+            Get
+                Return ResourceManager.GetString("General_AccountList_AssignableCRItemListEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nėra ką paste&apos;inti, clipboard&apos;as tuščias..
+        '''</summary>
+        Friend ReadOnly Property General_AccountList_ClipBoardIsEmpty() As String
+            Get
+                Return ResourceManager.GetString("General_AccountList_ClipBoardIsEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko gauti finansinės atskaitomybės eilučių duomenų: {0}.
+        '''</summary>
+        Friend ReadOnly Property General_AccountList_FailedToFetchAssignableCRItemList() As String
+            Get
+                Return ResourceManager.GetString("General_AccountList_FailedToFetchAssignableCRItemList", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Neįvesta nė viena sąskaita..
+        '''</summary>
+        Friend ReadOnly Property General_AccountList_IsEmpty() As String
+            Get
+                Return ResourceManager.GetString("General_AccountList_IsEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sąskaitos numeris.
+        '''</summary>
+        Friend ReadOnly Property General_BookEntry_AccountID() As String
+            Get
+                Return ResourceManager.GetString("General_BookEntry_AccountID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to korespondencijos vertė.
+        '''</summary>
+        Friend ReadOnly Property General_BookEntry_Amount() As String
+            Get
+                Return ResourceManager.GetString("General_BookEntry_Amount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sąskaita&lt;BR&gt;suma&lt;BR&gt;asmens ar įmonės kodas (neprivalomas).
+        '''</summary>
+        Friend ReadOnly Property General_BookEntry_PasteColumns() As String
+            Get
+                Return ResourceManager.GetString("General_BookEntry_PasteColumns", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Kontavimo duomenys privalo būti išdėstyti {0} stulpeliuose: {1}..
+        '''</summary>
+        Friend ReadOnly Property General_BookEntry_PasteColumnsDescription() As String
+            Get
+                Return ResourceManager.GetString("General_BookEntry_PasteColumnsDescription", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Įmonėje nesuformuotas sąskaitų planas..
+        '''</summary>
+        Friend ReadOnly Property General_BookEntryList_AccountListEmpty() As String
+            Get
+                Return ResourceManager.GetString("General_BookEntryList_AccountListEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to K.
+        '''</summary>
+        Friend ReadOnly Property General_BookEntryList_CharForCredit() As String
+            Get
+                Return ResourceManager.GetString("General_BookEntryList_CharForCredit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to D.
+        '''</summary>
+        Friend ReadOnly Property General_BookEntryList_CharForDebit() As String
+            Get
+                Return ResourceManager.GetString("General_BookEntryList_CharForDebit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nėra ką paste&apos;inti, clipboard&apos;as tuščias..
+        '''</summary>
+        Friend ReadOnly Property General_BookEntryList_ClipBoardEmpty() As String
+            Get
+                Return ResourceManager.GetString("General_BookEntryList_ClipBoardEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko gauti sąskaitų duomenų: {0}.
+        '''</summary>
+        Friend ReadOnly Property General_BookEntryList_FailedToFetchAccountInfoList() As String
+            Get
+                Return ResourceManager.GetString("General_BookEntryList_FailedToFetchAccountInfoList", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko gauti kontrahentų duomenų: {0}.
+        '''</summary>
+        Friend ReadOnly Property General_BookEntryList_FailedToFetchPersonInfoList() As String
+            Get
+                Return ResourceManager.GetString("General_BookEntryList_FailedToFetchPersonInfoList", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Finansinių bendrojo žurnalo operacijos duomenų keisti neleidžiama (įskaitant eilučių pridėjimą ar pašalinimą):{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property General_BookEntryList_FinancialDataChangeDenied() As String
+            Get
+                Return ResourceManager.GetString("General_BookEntryList_FinancialDataChangeDenied", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenustatyti sąskaitų plano klasių prefiksai..
+        '''</summary>
+        Friend ReadOnly Property General_ClosingEntriesCommand_AccountClassPrefixNull() As String
+            Get
+                Return ResourceManager.GetString("General_ClosingEntriesCommand_AccountClassPrefixNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodyta suvestinės sąskaita..
+        '''</summary>
+        Friend ReadOnly Property General_ClosingEntriesCommand_ConsolidatedAccountNull() As String
+            Get
+                Return ResourceManager.GetString("General_ClosingEntriesCommand_ConsolidatedAccountNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to 5/6 klasių uždarymo įrašas.
+        '''</summary>
+        Friend ReadOnly Property General_ClosingEntriesCommand_DefaultContent() As String
+            Get
+                Return ResourceManager.GetString("General_ClosingEntriesCommand_DefaultContent", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to UZD.
+        '''</summary>
+        Friend ReadOnly Property General_ClosingEntriesCommand_DefaultNumber() As String
+            Get
+                Return ResourceManager.GetString("General_ClosingEntriesCommand_DefaultNumber", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nurodyta operacijos data {0} yra ankstesnė nei paskutinio 5/6 klasių uždarymo data {1}..
+        '''</summary>
+        Friend ReadOnly Property General_ClosingEntriesCommand_InvalidDate() As String
+            Get
+                Return ResourceManager.GetString("General_ClosingEntriesCommand_InvalidDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nekorektiškai gauti duomenys, lentelėje nenurodytas sąskaitos numeris..
+        '''</summary>
+        Friend ReadOnly Property General_ClosingEntriesCommand_InvalidFetchResult() As String
+            Get
+                Return ResourceManager.GetString("General_ClosingEntriesCommand_InvalidFetchResult", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nėra 5/6 klasės likučių, kuriuos būtų galima uždaryti..
+        '''</summary>
+        Friend ReadOnly Property General_ClosingEntriesCommand_NoResidualAmount() As String
+            Get
+                Return ResourceManager.GetString("General_ClosingEntriesCommand_NoResidualAmount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to operacijos turinys.
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_Content() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_Content", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kredituojama suma.
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_CreditSum() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_CreditSum", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Bendrojo žurnalo įrašo data.
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_Date() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_Date", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to debetuojama suma.
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_DebetSum() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_DebetSum", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Debeto korespondencijų suma nelygi kredito korespondencijų sumai..
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_DebitNotEqualsCredit() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_DebitNotEqualsCredit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pagrindžiančio dokumento numeris.
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_DocNumber() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_DocNumber", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Negalima tiesiogiai išsaugoti registruojant dokumentą padaryto įrašo bendrajame žurnale..
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_InvalidTypeOnSave() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_InvalidTypeOnSave", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Su šiuo bendrojo žurnalo įrašu yra susietas dokumentas {0}. Bendrojo žurnalo įrašas gali būti pašalintas tik ištrinant atitinkamą dokumentą per ilgalaikio turto modulio suvestines..
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_OnDeletingAssetsModule() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_OnDeletingAssetsModule", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Su šiuo bendrojo žurnalo įrašu yra susietas dokumentas {0}. Bendrojo žurnalo įrašas gali būti pašalintas tik ištrinant atitinkamą dokumentą per dokumentų modulio suvestines..
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_OnDeletingDocumentModule() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_OnDeletingDocumentModule", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Su šiuo bendrojo žurnalo įrašu yra susietas dokumentas {0}. Bendrojo žurnalo įrašas gali būti pašalintas tik ištrinant atitinkamą dokumentą per prekių modulio suvestines..
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_OnDeletingGoodsModule() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_OnDeletingGoodsModule", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Su šiuo bendrojo žurnalo įrašu yra susietas dokumentas {0}. Bendrojo žurnalo įrašas gali būti pašalintas tik ištrinant atitinkamą dokumentą per darbuotojų modulio suvestines..
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_OnDeletingWorkersModule() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_OnDeletingWorkersModule", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to susietas kontrahentas.
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_Person() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_Person", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} bendrojo žurnalo įrašas, ID={1}, data={2}, numeris=&quot;&quot;{3}&quot;&quot;, turinys=&quot;&quot;{4}&quot;&quot;, kontavimai={5}, {6}..
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_ToString() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendrojo žurnalo operacija.
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_TypeName() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas Parent objekto dokumento tipas..
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_UnexpectedChildType() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_UnexpectedChildType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Bendrojo žurnalo įrašo, kurio ID={0}, dokumento tipas yra {1}, o tikėtąsi tipo {2}..
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_UnexpectedParentType() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_UnexpectedParentType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Tipinį sąskaitų planą galima generuoti tik nesant jau įvestų sąskaitų..
+        '''</summary>
+        Friend ReadOnly Property General_SetupTypicalAccountsCommand_AccountsAlreadyExists() As String
+            Get
+                Return ResourceManager.GetString("General_SetupTypicalAccountsCommand_AccountsAlreadyExists", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Tipinį sąskaitų planą galima generuoti tik nesant jau įvestų finansinės atskaitomybės formų..
+        '''</summary>
+        Friend ReadOnly Property General_SetupTypicalAccountsCommand_FinancialStatementsStructureAlreadyExists() As String
+            Get
+                Return ResourceManager.GetString("General_SetupTypicalAccountsCommand_FinancialStatementsStructureAlreadyExists", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sąskaita.
+        '''</summary>
+        Friend ReadOnly Property General_TemplateBookEntry_Account() As String
+            Get
+                Return ResourceManager.GetString("General_TemplateBookEntry_Account", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to operacijos turinys.
+        '''</summary>
+        Friend ReadOnly Property General_TemplateJournalEntry_Content() As String
+            Get
+                Return ResourceManager.GetString("General_TemplateJournalEntry_Content", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodyta nė viena kredituojama sąskaita..
+        '''</summary>
+        Friend ReadOnly Property General_TemplateJournalEntry_CreditAccountsEmpty() As String
+            Get
+                Return ResourceManager.GetString("General_TemplateJournalEntry_CreditAccountsEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodyta nė viena debetuojama sąskaita..
+        '''</summary>
+        Friend ReadOnly Property General_TemplateJournalEntry_DebitAccountsEmpty() As String
+            Get
+                Return ResourceManager.GetString("General_TemplateJournalEntry_DebitAccountsEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Bendrojo žurnalo operacijos šablonas tokiu pavadinimu jau egzistuoja..
+        '''</summary>
+        Friend ReadOnly Property General_TemplateJournalEntry_DuplicateName() As String
+            Get
+                Return ResourceManager.GetString("General_TemplateJournalEntry_DuplicateName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to operacijos šablono pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property General_TemplateJournalEntry_Name() As String
+            Get
+                Return ResourceManager.GetString("General_TemplateJournalEntry_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to šablonas.
+        '''</summary>
+        Friend ReadOnly Property General_TemplateJournalEntry_TypeName() As String
+            Get
+                Return ResourceManager.GetString("General_TemplateJournalEntry_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Apskaitos likučių perkėlimas.
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalance_Content() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalance_Content", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkeliama kreditinių likučių suma.
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalance_CreditSum() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalance_CreditSum", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to likučių perkėlimo data.
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalance_Date() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalance_Date", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkeliama debetinių likučių suma.
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalance_DebetSum() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalance_DebetSum", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Lik. Perk..
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalance_DocNumber() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalance_DocNumber", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Likučių perkėlimo duomenys negali būti keičiami:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalance_FinancialDataChangeDenied() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalance_FinancialDataChangeDenied", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Likučių perkėlimo operacijos pašalinti neleidžiama:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalance_FinancialDataDeleteDenied() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalance_FinancialDataDeleteDenied", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Įtraukti naują likučių perkėlimo operaciją neleidžiama:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalance_FinancialDataInsertDenied() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalance_FinancialDataInsertDenied", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Pasikeitė likučių perkėlimo operacijos ID..
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalance_IdHasChanged() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalance_IdHasChanged", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} {1} likučių perkėlimo operacija, ID={2}{3}Suminiai likučiai: {4}{5}{6}Analitiniai likučiai: {7}.
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalance_ToString() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalance_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to likučių perkėlimo operacija.
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalance_TypeName() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalance_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to apskaitos sąskaita.
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalanceAnalytics_Account() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalanceAnalytics_Account", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to likučio suma.
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalanceAnalytics_Amount() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalanceAnalytics_Amount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to tipas (Debetas/Kreditas)&lt;BR&gt;sąskaita&lt;BR&gt;suma&lt;BR&gt;asmens ar įmonės kodas.
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalanceAnalytics_PasteColumns() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalanceAnalytics_PasteColumns", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Likučių perkėlimo analitikos duomenys privalo būti išdėstyti {0} stulpeliais: {1}.
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalanceAnalytics_PasteColumnsDescription() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalanceAnalytics_PasteColumnsDescription", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahentas.
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalanceAnalytics_Person() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalanceAnalytics_Person", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Įmonėje nesuformuotas sąskaitų planas..
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalanceAnalyticsList_AccountListEmpty() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalanceAnalyticsList_AccountListEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nėra ką paste&apos;inti, clipboard&apos;as tuščias..
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalanceAnalyticsList_ClipBoardIsEmpty() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalanceAnalyticsList_ClipBoardIsEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko gauti sąskaitų duomenų: {0}.
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalanceAnalyticsList_FailedToFetchAccountInfoList() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalanceAnalyticsList_FailedToFetchAccountInfoList", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko gauti kontrahentų duomenų: {0}.
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalanceAnalyticsList_FailedToFetchPersonInfoList() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalanceAnalyticsList_FailedToFetchPersonInfoList", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to .
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalanceChronologicValidator_ClosingLimit() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalanceChronologicValidator_ClosingLimit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Likučių perkėlimo data negali būti vėlesnė nei {0}, nes šia data registruota pirma operacija..
+        '''</summary>
+        Friend ReadOnly Property General_TransferOfBalanceChronologicValidator_MaxDateLimit() As String
+            Get
+                Return ResourceManager.GetString("General_TransferOfBalanceChronologicValidator_MaxDateLimit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Kiekis po inventorizacijos negali būti neigiamas - prekė {0}..
         '''</summary>
         Friend ReadOnly Property Goods_InvalidAmountAfterInventorization() As String
             Get
                 Return ResourceManager.GetString("Goods_InvalidAmountAfterInventorization", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} yra vėlesnė nei šios dienos data..
+        '''</summary>
+        Friend ReadOnly Property ValidationRules_FutureDate() As String
+            Get
+                Return ResourceManager.GetString("ValidationRules_FutureDate", resourceCulture)
             End Get
         End Property
     End Module

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{13ADAA16-3D3A-4F2A-A5D4-D6DE94A31614}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Import Include="AccCommon" />
     <Import Include="ApskaitaObjects.HelperLists" />
     <Import Include="Csla" />
     <Import Include="Microsoft.VisualBasic" />
@@ -201,6 +202,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Apskaita5\AccCommon\AccCommon.vbproj">
+      <Project>{380B0551-D15D-4072-A72C-406274CCB50E}</Project>
+      <Name>AccCommon</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

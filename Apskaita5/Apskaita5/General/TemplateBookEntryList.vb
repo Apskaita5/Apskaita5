@@ -1,5 +1,9 @@
 Namespace General
 
+    ''' <summary>
+    ''' Represents a ledger transaction template list grouped by <see cref="General.BookEntryList.Type">transaction type</see>.
+    ''' </summary>
+    ''' <remarks>Can only be used as a child object for <see cref="General.TemplateJournalEntry">TemplateJournalEntry</see>.</remarks>
     <Serializable()> _
     Public Class TemplateBookEntryList
         Inherits BusinessListBase(Of TemplateBookEntryList, TemplateBookEntry)
@@ -8,6 +12,10 @@ Namespace General
 
         Private _Type As BookEntryType = BookEntryType.Debetas
 
+
+        ''' <summary>
+        ''' <see cref="BookEntryType">Type</see> (credit/debit) of the transaction templates in the list.
+        ''' </summary>
         Public ReadOnly Property [Type]() As BookEntryType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -22,49 +30,49 @@ Namespace General
             Return NewItem
         End Function
 
+
         Public Function GetAllBrokenRules() As String
-            Dim result As String = GetAllBrokenRulesForList(Me)
-
-            'Dim GeneralErrorString As String = ""
-            'SomeGeneralValidationSub(GeneralErrorString)
-            'AddWithNewLine(result, GeneralErrorString, False)
-
-            Return result
+            If Me.IsValid Then Return ""
+            Return GetAllBrokenRulesForList(Me)
         End Function
 
         Public Function GetAllWarnings() As String
-            Dim result As String = GetAllWarningsForList(Me)
-            'Dim GeneralErrorString As String = ""
-            'SomeGeneralValidationSub(GeneralErrorString)
-            'AddWithNewLine(result, GeneralErrorString, False)
+            If Not HasWarnings() Then Return ""
+            Return GetAllWarningsForList(Me)
+        End Function
 
-            Return result
+        Public Function HasWarnings() As Boolean
+            For Each i As TemplateBookEntry In Me
+                If i.BrokenRulesCollection.WarningCount > 0 Then Return True
+            Next
+            Return False
         End Function
 
 #End Region
 
 #Region " Factory Methods "
 
-        ' used to implement automatic sort in datagridview
-        <NonSerialized()> _
-        Private _SortedList As Csla.SortedBindingList(Of TemplateBookEntry) = Nothing
-
-        Friend Shared Function NewTemplateBookEntryList(ByVal nType As BookEntryType) As TemplateBookEntryList
-            Dim result As TemplateBookEntryList = New TemplateBookEntryList
-            result._Type = nType
-            Return result
+        ''' <summary>
+        ''' Gets as new TemplateBookEntryList of type <paramref name=" EntryType">EntryType</paramref>.
+        ''' </summary>
+        ''' <param name="EntryType"><see cref="BookEntryType">Type</see> of the transaction templates in the list.</param>
+        Friend Shared Function NewTemplateBookEntryList(ByVal EntryType As BookEntryType) As TemplateBookEntryList
+            Return New TemplateBookEntryList(EntryType)
         End Function
 
+        ''' <summary>
+        ''' Gets a BookEntryList from database.
+        ''' </summary>
+        ''' <param name="myData">DataTable containing transaction data.</param>
+        ''' <param name="entryType"><see cref="BookEntryType">Type</see> of the transaction templates in the list.</param>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
         Friend Shared Function GetTemplateBookEntryList(ByVal myData As DataTable, _
-            ByVal nType As BookEntryType) As TemplateBookEntryList
-            Dim result As TemplateBookEntryList = New TemplateBookEntryList(myData, nType)
+            ByVal entryType As BookEntryType) As TemplateBookEntryList
+            Dim result As TemplateBookEntryList = New TemplateBookEntryList(myData, entryType)
             Return result
         End Function
 
-        Public Function GetSortedList() As Csla.SortedBindingList(Of TemplateBookEntry)
-            If _SortedList Is Nothing Then _SortedList = New Csla.SortedBindingList(Of TemplateBookEntry)(Me)
-            Return _SortedList
-        End Function
 
         Private Sub New()
             ' require use of factory methods
@@ -74,29 +82,42 @@ Namespace General
             Me.AllowRemove = True
         End Sub
 
-        Private Sub New(ByVal myData As DataTable, ByVal nType As BookEntryType)
+        Private Sub New(ByVal entryType As BookEntryType)
             ' require use of factory methods
             MarkAsChild()
             Me.AllowEdit = True
             Me.AllowNew = True
             Me.AllowRemove = True
-            Fetch(myData, nType)
+            Create(entryType)
+        End Sub
+
+        Private Sub New(ByVal myData As DataTable, ByVal entryType As BookEntryType)
+            ' require use of factory methods
+            MarkAsChild()
+            Me.AllowEdit = True
+            Me.AllowNew = True
+            Me.AllowRemove = True
+            Fetch(myData, entryType)
         End Sub
 
 #End Region
 
 #Region " Data Access "
 
-        Private Sub Fetch(ByVal myData As DataTable, ByVal nType As BookEntryType)
+        Private Sub Create(ByVal EntryType As BookEntryType)
+            _Type = EntryType
+        End Sub
+
+        Private Sub Fetch(ByVal myData As DataTable, ByVal entryType As BookEntryType)
 
             RaiseListChangedEvents = False
 
             For Each dr As DataRow In myData.Rows
-                If ConvertEnumDatabaseStringCode(Of BookEntryType)(CStrSafe(dr.Item(1))) = nType Then _
+                If ConvertEnumDatabaseStringCode(Of BookEntryType)(CStrSafe(dr.Item(1))) = entryType Then _
                     Add(TemplateBookEntry.GetTemplateBookEntry(dr))
             Next
 
-            _Type = nType
+            _Type = entryType
 
             RaiseListChangedEvents = True
 

@@ -1420,7 +1420,7 @@
         <ZIndex>1</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>0.75cm</Height>
-        <Value>=First(Fields!Column14.Value, "ReportData_TableCompany")</Value>
+        <Value>="įmonės kodas " &amp; First(Fields!Column3.Value, "ReportData_TableCompany") &amp; ", adresas " &amp; First(Fields!Column5.Value, "ReportData_TableCompany")</Value>
       </Textbox>
       <Textbox Name="Column1">
         <rd:DefaultName>Column1</rd:DefaultName>
