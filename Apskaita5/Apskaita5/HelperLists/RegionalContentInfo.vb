@@ -56,10 +56,6 @@ Namespace HelperLists
 
 #Region " Factory Methods "
 
-        Friend Shared Function GetRegionalContentInfo(ByVal dr As String) As RegionalContentInfo
-            Return New RegionalContentInfo(dr)
-        End Function
-
         Friend Shared Function GetRegionalContentInfo(ByVal dr As DataRow) As RegionalContentInfo
             Return New RegionalContentInfo(dr)
         End Function
@@ -69,10 +65,6 @@ Namespace HelperLists
             ' require use of factory methods
         End Sub
 
-        Private Sub New(ByVal dr As String)
-            Fetch(dr)
-        End Sub
-
         Private Sub New(ByVal dr As DataRow)
             Fetch(dr)
         End Sub
@@ -80,17 +72,6 @@ Namespace HelperLists
 #End Region
 
 #Region " Data Access "
-
-        Private Sub Fetch(ByVal dr As String)
-
-            Dim DataArray As String() = dr.Split(New String() {"*-*-"}, StringSplitOptions.None)
-
-            _LanguageCode = DataArray(1).Trim
-            _ContentInvoice = DataArray(2).Trim
-            _MeasureUnit = DataArray(3).Trim
-            _VatExempt = DataArray(4).Trim
-
-        End Sub
 
         Private Sub Fetch(ByVal dr As DataRow)
 

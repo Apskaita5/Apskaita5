@@ -98,6 +98,8 @@
     <Compile Include="ActiveReports\ContractInfoList.vb" />
     <Compile Include="ActiveReports\DebtInfo.vb" />
     <Compile Include="ActiveReports\DebtInfoList.vb" />
+    <Compile Include="ActiveReports\Declarations\DeclarationFR0572_2.vb" />
+    <Compile Include="ActiveReports\Declarations\DeclarationSamAut1.vb" />
     <Compile Include="ActiveReports\FinancialStatementsInfo.vb" />
     <Compile Include="ActiveReports\GoodsOperationInfo.vb" />
     <Compile Include="ActiveReports\GoodsOperationInfoList.vb" />
@@ -375,6 +377,8 @@
     <Compile Include="Workers\ContractUpdate.vb" />
     <Compile Include="Workers\DayWorkTime.vb" />
     <Compile Include="Workers\DayWorkTimeList.vb" />
+    <Compile Include="ActiveReports\Declarations\DeclarationSam1.vb" />
+    <Compile Include="ActiveReports\IDeclaration.vb" />
     <Compile Include="Workers\SheetChronologicValidator.vb" />
     <Compile Include="Workers\SodraRateInfo.vb" />
     <Compile Include="Workers\SpecialWorkTimeItem.vb" />
@@ -382,7 +386,7 @@
     <Compile Include="Workers\WageType.vb" />
     <Compile Include="Workers\WorkerStatusType.vb" />
     <Compile Include="Workers\CompanyWageRates.vb" />
-    <Compile Include="Workers\Declaration.vb" />
+    <Compile Include="ActiveReports\Declaration.vb" />
     <Compile Include="Workers\ImprestItem.vb" />
     <Compile Include="Workers\ImprestItemList.vb" />
     <Compile Include="Workers\ImprestSheet.vb" />

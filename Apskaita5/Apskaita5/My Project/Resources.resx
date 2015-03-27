@@ -117,6 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ActiveReports_Declarations_DeclarationSam1_MultipleRateItem" xml:space="preserve">
+    <value>SODRA išskaičiuota - {0}; PSD isšskaičiuota - {1}; SODRA Priskaičiuota - {2}; PSD priskaičiuota - {4}.</value>
+  </data>
+  <data name="ActiveReports_Declarations_DeclarationSam1_MultipleRates" xml:space="preserve">
+    <value>DĖMESIO. Pasirinktą ketvirtį buvo taikomi skirtingi SODROS ir PSD tarifai:{0}{1}{2}Deklaracijoje naudojama tik pirmoji tarifų kombinacija.</value>
+  </data>
+  <data name="ActiveReports_Declarations_DeclarationSam1_NullRates" xml:space="preserve">
+    <value>DĖMESIO. Pasirinktą ketvirtį nebuvo apskaitoje registruotų darbo užmokesčio žiniaraščių, iš kurių būtų matomi pasirinktą ketvirtį faktiškai taikyti SODROS įmokų tarifai. Deklaracijoje naudojami einamieji tarifai.</value>
+  </data>
+  <data name="ActiveReports_IDeclaration_ArgumentsNull" xml:space="preserve">
+    <value>Klaida. Nenurodyti visi reikalaingi deklaracijos parametrai:{0}, {1}</value>
+  </data>
+  <data name="ActiveReports_IDeclaration_MonthNull" xml:space="preserve">
+    <value>Nenurodytas mėnuo.</value>
+  </data>
+  <data name="ActiveReports_IDeclaration_MunicipalityCodeNull" xml:space="preserve">
+    <value>Nenurodytas savivaldybės kodas.</value>
+  </data>
+  <data name="ActiveReports_IDeclaration_QuarterNull" xml:space="preserve">
+    <value>Nenurodytas ketvirtis.</value>
+  </data>
+  <data name="ActiveReports_IDeclaration_SodraAccountNull" xml:space="preserve">
+    <value>Nenurodyta SODRA įmokų apskaitos sąskaita.</value>
+  </data>
+  <data name="ActiveReports_IDeclaration_SodraDepartmentNull" xml:space="preserve">
+    <value>Nenurodytas SODRA skyrius</value>
+  </data>
+  <data name="ActiveReports_IDeclaration_YearNull" xml:space="preserve">
+    <value>Nenurodyti metai.</value>
+  </data>
   <data name="Common_ContainsErrors" xml:space="preserve">
     <value>Įvestuose duomenyse yra klaidų:{0}{1}</value>
   </data>

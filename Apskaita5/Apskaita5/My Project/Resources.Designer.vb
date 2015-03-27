@@ -61,6 +61,96 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to SODRA išskaičiuota - {0}; PSD isšskaičiuota - {1}; SODRA Priskaičiuota - {2}; PSD priskaičiuota - {4}..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_Declarations_DeclarationSam1_MultipleRateItem() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_Declarations_DeclarationSam1_MultipleRateItem", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to DĖMESIO. Pasirinktą ketvirtį buvo taikomi skirtingi SODROS ir PSD tarifai:{0}{1}{2}Deklaracijoje naudojama tik pirmoji tarifų kombinacija..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_Declarations_DeclarationSam1_MultipleRates() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_Declarations_DeclarationSam1_MultipleRates", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to DĖMESIO. Pasirinktą ketvirtį nebuvo apskaitoje registruotų darbo užmokesčio žiniaraščių, iš kurių būtų matomi pasirinktą ketvirtį faktiškai taikyti SODROS įmokų tarifai. Deklaracijoje naudojami einamieji tarifai..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_Declarations_DeclarationSam1_NullRates() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_Declarations_DeclarationSam1_NullRates", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodyti visi reikalaingi deklaracijos parametrai:{0}, {1}.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_IDeclaration_ArgumentsNull() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_IDeclaration_ArgumentsNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodytas mėnuo..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_IDeclaration_MonthNull() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_IDeclaration_MonthNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodytas savivaldybės kodas..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_IDeclaration_MunicipalityCodeNull() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_IDeclaration_MunicipalityCodeNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodytas ketvirtis..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_IDeclaration_QuarterNull() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_IDeclaration_QuarterNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodyta SODRA įmokų apskaitos sąskaita..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_IDeclaration_SodraAccountNull() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_IDeclaration_SodraAccountNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodytas SODRA skyrius.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_IDeclaration_SodraDepartmentNull() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_IDeclaration_SodraDepartmentNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodyti metai..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_IDeclaration_YearNull() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_IDeclaration_YearNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Įvestuose duomenyse yra klaidų:{0}{1}.
         '''</summary>
         Friend ReadOnly Property Common_ContainsErrors() As String

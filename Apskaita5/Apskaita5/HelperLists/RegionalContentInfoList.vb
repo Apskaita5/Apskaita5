@@ -35,10 +35,6 @@ Namespace HelperLists
             Return New RegionalContentInfoList
         End Function
 
-        Friend Shared Function GetRegionalContentInfoList(ByVal ConcetanatedString As String) As RegionalContentInfoList
-            Return New RegionalContentInfoList(ConcetanatedString)
-        End Function
-
         Friend Shared Function GetRegionalContentInfoList(Of T As Documents.IRegionalDataObject) _
             (ByVal parentID As Integer) As RegionalContentInfoList
             Return New RegionalContentInfoList(GetType(T), parentID)
@@ -72,11 +68,6 @@ Namespace HelperLists
             ' require use of factory methods
         End Sub
 
-        Private Sub New(ByVal ConcetanatedString As String)
-            ' require use of factory methods
-            Fetch(ConcetanatedString)
-        End Sub
-
         Private Sub New(ByVal parentType As Type, ByVal parentID As Integer)
             ' require use of factory methods
             Fetch(parentType, parentID)
@@ -90,22 +81,6 @@ Namespace HelperLists
 #End Region
 
 #Region " Data Access "
-
-        Private Sub Fetch(ByVal ConcetanatedString As String)
-
-            RaiseListChangedEvents = False
-            IsReadOnly = False
-
-            For Each dr As String In ConcetanatedString.Split(New String() {"@*#@"}, _
-                StringSplitOptions.RemoveEmptyEntries)
-                If Not dr Is Nothing AndAlso Not String.IsNullOrEmpty(dr.Trim) Then _
-                    Add(RegionalContentInfo.GetRegionalContentInfo(dr.Trim))
-            Next
-
-            IsReadOnly = True
-            RaiseListChangedEvents = True
-
-        End Sub
 
         Private Sub Fetch(ByVal parentType As Type, ByVal parentID As Integer)
 

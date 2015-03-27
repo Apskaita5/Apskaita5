@@ -575,22 +575,22 @@
   <MySQL_Statement>
     <Key>FetchWageInfoWithinPeriod</Key>
     <Statement>SELECT d.AK, a.Pavad, a.Kodas, a.SD_kodas, d.DS_Serija, d.DS_NR, d.Kruvis, d.DU, d.DU_tipas, d.Priedai, 0 AS NPD_Ap, 0 AS PNPD_Ap, 0 AS I_Avans, 0 AS P_Avans, 0 AS UsedNPD, 0 AS OtherIncome, d.Dien, d.Val, d.NV, d.PS, d.YS, d.D_val, d.D_dien, d.Prav, d.AT_K, d.Atost, d.Atost_n, d.Nedarb, d.VDU_dien, d.VDU_val, d.Premija, d.Pr_tipas, d.Kitos, d.Kitos_s, d.II, d.P_Atost, d.Issk, d.Avans, d.NPD, d.PNPD, d.VDU_d, d.VDU_v, d.VDU_u, d.Ismoketa, d.ID, m.SD_d, m.SD_v, m.PSDW, m.PSDE, m.Garant, m.GPM, m.NPDF, m.P_S, m.Y_S, m.N_V, m.Nedarb, m.Metai, m.Men, (SELECT SUM(q.DU_is) FROM du_ziniarastis_d q WHERE NOT q.Ismoketa IS NULL AND YEAR(q.Ismoketa)=m.Metai AND MONTH(q.Ismoketa)=m.Men AND q.Ismoketa&gt;=?DF AND q.Ismoketa&lt;=?DT AND q.DS_Serija=d.DS_Serija AND q.DS_NR=d.DS_NR) AS DU_PayedOut, (SELECT SUM(q.Suma) FROM d_avansai_d q WHERE NOT q.Ismok IS NULL AND YEAR(q.Ismok)=m.Metai AND MONTH(q.Ismok)=m.Men AND q.Ismok&gt;=?DF AND q.Ismok&lt;=?DT AND q.DS_Serija=d.DS_Serija AND q.DS_NR=d.DS_NR) AS Impr_PayedOut FROM du_ziniarastis_d d, asmenys a, du_ziniarastis m WHERE d.AK=a.ID AND d.Z_ID=m.ID AND m.Z_Data&gt;=?DF AND m.Z_Data&lt;=?DT AND d.DS_NR=?CN AND d.DS_Serija=?CS ORDER BY m.Metai, m.Men;</Statement>
-    <Objects>Workers.WageSheet</Objects>
+    <Objects>Workers.WorkerWageInfoReport</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchWageBalanceAtStart</Key>
     <Statement>SELECT (SELECT SUM(d.DU_is+d.Avans) FROM du_ziniarastis_d d, du_ziniarastis b WHERE d.Z_ID=b.ID AND b.Z_Data&lt;?DF AND d.DS_NR=?CN AND d.DS_Serija=?CS) AS SumToPay, (SELECT SUM(d.DU_is) FROM du_ziniarastis_d d WHERE NOT d.Ismoketa IS NULL AND d.Ismoketa&lt;?DF AND d.DS_NR=?CN AND d.DS_Serija=?CS) AS WagePayed, (SELECT SUM(a.Suma) FROM d_avansai_d a WHERE NOT a.Ismok IS NULL AND a.Ismok&lt;?DF AND a.DS_NR=?CN AND a.DS_Serija=?CS) AS ImprestPayed;</Statement>
-    <Objects>Workers.WageSheet</Objects>
+    <Objects>Workers.WorkerWageInfoReport</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchWageInfoWithinPeriod2</Key>
     <Statement>SELECT d.AK, a.Pavad, a.Kodas, a.SD_kodas, d.DS_Serija, d.DS_NR, d.Kruvis, d.DU, d.DU_tipas, d.Priedai, 0 AS NPD_Ap, 0 AS PNPD_Ap, 0 AS I_Avans, 0 AS P_Avans, 0 AS UsedNPD, 0 AS OtherIncome, d.Dien, d.Val, d.NV, d.PS, d.YS, d.D_val, d.D_dien, d.Prav, d.AT_K, d.Atost, d.Atost_n, d.Nedarb, d.VDU_dien, d.VDU_val, d.Premija, d.Pr_tipas, d.Kitos, d.Kitos_s, d.II, d.P_Atost, d.Issk, d.Avans, d.NPD, d.PNPD, d.VDU_d, d.VDU_v, d.VDU_u, d.Ismoketa, d.ID, m.SD_d, m.SD_v, m.PSDW, m.PSDE, m.Garant, m.GPM, m.NPDF, m.P_S, m.Y_S, m.N_V, m.Nedarb, m.Metai, m.Men, (SELECT SUM(q.DU_is) FROM du_ziniarastis_d q WHERE NOT q.Ismoketa IS NULL AND YEAR(q.Ismoketa)=m.Metai AND MONTH(q.Ismoketa)=m.Men AND q.Ismoketa&gt;=?DF AND q.Ismoketa&lt;=?DT AND q.AK=d.AK) AS DU_PayedOut, (SELECT SUM(q.Suma) FROM d_avansai_d q WHERE NOT q.Ismok IS NULL AND YEAR(q.Ismok)=m.Metai AND MONTH(q.Ismok)=m.Men AND q.Ismok&gt;=?DF AND q.Ismok&lt;=?DT AND q.AK=d.AK) AS Impr_PayedOut FROM du_ziniarastis_d d, asmenys a, du_ziniarastis m WHERE d.AK=a.ID AND d.Z_ID=m.ID AND m.Z_Data&gt;=?DF AND m.Z_Data&lt;=?DT AND d.AK=?PD ORDER BY m.Metai, m.Men;</Statement>
-    <Objects>Workers.WageSheet</Objects>
+    <Objects>Workers.WorkerWageInfoReport</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchWageBalanceAtStart2</Key>
     <Statement>SELECT (SELECT SUM(d.DU_is+d.Avans) FROM du_ziniarastis_d d, du_ziniarastis b WHERE d.Z_ID=b.ID AND b.Z_Data&lt;?DF AND d.AK=?PD) AS SumToPay, (SELECT SUM(d.DU_is) FROM du_ziniarastis_d d WHERE NOT d.Ismoketa IS NULL AND d.Ismoketa&lt;?DF AND d.AK=?PD) AS WagePayed, (SELECT SUM(a.Suma) FROM d_avansai_d a WHERE NOT a.Ismok IS NULL AND a.Ismok&lt;?DF AND a.AK=?PD) AS ImprestPayed;</Statement>
-    <Objects>Workers.WageSheet</Objects>
+    <Objects>Workers.WorkerWageInfoReport</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>InsertWageSheet</Key>
