@@ -1019,6 +1019,9 @@
     <Content Include="Reports\R_GoodsTurnoverInfoList.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Reports\R_AccountTurnoverInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Tools\F_CurrencyRateChangeImpactCalculator.resx">
       <DependentUpon>F_CurrencyRateChangeImpactCalculator.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1245,7 +1248,7 @@
     <Content Include="Reports\R_ConsolidatedReport.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Reports\R_AccountTurnoverInfoList.rdlc">
+    <Content Include="Reports\R_AccountTurnoverInfoList2.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Reports\R_BankTransferList.rdlc">

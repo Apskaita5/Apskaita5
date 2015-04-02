@@ -1,5 +1,9 @@
 Namespace General
 
+    ''' <summary>
+    ''' Represents a list of <see cref="Person">person's</see> assignments to <see cref="PersonGroup">PersonGroups</see>. (many to many relation)
+    ''' </summary>
+    ''' <remarks>Only used as a child of a <see cref="Person">Person</see>.</remarks>
     <Serializable()> _
     Public Class PersonGroupAssignmentList
         Inherits BusinessListBase(Of PersonGroupAssignmentList, PersonGroupAssignment)
@@ -15,7 +19,10 @@ Namespace General
             End Get
         End Property
 
-
+        ''' <summary>
+        ''' Whether the are any assignemnts to any group.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public Function IsAssignedToAnyGroup() As Boolean
             For Each i As PersonGroupAssignment In Me
                 If i.IsAssigned Then Return True
@@ -23,6 +30,10 @@ Namespace General
             Return False
         End Function
 
+        ''' <summary>
+        ''' Refreshes PersonGroup data when <see cref="PersonGroupList">PersonGroupList</see> changes.
+        ''' </summary>
+        ''' <param name="RefreshedPersonGroupInfoList"></param>
         Public Sub RefreshPersonGroupInfoList(ByVal RefreshedPersonGroupInfoList As PersonGroupInfoList, _
             ByVal RaiseListChangedEvent As Boolean)
 
@@ -52,6 +63,7 @@ Namespace General
 
         End Sub
 
+
         Public Function GetAllBrokenRules() As String
             Dim result As String = GetAllBrokenRulesForList(Me)
 
@@ -68,18 +80,34 @@ Namespace General
             Return result
         End Function
 
+        Public Function HasWarnings() As Boolean
+            For Each i As PersonGroupAssignment In Me
+                If i.BrokenRulesCollection.WarningCount > 0 Then Return True
+            Next
+            Return False
+        End Function
+
 #End Region
 
 #Region " Factory Methods "
 
+        ''' <summary>
+        ''' Gets a PersonGroupAssignmentList instance for a person.
+        ''' </summary>
+        ''' <param name="parent"></param>
+        ''' <remarks></remarks>
         Friend Shared Function GetPersonGroupAssignmentList(ByVal parent As Person) As PersonGroupAssignmentList
-            Dim result As PersonGroupAssignmentList = New PersonGroupAssignmentList(parent)
-            Return result
+            Return New PersonGroupAssignmentList(parent)
         End Function
 
+        ''' <summary>
+        ''' Gets a new PersonGroupAssignmentList instance for a new person.
+        ''' </summary>
+        ''' <remarks></remarks>
         Friend Shared Function NewPersonGroupAssignmentList() As PersonGroupAssignmentList
             Return New PersonGroupAssignmentList()
         End Function
+
 
         Private Sub New()
             ' require use of factory methods

@@ -339,6 +339,84 @@
   <data name="General_ClosingEntriesCommand_NoResidualAmount" xml:space="preserve">
     <value>Klaida. Nėra 5/6 klasės likučių, kuriuos būtų galima uždaryti.</value>
   </data>
+  <data name="General_Company_Accountant" xml:space="preserve">
+    <value>(vyr.) buhalterio vardas, pavardė</value>
+  </data>
+  <data name="General_Company_AccountClassPrefixNotUnique" xml:space="preserve">
+    <value>Klaida. Pasikartoja klasės prefiksas {0}.</value>
+  </data>
+  <data name="General_Company_AccountClassPrefixNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas nė vienas klasės prefiksas {0} klasei.</value>
+  </data>
+  <data name="General_Company_Cashier" xml:space="preserve">
+    <value>kasininko vardas, pavardė</value>
+  </data>
+  <data name="General_Company_Code" xml:space="preserve">
+    <value>įmonės kodas</value>
+  </data>
+  <data name="General_Company_CodeSODRA" xml:space="preserve">
+    <value>SODRA mokėtojo kodas</value>
+  </data>
+  <data name="General_Company_CodeVat" xml:space="preserve">
+    <value>PVM mokėtojo kodas</value>
+  </data>
+  <data name="General_Company_Currency" xml:space="preserve">
+    <value>bazinė įmonės valiuta</value>
+  </data>
+  <data name="General_Company_DefaultInvoiceMadeContent" xml:space="preserve">
+    <value>turinys naujoje išrašomoje sąskaitoje</value>
+  </data>
+  <data name="General_Company_DefaultInvoiceReceivedContent" xml:space="preserve">
+    <value>turinys naujoje gaunamoje sąskaitoje</value>
+  </data>
+  <data name="General_Company_Email" xml:space="preserve">
+    <value>e-pašto adresas</value>
+  </data>
+  <data name="General_Company_HeadPerson" xml:space="preserve">
+    <value>vadovo vardas, pavardė</value>
+  </data>
+  <data name="General_Company_InsertFailed" xml:space="preserve">
+    <value>KRITINĖ KLAIDA. Nepavyko įrašyti įmonės duomenų į sukurtą duomenų bazę.</value>
+  </data>
+  <data name="General_Company_MeasureUnitInvoiceReceived" xml:space="preserve">
+    <value>mato vienetas gaunamoje sąskaitoje</value>
+  </data>
+  <data name="General_Company_Name" xml:space="preserve">
+    <value>įmonės pavadinimas</value>
+  </data>
+  <data name="General_Company_NpdFormulaInvalid" xml:space="preserve">
+    <value>Klaidingai įvesta NPD formulė. Matematinės išraiškos klaida.</value>
+  </data>
+  <data name="General_Company_NpdFormulaNull" xml:space="preserve">
+    <value>Nenurodyta NPD apskaičiavimo formulė.</value>
+  </data>
+  <data name="General_Company_NpdFormulaTooLong" xml:space="preserve">
+    <value>NPD apskaičiavimo formulė ilgesnė nei 255 simboliai gali būti neišsaugota.</value>
+  </data>
+  <data name="General_Company_TypeName" xml:space="preserve">
+    <value>bendri įmonės duomenys</value>
+  </data>
+  <data name="General_ImportedPersonList_FieldDelimiterNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas stulpelių skirtukas.</value>
+  </data>
+  <data name="General_ImportedPersonList_LineDelimiterNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas eilučių skirtukas.</value>
+  </data>
+  <data name="General_ImportedPersonList_ListEmpty" xml:space="preserve">
+    <value>Klaida. Neįkrauta nė viena eilutė.</value>
+  </data>
+  <data name="General_ImportedPersonList_PasteStringEmpty" xml:space="preserve">
+    <value>Klaida. Nenurodytas importos šaltinis (gautas tuščias tekstas).</value>
+  </data>
+  <data name="General_ImportedPerson_CodeNotUniqueInList" xml:space="preserve">
+    <value>įkrautuose duomenyse įmonės/asmens kodas neunikalus</value>
+  </data>
+  <data name="General_ImportedPerson_PasteColumns" xml:space="preserve">
+    <value>pavadinimas&lt;BR&gt;asmens ar įmonės kodas&lt;BR&gt;adresas&lt;BR&gt;banko pavadinimas&lt;BR&gt;banko sąskaitos numeris&lt;BR&gt;PVM mokėtojo kodas&lt;BR&gt;SODROS kodas&lt;BR&gt;e-paštas&lt;BR&gt;kontaktinė info&lt;BR&gt;vidinis kodas&lt;BR&gt;kalbos ISO 639-1 kodas&lt;BR&gt;valiutos kodas&lt;BR&gt;fizinio asmens žymuo(0/1)&lt;BR&gt;pirkėjo žymuo(0/1)&lt;BR&gt;tiekėjo žymuo(0/1)&lt;BR&gt;darbuotojo žymuo(0/1)&lt;BR&gt;nebenaudojamas žymuo(0/1)&lt;BR&gt;kontuojama pirkėjų skolų sąskaita&lt;BR&gt;kontuojama tiekėjų skolų sąskaita</value>
+  </data>
+  <data name="General_ImportedPerson_PasteColumnsDescription1" xml:space="preserve">
+    <value>Kontrahento duomenys privalo būti išdėstyti {0} stulpeliuose: {1}.</value>
+  </data>
   <data name="General_JournalEntry_Content" xml:space="preserve">
     <value>operacijos turinys</value>
   </data>
@@ -386,6 +464,54 @@
   </data>
   <data name="General_JournalEntry_UnexpectedParentType" xml:space="preserve">
     <value>Klaida. Bendrojo žurnalo įrašo, kurio ID={0}, dokumento tipas yra {1}, o tikėtąsi tipo {2}.</value>
+  </data>
+  <data name="General_PersonGroup_HasAssignedPersons" xml:space="preserve">
+    <value>Klaida. Grupei '{0}' yra priskirtų kontrahentų. Jos pašalinti negalima.</value>
+  </data>
+  <data name="General_PersonGroup_Name" xml:space="preserve">
+    <value>grupės pavadinimas</value>
+  </data>
+  <data name="General_Person_AccountAgainstBankBuyer" xml:space="preserve">
+    <value>pirkėjų skolų apskaitos sąskaita (gaunamų banko įplaukų koresponduojanti (kredituojama) sąskaita)</value>
+  </data>
+  <data name="General_Person_AccountAgainstBankSupplyer" xml:space="preserve">
+    <value>tiekėjų skolų apskaitos sąskaita (banko pervedimų koresponduojanti (debetuojama) sąskaita)</value>
+  </data>
+  <data name="General_Person_Address" xml:space="preserve">
+    <value>adresas</value>
+  </data>
+  <data name="General_Person_Code" xml:space="preserve">
+    <value>įmonės kodas, fizinio asmens kodas, PVM kodas, IV pažymos numeris arba gimimo data</value>
+  </data>
+  <data name="General_Person_CodeNotUnique" xml:space="preserve">
+    <value>Klaida. Asmuo su tokiu asmens/įmonės kodu jau egzistuoja.</value>
+  </data>
+  <data name="General_Person_IsInUseAsWorker" xml:space="preserve">
+    <value>Klaida. Šiam asmeniui yra priskirta darbo sutartis.</value>
+  </data>
+  <data name="General_Person_IsInUseGeneral" xml:space="preserve">
+    <value>Klaida. Šio asmens duomenys buvo panaudoti bendrajame žurnale.</value>
+  </data>
+  <data name="General_Person_IsWorkerRequired" xml:space="preserve">
+    <value>Šiam asmeniui yra registruota darbo sutarčių. Jis privalo būti priskirtas grupei Darbuotojai.</value>
+  </data>
+  <data name="General_Person_LanguageCode" xml:space="preserve">
+    <value>kalbos kodas pgl. ISO 639-1</value>
+  </data>
+  <data name="General_Person_LanguageName" xml:space="preserve">
+    <value>kontrahento dokumentų kalba</value>
+  </data>
+  <data name="General_Person_Name" xml:space="preserve">
+    <value>įmonės pavadinimas (vardas, pavardė)</value>
+  </data>
+  <data name="General_Person_NoBaseGroupAssignement" xml:space="preserve">
+    <value>Asmuo nepriskirtas nė vienai bazinei grupei.</value>
+  </data>
+  <data name="General_Person_SodraCodeRequired" xml:space="preserve">
+    <value>Asmeniui, priskirtam bazinei grupei Darbuotojai, turi būti nurodytas SODROS kodas.</value>
+  </data>
+  <data name="General_Person_TypeName" xml:space="preserve">
+    <value>kontrahento duomenys</value>
   </data>
   <data name="General_SetupTypicalAccountsCommand_AccountsAlreadyExists" xml:space="preserve">
     <value>Klaida. Tipinį sąskaitų planą galima generuoti tik nesant jau įvestų sąskaitų.</value>
