@@ -3,12 +3,21 @@ Namespace HelperLists
     <Serializable()> _
 Public Class GoodsGroupInfo
         Inherits ReadOnlyBase(Of GoodsGroupInfo)
+        Implements IValueObjectIsEmpty
 
 #Region " Business Methods "
 
         Private _ID As Integer = 0
         Private _Name As String = ""
 
+
+        Public ReadOnly Property IsEmpty() As Boolean _
+            Implements IValueObjectIsEmpty.IsEmpty
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return Not _ID > 0
+            End Get
+        End Property
 
         Public ReadOnly Property ID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _

@@ -4,7 +4,7 @@ Namespace HelperLists
     <Serializable()> _
     Public Class WorkTimeClassInfo
         Inherits ReadOnlyBase(Of WorkTimeClassInfo)
-        Implements IComparable
+        Implements IComparable, IValueObjectIsEmpty
 
 #Region " Business Methods "
 
@@ -19,6 +19,14 @@ Namespace HelperLists
         Private _WithoutWorkHours As Boolean = True
         Private _AlreadyIncludedInGeneralTime As Boolean = True
 
+
+        Public ReadOnly Property IsEmpty() As Boolean _
+            Implements IValueObjectIsEmpty.IsEmpty
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return Not _ID > 0
+            End Get
+        End Property
 
         Public ReadOnly Property ID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _

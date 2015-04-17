@@ -1,6 +1,10 @@
 Imports ApskaitaObjects.General
 Namespace ActiveReports
 
+    ''' <summary>
+    ''' Represent an item of a account book entry report.
+    ''' </summary>
+    ''' <remarks></remarks>
     <Serializable()> _
     Public Class BookEntryInfo
         Inherits ReadOnlyBase(Of BookEntryInfo)
@@ -16,12 +20,19 @@ Namespace ActiveReports
         Private _Content As String
         Private _DebetTurnover As Double
         Private _CreditTurnover As Double
-        Private _Person As HelperLists.PersonInfo
+        Private _PersonID As Integer = 0
+        Private _PersonName As String = ""
+        Private _PersonCode As String = ""
+        Private _PersonAddress As String = ""
+
         Private _BookEntriesString As String
 
         ''' <summary>
-        ''' Gets a GUID only for technical purposes (databinding needs to define unique row).
+        ''' Gets a GUID only for technical purposes.
         ''' </summary>
+        ''' <remarks>Databinding needs to define unique row. 
+        ''' There might be more then one book entry for the same account for the same journal entry, 
+        ''' thus journal entry ID is not sufficient.</remarks>
         Public ReadOnly Property Id() As Guid
             Get
                 Return _ID
@@ -31,6 +42,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' Gets a JuornalEntry ID (DB assigned by AUTO_INCREMENT).
         ''' </summary>
+        ''' <remarks>Corresponds to <see cref="General.JournalEntry.ID">JournalEntry.ID</see> property.</remarks>
         Public ReadOnly Property JournalEntryID() As Integer
             Get
                 Return _JournalEntryID
@@ -40,6 +52,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' Gets a date of the JournalEntry.
         ''' </summary>
+        ''' <remarks>Corresponds to <see cref="General.JournalEntry.[Date]">JournalEntry.Date</see> property.</remarks>
         Public ReadOnly Property JournalEntryDate() As Date
             Get
                 Return _JournalEntryDate
@@ -49,6 +62,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' Gets an associated document type as enumeration.
         ''' </summary>
+        ''' <remarks>Corresponds to <see cref="General.JournalEntry.DocType">JournalEntry.DocType</see> property.</remarks>
         Public ReadOnly Property DocType() As DocumentType
             Get
                 Return _DocType
@@ -58,6 +72,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' Gets a human readable name of an associated document type.
         ''' </summary>
+        ''' <remarks>Corresponds to <see cref="General.JournalEntry.DocTypeHumanReadable">JournalEntry.DocTypeHumanReadable</see> property.</remarks>
         Public ReadOnly Property DocTypeHumanReadable() As String
             Get
                 Return _DocTypeHumanReadable
@@ -67,6 +82,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' Gets a number of the document that substantiates the JournalEntry.
         ''' </summary>
+        ''' <remarks>Corresponds to <see cref="General.JournalEntry.DocNumber">JournalEntry.DocNumber</see> property.</remarks>
         Public ReadOnly Property DocNumber() As String
             Get
                 Return _DocNumber
@@ -76,6 +92,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' Gets a description of the JournalEntry.
         ''' </summary>
+        ''' <remarks>Corresponds to <see cref="General.JournalEntry.Content">JournalEntry.Content</see> property.</remarks>
         Public ReadOnly Property Content() As String
             Get
                 Return _Content
@@ -101,12 +118,65 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' Gets a person that is associated with the JournalEntry or the BookEntry.
+        ''' Gets an ID of the person that is associated with the JournalEntry or the BookEntry.
         ''' JournalEntry level person association has priority over BookEntry level associatiation.
         ''' </summary>
-        Public ReadOnly Property Person() As HelperLists.PersonInfo
+        ''' <remarks>Corresponds to <see cref="General.JournalEntry.Person">JournalEntry.Person</see> property.</remarks>
+        Public ReadOnly Property PersonID() As Integer
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return _Person
+                Return _PersonID
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a Name of the person that is associated with the JournalEntry or the BookEntry.
+        ''' JournalEntry level person association has priority over BookEntry level associatiation.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="General.JournalEntry.Person">JournalEntry.Person</see> property.</remarks>
+        Public ReadOnly Property PersonName() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _PersonName.Trim
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a code of the person that is associated with the JournalEntry or the BookEntry.
+        ''' JournalEntry level person association has priority over BookEntry level associatiation.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="General.JournalEntry.Person">JournalEntry.Person</see> property.</remarks>
+        Public ReadOnly Property PersonCode() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _PersonCode.Trim
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets an address of the person that is associated with the JournalEntry or the BookEntry.
+        ''' JournalEntry level person association has priority over BookEntry level associatiation.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="General.JournalEntry.Person">JournalEntry.Person</see> property.</remarks>
+        Public ReadOnly Property PersonAddress() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _PersonAddress.Trim
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a description of the person that is associated with the JournalEntry or the BookEntry.
+        ''' JournalEntry level person association has priority over BookEntry level associatiation.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="General.JournalEntry.Person">JournalEntry.Person</see> property.</remarks>
+        Public ReadOnly Property Person() As String
+            Get
+                If _PersonID > 0 Then
+                    Return String.Format("{0} ({1})", _PersonName, _PersonCode)
+                Else
+                    Return ""
+                End If
             End Get
         End Property
 
@@ -119,21 +189,29 @@ Namespace ActiveReports
             End Get
         End Property
 
+
         Protected Overrides Function GetIdValue() As Object
             Return _ID
         End Function
 
         Public Overrides Function ToString() As String
-            Return _JournalEntryDate.ToShortDateString & " " & _DocNumber & " " & _Content
+            Return String.Format(My.Resources.ActiveReports_BookEntryInfo_ToString, _
+                _JournalEntryDate.ToString("yyyy-MM-dd"), _DocNumber, _Content)
         End Function
 
 #End Region
 
 #Region " Factory Methods "
 
+        ''' <summary>
+        ''' Gets book entry info by a database query result.
+        ''' </summary>
+        ''' <param name="dr">a database query result</param>
+        ''' <remarks></remarks>
         Friend Shared Function GetBookEntryInfo(ByVal dr As DataRow) As BookEntryInfo
             Return New BookEntryInfo(dr)
         End Function
+
 
         Private Sub New()
             ' require use of factory methods
@@ -148,36 +226,40 @@ Namespace ActiveReports
 #Region " Data Access "
 
         Private Sub Fetch(ByVal dr As DataRow)
-            _JournalEntryID = CInt(dr.Item(0))
-            _JournalEntryDate = CDate(dr.Item(1))
-            _DocNumber = dr.Item(2).ToString
-            _Content = dr.Item(3).ToString
+            _JournalEntryID = CIntSafe(dr.Item(0), 0)
+            _JournalEntryDate = CDateSafe(dr.Item(1), Date.MinValue)
+            _DocNumber = CStrSafe(dr.Item(2))
+            _Content = CStrSafe(dr.Item(3))
 
-            If IsDBNull(dr.Item(4)) Then dr.Item(4) = ""
             _DocType = ConvertEnumDatabaseStringCode(Of DocumentType)(CStrSafe(dr.Item(4)))
             _DocTypeHumanReadable = ConvertEnumHumanReadable(_DocType)
 
-            If IsDBNull(dr.Item(5)) OrElse String.IsNullOrEmpty(dr.Item(5).ToString) Then dr.Item(5) = "0"
-            If IsDBNull(dr.Item(11)) OrElse String.IsNullOrEmpty(dr.Item(11).ToString) Then dr.Item(11) = "0"
-            If Not CInt(dr.Item(5)) > 0 AndAlso Not CInt(dr.Item(11)) > 0 Then
-                _Person = HelperLists.PersonInfo.GetEmptyPersonInfo
-            ElseIf CInt(dr.Item(5)) > 0 Then
-                _Person = HelperLists.PersonInfo.GetPersonInfo(CInt(dr.Item(5)), dr.Item(6).ToString, _
-                    dr.Item(7).ToString, dr.Item(8).ToString, "", "", "", "", "", 0, 0)
+            If Not CIntSafe(dr.Item(5), 0) > 0 AndAlso Not CIntSafe(dr.Item(11), 0) > 0 Then
+                _PersonID = 0
+                _PersonName = ""
+                _PersonCode = ""
+                _PersonAddress = ""
+            ElseIf CIntSafe(dr.Item(5), 0) > 0 Then
+                _PersonID = CIntSafe(dr.Item(5), 0)
+                _PersonName = CStrSafe(dr.Item(6)).Trim
+                _PersonCode = CStrSafe(dr.Item(7)).Trim
+                _PersonAddress = CStrSafe(dr.Item(8)).Trim
             Else
-                _Person = HelperLists.PersonInfo.GetPersonInfo(CInt(dr.Item(11)), dr.Item(12).ToString, _
-                    dr.Item(13).ToString, dr.Item(14).ToString, "", "", "", "", "", 0, 0)
+                _PersonID = CIntSafe(dr.Item(11), 0)
+                _PersonName = CStrSafe(dr.Item(12)).Trim
+                _PersonCode = CStrSafe(dr.Item(13)).Trim
+                _PersonAddress = CStrSafe(dr.Item(14)).Trim
             End If
 
-            If dr.Item(9).ToString.Trim.ToLower = "debetas" Then
-                _DebetTurnover = CRound(CDbl(dr.Item(10)))
+            If CStrSafe(dr.Item(9)).Trim.ToLower = "debetas" Then
+                _DebetTurnover = CDblSafe(dr.Item(10), 2, 0)
                 _CreditTurnover = 0
             Else
                 _DebetTurnover = 0
-                _CreditTurnover = CRound(CDbl(dr.Item(10)))
+                _CreditTurnover = CDblSafe(dr.Item(10), 2, 0)
             End If
 
-            _BookEntriesString = dr.Item(15).ToString
+            _BookEntriesString = CStrSafe(dr.Item(15))
 
         End Sub
 

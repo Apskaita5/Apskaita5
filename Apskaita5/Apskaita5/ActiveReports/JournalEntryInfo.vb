@@ -1,21 +1,26 @@
 Namespace ActiveReports
 
+    ''' <summary>
+    ''' Represents a general ledger report item.
+    ''' </summary>
+    ''' <remarks></remarks>
     <Serializable()> _
     Public Class JournalEntryInfo
         Inherits ReadOnlyBase(Of JournalEntryInfo)
 
 #Region " Business Methods "
 
-        Private _ID As Integer
-        Private _Date As Date
-        Private _DocNumber As String
-        Private _Content As String
-        Private _Person As String
-        Private _Ammount As Double
-        Private _BookEntries As String
-        Private _DocTypeHumanReadable As String
-        Private _DocType As DocumentType
-        Private _PersonCodeSODRA As String
+        Private _ID As Integer = 0
+        Private _Date As Date = Today
+        Private _DocNumber As String = ""
+        Private _Content As String = ""
+        Private _Person As String = ""
+        Private _Ammount As Double = 0
+        Private _BookEntries As String = ""
+        Private _DocTypeHumanReadable As String = ""
+        Private _DocType As DocumentType = DocumentType.None
+        Private _PersonCodeSODRA As String = ""
+
 
         ''' <summary>
         ''' Gets an ID of the JournalEntry object (assigned by DB AUTO_INCREMENT).
@@ -114,16 +119,23 @@ Namespace ActiveReports
 
         Public Overrides Function ToString() As String
             If Not _ID > 0 Then Return ""
-            Return _Date.ToShortDateString & " " & _DocNumber & " " & GetLimitedLengthString(_Content, 50)
+            Return String.Format(My.Resources.ActiveReports_JournalEntryInfo_ToString, _
+                _Date.ToString("yyyy-MM-dd"), _DocNumber, GetLimitedLengthString(_Content, 50))
         End Function
 
 #End Region
 
 #Region " Factory Methods "
 
+        ''' <summary>
+        ''' Gets a journal entry info item by a database query result.
+        ''' </summary>
+        ''' <param name="dr">a database query result</param>
+        ''' <remarks></remarks>
         Friend Shared Function GetJournalEntryInfo(ByVal dr As DataRow) As JournalEntryInfo
             Return New JournalEntryInfo(dr)
         End Function
+
 
         Private Sub New()
             ' require use of factory methods
@@ -138,28 +150,20 @@ Namespace ActiveReports
 #Region " Data Access "
 
         Private Sub Fetch(ByVal dr As DataRow)
-            _ID = CInt(dr.Item(0))
-            _Date = CDate(dr.Item(1))
-            _DocNumber = dr.Item(2).ToString
-            _Content = dr.Item(3).ToString
-            If Not IsDBNull(dr.Item(4)) AndAlso Not String.IsNullOrEmpty(dr.Item(4).ToString.Trim) _
-                AndAlso Integer.TryParse(dr.Item(4).ToString, New Integer) _
-                AndAlso CInt(dr.Item(4).ToString) > 0 Then
-                _Person = dr.Item(5).ToString & " (" & dr.Item(6).ToString & ")"
+            _ID = CIntSafe(dr.Item(0), 0)
+            _Date = CDateSafe(dr.Item(1), Date.MinValue)
+            _DocNumber = CStrSafe(dr.Item(2))
+            _Content = CStrSafe(dr.Item(3))
+            If CIntSafe(dr.Item(4), 0) > 0 Then
+                _Person = String.Format("{0} ({1})", CStrSafe(dr.Item(5)), CStrSafe(dr.Item(6)))
                 _PersonCodeSODRA = dr.Item(10).ToString
-            Else
-                _Person = "Nepriskirtas"
-                _PersonCodeSODRA = ""
             End If
-            If Not IsDBNull(dr.Item(7)) Then
+            If Not StringIsNullOrEmpty(CStrSafe(dr.Item(7))) Then
                 _DocType = ConvertEnumDatabaseStringCode(Of DocumentType)(CStrSafe(dr.Item(7)))
-                _DocTypeHumanReadable = ConvertEnumHumanReadable(_DocType)
-            Else
-                _DocType = DocumentType.None
-                _DocTypeHumanReadable = ConvertEnumHumanReadable(DocumentType.None)
             End If
-            _Ammount = CRound(CDbl(dr.Item(8)))
-            _BookEntries = dr.Item(9).ToString
+            _DocTypeHumanReadable = ConvertEnumHumanReadable(_DocType)
+            _Ammount = CDblSafe(dr.Item(8), 2, 0)
+            _BookEntries = CStrSafe(dr.Item(9))
         End Sub
 
 #End Region

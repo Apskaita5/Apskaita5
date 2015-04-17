@@ -1,5 +1,13 @@
 Namespace General
 
+    ''' <summary>
+    ''' Represents a list of company specific default <see cref="General.Account">accounts</see> 
+    ''' that are used by other objects for initialization.
+    ''' </summary>
+    ''' <remarks>Only used as a child of <see cref="Company">Company</see>.
+    ''' Related helper object is <see cref="Settings.CompanyInfo">CompanyInfo</see>, 
+    ''' method <see cref="Settings.CompanyInfo.GetDefaultAccount">GetDefaultAccount</see>.
+    ''' Values are stored in the database table companyaccounts.</remarks>
     <Serializable()> _
     Public Class CompanyAccountList
         Inherits BusinessListBase(Of CompanyAccountList, CompanyAccount)
@@ -36,15 +44,22 @@ Namespace General
 
 #Region " Factory Methods "
 
+        ''' <summary>
+        ''' Gets the CompanyAccountList for the current company.
+        ''' </summary>
+        ''' <remarks></remarks>
         Friend Shared Function GetCompanyAccountList() As CompanyAccountList
-            Dim result As CompanyAccountList = New CompanyAccountList(True)
-            Return result
+            Return New CompanyAccountList(True)
         End Function
 
+        ''' <summary>
+        ''' Gets a new empty CompanyAccountList for a new company.
+        ''' </summary>
+        ''' <remarks></remarks>
         Friend Shared Function NewCompanyAccountList() As CompanyAccountList
-            Dim result As CompanyAccountList = New CompanyAccountList()
-            Return result
+            Return New CompanyAccountList(False)
         End Function
+
 
         Private Sub New()
             ' require use of factory methods
@@ -124,14 +139,14 @@ Namespace General
 
         End Sub
 
-        Private Sub AddRow(ByVal myData As DataTable, ByVal OfType As DefaultAccountType)
+        Private Sub AddRow(ByVal myData As DataTable, ByVal ofType As DefaultAccountType)
             For Each dr As DataRow In myData.Rows
-                If ConvertEnumDatabaseCode(Of DefaultAccountType)(CIntSafe(dr.Item(1), 0)) = OfType Then
+                If EnumValueAttribute.ConvertDatabaseID(Of DefaultAccountType)(CIntSafe(dr.Item(1), 0)) = ofType Then
                     Add(CompanyAccount.GetCompanyAccount(dr))
                     Exit Sub
                 End If
             Next
-            Add(CompanyAccount.NewCompanyAccount(OfType))
+            Add(CompanyAccount.NewCompanyAccount(ofType))
         End Sub
 
 #End Region

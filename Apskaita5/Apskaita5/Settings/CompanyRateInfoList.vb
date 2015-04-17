@@ -6,7 +6,7 @@ Namespace Settings
 
 #Region " Business Methods "
 
-        Public Function GetRate(ByVal RateTypeToGet As RateType) As Double
+        Public Function GetRate(ByVal RateTypeToGet As General.DefaultRateType) As Double
             For Each i As CompanyRateInfo In Me
                 If i.Type = RateTypeToGet Then Return i.Value
             Next

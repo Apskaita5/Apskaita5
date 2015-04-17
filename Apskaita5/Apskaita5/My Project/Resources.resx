@@ -192,7 +192,7 @@
   <data name="General_AccountList_IsEmpty" xml:space="preserve">
     <value>Klaida. Neįvesta nė viena sąskaita.</value>
   </data>
-  <data name="General_Account_AssociatedItem" xml:space="preserve">
+  <data name="General_Account_AssociatedReportItem" xml:space="preserve">
     <value>susieta finansinės atskaitomybės eilutė</value>
   </data>
   <data name="General_Account_ID" xml:space="preserve">
@@ -306,7 +306,7 @@
   <data name="General_BookEntryList_FinancialDataChangeDenied" xml:space="preserve">
     <value>Klaida. Finansinių bendrojo žurnalo operacijos duomenų keisti neleidžiama (įskaitant eilučių pridėjimą ar pašalinimą):{0}{1}</value>
   </data>
-  <data name="General_BookEntry_AccountID" xml:space="preserve">
+  <data name="General_BookEntry_Account" xml:space="preserve">
     <value>sąskaitos numeris</value>
   </data>
   <data name="General_BookEntry_Amount" xml:space="preserve">
@@ -555,7 +555,7 @@
   <data name="General_TransferOfBalanceAnalytics_Account" xml:space="preserve">
     <value>apskaitos sąskaita</value>
   </data>
-  <data name="General_TransferOfBalanceAnalytics_Amount" xml:space="preserve">
+  <data name="General_TransferOfBalanceAnalytics_Ammount" xml:space="preserve">
     <value>likučio suma</value>
   </data>
   <data name="General_TransferOfBalanceAnalytics_PasteColumns" xml:space="preserve">
@@ -611,5 +611,407 @@
   </data>
   <data name="ValidationRules_FutureDate" xml:space="preserve">
     <value>{0} yra vėlesnė nei šios dienos data.</value>
+  </data>
+  <data name="Common_AccountCannotBeNegative" xml:space="preserve">
+    <value>Apskaitos sąskaitos numeris negali būti neigiamas. ({0})</value>
+  </data>
+  <data name="Common_AccountClassInvalid" xml:space="preserve">
+    <value>Pasirinkta apskaitos sąskaita yra {0} klasės, o tinkamos yra tik {1} klasės (-ių) sąskaitos. ({2})</value>
+  </data>
+  <data name="Common_FieldValueNull" xml:space="preserve">
+    <value>Nenurodyta {0}.</value>
+  </data>
+  <data name="Common_IntegerCannotBeNegative" xml:space="preserve">
+    <value>Lauko {0} reikšmė negali būti neigiama.</value>
+  </data>
+  <data name="Common_IntegerExceedsMaxLimit" xml:space="preserve">
+    <value>Lauko {0} reikšmė negali būti didesnė nei {1}.</value>
+  </data>
+  <data name="Common_IntegerExceedsMinLimit" xml:space="preserve">
+    <value>Lauko {0} reikšmė negali būti mažesnė nei {1}.</value>
+  </data>
+  <data name="Common_StringExceedsMaxLength" xml:space="preserve">
+    <value>Maksimalus lauko {0} ilgis neturi viršyti {1} ženklų. Šį ilgį viršijanti teksto dalis gali būti neišsaugota.</value>
+  </data>
+  <data name="General_Company_NumbersInInvoice" xml:space="preserve">
+    <value>skaičių kiekis sąskaitos faktūros numeryje</value>
+  </data>
+  <data name="BookEntryType_Debetas" xml:space="preserve">
+    <value>Debetas</value>
+  </data>
+  <data name="BookEntryType_Kreditas" xml:space="preserve">
+    <value>Kreditas</value>
+  </data>
+  <data name="EnumValueAttribute_AttributeNull" xml:space="preserve">
+    <value>Klaida. Enumeracijos reikšmei {0} nėra nustatytas EnumValueAttribute.</value>
+  </data>
+  <data name="EnumValueAttribute_InvalidType" xml:space="preserve">
+    <value>Klaida. Funkcija ApskaitaObjects.EnumValueAttribute.{0} gali konvertuoti tik enumeracijas, o nurodyto objekto tipas - {1}.</value>
+  </data>
+  <data name="General_DefaultAccountType_Bank" xml:space="preserve">
+    <value>banko</value>
+  </data>
+  <data name="General_DefaultAccountType_Buyers" xml:space="preserve">
+    <value>pirkėjų</value>
+  </data>
+  <data name="General_DefaultAccountType_ClosingSummary" xml:space="preserve">
+    <value>uždarymo suvestinės</value>
+  </data>
+  <data name="General_DefaultAccountType_CurrentProfit" xml:space="preserve">
+    <value>einamojo laikotarpio rezultatas</value>
+  </data>
+  <data name="General_DefaultAccountType_FormerProfit" xml:space="preserve">
+    <value>praėjusių laikotarpių rezultatas</value>
+  </data>
+  <data name="General_DefaultAccountType_GoodsDiscounts" xml:space="preserve">
+    <value>prekių nuolaidos</value>
+  </data>
+  <data name="General_DefaultAccountType_GoodsPurchases" xml:space="preserve">
+    <value>prekių pirkimai</value>
+  </data>
+  <data name="General_DefaultAccountType_GoodsSalesNetCosts" xml:space="preserve">
+    <value>prekių pardavimo sąnaudų</value>
+  </data>
+  <data name="General_DefaultAccountType_GoodsValueReduction" xml:space="preserve">
+    <value>prekių nukainojimas</value>
+  </data>
+  <data name="General_DefaultAccountType_OtherGpmPayable" xml:space="preserve">
+    <value>mokėtino GPM (ne darbo sant.)</value>
+  </data>
+  <data name="General_DefaultAccountType_OtherPsdPayable" xml:space="preserve">
+    <value>mokėtinų PSD įmokų (ne darbo sant.)</value>
+  </data>
+  <data name="General_DefaultAccountType_OtherSodraPayable" xml:space="preserve">
+    <value>mokėtinų SODRA įmokų (ne darbo sant.)</value>
+  </data>
+  <data name="General_DefaultAccountType_Suppliers" xml:space="preserve">
+    <value>tiekėjų</value>
+  </data>
+  <data name="General_DefaultAccountType_Till" xml:space="preserve">
+    <value>kasos</value>
+  </data>
+  <data name="General_DefaultAccountType_VatPayable" xml:space="preserve">
+    <value>mokėtino PVM</value>
+  </data>
+  <data name="General_DefaultAccountType_VatReceivable" xml:space="preserve">
+    <value>gautino PVM</value>
+  </data>
+  <data name="General_DefaultAccountType_WageGpmPayable" xml:space="preserve">
+    <value>mokėtino GPM (darbo sant.)</value>
+  </data>
+  <data name="General_DefaultAccountType_WageGuaranteeFundPayable" xml:space="preserve">
+    <value>mokėtinų garantinio fondo įmokų</value>
+  </data>
+  <data name="General_DefaultAccountType_WageImprestPayable" xml:space="preserve">
+    <value>mokėtinų darbo užmok. avansų</value>
+  </data>
+  <data name="General_DefaultAccountType_WagePayable" xml:space="preserve">
+    <value>mokėtino darbo užmok.</value>
+  </data>
+  <data name="General_DefaultAccountType_WagePsdPayable" xml:space="preserve">
+    <value>mokėtinų PSD įmokų (darbo sant.)</value>
+  </data>
+  <data name="General_DefaultAccountType_WagePsdPayableToVMI" xml:space="preserve">
+    <value>VMI mokėtinų PSD įmokų (darbo sant.)</value>
+  </data>
+  <data name="General_DefaultAccountType_WageSodraPayable" xml:space="preserve">
+    <value>mokėtinų SODRA įmokų (darbo sant.)</value>
+  </data>
+  <data name="General_DefaultAccountType_WageWithdraw" xml:space="preserve">
+    <value>išskaitų iš darbo užmok.</value>
+  </data>
+  <data name="General_FinancialStatementItemType_HeaderGeneral" xml:space="preserve">
+    <value>Finansinių ataskaitų rinkinio antraštės eilutė</value>
+  </data>
+  <data name="General_FinancialStatementItemType_HeaderStatementOfComprehensiveIncome" xml:space="preserve">
+    <value>Pelno (nuostolio) ataskaitos antraštės eilutė</value>
+  </data>
+  <data name="General_FinancialStatementItemType_HeaderStatementOfFinancialPosition" xml:space="preserve">
+    <value>Balanso ataskaitos antraštės eilutė</value>
+  </data>
+  <data name="General_FinancialStatementItemType_StatementOfComprehensiveIncome" xml:space="preserve">
+    <value>Pelno (nuostolio) ataskaitos eilutė</value>
+  </data>
+  <data name="General_FinancialStatementItemType_StatementOfFinancialPosition" xml:space="preserve">
+    <value>Balanso ataskaitos eilutė</value>
+  </data>
+  <data name="ComplexChronologicValidator_ChildLimitation" xml:space="preserve">
+    <value>Ribojanti operacija "{0}": {1}</value>
+  </data>
+  <data name="ComplexChronologicValidator_ParentLimitation" xml:space="preserve">
+    <value>Visam dokumentui taikomas ribojimas: {0}</value>
+  </data>
+  <data name="SimpleChronologicValidator_FinancialDataCanChangeDescription" xml:space="preserve">
+    <value>Finansiniai operacijos duomenys negali būti keičiami, nes vėlesne data yra registruota 5/6 klasių uždarymo ir (ar) likučių perkėlimo operacija.</value>
+  </data>
+  <data name="SimpleChronologicValidator_MaxDateDescription" xml:space="preserve">
+    <value>Data negali būti vėlesnė nei {0}, nes vėlesne data yra registruota 5/6 klasių uždarymo ir (ar) likučių perkėlimo operacija.</value>
+  </data>
+  <data name="SimpleChronologicValidator_MinDateDescription" xml:space="preserve">
+    <value>Operacijos data negali būti ankstesnė nei {0}, nes prieš tai yra registruota likučių perkėlimo ir (ar) 5/6 klasių uždarymo operacija.</value>
+  </data>
+  <data name="SimpleChronologicValidator_MinDateDescriptionForClosing" xml:space="preserve">
+    <value>Operacijos data negali būti ankstesnė nei {0}, nes prieš tai yra registruota likučių perkėlimo operacija.</value>
+  </data>
+  <data name="SimpleChronologicValidator_OperationName" xml:space="preserve">
+    <value>{0}, tipas - {1}, dok. Nr. {2}</value>
+  </data>
+  <data name="Common_CurrencyCodeInvalid" xml:space="preserve">
+    <value>Valiutos kodas {0} neegzistuoja.</value>
+  </data>
+  <data name="Common_CurrencyCodeNull" xml:space="preserve">
+    <value>Nenurodytas valiutos kodas.</value>
+  </data>
+  <data name="General_CompanyAccount_ValueInvalid" xml:space="preserve">
+    <value>{0} sąskaitos numeris negali būti neigiamas.</value>
+  </data>
+  <data name="General_CompanyAccount_ValueNull" xml:space="preserve">
+    <value>Nenurodyta {0} sąskaita.</value>
+  </data>
+  <data name="General_Person_Bank" xml:space="preserve">
+    <value>banko pavadinimas</value>
+  </data>
+  <data name="General_Person_BankAccount" xml:space="preserve">
+    <value>banko sąskaitos numeris</value>
+  </data>
+  <data name="General_Person_CodeSODRA" xml:space="preserve">
+    <value>SODROS kodas</value>
+  </data>
+  <data name="General_Person_CodeVAT" xml:space="preserve">
+    <value>PVM mokėtojo kodas</value>
+  </data>
+  <data name="General_Person_ContactInfo" xml:space="preserve">
+    <value>kontaktinė informacija</value>
+  </data>
+  <data name="General_Person_Email" xml:space="preserve">
+    <value>e-pašto adresas</value>
+  </data>
+  <data name="General_Person_InternalCode" xml:space="preserve">
+    <value>vidinis kontrahento kodas</value>
+  </data>
+  <data name="Common_LanguageCodeInvalid" xml:space="preserve">
+    <value>Nurodytas kalbos kodas {0} neatinka nė vieno kalbos kodo pgl. ISO 639-1 standartą.</value>
+  </data>
+  <data name="Common_LanguageCodeNull" xml:space="preserve">
+    <value>Nenurodytas kalbos kodas.</value>
+  </data>
+  <data name="Common_LanguageNameInvalid" xml:space="preserve">
+    <value>Kalba, kurios pavadinimas {0}, nežinoma.</value>
+  </data>
+  <data name="Common_LanguageNameNull" xml:space="preserve">
+    <value>Nenurodyta kalba.</value>
+  </data>
+  <data name="Common_StringValueNotUniqueInCollection" xml:space="preserve">
+    <value>Laukas {0} turi būti unikalus.</value>
+  </data>
+  <data name="General_CompanyRate_ValueInvalid" xml:space="preserve">
+    <value>{0} tarifas negali būti neigiamas.</value>
+  </data>
+  <data name="General_CompanyRate_ValueNull" xml:space="preserve">
+    <value>Nenurodytas {0} tarifas.</value>
+  </data>
+  <data name="General_CompanyRegionalData_Address" xml:space="preserve">
+    <value>įmonės adresas</value>
+  </data>
+  <data name="General_CompanyRegionalData_Bank" xml:space="preserve">
+    <value>banko pavadinimas</value>
+  </data>
+  <data name="General_CompanyRegionalData_BankAccount" xml:space="preserve">
+    <value>banko sąskaitos numeris</value>
+  </data>
+  <data name="General_CompanyRegionalData_BankAddress" xml:space="preserve">
+    <value>banko adresas</value>
+  </data>
+  <data name="General_CompanyRegionalData_BankSWIFT" xml:space="preserve">
+    <value>banko SWIFT kodas</value>
+  </data>
+  <data name="General_CompanyRegionalData_BaseLanguageAlreadyExists" xml:space="preserve">
+    <value>Regioniniai nustatymai {0} jau yra.</value>
+  </data>
+  <data name="General_CompanyRegionalData_CannotDeleteBaseLanguage" xml:space="preserve">
+    <value>Klaida. Nenurodyta norimų pašalinti regioninių duomenų ID. P.S. o regioninių duomenų {0} iš viso negalima pašalinti.</value>
+  </data>
+  <data name="General_CompanyRegionalData_Contacts" xml:space="preserve">
+    <value>kontaktiniai duomenys</value>
+  </data>
+  <data name="General_CompanyRegionalData_DiscountName" xml:space="preserve">
+    <value>nuolaidos pavadinimas išrašomose sąskaitose faktūrose</value>
+  </data>
+  <data name="General_CompanyRegionalData_HeadTitle" xml:space="preserve">
+    <value>vadovo pareigų pavadinimas</value>
+  </data>
+  <data name="General_CompanyRegionalData_InvoiceInfoLine" xml:space="preserve">
+    <value>papildoma informacinė eilutė išrašomose sąskaitose faktūrose</value>
+  </data>
+  <data name="General_CompanyRegionalData_MeasureUnitInvoiceMade" xml:space="preserve">
+    <value>standartinis mato vienetas išrašomose sąskaitose faktūrose</value>
+  </data>
+  <data name="General_CompanyRegionalData_TypeName" xml:space="preserve">
+    <value>regioniniai įmonės nustatymai</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_CannotChangeBaseItem" xml:space="preserve">
+    <value>Klaida. Bazinių struktūrinių vienetų redaguoti neleidžiama.</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_InvalidSaveOperation" xml:space="preserve">
+    <value>Klaida. Išsaugoti galima tik visą finansinės atskaitomybės struktūrą, o ne jos dalį.</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_Name" xml:space="preserve">
+    <value>finansinės atskaitomybės dokumento eilutės pavadinimas</value>
+  </data>
+  <data name="General_ConsolidatedReport_InvalidXmlContent" xml:space="preserve">
+    <value>Klaida. Pasirinktame faile nėra saugomi finansinės atskaitomybės struktūros duomenys.</value>
+  </data>
+  <data name="General_DefaultRateType_GpmWage" xml:space="preserve">
+    <value>GPM</value>
+  </data>
+  <data name="General_DefaultRateType_GuaranteeFund" xml:space="preserve">
+    <value>garant. fondo</value>
+  </data>
+  <data name="General_DefaultRateType_PsdEmployee" xml:space="preserve">
+    <value>PSD darbuotojui</value>
+  </data>
+  <data name="General_DefaultRateType_PsdEmployer" xml:space="preserve">
+    <value>PSD darbdaviui</value>
+  </data>
+  <data name="General_DefaultRateType_SodraEmployee" xml:space="preserve">
+    <value>SODRA darbuotojui</value>
+  </data>
+  <data name="General_DefaultRateType_SodraEmployer" xml:space="preserve">
+    <value>SODRA darbdaviui</value>
+  </data>
+  <data name="General_DefaultRateType_Vat" xml:space="preserve">
+    <value>PVM</value>
+  </data>
+  <data name="General_DefaultRateType_WageRateDeviations" xml:space="preserve">
+    <value>darbo nenorm. sąlygomis</value>
+  </data>
+  <data name="General_DefaultRateType_WageRateNight" xml:space="preserve">
+    <value>darbo naktį</value>
+  </data>
+  <data name="General_DefaultRateType_WageRateOvertime" xml:space="preserve">
+    <value>viršvalandinio darbo</value>
+  </data>
+  <data name="General_DefaultRateType_WageRatePublicHolidays" xml:space="preserve">
+    <value>darbo švenčių dienomis</value>
+  </data>
+  <data name="General_DefaultRateType_WageRateRestTime" xml:space="preserve">
+    <value>darbo poilsio dienomis</value>
+  </data>
+  <data name="General_DefaultRateType_WageRateSickLeave" xml:space="preserve">
+    <value>nedarbingumo apmokėjimo</value>
+  </data>
+  <data name="General_ImportedPerson_AccountAgainstBankBuyer" xml:space="preserve">
+    <value>pirkėjų skolų apskaitos sąskaita (gaunamų banko įplaukų koresponduojanti (kredituojama) sąskaita)</value>
+  </data>
+  <data name="General_ImportedPerson_AccountAgainstBankSupplyer" xml:space="preserve">
+    <value>tiekėjų skolų apskaitos sąskaita (banko pervedimų koresponduojanti (debetuojama) sąskaita)</value>
+  </data>
+  <data name="General_ImportedPerson_Address" xml:space="preserve">
+    <value>adresas</value>
+  </data>
+  <data name="General_ImportedPerson_Bank" xml:space="preserve">
+    <value>banko pavadinimas</value>
+  </data>
+  <data name="General_ImportedPerson_BankAccount" xml:space="preserve">
+    <value>banko sąskaitos numeris</value>
+  </data>
+  <data name="General_ImportedPerson_Code" xml:space="preserve">
+    <value>įmonės kodas, fizinio asmens kodas, PVM kodas, IV pažymos numeris arba gimimo data</value>
+  </data>
+  <data name="General_ImportedPerson_CodeSODRA" xml:space="preserve">
+    <value>SODROS kodas</value>
+  </data>
+  <data name="General_ImportedPerson_CodeVAT" xml:space="preserve">
+    <value>PVM mokėtojo kodas</value>
+  </data>
+  <data name="General_ImportedPerson_ContactInfo" xml:space="preserve">
+    <value>kontaktinė informacija</value>
+  </data>
+  <data name="General_ImportedPerson_Email" xml:space="preserve">
+    <value>e-pašto adresas</value>
+  </data>
+  <data name="General_ImportedPerson_InternalCode" xml:space="preserve">
+    <value>vidinis kontrahento kodas</value>
+  </data>
+  <data name="General_ImportedPerson_IsInUseAsWorker" xml:space="preserve">
+    <value>Klaida. Šiam asmeniui yra priskirta darbo sutartis.</value>
+  </data>
+  <data name="General_ImportedPerson_LanguageCode" xml:space="preserve">
+    <value>kalbos kodas pgl. ISO 639-1</value>
+  </data>
+  <data name="General_ImportedPerson_LanguageName" xml:space="preserve">
+    <value>kontrahento dokumentų kalba</value>
+  </data>
+  <data name="General_ImportedPerson_Name" xml:space="preserve">
+    <value>įmonės pavadinimas (vardas, pavardė)</value>
+  </data>
+  <data name="HelperLists_PersonInfo_NewPersonToString" xml:space="preserve">
+    <value>NEREGISTRUOTAS!!! {0} ({1})</value>
+  </data>
+  <data name="Common_ExistingObject" xml:space="preserve">
+    <value>Esamas</value>
+  </data>
+  <data name="Common_NewObject" xml:space="preserve">
+    <value>Naujas</value>
+  </data>
+  <data name="HelperLists_PersonInfo_DoomyPersonAddress" xml:space="preserve">
+    <value>Kontrahento adresas</value>
+  </data>
+  <data name="HelperLists_PersonInfo_DoomyPersonBankAccount" xml:space="preserve">
+    <value>LT65 4687 4451 4365</value>
+  </data>
+  <data name="HelperLists_PersonInfo_DoomyPersonBankName" xml:space="preserve">
+    <value>Kontrahento bankas</value>
+  </data>
+  <data name="HelperLists_PersonInfo_DoomyPersonCode" xml:space="preserve">
+    <value>1234567</value>
+  </data>
+  <data name="HelperLists_PersonInfo_DoomyPersonCodeSodra" xml:space="preserve">
+    <value>32165</value>
+  </data>
+  <data name="HelperLists_PersonInfo_DoomyPersonCodeVat" xml:space="preserve">
+    <value>LT1234567</value>
+  </data>
+  <data name="HelperLists_PersonInfo_DoomyPersonContactInfo" xml:space="preserve">
+    <value>Kontrahento kontaktinė info</value>
+  </data>
+  <data name="HelperLists_PersonInfo_DoomyPersonEmail" xml:space="preserve">
+    <value>kontrahentas@kontrahentas.lt</value>
+  </data>
+  <data name="HelperLists_PersonInfo_DoomyPersonName" xml:space="preserve">
+    <value>Kontrahento pavadinimas</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfoList_FinancialStatementItemNotFoundForClosingSummary" xml:space="preserve">
+    <value>Klaida. Nenustatyta einamojo periodo pelno (nuostolio) eilutė balanso ataskaitoje.</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfoList_FinancialStatementItemNullForClosingSummary" xml:space="preserve">
+    <value>Klaida. Uždarymo sąskaitai {0} nepriskirta balanso eilutė.</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfoListParent_AccountNull" xml:space="preserve">
+    <value>Klaida. Nepasirinkta sąskaita.</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfo_ToString" xml:space="preserve">
+    <value>{0} Nr. {1}: {2}</value>
+  </data>
+  <data name="ActiveReports_FinancialStatementsInfo_ClosingSummaryAccountNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta uždaymo suvestinė sąskaita.</value>
+  </data>
+  <data name="ActiveReports_FinancialStatementsInfo_FirstPeriodInvalid" xml:space="preserve">
+    <value>Klaida. Pirmo periodo pradžia negali būti vėlesnė už antro periodo pradžią.</value>
+  </data>
+  <data name="ActiveReports_FinancialStatementsInfo_SecondPeriodInvalid" xml:space="preserve">
+    <value>Klaida. Antro periodo pradžia negali būti vėlesnė už pabaigą.</value>
+  </data>
+  <data name="ActiveReports_FinancialStatementsInfo_ToString" xml:space="preserve">
+    <value>Finansinių ataskaitų rinkinys einamajam periodui nuo {0} iki {1}, praėjęs periodas nuo {2} iki {3}.</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfoList_FilterNotApplied" xml:space="preserve">
+    <value>Netaikyta</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfo_ToString" xml:space="preserve">
+    <value>{0} Nr. {1}: {2}</value>
+  </data>
+  <data name="ActiveReports_UnsettledPersonInfoList_AccountNull" xml:space="preserve">
+    <value>Nenurodyta skolų apskaitos sąskaita.</value>
   </data>
 </root>

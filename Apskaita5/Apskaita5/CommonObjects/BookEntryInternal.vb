@@ -1,3 +1,7 @@
+''' <summary>
+''' Represents a helper class that is used by various parent objects to create <see cref="General.BookEntry">BookEntry</see> lists.
+''' </summary>
+''' <remarks></remarks>
 <Serializable()> _
 Friend Class BookEntryInternal
     Inherits BusinessBase(Of BookEntryInternal)
@@ -10,7 +14,10 @@ Friend Class BookEntryInternal
     Private _Ammount As Double = 0
     Private _Person As PersonInfo = Nothing
 
-
+    ''' <summary>
+    ''' Type of the general ledger transaction.
+    ''' </summary>
+    ''' <remarks>Corresponds to the <see cref="General.BookEntryList.Type">BookEntryList.Type</see> property.</remarks>
     Public Property EntryType() As BookEntryType
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
         Get
@@ -24,6 +31,10 @@ Friend Class BookEntryInternal
         End Set
     End Property
 
+    ''' <summary>
+    ''' An Account that is affected by the general ledger transaction.
+    ''' </summary>
+    ''' <remarks>Corresponds to the <see cref="General.BookEntry.Account">BookEntry.Account</see> property.</remarks>
     Public Property Account() As Long
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
         Get
@@ -37,6 +48,10 @@ Friend Class BookEntryInternal
         End Set
     End Property
 
+    ''' <summary>
+    ''' An amount of the general ledger transaction.
+    ''' </summary>
+    ''' <remarks>Corresponds to the <see cref="General.BookEntry.Amount">BookEntry.Amount</see> property.</remarks>
     Public Property Ammount() As Double
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
         Get
@@ -50,6 +65,10 @@ Friend Class BookEntryInternal
         End Set
     End Property
 
+    ''' <summary>
+    ''' A person that is associated with the general ledger transaction.
+    ''' </summary>
+    ''' <remarks>Corresponds to the <see cref="General.BookEntry.Person">BookEntry.Person</see> property.</remarks>
     Public Property Person() As PersonInfo
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
         Get
@@ -80,16 +99,22 @@ Friend Class BookEntryInternal
         Return Not a = b
     End Operator
 
+
+    ''' <summary>
+    ''' Adds a certain amount to the transaction value.
+    ''' </summary>
+    ''' <param name="source">A transaction which value should be added.</param>
+    ''' <remarks></remarks>
     Public Sub AddBookEntryAmmount(ByVal source As BookEntryInternal)
+
         If Me <> source Then Exit Sub
+
         If Me._EntryType = source._EntryType Then
             _Ammount = CRound(_Ammount + source._Ammount)
         Else
             _Ammount = CRound(_Ammount - source._Ammount)
         End If
-    End Sub
 
-    Public Sub ReAssignType()
         If CRound(_Ammount) < 0 Then
             If _EntryType = BookEntryType.Debetas Then
                 _EntryType = BookEntryType.Kreditas
@@ -98,6 +123,7 @@ Friend Class BookEntryInternal
             End If
             _Ammount = -CRound(_Ammount)
         End If
+
     End Sub
 
 
@@ -106,19 +132,35 @@ Friend Class BookEntryInternal
     End Function
 
     Public Overrides Function ToString() As String
-        Return _Account.ToString
+        Return String.Format("{0} {1} - {2} {3} {4}", IIf(_EntryType = BookEntryType.Debetas, _
+            My.Resources.General_BookEntryList_CharForDebit, My.Resources.General_BookEntryList_CharForCredit), _
+            _Account.ToString, _Ammount.ToString("##,#.00"), GetCurrentCompany.BaseCurrency, _
+            IIf(_Person Is Nothing OrElse Not _Person.ID > 0, "", _Person.ToString))
     End Function
 
 #End Region
 
 #Region " Factory Methods "
 
+    ''' <summary>
+    ''' Creates a new BookEntryInternal instance.
+    ''' </summary>
+    ''' <param name="nEntryType">Type of the general ledger transaction.</param>
+    ''' <remarks></remarks>
     Friend Shared Function NewBookEntryInternal(ByVal nEntryType As BookEntryType) As BookEntryInternal
         Dim result As New BookEntryInternal
         result._EntryType = nEntryType
         Return result
     End Function
 
+    ''' <summary>
+    ''' Creates a new BookEntryInternal instance.
+    ''' </summary>
+    ''' <param name="nEntryType">Type of the general ledger transaction.</param>
+    ''' <param name="nAccount">An Account that is affected by the general ledger transaction.</param>
+    ''' <param name="nAmmount">An amount of the general ledger transaction.</param>
+    ''' <param name="nPerson">A person that is associated with the general ledger transaction.</param>
+    ''' <remarks></remarks>
     Friend Shared Function NewBookEntryInternal(ByVal nEntryType As BookEntryType, _
         ByVal nAccount As Long, ByVal nAmmount As Double, ByVal nPerson As PersonInfo) As BookEntryInternal
         Dim result As New BookEntryInternal
@@ -129,6 +171,13 @@ Friend Class BookEntryInternal
         Return result
     End Function
 
+    ''' <summary>
+    ''' Creates a new BookEntryInternal instance.
+    ''' </summary>
+    ''' <param name="nEntryType">Type of the general ledger transaction.</param>
+    ''' <param name="nBookEntry">An instance of <see cref="General.BookEntry">BookEntry</see> 
+    ''' that is used to initialize the values of the new BookEntryInternal instance.</param>
+    ''' <remarks></remarks>
     Friend Shared Function NewBookEntryInternal(ByVal nEntryType As BookEntryType, _
         ByVal nBookEntry As General.BookEntry) As BookEntryInternal
         Dim result As New BookEntryInternal
@@ -138,6 +187,7 @@ Friend Class BookEntryInternal
         result._Person = nBookEntry.Person
         Return result
     End Function
+
 
     Private Sub New()
         ' require use of factory methods

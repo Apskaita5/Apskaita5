@@ -3,7 +3,8 @@ Namespace General
     ''' <summary>
     ''' Represents a ledger transaction template list grouped by <see cref="General.BookEntryList.Type">transaction type</see>.
     ''' </summary>
-    ''' <remarks>Can only be used as a child object for <see cref="General.TemplateJournalEntry">TemplateJournalEntry</see>.</remarks>
+    ''' <remarks>Can only be used as a child object for <see cref="General.TemplateJournalEntry">TemplateJournalEntry</see>.
+    ''' Values are stored in the database table tipines_data.</remarks>
     <Serializable()> _
     Public Class TemplateBookEntryList
         Inherits BusinessListBase(Of TemplateBookEntryList, TemplateBookEntry)
@@ -55,9 +56,9 @@ Namespace General
         ''' <summary>
         ''' Gets as new TemplateBookEntryList of type <paramref name=" EntryType">EntryType</paramref>.
         ''' </summary>
-        ''' <param name="EntryType"><see cref="BookEntryType">Type</see> of the transaction templates in the list.</param>
-        Friend Shared Function NewTemplateBookEntryList(ByVal EntryType As BookEntryType) As TemplateBookEntryList
-            Return New TemplateBookEntryList(EntryType)
+        ''' <param name="entryType"><see cref="BookEntryType">Type</see> of the transaction templates in the list.</param>
+        Friend Shared Function NewTemplateBookEntryList(ByVal entryType As BookEntryType) As TemplateBookEntryList
+            Return New TemplateBookEntryList(entryType)
         End Function
 
         ''' <summary>
@@ -69,8 +70,7 @@ Namespace General
         ''' <remarks></remarks>
         Friend Shared Function GetTemplateBookEntryList(ByVal myData As DataTable, _
             ByVal entryType As BookEntryType) As TemplateBookEntryList
-            Dim result As TemplateBookEntryList = New TemplateBookEntryList(myData, entryType)
-            Return result
+            Return New TemplateBookEntryList(myData, entryType)
         End Function
 
 
@@ -104,8 +104,8 @@ Namespace General
 
 #Region " Data Access "
 
-        Private Sub Create(ByVal EntryType As BookEntryType)
-            _Type = EntryType
+        Private Sub Create(ByVal entryType As BookEntryType)
+            _Type = entryType
         End Sub
 
         Private Sub Fetch(ByVal myData As DataTable, ByVal entryType As BookEntryType)
@@ -113,7 +113,7 @@ Namespace General
             RaiseListChangedEvents = False
 
             For Each dr As DataRow In myData.Rows
-                If ConvertEnumDatabaseStringCode(Of BookEntryType)(CStrSafe(dr.Item(1))) = entryType Then _
+                If EnumValueAttribute.ConvertDatabaseCharID(Of BookEntryType)(CStrSafe(dr.Item(1))) = entryType Then _
                     Add(TemplateBookEntry.GetTemplateBookEntry(dr))
             Next
 

@@ -1,3 +1,8 @@
+''' <summary>
+''' Represents an <see cref="IChronologicValidator">IChronologicValidator</see> instance that is used 
+''' as a placeholder, i.e. does not contain any business restrictions.
+''' </summary>
+''' <remarks></remarks>
 <Serializable()> _
 Public Class EmptyChronologicValidator
     Inherits ReadOnlyBase(Of EmptyChronologicValidator)
@@ -19,7 +24,10 @@ Public Class EmptyChronologicValidator
     Private _LimitsExplanation As String = ""
     Private _BackgroundExplanation As String = ""
 
-
+    ''' <summary>
+    ''' Gets an ID of the validated (parent) object. 
+    ''' </summary>
+    ''' <remarks></remarks>
     Public ReadOnly Property CurrentOperationID() As Integer _
         Implements IChronologicValidator.CurrentOperationID
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -28,6 +36,10 @@ Public Class EmptyChronologicValidator
         End Get
     End Property
 
+    ''' <summary>
+    ''' Gets the current date of the validated (parent) object (<see cref="Today">Today</see> for a new object). 
+    ''' </summary>
+    ''' <remarks></remarks>
     Public ReadOnly Property CurrentOperationDate() As Date _
         Implements IChronologicValidator.CurrentOperationDate
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -36,6 +48,10 @@ Public Class EmptyChronologicValidator
         End Get
     End Property
 
+    ''' <summary>
+    ''' Gets the human readable name of the validated (parent) object. 
+    ''' </summary>
+    ''' <remarks></remarks>
     Public ReadOnly Property CurrentOperationName() As String _
         Implements IChronologicValidator.CurrentOperationName
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -44,6 +60,11 @@ Public Class EmptyChronologicValidator
         End Get
     End Property
 
+    ''' <summary>
+    ''' Wheather the financial data of the validated (parent) object is allowed to be changed.
+    ''' </summary>
+    ''' <returns>Always TRUE.</returns>
+    ''' <remarks></remarks>
     Public ReadOnly Property FinancialDataCanChange() As Boolean _
         Implements IChronologicValidator.FinancialDataCanChange
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -52,6 +73,11 @@ Public Class EmptyChronologicValidator
         End Get
     End Property
 
+    ''' <summary>
+    ''' Wheather there is a minimum allowed date for the validated (parent) object.
+    ''' </summary>
+    ''' <returns>Always FALSE.</returns>
+    ''' <remarks></remarks>
     Public ReadOnly Property MinDateApplicable() As Boolean _
         Implements IChronologicValidator.MinDateApplicable
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -60,6 +86,11 @@ Public Class EmptyChronologicValidator
         End Get
     End Property
 
+    ''' <summary>
+    ''' Wheather there is a maximum allowed date for the validated (parent) object.
+    ''' </summary>
+    ''' <returns>Always FALSE.</returns>
+    ''' <remarks></remarks>
     Public ReadOnly Property MaxDateApplicable() As Boolean _
         Implements IChronologicValidator.MaxDateApplicable
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -68,6 +99,11 @@ Public Class EmptyChronologicValidator
         End Get
     End Property
 
+    ''' <summary>
+    ''' Gets a minimum allowed date for the validated (parent) object.
+    ''' </summary>
+    ''' <returns>Always Date.MinValue.</returns>
+    ''' <remarks></remarks>
     Public ReadOnly Property MinDate() As Date _
         Implements IChronologicValidator.MinDate
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -76,6 +112,11 @@ Public Class EmptyChronologicValidator
         End Get
     End Property
 
+    ''' <summary>
+    ''' Gets a maximum allowed date for the validated (parent) object.
+    ''' </summary>
+    ''' <returns>Always Date.MaxValue.</returns>
+    ''' <remarks></remarks>
     Public ReadOnly Property MaxDate() As Date _
         Implements IChronologicValidator.MaxDate
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -84,6 +125,12 @@ Public Class EmptyChronologicValidator
         End Get
     End Property
 
+    ''' <summary>
+    ''' Gets a human readable explanation of why the financial data of the validated (parent) object 
+    ''' is NOT allowed to be changed.
+    ''' </summary>
+    ''' <returns>Always String.Empty.</returns>
+    ''' <remarks></remarks>
     Public ReadOnly Property FinancialDataCanChangeExplanation() As String _
         Implements IChronologicValidator.FinancialDataCanChangeExplanation
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -92,6 +139,12 @@ Public Class EmptyChronologicValidator
         End Get
     End Property
 
+    ''' <summary>
+    ''' Gets a human readable explanation of why there is a minimum allowed date 
+    ''' for the validated (parent) object.
+    ''' </summary>
+    ''' <returns>Always String.Empty.</returns>
+    ''' <remarks></remarks>
     Public ReadOnly Property MinDateExplanation() As String _
         Implements IChronologicValidator.MinDateExplanation
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -100,6 +153,12 @@ Public Class EmptyChronologicValidator
         End Get
     End Property
 
+    ''' <summary>
+    ''' Gets a human readable explanation of why there is a maximum allowed date 
+    ''' for the validated (parent) object.
+    ''' </summary>
+    ''' <returns>Always String.Empty.</returns>
+    ''' <remarks></remarks>
     Public ReadOnly Property MaxDateExplanation() As String _
         Implements IChronologicValidator.MaxDateExplanation
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -108,6 +167,10 @@ Public Class EmptyChronologicValidator
         End Get
     End Property
 
+    ''' <summary>
+    ''' A human readable explanation of all the applicable business rules restrains.
+    ''' </summary>
+    ''' <returns>Always String.Empty.</returns>
     Public ReadOnly Property LimitsExplanation() As String _
         Implements IChronologicValidator.LimitsExplanation
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -116,6 +179,11 @@ Public Class EmptyChronologicValidator
         End Get
     End Property
 
+    ''' <summary>
+    ''' A human readable explanation of the applicable business rules restrains.
+    ''' </summary>
+    ''' <returns>Always String.Empty.</returns>
+    ''' <remarks>More exhaustive than <see cref="LimitsExplanation">LimitsExplanation</see>.</remarks>
     Public ReadOnly Property BackgroundExplanation() As String _
         Implements IChronologicValidator.BackgroundExplanation
         <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _

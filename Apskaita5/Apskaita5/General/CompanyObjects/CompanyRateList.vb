@@ -1,5 +1,13 @@
 Namespace General
 
+    ''' <summary>
+    ''' Represents a list of company specific default rates (tax, wage, etc.), 
+    ''' that are used by other objects for initialization.
+    ''' </summary>
+    ''' <remarks>Only used as a child of <see cref="Company">Company</see>.
+    ''' Related helper object is <see cref="Settings.CompanyInfo">CompanyInfo</see>, 
+    ''' method <see cref="Settings.CompanyInfo.GetDefaultRate">GetDefaultRate</see>.
+    ''' Values are stored in the database table companyrates.</remarks>
     <Serializable()> _
     Public Class CompanyRateList
         Inherits BusinessListBase(Of CompanyRateList, CompanyRate)
@@ -36,15 +44,22 @@ Namespace General
 
 #Region " Factory Methods "
 
-        Friend Shared Function GetCompanyRateList() As CompanyRateList
-            Dim result As CompanyRateList = New CompanyRateList(True)
-            Return result
+        ''' <summary>
+        ''' Gets a new empty CompanyRateList for a new company.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Friend Shared Function NewCompanyRateList() As CompanyRateList
+            Return New CompanyRateList(False)
         End Function
 
-        Friend Shared Function NewCompanyRateList() As CompanyRateList
-            Dim result As CompanyRateList = New CompanyRateList()
-            Return result
+        ''' <summary>
+        ''' Gets the CompanyRateList for the current company.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Friend Shared Function GetCompanyRateList() As CompanyRateList
+            Return New CompanyRateList(True)
         End Function
+
 
         Private Sub New()
             ' require use of factory methods
@@ -75,19 +90,19 @@ Namespace General
 
                 RaiseListChangedEvents = False
 
-                AddRow(myData, RateType.Vat)
-                AddRow(myData, RateType.GpmWage)
-                AddRow(myData, RateType.PsdEmployee)
-                AddRow(myData, RateType.SodraEmployee)
-                AddRow(myData, RateType.PsdEmployer)
-                AddRow(myData, RateType.SodraEmployer)
-                AddRow(myData, RateType.GuaranteeFund)
-                AddRow(myData, RateType.WageRateNight)
-                AddRow(myData, RateType.WageRateOvertime)
-                AddRow(myData, RateType.WageRatePublicHolidays)
-                AddRow(myData, RateType.WageRateRestTime)
-                AddRow(myData, RateType.WageRateDeviations)
-                AddRow(myData, RateType.WageRateSickLeave)
+                AddRow(myData, DefaultRateType.Vat)
+                AddRow(myData, DefaultRateType.GpmWage)
+                AddRow(myData, DefaultRateType.PsdEmployee)
+                AddRow(myData, DefaultRateType.SodraEmployee)
+                AddRow(myData, DefaultRateType.PsdEmployer)
+                AddRow(myData, DefaultRateType.SodraEmployer)
+                AddRow(myData, DefaultRateType.GuaranteeFund)
+                AddRow(myData, DefaultRateType.WageRateNight)
+                AddRow(myData, DefaultRateType.WageRateOvertime)
+                AddRow(myData, DefaultRateType.WageRatePublicHolidays)
+                AddRow(myData, DefaultRateType.WageRateRestTime)
+                AddRow(myData, DefaultRateType.WageRateDeviations)
+                AddRow(myData, DefaultRateType.WageRateSickLeave)
 
                 RaiseListChangedEvents = True
 
@@ -95,14 +110,14 @@ Namespace General
 
         End Sub
 
-        Private Sub AddRow(ByVal myData As DataTable, ByVal OfType As RateType)
+        Private Sub AddRow(ByVal myData As DataTable, ByVal ofType As DefaultRateType)
             For Each dr As DataRow In myData.Rows
-                If ConvertEnumDatabaseCode(Of RateType)(CIntSafe(dr.Item(1), 0)) = OfType Then
+                If EnumValueAttribute.ConvertDatabaseID(Of DefaultRateType)(CIntSafe(dr.Item(1), 0)) = ofType Then
                     Add(CompanyRate.GetCompanyRate(dr))
                     Exit Sub
                 End If
             Next
-            Add(CompanyRate.NewCompanyRate(OfType))
+            Add(CompanyRate.NewCompanyRate(ofType))
         End Sub
 
         Friend Sub Update(ByVal parent As Company)

@@ -98,15 +98,13 @@ Namespace General
 #Region " Factory Methods "
 
         ''' <summary>
-        ''' Returns new instance of ConsolidatedReportItemList.
+        ''' Returns a new instance of ConsolidatedReportItemList.
         ''' </summary>
         Friend Shared Function NewConsolidatedReportItemList() As ConsolidatedReportItemList
             Return New ConsolidatedReportItemList
         End Function
 
-        ''' <summary>
-        ''' Overload for GetNewConsolidatedReportItemList.
-        ''' </summary>
+        
         Private Sub New()
             MarkAsChild()
         End Sub

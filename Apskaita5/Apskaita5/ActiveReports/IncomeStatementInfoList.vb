@@ -1,14 +1,25 @@
 Namespace ActiveReports
 
+    ''' <summary>
+    ''' Represents an income statement report (part of <see cref="ActiveReports.FinancialStatementsInfo">FinancialStatementsInfo</see> report).
+    ''' </summary>
+    ''' <remarks></remarks>
     <Serializable()> _
     Public Class IncomeStatementInfoList
         Inherits ReadOnlyListBase(Of IncomeStatementInfoList, IncomeStatementInfo)
 
 #Region " Business Methods "
 
-        Friend Sub UpdateOptimizedValues(ByVal AccountTurnoverList As AccountTurnoverInfoList)
+        ''' <summary>
+        ''' Updates <see cref="IncomeStatementInfo.OptimizedBalanceCurrent">current period balance</see> 
+        ''' and <see cref="IncomeStatementInfo.OptimizedBalanceFormer">former period balance</see>
+        ''' with a corrective value to exclude closing impact.
+        ''' </summary>
+        ''' <param name="accountTurnoverList">Account turnover info by which the correction ir performed.</param>
+        ''' <remarks></remarks>
+        Friend Sub UpdateOptimizedValues(ByVal accountTurnoverList As AccountTurnoverInfoList)
 
-            For Each a As AccountTurnoverInfo In AccountTurnoverList
+            For Each a As AccountTurnoverInfo In accountTurnoverList
 
                 For Each i As IncomeStatementInfo In Me
 
@@ -37,7 +48,53 @@ Namespace ActiveReports
 
         End Sub
 
-        Friend Sub SetNumbers()
+#End Region
+
+#Region " Factory Methods "
+
+        Friend Shared Function GetIncomeStatementInfoList(ByVal myData As DataTable) As IncomeStatementInfoList
+            Dim result As IncomeStatementInfoList = New IncomeStatementInfoList(myData)
+            Return result
+        End Function
+
+
+        Private Sub New()
+            ' require use of factory methods
+        End Sub
+
+        Private Sub New(ByVal myData As DataTable)
+            ' require use of factory methods
+            Fetch(myData)
+        End Sub
+
+#End Region
+
+#Region " Data Access "
+
+        Private Sub Fetch(ByVal myData As DataTable)
+
+            RaiseListChangedEvents = False
+            IsReadOnly = False
+
+            For i As Integer = myData.Rows.Count To 1 Step -1
+                If ConvertEnumDatabaseCode(Of General.FinancialStatementItemType) _
+                    (CIntSafe(myData.Rows(i - 1).Item(0), 4)) = General.FinancialStatementItemType. _
+                    StatementOfComprehensiveIncome Then Add(IncomeStatementInfo.GetIncomeStatementInfo(myData.Rows(i - 1)))
+            Next
+
+            SetNumbers()
+
+            IsReadOnly = True
+            RaiseListChangedEvents = True
+
+        End Sub
+
+
+        ''' <summary>
+        ''' Recursively sets the income statement items <see cref="IncomeStatementInfo.Number">Number</see> property.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Private Sub SetNumbers()
 
             If Me.Count < 1 Then Exit Sub
 
@@ -85,7 +142,7 @@ Namespace ActiveReports
 
             If rowToSwap1 < 0 OrElse rowToSwap1 >= Me.Count OrElse rowToSwap2 < 0 _
                 OrElse rowToSwap2 >= Me.Count Then Throw New IndexOutOfRangeException( _
-                "Valid range of collection is 0 to " & (Me.Count - 1).ToString() _
+                "Valid range of IncomeStatementInfoList collection is 0 to " & (Me.Count - 1).ToString() _
                 & ". Indexes provided were " & rowToSwap1.ToString() & " and " & rowToSwap2.ToString() & ".")
 
 
@@ -118,46 +175,6 @@ Namespace ActiveReports
             Return result
 
         End Function
-
-#End Region
-
-#Region " Factory Methods "
-
-        Friend Shared Function GetIncomeStatementInfoList(ByVal myData As DataTable) As IncomeStatementInfoList
-            Dim result As IncomeStatementInfoList = New IncomeStatementInfoList(myData)
-            Return result
-        End Function
-
-        Private Sub New()
-            ' require use of factory methods
-        End Sub
-
-        Private Sub New(ByVal myData As DataTable)
-            ' require use of factory methods
-            Fetch(myData)
-        End Sub
-
-#End Region
-
-#Region " Data Access "
-
-        Private Sub Fetch(ByVal myData As DataTable)
-
-            RaiseListChangedEvents = False
-            IsReadOnly = False
-
-            For i As Integer = myData.Rows.Count To 1 Step -1
-                If ConvertEnumDatabaseCode(Of General.FinancialStatementItemType) _
-                    (CIntSafe(myData.Rows(i - 1).Item(0), 4)) = General.FinancialStatementItemType. _
-                    StatementOfComprehensiveIncome Then Add(IncomeStatementInfo.GetIncomeStatementInfo(myData.Rows(i - 1)))
-            Next
-
-            SetNumbers()
-
-            IsReadOnly = True
-            RaiseListChangedEvents = True
-
-        End Sub
 
 #End Region
 

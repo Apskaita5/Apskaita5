@@ -3,6 +3,7 @@ Namespace HelperLists
     <Serializable()> _
     Public Class WarehouseInfo
         Inherits ReadOnlyBase(Of WarehouseInfo)
+        Implements IValueObjectIsEmpty
 
 #Region " Business Methods "
 
@@ -12,6 +13,14 @@ Namespace HelperLists
         Private _IsObsolete As Boolean = False
         Private _WarehouseAccount As Long = 0
 
+
+        Public ReadOnly Property IsEmpty() As Boolean _
+            Implements IValueObjectIsEmpty.IsEmpty
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return Not _ID > 0
+            End Get
+        End Property
 
         Public ReadOnly Property ID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _

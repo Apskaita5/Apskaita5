@@ -8,19 +8,19 @@ Public Module CacheManager
 
     Public Function GetItemFromCache(Of T)(ByVal nBaseType As Type, ByVal nFilterArguments As Object()) As T
 
-        Dim DatabaseName As String = ""
+        If _CacheItemList Is Nothing Then Return Nothing
+
+        Dim databaseName As String = ""
 
         If IsWebServer(GetCurrentIdentity.IsWebServerImpersonation) Then
             If WebServerUsesCache() Then
-                DatabaseName = GetCurrentIdentity().Database.Trim
+                databaseName = GetCurrentIdentity().Database.Trim
             Else
                 Return Nothing
             End If
         End If
 
-        If _CacheItemList Is Nothing Then Return Nothing
-
-        Dim ItemToFind As New CacheItem(nBaseType, GetType(T), nFilterArguments, DatabaseName)
+        Dim ItemToFind As New CacheItem(nBaseType, GetType(T), nFilterArguments, databaseName)
 
         For Each item As CacheItem In _CacheItemList
             If item = ItemToFind Then Return DirectCast(item.CachedObject, T)

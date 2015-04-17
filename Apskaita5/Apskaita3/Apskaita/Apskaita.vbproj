@@ -291,6 +291,12 @@
     <Compile Include="General\F_IndirectRelationInfoList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="General\F_UnsettledPersonInfoList.Designer.vb">
+      <DependentUpon>F_UnsettledPersonInfoList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="General\F_UnsettledPersonInfoList.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Goods\F_GoodsComplexOperationDiscard.Designer.vb">
       <DependentUpon>F_GoodsComplexOperationDiscard.vb</DependentUpon>
     </Compile>
@@ -924,6 +930,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>F_IndirectRelationInfoList.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="General\F_UnsettledPersonInfoList.resx">
+      <DependentUpon>F_UnsettledPersonInfoList.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Goods\F_GoodsComplexOperationDiscard.resx">
       <SubType>Designer</SubType>
       <DependentUpon>F_GoodsComplexOperationDiscard.vb</DependentUpon>
@@ -1020,6 +1030,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Reports\R_AccountTurnoverInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_UnsettledPersonInfoList.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="Tools\F_CurrencyRateChangeImpactCalculator.resx">
@@ -1520,6 +1533,7 @@
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.PayOutNaturalPersonInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.PersonInfoItemList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.ProductionCalculationItemList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.UnsettledPersonInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.WageSheetInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.WorkerWageInfoReport.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.WorkTimeSheetInfoList.datasource" />

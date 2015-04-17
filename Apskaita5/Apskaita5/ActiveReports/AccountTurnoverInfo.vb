@@ -1,5 +1,9 @@
 Namespace ActiveReports
 
+    ''' <summary>
+    ''' Represents an item of an account turnover report (part of <see cref="ActiveReports.FinancialStatementsInfo">FinancialStatementsInfo</see> report).
+    ''' </summary>
+    ''' <remarks></remarks>
     <Serializable()> _
     Public Class AccountTurnoverInfo
         Inherits ReadOnlyBase(Of AccountTurnoverInfo)
@@ -26,6 +30,10 @@ Namespace ActiveReports
         Private _CreditBalanceCurrentPeriodEnd As Double = 0
 
 
+        ''' <summary>
+        ''' Account <see cref="General.Account.ID">ID</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property ID() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -33,6 +41,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Account <see cref="General.Account.Name">name</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property Name() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -40,6 +52,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Account <see cref="General.Account.AssociatedReportItem">associated financial report item</see>.
+        ''' (a "line" of an income statement or a balance sheet)
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property FinancialStatementItem() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -47,6 +64,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' A <see cref="General.FinancialStatementItemType">type</see> of <see cref="General.Account.AssociatedReportItem">associated financial report item</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property FinancialStatementItemType() As General.FinancialStatementItemType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -54,6 +75,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Account debit balance (if any) at <see cref="FinancialStatementsInfo.FirstPeriodDateStart">FinancialStatementsInfo.FirstPeriodDateStart</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property DebitBalanceFormerPeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -61,6 +86,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Account credit balance (if any) at <see cref="FinancialStatementsInfo.FirstPeriodDateStart">FinancialStatementsInfo.FirstPeriodDateStart</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property CreditBalanceFormerPeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -68,6 +97,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Account debit turnover (if any) during period from 
+        ''' <see cref="FinancialStatementsInfo.FirstPeriodDateStart">FinancialStatementsInfo.FirstPeriodDateStart</see>
+        ''' to <see cref="FinancialStatementsInfo.SecondPeriodDateStart">FinancialStatementsInfo.SecondPeriodDateStart</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property DebitTurnoverFormerPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -75,6 +110,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Account credit turnover (if any) during period from 
+        ''' <see cref="FinancialStatementsInfo.FirstPeriodDateStart">FinancialStatementsInfo.FirstPeriodDateStart</see>
+        ''' to <see cref="FinancialStatementsInfo.SecondPeriodDateStart">FinancialStatementsInfo.SecondPeriodDateStart</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property CreditTurnoverFormerPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -82,6 +123,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Account debit turnover produced by <see cref="General.ClosingEntriesCommand">ClosingEntriesCommand</see> transactions (if any) during period from 
+        ''' <see cref="FinancialStatementsInfo.FirstPeriodDateStart">FinancialStatementsInfo.FirstPeriodDateStart</see>
+        ''' to <see cref="FinancialStatementsInfo.SecondPeriodDateStart">FinancialStatementsInfo.SecondPeriodDateStart</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property DebitClosingFormerPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -89,6 +136,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Account credit turnover produced by <see cref="General.ClosingEntriesCommand">ClosingEntriesCommand</see> transactions (if any) during period from 
+        ''' <see cref="FinancialStatementsInfo.FirstPeriodDateStart">FinancialStatementsInfo.FirstPeriodDateStart</see>
+        ''' to <see cref="FinancialStatementsInfo.SecondPeriodDateStart">FinancialStatementsInfo.SecondPeriodDateStart</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property CreditClosingFormerPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -96,6 +149,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Account debit balance (if any) at <see cref="FinancialStatementsInfo.SecondPeriodDateStart">FinancialStatementsInfo.SecondPeriodDateStart</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property DebitBalanceCurrentPeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -103,6 +160,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Account credit balance (if any) at <see cref="FinancialStatementsInfo.SecondPeriodDateStart">FinancialStatementsInfo.SecondPeriodDateStart</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property CreditBalanceCurrentPeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -110,6 +171,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Account debit turnover (if any) during the period from 
+        ''' <see cref="FinancialStatementsInfo.SecondPeriodDateStart">FinancialStatementsInfo.SecondPeriodDateStart</see>
+        ''' to <see cref="FinancialStatementsInfo.SecondPeriodDateEnd">FinancialStatementsInfo.SecondPeriodDateEnd</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property DebitTurnoverCurrentPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -117,6 +184,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Account credit turnover (if any) during the period from 
+        ''' <see cref="FinancialStatementsInfo.SecondPeriodDateStart">FinancialStatementsInfo.SecondPeriodDateStart</see>
+        ''' to <see cref="FinancialStatementsInfo.SecondPeriodDateEnd">FinancialStatementsInfo.SecondPeriodDateEnd</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property CreditTurnoverCurrentPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -124,6 +197,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Account debit turnover produced by <see cref="General.ClosingEntriesCommand">ClosingEntriesCommand</see> transactions (if any) during period from 
+        ''' <see cref="FinancialStatementsInfo.SecondPeriodDateStart">FinancialStatementsInfo.SecondPeriodDateStart</see>
+        ''' to <see cref="FinancialStatementsInfo.SecondPeriodDateEnd">FinancialStatementsInfo.SecondPeriodDateEnd</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property DebitClosingCurrentPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -131,6 +210,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Account credit turnover produced by <see cref="General.ClosingEntriesCommand">ClosingEntriesCommand</see> transactions (if any) during period from 
+        ''' <see cref="FinancialStatementsInfo.SecondPeriodDateStart">FinancialStatementsInfo.SecondPeriodDateStart</see>
+        ''' to <see cref="FinancialStatementsInfo.SecondPeriodDateEnd">FinancialStatementsInfo.SecondPeriodDateEnd</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property CreditClosingCurrentPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -138,6 +223,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Account debit balance (if any) at <see cref="FinancialStatementsInfo.SecondPeriodDateEnd">FinancialStatementsInfo.SecondPeriodDateEnd</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property DebitBalanceCurrentPeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -145,6 +234,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Account credit balance (if any) at <see cref="FinancialStatementsInfo.SecondPeriodDateEnd">FinancialStatementsInfo.SecondPeriodDateEnd</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property CreditBalanceCurrentPeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -153,6 +246,10 @@ Namespace ActiveReports
         End Property
 
 
+        ''' <summary>
+        ''' Wheather the account is treated as having some turnover.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public Function HasTurnover() As Boolean
             Return (CRound(_CreditBalanceCurrentPeriodEnd) > 0 OrElse CRound(_DebitBalanceCurrentPeriodEnd) > 0 _
                 OrElse CRound(_CreditClosingCurrentPeriod) > 0 OrElse CRound(_DebitClosingCurrentPeriod) > 0 _
@@ -168,16 +265,22 @@ Namespace ActiveReports
 
         Public Overrides Function ToString() As String
             If Not _ID > 0 Then Return ""
-            Return _ID.ToString & " " & _Name
+            Return String.Format("{0} {1}", _ID.ToString, _Name)
         End Function
 
 #End Region
 
 #Region " Factory Methods "
 
+        ''' <summary>
+        ''' Gets an account turnover info by a database query.
+        ''' </summary>
+        ''' <param name="dr">Database query result.</param>
+        ''' <remarks></remarks>
         Friend Shared Function GetAccountTurnoverInfo(ByVal dr As DataRow) As AccountTurnoverInfo
             Return New AccountTurnoverInfo(dr)
         End Function
+
 
         Private Sub New()
             ' require use of factory methods

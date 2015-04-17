@@ -8,7 +8,7 @@ Namespace Settings
 
         Private _Guid As Guid = Guid.NewGuid
         Private _ID As Integer = 0
-        Private _Type As RateType = RateType.Vat
+        Private _Type As General.DefaultRateType = General.DefaultRateType.Vat
         Private _TypeHumanReadable As String = ""
         Private _Value As Double = 0
 
@@ -20,7 +20,7 @@ Namespace Settings
             End Get
         End Property
 
-        Public ReadOnly Property [Type]() As RateType
+        Public ReadOnly Property [Type]() As General.DefaultRateType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _Type
@@ -81,7 +81,7 @@ Namespace Settings
         Private Sub Fetch(ByVal dr As DataRow)
 
             _ID = CIntSafe(dr.Item(0), 0)
-            _Type = ConvertEnumDatabaseCode(Of RateType)(CIntSafe(dr.Item(1), 0))
+            _Type = ConvertEnumDatabaseCode(Of General.DefaultRateType)(CIntSafe(dr.Item(1), 0))
             _TypeHumanReadable = ConvertEnumHumanReadable(_Type)
             _Value = CDblSafe(dr.Item(2), 2, 0)
 

@@ -1,5 +1,9 @@
 Namespace ActiveReports
 
+    ''' <summary>
+    ''' Represents a balance sheet item ("line").
+    ''' </summary>
+    ''' <remarks></remarks>
     <Serializable()> _
     Public Class BalanceSheetInfo
         Inherits ReadOnlyBase(Of BalanceSheetInfo)
@@ -20,6 +24,10 @@ Namespace ActiveReports
         Private _OptimizedBalanceFormer As Double = 0
 
 
+        ''' <summary>
+        ''' Gets the ID of the balance item that is asigned by a database (AUTOINCREMENT).
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="General.ConsolidatedReportItem.ID">ConsolidatedReportItem.ID</see>.</remarks>
         Public ReadOnly Property ID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -27,6 +35,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets the number of the balance item.
+        ''' </summary>
+        ''' <remarks>Is calculated by the method <see cref="SetNumber">SetNumber</see>.</remarks>
         Public ReadOnly Property Number() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -34,6 +46,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets the name of the balance item.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="General.ConsolidatedReportItem.Name">ConsolidatedReportItem.Name</see>.</remarks>
         Public ReadOnly Property Name() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -41,6 +57,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Whether a balance of type credit is treated as positive number.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="General.ConsolidatedReportItem.IsCredit">ConsolidatedReportItem.IsCredit</see>.</remarks>
         Public ReadOnly Property IsCreditBalance() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -48,6 +68,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a depth of the balance item within the hierarchical structure of balance sheet report.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property Level() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -55,6 +79,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Item left coordinate in hierarchical structure (Nested Set Model).
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property Left() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -62,6 +90,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Item right coordinate in hierarchical structure (Nested Set Model).
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property Right() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -69,6 +101,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a comma separated list of account ID's that are associated with the balance item.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property RelatedAccounts() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -76,6 +112,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Current balance without closing simulation.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property ActualBalanceCurrent() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -83,6 +123,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Previous period balance without closing simulation.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property ActualBalanceFormer() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -90,6 +134,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Current balance with closing simulation.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property OptimizedBalanceCurrent() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -97,6 +145,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Previous period balance with closing simulation.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property OptimizedBalanceFormer() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -105,31 +157,48 @@ Namespace ActiveReports
         End Property
 
 
-        Friend Sub UpdateOptimizedBalanceCurrentWithValue(ByVal Value As Double)
+        ''' <summary>
+        ''' Updates <see cref="OptimizedBalanceCurrent">current period balance</see> with a corrective value to simulate closing.
+        ''' </summary>
+        ''' <param name="value">Value by which the correction ir performed. Positive number stands for debit type.</param>
+        ''' <remarks></remarks>
+        Friend Sub UpdateOptimizedBalanceCurrentWithValue(ByVal value As Double)
             If _IsCreditBalance Then
-                _OptimizedBalanceCurrent = CRound(_OptimizedBalanceCurrent - Value)
+                _OptimizedBalanceCurrent = CRound(_OptimizedBalanceCurrent - value)
             Else
-                _OptimizedBalanceCurrent = CRound(_OptimizedBalanceCurrent + Value)
+                _OptimizedBalanceCurrent = CRound(_OptimizedBalanceCurrent + value)
             End If
         End Sub
 
-        Friend Sub UpdateOptimizedBalanceFormerWithValue(ByVal Value As Double)
+        ''' <summary>
+        ''' Updates <see cref="OptimizedBalanceFormer">former period balance</see> with a corrective value to simulate closing.
+        ''' </summary>
+        ''' <param name="value">Value by which the correction ir performed. Positive number stands for debit type.</param>
+        ''' <remarks></remarks>
+        Friend Sub UpdateOptimizedBalanceFormerWithValue(ByVal value As Double)
             If _IsCreditBalance Then
-                _OptimizedBalanceFormer = CRound(_OptimizedBalanceFormer - Value)
+                _OptimizedBalanceFormer = CRound(_OptimizedBalanceFormer - value)
             Else
-                _OptimizedBalanceFormer = CRound(_OptimizedBalanceFormer + Value)
+                _OptimizedBalanceFormer = CRound(_OptimizedBalanceFormer + value)
             End If
         End Sub
 
-        Friend Sub SetNumber(ByVal ParentNumber As String, ByVal n As Integer)
+        ''' <summary>
+        ''' Recursively sets the item <see cref="Number">Number</see>.
+        ''' </summary>
+        ''' <param name="parentNumber">Number of the parent balance item, that is included withing current item number.</param>
+        ''' <param name="n">Current running nuber within the current group of balance items.</param>
+        ''' <remarks></remarks>
+        Friend Sub SetNumber(ByVal parentNumber As String, ByVal n As Integer)
             If _Level = 3 Then
                 _Number = GetNumberInLetter(n)
             ElseIf _Level = 4 Then
                 _Number = GetRomanNumber(n)
             Else
-                _Number = ParentNumber & n.ToString
+                _Number = parentNumber & n.ToString
             End If
         End Sub
+
 
         Protected Overrides Function GetIdValue() As Object
             Return _ID
@@ -144,9 +213,15 @@ Namespace ActiveReports
 
 #Region " Factory Methods "
 
+        ''' <summary>
+        ''' Gets a balance sheet info by a database query.
+        ''' </summary>
+        ''' <param name="dr">Database query result.</param>
+        ''' <remarks></remarks>
         Friend Shared Function GetBalanceSheetInfo(ByVal dr As DataRow) As BalanceSheetInfo
             Return New BalanceSheetInfo(dr)
         End Function
+
 
         Private Sub New()
             ' require use of factory methods

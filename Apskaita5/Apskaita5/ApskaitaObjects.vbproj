@@ -119,6 +119,10 @@
     <Compile Include="ActiveReports\PersonInfoItemList.vb" />
     <Compile Include="ActiveReports\ProductionCalculationItem.vb" />
     <Compile Include="ActiveReports\ProductionCalculationItemList.vb" />
+    <Compile Include="ActiveReports\UnsettledDocumentInfo.vb" />
+    <Compile Include="ActiveReports\UnsettledDocumentInfoList.vb" />
+    <Compile Include="ActiveReports\UnsettledPersonInfo.vb" />
+    <Compile Include="ActiveReports\UnsettledPersonInfoList.vb" />
     <Compile Include="ActiveReports\WorkerWageInfo.vb" />
     <Compile Include="ActiveReports\WorkerWageInfoList.vb" />
     <Compile Include="ActiveReports\WorkerWageInfoReport.vb" />
@@ -136,12 +140,19 @@
     <Compile Include="Assets\LtaOperationType.vb" />
     <Compile Include="Assets\OperationChronologicValidator.vb" />
     <Compile Include="Assets\OperationChronologicValidatorItem.vb" />
+    <Compile Include="CommonObjects\AccountFieldAttribute.vb" />
     <Compile Include="CommonObjects\BookEntryType.vb" />
     <Compile Include="CommonObjects\ComplexChronologicValidator.vb" />
     <Compile Include="CommonObjects\DeclarationType.vb" />
+    <Compile Include="CommonObjects\DoubleFieldAttribute.vb" />
     <Compile Include="CommonObjects\EmptyChronologicValidator.vb" />
+    <Compile Include="CommonObjects\EnumValueAttribute.vb" />
     <Compile Include="CommonObjects\IChronologicValidator.vb" />
+    <Compile Include="CommonObjects\IntegerFieldAttribute.vb" />
+    <Compile Include="CommonObjects\IValidationMessageProvider.vb" />
+    <Compile Include="CommonObjects\ValueRequiredLevel.vb" />
     <Compile Include="CommonObjects\SimpleChronologicValidator.vb" />
+    <Compile Include="CommonObjects\StringFieldAttribute.vb" />
     <Compile Include="Documents\AccumulativeCosts.vb" />
     <Compile Include="Documents\AccumulativeCostsChronologicValidator.vb" />
     <Compile Include="Documents\AccumulativeCostsItem.vb" />
@@ -204,6 +215,7 @@
     <Compile Include="Goods\ProductionCostItemList.vb" />
     <Compile Include="HelperLists\GoodsInfo.vb" />
     <Compile Include="HelperLists\GoodsInfoList.vb" />
+    <Compile Include="HelperLists\IValueObjectIsEmpty.vb" />
     <Compile Include="HelperLists\ProductionCalculationInfo.vb" />
     <Compile Include="HelperLists\ProductionCalculationInfoList.vb" />
     <Compile Include="OperationChronologyType.vb" />
@@ -212,7 +224,7 @@
     <Compile Include="HelperLists\IndirectRelationInfo.vb" />
     <Compile Include="HelperLists\IndirectRelationInfoList.vb" />
     <Compile Include="HelperLists\IndirectRelationType.vb" />
-    <Compile Include="CommonObjects\RateType.vb" />
+    <Compile Include="General\CompanyObjects\DefaultRateType.vb" />
     <Compile Include="Documents\AdvanceReport.vb" />
     <Compile Include="Documents\AdvanceReportItem.vb" />
     <Compile Include="Documents\AdvanceReportItemList.vb" />
@@ -249,7 +261,7 @@
     <Compile Include="CommonObjects\DocumentType.vb" />
     <Compile Include="General\ConsolidatedReportItemType.vb" />
     <Compile Include="General\ConsolidatedReportType.vb" />
-    <Compile Include="General\DefaultAccountType.vb" />
+    <Compile Include="General\CompanyObjects\DefaultAccountType.vb" />
     <Compile Include="General\FinancialStatementType.vb" />
     <Compile Include="Goods\GoodsAccountingMethod.vb" />
     <Compile Include="Goods\GoodsOperationType.vb" />

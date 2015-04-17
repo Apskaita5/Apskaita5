@@ -3227,4 +3227,9 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
     <Statement>SELECT r.ParentID, r.ID, r.LanguageCode, r.ContentInvoice, r.MeasureUnit, r.VatExempt FROM regionalcontents r WHERE r.ParentType=?AA AND r.ParentID=?AB ;</Statement>
     <Objects>HelperLists.RegionalContentInfoList, Documents.RegionalContentList</Objects>
   </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchUnsettledPersonInfoList</Key>
+    <Statement>SELECT b.Op_ID, b.Op_data, b.Op_Dok, b.Op_dok_rusis, b.Op_turinys, t.DocSum, a.ID, a.Pavad, a.Kodas, a.Adresas, a.SP_kodas, a.E_Mail, a.InternalCode, a.ContactInfo, g.Debt FROM bz b LEFT JOIN (SELECT a.ID AS ID, CROUND(SUM(CASE WHEN f.Op_tipas=?TP THEN f.Op_suma ELSE -f.Op_suma END), 2) AS Debt FROM bzdata f LEFT JOIN bz s ON s.Op_ID=f.Op_ID_BZ LEFT JOIN asmenys a ON a.ID=f.Op_ana OR (f.Op_ana&lt;1 AND a.ID=s.Op_analitika) LEFT JOIN persons_group_assignments u ON u.PersonsID=a.ID AND (?PG&lt;1 OR u.GroupID=?PG) WHERE f.Op_saskaita=?AC AND s.Op_data&lt;=?DT AND (?PG&lt;1 OR NOT u.ID IS NULL) GROUP BY a.ID HAVING Debt&gt;?ME) AS g ON g.ID=b.Op_analitika LEFT JOIN (SELECT w.Op_ID AS ID, SUM(r.Op_suma) AS DocSum FROM bz w LEFT JOIN bzdata r ON r.Op_ID_BZ=w.Op_ID AND r.Op_saskaita=?AC AND r.Op_tipas=?TP WHERE w.Op_data&lt;=?DT GROUP BY w.Op_ID) AS t ON t.ID=b.Op_ID LEFT JOIN asmenys a ON a.ID=g.ID WHERE g.Debt&gt;0 AND t.DocSum&gt;0 AND (SELECT SUM(d.Op_suma) FROM bz c LEFT JOIN bzdata d ON d.Op_ID_BZ=c.Op_ID WHERE c.Op_analitika=b.Op_analitika AND c.Op_data&gt;=b.Op_data AND d.Op_saskaita=?AC AND d.Op_tipas=?TP) &lt; (g.Debt + t.DocSum) ORDER BY b.Op_analitika, b.Op_data DESC;</Statement>
+    <Objects>ActiveReports.UnsettledPersonInfoList</Objects>
+  </MySQL_Statement>
 </NewDataSet>

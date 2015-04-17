@@ -288,10 +288,10 @@
                     ElseIf myData.Rows.Count < 1 Then
 
                         myData.Rows.Add()
-                        myData.Rows(0).Item(0) = GetCurrentCompany.Rates.GetRate(RateType.SodraEmployee)
-                        myData.Rows(0).Item(1) = GetCurrentCompany.Rates.GetRate(RateType.SodraEmployer)
-                        myData.Rows(0).Item(2) = GetCurrentCompany.Rates.GetRate(RateType.PsdEmployee)
-                        myData.Rows(0).Item(3) = GetCurrentCompany.Rates.GetRate(RateType.PsdEmployer)
+                        myData.Rows(0).Item(0) = GetCurrentCompany.Rates.GetRate(General.DefaultRateType.SodraEmployee)
+                        myData.Rows(0).Item(1) = GetCurrentCompany.Rates.GetRate(General.DefaultRateType.SodraEmployer)
+                        myData.Rows(0).Item(2) = GetCurrentCompany.Rates.GetRate(General.DefaultRateType.PsdEmployee)
+                        myData.Rows(0).Item(3) = GetCurrentCompany.Rates.GetRate(General.DefaultRateType.PsdEmployer)
 
                         _Warnings = AddWithNewLine(_Warnings, My.Resources.ActiveReports_Declarations_DeclarationSam1_NullRates, False)
 
