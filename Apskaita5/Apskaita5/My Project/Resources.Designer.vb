@@ -270,6 +270,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas nė vienas objekto ID..
+        '''</summary>
+        Friend ReadOnly Property BusinessObjectCollection_CriteriaNull() As String
+            Get
+                Return ResourceManager.GetString("BusinessObjectCollection_CriteriaNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nepavyko gauti objekto, kurio ID={0}, klaidos pranešimas: {1}.
+        '''</summary>
+        Friend ReadOnly Property BusinessObjectCollection_FailedToFetchObject() As String
+            Get
+                Return ResourceManager.GetString("BusinessObjectCollection_FailedToFetchObject", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Apskaitos sąskaitos numeris negali būti neigiamas. ({0}).
         '''</summary>
         Friend ReadOnly Property Common_AccountCannotBeNegative() As String
@@ -419,6 +437,15 @@ Namespace My.Resources
         Friend ReadOnly Property Common_LanguageNameNull() As String
             Get
                 Return ResourceManager.GetString("Common_LanguageNameNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Tipas {0} neturi metodo {1}..
+        '''</summary>
+        Friend ReadOnly Property Common_MethodNotImplementedForType() As String
+            Get
+                Return ResourceManager.GetString("Common_MethodNotImplementedForType", resourceCulture)
             End Get
         End Property
         
@@ -2079,7 +2106,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {0} bendrojo žurnalo įrašas, ID={1}, data={2}, numeris=&quot;&quot;{3}&quot;&quot;, turinys=&quot;&quot;{4}&quot;&quot;, kontavimai={5}, {6}..
+        '''  Looks up a localized string similar to {0} bendrojo žurnalo įrašas, ID={1}, data={2}, numeris=&quot;{3}&quot;, turinys=&quot;{4}&quot;, kontavimai={5}, {6}..
         '''</summary>
         Friend ReadOnly Property General_JournalEntry_ToString() As String
             Get

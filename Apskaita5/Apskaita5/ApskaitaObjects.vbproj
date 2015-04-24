@@ -142,6 +142,7 @@
     <Compile Include="Assets\OperationChronologicValidatorItem.vb" />
     <Compile Include="CommonObjects\AccountFieldAttribute.vb" />
     <Compile Include="CommonObjects\BookEntryType.vb" />
+    <Compile Include="CommonObjects\BusinessObjectList.vb" />
     <Compile Include="CommonObjects\ComplexChronologicValidator.vb" />
     <Compile Include="CommonObjects\DeclarationType.vb" />
     <Compile Include="CommonObjects\DoubleFieldAttribute.vb" />

@@ -454,7 +454,7 @@
     <value>susietas kontrahentas</value>
   </data>
   <data name="General_JournalEntry_ToString" xml:space="preserve">
-    <value>{0} bendrojo žurnalo įrašas, ID={1}, data={2}, numeris=""{3}"", turinys=""{4}"", kontavimai={5}, {6}.</value>
+    <value>{0} bendrojo žurnalo įrašas, ID={1}, data={2}, numeris="{3}", turinys="{4}", kontavimai={5}, {6}.</value>
   </data>
   <data name="General_JournalEntry_TypeName" xml:space="preserve">
     <value>bendrojo žurnalo operacija</value>
@@ -1013,5 +1013,14 @@
   </data>
   <data name="ActiveReports_UnsettledPersonInfoList_AccountNull" xml:space="preserve">
     <value>Nenurodyta skolų apskaitos sąskaita.</value>
+  </data>
+  <data name="BusinessObjectCollection_CriteriaNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas nė vienas objekto ID.</value>
+  </data>
+  <data name="BusinessObjectCollection_FailedToFetchObject" xml:space="preserve">
+    <value>Nepavyko gauti objekto, kurio ID={0}, klaidos pranešimas: {1}</value>
+  </data>
+  <data name="Common_MethodNotImplementedForType" xml:space="preserve">
+    <value>Klaida. Tipas {0} neturi metodo {1}.</value>
   </data>
 </root>

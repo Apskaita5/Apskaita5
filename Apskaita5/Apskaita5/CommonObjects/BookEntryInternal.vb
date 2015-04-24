@@ -132,10 +132,11 @@ Friend Class BookEntryInternal
     End Function
 
     Public Overrides Function ToString() As String
+        Dim personString As String = ""
+        If Not _Person Is Nothing AndAlso Not _Person.IsEmpty Then personString = _Person.ToString
         Return String.Format("{0} {1} - {2} {3} {4}", IIf(_EntryType = BookEntryType.Debetas, _
             My.Resources.General_BookEntryList_CharForDebit, My.Resources.General_BookEntryList_CharForCredit), _
-            _Account.ToString, _Ammount.ToString("##,#.00"), GetCurrentCompany.BaseCurrency, _
-            IIf(_Person Is Nothing OrElse Not _Person.ID > 0, "", _Person.ToString))
+            _Account.ToString, _Ammount.ToString("##,#.00"), GetCurrentCompany.BaseCurrency, personString)
     End Function
 
 #End Region
