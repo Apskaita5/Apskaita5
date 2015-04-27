@@ -1023,4 +1023,49 @@
   <data name="Common_MethodNotImplementedForType" xml:space="preserve">
     <value>Klaida. Tipas {0} neturi metodo {1}.</value>
   </data>
+  <data name="BusinessObjectCollection_IClientEmailProviderNotImplemented" xml:space="preserve">
+    <value>Klaida. Metodas GetListForClientEmail gali būti naudojamas tik tipams, kurie implementuoja IClientEmailProvider interfeisą.</value>
+  </data>
+  <data name="BusinessObjectCollection_ClientsWithoutEmail" xml:space="preserve">
+    <value>Kai kuriems kontrahentams nėra nustatyto e-pašto adreso: {0}.</value>
+  </data>
+  <data name="BusinessObjectCollection_DocumentsWithoutClient" xml:space="preserve">
+    <value>Kai kuriems dokumentams nėra priskirtas kontrahentas: {0}.</value>
+  </data>
+  <data name="Workers_BonusType_k" xml:space="preserve">
+    <value>Ketvirtinė</value>
+  </data>
+  <data name="Workers_BonusType_m" xml:space="preserve">
+    <value>Metinė</value>
+  </data>
+  <data name="Workers_CompanyWageRates_RateGPM" xml:space="preserve">
+    <value>GPM tarifas</value>
+  </data>
+  <data name="Workers_CompanyWageRates_RateGuaranteeFund" xml:space="preserve">
+    <value>garantinio fondo tarifas</value>
+  </data>
+  <data name="Workers_CompanyWageRates_RateHR" xml:space="preserve">
+    <value>tarifas už darbą poilsio ir švenčių dienomis</value>
+  </data>
+  <data name="Workers_CompanyWageRates_RateON" xml:space="preserve">
+    <value>tarifas už naktinį ir viršvalandinį darbą</value>
+  </data>
+  <data name="Workers_CompanyWageRates_RatePSDEmployee" xml:space="preserve">
+    <value>PSD tarifas darbuotojui</value>
+  </data>
+  <data name="Workers_CompanyWageRates_RatePSDEmployer" xml:space="preserve">
+    <value>PSD tarifas darbdaviui</value>
+  </data>
+  <data name="Workers_CompanyWageRates_RateSC" xml:space="preserve">
+    <value>tarifas už ypatingas darbo sąlygas</value>
+  </data>
+  <data name="Workers_CompanyWageRates_RateSickLeave" xml:space="preserve">
+    <value>nedarbingumo tarifas</value>
+  </data>
+  <data name="Workers_CompanyWageRates_RateSODRAEmployee" xml:space="preserve">
+    <value>SODROS tarifas darbuotojui</value>
+  </data>
+  <data name="Workers_CompanyWageRates_RateSODRAEmployer" xml:space="preserve">
+    <value>SODROS tarifas darbdaviui</value>
+  </data>
 </root>

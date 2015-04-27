@@ -54,6 +54,139 @@ Public Class BusinessObjectCollection(Of T)
     End Property
 
 
+    ''' <summary>
+    ''' Gets a BusinessObjectCollection (a value in the KeyValuePair) grouped by email (a key in the KeyValuePair).
+    ''' </summary>
+    ''' <param name="skipedDocuments">Returns a human readable description of 
+    ''' the documents (business objects), that have no client assigned, 
+    ''' and the clients, that have no email assigned.</param>
+    ''' <remarks></remarks>
+    Public Function GetListForEachClientEmail(ByRef skipedDocuments As String) As List(Of KeyValuePair(Of String, BusinessObjectCollection(Of T)))
+
+        If Not GetType(IClientEmailProvider).IsAssignableFrom(GetType(T)) Then
+            Throw New InvalidOperationException(My.Resources.BusinessObjectCollection_IClientEmailProviderNotImplemented)
+        End If
+
+        Dim groupedResult As New List(Of KeyValuePair(Of String, BusinessObjectCollection(Of T)))
+        Dim clientsWithoutEmail As New List(Of String)
+        Dim documentsWithoutClient As New List(Of String)
+
+        For Each i As IClientEmailProvider In _Result
+
+            If StringIsNullOrEmpty(i.GetClientName) Then
+
+                documentsWithoutClient.Add(i.ToString)
+
+            ElseIf StringIsNullOrEmpty(i.GetClientEmail) Then
+
+                If Not clientsWithoutEmail.Contains(i.GetClientName.Trim) Then
+                    clientsWithoutEmail.Add(i.GetClientName.Trim)
+                End If
+
+            Else
+
+                Dim isFound As Boolean = False
+                Dim currentEmail As String = i.GetClientEmail
+                For Each k As KeyValuePair(Of String, BusinessObjectCollection(Of T)) In groupedResult
+                    If k.Key.Trim.ToLower = currentEmail.Trim.ToLower Then
+                        k.Value.Result.Add(DirectCast(i, T))
+                        isFound = True
+                        Exit For
+                    End If
+                Next
+
+                If Not isFound Then
+
+                    Dim newEntry As New KeyValuePair(Of String, BusinessObjectCollection(Of T)) _
+                        (currentEmail.Trim.ToLower, Me.NewBusinessObjectCollection(DirectCast(i, T)))
+                    groupedResult.Add(newEntry)
+
+                End If
+
+            End If
+
+        Next
+
+        skipedDocuments = ""
+        If clientsWithoutEmail.Count > 0 Then
+            skipedDocuments = AddWithNewLine(skipedDocuments, String.Format( _
+                My.Resources.BusinessObjectCollection_ClientsWithoutEmail, _
+                String.Join(", ", clientsWithoutEmail.ToArray)), False)
+        End If
+        If documentsWithoutClient.Count > 0 Then
+            skipedDocuments = AddWithNewLine(skipedDocuments, String.Format( _
+                My.Resources.BusinessObjectCollection_DocumentsWithoutClient, _
+                String.Join(", ", documentsWithoutClient.ToArray)), False)
+        End If
+
+        Return groupedResult
+
+    End Function
+
+    ''' <summary>
+    ''' Gets a BusinessObjectCollection (a value in the KeyValuePair) grouped by client (a person name; a key in the KeyValuePair).
+    ''' </summary>
+    ''' <param name="skipedDocuments">Returns a human readable description of 
+    ''' the documents (business objects), that have no client assigned.</param>
+    ''' <remarks></remarks>
+    Public Function GetListForEachClient(ByRef skipedDocuments As String) As List(Of KeyValuePair(Of String, BusinessObjectCollection(Of T)))
+
+        If Not GetType(IClientEmailProvider).IsAssignableFrom(GetType(T)) Then
+            Throw New InvalidOperationException(My.Resources.BusinessObjectCollection_IClientEmailProviderNotImplemented)
+        End If
+
+        Dim groupedResult As New List(Of KeyValuePair(Of String, BusinessObjectCollection(Of T)))
+        Dim documentsWithoutClient As New List(Of String)
+
+        For Each i As IClientEmailProvider In _Result
+
+            If StringIsNullOrEmpty(i.GetClientName) Then
+
+                documentsWithoutClient.Add(i.ToString)
+
+            Else
+
+                Dim isFound As Boolean = False
+                Dim currentName As String = i.GetClientName
+                For Each k As KeyValuePair(Of String, BusinessObjectCollection(Of T)) In groupedResult
+                    If k.Key.Trim.ToLower = currentName.Trim.ToLower Then
+                        k.Value.Result.Add(DirectCast(i, T))
+                        isFound = True
+                        Exit For
+                    End If
+                Next
+
+                If Not isFound Then
+
+                    Dim newEntry As New KeyValuePair(Of String, BusinessObjectCollection(Of T)) _
+                        (currentName.Trim, Me.NewBusinessObjectCollection(DirectCast(i, T)))
+                    groupedResult.Add(newEntry)
+
+                End If
+
+            End If
+
+        Next
+
+        skipedDocuments = ""
+        If documentsWithoutClient.Count > 0 Then
+            skipedDocuments = AddWithNewLine(skipedDocuments, String.Format( _
+                My.Resources.BusinessObjectCollection_DocumentsWithoutClient, _
+                String.Join(", ", documentsWithoutClient.ToArray)), False)
+        End If
+
+        Return groupedResult
+
+    End Function
+
+    Private Function NewBusinessObjectCollection(ByVal firstItem As T) As BusinessObjectCollection(Of T)
+        Dim newCollection As New BusinessObjectCollection(Of T)
+        newCollection._Result = New List(Of T)
+        newCollection._Result.Add(firstItem)
+        Return newCollection
+    End Function
+
+
     Protected Overrides Function GetIdValue() As Object
         Return _Guid
     End Function
@@ -93,8 +226,8 @@ Public Class BusinessObjectCollection(Of T)
     ''' <typeparam name="C">Type of business objects to fetch.</typeparam>
     ''' <param name="ids">ID's of the business objects to fetch.</param>
     ''' <remarks></remarks>
-    Public Shared Function GetBusinessObjectCollection(Of C)(ByVal ids As Integer()) As BusinessObjectCollection(Of C)
-        Return DataPortal.Fetch(Of BusinessObjectCollection(Of C))(New Criteria(ids))
+    Public Shared Function GetBusinessObjectCollection(ByVal ids As Integer()) As BusinessObjectCollection(Of T)
+        Return DataPortal.Fetch(Of BusinessObjectCollection(Of T))(New Criteria(ids))
     End Function
 
 

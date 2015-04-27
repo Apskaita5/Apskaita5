@@ -270,6 +270,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Kai kuriems kontrahentams nėra nustatyto e-pašto adreso: {0}..
+        '''</summary>
+        Friend ReadOnly Property BusinessObjectCollection_ClientsWithoutEmail() As String
+            Get
+                Return ResourceManager.GetString("BusinessObjectCollection_ClientsWithoutEmail", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Klaida. Nenurodytas nė vienas objekto ID..
         '''</summary>
         Friend ReadOnly Property BusinessObjectCollection_CriteriaNull() As String
@@ -279,11 +288,29 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Kai kuriems dokumentams nėra priskirtas kontrahentas: {0}..
+        '''</summary>
+        Friend ReadOnly Property BusinessObjectCollection_DocumentsWithoutClient() As String
+            Get
+                Return ResourceManager.GetString("BusinessObjectCollection_DocumentsWithoutClient", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Nepavyko gauti objekto, kurio ID={0}, klaidos pranešimas: {1}.
         '''</summary>
         Friend ReadOnly Property BusinessObjectCollection_FailedToFetchObject() As String
             Get
                 Return ResourceManager.GetString("BusinessObjectCollection_FailedToFetchObject", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Metodas GetListForClientEmail gali būti naudojamas tik tipams, kurie implementuoja IClientEmailProvider interfeisą..
+        '''</summary>
+        Friend ReadOnly Property BusinessObjectCollection_IClientEmailProviderNotImplemented() As String
+            Get
+                Return ResourceManager.GetString("BusinessObjectCollection_IClientEmailProviderNotImplemented", resourceCulture)
             End Get
         End Property
         
@@ -2777,6 +2804,114 @@ Namespace My.Resources
         Friend ReadOnly Property ValidationRules_FutureDate() As String
             Get
                 Return ResourceManager.GetString("ValidationRules_FutureDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Ketvirtinė.
+        '''</summary>
+        Friend ReadOnly Property Workers_BonusType_k() As String
+            Get
+                Return ResourceManager.GetString("Workers_BonusType_k", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Metinė.
+        '''</summary>
+        Friend ReadOnly Property Workers_BonusType_m() As String
+            Get
+                Return ResourceManager.GetString("Workers_BonusType_m", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to GPM tarifas.
+        '''</summary>
+        Friend ReadOnly Property Workers_CompanyWageRates_RateGPM() As String
+            Get
+                Return ResourceManager.GetString("Workers_CompanyWageRates_RateGPM", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to garantinio fondo tarifas.
+        '''</summary>
+        Friend ReadOnly Property Workers_CompanyWageRates_RateGuaranteeFund() As String
+            Get
+                Return ResourceManager.GetString("Workers_CompanyWageRates_RateGuaranteeFund", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to tarifas už darbą poilsio ir švenčių dienomis.
+        '''</summary>
+        Friend ReadOnly Property Workers_CompanyWageRates_RateHR() As String
+            Get
+                Return ResourceManager.GetString("Workers_CompanyWageRates_RateHR", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to tarifas už naktinį ir viršvalandinį darbą.
+        '''</summary>
+        Friend ReadOnly Property Workers_CompanyWageRates_RateON() As String
+            Get
+                Return ResourceManager.GetString("Workers_CompanyWageRates_RateON", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PSD tarifas darbuotojui.
+        '''</summary>
+        Friend ReadOnly Property Workers_CompanyWageRates_RatePSDEmployee() As String
+            Get
+                Return ResourceManager.GetString("Workers_CompanyWageRates_RatePSDEmployee", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PSD tarifas darbdaviui.
+        '''</summary>
+        Friend ReadOnly Property Workers_CompanyWageRates_RatePSDEmployer() As String
+            Get
+                Return ResourceManager.GetString("Workers_CompanyWageRates_RatePSDEmployer", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to tarifas už ypatingas darbo sąlygas.
+        '''</summary>
+        Friend ReadOnly Property Workers_CompanyWageRates_RateSC() As String
+            Get
+                Return ResourceManager.GetString("Workers_CompanyWageRates_RateSC", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nedarbingumo tarifas.
+        '''</summary>
+        Friend ReadOnly Property Workers_CompanyWageRates_RateSickLeave() As String
+            Get
+                Return ResourceManager.GetString("Workers_CompanyWageRates_RateSickLeave", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to SODROS tarifas darbuotojui.
+        '''</summary>
+        Friend ReadOnly Property Workers_CompanyWageRates_RateSODRAEmployee() As String
+            Get
+                Return ResourceManager.GetString("Workers_CompanyWageRates_RateSODRAEmployee", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to SODROS tarifas darbdaviui.
+        '''</summary>
+        Friend ReadOnly Property Workers_CompanyWageRates_RateSODRAEmployer() As String
+            Get
+                Return ResourceManager.GetString("Workers_CompanyWageRates_RateSODRAEmployer", resourceCulture)
             End Get
         End Property
     End Module

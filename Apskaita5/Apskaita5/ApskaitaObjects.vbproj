@@ -149,6 +149,7 @@
     <Compile Include="CommonObjects\EmptyChronologicValidator.vb" />
     <Compile Include="CommonObjects\EnumValueAttribute.vb" />
     <Compile Include="CommonObjects\IChronologicValidator.vb" />
+    <Compile Include="CommonObjects\IClientEmailProvider.vb" />
     <Compile Include="CommonObjects\IntegerFieldAttribute.vb" />
     <Compile Include="CommonObjects\IValidationMessageProvider.vb" />
     <Compile Include="CommonObjects\ValueRequiredLevel.vb" />

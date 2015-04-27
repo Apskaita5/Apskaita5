@@ -1505,7 +1505,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchServiceInfoList</Key>
-    <Statement>SELECT S.ID, S.Tip, S.TrPav, S.Amount, S.PVM, S.RateVatPurchase, S.Obsol, S.S_Sask, S.P_Sask, S.AccountPurchase, S.AccountVatPurchase, (SELECT GROUP_CONCAT(CONCAT(CAST(c.ID AS CHAR), '*-*-', c.LanguageCode, '*-*-', c.ContentInvoice, '*-*-', c.MeasureUnit, '*-*-', c.VatExempt), '@*#@') FROM RegionalContents c WHERE c.ParentID=S.ID AND c.ParentType=0 GROUP BY c.ParentID), (SELECT GROUP_CONCAT(CONCAT(CAST(d.ID AS CHAR), '*-*-', d.CurrencyCode, '*-*-', CAST(CAST(d.ValuePerUnitSales * 10000 AS BIGINT) AS CHAR), '*-*-', CAST(CAST(d.ValuePerUnitPurchases * 10000 AS BIGINT) AS CHAR)), '@*#@') FROM RegionalPrices d WHERE d.ParentID=S.ID AND d.ParentType=0 GROUP BY d.ParentID) FROM Paslaugos S ORDER BY S.TrPav;</Statement>
+    <Statement>SELECT S.ID, S.Tip, S.TrPav, S.Amount, S.PVM, S.RateVatPurchase, S.Obsol, S.S_Sask, S.P_Sask, S.AccountPurchase, S.AccountVatPurchase FROM Paslaugos S ORDER BY S.TrPav;</Statement>
     <Objects>HelperLists.ServiceInfoList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
