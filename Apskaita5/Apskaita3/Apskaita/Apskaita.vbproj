@@ -89,6 +89,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\csla20vb\csla20vb\Csla\bin\Release\Csla.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Data.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v11.2.Core, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="ExcelApi, Version=1.5.1.2, Culture=neutral, PublicKeyToken=b1d22616f2ea9ad3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\NetOffice 1.5.1.2 [RC]\ExcelApi.dll</HintPath>
@@ -121,6 +125,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.configuration" />
+    <Reference Include="System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Data">
       <Private>True</Private>
     </Reference>
@@ -1035,6 +1042,7 @@
     <Content Include="Reports\R_UnsettledPersonInfoList.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="Tools\F_CurrencyRateChangeImpactCalculator.resx">
       <DependentUpon>F_CurrencyRateChangeImpactCalculator.vb</DependentUpon>
       <SubType>Designer</SubType>
