@@ -2914,5 +2914,32 @@ Namespace My.Resources
                 Return ResourceManager.GetString("Workers_CompanyWageRates_RateSODRAEmployer", resourceCulture)
             End Get
         End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. NPD skaičiavimo funkcija taikoma tik po 2008 metų..
+        '''</summary>
+        Friend ReadOnly Property Workers_WageItem_InvalidCalculateNpdInvoke() As String
+            Get
+                Return ResourceManager.GetString("Workers_WageItem_InvalidCalculateNpdInvoke", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko pritaikyti formulės NPD skaičiavimui..
+        '''</summary>
+        Friend ReadOnly Property Workers_WageItem_NpdFormulaInvalid() As String
+            Get
+                Return ResourceManager.GetString("Workers_WageItem_NpdFormulaInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenustatyta NPD skaičiavimo formulė..
+        '''</summary>
+        Friend ReadOnly Property Workers_WageItem_NpdFormulaNull() As String
+            Get
+                Return ResourceManager.GetString("Workers_WageItem_NpdFormulaNull", resourceCulture)
+            End Get
+        End Property
     End Module
 End Namespace

@@ -1475,7 +1475,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchService</Key>
-    <Statement>SELECT S.ID, S.Tip, S.TrPav, S.Amount, S.PVM, S.RateVatPurchase, S.Obsol, S.S_Sask, S.P_Sask, S.AccountPurchase, S.AccountVatPurchase, S.ServiceCode, S.InsertDate, S.UpdateDate, (SELECT IFNULL((SELECT COUNT(Q.ID) FROM sfd Q WHERE Q.Rusis=2 AND Q.P_ID=S.ID), 0) + IFNULL((SELECT COUNT(Q.ID) FROM sfg Q WHERE Q.Rus=2 AND Q.P_ID=S.ID), 0)), (SELECT GROUP_CONCAT(CONCAT(CAST(c.ID AS CHAR), '*-*-', c.LanguageCode, '*-*-', c.ContentInvoice, '*-*-', c.MeasureUnit, '*-*-', c.VatExempt), '@*#@') FROM RegionalContents c WHERE c.ParentID=S.ID AND c.ParentType=0 GROUP BY c.ParentID), (SELECT GROUP_CONCAT(CONCAT(CAST(d.ID AS CHAR), '*-*-', d.CurrencyCode, '*-*-', CAST(CAST(d.ValuePerUnitSales * 10000 AS BIGINT) AS CHAR), '*-*-', CAST(CAST(d.ValuePerUnitPurchases * 10000 AS BIGINT) AS CHAR)), '@*#@') FROM RegionalPrices d WHERE d.ParentID=S.ID AND d.ParentType=0 GROUP BY d.ParentID) FROM Paslaugos S WHERE S.ID=$CD ;</Statement>
+    <Statement>SELECT S.ID, S.Tip, S.TrPav, S.Amount, S.PVM, S.RateVatPurchase, S.Obsol, S.S_Sask, S.P_Sask, S.AccountPurchase, S.AccountVatPurchase, S.ServiceCode, S.InsertDate, S.UpdateDate, (SELECT IFNULL((SELECT COUNT(Q.ID) FROM sfd Q WHERE Q.Rusis=2 AND Q.P_ID=S.ID), 0) + IFNULL((SELECT COUNT(Q.ID) FROM sfg Q WHERE Q.Rus=2 AND Q.P_ID=S.ID), 0)) FROM Paslaugos S WHERE S.ID=$CD ;</Statement>
     <Objects>Documents.Service</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -1925,7 +1925,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchServiceInfo</Key>
-    <Statement>SELECT S.ID, S.Tip, S.TrPav, S.Amount, S.PVM, S.RateVatPurchase, S.Obsol, S.S_Sask, S.P_Sask, S.AccountPurchase, S.AccountVatPurchase, (SELECT GROUP_CONCAT(CONCAT(CAST(c.ID AS CHAR), '*-*-', c.LanguageCode, '*-*-', c.ContentInvoice, '*-*-', c.MeasureUnit, '*-*-', c.VatExempt), '@*#@') FROM RegionalContents c WHERE c.ParentID=S.ID AND c.ParentType=0 GROUP BY c.ParentID), (SELECT GROUP_CONCAT(CONCAT(CAST(d.ID AS CHAR), '*-*-', d.CurrencyCode, '*-*-', CAST(CAST(d.ValuePerUnitSales * 10000 AS BIGINT) AS CHAR), '*-*-', CAST(CAST(d.ValuePerUnitPurchases * 10000 AS BIGINT) AS CHAR)), '@*#@') FROM RegionalPrices d WHERE d.ParentID=S.ID AND d.ParentType=0 GROUP BY d.ParentID) FROM Paslaugos S WHERE S.ID=$SD ;</Statement>
+    <Statement>SELECT S.ID, S.Tip, S.TrPav, S.Amount, S.PVM, S.RateVatPurchase, S.Obsol, S.S_Sask, S.P_Sask, S.AccountPurchase, S.AccountVatPurchase FROM Paslaugos S WHERE S.ID=$SD ;</Statement>
     <Objects>HelperLists.ServiceInfo</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -1940,12 +1940,12 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>CheckIfInvoiceNumberUnique</Key>
-    <Statement>SELECT InvoiceSerial, InvoiceNumber FROM InvoicesMade WHERE Upper(TRIM(InvoiceSerial))=Upper(TRIM($SR)) AND InvoiceNumber=$NM AND ID&lt;&gt;$IN ;</Statement>
+    <Statement>SELECT InvoiceSerial, InvoiceNumber FROM InvoicesMade WHERE Upper(TRIM(InvoiceSerial))=Upper(TRIM($SR)) AND InvoiceNumber=$NM AND ID&lt;&gt;$IN AND AddDateToNumberOptionWasUsed&lt;1;</Statement>
     <Objects>Documents.InvoiceMade</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>CheckIfInvoiceNumberUniqueWithDate</Key>
-    <Statement>SELECT I.InvoiceSerial, I.InvoiceNumber FROM InvoicesMade I LEFT JOIN bz B ON B.Op_ID=I.ID WHERE I.InvoiceNumber=$NM AND I.ID&lt;&gt;$IN AND B.Op_data=$ND AND Upper(TRIM(I.InvoiceSerial))=Upper(TRIM($SR));</Statement>
+    <Statement>SELECT I.InvoiceSerial, I.InvoiceNumber FROM InvoicesMade I LEFT JOIN bz B ON B.Op_ID=I.ID WHERE I.InvoiceNumber=$NM AND I.ID&lt;&gt;$IN AND B.Op_data=$ND AND Upper(TRIM(I.InvoiceSerial))=Upper(TRIM($SR)) AND I.AddDateToNumberOptionWasUsed&gt;0;</Statement>
     <Objects>Documents.InvoiceMade</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -2835,7 +2835,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchGoodsItem</Key>
-    <Statement>SELECT g.ID, g.Name, g.MeasureUnit, g.AccountSalesNetCosts, g.AccountPurchases, g.AccountDiscounts, g.AccountValueReduction, g.DefaultVatRateSales, g.DefaultVatRatePurchase, g.DefaultAccountingMethod, g.DefaultValuationMethod, g.TradeItemType, g.GoodsCode, g.GoodsBarcode, g.IsObsolete, g.InsertDate, g.UpdateDate, (SELECT COUNT(d.ID) FROM goodsoperations d WHERE d.GoodsID=g.ID) AS IsInUse, (SELECT COUNT(d.ID) FROM goodsoperations d WHERE d.GoodsID=g.ID AND d.OperationType=7) AS PriceCutsExist, (SELECT GROUP_CONCAT(CONCAT(CAST(c.ID AS CHAR), '*-*-', c.LanguageCode, '*-*-', c.ContentInvoice, '*-*-', c.MeasureUnit, '*-*-', c.VatExempt), '@*#@') FROM RegionalContents c WHERE c.ParentID=g.ID AND c.ParentType=1 GROUP BY c.ParentID) AS RegionalContentList, (SELECT GROUP_CONCAT(CONCAT(CAST(d.ID AS CHAR), '*-*-', d.CurrencyCode, '*-*-', CAST(CAST(d.ValuePerUnitSales * 10000 AS INT) AS CHAR), '*-*-', CAST(CAST(d.ValuePerUnitPurchases * 10000 AS INT) AS CHAR)), '@*#@') FROM RegionalPrices d WHERE d.ParentID=g.ID AND d.ParentType=1 GROUP BY d.ParentID) AS RegionalPricesList, p.ID, p.Name, w.ID, w.Name, w.IsProduction, w.IsObsolete, w.WarehouseAccount FROM goods g LEFT JOIN prekes_gr p ON p.ID=g.GroupID LEFT JOIN warehouses w ON w.ID=g.DefaultWarehouseID WHERE g.ID=$GD ;</Statement>
+    <Statement>SELECT g.ID, g.Name, g.MeasureUnit, g.AccountSalesNetCosts, g.AccountPurchases, g.AccountDiscounts, g.AccountValueReduction, g.DefaultVatRateSales, g.DefaultVatRatePurchase, g.DefaultAccountingMethod, g.DefaultValuationMethod, g.TradeItemType, g.GoodsCode, g.GoodsBarcode, g.IsObsolete, g.InsertDate, g.UpdateDate, (SELECT COUNT(d.ID) FROM goodsoperations d WHERE d.GoodsID=g.ID) AS IsInUse, (SELECT COUNT(d.ID) FROM goodsoperations d WHERE d.GoodsID=g.ID AND d.OperationType=7) AS PriceCutsExist, p.ID, p.Name, w.ID, w.Name, w.IsProduction, w.IsObsolete, w.WarehouseAccount FROM goods g LEFT JOIN prekes_gr p ON p.ID=g.GroupID LEFT JOIN warehouses w ON w.ID=g.DefaultWarehouseID WHERE g.ID=$GD ;</Statement>
     <Objects>Goods.GoodsItem</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3186,6 +3186,16 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   <MySQL_Statement>
     <Key>CompanyRowExists</Key>
     <Statement>SELECT COUNT(*) FROM imone;</Statement>
+    <Objects>Administration.CustomDatabaseStructureErrorManager</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>OldVersionSerialCodes</Key>
+    <Statement>SELECT COUNT(*) FROM serijos s WHERE UPPER(TRIM(s.Serijos_dok)) IN (UPPER('sąskaita - faktūra'), UPPER('saskaita - faktura'), UPPER('kasos išlaidų orderis'), UPPER('kasos islaidu orderis'), UPPER('kasos pajamų orderis'), UPPER('kasos pajamu orderis'), UPPER('darbo sutartis'));</Statement>
+    <Objects>Administration.CustomDatabaseStructureErrorManager</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>RepairOldVersionSerialCodes</Key>
+    <Statement>UPDATE serijos SET Serijos_dok=(CASE WHEN UPPER(TRIM(Serijos_dok)) IN (UPPER('sąskaita - faktūra'), UPPER('saskaita - faktura')) THEN 'sf' ELSE CASE WHEN UPPER(TRIM(Serijos_dok)) IN (UPPER('kasos išlaidų orderis'), UPPER('kasos islaidu orderis')) THEN 'kio' ELSE CASE WHEN UPPER(TRIM(Serijos_dok)) IN (UPPER('kasos pajamų orderis'), UPPER('kasos pajamu orderis')) THEN 'kpo' ELSE 'ds' END END END);</Statement>
     <Objects>Administration.CustomDatabaseStructureErrorManager</Objects>
   </MySQL_Statement>
 </NewDataSet>

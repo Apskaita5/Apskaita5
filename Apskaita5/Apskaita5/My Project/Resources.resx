@@ -1068,4 +1068,13 @@
   <data name="Workers_CompanyWageRates_RateSODRAEmployer" xml:space="preserve">
     <value>SODROS tarifas darbdaviui</value>
   </data>
+  <data name="Workers_WageItem_InvalidCalculateNpdInvoke" xml:space="preserve">
+    <value>Klaida. NPD skaičiavimo funkcija taikoma tik po 2008 metų.</value>
+  </data>
+  <data name="Workers_WageItem_NpdFormulaInvalid" xml:space="preserve">
+    <value>Klaida. Nepavyko pritaikyti formulės NPD skaičiavimui.</value>
+  </data>
+  <data name="Workers_WageItem_NpdFormulaNull" xml:space="preserve">
+    <value>Klaida. Nenustatyta NPD skaičiavimo formulė.</value>
+  </data>
 </root>
