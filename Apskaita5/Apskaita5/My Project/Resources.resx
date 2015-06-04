@@ -1077,4 +1077,970 @@
   <data name="Workers_WageItem_NpdFormulaNull" xml:space="preserve">
     <value>Klaida. Nenustatyta NPD skaičiavimo formulė.</value>
   </data>
+  <data name="Workers_WageItem_AnnualWorkingDaysRatio" xml:space="preserve">
+    <value>darbo dienų koeficientas (reikalingas kompensacijai už nepanaudotas atostogas apskaičiuoti)</value>
+  </data>
+  <data name="Workers_WageItem_ApplicableVduDaily" xml:space="preserve">
+    <value>dienos VDU</value>
+  </data>
+  <data name="Workers_WageItem_ApplicableVduHourly" xml:space="preserve">
+    <value>valandinis VDU (2006 m. birželį seimas buvo truputį sukvailiojęs)</value>
+  </data>
+  <data name="Workers_WageItem_ConventionalWage" xml:space="preserve">
+    <value>nustatytas darbo užmokestis (klaidingai sutvarkyti darbuotojo statuso duomenys)</value>
+  </data>
+  <data name="Workers_WageItem_NormalHoursWorked" xml:space="preserve">
+    <value>faktiškai dirbtų normalių valandų skaičius</value>
+  </data>
+  <data name="Workers_WageItem_PayOutTotal" xml:space="preserve">
+    <value>mokėtinos su darbo santykiais susijusios išmokos</value>
+  </data>
+  <data name="Workers_WageItem_PayOutWage" xml:space="preserve">
+    <value>mokėtinas darbo užmokestis</value>
+  </data>
+  <data name="Workers_WageItem_StandartDays" xml:space="preserve">
+    <value>darbo dienų skaičius pgl. grafiką</value>
+  </data>
+  <data name="Workers_WageItem_StandartHours" xml:space="preserve">
+    <value>darbo valandų skaičius pgl. grafiką</value>
+  </data>
+  <data name="Workers_WageItem_ToString" xml:space="preserve">
+    <value>{0}, darbo sutartis Nr. {1}{2}</value>
+  </data>
+  <data name="Workers_WageItem_TotalDaysWorked" xml:space="preserve">
+    <value>faktiškai dirbtų dienų skaičius</value>
+  </data>
+  <data name="Workers_WageItem_TotalHoursWorked" xml:space="preserve">
+    <value>faktiškai dirbtų valandų bendras skaičius</value>
+  </data>
+  <data name="Documents_RegionalizedObjectType_Goods" xml:space="preserve">
+    <value>prekės</value>
+  </data>
+  <data name="Documents_RegionalizedObjectType_Service" xml:space="preserve">
+    <value>paslaugos</value>
+  </data>
+  <data name="Workers_WageItem_ActualHourlyPay" xml:space="preserve">
+    <value>apskaičiuotas val. atlygis</value>
+  </data>
+  <data name="Workers_WageItem_ApplicableNPD" xml:space="preserve">
+    <value>taikytinas NPD</value>
+  </data>
+  <data name="Workers_WageItem_ApplicablePNPD" xml:space="preserve">
+    <value>taikytinas PNPD</value>
+  </data>
+  <data name="Workers_WageItem_BonusPay" xml:space="preserve">
+    <value>premija</value>
+  </data>
+  <data name="Workers_WageItem_BonusType" xml:space="preserve">
+    <value>premijos tipas</value>
+  </data>
+  <data name="Workers_WageItem_ContractNumber" xml:space="preserve">
+    <value>sutarties Nr.</value>
+  </data>
+  <data name="Workers_WageItem_ContractSerial" xml:space="preserve">
+    <value>sutarties serija</value>
+  </data>
+  <data name="Workers_WageItem_ContributionGuaranteeFund" xml:space="preserve">
+    <value>priskaičiuota garantinio fondo</value>
+  </data>
+  <data name="Workers_WageItem_ContributionPSD" xml:space="preserve">
+    <value>priskaičiuota PSD</value>
+  </data>
+  <data name="Workers_WageItem_ContributionSODRA" xml:space="preserve">
+    <value>priskaičiuota SODRA</value>
+  </data>
+  <data name="Workers_WageItem_ConventionalExtraPay" xml:space="preserve">
+    <value>nustatytas priedas</value>
+  </data>
+  <data name="Workers_WageItem_DaysForVDU" xml:space="preserve">
+    <value>d. d. VDU skaičiavimui</value>
+  </data>
+  <data name="Workers_WageItem_DeductionGPM" xml:space="preserve">
+    <value>išskaičiuota GPM</value>
+  </data>
+  <data name="Workers_WageItem_DeductionImprest" xml:space="preserve">
+    <value>išskaičiuota avanso</value>
+  </data>
+  <data name="Workers_WageItem_DeductionOther" xml:space="preserve">
+    <value>kitos išskaitos</value>
+  </data>
+  <data name="Workers_WageItem_DeductionOtherApplicable" xml:space="preserve">
+    <value>išskaičiuota kitų išskaitų</value>
+  </data>
+  <data name="Workers_WageItem_DeductionPSD" xml:space="preserve">
+    <value>išskaičiuota PSD</value>
+  </data>
+  <data name="Workers_WageItem_DeductionPSDSickLeave" xml:space="preserve">
+    <value>išskaičiuota PSD nedarbingumas</value>
+  </data>
+  <data name="Workers_WageItem_DeductionSODRA" xml:space="preserve">
+    <value>išskaičiuota SODRA</value>
+  </data>
+  <data name="Workers_WageItem_HolidayRD" xml:space="preserve">
+    <value>kasmetinės atostogos n. d.</value>
+  </data>
+  <data name="Workers_WageItem_HolidayWD" xml:space="preserve">
+    <value>kasmetinės atostogos d. d.</value>
+  </data>
+  <data name="Workers_WageItem_HoursForVDU" xml:space="preserve">
+    <value>d. v. VDU skaičiavimui</value>
+  </data>
+  <data name="Workers_WageItem_HRHoursWorked" xml:space="preserve">
+    <value>darbo val. skaičius poilsio ir švenčių dienomis</value>
+  </data>
+  <data name="Workers_WageItem_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Workers_WageItem_ImprestPending" xml:space="preserve">
+    <value>neužskaityta avanso</value>
+  </data>
+  <data name="Workers_WageItem_IsPayedOut" xml:space="preserve">
+    <value>išmokėta</value>
+  </data>
+  <data name="Workers_WageItem_NPD" xml:space="preserve">
+    <value>pritaikytas NPD</value>
+  </data>
+  <data name="Workers_WageItem_ONHoursWorked" xml:space="preserve">
+    <value>viršvalandžių ir naktį dirbtų val. skaičius</value>
+  </data>
+  <data name="Workers_WageItem_OtherIncome" xml:space="preserve">
+    <value>kitos pajamos (NPD skaičiavimui)</value>
+  </data>
+  <data name="Workers_WageItem_OtherPayNotRelatedToWork" xml:space="preserve">
+    <value>kitos išmokos, nesusijusios su darbu</value>
+  </data>
+  <data name="Workers_WageItem_OtherPayRelatedToWork" xml:space="preserve">
+    <value>kitos išmokos, susijusios su darbu</value>
+  </data>
+  <data name="Workers_WageItem_PayableTotal" xml:space="preserve">
+    <value>mokėtina po mokesčių, kitų išskaitų ir avanso</value>
+  </data>
+  <data name="Workers_WageItem_PayedOutDate" xml:space="preserve">
+    <value>išmokėjimo data</value>
+  </data>
+  <data name="Workers_WageItem_PayedOutTotalSum" xml:space="preserve">
+    <value>išmokėta suma</value>
+  </data>
+  <data name="Workers_WageItem_PayOutExtraPay" xml:space="preserve">
+    <value>mokėtinas priedas</value>
+  </data>
+  <data name="Workers_WageItem_PayOutHoliday" xml:space="preserve">
+    <value>mokėtina atostoginių</value>
+  </data>
+  <data name="Workers_WageItem_PayOutHR" xml:space="preserve">
+    <value>mokėtina už darbą švenčių ir poilsio dienomis</value>
+  </data>
+  <data name="Workers_WageItem_PayOutON" xml:space="preserve">
+    <value>mokėtina už viršvalandžius ir darbą naktį</value>
+  </data>
+  <data name="Workers_WageItem_PayOutRedundancyPay" xml:space="preserve">
+    <value>mokėtina išeitinė išmoka</value>
+  </data>
+  <data name="Workers_WageItem_PayOutSC" xml:space="preserve">
+    <value>mokėtina už darbą ypatingomis sąlygomis</value>
+  </data>
+  <data name="Workers_WageItem_PayOutSickLeave" xml:space="preserve">
+    <value>mokėtina nedarbingumo išmoka</value>
+  </data>
+  <data name="Workers_WageItem_PayOutTotalAfterDeductions" xml:space="preserve">
+    <value>mokėtina po mokesčių ir kitų išskaitų</value>
+  </data>
+  <data name="Workers_WageItem_PayOutTotalAfterTaxes" xml:space="preserve">
+    <value>mokėtina po mokesčių</value>
+  </data>
+  <data name="Workers_WageItem_PayOutUnusedHolidayCompensation" xml:space="preserve">
+    <value>mokėtina kompensacija už nepan. atostogas</value>
+  </data>
+  <data name="Workers_WageItem_PersonCode" xml:space="preserve">
+    <value>asmens kodas</value>
+  </data>
+  <data name="Workers_WageItem_PersonCodeSODRA" xml:space="preserve">
+    <value>SODRA kodas</value>
+  </data>
+  <data name="Workers_WageItem_PersonID" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="Workers_WageItem_PersonName" xml:space="preserve">
+    <value>vardas, pavardė</value>
+  </data>
+  <data name="Workers_WageItem_PNPD" xml:space="preserve">
+    <value>pritaikytas PNPD</value>
+  </data>
+  <data name="Workers_WageItem_SCHoursWorked" xml:space="preserve">
+    <value>darbo val. skaičius ypatingomis sąlygomis</value>
+  </data>
+  <data name="Workers_WageItem_SickDays" xml:space="preserve">
+    <value>nedarbingumo d. (apmok. darbdavio)</value>
+  </data>
+  <data name="Workers_WageItem_TruancyHours" xml:space="preserve">
+    <value>pravaikštos val.</value>
+  </data>
+  <data name="Workers_WageItem_UnusedHolidayDaysForCompensation" xml:space="preserve">
+    <value>nepanaudotų atostogų k. d.</value>
+  </data>
+  <data name="Workers_WageItem_UsedNPD" xml:space="preserve">
+    <value>prieš tai panaudotas NPD</value>
+  </data>
+  <data name="Workers_WageItem_WageForVDU" xml:space="preserve">
+    <value>darbo užmokestis VDU skaičiavimui</value>
+  </data>
+  <data name="Workers_WageItem_WageTypeHumanReadable" xml:space="preserve">
+    <value>darbo užmok. tipas</value>
+  </data>
+  <data name="Workers_WageItem_WorkLoad" xml:space="preserve">
+    <value>krūvis ("etatai")</value>
+  </data>
+  <data name="Workers_WageItem_BaseNPD" xml:space="preserve">
+    <value>bazinis NPD</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_CannotCalculateVDU" xml:space="preserve">
+    <value>Klaida. Darbuotojui {0} per paskutinius 12 mėnesių nebuvo priskaičiuota jokių išmokų. Apskaičiuoti VDU pagal nustatytą DU nėra galimybių, nes nenurodyta valandų ir (ar) dienų skaičius pagal grafiką.</value>
+  </data>
+  <data name="ActiveReports_BonusVDUInfo_BonusAmount" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="ActiveReports_BonusVDUInfo_BonusTypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="ActiveReports_BonusVDUInfo_Month" xml:space="preserve">
+    <value>mėnuo</value>
+  </data>
+  <data name="ActiveReports_BonusVDUInfo_ToString" xml:space="preserve">
+    <value>{0} m. {1} mėn.: {2} {3} {4}</value>
+  </data>
+  <data name="ActiveReports_BonusVDUInfo_Year" xml:space="preserve">
+    <value>metai</value>
+  </data>
+  <data name="Workers_WageSheet_CostAccount" xml:space="preserve">
+    <value>sąnaudų sąskaita</value>
+  </data>
+  <data name="Workers_WageSheet_CostsNull" xml:space="preserve">
+    <value>Klaida. Žiniaraštyje nėra priskaičiuota jokių sąnaudų.</value>
+  </data>
+  <data name="Workers_WageSheet_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Workers_WageSheet_FinancialDataCannotChange" xml:space="preserve">
+    <value>Klaida. Taisyti finansinių žiniaraščio duomenų neleidžiama:{0}{1}</value>
+  </data>
+  <data name="Workers_WageSheet_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Workers_WageSheet_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Workers_WageSheet_IsNonClosing" xml:space="preserve">
+    <value>galutinis</value>
+  </data>
+  <data name="Workers_WageSheet_JournalEntryContent" xml:space="preserve">
+    <value>Darbo užmokesčio žiniaraštis už {0} m. {1} mėn.</value>
+  </data>
+  <data name="Workers_WageSheet_JournalEntryDocNumber" xml:space="preserve">
+    <value>DUŽ-{0}</value>
+  </data>
+  <data name="Workers_WageSheet_Month" xml:space="preserve">
+    <value>už mėnesį</value>
+  </data>
+  <data name="Workers_WageSheet_Number" xml:space="preserve">
+    <value>numeris</value>
+  </data>
+  <data name="Workers_WageSheet_Remarks" xml:space="preserve">
+    <value>pastabos</value>
+  </data>
+  <data name="Workers_WageSheet_ToString" xml:space="preserve">
+    <value>{0} Darbo užmokesčio žiniaraštis Nr. {1} už {2} m. {3} mėn. (ID={4})</value>
+  </data>
+  <data name="Workers_WageSheet_TotalSum" xml:space="preserve">
+    <value>viso priskaičiuota</value>
+  </data>
+  <data name="Workers_WageSheet_TotalSumAfterDeductions" xml:space="preserve">
+    <value>viso mokėtina</value>
+  </data>
+  <data name="Workers_WageSheet_TypeName" xml:space="preserve">
+    <value>darbo užmokesčio žiniaraštis</value>
+  </data>
+  <data name="Workers_WageSheet_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Workers_WageSheet_Year" xml:space="preserve">
+    <value>už metus</value>
+  </data>
+  <data name="Workers_WageSheet_YearOrMonthNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta žiniaraščio metai ir (ar) mėnuo.</value>
+  </data>
+  <data name="ActiveReports_WageVDUInfo_Month" xml:space="preserve">
+    <value>mėnuo</value>
+  </data>
+  <data name="ActiveReports_WageVDUInfo_ScheduledDays" xml:space="preserve">
+    <value>grafiko d.</value>
+  </data>
+  <data name="ActiveReports_WageVDUInfo_ScheduledHours" xml:space="preserve">
+    <value>grafiko val.</value>
+  </data>
+  <data name="ActiveReports_WageVDUInfo_ToString" xml:space="preserve">
+    <value>{0} m. {1} mėn.: {2} d.d., {3} d.v., {4} {5}</value>
+  </data>
+  <data name="ActiveReports_WageVDUInfo_Wage" xml:space="preserve">
+    <value>užmokestis</value>
+  </data>
+  <data name="ActiveReports_WageVDUInfo_WorkDays" xml:space="preserve">
+    <value>d.d.</value>
+  </data>
+  <data name="ActiveReports_WageVDUInfo_WorkHours" xml:space="preserve">
+    <value>d.v.</value>
+  </data>
+  <data name="ActiveReports_WageVDUInfo_Year" xml:space="preserve">
+    <value>metai</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_ApplicableVDUDaily" xml:space="preserve">
+    <value>viso dien. VDU</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_ApplicableVDUHourly" xml:space="preserve">
+    <value>viso val. VDU</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_BonusBase" xml:space="preserve">
+    <value>premijų bazė</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_BonusQuarterly" xml:space="preserve">
+    <value>mėnesinė premija</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_BonusVDUDaily" xml:space="preserve">
+    <value>dien. VDU pgl. premijas</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_BonusVDUHourly" xml:space="preserve">
+    <value>val. VDU pgl. premijas</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_BonusYearly" xml:space="preserve">
+    <value>viso metinių premijų</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_ContractNumber" xml:space="preserve">
+    <value>sutarties Nr.</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_ContractSerial" xml:space="preserve">
+    <value>sutarties serija</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_ConventionalExtraPay" xml:space="preserve">
+    <value>priedas sutartyje</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_ConventionalWage" xml:space="preserve">
+    <value>darbo užmok. sutartyje</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_Date" xml:space="preserve">
+    <value>apskaičiavimo data</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_IncludeCurrentMonth" xml:space="preserve">
+    <value>įtraukti einamąjį mėn.</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_PersonCode" xml:space="preserve">
+    <value>asmens kodas</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_PersonCodeSODRA" xml:space="preserve">
+    <value>SODRA kodas</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_PersonID" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_PersonName" xml:space="preserve">
+    <value>vardas, pavardė</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_StandartDaysForTheCurrentMonth" xml:space="preserve">
+    <value>einamojo mėn. grafiko d.d.</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_StandartHoursForTheCurrentMonth" xml:space="preserve">
+    <value>einamojo mėn. grafiko d.v.</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_ToString" xml:space="preserve">
+    <value>{0}, darbo sutartis Nr. {1}{2}</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_TotalScheduledDays" xml:space="preserve">
+    <value>viso d.d. pgl. grafiką</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_TotalScheduledHours" xml:space="preserve">
+    <value>viso d.v. pgl. grafiką</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_TotalWage" xml:space="preserve">
+    <value>viso darbo užmokesčio</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_TotalWorkDays" xml:space="preserve">
+    <value>viso d.d.</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_TotalWorkHours" xml:space="preserve">
+    <value>viso d.v.</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_WageType" xml:space="preserve">
+    <value>darbo užmok. tipas</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_WageTypeHumanReadable" xml:space="preserve">
+    <value>darbo užmok. tipas</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_WageVDUDaily" xml:space="preserve">
+    <value>dien. VDU pgl. DU</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_WageVDUHourly" xml:space="preserve">
+    <value>val. VDU pgl. DU</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_WorkLoad" xml:space="preserve">
+    <value>krūvis (etatai)</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfoList_ContractListEmpty" xml:space="preserve">
+    <value>Klaida. Nenurodyta nė viena darbo sutartis.</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_ContractNotFound" xml:space="preserve">
+    <value>Darbo sutarties {0} duomenys nerasti. Tikėtina, kad tokia sutartis buvo sudaryta vėliau nurodytos skaičiavimo datos.</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_ContractNumberNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta darbo sutartis.</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_InvalidDate" xml:space="preserve">
+    <value>Skaičiavimo data negali būti vėlesnė nei darbuotojo atleidimo mėnesio paskutinė diena ({0}).</value>
+  </data>
+  <data name="ActiveReports_WorkersVDUInfo_TypeName" xml:space="preserve">
+    <value>VDU apskaičiavimas darbo sutarčiai</value>
+  </data>
+  <data name="Workers_ImprestItem_ContractNumber" xml:space="preserve">
+    <value>darbo sutarties Nr.</value>
+  </data>
+  <data name="Workers_ImprestItem_ContractSerial" xml:space="preserve">
+    <value>darbo sutarties serija</value>
+  </data>
+  <data name="Workers_ImprestItem_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Workers_ImprestItem_PayedOutDate" xml:space="preserve">
+    <value>išmokėta</value>
+  </data>
+  <data name="Workers_ImprestItem_PayOffSumTotal" xml:space="preserve">
+    <value>avanso suma</value>
+  </data>
+  <data name="Workers_ImprestItem_PersonCode" xml:space="preserve">
+    <value>asmens kodas</value>
+  </data>
+  <data name="Workers_ImprestItem_PersonCodeSodra" xml:space="preserve">
+    <value>SODRA kodas</value>
+  </data>
+  <data name="Workers_ImprestItem_PersonID" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="Workers_ImprestItem_PersonName" xml:space="preserve">
+    <value>vardas, pavardė</value>
+  </data>
+  <data name="Workers_ImprestItem_ToString" xml:space="preserve">
+    <value>{0} (pagal darbo sutartį Nr. {1}{2})</value>
+  </data>
+  <data name="Workers_ImprestSheet_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Workers_ImprestSheet_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Workers_ImprestSheet_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Workers_ImprestSheet_JournalEntryContent" xml:space="preserve">
+    <value>Avansų darbuotojams žiniaraštis už {0} m. {1} mėn.</value>
+  </data>
+  <data name="Workers_ImprestSheet_JournalEntryDocNumber" xml:space="preserve">
+    <value>Av-{0}</value>
+  </data>
+  <data name="Workers_ImprestSheet_Month" xml:space="preserve">
+    <value>mėnuo</value>
+  </data>
+  <data name="Workers_ImprestSheet_Number" xml:space="preserve">
+    <value>numeris</value>
+  </data>
+  <data name="Workers_ImprestSheet_ToString" xml:space="preserve">
+    <value>{0} avanso žiniaraštis Nr. {1} už {2} m. {3} mėn. (ID={4})</value>
+  </data>
+  <data name="Workers_ImprestSheet_TotalSum" xml:space="preserve">
+    <value>suma viso</value>
+  </data>
+  <data name="Workers_ImprestSheet_TypeName" xml:space="preserve">
+    <value>avanso žiniaraštis</value>
+  </data>
+  <data name="Workers_ImprestSheet_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Workers_ImprestSheet_Year" xml:space="preserve">
+    <value>metai</value>
+  </data>
+  <data name="Workers_ImprestSheet_YearOrMonthNull" xml:space="preserve">
+    <value>Klaida. Nenurodyti metai ir (ar) mėnuo.</value>
+  </data>
+  <data name="Workers_WageType_Hourly" xml:space="preserve">
+    <value>valandinis</value>
+  </data>
+  <data name="Workers_WageType_Position" xml:space="preserve">
+    <value>pareiginis</value>
+  </data>
+  <data name="ActiveReports_HolidayCalculationPeriod_CalculationEndDate" xml:space="preserve">
+    <value>(laikotarpis baigiasi skaičiavimo diena)</value>
+  </data>
+  <data name="ActiveReports_HolidayCalculationPeriod_CumulatedHolidayDaysPerPeriod" xml:space="preserve">
+    <value>sukaupta atostogų k.d.</value>
+  </data>
+  <data name="ActiveReports_HolidayCalculationPeriod_DateBegin" xml:space="preserve">
+    <value>laikotarpio pradžia</value>
+  </data>
+  <data name="ActiveReports_HolidayCalculationPeriod_DateEnd" xml:space="preserve">
+    <value>laikotarpio pabaiga</value>
+  </data>
+  <data name="ActiveReports_HolidayCalculationPeriod_HolidayRate" xml:space="preserve">
+    <value>taikoma atostogų norma</value>
+  </data>
+  <data name="ActiveReports_HolidayCalculationPeriod_LabourContractDate" xml:space="preserve">
+    <value>Sudaryta darbo sutartis.</value>
+  </data>
+  <data name="ActiveReports_HolidayCalculationPeriod_LabourContractTerminationDate" xml:space="preserve">
+    <value>(laikotarpis baigiasi nutraukus darbo sutartį)</value>
+  </data>
+  <data name="ActiveReports_HolidayCalculationPeriod_LengthDays" xml:space="preserve">
+    <value>laikotarpio trukmė dienomis</value>
+  </data>
+  <data name="ActiveReports_HolidayCalculationPeriod_LengthYears" xml:space="preserve">
+    <value>laikotarpio trukmė metais</value>
+  </data>
+  <data name="ActiveReports_HolidayCalculationPeriod_NoDataAvailable" xml:space="preserve">
+    <value>Klaida. Nepavyko gauti jokių duomenų apie darbuotojui nustatytą atostogų normą.</value>
+  </data>
+  <data name="ActiveReports_HolidayCalculationPeriod_StatusDescription" xml:space="preserve">
+    <value>pagrindas</value>
+  </data>
+  <data name="ActiveReports_HolidayCalculationPeriod_ToString" xml:space="preserve">
+    <value>{0} - {1}: {2} k.d. atostogų</value>
+  </data>
+  <data name="ActiveReports_HolidayCalculationPeriod_WorkerIsNotFired" xml:space="preserve">
+    <value>Klaida. Darbuotojas nėra atleistas.</value>
+  </data>
+  <data name="ActiveReports_HolidaySpentItemType_Compensated" xml:space="preserve">
+    <value>kompensacija už nepan. atostogas</value>
+  </data>
+  <data name="ActiveReports_HolidaySpentItemType_Correction" xml:space="preserve">
+    <value>korekcija</value>
+  </data>
+  <data name="ActiveReports_HolidaySpentItemType_Spent" xml:space="preserve">
+    <value>suteiktos atostogos</value>
+  </data>
+  <data name="ActiveReports_HolidaySpentItem_Compensated" xml:space="preserve">
+    <value>kompensuota k.d.</value>
+  </data>
+  <data name="ActiveReports_HolidaySpentItem_Correction" xml:space="preserve">
+    <value>korekcija k.d.</value>
+  </data>
+  <data name="ActiveReports_HolidaySpentItem_DocumentContent" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="ActiveReports_HolidaySpentItem_DocumentDate" xml:space="preserve">
+    <value>dokumento data</value>
+  </data>
+  <data name="ActiveReports_HolidaySpentItem_DocumentID" xml:space="preserve">
+    <value>dokumento ID</value>
+  </data>
+  <data name="ActiveReports_HolidaySpentItem_DocumentNumber" xml:space="preserve">
+    <value>dokumento Nr.</value>
+  </data>
+  <data name="ActiveReports_HolidaySpentItem_Spent" xml:space="preserve">
+    <value>panaudota k.d.</value>
+  </data>
+  <data name="ActiveReports_HolidaySpentItem_ToString" xml:space="preserve">
+    <value>{0} {1} - {2} k.d.</value>
+  </data>
+  <data name="ActiveReports_HolidaySpentItem_Total" xml:space="preserve">
+    <value>viso k.d.</value>
+  </data>
+  <data name="ActiveReports_HolidaySpentItem_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="ActiveReports_HolidaySpentItem_TypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_ContractIsNotTerminated" xml:space="preserve">
+    <value>Klaida. Nurodyta darbo sutartis nėra nutraukta, neįmanoma paskaičiuoti nepanaudotų atostogų skaičiaus kompensacijai.</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_ContractNotFound" xml:space="preserve">
+    <value>Darbo sutarties {0} duomenys nerasti. Tikėtina, kad tokia sutartis buvo sudaryta vėliau nurodytos skaičiavimo datos.</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_ContractNumberNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas darbo sutarties numeris ir (ar) serija.</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_ToString" xml:space="preserve">
+    <value>{0}, darbo sutartis Nr. {1}{2}</value>
+  </data>
+  <data name="Workers_WorkerStatusType_Employed" xml:space="preserve">
+    <value>įsidarbino</value>
+  </data>
+  <data name="Workers_WorkerStatusType_ExtraPay" xml:space="preserve">
+    <value>priedas</value>
+  </data>
+  <data name="Workers_WorkerStatusType_Fired" xml:space="preserve">
+    <value>atleistas</value>
+  </data>
+  <data name="Workers_WorkerStatusType_Holiday" xml:space="preserve">
+    <value>kasmetinių atostogų norma</value>
+  </data>
+  <data name="Workers_WorkerStatusType_HolidayCorrection" xml:space="preserve">
+    <value>kasmetinių atostogų korekcija</value>
+  </data>
+  <data name="Workers_WorkerStatusType_NPD" xml:space="preserve">
+    <value>taikomas (bazinis) NPD</value>
+  </data>
+  <data name="Workers_WorkerStatusType_PNPD" xml:space="preserve">
+    <value>taikomas PNPD</value>
+  </data>
+  <data name="Workers_WorkerStatusType_Position" xml:space="preserve">
+    <value>pareigos</value>
+  </data>
+  <data name="Workers_WorkerStatusType_Wage" xml:space="preserve">
+    <value>darbo užmokestis</value>
+  </data>
+  <data name="Workers_WorkerStatusType_WorkLoad" xml:space="preserve">
+    <value>krūvis (etatai)</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_CompensationIsGranted" xml:space="preserve">
+    <value>išmokėta kompensacija</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_ContractDate" xml:space="preserve">
+    <value>sutarties data</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_ContractIsTerminated" xml:space="preserve">
+    <value>sutartis nutraukta</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_ContractNumber" xml:space="preserve">
+    <value>sutarties Nr.</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_ContractSerial" xml:space="preserve">
+    <value>sutarties serija</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_ContractTerminationDate" xml:space="preserve">
+    <value>sutarties nutraukimo data</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_HolidayRate" xml:space="preserve">
+    <value>atostogų norma</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_IsForCompensation" xml:space="preserve">
+    <value>paskaičiuota kompensacijai</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_PersonCode" xml:space="preserve">
+    <value>asmens kodas</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_PersonCodeSodra" xml:space="preserve">
+    <value>SODRA kodas</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_PersonID" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_PersonName" xml:space="preserve">
+    <value>vardas, pavardė</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_Position" xml:space="preserve">
+    <value>pareigos</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_TotalCumulatedHolidayDays" xml:space="preserve">
+    <value>viso sukaupta k.d.</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_TotalHolidayDaysCompensated" xml:space="preserve">
+    <value>viso kompensuota k.d.</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_TotalHolidayDaysCorrection" xml:space="preserve">
+    <value>viso korekcijų k.d.</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_TotalHolidayDaysGranted" xml:space="preserve">
+    <value>viso suteikta k.d.</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_TotalHolidayDaysUsed" xml:space="preserve">
+    <value>viso panaudota k.d.</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_TotalUnusedHolidayDays" xml:space="preserve">
+    <value>viso nepanaudotų k.d.</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_TotalWorkPeriodInDays" xml:space="preserve">
+    <value>viso atostogų stažas k.d.</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_TotalWorkPeriodInYears" xml:space="preserve">
+    <value>viso atostogų stažas metais</value>
+  </data>
+  <data name="ActiveReports_WorkerHolidayInfo_WorkLoad" xml:space="preserve">
+    <value>krūvis (etatai)</value>
+  </data>
+  <data name="HelperLists_PersonInfo_TypeName" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="Workers_ContractUpdate_AnnualHoliday" xml:space="preserve">
+    <value>atost. norma</value>
+  </data>
+  <data name="Workers_ContractUpdate_AnnualHolidayChanged" xml:space="preserve">
+    <value>keičiama atost. norma</value>
+  </data>
+  <data name="Workers_ContractUpdate_AnnualHolidayID" xml:space="preserve">
+    <value>ID atostogų normai</value>
+  </data>
+  <data name="Workers_ContractUpdate_BlockingSheet" xml:space="preserve">
+    <value>Klaida. Pagal šį darbo sutarties pakeitimą buvo skaičiuojamas darbo užmokestis ({0} žiniaraštis).</value>
+  </data>
+  <data name="Workers_ContractUpdate_Content" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Workers_ContractUpdate_ContractDate" xml:space="preserve">
+    <value>sutarties data</value>
+  </data>
+  <data name="Workers_ContractUpdate_ContractTerminationDate" xml:space="preserve">
+    <value>sutarties nutraukimo data</value>
+  </data>
+  <data name="Workers_ContractUpdate_Date" xml:space="preserve">
+    <value>pakeitimo data</value>
+  </data>
+  <data name="Workers_ContractUpdate_ExtraPay" xml:space="preserve">
+    <value>priedas</value>
+  </data>
+  <data name="Workers_ContractUpdate_ExtraPayChanged" xml:space="preserve">
+    <value>keičiamas priedas</value>
+  </data>
+  <data name="Workers_ContractUpdate_ExtraPayID" xml:space="preserve">
+    <value>ID priedui</value>
+  </data>
+  <data name="Workers_ContractUpdate_HolidayCompensationPayed" xml:space="preserve">
+    <value>išmokėta kompensacija</value>
+  </data>
+  <data name="Workers_ContractUpdate_HolidayCorrection" xml:space="preserve">
+    <value>atost. korekcija</value>
+  </data>
+  <data name="Workers_ContractUpdate_HolidayCorrectionChanged" xml:space="preserve">
+    <value>koreguojamos atost.</value>
+  </data>
+  <data name="Workers_ContractUpdate_HolidayCorrectionID" xml:space="preserve">
+    <value>ID atostogų korekcijai</value>
+  </data>
+  <data name="Workers_ContractUpdate_HumanReadableWageType" xml:space="preserve">
+    <value>darbo užmokesčio tipas</value>
+  </data>
+  <data name="Workers_ContractUpdate_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Workers_ContractUpdate_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Workers_ContractUpdate_NPD" xml:space="preserve">
+    <value>NPD</value>
+  </data>
+  <data name="Workers_ContractUpdate_NpdChanged" xml:space="preserve">
+    <value>keičiamas NPD</value>
+  </data>
+  <data name="Workers_ContractUpdate_NpdID" xml:space="preserve">
+    <value>ID NPD</value>
+  </data>
+  <data name="Workers_ContractUpdate_Number" xml:space="preserve">
+    <value>sutarties numeris</value>
+  </data>
+  <data name="Workers_ContractUpdate_OldDate" xml:space="preserve">
+    <value>originali data</value>
+  </data>
+  <data name="Workers_ContractUpdate_PersonAddress" xml:space="preserve">
+    <value>adresas</value>
+  </data>
+  <data name="Workers_ContractUpdate_PersonCode" xml:space="preserve">
+    <value>asmens kodas</value>
+  </data>
+  <data name="Workers_ContractUpdate_PersonID" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="Workers_ContractUpdate_PersonName" xml:space="preserve">
+    <value>vardas, pavardė</value>
+  </data>
+  <data name="Workers_ContractUpdate_PersonSodraCode" xml:space="preserve">
+    <value>SODRA kodas</value>
+  </data>
+  <data name="Workers_ContractUpdate_PNPD" xml:space="preserve">
+    <value>PNPD</value>
+  </data>
+  <data name="Workers_ContractUpdate_PnpdChanged" xml:space="preserve">
+    <value>keičiamas PNPD</value>
+  </data>
+  <data name="Workers_ContractUpdate_PnpdID" xml:space="preserve">
+    <value>ID PNPD</value>
+  </data>
+  <data name="Workers_ContractUpdate_Position" xml:space="preserve">
+    <value>pareigos</value>
+  </data>
+  <data name="Workers_ContractUpdate_PositionChanged" xml:space="preserve">
+    <value>keičiamos pareigos</value>
+  </data>
+  <data name="Workers_ContractUpdate_PositionID" xml:space="preserve">
+    <value>ID pareigoms</value>
+  </data>
+  <data name="Workers_ContractUpdate_Serial" xml:space="preserve">
+    <value>sutarties serija</value>
+  </data>
+  <data name="Workers_ContractUpdate_SerialNumberAlreadyExists" xml:space="preserve">
+    <value>Klaida. Darbo sutarties pakeitimas tokiai datai jau yra.</value>
+  </data>
+  <data name="Workers_ContractUpdate_ToString" xml:space="preserve">
+    <value>{0} darbo sutarties Nr. {1}{2} pakeitimas</value>
+  </data>
+  <data name="Workers_ContractUpdate_TypeName" xml:space="preserve">
+    <value>darbo sutarties pakeitimas</value>
+  </data>
+  <data name="Workers_ContractUpdate_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Workers_ContractUpdate_Wage" xml:space="preserve">
+    <value>darbo užmokestis</value>
+  </data>
+  <data name="Workers_ContractUpdate_WageChanged" xml:space="preserve">
+    <value>keičiamas užmokestis</value>
+  </data>
+  <data name="Workers_ContractUpdate_WageID" xml:space="preserve">
+    <value>ID darbo užmokesčiui</value>
+  </data>
+  <data name="Workers_ContractUpdate_WageType" xml:space="preserve">
+    <value>darbo užmokesčio tipas</value>
+  </data>
+  <data name="Workers_ContractUpdate_WorkLoad" xml:space="preserve">
+    <value>krūvis (etatai)</value>
+  </data>
+  <data name="Workers_ContractUpdate_WorkLoadChanged" xml:space="preserve">
+    <value>keičiamas krūvis (etatai)</value>
+  </data>
+  <data name="Workers_ContractUpdate_WorkLoadID" xml:space="preserve">
+    <value>ID krūviui (etatams)</value>
+  </data>
+  <data name="Workers_Contract_AnnualHoliday" xml:space="preserve">
+    <value>atostogų norma</value>
+  </data>
+  <data name="Workers_Contract_AnnualHolidayID" xml:space="preserve">
+    <value>ID atostogų normai</value>
+  </data>
+  <data name="Workers_Contract_BlockingSheets" xml:space="preserve">
+    <value>Klaida. Šiai darbo sutarčiai yra sudaryti žiniaraščiai:{0}{1}</value>
+  </data>
+  <data name="Workers_Contract_Content" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Workers_Contract_ContractIDNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas darbo sutarties numeris.</value>
+  </data>
+  <data name="Workers_Contract_Date" xml:space="preserve">
+    <value>sutarties data</value>
+  </data>
+  <data name="Workers_Contract_ExtraPay" xml:space="preserve">
+    <value>priedas</value>
+  </data>
+  <data name="Workers_Contract_ExtraPayID" xml:space="preserve">
+    <value>ID priedui</value>
+  </data>
+  <data name="Workers_Contract_HolidayCorrection" xml:space="preserve">
+    <value>atostogų korekcija</value>
+  </data>
+  <data name="Workers_Contract_HolidayCorrectionID" xml:space="preserve">
+    <value>ID atostogų korekcijai</value>
+  </data>
+  <data name="Workers_Contract_HumanReadableWageType" xml:space="preserve">
+    <value>darbo užmokesčio tipas</value>
+  </data>
+  <data name="Workers_Contract_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Workers_Contract_IDNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas sutarties numeris arba ID.</value>
+  </data>
+  <data name="Workers_Contract_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Workers_Contract_InvalidFetchResult" xml:space="preserve">
+    <value>Pasirinktas objektas yra darbo sutartis, o ne darbo sutarties pakeitimas.</value>
+  </data>
+  <data name="Workers_Contract_IsTerminated" xml:space="preserve">
+    <value>sutartis nutraukta</value>
+  </data>
+  <data name="Workers_Contract_LastImprestSheet" xml:space="preserve">
+    <value>Paskutinis avanso žiniaraštis - {0}.</value>
+  </data>
+  <data name="Workers_Contract_LastWageSheet" xml:space="preserve">
+    <value>Paskutinis darbo užmokesčio žiniaraštis - {0}.</value>
+  </data>
+  <data name="Workers_Contract_LastWorkTimeSheet" xml:space="preserve">
+    <value>Paskutinis darbo laiko apskaitos žiniaraštis - {0}.</value>
+  </data>
+  <data name="Workers_Contract_NPD" xml:space="preserve">
+    <value>NPD</value>
+  </data>
+  <data name="Workers_Contract_NpdID" xml:space="preserve">
+    <value>ID NPD</value>
+  </data>
+  <data name="Workers_Contract_Number" xml:space="preserve">
+    <value>sutarties numeris</value>
+  </data>
+  <data name="Workers_Contract_PersonAddress" xml:space="preserve">
+    <value>adresas</value>
+  </data>
+  <data name="Workers_Contract_PersonCode" xml:space="preserve">
+    <value>asmens kodas</value>
+  </data>
+  <data name="Workers_Contract_PersonID" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="Workers_Contract_PersonInvalid" xml:space="preserve">
+    <value>Klaida. Kontrahentas "{0}", kurio ID={1}, nėra darbuotojas.</value>
+  </data>
+  <data name="Workers_Contract_PersonName" xml:space="preserve">
+    <value>vardas, pavardė</value>
+  </data>
+  <data name="Workers_Contract_PersonNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas darbuotojo ID.</value>
+  </data>
+  <data name="Workers_Contract_PersonSodraCode" xml:space="preserve">
+    <value>SODRA kodas</value>
+  </data>
+  <data name="Workers_Contract_PNPD" xml:space="preserve">
+    <value>PNPD</value>
+  </data>
+  <data name="Workers_Contract_PnpdID" xml:space="preserve">
+    <value>ID PNPD</value>
+  </data>
+  <data name="Workers_Contract_Position" xml:space="preserve">
+    <value>pareigos</value>
+  </data>
+  <data name="Workers_Contract_PositionID" xml:space="preserve">
+    <value>ID pareigoms</value>
+  </data>
+  <data name="Workers_Contract_Serial" xml:space="preserve">
+    <value>sutarties serija</value>
+  </data>
+  <data name="Workers_Contract_SerialNumberAlreadyExists" xml:space="preserve">
+    <value>Klaida. Tokia serija ir numeris jau yra.</value>
+  </data>
+  <data name="Workers_Contract_TerminationDate" xml:space="preserve">
+    <value>nutraukimo data</value>
+  </data>
+  <data name="Workers_Contract_TerminationDateInvalid" xml:space="preserve">
+    <value>Darbo sutarties nutraukimo data negali būti ankstesnė nei jos sudarymo data.</value>
+  </data>
+  <data name="Workers_Contract_TerminationID" xml:space="preserve">
+    <value>ID nutraukimui</value>
+  </data>
+  <data name="Workers_Contract_ToString" xml:space="preserve">
+    <value>{0} darbo sutartis Nr. {1}{2}</value>
+  </data>
+  <data name="Workers_Contract_TypeName" xml:space="preserve">
+    <value>darbo sutartis</value>
+  </data>
+  <data name="Workers_Contract_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Workers_Contract_Wage" xml:space="preserve">
+    <value>darbo užmokestis</value>
+  </data>
+  <data name="Workers_Contract_WageID" xml:space="preserve">
+    <value>ID darbo užmokesčiui</value>
+  </data>
+  <data name="Workers_Contract_WageType" xml:space="preserve">
+    <value>darbo užmokesčio tipas</value>
+  </data>
+  <data name="Workers_Contract_WorkLoad" xml:space="preserve">
+    <value>krūvis (etatai)</value>
+  </data>
+  <data name="Workers_Contract_WorkLoadID" xml:space="preserve">
+    <value>ID darbo krūviui</value>
+  </data>
 </root>

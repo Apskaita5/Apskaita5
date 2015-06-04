@@ -90,6 +90,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\csla20vb\csla20vb\Csla\bin\Release\Csla.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Data.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v11.2.Core, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="ExcelApi, Version=1.5.1.2, Culture=neutral, PublicKeyToken=b1d22616f2ea9ad3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\NetOffice 1.5.1.2 [RC]\ExcelApi.dll</HintPath>
@@ -796,10 +800,22 @@
     <Compile Include="Workers\F_WageSheetInfoList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Workers\F_WorkerHolidayInfo.Designer.vb">
+      <DependentUpon>F_WorkerHolidayInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Workers\F_WorkerHolidayInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Workers\F_WorkerInfoCard.Designer.vb">
       <DependentUpon>F_WorkerInfoCard.vb</DependentUpon>
     </Compile>
     <Compile Include="Workers\F_WorkerInfoCard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Workers\F_WorkersVDUInfo.Designer.vb">
+      <DependentUpon>F_WorkersVDUInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Workers\F_WorkersVDUInfo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Workers\F_WorkTimeClassList.Designer.vb">
@@ -1371,9 +1387,17 @@
       <SubType>Designer</SubType>
       <DependentUpon>F_WageSheetInfoList.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Workers\F_WorkerHolidayInfo.resx">
+      <DependentUpon>F_WorkerHolidayInfo.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Workers\F_WorkerInfoCard.resx">
       <SubType>Designer</SubType>
       <DependentUpon>F_WorkerInfoCard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Workers\F_WorkersVDUInfo.resx">
+      <DependentUpon>F_WorkersVDUInfo.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Workers\F_WorkTimeClassList.resx">
       <SubType>Designer</SubType>
@@ -1540,6 +1564,8 @@
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.ProductionCalculationItemList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.UnsettledPersonInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.WageSheetInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.WorkerHolidayInfo.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.WorkersVDUInfo.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.WorkerWageInfoReport.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.WorkTimeSheetInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Administration.LevelData.datasource" />

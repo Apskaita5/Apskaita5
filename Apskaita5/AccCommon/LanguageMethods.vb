@@ -14,6 +14,8 @@ Public Module LanguageMethods
         "ta", "te", "tg", "th", "ti", "tk", "tl", "tn", "to", "tr", "ts", "tt", "tw", "ty", "ug", _
         "uk", "ur", "uz", "ve", "vi", "vo", "wa", "wo", "xh", "yi", "yo", "za", "zh-cn", "zh-tw", "zu"}
 
+    Private ReadOnly DefaultBaseLanguage As String = "lt"
+
     Private ReadOnly LanguageCodeResourcePrefix As String = "LanguageCode_"
 
     'Private _LanguageDictionary As Dictionary(Of String, String) = Nothing
@@ -214,6 +216,35 @@ Public Module LanguageMethods
         If addEmptyLine Then result.Insert(0, "")
 
         Return result
+
+    End Function
+
+    ''' <summary>
+    ''' Compares ISO 639-1 language codes and returnes true if they are the same.
+    ''' </summary>
+    ''' <param name="languageCode1">First language code to compare.</param>
+    ''' <param name="languageCode2">Second language code to compare.</param>
+    ''' <param name="baseLanguageCode">Base language code.</param>
+    ''' <remarks>Null, empty or invalid language code is considered as a base language.</remarks>
+    Public Function LanguagesEquals(ByVal languageCode1 As String, ByVal languageCode2 As String, _
+        ByVal baseLanguageCode As String) As Boolean
+
+        Dim validatedBaseCode As String = baseLanguageCode
+        If String.IsNullOrEmpty(baseLanguageCode) OrElse Not IsLanguageCodeValid(baseLanguageCode) Then
+            validatedBaseCode = DefaultBaseLanguage
+        End If
+
+        Dim validatedCode1 As String = languageCode1
+        If String.IsNullOrEmpty(languageCode1) OrElse Not IsLanguageCodeValid(languageCode1) Then
+            validatedCode1 = validatedBaseCode
+        End If
+
+        Dim validatedCode2 As String = languageCode2
+        If String.IsNullOrEmpty(languageCode2) OrElse Not IsLanguageCodeValid(languageCode2) Then
+            validatedCode2 = validatedBaseCode
+        End If
+
+        Return (validatedCode1.Trim.ToUpper() = validatedCode2.Trim.ToUpper())
 
     End Function
 

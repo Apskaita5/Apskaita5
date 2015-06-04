@@ -1,5 +1,10 @@
 Namespace Workers
 
+    ''' <summary>
+    ''' Represents a collection of imprest calculation for particular labour contracts for a particular month.
+    ''' </summary>
+    ''' <remarks>Should only be used as a child of a <see cref="ImprestSheet">ImprestSheet</see>.
+    ''' Values are stored in the database table d_avansai_d.</remarks>
     <Serializable()> _
     Public Class ImprestItemList
         Inherits BusinessListBase(Of ImprestItemList, ImprestItem)
@@ -34,6 +39,13 @@ Namespace Workers
             Return result
         End Function
 
+        Public Function HasWarnings() As Boolean
+            For Each i As ImprestItem In Me
+                If i.BrokenRulesCollection.WarningCount > 0 Then Return True
+            Next
+            Return False
+        End Function
+
 
         Friend Function GetIsDirtyEnough(ByVal parent As ImprestSheet) As Boolean
             If Not parent.IsNew Then Return IsDirty
@@ -47,10 +59,13 @@ Namespace Workers
 
 #Region " Factory Methods "
 
+        Friend Shared Function NewImprestItemList(ByVal myData As DataTable) As ImprestItemList
+            Return New ImprestItemList(myData)
+        End Function
+
         Friend Shared Function GetImprestItemList(ByVal myData As DataTable, _
             ByVal nFinancialDataCanChange As Boolean) As ImprestItemList
-            Dim result As ImprestItemList = New ImprestItemList(myData, nFinancialDataCanChange)
-            Return result
+            Return New ImprestItemList(myData, nFinancialDataCanChange)
         End Function
 
 
@@ -62,6 +77,15 @@ Namespace Workers
             Me.AllowRemove = False
         End Sub
 
+
+        Private Sub New(ByVal myData As DataTable)
+            ' require use of factory methods
+            MarkAsChild()
+            Me.AllowEdit = True
+            Me.AllowNew = False
+            Me.AllowRemove = False
+            Create(myData)
+        End Sub
 
         Private Sub New(ByVal myData As DataTable, ByVal nFinancialDataCanChange As Boolean)
             ' require use of factory methods
@@ -75,6 +99,18 @@ Namespace Workers
 #End Region
 
 #Region " Data Access "
+
+        Private Sub Create(ByVal myData As DataTable)
+
+            RaiseListChangedEvents = False
+
+            For Each dr As DataRow In myData.Rows
+                Add(ImprestItem.NewImprestItem(dr))
+            Next
+
+            RaiseListChangedEvents = True
+
+        End Sub
 
         Private Sub Fetch(ByVal myData As DataTable, ByVal nFinancialDataCanChange As Boolean)
 
@@ -93,13 +129,13 @@ Namespace Workers
             RaiseListChangedEvents = False
             DeletedList.Clear()
 
-            For Each item As ImprestItem In Me
-                If item.IsNew AndAlso item.IsChecked Then
-                    item.Insert(parent)
-                ElseIf Not item.IsNew AndAlso Not item.IsChecked Then
-                    item.DeleteSelf()
-                ElseIf Not item.IsNew AndAlso item.IsDirty Then
-                    item.Update(parent)
+            For Each i As ImprestItem In Me
+                If i.IsNew AndAlso i.IsChecked Then
+                    i.Insert(parent)
+                ElseIf Not i.IsNew AndAlso Not i.IsChecked Then
+                    i.DeleteSelf()
+                ElseIf Not i.IsNew AndAlso i.IsDirty Then
+                    i.Update(parent)
                 End If
             Next
 

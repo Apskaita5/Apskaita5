@@ -36,13 +36,13 @@ Public Module CurrencyMethods
 
         Dim validatedCurrency1 As String = currency1
 
-        If validatedCurrency1 Is Nothing OrElse String.IsNullOrEmpty(validatedCurrency1.Trim) Then
+        If StringIsNullOrEmpty(validatedCurrency1) Then
             validatedCurrency1 = baseCurrency
         End If
 
         Dim validatedCurrency2 As String = currency2
 
-        If validatedCurrency2 Is Nothing OrElse String.IsNullOrEmpty(validatedCurrency2.Trim) Then
+        If StringIsNullOrEmpty(validatedCurrency2) Then
             validatedCurrency2 = baseCurrency
         End If
 
