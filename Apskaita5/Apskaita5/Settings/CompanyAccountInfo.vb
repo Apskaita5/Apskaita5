@@ -75,8 +75,8 @@ Namespace Settings
         Private Sub Fetch(ByVal dr As DataRow)
 
             _ID = CIntSafe(dr.Item(0), 0)
-            _Type = ConvertEnumDatabaseCode(Of DefaultAccountType)(CIntSafe(dr.Item(1), 0))
-            _TypeHumanReadable = ConvertEnumHumanReadable(_Type)
+            _Type = EnumValueAttribute.ConvertDatabaseID(Of DefaultAccountType)(CIntSafe(dr.Item(1), 0))
+            _TypeHumanReadable = EnumValueAttribute.ConvertLocalizedName(_Type)
             _Value = CIntSafe(dr.Item(2), 0)
 
         End Sub

@@ -1,5 +1,9 @@
 Namespace ActiveReports
 
+    ''' <summary>
+    ''' Represents a person report item. Contains information about a person that the company operates with (clients, suppliers, workers, etc.).
+    ''' </summary>
+    ''' <remarks>Values are stored in the database table asmenys.</remarks>
     <Serializable()> _
     Public Class PersonInfoItem
         Inherits ReadOnlyBase(Of PersonInfoItem)
@@ -29,54 +33,91 @@ Namespace ActiveReports
         Private _IsWorker As Boolean = False
 
 
+        ''' <summary>
+        ''' Gets an ID of the person (assigned automaticaly by DB AUTOINCREMENT).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.ID.</remarks>
         Public ReadOnly Property ID() As Integer
             Get
                 Return _ID
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an official name of the person.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.Pavad.</remarks>
         Public ReadOnly Property Name() As String
             Get
                 Return _Name
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an official registration/personal code of the person.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.Kodas.</remarks>
         Public ReadOnly Property Code() As String
             Get
                 Return _Code
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an address of the person.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.Adresas.</remarks>
         Public ReadOnly Property Address() As String
             Get
                 Return _Address
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a name of the bank used by the person.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.Bank.</remarks>
         Public ReadOnly Property Bank() As String
             Get
                 Return _Bank
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a bank account number used by the person.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.B_Sask.</remarks>
         Public ReadOnly Property BankAccount() As String
             Get
                 Return _BankAccount
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a VAT payer code of the person.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.SP_kodas.</remarks>
         Public ReadOnly Property CodeVAT() As String
             Get
                 Return _CodeVAT
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a SODRA (social security) code of the person.
+        ''' </summary>
+        ''' <remarks>Only applicable to natural persons.
+        ''' Value is stored in the database field asmenys.SD_kodas.</remarks>
         Public ReadOnly Property CodeSODRA() As String
             Get
                 Return _CodeSODRA
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an email address of the person.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.E_Mail.</remarks>
         Public ReadOnly Property Email() As String
             Get
                 Return _Email
@@ -86,6 +127,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' Gets any other person info, e.g. phone number, etc.
         ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.ContactInfo.</remarks>
         Public ReadOnly Property ContactInfo() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -96,6 +138,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' Gets an internal code of the person for company's uses.
         ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.InternalCode.</remarks>
         Public ReadOnly Property InternalCode() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -103,6 +146,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a default language ISO 639-1 code used by the person.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.LanguageCode.</remarks>
         Public ReadOnly Property LanguageCode() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -110,6 +157,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a default language used by the person.
+        ''' </summary>
+        ''' <remarks>Use <see cref="HelperLists.CompanyRegionalInfoList">CompanyRegionalInfoList</see> to get available languages.
+        ''' Value is stored in the database field asmenys.LanguageCode.</remarks>
         Public ReadOnly Property LanguageName() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -117,6 +169,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a default currency code used by the person.
+        ''' </summary>
+        ''' <remarks>Use <see cref="CurrencyCodes">CurrencyCodes()</see> for a datasource.
+        ''' Value is stored in the database field asmenys.CurrencyCode.</remarks>
         Public ReadOnly Property CurrencyCode() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -124,12 +181,22 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an account for buyers' debts.
+        ''' </summary>
+        ''' <remarks>Used when importing bank operations of type 'money received'. Credits this account, debits bank account.
+        ''' Value is stored in the database field asmenys.B_Kor.</remarks>
         Public ReadOnly Property AccountAgainstBankBuyer() As Long
             Get
                 Return _AccountAgainstBankBuyer
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an account for suppliers' debts.
+        ''' </summary>
+        ''' <remarks>Used when importing bank operations of type 'money transfered'. Debits this account, credits bank account.
+        ''' Value is stored in the database field asmenys.B_Kor_Tiek.</remarks>
         Public ReadOnly Property AccountAgainstBankSupplyer() As Long
             Get
                 Return _AccountAgainstBankSupplyer
@@ -137,8 +204,9 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' Gets if the person is a natural person, i.e. not a company.
+        ''' Whether the person is a natural person, i.e. not a company.
         ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.IsNaturalPerson.</remarks>
         Public ReadOnly Property IsNaturalPerson() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -147,8 +215,9 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' Gets if the person is no longer in use, i.e. not supposed to be displayed in combos.
+        ''' Whether the person is no longer in use, i.e. not supposed to be displayed in combos.
         ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.IsObsolete.</remarks>
         Public ReadOnly Property IsObsolete() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -156,6 +225,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Whether a person is a client of the company.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.IsClient.</remarks>
         Public ReadOnly Property IsClient() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -163,6 +236,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Whether a person is a supplier of the company.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.IsSupplier.</remarks>
         Public ReadOnly Property IsSupplier() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -170,6 +247,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Whether a person is a worker of the company.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.IsWorker.</remarks>
         Public ReadOnly Property IsWorker() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -183,7 +264,7 @@ Namespace ActiveReports
         End Function
 
         Public Overrides Function ToString() As String
-            Return _Name & " (" & _Code & ")"
+            Return String.Format("{0} ({1}), {2}", _Name, _Code, _Address)
         End Function
 
 #End Region

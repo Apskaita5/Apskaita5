@@ -14,6 +14,7 @@ Namespace ActiveReports
         Private _Date As Date = Today
         Private _DocNumber As String = ""
         Private _Content As String = ""
+        Private _PersonID As Integer = 0
         Private _Person As String = ""
         Private _Ammount As Double = 0
         Private _BookEntries As String = ""
@@ -68,6 +69,15 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
+        ''' Gets an ID of the person associated with the Journal Entry.
+        ''' </summary>
+        Public ReadOnly Property PersonID() As Integer
+            Get
+                Return _PersonID
+            End Get
+        End Property
+
+        ''' <summary>
         ''' Gets a SODRA code of the person associated with the Journal Entry.
         ''' </summary>
         Public ReadOnly Property PersonCodeSODRA() As String
@@ -79,6 +89,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' Gets a total sum/value of the Journal Entry, usually turnover/2.
         ''' </summary>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property Ammount() As Double
             Get
                 Return _Ammount
@@ -155,6 +166,7 @@ Namespace ActiveReports
             _DocNumber = CStrSafe(dr.Item(2))
             _Content = CStrSafe(dr.Item(3))
             If CIntSafe(dr.Item(4), 0) > 0 Then
+                _PersonID = CIntSafe(dr.Item(4), 0)
                 _Person = String.Format("{0} ({1})", CStrSafe(dr.Item(5)), CStrSafe(dr.Item(6)))
                 _PersonCodeSODRA = dr.Item(10).ToString
             End If

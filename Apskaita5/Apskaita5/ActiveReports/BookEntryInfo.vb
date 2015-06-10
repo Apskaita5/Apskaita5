@@ -102,6 +102,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' Gets a debet side turnover of the book entry (if any).
         ''' </summary>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property DebetTurnover() As Double
             Get
                 Return _DebetTurnover
@@ -111,6 +112,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' Gets a credit side turnover of the book entry (if any).
         ''' </summary>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property CreditTurnover() As Double
             Get
                 Return _CreditTurnover

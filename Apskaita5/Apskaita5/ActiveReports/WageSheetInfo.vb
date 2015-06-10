@@ -1,5 +1,10 @@
 Namespace ActiveReports
 
+    ''' <summary>
+    ''' Represents an item of a <see cref="WageSheetInfoList">wage sheet report</see>. 
+    ''' Contains information about a <see cref="Workers.WageSheet">WageSheet</see>.
+    ''' </summary>
+    ''' <remarks>Values are stored in the database tables du_ziniarastis and du_ziniarastis_d.</remarks>
     <Serializable()> _
     Public Class WageSheetInfo
         Inherits ReadOnlyBase(Of WageSheetInfo)
@@ -44,6 +49,10 @@ Namespace ActiveReports
         Private _IsPayedOut As Boolean
 
 
+        ''' <summary>
+        ''' Gets <see cref="General.JournalEntry.ID">an ID of the journal entry</see> that is created by the wage sheet.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table du_ziniarastis.ID.</remarks>
         Public ReadOnly Property ID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -51,6 +60,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets the date of the sheet.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field du_ziniarastis.Z_data.</remarks>
         Public ReadOnly Property [Date]() As Date
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -58,6 +71,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets the number of the sheet.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field du_ziniarastis.Nr.</remarks>
         Public ReadOnly Property Number() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -65,6 +82,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets the year of the wage calculations within the sheet.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field du_ziniarastis.Metai.</remarks>
         Public ReadOnly Property Year() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -72,6 +93,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets the month of the wage calculations within the sheet.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field du_ziniarastis.Men.</remarks>
         Public ReadOnly Property Month() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -79,6 +104,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Wage for work during public holidays and rest days rate (against normal wage).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table du_ziniarastis.P_S.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property RateHR() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -86,6 +116,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Wage for overtime and night work rate (against normal wage).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table du_ziniarastis.N_V.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property RateON() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -93,6 +128,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Wage for dangerous/unsafe work rate (against normal wage).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table du_ziniarastis.Y_S.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property RateSC() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -100,6 +140,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Sickness benefit rate as payed by an employer.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table du_ziniarastis.Nedarb.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property RateSickLeave() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -107,6 +152,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Personal income tax (GPM) rate.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table du_ziniarastis.GPM.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property RateGPM() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -114,6 +164,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Rate of health insurance contributions deducted from wage.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table du_ziniarastis.PSDW.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property RateSODRAEmployee() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -121,6 +176,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Rate of social security contributions payed by an employer.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table du_ziniarastis.SD_v.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property RateSODRAEmployer() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -128,6 +188,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Rate of health insurance contributions deducted from wage.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table du_ziniarastis.PSDW.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property RatePSDEmployee() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -135,6 +200,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Rate of health insurance contributions payed by an employer.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table du_ziniarastis.PSDE.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property RatePSDEmployer() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -142,6 +212,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Rate of guarantee fund contributions (insolvency insurance for workers).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table du_ziniarastis.Garant.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property RateGuaranteeFund() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -149,6 +224,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets or sets a boolean values indicating whether the sheet is final for the current month,
+        ''' i.e. labour contracts within the sheet will not appear on other sheets for the same month.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field du_ziniarastis.Dalin.</remarks>
         Public ReadOnly Property IsNonClosing() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -156,6 +236,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' A formula used to calculate a (minimum) not-taxable personal income (NPD).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table du_ziniarastis.NPDF.</remarks>
         Public ReadOnly Property FormulaNPD() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -163,6 +247,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total count of workers within the sheet.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property WorkersCount() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -170,13 +258,22 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total hours worked within the sheet.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDWORKHOURS)> _
         Public ReadOnly Property HoursWorked() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_HoursWorked)
+                Return CRound(_HoursWorked, ROUNDWORKHOURS)
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total days worked within the sheet.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property DaysWorked() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -184,6 +281,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total calculated amount of <see cref="Workers.WageItem.ConventionalWage">wage</see> within the sheet.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property PayOutWage() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -191,6 +293,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total calculated pay for the annual holidays.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property PayOutHoliday() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -198,6 +305,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total calculated benefit (pay) for sick leave (payed by the employer).
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property PayOutSickLeave() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -205,6 +317,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total amount of redundancy pay (compensation, benefits).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table du_ziniarastis_d.II.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property PayOutRedundancy() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -212,6 +329,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total calculated personal income tax (GPM), that is deducted from wage.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property DeductionsGPM() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -219,6 +341,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total calculated social security insurance contribution (SODRA), that is deducted from wage.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property DeductionsSODRA() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -226,6 +353,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total calculated health insurance contribution (PSD), that is deducted from wage and payed to VMI.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property DeductionsPSD() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -233,6 +365,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total calculated health insurance contribution (PSD), that is deducted from wage and payed to VMI.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property DeductionsPSDSickLeave() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -240,6 +377,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total amount of imprest, that is deducted from wage.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table du_ziniarastis_d.Avans.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property DeductionsImprest() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -247,6 +389,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total amount of other deductions (e.g. to lay damages).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table du_ziniarastis_d.Issk.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property DeductionsOther() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -254,6 +401,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total netto wage minus imprest (part of wage already payed in advance).
+        ''' </summary>
+        ''' <remarks> Value is stored in the database table du_ziniarastis_d.DU_is.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property PayOutAfterDeductions() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -261,6 +413,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total calculated social security insurance contribution (SODRA), that is payed by the employer.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property ContributionsSODRA() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -268,6 +425,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total calculated guarantee fund (insolvency insurance) contribution.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property ContributionsGuaranteeFund() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -275,6 +437,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total amount of wage that was payed out.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property PayedOut() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -282,6 +449,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Total amount of wage that was NOT payed out (wage debt).
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property Debt() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -289,6 +461,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Whether all the wage within the current sheet has already been payed.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table du_ziniarastis_d.Ismoketa (not null).</remarks>
         Public ReadOnly Property IsPayedOut() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -303,8 +479,9 @@ Namespace ActiveReports
         End Function
 
         Public Overrides Function ToString() As String
-            If Not _ID > 0 Then Return ""
-            Return _Date.ToShortDateString & " Nr. " & _Number
+            Return String.Format(My.Resources.Workers_WageSheet_ToString, _
+                _Date.ToString("yyyy-MM-dd"), _Number.ToString(), _Year.ToString(), _
+                _Month.ToString(), _ID.ToString())
         End Function
 
 #End Region
@@ -347,7 +524,7 @@ Namespace ActiveReports
             _RatePSDEmployer = CDblSafe(dr.Item(15), 2, 0)
             _FormulaNPD = CStrSafe(dr.Item(16)).Trim
             _WorkersCount = CIntSafe(dr.Item(17), 0)
-            _HoursWorked = CDblSafe(dr.Item(18), 2, 0)
+            _HoursWorked = CDblSafe(dr.Item(18), ROUNDWORKHOURS, 0)
             _DaysWorked = CIntSafe(dr.Item(19), 0)
             _PayOutWage = CRound(CDblSafe(dr.Item(20), 2, 0) + CDblSafe(dr.Item(25), 2, 0) _
                 - CDblSafe(dr.Item(21), 2, 0) - CDblSafe(dr.Item(22), 2, 0) - CDblSafe(dr.Item(25), 2, 0), 2)

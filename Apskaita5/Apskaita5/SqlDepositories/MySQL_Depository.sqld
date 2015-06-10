@@ -654,7 +654,7 @@
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>UpdatePayOutNaturalPerson</Key>
-    <Statement>UPDATE d_kitos SET Tar=?TG, Kodas=?CV, SumaBruto=?SB, TarPSDW=?TPW, TarPSDE=?TPE, TarSDW=?TSW, TarSDE=?TSE, KodasSD=?CS, KodasSDA=?PS, BaseSODRA=?BS, UpdateDate=?UD WHERE ID=?PD;</Statement>
+    <Statement>UPDATE d_kitos SET Suma=?SN, Tar=?TG, Kodas=?CV, SumaBruto=?SB, TarPSDW=?TPW, TarPSDE=?TPE, TarSDW=?TSW, TarSDE=?TSE, KodasSD=?CS, KodasSDA=?PS, BaseSODRA=?BS, UpdateDate=?UD WHERE ID=?PD;</Statement>
     <Objects>Workers.PayOutNaturalPerson</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -1149,7 +1149,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchPayOutNaturalPerson</Key>
-    <Statement>SELECT d.ID, b.Op_ID, b.Op_data, b.Op_Dok, b.Op_turinys, a.Pavad, a.Kodas, d.KodasSDA, d.Suma, d.Tar, d.TarPSDW, d.TarPSDE, d.TarSDW,d.TarSDE, d.SumaBruto, d.Kodas, d.KodasSD, d.BaseSODRA, d.InsertDate, d.UpdateDate FROM d_kitos d, asmenys a, bz b WHERE b.Op_ID = d.BZ_ID AND b.Op_analitika = a.ID AND d.ID=?ND ;</Statement>
+    <Statement>SELECT d.ID, b.Op_ID, b.Op_data, b.Op_Dok, b.Op_turinys, a.Pavad, a.Kodas, d.KodasSDA, d.Suma, d.Tar, d.TarPSDW, d.TarPSDE, d.TarSDW,d.TarSDE, d.SumaBruto, d.Kodas, d.KodasSD, d.BaseSODRA, d.InsertDate, d.UpdateDate, SUM(e.Op_suma) FROM d_kitos d LEFT JOIN bz b ON b.Op_ID = d.BZ_ID LEFT JOIN asmenys a ON a.ID = b.Op_analitika LEFT JOIN bzdata e ON e.Op_ID_BZ = b.Op_ID AND e.Op_tipas='Debetas' WHERE d.ID=?ND GROUP BY d.ID;</Statement>
     <Objects>Workers.PayOutNaturalPerson</Objects>
   </MySQL_Statement>
   <MySQL_Statement>

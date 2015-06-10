@@ -1,5 +1,9 @@
 Namespace ActiveReports
 
+    ''' <summary>
+    ''' Represents a list of <see cref="Workers.Contract">labour contract's updates</see>.
+    ''' </summary>
+    ''' <remarks>Should only be used as a child of a <see cref="ContractInfo">ContractInfo</see>.</remarks>
     <Serializable()> _
     Public Class LabourContractUpdateInfoList
         Inherits ReadOnlyListBase(Of LabourContractUpdateInfoList, LabourContractUpdateInfo)
@@ -15,9 +19,9 @@ Namespace ActiveReports
         Private _SortedList As Csla.SortedBindingList(Of LabourContractUpdateInfo) = Nothing
 
         Friend Shared Function GetLabourContractUpdateInfoList(ByVal myData As DataTable, _
-            ByVal ContractSerial As String, ByVal ContractNumber As Integer) As LabourContractUpdateInfoList
+            ByVal contractSerial As String, ByVal contractNumber As Integer) As LabourContractUpdateInfoList
             Dim result As LabourContractUpdateInfoList = New LabourContractUpdateInfoList( _
-                myData, ContractSerial, ContractNumber)
+                myData, contractSerial, contractNumber)
             Return result
         End Function
 
@@ -27,22 +31,23 @@ Namespace ActiveReports
             Return _SortedList
         End Function
 
+
         Private Sub New()
             ' require use of factory methods
         End Sub
 
-        Private Sub New(ByVal myData As DataTable, ByVal ContractSerial As String, _
-            ByVal ContractNumber As Integer)
+        Private Sub New(ByVal myData As DataTable, ByVal contractSerial As String, _
+            ByVal contractNumber As Integer)
             ' require use of factory methods
-            Fetch(myData, ContractSerial, ContractNumber)
+            Fetch(myData, contractSerial, contractNumber)
         End Sub
 
 #End Region
 
 #Region " Data Access "
 
-        Private Sub Fetch(ByVal myData As DataTable, ByVal ContractSerial As String, _
-            ByVal ContractNumber As Integer)
+        Private Sub Fetch(ByVal myData As DataTable, ByVal contractSerial As String, _
+            ByVal contractNumber As Integer)
 
             If Not ContractNumber > 0 OrElse myData Is Nothing OrElse Not myData.Rows.Count > 0 Then Exit Sub
 
@@ -50,8 +55,8 @@ Namespace ActiveReports
             IsReadOnly = False
 
             For Each dr As DataRow In myData.Rows
-                If CStrSafe(dr.Item(1)).Trim.ToUpper = ContractSerial.Trim.ToUpper _
-                    AndAlso CIntSafe(dr.Item(2), 0) = ContractNumber Then _
+                If CStrSafe(dr.Item(1)).Trim.ToUpper = contractSerial.Trim.ToUpper _
+                    AndAlso CIntSafe(dr.Item(2), 0) = contractNumber Then _
                     Add(LabourContractUpdateInfo.GetLabourContractUpdateInfo(dr))
             Next
 

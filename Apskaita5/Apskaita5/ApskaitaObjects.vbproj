@@ -407,7 +407,7 @@
     <Compile Include="ActiveReports\Declarations\DeclarationSam1.vb" />
     <Compile Include="ActiveReports\IDeclaration.vb" />
     <Compile Include="Workers\SheetChronologicValidator.vb" />
-    <Compile Include="Workers\SodraRateInfo.vb" />
+    <Compile Include="ActiveReports\SodraRateInfo.vb" />
     <Compile Include="Workers\SpecialWorkTimeItem.vb" />
     <Compile Include="Workers\SpecialWorkTimeItemList.vb" />
     <Compile Include="Workers\WageType.vb" />
@@ -421,11 +421,9 @@
     <Compile Include="Workers\ImprestSheet.vb" />
     <Compile Include="ActiveReports\ImprestSheetInfo.vb" />
     <Compile Include="ActiveReports\ImprestSheetInfoList.vb" />
-    <Compile Include="ActiveReports\LabourContractInfo.vb" />
-    <Compile Include="ActiveReports\LabourContractInfoList.vb" />
     <Compile Include="Workers\PayOutNaturalPerson.vb" />
-    <Compile Include="Workers\ShortLabourContract.vb" />
-    <Compile Include="Workers\ShortLabourContractList.vb" />
+    <Compile Include="HelperLists\ShortLabourContract.vb" />
+    <Compile Include="HelperLists\ShortLabourContractList.vb" />
     <Compile Include="ActiveReports\WorkerHolidayInfo.vb" />
     <Compile Include="Workers\WageItem.vb" />
     <Compile Include="Workers\WageItemList.vb" />

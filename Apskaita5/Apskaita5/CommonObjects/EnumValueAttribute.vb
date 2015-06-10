@@ -185,6 +185,29 @@ Public Class EnumValueAttribute
 
     End Function
 
+    ''' <summary>
+    ''' Gets a list of localized human readable names of ENUM values.
+    ''' </summary>
+    ''' <typeparam name="T">Type of the ENUM.</typeparam>
+    ''' <remarks>Convention for the naming of the resource is full type name excluding assembly name
+    ''' and an ENUM value name with "." replaced by "_", e.g. General_DefaultAccountType_Till.</remarks>
+    Public Shared Function GetLocalizedNameList(ByVal enumType As Type) As List(Of String)
+
+        If enumType Is Nothing Then Throw New ArgumentNullException("enumType")
+
+        If Not enumType.IsEnum Then Throw New InvalidOperationException(String.Format( _
+            My.Resources.EnumValueAttribute_InvalidType, "GetLocalizedNameList", enumType.FullName))
+
+        Dim result As New List(Of String)
+
+        For Each value As [Enum] In [Enum].GetValues(enumType)
+            result.Add(ConvertLocalizedName(value).Trim)
+        Next
+
+        Return result
+
+    End Function
+
 
     Private Shared Function GetResourceName(ByVal enumValue As [Enum]) As String
 

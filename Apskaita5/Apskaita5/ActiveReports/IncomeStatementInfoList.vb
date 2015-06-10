@@ -3,7 +3,7 @@ Namespace ActiveReports
     ''' <summary>
     ''' Represents an income statement report (part of <see cref="ActiveReports.FinancialStatementsInfo">FinancialStatementsInfo</see> report).
     ''' </summary>
-    ''' <remarks></remarks>
+    ''' <remarks>Should only be used as a child of of <see cref="ActiveReports.FinancialStatementsInfo">FinancialStatementsInfo</see>.</remarks>
     <Serializable()> _
     Public Class IncomeStatementInfoList
         Inherits ReadOnlyListBase(Of IncomeStatementInfoList, IncomeStatementInfo)
@@ -77,7 +77,7 @@ Namespace ActiveReports
             IsReadOnly = False
 
             For i As Integer = myData.Rows.Count To 1 Step -1
-                If ConvertEnumDatabaseCode(Of General.FinancialStatementItemType) _
+                If EnumValueAttribute.ConvertDatabaseID(Of General.FinancialStatementItemType) _
                     (CIntSafe(myData.Rows(i - 1).Item(0), 4)) = General.FinancialStatementItemType. _
                     StatementOfComprehensiveIncome Then Add(IncomeStatementInfo.GetIncomeStatementInfo(myData.Rows(i - 1)))
             Next

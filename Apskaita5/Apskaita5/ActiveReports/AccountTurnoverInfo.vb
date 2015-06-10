@@ -79,6 +79,7 @@ Namespace ActiveReports
         ''' Account debit balance (if any) at <see cref="FinancialStatementsInfo.FirstPeriodDateStart">FinancialStatementsInfo.FirstPeriodDateStart</see>.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property DebitBalanceFormerPeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -90,6 +91,7 @@ Namespace ActiveReports
         ''' Account credit balance (if any) at <see cref="FinancialStatementsInfo.FirstPeriodDateStart">FinancialStatementsInfo.FirstPeriodDateStart</see>.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property CreditBalanceFormerPeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -103,6 +105,7 @@ Namespace ActiveReports
         ''' to <see cref="FinancialStatementsInfo.SecondPeriodDateStart">FinancialStatementsInfo.SecondPeriodDateStart</see>.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property DebitTurnoverFormerPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -116,6 +119,7 @@ Namespace ActiveReports
         ''' to <see cref="FinancialStatementsInfo.SecondPeriodDateStart">FinancialStatementsInfo.SecondPeriodDateStart</see>.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property CreditTurnoverFormerPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -129,6 +133,7 @@ Namespace ActiveReports
         ''' to <see cref="FinancialStatementsInfo.SecondPeriodDateStart">FinancialStatementsInfo.SecondPeriodDateStart</see>.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property DebitClosingFormerPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -142,6 +147,7 @@ Namespace ActiveReports
         ''' to <see cref="FinancialStatementsInfo.SecondPeriodDateStart">FinancialStatementsInfo.SecondPeriodDateStart</see>.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property CreditClosingFormerPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -153,6 +159,7 @@ Namespace ActiveReports
         ''' Account debit balance (if any) at <see cref="FinancialStatementsInfo.SecondPeriodDateStart">FinancialStatementsInfo.SecondPeriodDateStart</see>.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property DebitBalanceCurrentPeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -164,6 +171,7 @@ Namespace ActiveReports
         ''' Account credit balance (if any) at <see cref="FinancialStatementsInfo.SecondPeriodDateStart">FinancialStatementsInfo.SecondPeriodDateStart</see>.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property CreditBalanceCurrentPeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -177,6 +185,7 @@ Namespace ActiveReports
         ''' to <see cref="FinancialStatementsInfo.SecondPeriodDateEnd">FinancialStatementsInfo.SecondPeriodDateEnd</see>.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property DebitTurnoverCurrentPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -190,6 +199,7 @@ Namespace ActiveReports
         ''' to <see cref="FinancialStatementsInfo.SecondPeriodDateEnd">FinancialStatementsInfo.SecondPeriodDateEnd</see>.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property CreditTurnoverCurrentPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -203,6 +213,7 @@ Namespace ActiveReports
         ''' to <see cref="FinancialStatementsInfo.SecondPeriodDateEnd">FinancialStatementsInfo.SecondPeriodDateEnd</see>.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property DebitClosingCurrentPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -216,6 +227,7 @@ Namespace ActiveReports
         ''' to <see cref="FinancialStatementsInfo.SecondPeriodDateEnd">FinancialStatementsInfo.SecondPeriodDateEnd</see>.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property CreditClosingCurrentPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -227,6 +239,7 @@ Namespace ActiveReports
         ''' Account debit balance (if any) at <see cref="FinancialStatementsInfo.SecondPeriodDateEnd">FinancialStatementsInfo.SecondPeriodDateEnd</see>.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property DebitBalanceCurrentPeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -238,6 +251,7 @@ Namespace ActiveReports
         ''' Account credit balance (if any) at <see cref="FinancialStatementsInfo.SecondPeriodDateEnd">FinancialStatementsInfo.SecondPeriodDateEnd</see>.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property CreditBalanceCurrentPeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -299,7 +313,7 @@ Namespace ActiveReports
             _ID = CLongSafe(dr.Item(0), 0)
             _Name = CStrSafe(dr.Item(1)).Trim
             _FinancialStatementItem = CStrSafe(dr.Item(2)).Trim
-            _FinancialStatementItemType = ConvertEnumDatabaseCode(Of General.FinancialStatementItemType) _
+            _FinancialStatementItemType = EnumValueAttribute.ConvertDatabaseID(Of General.FinancialStatementItemType) _
                 (CIntSafe(dr.Item(3), 0))
 
             If CDblSafe(dr.Item(4), 2, 0) > CDblSafe(dr.Item(5), 2, 0) Then

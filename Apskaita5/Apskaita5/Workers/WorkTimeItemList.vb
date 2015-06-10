@@ -1,5 +1,11 @@
 Namespace Workers
 
+    ''' <summary>
+    ''' Represents a general (standard/normal) type of work hours for specific workers for a specific month.
+    ''' </summary>
+    ''' <remarks>Should only be used as a child of <see cref="WorkTimeSheet">WorkTimeSheet</see>.
+    ''' Values are stored by an encapsulated <see cref="DayWorkTimeList">DayWorkTimeList</see> object
+    ''' and a databse table worktimeitems.</remarks>
     <Serializable()> _
     Public Class WorkTimeItemList
         Inherits BusinessListBase(Of WorkTimeItemList, WorkTimeItem)
@@ -25,6 +31,13 @@ Namespace Workers
             Return result
         End Function
 
+        Public Function HasWarning() As Boolean
+            For Each i As WorkTimeItem In Me
+                If i.BrokenRulesCollection.WarningCount > 0 Then Return True
+            Next
+            Return False
+        End Function
+
 #End Region
 
 #Region " Factory Methods "
@@ -35,13 +48,12 @@ Namespace Workers
 
 
         Friend Shared Function NewWorkTimeItemList(ByVal parent As WorkTimeSheet, _
-            ByVal RestDayInfo As WorkTimeClassInfo, ByVal PublicHolydaysInfo As WorkTimeClassInfo) As WorkTimeItemList
-            Return New WorkTimeItemList(parent, RestDayInfo, PublicHolydaysInfo)
+            ByVal restDayInfo As WorkTimeClassInfo, ByVal publicHolydaysInfo As WorkTimeClassInfo) As WorkTimeItemList
+            Return New WorkTimeItemList(parent, restDayInfo, publicHolydaysInfo)
         End Function
 
         Friend Shared Function GetWorkTimeItemList(ByVal parent As WorkTimeSheet) As WorkTimeItemList
-            Dim result As WorkTimeItemList = New WorkTimeItemList(parent)
-            Return result
+            Return New WorkTimeItemList(parent)
         End Function
 
 
@@ -59,14 +71,14 @@ Namespace Workers
             Me.AllowRemove = False
         End Sub
 
-        Private Sub New(ByVal parent As WorkTimeSheet, ByVal RestDayInfo As WorkTimeClassInfo, _
-            ByVal PublicHolydaysInfo As WorkTimeClassInfo)
+        Private Sub New(ByVal parent As WorkTimeSheet, ByVal restDayInfo As WorkTimeClassInfo, _
+            ByVal publicHolydaysInfo As WorkTimeClassInfo)
             ' require use of factory methods
             MarkAsChild()
             Me.AllowEdit = True
             Me.AllowNew = False
             Me.AllowRemove = False
-            Create(parent, RestDayInfo, PublicHolydaysInfo)
+            Create(parent, restDayInfo, publicHolydaysInfo)
         End Sub
 
         Private Sub New(ByVal parent As WorkTimeSheet)
@@ -82,8 +94,8 @@ Namespace Workers
 
 #Region " Data Access "
 
-        Private Sub Create(ByVal parent As WorkTimeSheet, ByVal RestDayInfo As WorkTimeClassInfo, _
-            ByVal PublicHolydaysInfo As WorkTimeClassInfo)
+        Private Sub Create(ByVal parent As WorkTimeSheet, ByVal restDayInfo As WorkTimeClassInfo, _
+            ByVal publicHolydaysInfo As WorkTimeClassInfo)
 
             Dim myComm As New SQLCommand("CreateWorkTimeItemList")
             myComm.AddParam("?DT", New Date(parent.Year, parent.Month, _
@@ -100,7 +112,7 @@ Namespace Workers
 
                 For Each dr As DataRow In myData.Rows
                     Add(WorkTimeItem.NewWorkTimeItem(dr, parent.Year, parent.Month, _
-                        RestDayInfo, PublicHolydaysInfo, cWorkTime))
+                        restDayInfo, publicHolydaysInfo, cWorkTime))
                 Next
 
                 RaiseListChangedEvents = True
@@ -120,12 +132,12 @@ Namespace Workers
                 myComm = New SQLCommand("FetchDayWorkTimeList")
                 myComm.AddParam("?PD", parent.ID)
 
-                Using DayWorkTimeDataTable As DataTable = myComm.Fetch
+                Using dayWorkTimeDataTable As DataTable = myComm.Fetch
 
                     RaiseListChangedEvents = False
 
                     For Each dr As DataRow In myData.Rows
-                        Add(WorkTimeItem.GetWorkTimeItem(dr, DayWorkTimeDataTable, _
+                        Add(WorkTimeItem.GetWorkTimeItem(dr, dayWorkTimeDataTable, _
                             parent.Year, parent.Month))
                     Next
 

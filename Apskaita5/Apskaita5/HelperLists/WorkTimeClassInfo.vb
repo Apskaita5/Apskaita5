@@ -177,8 +177,8 @@ Namespace HelperLists
             _Code = CStrSafe(dr.Item(1 + offset)).Trim
             _Name = CStrSafe(dr.Item(2 + offset)).Trim
             _InclusionPercentage = CDblSafe(dr.Item(3 + offset), 2, 0)
-            _Type = ConvertEnumDatabaseCode(Of WorkTimeType)(CIntSafe(dr.Item(4 + offset), 0))
-            _TypeHumanReadable = ConvertEnumHumanReadable(_Type)
+            _Type = EnumValueAttribute.ConvertDatabaseID(Of WorkTimeType)(CIntSafe(dr.Item(4 + offset), 0))
+            _TypeHumanReadable = EnumValueAttribute.ConvertLocalizedName(_Type)
             _SpecialWageShemaApplicable = ConvertDbBoolean(CIntSafe(dr.Item(5 + offset), 0))
             _SpecialWageShema = CStrSafe(dr.Item(6 + offset)).Trim
             _WithoutWorkHours = ConvertDbBoolean(CIntSafe(dr.Item(7 + offset), 0))

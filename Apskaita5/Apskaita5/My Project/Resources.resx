@@ -2043,4 +2043,2386 @@
   <data name="Workers_Contract_WorkLoadID" xml:space="preserve">
     <value>ID darbo krūviui</value>
   </data>
+  <data name="Workers_DayWorkTime_DayCount" xml:space="preserve">
+    <value>dienų mėnesyje</value>
+  </data>
+  <data name="Workers_DayWorkTime_DayNumber" xml:space="preserve">
+    <value>diena</value>
+  </data>
+  <data name="Workers_DayWorkTime_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Workers_DayWorkTime_Length" xml:space="preserve">
+    <value>trukmė (val.)</value>
+  </data>
+  <data name="Workers_DayWorkTime_ToString" xml:space="preserve">
+    <value>įprastinio darbo ir poilsio laiko eilutė {0} dienai</value>
+  </data>
+  <data name="Workers_DayWorkTime_Type" xml:space="preserve">
+    <value>darbo ar poilsio laiko tipas</value>
+  </data>
+  <data name="Workers_DayWorkTime_TypeCode" xml:space="preserve">
+    <value>darbo ar poilsio laiko kodas</value>
+  </data>
+  <data name="Workers_DayWorkTime_TypeInvalid" xml:space="preserve">
+    <value>Pasirinktas darbo arba polsio laiko tipas yra su valandomis.</value>
+  </data>
+  <data name="Workers_DayWorkTime_ValueInvalid" xml:space="preserve">
+    <value>Paroje yra tik 24 valandos.</value>
+  </data>
+  <data name="Workers_DayWorkTime_ValueNegative" xml:space="preserve">
+    <value>Trukmė negali būti neigiama.</value>
+  </data>
+  <data name="Workers_DayWorkTime_ValueNull" xml:space="preserve">
+    <value>Nenurodyta trukmė arba dienos tipo kodas.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_CannotLoadEntry" xml:space="preserve">
+    <value>Klaida. Susieta bendrojo žurnalo operacija gali būti nustatoma tik naujai išmokai.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_CodeSODRA" xml:space="preserve">
+    <value>SODRA kodas</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_CodeSODRANull" xml:space="preserve">
+    <value>Nenurodytas asmens socialinio draudimo kodas.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_CodeVMI" xml:space="preserve">
+    <value>VMI kodas</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_Content" xml:space="preserve">
+    <value>turinys</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_ContributionPSD" xml:space="preserve">
+    <value>priskaičiuota PSD</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_ContributionSODRA" xml:space="preserve">
+    <value>priskaičiuota SODRA</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_DeductionGPM" xml:space="preserve">
+    <value>išskaičiuota GPM</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_DeductionPSD" xml:space="preserve">
+    <value>išskaičiuota PSD</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_DeductionSODRA" xml:space="preserve">
+    <value>išskaičiuota SODRA</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_DocNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID (BŽ operacija)</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_NewJournalEntryContent" xml:space="preserve">
+    <value>Išmoka fiziniam asmeniui</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_NewJournalEntryDocNumber" xml:space="preserve">
+    <value>P-P Aktas</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_PersonCodeSODRA" xml:space="preserve">
+    <value>gavėjo SODRA kodas</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_PersonInfo" xml:space="preserve">
+    <value>gavėjas</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_PersonNull" xml:space="preserve">
+    <value>Klaida. Pasirinkta BŽ operacija neturi priskirto kontrahento (lėšų gavėjo).</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_RateGPM" xml:space="preserve">
+    <value>GPM tarifas</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_RatePSDForCompany" xml:space="preserve">
+    <value>PSD tarifas įmonei</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_RatePSDForPerson" xml:space="preserve">
+    <value>PSD tarifas gyventojui</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_RateSODRAForCompany" xml:space="preserve">
+    <value>SODRA tarifas įmonei</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_RateSODRAForPerson" xml:space="preserve">
+    <value>SODRA tarifas gyventojui</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_SODRABase" xml:space="preserve">
+    <value>SODRA bazė</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_SumBruto" xml:space="preserve">
+    <value>suma "ant popieriaus"</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_SumNeto" xml:space="preserve">
+    <value>suma neto</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_ToString" xml:space="preserve">
+    <value>{0} išmoka fiziniam asmeniui ({1}): {2}</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_TotalPSD" xml:space="preserve">
+    <value>viso PSD</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_TotalSODRA" xml:space="preserve">
+    <value>viso SODRA</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_TypeName" xml:space="preserve">
+    <value>išmoka fiziniam asmeniui</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_CreditBalanceCurrentPeriodEnd" xml:space="preserve">
+    <value>likutis einamojo periodo pabaigoje (kreditas)</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_CreditBalanceCurrentPeriodStart" xml:space="preserve">
+    <value>likutis einamojo periodo pradžioje (kreditas)</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_CreditBalanceFormerPeriodStart" xml:space="preserve">
+    <value>likutis praėjusio laikotarpio pradžioje (kreditas)</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_CreditClosingCurrentPeriod" xml:space="preserve">
+    <value>uždarymo apyvarta einamojo periodo (kreditas)</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_CreditClosingFormerPeriod" xml:space="preserve">
+    <value>uždarymo apyvarta praėjusio laikotarpio (kreditas)</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_CreditTurnoverCurrentPeriod" xml:space="preserve">
+    <value>apyvarta einamojo periodo (kreditas)</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_CreditTurnoverFormerPeriod" xml:space="preserve">
+    <value>apyvarta praėjusio laikotarpio (kreditas)</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_DebitBalanceCurrentPeriodEnd" xml:space="preserve">
+    <value>likutis einamojo periodo pabaigoje (debetas)</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_DebitBalanceCurrentPeriodStart" xml:space="preserve">
+    <value>likutis einamojo periodo pradžioje (debetas)</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_DebitBalanceFormerPeriodStart" xml:space="preserve">
+    <value>likutis praėjusio laikotarpio pradžioje (debetas)</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_DebitClosingCurrentPeriod" xml:space="preserve">
+    <value>uždarymo apyvarta einamojo periodo (debetas)</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_DebitClosingFormerPeriod" xml:space="preserve">
+    <value>uždarymo apyvarta praėjusio laikotarpio (debetas)</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_DebitTurnoverCurrentPeriod" xml:space="preserve">
+    <value>apyvarta einamojo periodo (debetas)</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_DebitTurnoverFormerPeriod" xml:space="preserve">
+    <value>apyvarta praėjusio laikotarpio (debetas)</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_FinancialStatementItem" xml:space="preserve">
+    <value>fin. atskaitomybės eilutė</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_FinancialStatementItemType" xml:space="preserve">
+    <value>fin. atskaitomybės eilutės tipas</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_ID" xml:space="preserve">
+    <value>sąskaitos Nr.</value>
+  </data>
+  <data name="ActiveReports_AccountTurnoverInfo_Name" xml:space="preserve">
+    <value>sąskaita</value>
+  </data>
+  <data name="ActiveReports_BalanceSheetInfo_ActualBalanceCurrent" xml:space="preserve">
+    <value>einamasis laikotarpis</value>
+  </data>
+  <data name="ActiveReports_BalanceSheetInfo_ActualBalanceFormer" xml:space="preserve">
+    <value>praėjęs laikotarpis</value>
+  </data>
+  <data name="ActiveReports_BalanceSheetInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="ActiveReports_BalanceSheetInfo_IsCreditBalance" xml:space="preserve">
+    <value>kreditinis balansas</value>
+  </data>
+  <data name="ActiveReports_BalanceSheetInfo_Level" xml:space="preserve">
+    <value>lygis</value>
+  </data>
+  <data name="ActiveReports_BalanceSheetInfo_Name" xml:space="preserve">
+    <value>eilutė</value>
+  </data>
+  <data name="ActiveReports_BalanceSheetInfo_Number" xml:space="preserve">
+    <value>Nr.</value>
+  </data>
+  <data name="ActiveReports_BalanceSheetInfo_OptimizedBalanceCurrent" xml:space="preserve">
+    <value>einamasis laikotarpis (uždarytas)</value>
+  </data>
+  <data name="ActiveReports_BalanceSheetInfo_OptimizedBalanceFormer" xml:space="preserve">
+    <value>praėjęs laikotarpis (uždarytas)</value>
+  </data>
+  <data name="ActiveReports_BalanceSheetInfo_RelatedAccounts" xml:space="preserve">
+    <value>susijusios sąskaitos</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfoListParent_Account" xml:space="preserve">
+    <value>sąskaita</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfoListParent_CreditBalanceEnd" xml:space="preserve">
+    <value>likutis pb. (kreditas)</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfoListParent_CreditBalanceStart" xml:space="preserve">
+    <value>likutis pr. (kreditas)</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfoListParent_CreditTurnover" xml:space="preserve">
+    <value>apyvarta (kreditas)</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfoListParent_DateFrom" xml:space="preserve">
+    <value>laikotarpis nuo</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfoListParent_DateTo" xml:space="preserve">
+    <value>laikotarpis iki</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfoListParent_DebetBalanceEnd" xml:space="preserve">
+    <value>likutis pb. (debetas)</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfoListParent_DebetBalanceStart" xml:space="preserve">
+    <value>likutis pr. (debetas)</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfoListParent_DebetTurnover" xml:space="preserve">
+    <value>apyvarta (debetas)</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfoListParent_Group" xml:space="preserve">
+    <value>kontrahentų grupė</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfoListParent_IncludeSubAccounts" xml:space="preserve">
+    <value>įtrauktos subsąskaitos</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfoListParent_Person" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfo_BookEntriesString" xml:space="preserve">
+    <value>kontuotės</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfo_Content" xml:space="preserve">
+    <value>turinys</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfo_CreditTurnover" xml:space="preserve">
+    <value>kreditas</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfo_DebetTurnover" xml:space="preserve">
+    <value>debetas</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfo_DocNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfo_DocType" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfo_DocTypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfo_Id" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfo_JournalEntryDate" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfo_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfo_Person" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfo_PersonAddress" xml:space="preserve">
+    <value>kontrahento adresas</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfo_PersonCode" xml:space="preserve">
+    <value>kontrahento kodas</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfo_PersonID" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="ActiveReports_BookEntryInfo_PersonName" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="ActiveReports_ContractInfoList_AddAllWorkers" xml:space="preserve">
+    <value>pridėti visus darbuotojus</value>
+  </data>
+  <data name="ActiveReports_ContractInfoList_AtDate" xml:space="preserve">
+    <value>ataskaita datai</value>
+  </data>
+  <data name="ActiveReports_ContractInfoList_IsOriginalContractData" xml:space="preserve">
+    <value>duomenys sutarties datai</value>
+  </data>
+  <data name="ActiveReports_ContractInfoList_OnlyInOperationAtDate" xml:space="preserve">
+    <value>tik dirbantys</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_AnnualHoliday" xml:space="preserve">
+    <value>atostogų norma</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_Content" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_DateTermination" xml:space="preserve">
+    <value>nutraukimo data</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_ExtraPay" xml:space="preserve">
+    <value>priedas</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_HolidayCorrection" xml:space="preserve">
+    <value>atostogų korekcija</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_NPD" xml:space="preserve">
+    <value>NPD</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_Number" xml:space="preserve">
+    <value>Nr.</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_PersonAddress" xml:space="preserve">
+    <value>adresas</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_PersonCode" xml:space="preserve">
+    <value>asmens kodas</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_PersonID" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_PersonName" xml:space="preserve">
+    <value>vardas, pavardė</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_PersonSodraCode" xml:space="preserve">
+    <value>SODRA kodas</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_PNPD" xml:space="preserve">
+    <value>PNPD</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_Position" xml:space="preserve">
+    <value>pareigos</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_Serial" xml:space="preserve">
+    <value>serija</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_Wage" xml:space="preserve">
+    <value>darbo užmokestis</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_WageType" xml:space="preserve">
+    <value>darbo užmokesčio tipas</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_WageTypeHumanReadable" xml:space="preserve">
+    <value>darbo užmokesčio tipas</value>
+  </data>
+  <data name="ActiveReports_ContractInfo_WorkLoad" xml:space="preserve">
+    <value>krūvis (etatai)</value>
+  </data>
+  <data name="ActiveReports_FinancialStatementsInfo_ClosingSummaryAccount" xml:space="preserve">
+    <value>uždarymo sąskaita</value>
+  </data>
+  <data name="ActiveReports_FinancialStatementsInfo_ClosingSummaryBalanceItem" xml:space="preserve">
+    <value>uždarymo eilutė</value>
+  </data>
+  <data name="ActiveReports_FinancialStatementsInfo_FirstPeriodDateStart" xml:space="preserve">
+    <value>praėjusio periodo pr.</value>
+  </data>
+  <data name="ActiveReports_FinancialStatementsInfo_IncludeWithoutTurnover" xml:space="preserve">
+    <value>įtraukti sąskaitas be apyvartos</value>
+  </data>
+  <data name="ActiveReports_FinancialStatementsInfo_SecondPeriodDateEnd" xml:space="preserve">
+    <value>einamojo periodo pb.</value>
+  </data>
+  <data name="ActiveReports_FinancialStatementsInfo_SecondPeriodDateStart" xml:space="preserve">
+    <value>einamojo periodo pr.</value>
+  </data>
+  <data name="ActiveReports_ImprestSheetInfoList_DateFrom" xml:space="preserve">
+    <value>laikotarpis nuo</value>
+  </data>
+  <data name="ActiveReports_ImprestSheetInfoList_DateTo" xml:space="preserve">
+    <value>laikotarpis iki</value>
+  </data>
+  <data name="ActiveReports_ImprestSheetInfoList_ShowPayedOut" xml:space="preserve">
+    <value>rodyti išmokėtus</value>
+  </data>
+  <data name="ActiveReports_ImprestSheetInfoList_TotalSum" xml:space="preserve">
+    <value>viso suma</value>
+  </data>
+  <data name="ActiveReports_ImprestSheetInfoList_TotalSumPayedOut" xml:space="preserve">
+    <value>viso suma išmokėta</value>
+  </data>
+  <data name="ActiveReports_ImprestSheetInfoList_TotalWorkersCount" xml:space="preserve">
+    <value>viso darbuotojų</value>
+  </data>
+  <data name="ActiveReports_ImprestSheetInfo_Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="ActiveReports_ImprestSheetInfo_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="ActiveReports_ImprestSheetInfo_IsPayedOut" xml:space="preserve">
+    <value>išmokėta</value>
+  </data>
+  <data name="ActiveReports_ImprestSheetInfo_Month" xml:space="preserve">
+    <value>mėn.</value>
+  </data>
+  <data name="ActiveReports_ImprestSheetInfo_Number" xml:space="preserve">
+    <value>Nr.</value>
+  </data>
+  <data name="ActiveReports_ImprestSheetInfo_TotalSum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="ActiveReports_ImprestSheetInfo_TotalSumPayedOut" xml:space="preserve">
+    <value>suma išmokėta</value>
+  </data>
+  <data name="ActiveReports_ImprestSheetInfo_WorkersCount" xml:space="preserve">
+    <value>darbuotojų sk.</value>
+  </data>
+  <data name="ActiveReports_ImprestSheetInfo_Year" xml:space="preserve">
+    <value>metai</value>
+  </data>
+  <data name="ActiveReports_IncomeStatementInfo_ActualBalanceCurrent" xml:space="preserve">
+    <value>einamasis laikotarpis</value>
+  </data>
+  <data name="ActiveReports_IncomeStatementInfo_ActualBalanceFormer" xml:space="preserve">
+    <value>praėjęs laikotarpis</value>
+  </data>
+  <data name="ActiveReports_IncomeStatementInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="ActiveReports_IncomeStatementInfo_IsCreditBalance" xml:space="preserve">
+    <value>kreditinis balansas</value>
+  </data>
+  <data name="ActiveReports_IncomeStatementInfo_Level" xml:space="preserve">
+    <value>lygis</value>
+  </data>
+  <data name="ActiveReports_IncomeStatementInfo_Name" xml:space="preserve">
+    <value>eilutė</value>
+  </data>
+  <data name="ActiveReports_IncomeStatementInfo_Number" xml:space="preserve">
+    <value>Nr.</value>
+  </data>
+  <data name="ActiveReports_IncomeStatementInfo_OptimizedBalanceCurrent" xml:space="preserve">
+    <value>einamasis laikotarpis (uždarytas)</value>
+  </data>
+  <data name="ActiveReports_IncomeStatementInfo_OptimizedBalanceFormer" xml:space="preserve">
+    <value>praėjęs laikotarpis (uždarytas)</value>
+  </data>
+  <data name="ActiveReports_IncomeStatementInfo_RelatedAccounts" xml:space="preserve">
+    <value>susiję sąskaitos</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfoList_ApplyDocTypeFilter" xml:space="preserve">
+    <value>taikomas filtras pgl. tipą</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfoList_ContentFilter" xml:space="preserve">
+    <value>paieška turinyje</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfoList_DateFrom" xml:space="preserve">
+    <value>laikotarpis nuo</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfoList_DateTo" xml:space="preserve">
+    <value>laikotarpis iki</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfoList_DocTypeFilter" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfoList_PersonFilter" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfoList_PersonGroupFilter" xml:space="preserve">
+    <value>kontrahentų grupė</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfoList_PersonGroupName" xml:space="preserve">
+    <value>kontrahentų grupė</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfoList_PersonName" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfo_Ammount" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfo_BookEntries" xml:space="preserve">
+    <value>kontuotės</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfo_Content" xml:space="preserve">
+    <value>turinys</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfo_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfo_DocNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfo_DocType" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfo_DocTypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfo_Id" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfo_Person" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfo_PersonCodeSODRA" xml:space="preserve">
+    <value>kontrahento SODRA kodas</value>
+  </data>
+  <data name="ActiveReports_JournalEntryInfo_PersonID" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="ActiveReports_LabourContractUpdateInfo_AnnualHoliday" xml:space="preserve">
+    <value>atostogų norma</value>
+  </data>
+  <data name="ActiveReports_LabourContractUpdateInfo_Content" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="ActiveReports_LabourContractUpdateInfo_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="ActiveReports_LabourContractUpdateInfo_ExtraPay" xml:space="preserve">
+    <value>priedas</value>
+  </data>
+  <data name="ActiveReports_LabourContractUpdateInfo_HolidayCorrection" xml:space="preserve">
+    <value>atostogų korekcija</value>
+  </data>
+  <data name="ActiveReports_LabourContractUpdateInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="ActiveReports_LabourContractUpdateInfo_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="ActiveReports_LabourContractUpdateInfo_NPD" xml:space="preserve">
+    <value>NPD</value>
+  </data>
+  <data name="ActiveReports_LabourContractUpdateInfo_PNPD" xml:space="preserve">
+    <value>PNPD</value>
+  </data>
+  <data name="ActiveReports_LabourContractUpdateInfo_Position" xml:space="preserve">
+    <value>pareigos</value>
+  </data>
+  <data name="ActiveReports_LabourContractUpdateInfo_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="ActiveReports_LabourContractUpdateInfo_Wage" xml:space="preserve">
+    <value>darbo užmokestis</value>
+  </data>
+  <data name="ActiveReports_LabourContractUpdateInfo_WageType" xml:space="preserve">
+    <value>darbo užmok. tipas</value>
+  </data>
+  <data name="ActiveReports_LabourContractUpdateInfo_WageTypeHumanReadable" xml:space="preserve">
+    <value>darbo užmok. tipas</value>
+  </data>
+  <data name="ActiveReports_LabourContractUpdateInfo_WorkLoad" xml:space="preserve">
+    <value>krūvis (etatai)</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfoList_DateFrom" xml:space="preserve">
+    <value>laikotarpis nuo</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfoList_DateTo" xml:space="preserve">
+    <value>laikotarpis iki</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_CodeSODRA" xml:space="preserve">
+    <value>kodas SODRA</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_CodeVMI" xml:space="preserve">
+    <value>kodas VMI</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_Content" xml:space="preserve">
+    <value>turinys</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_ContributionPSD" xml:space="preserve">
+    <value>priskaičiuota PSD</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_ContributionSODRA" xml:space="preserve">
+    <value>priskaičiuota SODRA</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_DeductionGPM" xml:space="preserve">
+    <value>išskaičiuota GPM</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_DeductionPSD" xml:space="preserve">
+    <value>išskaičiuota PSD</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_DeductionSODRA" xml:space="preserve">
+    <value>išskaičiuota SODRA</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_DocNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_PersonCodeSODRA" xml:space="preserve">
+    <value>gavėjo SODRA kodas</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_PersonInfo" xml:space="preserve">
+    <value>gavėjas</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_RateGPM" xml:space="preserve">
+    <value>GPM</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_RatePSDForCompany" xml:space="preserve">
+    <value>PSD priskaič.</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_RatePSDForPerson" xml:space="preserve">
+    <value>PSD išskaič.</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_RateSODRAForCompany" xml:space="preserve">
+    <value>SODRA priskaič.</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_RateSODRAForPerson" xml:space="preserve">
+    <value>SODRA išskaič.</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_SODRABase" xml:space="preserve">
+    <value>SODRA bazė</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_SumBruto" xml:space="preserve">
+    <value>suma "ant popieriaus"</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_SumNeto" xml:space="preserve">
+    <value>suma neto</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_TotalPSD" xml:space="preserve">
+    <value>viso PSD</value>
+  </data>
+  <data name="ActiveReports_PayOutNaturalPersonInfo_TotalSODRA" xml:space="preserve">
+    <value>viso SODRA</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItemList_LikeString" xml:space="preserve">
+    <value>paieška pgl. Pavadinimą</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItemList_ShowClients" xml:space="preserve">
+    <value>pirkėjai</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItemList_ShowSuppliers" xml:space="preserve">
+    <value>tiekėjai</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItemList_ShowWorkers" xml:space="preserve">
+    <value>darbuotojai</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_AccountAgainstBankBuyer" xml:space="preserve">
+    <value>pirkėjų sąsk.</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_AccountAgainstBankSupplyer" xml:space="preserve">
+    <value>tiekėjų sąsk.</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_Address" xml:space="preserve">
+    <value>adresas</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_Bank" xml:space="preserve">
+    <value>bankas</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_BankAccount" xml:space="preserve">
+    <value>banko sąskaita</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_Code" xml:space="preserve">
+    <value>įmonės/asmens kodas</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_CodeSODRA" xml:space="preserve">
+    <value>SODRA kodas</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_CodeVAT" xml:space="preserve">
+    <value>PVM kodas</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_ContactInfo" xml:space="preserve">
+    <value>kontaktinė info</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_CurrencyCode" xml:space="preserve">
+    <value>valiuta</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_Email" xml:space="preserve">
+    <value>e-paštas</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_InternalCode" xml:space="preserve">
+    <value>vidinis kodas</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_IsClient" xml:space="preserve">
+    <value>pirkėjas</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_IsNaturalPerson" xml:space="preserve">
+    <value>fizinis asmuo</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_IsObsolete" xml:space="preserve">
+    <value>nebenaudojamas</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_IsSupplier" xml:space="preserve">
+    <value>tiekėjas</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_IsWorker" xml:space="preserve">
+    <value>darbuotojas</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_LanguageCode" xml:space="preserve">
+    <value>kalba</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_LanguageName" xml:space="preserve">
+    <value>kalba</value>
+  </data>
+  <data name="ActiveReports_PersonInfoItem_Name" xml:space="preserve">
+    <value>pavadinis (vardas, pavardė)</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfoList_DateFrom" xml:space="preserve">
+    <value>laikotarpis nuo</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfoList_DateTo" xml:space="preserve">
+    <value>laikotarpis iki</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfoList_ShowPayedOut" xml:space="preserve">
+    <value>įtraukti išmokėtus</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfoList_TotalSumAfterDeductions" xml:space="preserve">
+    <value>viso mokėtina</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfoList_TotalSumPayedOut" xml:space="preserve">
+    <value>viso išmokėta</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_ContributionsGuaranteeFund" xml:space="preserve">
+    <value>priskaičiuota garant. fondo</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_ContributionsSODRA" xml:space="preserve">
+    <value>priskaičiuota SODRA</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_DaysWorked" xml:space="preserve">
+    <value>d.d.</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_Debt" xml:space="preserve">
+    <value>skolos suma</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_DeductionsGPM" xml:space="preserve">
+    <value>išskaičiuota GPM</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_DeductionsImprest" xml:space="preserve">
+    <value>išskaičiuota avanso</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_DeductionsOther" xml:space="preserve">
+    <value>kitų išskaitų</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_DeductionsPSD" xml:space="preserve">
+    <value>išskaičiuota PSD</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_DeductionsPSDSickLeave" xml:space="preserve">
+    <value>išskaičiuota PSD (nedarbing.)</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_DeductionsSODRA" xml:space="preserve">
+    <value>išskaičiuota SODRA</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_FormulaNPD" xml:space="preserve">
+    <value>NPD formulė</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_HoursWorked" xml:space="preserve">
+    <value>d.v.</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_IsNonClosing" xml:space="preserve">
+    <value>negalutinis</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_IsPayedOut" xml:space="preserve">
+    <value>išmokėta</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_Month" xml:space="preserve">
+    <value>mėn.</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_Number" xml:space="preserve">
+    <value>Nr.</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_PayedOut" xml:space="preserve">
+    <value>išmokėta suma</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_PayOutAfterDeductions" xml:space="preserve">
+    <value>mokėtina</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_PayOutHoliday" xml:space="preserve">
+    <value>priskaičiuota atostoginių</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_PayOutRedundancy" xml:space="preserve">
+    <value>priskaičiuota išeitinių išmokų</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_PayOutSickLeave" xml:space="preserve">
+    <value>priskaičiuota nedarbingumo</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_PayOutWage" xml:space="preserve">
+    <value>prikaičiuota darbo užmokesčio</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_RateGPM" xml:space="preserve">
+    <value>GPM %</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_RateGuaranteeFund" xml:space="preserve">
+    <value>garant. fondo %</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_RateHR" xml:space="preserve">
+    <value>darbo švenčių ir poilsio dienomis %</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_RateON" xml:space="preserve">
+    <value>viršvalandžių ir darbo naktį %</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_RatePSDEmployee" xml:space="preserve">
+    <value>PSD išskaič. %</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_RatePSDEmployer" xml:space="preserve">
+    <value>PSD priskaič. %</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_RateSC" xml:space="preserve">
+    <value>darbo ypat. sąlygomis %</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_RateSickLeave" xml:space="preserve">
+    <value>nedarbingumo  %</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_RateSODRAEmployee" xml:space="preserve">
+    <value>SODRA išskaič. %</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_RateSODRAEmployer" xml:space="preserve">
+    <value>SODRA priskaič. %</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_WorkersCount" xml:space="preserve">
+    <value>darbuotojų sk.</value>
+  </data>
+  <data name="ActiveReports_WageSheetInfo_Year" xml:space="preserve">
+    <value>metai</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_SumJournalEntry" xml:space="preserve">
+    <value>BŽ suma</value>
+  </data>
+  <data name="ActiveReports_SodraRateInfo_Month" xml:space="preserve">
+    <value>mėnuo</value>
+  </data>
+  <data name="ActiveReports_SodraRateInfo_Rates" xml:space="preserve">
+    <value>tarifai</value>
+  </data>
+  <data name="ActiveReports_SodraRateInfo_Year" xml:space="preserve">
+    <value>metai</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_AnnualHolidays" xml:space="preserve">
+    <value>kasmetinės atostogos d.</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_DownTime" xml:space="preserve">
+    <value>prastova d.v.</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_Month" xml:space="preserve">
+    <value>mėn.</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_NightWork" xml:space="preserve">
+    <value>naktį d.v.</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_OtherExcluded" xml:space="preserve">
+    <value>kitos neįskaitomos į darbo laiką d.v.</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_OtherHolidays" xml:space="preserve">
+    <value>kitos atostogos d.</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_OtherIncluded" xml:space="preserve">
+    <value>kitos įskaitomos į darbo laiką d.v.</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_OvertimeWork" xml:space="preserve">
+    <value>viršvalandžių d.v.</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_PublicHolidaysAndRestDayWork" xml:space="preserve">
+    <value>darbo švenčių ir poilsio dienomis d.v.</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_SickDays" xml:space="preserve">
+    <value>nedarbingumas d.</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_SubDivision" xml:space="preserve">
+    <value>padalinys</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_TotalWorkDays" xml:space="preserve">
+    <value>viso d.d.</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_TotalWorkTime" xml:space="preserve">
+    <value>viso d.v.</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_Truancy" xml:space="preserve">
+    <value>pravaikšta d.v.</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_UnusualWork" xml:space="preserve">
+    <value>darbo ypatingomis sąlygomis d.v.</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_WorkersCount" xml:space="preserve">
+    <value>darbuotojų sk.</value>
+  </data>
+  <data name="ActiveReports_WorkTimeSheetInfo_Year" xml:space="preserve">
+    <value>metai</value>
+  </data>
+  <data name="General_Account_Class" xml:space="preserve">
+    <value>klasė</value>
+  </data>
+  <data name="General_BookEntry_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="General_BookEntry_Person" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="General_ClosingEntriesCommand_ConsolidatedAccount" xml:space="preserve">
+    <value>uždarymo sąsk.</value>
+  </data>
+  <data name="General_ClosingEntriesCommand_CurrentProfitAccount" xml:space="preserve">
+    <value>einamojo laikotarpio rezultato sąsk.</value>
+  </data>
+  <data name="General_ClosingEntriesCommand_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="General_ClosingEntriesCommand_FormerProfitAccount" xml:space="preserve">
+    <value>praėjusių laikotarpių rezultato sąsk.</value>
+  </data>
+  <data name="General_CompanyAccount_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="General_CompanyAccount_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="General_CompanyAccount_TypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="General_CompanyAccount_Value" xml:space="preserve">
+    <value>sąskaita</value>
+  </data>
+  <data name="General_CompanyRate_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="General_CompanyRate_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="General_CompanyRate_TypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="General_CompanyRate_Value" xml:space="preserve">
+    <value>tarifas (%)</value>
+  </data>
+  <data name="General_CompanyRegionalData_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="General_CompanyRegionalData_InvoiceForm" xml:space="preserve">
+    <value>sąskaitos faktūros forma</value>
+  </data>
+  <data name="General_CompanyRegionalData_LanguageCode" xml:space="preserve">
+    <value>kalbos kodas</value>
+  </data>
+  <data name="General_CompanyRegionalData_LanguageName" xml:space="preserve">
+    <value>kalba</value>
+  </data>
+  <data name="General_CompanyRegionalData_LogoImage" xml:space="preserve">
+    <value>įmonės logo</value>
+  </data>
+  <data name="General_Company_AccountClassPrefix11" xml:space="preserve">
+    <value>1 klasės prefiksas</value>
+  </data>
+  <data name="General_Company_AccountClassPrefix12" xml:space="preserve">
+    <value>1 klasės prefiksas alternat.</value>
+  </data>
+  <data name="General_Company_AccountClassPrefix21" xml:space="preserve">
+    <value>2 klasės prefiksas</value>
+  </data>
+  <data name="General_Company_AccountClassPrefix22" xml:space="preserve">
+    <value>2 klasės prefiksas alternat.</value>
+  </data>
+  <data name="General_Company_AccountClassPrefix31" xml:space="preserve">
+    <value>3 klasės prefiksas</value>
+  </data>
+  <data name="General_Company_AccountClassPrefix32" xml:space="preserve">
+    <value>3 klasės prefiksas alternat.</value>
+  </data>
+  <data name="General_Company_AccountClassPrefix41" xml:space="preserve">
+    <value>4 klasės prefiksas</value>
+  </data>
+  <data name="General_Company_AccountClassPrefix42" xml:space="preserve">
+    <value>4 klasės prefiksas alternat.</value>
+  </data>
+  <data name="General_Company_AccountClassPrefix51" xml:space="preserve">
+    <value>5 klasės prefiksas</value>
+  </data>
+  <data name="General_Company_AccountClassPrefix52" xml:space="preserve">
+    <value>5 klasės prefiksas alternat.</value>
+  </data>
+  <data name="General_Company_AccountClassPrefix61" xml:space="preserve">
+    <value>6 klasės prefiksas</value>
+  </data>
+  <data name="General_Company_AccountClassPrefix62" xml:space="preserve">
+    <value>6 klasės prefiksas alternat.</value>
+  </data>
+  <data name="General_Company_AddDateToInvoiceNumber" xml:space="preserve">
+    <value>pridėti datą sąskaitos faktūros numeryje</value>
+  </data>
+  <data name="General_Company_AddDateToTillIncomeOrderNumber" xml:space="preserve">
+    <value>pridėti datą kasos pajamų orderio numeryje</value>
+  </data>
+  <data name="General_Company_AddDateToTillSpendingsOrderNumber" xml:space="preserve">
+    <value>pridėti datą kasos išlaidų orderio numeryje</value>
+  </data>
+  <data name="General_Company_BaseCurrency" xml:space="preserve">
+    <value>bazinė valiuta</value>
+  </data>
+  <data name="General_Company_CompanyDatabaseName" xml:space="preserve">
+    <value>DB pavadinimas</value>
+  </data>
+  <data name="General_Company_DefaultTaxNpdFormula" xml:space="preserve">
+    <value>NPD formulė</value>
+  </data>
+  <data name="General_Company_HeadPersonSignature" xml:space="preserve">
+    <value>vadovo parašo faksimilė</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_HasAccountsAssigned" xml:space="preserve">
+    <value>yra priskirtų sąskaitų</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_IsCredit" xml:space="preserve">
+    <value>kreditinis balansas</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_Level" xml:space="preserve">
+    <value>lygis</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="General_ImportedPerson_AlreadyPresent" xml:space="preserve">
+    <value>jau įtraukta</value>
+  </data>
+  <data name="General_ImportedPerson_CurrencyCode" xml:space="preserve">
+    <value>valiutos kodas</value>
+  </data>
+  <data name="General_ImportedPerson_IsClient" xml:space="preserve">
+    <value>pirkėjas</value>
+  </data>
+  <data name="General_ImportedPerson_IsNaturalPerson" xml:space="preserve">
+    <value>fizinis asmuo</value>
+  </data>
+  <data name="General_ImportedPerson_IsObsolete" xml:space="preserve">
+    <value>nebenaudojama</value>
+  </data>
+  <data name="General_ImportedPerson_IsSupplier" xml:space="preserve">
+    <value>tiekėjas</value>
+  </data>
+  <data name="General_ImportedPerson_IsWorker" xml:space="preserve">
+    <value>darbuotojas</value>
+  </data>
+  <data name="General_ImportedPerson_NotUniqueCode" xml:space="preserve">
+    <value>neunikalus kodas</value>
+  </data>
+  <data name="General_JournalEntry_CreditList" xml:space="preserve">
+    <value>kredito kontuotės</value>
+  </data>
+  <data name="General_JournalEntry_CreditListSorted" xml:space="preserve">
+    <value>kredito kontuotės</value>
+  </data>
+  <data name="General_JournalEntry_DebetList" xml:space="preserve">
+    <value>debeto kontuotės</value>
+  </data>
+  <data name="General_JournalEntry_DebetListSorted" xml:space="preserve">
+    <value>debeto kontuotės</value>
+  </data>
+  <data name="General_JournalEntry_DocType" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="General_JournalEntry_DocTypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="General_JournalEntry_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="General_JournalEntry_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="General_JournalEntry_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="General_PersonGroupAssignment_GroupID" xml:space="preserve">
+    <value>grupės ID</value>
+  </data>
+  <data name="General_PersonGroupAssignment_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="General_PersonGroupAssignment_IsAssigned" xml:space="preserve">
+    <value>priskirta</value>
+  </data>
+  <data name="General_PersonGroupAssignment_Name" xml:space="preserve">
+    <value>grupė</value>
+  </data>
+  <data name="General_PersonGroup_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="General_PersonGroup_IsInUse" xml:space="preserve">
+    <value>naudojama</value>
+  </data>
+  <data name="General_Person_AssignedToGroups" xml:space="preserve">
+    <value>grupės</value>
+  </data>
+  <data name="General_Person_CurrencyCode" xml:space="preserve">
+    <value>valiuta</value>
+  </data>
+  <data name="General_Person_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="General_Person_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="General_Person_IsClient" xml:space="preserve">
+    <value>pirkėjas</value>
+  </data>
+  <data name="General_Person_IsNaturalPerson" xml:space="preserve">
+    <value>fizinis asmuo</value>
+  </data>
+  <data name="General_Person_IsObsolete" xml:space="preserve">
+    <value>nebenaudojamas</value>
+  </data>
+  <data name="General_Person_IsSupplier" xml:space="preserve">
+    <value>tiekėjas</value>
+  </data>
+  <data name="General_Person_IsWorker" xml:space="preserve">
+    <value>darbuotojas</value>
+  </data>
+  <data name="General_Person_MustBeAssignedToWorkers" xml:space="preserve">
+    <value>yra darbo sutarčių</value>
+  </data>
+  <data name="General_Person_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="General_TemplateBookEntry_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="General_TemplateJournalEntry_CreditList" xml:space="preserve">
+    <value>kredito kontuotės</value>
+  </data>
+  <data name="General_TemplateJournalEntry_CreditListSorted" xml:space="preserve">
+    <value>kredito kontuotės</value>
+  </data>
+  <data name="General_TemplateJournalEntry_DebetList" xml:space="preserve">
+    <value>debeto kontuotės</value>
+  </data>
+  <data name="General_TemplateJournalEntry_DebetListSorted" xml:space="preserve">
+    <value>debeto kontuotės</value>
+  </data>
+  <data name="General_TemplateJournalEntry_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="General_TemplateJournalEntry_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="General_TemplateJournalEntry_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="General_TransferOfBalanceAnalytics_EntryType" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="General_TransferOfBalanceAnalytics_EntryTypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="General_TransferOfBalanceAnalytics_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="General_TransferOfBalance_AnalyticsList" xml:space="preserve">
+    <value>analitiniai likučiai</value>
+  </data>
+  <data name="General_TransferOfBalance_AnalyticsListSorted" xml:space="preserve">
+    <value>analitiniai likučiai</value>
+  </data>
+  <data name="General_TransferOfBalance_CreditList" xml:space="preserve">
+    <value>kredito likučiai</value>
+  </data>
+  <data name="General_TransferOfBalance_CreditListSorted" xml:space="preserve">
+    <value>kredito likučiai</value>
+  </data>
+  <data name="General_TransferOfBalance_DebetList" xml:space="preserve">
+    <value>debeto likučiai</value>
+  </data>
+  <data name="General_TransferOfBalance_DebetListSorted" xml:space="preserve">
+    <value>debeto likučiai</value>
+  </data>
+  <data name="General_TransferOfBalance_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="General_TransferOfBalance_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="General_TransferOfBalance_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="HelperLists_AccountInfo_AssociatedReportItem" xml:space="preserve">
+    <value>fin. atskaitomybės eilutė</value>
+  </data>
+  <data name="HelperLists_AccountInfo_Class" xml:space="preserve">
+    <value>klasė</value>
+  </data>
+  <data name="HelperLists_AccountInfo_FullName" xml:space="preserve">
+    <value>Nr. ir pavadinimas</value>
+  </data>
+  <data name="HelperLists_AccountInfo_ID" xml:space="preserve">
+    <value>Nr.</value>
+  </data>
+  <data name="HelperLists_AccountInfo_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="HelperLists_CashAccountInfo_Account" xml:space="preserve">
+    <value>apskaitos sąsk.</value>
+  </data>
+  <data name="HelperLists_CashAccountInfo_BankAccountNumber" xml:space="preserve">
+    <value>banko sąskaitos Nr.</value>
+  </data>
+  <data name="HelperLists_CashAccountInfo_BankCode" xml:space="preserve">
+    <value>banko kodas</value>
+  </data>
+  <data name="HelperLists_CashAccountInfo_BankFeeCostsAccount" xml:space="preserve">
+    <value>komisinių sąsk.</value>
+  </data>
+  <data name="HelperLists_CashAccountInfo_BankFeeLimit" xml:space="preserve">
+    <value>max komisiniai</value>
+  </data>
+  <data name="HelperLists_CashAccountInfo_BankName" xml:space="preserve">
+    <value>bankas</value>
+  </data>
+  <data name="HelperLists_CashAccountInfo_CurrencyCode" xml:space="preserve">
+    <value>valiuta</value>
+  </data>
+  <data name="HelperLists_CashAccountInfo_EnforceUniqueOperationID" xml:space="preserve">
+    <value>užtikrinti unik. kodą</value>
+  </data>
+  <data name="HelperLists_CashAccountInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HelperLists_CashAccountInfo_IsLitasEsisCompliant" xml:space="preserve">
+    <value>palaiko LITAS-ESIS</value>
+  </data>
+  <data name="HelperLists_CashAccountInfo_IsObsolete" xml:space="preserve">
+    <value>nebenaudojama</value>
+  </data>
+  <data name="HelperLists_CashAccountInfo_ManagingPersonID" xml:space="preserve">
+    <value>banko kaip kontrahento ID</value>
+  </data>
+  <data name="HelperLists_CashAccountInfo_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="HelperLists_CashAccountInfo_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="HelperLists_CompanyRegionalInfo_Address" xml:space="preserve">
+    <value>adresas</value>
+  </data>
+  <data name="HelperLists_CompanyRegionalInfo_Bank" xml:space="preserve">
+    <value>bankas</value>
+  </data>
+  <data name="HelperLists_CompanyRegionalInfo_BankAccount" xml:space="preserve">
+    <value>banko sąskaita</value>
+  </data>
+  <data name="HelperLists_CompanyRegionalInfo_BankAddress" xml:space="preserve">
+    <value>banko adresas</value>
+  </data>
+  <data name="HelperLists_CompanyRegionalInfo_BankSWIFT" xml:space="preserve">
+    <value>banko SWIFT</value>
+  </data>
+  <data name="HelperLists_CompanyRegionalInfo_Contacts" xml:space="preserve">
+    <value>kontaktinė info</value>
+  </data>
+  <data name="HelperLists_CompanyRegionalInfo_DiscountName" xml:space="preserve">
+    <value>nuolaidos pavadinimas</value>
+  </data>
+  <data name="HelperLists_CompanyRegionalInfo_HeadTitle" xml:space="preserve">
+    <value>vadovo pareigos</value>
+  </data>
+  <data name="HelperLists_CompanyRegionalInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HelperLists_CompanyRegionalInfo_InvoiceForm" xml:space="preserve">
+    <value>sąskaitos faktūros forma</value>
+  </data>
+  <data name="HelperLists_CompanyRegionalInfo_InvoiceInfoLine" xml:space="preserve">
+    <value>papildoma info sąskaitoje</value>
+  </data>
+  <data name="HelperLists_CompanyRegionalInfo_LanguageCode" xml:space="preserve">
+    <value>kalbos kodas</value>
+  </data>
+  <data name="HelperLists_CompanyRegionalInfo_LanguageName" xml:space="preserve">
+    <value>kalba</value>
+  </data>
+  <data name="HelperLists_CompanyRegionalInfo_LogoImage" xml:space="preserve">
+    <value>įmonės logo</value>
+  </data>
+  <data name="HelperLists_CompanyRegionalInfo_MeasureUnitInvoiceMade" xml:space="preserve">
+    <value>mato vnt. išrašytoje sąskaitoje</value>
+  </data>
+  <data name="HelperLists_DocumentSerialInfo_DocumentType" xml:space="preserve">
+    <value>dok. tipas</value>
+  </data>
+  <data name="HelperLists_DocumentSerialInfo_DocumentTypeHumanReadable" xml:space="preserve">
+    <value>dok. tipas</value>
+  </data>
+  <data name="HelperLists_DocumentSerialInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HelperLists_DocumentSerialInfo_Serial" xml:space="preserve">
+    <value>serija</value>
+  </data>
+  <data name="HelperLists_GoodsGroupInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HelperLists_GoodsGroupInfo_Name" xml:space="preserve">
+    <value>grupės pavadinimas</value>
+  </data>
+  <data name="HelperLists_GoodsInfo_GoodsBarcode" xml:space="preserve">
+    <value>barkodas</value>
+  </data>
+  <data name="HelperLists_GoodsInfo_GoodsCode" xml:space="preserve">
+    <value>kodas</value>
+  </data>
+  <data name="HelperLists_GoodsInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HelperLists_GoodsInfo_IsObsolete" xml:space="preserve">
+    <value>nebenaudojama</value>
+  </data>
+  <data name="HelperLists_GoodsInfo_MeasureUnit" xml:space="preserve">
+    <value>mato vnt.</value>
+  </data>
+  <data name="HelperLists_GoodsInfo_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="HelperLists_GoodsInfo_TradeItemType" xml:space="preserve">
+    <value>apyvartos tipas</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_Content" xml:space="preserve">
+    <value>turinys</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_CorrespondingAccounts" xml:space="preserve">
+    <value>kontavimai</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_DocNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_DocType" xml:space="preserve">
+    <value>dok. tipas</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_DocTypeHumanReadable" xml:space="preserve">
+    <value>dok. tipas</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_PersonCode" xml:space="preserve">
+    <value>kontrah. Kodas</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_PersonName" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_Sum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfo_AssetOperationType" xml:space="preserve">
+    <value>IT op. tipas</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfo_Content" xml:space="preserve">
+    <value>turinys</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfo_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfo_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfo_GoodsOperationType" xml:space="preserve">
+    <value>prekių op. tipas</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfo_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfo_TypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="HelperLists_LongTermAssetCustomGroupInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HelperLists_LongTermAssetCustomGroupInfo_Name" xml:space="preserve">
+    <value>grupės pavadinimas</value>
+  </data>
+  <data name="HelperLists_PersonGroupInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HelperLists_PersonGroupInfo_Name" xml:space="preserve">
+    <value>grupės pavadinimas</value>
+  </data>
+  <data name="HelperLists_PersonInfo_AccountAgainstBankBuyer" xml:space="preserve">
+    <value>pirkėjų sąsk.</value>
+  </data>
+  <data name="HelperLists_PersonInfo_AccountAgainstBankSupplyer" xml:space="preserve">
+    <value>tiekėjų sąsk.</value>
+  </data>
+  <data name="HelperLists_PersonInfo_Address" xml:space="preserve">
+    <value>adresas</value>
+  </data>
+  <data name="HelperLists_PersonInfo_Bank" xml:space="preserve">
+    <value>bankas</value>
+  </data>
+  <data name="HelperLists_PersonInfo_BankAccount" xml:space="preserve">
+    <value>banko sąskaita</value>
+  </data>
+  <data name="HelperLists_PersonInfo_Code" xml:space="preserve">
+    <value>įmonės (asmens) kodas</value>
+  </data>
+  <data name="HelperLists_PersonInfo_CodeSODRA" xml:space="preserve">
+    <value>SODRA kodas</value>
+  </data>
+  <data name="HelperLists_PersonInfo_CodeVAT" xml:space="preserve">
+    <value>PVM kodas</value>
+  </data>
+  <data name="HelperLists_PersonInfo_ContactInfo" xml:space="preserve">
+    <value>kontaktinė info</value>
+  </data>
+  <data name="HelperLists_PersonInfo_CurrencyCode" xml:space="preserve">
+    <value>valiuta</value>
+  </data>
+  <data name="HelperLists_PersonInfo_Email" xml:space="preserve">
+    <value>e-paštas</value>
+  </data>
+  <data name="HelperLists_PersonInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HelperLists_PersonInfo_InternalCode" xml:space="preserve">
+    <value>vidinis kodas</value>
+  </data>
+  <data name="HelperLists_PersonInfo_IsClient" xml:space="preserve">
+    <value>pirkėjas</value>
+  </data>
+  <data name="HelperLists_PersonInfo_IsNaturalPerson" xml:space="preserve">
+    <value>fizinis asmuo</value>
+  </data>
+  <data name="HelperLists_PersonInfo_IsObsolete" xml:space="preserve">
+    <value>nebenaudojama</value>
+  </data>
+  <data name="HelperLists_PersonInfo_IsSupplier" xml:space="preserve">
+    <value>tiekėjas</value>
+  </data>
+  <data name="HelperLists_PersonInfo_IsWorker" xml:space="preserve">
+    <value>darbuotojas</value>
+  </data>
+  <data name="HelperLists_PersonInfo_LanguageCode" xml:space="preserve">
+    <value>kalbos kodas</value>
+  </data>
+  <data name="HelperLists_PersonInfo_LanguageName" xml:space="preserve">
+    <value>kalba</value>
+  </data>
+  <data name="HelperLists_PersonInfo_Name" xml:space="preserve">
+    <value>pavadinimas (vardas, pavardė)</value>
+  </data>
+  <data name="HelperLists_PersonInfo_NameUserFriendly" xml:space="preserve">
+    <value>išplėstinis pavadinimas</value>
+  </data>
+  <data name="HelperLists_ProductionCalculationInfo_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="HelperLists_ProductionCalculationInfo_Description" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="HelperLists_ProductionCalculationInfo_GoodsID" xml:space="preserve">
+    <value>gaminio ID</value>
+  </data>
+  <data name="HelperLists_ProductionCalculationInfo_GoodsName" xml:space="preserve">
+    <value>gaminys</value>
+  </data>
+  <data name="HelperLists_ProductionCalculationInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HelperLists_ProductionCalculationInfo_IsObsolete" xml:space="preserve">
+    <value>nebenaudojama</value>
+  </data>
+  <data name="HelperLists_RegionalContentInfo_ContentInvoice" xml:space="preserve">
+    <value>pavadinimas sąskaitoje</value>
+  </data>
+  <data name="HelperLists_RegionalContentInfo_LanguageCode" xml:space="preserve">
+    <value>kalbos kodas</value>
+  </data>
+  <data name="HelperLists_RegionalContentInfo_MeasureUnit" xml:space="preserve">
+    <value>mato vnt.</value>
+  </data>
+  <data name="HelperLists_RegionalContentInfo_VatExempt" xml:space="preserve">
+    <value>PVM išimtis</value>
+  </data>
+  <data name="HelperLists_RegionalPriceInfo_CurrencyCode" xml:space="preserve">
+    <value>valiuta</value>
+  </data>
+  <data name="HelperLists_RegionalPriceInfo_ValuePerUnitPurchases" xml:space="preserve">
+    <value>vnt. kaina pirkimai</value>
+  </data>
+  <data name="HelperLists_RegionalPriceInfo_ValuePerUnitSales" xml:space="preserve">
+    <value>vnt. kaina pardavimai</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_AccountPurchase" xml:space="preserve">
+    <value>pirkimų sąsk.</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_AccountSales" xml:space="preserve">
+    <value>pardavimų sąsk.</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_AccountVatPurchase" xml:space="preserve">
+    <value>pirkimų PVM sąsk.</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_AccountVatSales" xml:space="preserve">
+    <value>pardavimų PVM sąsk.</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_Amount" xml:space="preserve">
+    <value>kiekis</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_IsInUse" xml:space="preserve">
+    <value>naudojama</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_IsObsolete" xml:space="preserve">
+    <value>nebenaudojama</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_NameShort" xml:space="preserve">
+    <value>trumpas pavadinimas</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_RateVatPurchase" xml:space="preserve">
+    <value>pirkimų PVM tarifas</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_RateVatSales" xml:space="preserve">
+    <value>pardavimų PVM tarifas</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_RegionalContents" xml:space="preserve">
+    <value>lokalizuoti pavadinimai</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_RegionalPrices" xml:space="preserve">
+    <value>lokalizuotos kainos</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_Type" xml:space="preserve">
+    <value>apyvartos tipas</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_TypeHumanReadable" xml:space="preserve">
+    <value>apyvartos tipas</value>
+  </data>
+  <data name="HelperLists_ShortLabourContract_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="HelperLists_ShortLabourContract_Number" xml:space="preserve">
+    <value>Nr.</value>
+  </data>
+  <data name="HelperLists_ShortLabourContract_Serial" xml:space="preserve">
+    <value>serija</value>
+  </data>
+  <data name="HelperLists_ShortLabourContract_ToString" xml:space="preserve">
+    <value>{0} Nr. {1}{2}</value>
+  </data>
+  <data name="HelperLists_TemplateJournalEntryInfo_Content" xml:space="preserve">
+    <value>turinys</value>
+  </data>
+  <data name="HelperLists_TemplateJournalEntryInfo_CorespondationListString" xml:space="preserve">
+    <value>kontavimai</value>
+  </data>
+  <data name="HelperLists_TemplateJournalEntryInfo_CreditList" xml:space="preserve">
+    <value>kredito kontavimai</value>
+  </data>
+  <data name="HelperLists_TemplateJournalEntryInfo_CreditListString" xml:space="preserve">
+    <value>kredito kontavimai</value>
+  </data>
+  <data name="HelperLists_TemplateJournalEntryInfo_DebetList" xml:space="preserve">
+    <value>debeto kontavimai</value>
+  </data>
+  <data name="HelperLists_TemplateJournalEntryInfo_DebetListString" xml:space="preserve">
+    <value>debeto kontavimai</value>
+  </data>
+  <data name="HelperLists_TemplateJournalEntryInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HelperLists_TemplateJournalEntryInfo_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="HelperLists_WarehouseInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HelperLists_WarehouseInfo_IsObsolete" xml:space="preserve">
+    <value>nebenaudojamas</value>
+  </data>
+  <data name="HelperLists_WarehouseInfo_IsProduction" xml:space="preserve">
+    <value>gamybos sandėlis</value>
+  </data>
+  <data name="HelperLists_WarehouseInfo_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="HelperLists_WarehouseInfo_WarehouseAccount" xml:space="preserve">
+    <value>apskaitos sąsk.</value>
+  </data>
+  <data name="HelperLists_WorkTimeClassInfo_AlreadyIncludedInGeneralTime" xml:space="preserve">
+    <value>automatiškai įtraukiama į darbo laiką</value>
+  </data>
+  <data name="HelperLists_WorkTimeClassInfo_Code" xml:space="preserve">
+    <value>kodas</value>
+  </data>
+  <data name="HelperLists_WorkTimeClassInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HelperLists_WorkTimeClassInfo_InclusionPercentage" xml:space="preserve">
+    <value>įtraukimo į darbo laiką %</value>
+  </data>
+  <data name="HelperLists_WorkTimeClassInfo_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="HelperLists_WorkTimeClassInfo_SpecialWageShema" xml:space="preserve">
+    <value>Spec. apmokėjimo formulė</value>
+  </data>
+  <data name="HelperLists_WorkTimeClassInfo_SpecialWageShemaApplicable" xml:space="preserve">
+    <value>taikoma spec. apmokėjimo schema</value>
+  </data>
+  <data name="HelperLists_WorkTimeClassInfo_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="HelperLists_WorkTimeClassInfo_TypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="HelperLists_WorkTimeClassInfo_WithoutWorkHours" xml:space="preserve">
+    <value>be darbo valandų</value>
+  </data>
+  <data name="Settings_CommonSettings_CodeWageGPM" xml:space="preserve">
+    <value>darbo užmokesčio kodas GPM deklaracijoje</value>
+  </data>
+  <data name="Settings_CommonSettings_TaxRates" xml:space="preserve">
+    <value>mokesčių tarifai</value>
+  </data>
+  <data name="Settings_CompanyAccountInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Settings_CompanyAccountInfo_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Settings_CompanyAccountInfo_TypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Settings_CompanyAccountInfo_Value" xml:space="preserve">
+    <value>sąskaita</value>
+  </data>
+  <data name="Settings_CompanyInfo_Accountant" xml:space="preserve">
+    <value>buhalteris</value>
+  </data>
+  <data name="Settings_CompanyInfo_AccountClassPrefix11" xml:space="preserve">
+    <value>1 klases prefiksas</value>
+  </data>
+  <data name="Settings_CompanyInfo_AccountClassPrefix12" xml:space="preserve">
+    <value>1 klases prefiksas alternat.</value>
+  </data>
+  <data name="Settings_CompanyInfo_AccountClassPrefix21" xml:space="preserve">
+    <value>2 klases prefiksas</value>
+  </data>
+  <data name="Settings_CompanyInfo_AccountClassPrefix22" xml:space="preserve">
+    <value>2 klases prefiksas alternat.</value>
+  </data>
+  <data name="Settings_CompanyInfo_AccountClassPrefix31" xml:space="preserve">
+    <value>3 klases prefiksas</value>
+  </data>
+  <data name="Settings_CompanyInfo_AccountClassPrefix32" xml:space="preserve">
+    <value>3 klases prefiksas alternat.</value>
+  </data>
+  <data name="Settings_CompanyInfo_AccountClassPrefix41" xml:space="preserve">
+    <value>4 klases prefiksas</value>
+  </data>
+  <data name="Settings_CompanyInfo_AccountClassPrefix42" xml:space="preserve">
+    <value>4 klases prefiksas alternat.</value>
+  </data>
+  <data name="Settings_CompanyInfo_AccountClassPrefix51" xml:space="preserve">
+    <value>5 klases prefiksas</value>
+  </data>
+  <data name="Settings_CompanyInfo_AccountClassPrefix52" xml:space="preserve">
+    <value>5 klases prefiksas alternat.</value>
+  </data>
+  <data name="Settings_CompanyInfo_AccountClassPrefix61" xml:space="preserve">
+    <value>6 klases prefiksas</value>
+  </data>
+  <data name="Settings_CompanyInfo_AccountClassPrefix62" xml:space="preserve">
+    <value>6 klases prefiksas alternat.</value>
+  </data>
+  <data name="Settings_CompanyInfo_Accounts" xml:space="preserve">
+    <value>sąskaitos</value>
+  </data>
+  <data name="Settings_CompanyInfo_AddDateToInvoiceNumber" xml:space="preserve">
+    <value>naudoti datą sąskaitos numeryje</value>
+  </data>
+  <data name="Settings_CompanyInfo_AddDateToTillIncomeOrderNumber" xml:space="preserve">
+    <value>naudoti datą kasos pajamų orderio numeryje</value>
+  </data>
+  <data name="Settings_CompanyInfo_AddDateToTillSpendingsOrderNumber" xml:space="preserve">
+    <value>naudoti datą kasos išlaidų orderio numeryje</value>
+  </data>
+  <data name="Settings_CompanyInfo_Address" xml:space="preserve">
+    <value>adresas</value>
+  </data>
+  <data name="Settings_CompanyInfo_Bank" xml:space="preserve">
+    <value>bankas</value>
+  </data>
+  <data name="Settings_CompanyInfo_BankAccount" xml:space="preserve">
+    <value>banko sąskaita</value>
+  </data>
+  <data name="Settings_CompanyInfo_BaseCurrency" xml:space="preserve">
+    <value>bazinė valiuta</value>
+  </data>
+  <data name="Settings_CompanyInfo_Cashier" xml:space="preserve">
+    <value>kasininkas</value>
+  </data>
+  <data name="Settings_CompanyInfo_Code" xml:space="preserve">
+    <value>įmonės kodas</value>
+  </data>
+  <data name="Settings_CompanyInfo_CodeSODRA" xml:space="preserve">
+    <value>SODRA kodas</value>
+  </data>
+  <data name="Settings_CompanyInfo_CodeVat" xml:space="preserve">
+    <value>PVM kodas</value>
+  </data>
+  <data name="Settings_CompanyInfo_DefaultInvoiceMadeContent" xml:space="preserve">
+    <value>naujos išrašytos sąskaitos turinys</value>
+  </data>
+  <data name="Settings_CompanyInfo_DefaultInvoiceReceivedContent" xml:space="preserve">
+    <value>naujos gautos sąskaitos turinys</value>
+  </data>
+  <data name="Settings_CompanyInfo_DefaultTaxNpdFormula" xml:space="preserve">
+    <value>NPD formulė</value>
+  </data>
+  <data name="Settings_CompanyInfo_Email" xml:space="preserve">
+    <value>e-paštas</value>
+  </data>
+  <data name="Settings_CompanyInfo_HeadPerson" xml:space="preserve">
+    <value>vadovas</value>
+  </data>
+  <data name="Settings_CompanyInfo_LastClosingDate" xml:space="preserve">
+    <value>paskutinis uždarymas</value>
+  </data>
+  <data name="Settings_CompanyInfo_MeasureUnitInvoiceMade" xml:space="preserve">
+    <value>mato vnt. išrašytose sąskaitose</value>
+  </data>
+  <data name="Settings_CompanyInfo_MeasureUnitInvoiceReceived" xml:space="preserve">
+    <value>mato vnt. gautose sąskaitose</value>
+  </data>
+  <data name="Settings_CompanyInfo_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="Settings_CompanyInfo_NumbersInInvoice" xml:space="preserve">
+    <value>skaitmenų kiekis sąskaitos numeryje</value>
+  </data>
+  <data name="Settings_CompanyInfo_Rates" xml:space="preserve">
+    <value>tarifai</value>
+  </data>
+  <data name="Settings_CompanyRateInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Settings_CompanyRateInfo_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Settings_CompanyRateInfo_TypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Settings_CompanyRateInfo_Value" xml:space="preserve">
+    <value>tarifas %</value>
+  </data>
+  <data name="Settings_DocumentSerial_DocumentType" xml:space="preserve">
+    <value>dok. tipas</value>
+  </data>
+  <data name="Settings_DocumentSerial_DocumentTypeHumanReadable" xml:space="preserve">
+    <value>dok. tipas</value>
+  </data>
+  <data name="Settings_DocumentSerial_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Settings_DocumentSerial_Serial" xml:space="preserve">
+    <value>serija</value>
+  </data>
+  <data name="Settings_DocumentSerial_WasUsed" xml:space="preserve">
+    <value>naudojama</value>
+  </data>
+  <data name="Settings_TaxRate_IsObsolete" xml:space="preserve">
+    <value>nebenaudojama</value>
+  </data>
+  <data name="Settings_TaxRate_TaxRate" xml:space="preserve">
+    <value>tarifas %</value>
+  </data>
+  <data name="Settings_TaxRate_TaxType" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Settings_TaxRate_TaxTypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItemList_ItemAlreadyExists" xml:space="preserve">
+    <value>Klaida. Šiam darbuotojui jau yra sukurta tokio tipo eilutė.</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_ContractNumber" xml:space="preserve">
+    <value>sutarties Nr.</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_ContractSerial" xml:space="preserve">
+    <value>sutarties serija</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day10" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day11" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day12" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day13" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day14" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day15" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day16" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day17" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day18" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day19" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day2" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day20" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day21" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day22" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day23" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day24" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day25" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day26" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day27" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day28" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day29" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day3" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day30" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day31" xml:space="preserve">
+    <value>31</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day4" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day5" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day6" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day7" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day8" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Day9" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_InvalidType" xml:space="preserve">
+    <value>Klaida. Darbo ir poilsio laiko tipas '{0}: {1}' nenumato valandų apskaitos.</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_ToString" xml:space="preserve">
+    <value>nestandartinis darbo laikas, kodas {0}, darbuotojas {1}, DS Nr. {2}{3}</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_TotalHours" xml:space="preserve">
+    <value>viso val.</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_TypeCode" xml:space="preserve">
+    <value>tipo kodas</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_TypeName" xml:space="preserve">
+    <value>nestandartinis darbo laikas</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_TypeNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas nestandartinio darbo ir poilsio laiko tipas.</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_Worker" xml:space="preserve">
+    <value>vardas, pavardė</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_WorkerID" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_WorkerNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas darbuotojas, kuriam reikėtų sukurti nestandartinio laiko apskaitos eilutę.</value>
+  </data>
+  <data name="Workers_SpecialWorkTimeItem_WorkerPosition" xml:space="preserve">
+    <value>pareigos</value>
+  </data>
+  <data name="Workers_WorkTimeClassList_EmptyList" xml:space="preserve">
+    <value>Klaida. Neįkrauta nė viena eilutė.</value>
+  </data>
+  <data name="Workers_WorkTimeClassList_InvalidSetup" xml:space="preserve">
+    <value>Klaida. Tipinę darbo laiko nomenklatūrą galima įkrauti tik tuščiam sąrašui.</value>
+  </data>
+  <data name="Workers_WorkTimeClass_AlreadyIncludedInGeneralTime" xml:space="preserve">
+    <value>automat. įtraukiama į darbo laiką</value>
+  </data>
+  <data name="Workers_WorkTimeClass_Code" xml:space="preserve">
+    <value>kodas</value>
+  </data>
+  <data name="Workers_WorkTimeClass_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Workers_WorkTimeClass_InclusionPercentage" xml:space="preserve">
+    <value>įtraukimo į darbo laiką %</value>
+  </data>
+  <data name="Workers_WorkTimeClass_InclusionPercentageConstant" xml:space="preserve">
+    <value>Įtraukimo į darbo laiką procentas pasirinktam tipui turi būti lygus {0} %.</value>
+  </data>
+  <data name="Workers_WorkTimeClass_InclusionPercentageMustBeNull" xml:space="preserve">
+    <value>Įtraukimo į darbo laiką procentas gali būti nurodomas tik tipui 'Kitas įskaitomas į darbo laiką'.</value>
+  </data>
+  <data name="Workers_WorkTimeClass_InclusionPercentageNull" xml:space="preserve">
+    <value>Nenurodytas įtraukimo į darbo laiką procentas.</value>
+  </data>
+  <data name="Workers_WorkTimeClass_InclusionPercentageOutOfRange" xml:space="preserve">
+    <value>Įtraukimo į darbo laiką procentas negali būti neigiamas arba didesnis nei 100 %.</value>
+  </data>
+  <data name="Workers_WorkTimeClass_InvalidDelete" xml:space="preserve">
+    <value>Klaida. Darbo laiko klasė '{0}' naudojama darbo laiko apskaitos žiniaraščiuose. Jos pašalinti neleidžiama.</value>
+  </data>
+  <data name="Workers_WorkTimeClass_IsInUse" xml:space="preserve">
+    <value>naudojama</value>
+  </data>
+  <data name="Workers_WorkTimeClass_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="Workers_WorkTimeClass_SpecialWageShema" xml:space="preserve">
+    <value>apmokėjimo formulė</value>
+  </data>
+  <data name="Workers_WorkTimeClass_SpecialWageShemaApplicable" xml:space="preserve">
+    <value>taikoma speciali apmokėjimo formulė</value>
+  </data>
+  <data name="Workers_WorkTimeClass_SpecialWageShemaApplicableMustBeNull" xml:space="preserve">
+    <value>Pasirinktam tipui speciali apmokėjimo schema negalima.</value>
+  </data>
+  <data name="Workers_WorkTimeClass_SpecialWageShemaApplicableNull" xml:space="preserve">
+    <value>Prastovos tipui turi būti nustatyta apmokėjimo schema.</value>
+  </data>
+  <data name="Workers_WorkTimeClass_SpecialWageShemaInvalid" xml:space="preserve">
+    <value>Klaidingai įvesta formulė. Matematinės išraiškos klaida. (galimi kintamieji: VAL - dirbtos šios kategorijos valandos, DIN - dirbtos šios kategorijos dienos, DUV - apskaičiuotas valandinis DU, DUD - apskaičiuotas dienos DU, VDD - dienos VDU, VDV - valandos VDU).</value>
+  </data>
+  <data name="Workers_WorkTimeClass_SpecialWageShemaNull" xml:space="preserve">
+    <value>Nenurodyta apmokėjimo schemos formulė (galimi kintamieji: VAL - dirbtos šios kategorijos valandos, DIN - dirbtos šios kategorijos dienos, DUV - apskaičiuotas valandinis DU, DUD - apskaičiuotas dienos DU, VDD - dienos VDU, VDV - valandos VDU).</value>
+  </data>
+  <data name="Workers_WorkTimeClass_ToString" xml:space="preserve">
+    <value>darbo ir poilsio laiko klasė {0} - {1}</value>
+  </data>
+  <data name="Workers_WorkTimeClass_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Workers_WorkTimeClass_TypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Workers_WorkTimeClass_TypeName" xml:space="preserve">
+    <value>darbo ir poilsio laiko klasė</value>
+  </data>
+  <data name="Workers_WorkTimeClass_WithoutWorkHours" xml:space="preserve">
+    <value>be valandų</value>
+  </data>
+  <data name="Workers_WorkTimeClass_WithoutWorkHoursMustBeNull" xml:space="preserve">
+    <value>Pasirinktai kategorijai negali būti skaičiuojamos valandos.</value>
+  </data>
+  <data name="Workers_WorkTimeClass_WithoutWorkHoursNull" xml:space="preserve">
+    <value>Pasirinktai kategorijai turi būti skaičiuojamos valandos.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_ContractNumber" xml:space="preserve">
+    <value>sutarties Nr.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_ContractSerial" xml:space="preserve">
+    <value>sutarties serija</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day1" xml:space="preserve">
+    <value>1 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day10" xml:space="preserve">
+    <value>10 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day11" xml:space="preserve">
+    <value>11 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day12" xml:space="preserve">
+    <value>12 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day13" xml:space="preserve">
+    <value>13 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day14" xml:space="preserve">
+    <value>14 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day15" xml:space="preserve">
+    <value>15 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day16" xml:space="preserve">
+    <value>16 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day17" xml:space="preserve">
+    <value>17 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day18" xml:space="preserve">
+    <value>18 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day19" xml:space="preserve">
+    <value>19 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day2" xml:space="preserve">
+    <value>2 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day20" xml:space="preserve">
+    <value>20 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day21" xml:space="preserve">
+    <value>21 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day22" xml:space="preserve">
+    <value>22 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day23" xml:space="preserve">
+    <value>23 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day24" xml:space="preserve">
+    <value>24 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day25" xml:space="preserve">
+    <value>25 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day26" xml:space="preserve">
+    <value>26 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day27" xml:space="preserve">
+    <value>27 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day28" xml:space="preserve">
+    <value>28 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day29" xml:space="preserve">
+    <value>29 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day3" xml:space="preserve">
+    <value>3 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day30" xml:space="preserve">
+    <value>30 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day31" xml:space="preserve">
+    <value>31 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day4" xml:space="preserve">
+    <value>4 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day5" xml:space="preserve">
+    <value>5 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day6" xml:space="preserve">
+    <value>6 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day7" xml:space="preserve">
+    <value>7 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day8" xml:space="preserve">
+    <value>8 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Day9" xml:space="preserve">
+    <value>9 d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType1" xml:space="preserve">
+    <value>1 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType10" xml:space="preserve">
+    <value>10 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType11" xml:space="preserve">
+    <value>11 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType12" xml:space="preserve">
+    <value>12 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType13" xml:space="preserve">
+    <value>13 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType14" xml:space="preserve">
+    <value>14 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType15" xml:space="preserve">
+    <value>15 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType16" xml:space="preserve">
+    <value>16 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType17" xml:space="preserve">
+    <value>17 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType18" xml:space="preserve">
+    <value>18 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType19" xml:space="preserve">
+    <value>19 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType2" xml:space="preserve">
+    <value>2 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType20" xml:space="preserve">
+    <value>20 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType21" xml:space="preserve">
+    <value>21 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType22" xml:space="preserve">
+    <value>22 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType23" xml:space="preserve">
+    <value>23 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType24" xml:space="preserve">
+    <value>24 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType25" xml:space="preserve">
+    <value>25 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType26" xml:space="preserve">
+    <value>26 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType27" xml:space="preserve">
+    <value>27 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType28" xml:space="preserve">
+    <value>28 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType29" xml:space="preserve">
+    <value>29 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType3" xml:space="preserve">
+    <value>3 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType30" xml:space="preserve">
+    <value>30 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType31" xml:space="preserve">
+    <value>31 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType4" xml:space="preserve">
+    <value>4 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType5" xml:space="preserve">
+    <value>5 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType6" xml:space="preserve">
+    <value>6 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType7" xml:space="preserve">
+    <value>7 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType8" xml:space="preserve">
+    <value>8 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_DayType9" xml:space="preserve">
+    <value>9 d. tipas</value>
+  </data>
+  <data name="Workers_WorkTimeItem_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Workers_WorkTimeItem_QuotaDays" xml:space="preserve">
+    <value>grafiko d.d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_QuotaHours" xml:space="preserve">
+    <value>grafiko d.v.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_TotalDays" xml:space="preserve">
+    <value>viso d.d.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_TotalHours" xml:space="preserve">
+    <value>viso d.v.</value>
+  </data>
+  <data name="Workers_WorkTimeItem_Worker" xml:space="preserve">
+    <value>vardas, pavardė</value>
+  </data>
+  <data name="Workers_WorkTimeItem_WorkerID" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="Workers_WorkTimeItem_WorkerLoad" xml:space="preserve">
+    <value>krūvis (etatai)</value>
+  </data>
+  <data name="Workers_WorkTimeItem_WorkerPosition" xml:space="preserve">
+    <value>pareigos</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_DefaultPublicHolidayTimeClass" xml:space="preserve">
+    <value>tipinė švenčių dienų klasė</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_DefaultRestTimeClass" xml:space="preserve">
+    <value>tipinė poilsio laiko klasė</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_GeneralItemList" xml:space="preserve">
+    <value>įprastinis darbo laikas</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_GeneralItemListSorted" xml:space="preserve">
+    <value>įprastinis darbo laikas</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_Month" xml:space="preserve">
+    <value>mėn.</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_Number" xml:space="preserve">
+    <value>numeris</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_PreparedByName" xml:space="preserve">
+    <value>rengėjo vardas, pavardė</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_PreparedByPosition" xml:space="preserve">
+    <value>rengėjo pareigos</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_SignedByName" xml:space="preserve">
+    <value>pasirašančio vardas, pavardė</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_SignedByPosition" xml:space="preserve">
+    <value>pasirašančio pareigos</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_SpecialItemList" xml:space="preserve">
+    <value>nestandartinis darbo laikas</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_SpecialItemListSorted" xml:space="preserve">
+    <value>nestandartinis darbo laikas</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_SubDivision" xml:space="preserve">
+    <value>padalinys</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_TotalWorkTime" xml:space="preserve">
+    <value>viso d.v.</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_WorkersCount" xml:space="preserve">
+    <value>darbuotojų skaičius</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_Year" xml:space="preserve">
+    <value>metai</value>
+  </data>
+  <data name="Workers_WorkTimeType_AnnualHolidays" xml:space="preserve">
+    <value>kasmetinės atostogos</value>
+  </data>
+  <data name="Workers_WorkTimeType_DownTime" xml:space="preserve">
+    <value>prastova</value>
+  </data>
+  <data name="Workers_WorkTimeType_NightWork" xml:space="preserve">
+    <value>darbas naktį</value>
+  </data>
+  <data name="Workers_WorkTimeType_OtherExcluded" xml:space="preserve">
+    <value>kitas neįskaitomas į darbo laiką</value>
+  </data>
+  <data name="Workers_WorkTimeType_OtherHolidays" xml:space="preserve">
+    <value>kitos atostogos</value>
+  </data>
+  <data name="Workers_WorkTimeType_OtherIncluded" xml:space="preserve">
+    <value>kitas įskaitomas į darbo laiką</value>
+  </data>
+  <data name="Workers_WorkTimeType_OvertimeWork" xml:space="preserve">
+    <value>viršvalandžiai</value>
+  </data>
+  <data name="Workers_WorkTimeType_PublicHolidaysAndRestDayWork" xml:space="preserve">
+    <value>darbas švenčių ir poilsio dienomis</value>
+  </data>
+  <data name="Workers_WorkTimeType_SickDays" xml:space="preserve">
+    <value>nedarbingumas</value>
+  </data>
+  <data name="Workers_WorkTimeType_Truancy" xml:space="preserve">
+    <value>pravaikšta</value>
+  </data>
+  <data name="Workers_WorkTimeType_UnusualWork" xml:space="preserve">
+    <value>darbas ypatingomis sąlygomis</value>
+  </data>
+  <data name="Workers_WorkTimeItem_ToString" xml:space="preserve">
+    <value>standartinis darbo laikas, darbuotojas {0}, DS Nr. {1}{2}</value>
+  </data>
+  <data name="Workers_WorkTimeItem_TypeName" xml:space="preserve">
+    <value>standartinis darbo laikas</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_MonthInvalid" xml:space="preserve">
+    <value>Klaida. Mėnuo negali būti didesnis nei 12.</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_MonthNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas mėnuo.</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_PublicHolidayTimeTypeNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas darbo ir poilsio laiko tipas švenčių dienoms.</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_RestTimeTypeNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas darbo ir poilsio laiko tipas paprastoms poilsio dienoms.</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_ToString" xml:space="preserve">
+    <value>{0} darbo laiko apskaitos žiniaraštis už {1} metų {2} mėn. (ID={3})</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_TypeName" xml:space="preserve">
+    <value>darbo laiko apskaitos žiniaraštis</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_YearInvalid" xml:space="preserve">
+    <value>Klaida. Metai negali būti ankstesni už 1950 ir vėlesni už 2100.</value>
+  </data>
+  <data name="Workers_WorkTimeSheet_YearNull" xml:space="preserve">
+    <value>Klaida. Nenurodyti metai.</value>
+  </data>
 </root>

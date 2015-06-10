@@ -1,5 +1,9 @@
 Namespace Workers
 
+    ''' <summary>
+    ''' Represents general data about work time and public holiday in a country.
+    ''' </summary>
+    ''' <remarks>Data is managed localy in files <see cref="WORKTIMEDATA_FILE"/> and <see cref="PUBLICHOLIDAYSDATA_FILE"/>.</remarks>
     Public Class WorkTime
 
         Private _Year As Integer
@@ -33,7 +37,7 @@ Namespace Workers
 
         Public ReadOnly Property WorkHoursFor5WorkDayWeek() As Double
             Get
-                Return _WorkHoursFor5WorkDayWeek
+                Return CRound(_WorkHoursFor5WorkDayWeek, ROUNDWORKTIME)
             End Get
         End Property
 
@@ -45,7 +49,7 @@ Namespace Workers
 
         Public ReadOnly Property WorkHoursFor6WorkDayWeek() As Double
             Get
-                Return _WorkHoursFor6WorkDayWeek
+                Return CRound(_WorkHoursFor6WorkDayWeek, ROUNDWORKTIME)
             End Get
         End Property
 

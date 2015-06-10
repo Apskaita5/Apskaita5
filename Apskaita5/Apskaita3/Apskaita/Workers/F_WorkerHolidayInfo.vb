@@ -1,4 +1,6 @@
 ﻿Imports ApskaitaObjects.ActiveReports
+Imports ApskaitaObjects.HelperLists
+
 Public Class F_WorkerHolidayInfo
     Implements ISupportsPrinting
 
@@ -49,13 +51,13 @@ Public Class F_WorkerHolidayInfo
         ByVal e As System.EventArgs) Handles RefreshButton.Click
 
         If LabourContractComboBox.SelectedItem Is Nothing OrElse _
-            Not DirectCast(LabourContractComboBox.SelectedItem, Workers.ShortLabourContract).Number > 0 Then
+            Not DirectCast(LabourContractComboBox.SelectedItem, ShortLabourContract).Number > 0 Then
             MsgBox("Klaida. Nepasirinkta darbo sutartis.", MsgBoxStyle.Exclamation, "Klaida.")
             Exit Sub
         End If
 
-        Dim nSerial As String = CType(LabourContractComboBox.SelectedItem, Workers.ShortLabourContract).Serial.Trim
-        Dim nNumber As Integer = CType(LabourContractComboBox.SelectedItem, Workers.ShortLabourContract).Number
+        Dim nSerial As String = CType(LabourContractComboBox.SelectedItem, ShortLabourContract).Serial.Trim
+        Dim nNumber As Integer = CType(LabourContractComboBox.SelectedItem, ShortLabourContract).Number
 
         Using bm As New BindingsManager(WorkerHolidayInfoBindingSource, _
             HolidayCalculatedListBindingSource, HolidaySpentListBindingSource, False, True)
@@ -87,9 +89,9 @@ Public Class F_WorkerHolidayInfo
             Exit Sub
         End If
 
-        Dim contractList As Workers.ShortLabourContractList
+        Dim contractList As ShortLabourContractList
         Try
-            contractList = LoadObject(Of Workers.ShortLabourContractList) _
+            contractList = LoadObject(Of ShortLabourContractList) _
                 (Nothing, "GetListForPerson", True, currentWorker.ID)
         Catch ex As Exception
             ShowError(ex)

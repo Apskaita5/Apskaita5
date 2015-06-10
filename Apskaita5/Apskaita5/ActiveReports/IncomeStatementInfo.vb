@@ -116,6 +116,7 @@ Namespace ActiveReports
         ''' Current balance without excluding closing impact.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property ActualBalanceCurrent() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -127,6 +128,7 @@ Namespace ActiveReports
         ''' Previous period balance without excluding closing impact.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property ActualBalanceFormer() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -138,6 +140,7 @@ Namespace ActiveReports
         ''' Current balance excluding closing impact.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property OptimizedBalanceCurrent() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -149,6 +152,7 @@ Namespace ActiveReports
         ''' Previous period balance excluding closing impact.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property OptimizedBalanceFormer() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get

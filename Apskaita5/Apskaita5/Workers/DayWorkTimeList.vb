@@ -1,5 +1,10 @@
 Namespace Workers
 
+    ''' <summary>
+    ''' Represents normal work time duration or rest time for a certain labour contract for a certain month.
+    ''' </summary>
+    ''' <remarks>Should only be used as a child of a <see cref="WorkTimeItem">WorkTimeItem</see>.
+    ''' Values are stored in the database table dayworktimes.</remarks>
     <Serializable()> _
     Public Class DayWorkTimeList
         Inherits BusinessListBase(Of DayWorkTimeList, DayWorkTime)
@@ -26,7 +31,12 @@ Namespace Workers
         End Function
 
 
-        Public Function GetItemForDay(ByVal DayNumber As Integer) As DayWorkTime
+        ''' <summary>
+        ''' Gets a DayWorkTime for a certain day of the current month.
+        ''' </summary>
+        ''' <param name="dayNumber">Number of the day to get a DayWorkTime for.</param>
+        ''' <remarks></remarks>
+        Public Function GetItemForDay(ByVal dayNumber As Integer) As DayWorkTime
             For Each i As DayWorkTime In Me
                 If i.DayNumber = DayNumber Then Return i
             Next
@@ -34,22 +44,22 @@ Namespace Workers
         End Function
 
 
-        Friend Function SetLengthForDay(ByVal DayNumber As Integer, ByVal newLength As Double) As Boolean
+        Friend Function TrySetLengthForDay(ByVal dayNumber As Integer, ByVal newLength As Double) As Boolean
             For Each i As DayWorkTime In Me
-                If i.DayNumber = DayNumber Then Return i.SetLength(newLength)
+                If i.DayNumber = dayNumber Then Return i.SetLength(newLength)
             Next
             Return False
         End Function
 
-        Friend Function SetTypeForDay(ByVal DayNumber As Integer, _
+        Friend Function TrySetTypeForDay(ByVal dayNumber As Integer, _
             ByVal newType As WorkTimeClassInfo) As Boolean
             For Each i As DayWorkTime In Me
-                If i.DayNumber = DayNumber Then Return i.SetType(newType)
+                If i.DayNumber = dayNumber Then Return i.SetType(newType)
             Next
             Return False
         End Function
 
-        Friend Function GetTotalDays() As Integer
+        Friend Function GetTotalWorkDays() As Integer
             Dim result As Integer = 0
             For Each i As DayWorkTime In Me
                 If (i.Type Is Nothing OrElse Not i.Type.ID > 0) AndAlso i.Length > 0 Then _
@@ -58,19 +68,19 @@ Namespace Workers
             Return result
         End Function
 
-        Friend Function GetTotalAbsenceDays(ByVal DefaultRestTimeClass As WorkTimeClassInfo, _
-            ByVal DefaultPublicHolidaysClass As WorkTimeClassInfo) As Integer
+        Friend Function GetTotalAbsenceDays(ByVal defaultRestTimeClass As WorkTimeClassInfo, _
+            ByVal defaultPublicHolidaysClass As WorkTimeClassInfo) As Integer
             Dim result As Integer = 0
             For Each i As DayWorkTime In Me
                 If Not i.Length > 0 AndAlso Not i.Type Is Nothing AndAlso i.Type.ID > 0 _
-                    AndAlso i.Type.ID <> DefaultRestTimeClass.ID _
-                    AndAlso i.Type.ID <> DefaultPublicHolidaysClass.ID Then _
+                    AndAlso i.Type.ID <> defaultRestTimeClass.ID _
+                    AndAlso i.Type.ID <> defaultPublicHolidaysClass.ID Then _
                     result += 1
             Next
             Return result
         End Function
 
-        Friend Function GetTotalHours() As Double
+        Friend Function GetTotalWorkHours() As Double
             Dim result As Double = 0
             For Each i As DayWorkTime In Me
                 If (i.Type Is Nothing OrElse Not i.Type.ID > 0) AndAlso i.Length > 0 Then _
@@ -83,15 +93,34 @@ Namespace Workers
 
 #Region " Factory Methods "
 
+        ''' <summary>
+        ''' Gets a new instance of DayWorkTimeList.
+        ''' </summary>
+        ''' <param name="cYear">Year of the new instance.</param>
+        ''' <param name="cMonth">Month of the new instance.</param>
+        ''' <param name="workLoad">Workers workload at the month (ratio between contractual work hours and gauge work hours (40H/Week)).</param>
+        ''' <param name="contractDate">Labour contract date.</param>
+        ''' <param name="contractTerminationDate">Labour contract termination date.</param>
+        ''' <param name="restDayInfo">Default type for a rest day.</param>
+        ''' <param name="publicHolydaysInfo">Default type for a public holiday day.</param>
+        ''' <remarks></remarks>
         Friend Shared Function NewDayWorkTimeList(ByVal cYear As Integer, ByVal cMonth As Integer, _
-            ByVal cLoad As Double, ByVal contractDate As Date, ByVal contractTerminationDate As Date, _
-            ByVal RestDayInfo As WorkTimeClassInfo, ByVal PublicHolydaysInfo As WorkTimeClassInfo) As DayWorkTimeList
-            Return New DayWorkTimeList(cYear, cMonth, cLoad, contractDate, contractTerminationDate, RestDayInfo, PublicHolydaysInfo)
+            ByVal workLoad As Double, ByVal contractDate As Date, ByVal contractTerminationDate As Date, _
+            ByVal restDayInfo As WorkTimeClassInfo, ByVal publicHolydaysInfo As WorkTimeClassInfo) As DayWorkTimeList
+            Return New DayWorkTimeList(cYear, cMonth, workLoad, contractDate, contractTerminationDate, restDayInfo, publicHolydaysInfo)
         End Function
 
+        ''' <summary>
+        ''' Gets an existing DayWorkTimeList instance from a database.
+        ''' </summary>
+        ''' <param name="myData">Database query result.</param>
+        ''' <param name="parent">WorkTimeItem that encapsulates the DayWorkTimeList instance.</param>
+        ''' <param name="year">Year of the DayWorkTimeList.</param>
+        ''' <param name="month">Month of the DayWorkTimeList.</param>
+        ''' <remarks></remarks>
         Friend Shared Function GetDayWorkTimeList(ByVal myData As DataTable, _
-            ByVal parent As WorkTimeItem, ByVal Year As Integer, ByVal Month As Integer) As DayWorkTimeList
-            Return New DayWorkTimeList(myData, parent, Year, Month)
+            ByVal parent As WorkTimeItem, ByVal year As Integer, ByVal month As Integer) As DayWorkTimeList
+            Return New DayWorkTimeList(myData, parent, year, month)
         End Function
 
 
@@ -103,34 +132,34 @@ Namespace Workers
             Me.AllowRemove = False
         End Sub
 
-        Private Sub New(ByVal cYear As Integer, ByVal cMonth As Integer, ByVal cLoad As Double, _
+        Private Sub New(ByVal cYear As Integer, ByVal cMonth As Integer, ByVal workLoad As Double, _
             ByVal contractDate As Date, ByVal contractTerminationDate As Date, _
-            ByVal RestDayInfo As WorkTimeClassInfo, ByVal PublicHolydaysInfo As WorkTimeClassInfo)
+            ByVal restDayInfo As WorkTimeClassInfo, ByVal publicHolydaysInfo As WorkTimeClassInfo)
             ' require use of factory methods
             MarkAsChild()
             Me.AllowEdit = True
             Me.AllowNew = False
             Me.AllowRemove = False
-            Create(cYear, cMonth, cLoad, contractDate, contractTerminationDate, RestDayInfo, PublicHolydaysInfo)
+            Create(cYear, cMonth, workLoad, contractDate, contractTerminationDate, restDayInfo, publicHolydaysInfo)
         End Sub
 
         Private Sub New(ByVal myData As DataTable, ByVal parent As WorkTimeItem, _
-            ByVal Year As Integer, ByVal Month As Integer)
+            ByVal year As Integer, ByVal month As Integer)
             ' require use of factory methods
             MarkAsChild()
             Me.AllowEdit = True
             Me.AllowNew = False
             Me.AllowRemove = False
-            Fetch(myData, parent, Year, Month)
+            Fetch(myData, parent, year, month)
         End Sub
 
 #End Region
 
 #Region " Data Access "
 
-        Private Sub Create(ByVal cYear As Integer, ByVal cMonth As Integer, ByVal cLoad As Double, _
+        Private Sub Create(ByVal cYear As Integer, ByVal cMonth As Integer, ByVal workLoad As Double, _
             ByVal contractDate As Date, ByVal contractTerminationDate As Date, _
-            ByVal RestDayInfo As WorkTimeClassInfo, ByVal PublicHolydaysInfo As WorkTimeClassInfo)
+            ByVal restDayInfo As WorkTimeClassInfo, ByVal publicHolydaysInfo As WorkTimeClassInfo)
 
             RaiseListChangedEvents = False
 
@@ -141,8 +170,8 @@ Namespace Workers
                 currentDate = New Date(cYear, cMonth, Math.Min(i, Date.DaysInMonth(cYear, cMonth)))
                 hasContract = (contractDate.Date < currentDate.Date AndAlso _
                     contractTerminationDate.Date >= currentDate.Date)
-                Me.Add(DayWorkTime.NewDayWorkTime(i, cYear, cMonth, cLoad, hasContract, _
-                    RestDayInfo, PublicHolydaysInfo))
+                Me.Add(DayWorkTime.NewDayWorkTime(i, cYear, cMonth, workLoad, hasContract, _
+                    restDayInfo, publicHolydaysInfo))
             Next
 
             RaiseListChangedEvents = True
@@ -150,15 +179,15 @@ Namespace Workers
         End Sub
 
         Private Sub Fetch(ByVal myData As DataTable, ByVal parent As WorkTimeItem, _
-            ByVal Year As Integer, ByVal Month As Integer)
+            ByVal year As Integer, ByVal month As Integer)
 
             RaiseListChangedEvents = False
 
-            Dim MaxDayCount As Integer = Date.DaysInMonth(Year, Month)
+            Dim maxDayCount As Integer = Date.DaysInMonth(year, month)
 
             For Each dr As DataRow In myData.Rows
                 If CIntSafe(dr.Item(0), 0) = parent.ID Then _
-                    Add(DayWorkTime.GetDayWorkTime(dr, MaxDayCount))
+                    Add(DayWorkTime.GetDayWorkTime(dr, maxDayCount))
             Next
 
             Dim mustHaveList As New List(Of Integer)
@@ -169,7 +198,7 @@ Namespace Workers
                 If mustHaveList.Contains(i.DayNumber) Then mustHaveList.Remove(i.DayNumber)
             Next
             For Each i As Integer In mustHaveList
-                Add(DayWorkTime.NewDayWorkTime(i, Year, Month, 0, True, Nothing, Nothing))
+                Add(DayWorkTime.NewDayWorkTime(i, year, month, 0, True, Nothing, Nothing))
             Next
 
             RaiseListChangedEvents = True
@@ -182,11 +211,11 @@ Namespace Workers
 
             DeletedList.Clear()
 
-            For Each item As DayWorkTime In Me
-                If item.IsNew Then
-                    item.Insert(parent)
-                ElseIf item.IsDirty Then
-                    item.Update(parent)
+            For Each i As DayWorkTime In Me
+                If i.IsNew Then
+                    i.Insert(parent)
+                ElseIf i.IsDirty Then
+                    i.Update(parent)
                 End If
             Next
 

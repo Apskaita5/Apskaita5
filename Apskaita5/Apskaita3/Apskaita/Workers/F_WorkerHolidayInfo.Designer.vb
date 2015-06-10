@@ -152,13 +152,13 @@ Partial Class F_WorkerHolidayInfo
         '
         'DateLabel
         '
+        DateLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         DateLabel.AutoSize = True
-        DateLabel.Dock = System.Windows.Forms.DockStyle.Fill
         DateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        DateLabel.Location = New System.Drawing.Point(3, 5)
+        DateLabel.Location = New System.Drawing.Point(103, 5)
         DateLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         DateLabel.Name = "DateLabel"
-        DateLabel.Size = New System.Drawing.Size(93, 25)
+        DateLabel.Size = New System.Drawing.Size(38, 13)
         DateLabel.TabIndex = 8
         DateLabel.Text = "Data:"
         DateLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -167,7 +167,7 @@ Partial Class F_WorkerHolidayInfo
         '
         ContractDateLabel.AutoSize = True
         ContractDateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        ContractDateLabel.Location = New System.Drawing.Point(141, 5)
+        ContractDateLabel.Location = New System.Drawing.Point(130, 5)
         ContractDateLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         ContractDateLabel.Name = "ContractDateLabel"
         ContractDateLabel.Size = New System.Drawing.Size(92, 13)
@@ -178,7 +178,7 @@ Partial Class F_WorkerHolidayInfo
         '
         ContractSerialLabel.AutoSize = True
         ContractSerialLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        ContractSerialLabel.Location = New System.Drawing.Point(377, 5)
+        ContractSerialLabel.Location = New System.Drawing.Point(355, 5)
         ContractSerialLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         ContractSerialLabel.Name = "ContractSerialLabel"
         ContractSerialLabel.Size = New System.Drawing.Size(43, 13)
@@ -189,7 +189,7 @@ Partial Class F_WorkerHolidayInfo
         '
         ContractNumberLabel.AutoSize = True
         ContractNumberLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        ContractNumberLabel.Location = New System.Drawing.Point(564, 5)
+        ContractNumberLabel.Location = New System.Drawing.Point(531, 5)
         ContractNumberLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         ContractNumberLabel.Name = "ContractNumberLabel"
         ContractNumberLabel.Size = New System.Drawing.Size(28, 13)
@@ -198,13 +198,13 @@ Partial Class F_WorkerHolidayInfo
         '
         'PersonNameLabel
         '
+        PersonNameLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         PersonNameLabel.AutoSize = True
-        PersonNameLabel.Dock = System.Windows.Forms.DockStyle.Fill
         PersonNameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        PersonNameLabel.Location = New System.Drawing.Point(3, 35)
+        PersonNameLabel.Location = New System.Drawing.Point(62, 35)
         PersonNameLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         PersonNameLabel.Name = "PersonNameLabel"
-        PersonNameLabel.Size = New System.Drawing.Size(93, 25)
+        PersonNameLabel.Size = New System.Drawing.Size(79, 13)
         PersonNameLabel.TabIndex = 8
         PersonNameLabel.Text = "Darbuotojas:"
         PersonNameLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -213,7 +213,7 @@ Partial Class F_WorkerHolidayInfo
         '
         PersonCodeLabel.AutoSize = True
         PersonCodeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        PersonCodeLabel.Location = New System.Drawing.Point(193, 5)
+        PersonCodeLabel.Location = New System.Drawing.Point(178, 5)
         PersonCodeLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         PersonCodeLabel.Name = "PersonCodeLabel"
         PersonCodeLabel.Size = New System.Drawing.Size(93, 13)
@@ -224,7 +224,7 @@ Partial Class F_WorkerHolidayInfo
         '
         PositionLabel.AutoSize = True
         PositionLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        PositionLabel.Location = New System.Drawing.Point(482, 5)
+        PositionLabel.Location = New System.Drawing.Point(452, 5)
         PositionLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         PositionLabel.Name = "PositionLabel"
         PositionLabel.Size = New System.Drawing.Size(60, 13)
@@ -233,26 +233,26 @@ Partial Class F_WorkerHolidayInfo
         '
         'ContractTerminationDateLabel
         '
+        ContractTerminationDateLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         ContractTerminationDateLabel.AutoSize = True
-        ContractTerminationDateLabel.Dock = System.Windows.Forms.DockStyle.Fill
         ContractTerminationDateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        ContractTerminationDateLabel.Location = New System.Drawing.Point(3, 65)
+        ContractTerminationDateLabel.Location = New System.Drawing.Point(29, 65)
         ContractTerminationDateLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         ContractTerminationDateLabel.Name = "ContractTerminationDateLabel"
-        ContractTerminationDateLabel.Size = New System.Drawing.Size(93, 25)
+        ContractTerminationDateLabel.Size = New System.Drawing.Size(112, 13)
         ContractTerminationDateLabel.TabIndex = 9
         ContractTerminationDateLabel.Text = "Sutartis nutraukta:"
         ContractTerminationDateLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'HolidayRateLabel
         '
+        HolidayRateLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         HolidayRateLabel.AutoSize = True
-        HolidayRateLabel.Dock = System.Windows.Forms.DockStyle.Fill
         HolidayRateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        HolidayRateLabel.Location = New System.Drawing.Point(3, 95)
+        HolidayRateLabel.Location = New System.Drawing.Point(40, 95)
         HolidayRateLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         HolidayRateLabel.Name = "HolidayRateLabel"
-        HolidayRateLabel.Size = New System.Drawing.Size(93, 25)
+        HolidayRateLabel.Size = New System.Drawing.Size(101, 13)
         HolidayRateLabel.TabIndex = 8
         HolidayRateLabel.Text = "Atostogų Norma:"
         HolidayRateLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -261,7 +261,7 @@ Partial Class F_WorkerHolidayInfo
         '
         TotalWorkPeriodInDaysLabel.AutoSize = True
         TotalWorkPeriodInDaysLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        TotalWorkPeriodInDaysLabel.Location = New System.Drawing.Point(170, 5)
+        TotalWorkPeriodInDaysLabel.Location = New System.Drawing.Point(156, 5)
         TotalWorkPeriodInDaysLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         TotalWorkPeriodInDaysLabel.Name = "TotalWorkPeriodInDaysLabel"
         TotalWorkPeriodInDaysLabel.Size = New System.Drawing.Size(103, 13)
@@ -272,7 +272,7 @@ Partial Class F_WorkerHolidayInfo
         '
         TotalWorkPeriodInYearsLabel.AutoSize = True
         TotalWorkPeriodInYearsLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        TotalWorkPeriodInYearsLabel.Location = New System.Drawing.Point(446, 5)
+        TotalWorkPeriodInYearsLabel.Location = New System.Drawing.Point(418, 5)
         TotalWorkPeriodInYearsLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         TotalWorkPeriodInYearsLabel.Name = "TotalWorkPeriodInYearsLabel"
         TotalWorkPeriodInYearsLabel.Size = New System.Drawing.Size(117, 13)
@@ -281,13 +281,13 @@ Partial Class F_WorkerHolidayInfo
         '
         'TotalHolidayDaysGrantedLabel
         '
+        TotalHolidayDaysGrantedLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         TotalHolidayDaysGrantedLabel.AutoSize = True
-        TotalHolidayDaysGrantedLabel.Dock = System.Windows.Forms.DockStyle.Fill
         TotalHolidayDaysGrantedLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         TotalHolidayDaysGrantedLabel.Location = New System.Drawing.Point(3, 125)
         TotalHolidayDaysGrantedLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         TotalHolidayDaysGrantedLabel.Name = "TotalHolidayDaysGrantedLabel"
-        TotalHolidayDaysGrantedLabel.Size = New System.Drawing.Size(93, 25)
+        TotalHolidayDaysGrantedLabel.Size = New System.Drawing.Size(138, 13)
         TotalHolidayDaysGrantedLabel.TabIndex = 8
         TotalHolidayDaysGrantedLabel.Text = "Suteikta Atostogų k.d.:"
         TotalHolidayDaysGrantedLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -296,7 +296,7 @@ Partial Class F_WorkerHolidayInfo
         '
         TotalHolidayDaysCorrectionLabel.AutoSize = True
         TotalHolidayDaysCorrectionLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        TotalHolidayDaysCorrectionLabel.Location = New System.Drawing.Point(174, 5)
+        TotalHolidayDaysCorrectionLabel.Location = New System.Drawing.Point(160, 5)
         TotalHolidayDaysCorrectionLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         TotalHolidayDaysCorrectionLabel.Name = "TotalHolidayDaysCorrectionLabel"
         TotalHolidayDaysCorrectionLabel.Size = New System.Drawing.Size(124, 13)
@@ -305,13 +305,13 @@ Partial Class F_WorkerHolidayInfo
         '
         'TotalCumulatedHolidayDaysLabel
         '
+        TotalCumulatedHolidayDaysLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         TotalCumulatedHolidayDaysLabel.AutoSize = True
-        TotalCumulatedHolidayDaysLabel.Dock = System.Windows.Forms.DockStyle.Fill
         TotalCumulatedHolidayDaysLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        TotalCumulatedHolidayDaysLabel.Location = New System.Drawing.Point(3, 155)
+        TotalCumulatedHolidayDaysLabel.Location = New System.Drawing.Point(22, 155)
         TotalCumulatedHolidayDaysLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         TotalCumulatedHolidayDaysLabel.Name = "TotalCumulatedHolidayDaysLabel"
-        TotalCumulatedHolidayDaysLabel.Size = New System.Drawing.Size(93, 25)
+        TotalCumulatedHolidayDaysLabel.Size = New System.Drawing.Size(119, 13)
         TotalCumulatedHolidayDaysLabel.TabIndex = 10
         TotalCumulatedHolidayDaysLabel.Text = "Viso Sukaupta k.d.:"
         TotalCumulatedHolidayDaysLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -320,7 +320,7 @@ Partial Class F_WorkerHolidayInfo
         '
         TotalHolidayDaysUsedLabel.AutoSize = True
         TotalHolidayDaysUsedLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        TotalHolidayDaysUsedLabel.Location = New System.Drawing.Point(158, 5)
+        TotalHolidayDaysUsedLabel.Location = New System.Drawing.Point(144, 5)
         TotalHolidayDaysUsedLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         TotalHolidayDaysUsedLabel.Name = "TotalHolidayDaysUsedLabel"
         TotalHolidayDaysUsedLabel.Size = New System.Drawing.Size(126, 13)
@@ -331,7 +331,7 @@ Partial Class F_WorkerHolidayInfo
         '
         TotalUnusedHolidayDaysLabel.AutoSize = True
         TotalUnusedHolidayDaysLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        TotalUnusedHolidayDaysLabel.Location = New System.Drawing.Point(445, 5)
+        TotalUnusedHolidayDaysLabel.Location = New System.Drawing.Point(417, 5)
         TotalUnusedHolidayDaysLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         TotalUnusedHolidayDaysLabel.Name = "TotalUnusedHolidayDaysLabel"
         TotalUnusedHolidayDaysLabel.Size = New System.Drawing.Size(130, 13)
@@ -413,7 +413,7 @@ Partial Class F_WorkerHolidayInfo
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.RefreshLabourContractsButton, 7, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.LabourContractComboBox, 8, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.WorkerAccGridComboBox, 4, 0)
@@ -434,7 +434,7 @@ Partial Class F_WorkerHolidayInfo
         '
         Me.RefreshLabourContractsButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RefreshLabourContractsButton.Image = Global.ApskaitaWUI.My.Resources.Resources.Button_Reload_icon_16p
-        Me.RefreshLabourContractsButton.Location = New System.Drawing.Point(642, 3)
+        Me.RefreshLabourContractsButton.Location = New System.Drawing.Point(641, 3)
         Me.RefreshLabourContractsButton.Margin = New System.Windows.Forms.Padding(0, 3, 0, 0)
         Me.RefreshLabourContractsButton.Name = "RefreshLabourContractsButton"
         Me.RefreshLabourContractsButton.Size = New System.Drawing.Size(24, 22)
@@ -445,7 +445,7 @@ Partial Class F_WorkerHolidayInfo
         '
         Me.LabourContractComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LabourContractComboBox.FormattingEnabled = True
-        Me.LabourContractComboBox.Location = New System.Drawing.Point(669, 3)
+        Me.LabourContractComboBox.Location = New System.Drawing.Point(668, 3)
         Me.LabourContractComboBox.Name = "LabourContractComboBox"
         Me.LabourContractComboBox.Size = New System.Drawing.Size(88, 21)
         Me.LabourContractComboBox.TabIndex = 1
@@ -459,7 +459,7 @@ Partial Class F_WorkerHolidayInfo
         Me.WorkerAccGridComboBox.InstantBinding = True
         Me.WorkerAccGridComboBox.Location = New System.Drawing.Point(293, 3)
         Me.WorkerAccGridComboBox.Name = "WorkerAccGridComboBox"
-        Me.WorkerAccGridComboBox.Size = New System.Drawing.Size(230, 21)
+        Me.WorkerAccGridComboBox.Size = New System.Drawing.Size(229, 21)
         Me.WorkerAccGridComboBox.TabIndex = 1
         '
         'DateDateTimePicker
@@ -475,7 +475,7 @@ Partial Class F_WorkerHolidayInfo
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label2.Location = New System.Drawing.Point(549, 5)
+        Me.Label2.Location = New System.Drawing.Point(548, 5)
         Me.Label2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(90, 13)
@@ -517,8 +517,8 @@ Partial Class F_WorkerHolidayInfo
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.ColumnCount = 2
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.96172!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.03828!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel9, 1, 4)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel8, 1, 3)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel5, 1, 5)
@@ -560,12 +560,12 @@ Partial Class F_WorkerHolidayInfo
         Me.TableLayoutPanel9.Controls.Add(TotalHolidayDaysCorrectionLabel, 2, 0)
         Me.TableLayoutPanel9.Controls.Add(Me.TotalHolidayDaysCorrectionAccTextBox, 3, 0)
         Me.TableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel9.Location = New System.Drawing.Point(99, 120)
+        Me.TableLayoutPanel9.Location = New System.Drawing.Point(144, 120)
         Me.TableLayoutPanel9.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel9.Name = "TableLayoutPanel9"
         Me.TableLayoutPanel9.RowCount = 1
         Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel9.Size = New System.Drawing.Size(736, 30)
+        Me.TableLayoutPanel9.Size = New System.Drawing.Size(691, 30)
         Me.TableLayoutPanel9.TabIndex = 8
         '
         'TotalHolidayDaysGrantedTextBox
@@ -575,7 +575,7 @@ Partial Class F_WorkerHolidayInfo
         Me.TotalHolidayDaysGrantedTextBox.Location = New System.Drawing.Point(3, 3)
         Me.TotalHolidayDaysGrantedTextBox.Name = "TotalHolidayDaysGrantedTextBox"
         Me.TotalHolidayDaysGrantedTextBox.ReadOnly = True
-        Me.TotalHolidayDaysGrantedTextBox.Size = New System.Drawing.Size(145, 20)
+        Me.TotalHolidayDaysGrantedTextBox.Size = New System.Drawing.Size(131, 20)
         Me.TotalHolidayDaysGrantedTextBox.TabIndex = 9
         Me.TotalHolidayDaysGrantedTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -589,10 +589,10 @@ Partial Class F_WorkerHolidayInfo
         Me.TotalHolidayDaysCorrectionAccTextBox.DecimalLength = 4
         Me.TotalHolidayDaysCorrectionAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TotalHolidayDaysCorrectionAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.TotalHolidayDaysCorrectionAccTextBox.Location = New System.Drawing.Point(304, 3)
+        Me.TotalHolidayDaysCorrectionAccTextBox.Location = New System.Drawing.Point(290, 3)
         Me.TotalHolidayDaysCorrectionAccTextBox.Name = "TotalHolidayDaysCorrectionAccTextBox"
         Me.TotalHolidayDaysCorrectionAccTextBox.ReadOnly = True
-        Me.TotalHolidayDaysCorrectionAccTextBox.Size = New System.Drawing.Size(145, 20)
+        Me.TotalHolidayDaysCorrectionAccTextBox.Size = New System.Drawing.Size(131, 20)
         Me.TotalHolidayDaysCorrectionAccTextBox.TabIndex = 10
         Me.TotalHolidayDaysCorrectionAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -613,12 +613,12 @@ Partial Class F_WorkerHolidayInfo
         Me.TableLayoutPanel8.Controls.Add(TotalWorkPeriodInDaysLabel, 2, 0)
         Me.TableLayoutPanel8.Controls.Add(Me.TotalWorkPeriodInDaysTextBox, 3, 0)
         Me.TableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel8.Location = New System.Drawing.Point(99, 90)
+        Me.TableLayoutPanel8.Location = New System.Drawing.Point(144, 90)
         Me.TableLayoutPanel8.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
         Me.TableLayoutPanel8.RowCount = 1
         Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel8.Size = New System.Drawing.Size(736, 30)
+        Me.TableLayoutPanel8.Size = New System.Drawing.Size(691, 30)
         Me.TableLayoutPanel8.TabIndex = 8
         '
         'HolidayRateTextBox
@@ -628,7 +628,7 @@ Partial Class F_WorkerHolidayInfo
         Me.HolidayRateTextBox.Location = New System.Drawing.Point(3, 3)
         Me.HolidayRateTextBox.Name = "HolidayRateTextBox"
         Me.HolidayRateTextBox.ReadOnly = True
-        Me.HolidayRateTextBox.Size = New System.Drawing.Size(141, 20)
+        Me.HolidayRateTextBox.Size = New System.Drawing.Size(127, 20)
         Me.HolidayRateTextBox.TabIndex = 9
         Me.HolidayRateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -638,10 +638,10 @@ Partial Class F_WorkerHolidayInfo
         Me.TotalWorkPeriodInYearsAccTextBox.DecimalLength = 4
         Me.TotalWorkPeriodInYearsAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TotalWorkPeriodInYearsAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.TotalWorkPeriodInYearsAccTextBox.Location = New System.Drawing.Point(569, 3)
+        Me.TotalWorkPeriodInYearsAccTextBox.Location = New System.Drawing.Point(541, 3)
         Me.TotalWorkPeriodInYearsAccTextBox.Name = "TotalWorkPeriodInYearsAccTextBox"
         Me.TotalWorkPeriodInYearsAccTextBox.ReadOnly = True
-        Me.TotalWorkPeriodInYearsAccTextBox.Size = New System.Drawing.Size(141, 20)
+        Me.TotalWorkPeriodInYearsAccTextBox.Size = New System.Drawing.Size(127, 20)
         Me.TotalWorkPeriodInYearsAccTextBox.TabIndex = 11
         Me.TotalWorkPeriodInYearsAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -649,10 +649,10 @@ Partial Class F_WorkerHolidayInfo
         '
         Me.TotalWorkPeriodInDaysTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkerHolidayInfoBindingSource, "TotalWorkPeriodInDays", True))
         Me.TotalWorkPeriodInDaysTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalWorkPeriodInDaysTextBox.Location = New System.Drawing.Point(279, 3)
+        Me.TotalWorkPeriodInDaysTextBox.Location = New System.Drawing.Point(265, 3)
         Me.TotalWorkPeriodInDaysTextBox.Name = "TotalWorkPeriodInDaysTextBox"
         Me.TotalWorkPeriodInDaysTextBox.ReadOnly = True
-        Me.TotalWorkPeriodInDaysTextBox.Size = New System.Drawing.Size(141, 20)
+        Me.TotalWorkPeriodInDaysTextBox.Size = New System.Drawing.Size(127, 20)
         Me.TotalWorkPeriodInDaysTextBox.TabIndex = 10
         Me.TotalWorkPeriodInDaysTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -673,12 +673,12 @@ Partial Class F_WorkerHolidayInfo
         Me.TableLayoutPanel5.Controls.Add(TotalHolidayDaysUsedLabel, 2, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.TotalHolidayDaysUsedAccTextBox, 3, 0)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(99, 150)
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(144, 150)
         Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 1
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(736, 30)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(691, 30)
         Me.TableLayoutPanel5.TabIndex = 7
         '
         'TotalUnusedHolidayDaysAccTextBox
@@ -687,10 +687,10 @@ Partial Class F_WorkerHolidayInfo
         Me.TotalUnusedHolidayDaysAccTextBox.DecimalLength = 4
         Me.TotalUnusedHolidayDaysAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TotalUnusedHolidayDaysAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.TotalUnusedHolidayDaysAccTextBox.Location = New System.Drawing.Point(581, 3)
+        Me.TotalUnusedHolidayDaysAccTextBox.Location = New System.Drawing.Point(553, 3)
         Me.TotalUnusedHolidayDaysAccTextBox.Name = "TotalUnusedHolidayDaysAccTextBox"
         Me.TotalUnusedHolidayDaysAccTextBox.ReadOnly = True
-        Me.TotalUnusedHolidayDaysAccTextBox.Size = New System.Drawing.Size(129, 20)
+        Me.TotalUnusedHolidayDaysAccTextBox.Size = New System.Drawing.Size(115, 20)
         Me.TotalUnusedHolidayDaysAccTextBox.TabIndex = 13
         Me.TotalUnusedHolidayDaysAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -703,7 +703,7 @@ Partial Class F_WorkerHolidayInfo
         Me.TotalCumulatedHolidayDaysAccTextBox.Location = New System.Drawing.Point(3, 3)
         Me.TotalCumulatedHolidayDaysAccTextBox.Name = "TotalCumulatedHolidayDaysAccTextBox"
         Me.TotalCumulatedHolidayDaysAccTextBox.ReadOnly = True
-        Me.TotalCumulatedHolidayDaysAccTextBox.Size = New System.Drawing.Size(129, 20)
+        Me.TotalCumulatedHolidayDaysAccTextBox.Size = New System.Drawing.Size(115, 20)
         Me.TotalCumulatedHolidayDaysAccTextBox.TabIndex = 11
         Me.TotalCumulatedHolidayDaysAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -713,10 +713,10 @@ Partial Class F_WorkerHolidayInfo
         Me.TotalHolidayDaysUsedAccTextBox.DecimalLength = 4
         Me.TotalHolidayDaysUsedAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TotalHolidayDaysUsedAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.TotalHolidayDaysUsedAccTextBox.Location = New System.Drawing.Point(290, 3)
+        Me.TotalHolidayDaysUsedAccTextBox.Location = New System.Drawing.Point(276, 3)
         Me.TotalHolidayDaysUsedAccTextBox.Name = "TotalHolidayDaysUsedAccTextBox"
         Me.TotalHolidayDaysUsedAccTextBox.ReadOnly = True
-        Me.TotalHolidayDaysUsedAccTextBox.Size = New System.Drawing.Size(129, 20)
+        Me.TotalHolidayDaysUsedAccTextBox.Size = New System.Drawing.Size(115, 20)
         Me.TotalHolidayDaysUsedAccTextBox.TabIndex = 12
         Me.TotalHolidayDaysUsedAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -735,12 +735,12 @@ Partial Class F_WorkerHolidayInfo
         Me.TableLayoutPanel7.Controls.Add(Me.CompensationIsGrantedCheckBox, 2, 0)
         Me.TableLayoutPanel7.Controls.Add(Me.IsForCompensationCheckBox, 5, 0)
         Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(99, 60)
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(144, 60)
         Me.TableLayoutPanel7.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         Me.TableLayoutPanel7.RowCount = 1
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(736, 30)
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(691, 30)
         Me.TableLayoutPanel7.TabIndex = 8
         '
         'TotalHolidayDaysCompensatedAccTextBox
@@ -749,10 +749,10 @@ Partial Class F_WorkerHolidayInfo
         Me.TotalHolidayDaysCompensatedAccTextBox.DecimalLength = 4
         Me.TotalHolidayDaysCompensatedAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TotalHolidayDaysCompensatedAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.TotalHolidayDaysCompensatedAccTextBox.Location = New System.Drawing.Point(372, 3)
+        Me.TotalHolidayDaysCompensatedAccTextBox.Location = New System.Drawing.Point(349, 3)
         Me.TotalHolidayDaysCompensatedAccTextBox.Name = "TotalHolidayDaysCompensatedAccTextBox"
         Me.TotalHolidayDaysCompensatedAccTextBox.ReadOnly = True
-        Me.TotalHolidayDaysCompensatedAccTextBox.Size = New System.Drawing.Size(132, 20)
+        Me.TotalHolidayDaysCompensatedAccTextBox.Size = New System.Drawing.Size(109, 20)
         Me.TotalHolidayDaysCompensatedAccTextBox.TabIndex = 9
         Me.TotalHolidayDaysCompensatedAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -763,7 +763,7 @@ Partial Class F_WorkerHolidayInfo
         Me.ContractTerminationDateTextBox.Location = New System.Drawing.Point(3, 3)
         Me.ContractTerminationDateTextBox.Name = "ContractTerminationDateTextBox"
         Me.ContractTerminationDateTextBox.ReadOnly = True
-        Me.ContractTerminationDateTextBox.Size = New System.Drawing.Size(132, 20)
+        Me.ContractTerminationDateTextBox.Size = New System.Drawing.Size(109, 20)
         Me.ContractTerminationDateTextBox.TabIndex = 10
         Me.ContractTerminationDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -773,7 +773,7 @@ Partial Class F_WorkerHolidayInfo
         Me.CompensationIsGrantedCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.WorkerHolidayInfoBindingSource, "CompensationIsGranted", True))
         Me.CompensationIsGrantedCheckBox.Enabled = False
         Me.CompensationIsGrantedCheckBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.CompensationIsGrantedCheckBox.Location = New System.Drawing.Point(161, 5)
+        Me.CompensationIsGrantedCheckBox.Location = New System.Drawing.Point(138, 5)
         Me.CompensationIsGrantedCheckBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 3)
         Me.CompensationIsGrantedCheckBox.Name = "CompensationIsGrantedCheckBox"
         Me.CompensationIsGrantedCheckBox.Size = New System.Drawing.Size(205, 17)
@@ -787,7 +787,7 @@ Partial Class F_WorkerHolidayInfo
         Me.IsForCompensationCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.WorkerHolidayInfoBindingSource, "IsForCompensation", True))
         Me.IsForCompensationCheckBox.Enabled = False
         Me.IsForCompensationCheckBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.IsForCompensationCheckBox.Location = New System.Drawing.Point(530, 5)
+        Me.IsForCompensationCheckBox.Location = New System.Drawing.Point(484, 5)
         Me.IsForCompensationCheckBox.Margin = New System.Windows.Forms.Padding(3, 5, 3, 3)
         Me.IsForCompensationCheckBox.Name = "IsForCompensationCheckBox"
         Me.IsForCompensationCheckBox.Size = New System.Drawing.Size(183, 17)
@@ -805,19 +805,19 @@ Partial Class F_WorkerHolidayInfo
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
         Me.TableLayoutPanel6.Controls.Add(PositionLabel, 5, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.PersonNameTextBox, 0, 0)
         Me.TableLayoutPanel6.Controls.Add(PersonCodeLabel, 2, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.PersonCodeTextBox, 3, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.PositionTextBox, 6, 0)
         Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel6.Location = New System.Drawing.Point(99, 30)
+        Me.TableLayoutPanel6.Location = New System.Drawing.Point(144, 30)
         Me.TableLayoutPanel6.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
         Me.TableLayoutPanel6.RowCount = 1
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(736, 30)
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(691, 30)
         Me.TableLayoutPanel6.TabIndex = 8
         '
         'PersonNameTextBox
@@ -827,7 +827,7 @@ Partial Class F_WorkerHolidayInfo
         Me.PersonNameTextBox.Location = New System.Drawing.Point(3, 3)
         Me.PersonNameTextBox.Name = "PersonNameTextBox"
         Me.PersonNameTextBox.ReadOnly = True
-        Me.PersonNameTextBox.Size = New System.Drawing.Size(164, 20)
+        Me.PersonNameTextBox.Size = New System.Drawing.Size(149, 20)
         Me.PersonNameTextBox.TabIndex = 9
         Me.PersonNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -835,20 +835,20 @@ Partial Class F_WorkerHolidayInfo
         '
         Me.PersonCodeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkerHolidayInfoBindingSource, "PersonCode", True))
         Me.PersonCodeTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PersonCodeTextBox.Location = New System.Drawing.Point(292, 3)
+        Me.PersonCodeTextBox.Location = New System.Drawing.Point(277, 3)
         Me.PersonCodeTextBox.Name = "PersonCodeTextBox"
         Me.PersonCodeTextBox.ReadOnly = True
-        Me.PersonCodeTextBox.Size = New System.Drawing.Size(164, 20)
+        Me.PersonCodeTextBox.Size = New System.Drawing.Size(149, 20)
         Me.PersonCodeTextBox.TabIndex = 10
         Me.PersonCodeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'PositionTextBox
         '
         Me.PositionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkerHolidayInfoBindingSource, "Position", True))
-        Me.PositionTextBox.Location = New System.Drawing.Point(548, 3)
+        Me.PositionTextBox.Location = New System.Drawing.Point(518, 3)
         Me.PositionTextBox.Name = "PositionTextBox"
         Me.PositionTextBox.ReadOnly = True
-        Me.PositionTextBox.Size = New System.Drawing.Size(164, 20)
+        Me.PositionTextBox.Size = New System.Drawing.Size(149, 20)
         Me.PositionTextBox.TabIndex = 11
         Me.PositionTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -874,22 +874,22 @@ Partial Class F_WorkerHolidayInfo
         Me.TableLayoutPanel4.Controls.Add(ContractSerialLabel, 5, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.ContractDateDateTimePicker, 3, 0)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(99, 0)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(144, 0)
         Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 1
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(736, 30)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(691, 30)
         Me.TableLayoutPanel4.TabIndex = 6
         '
         'ContractNumberTextBox
         '
         Me.ContractNumberTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkerHolidayInfoBindingSource, "ContractNumber", True))
         Me.ContractNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ContractNumberTextBox.Location = New System.Drawing.Point(598, 3)
+        Me.ContractNumberTextBox.Location = New System.Drawing.Point(565, 3)
         Me.ContractNumberTextBox.Name = "ContractNumberTextBox"
         Me.ContractNumberTextBox.ReadOnly = True
-        Me.ContractNumberTextBox.Size = New System.Drawing.Size(112, 20)
+        Me.ContractNumberTextBox.Size = New System.Drawing.Size(101, 20)
         Me.ContractNumberTextBox.TabIndex = 12
         Me.ContractNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -901,17 +901,17 @@ Partial Class F_WorkerHolidayInfo
         Me.DateDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DateDateTimePicker1.Location = New System.Drawing.Point(3, 3)
         Me.DateDateTimePicker1.Name = "DateDateTimePicker1"
-        Me.DateDateTimePicker1.Size = New System.Drawing.Size(112, 20)
+        Me.DateDateTimePicker1.Size = New System.Drawing.Size(101, 20)
         Me.DateDateTimePicker1.TabIndex = 9
         '
         'ContractSerialTextBox
         '
         Me.ContractSerialTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkerHolidayInfoBindingSource, "ContractSerial", True))
         Me.ContractSerialTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ContractSerialTextBox.Location = New System.Drawing.Point(426, 3)
+        Me.ContractSerialTextBox.Location = New System.Drawing.Point(404, 3)
         Me.ContractSerialTextBox.Name = "ContractSerialTextBox"
         Me.ContractSerialTextBox.ReadOnly = True
-        Me.ContractSerialTextBox.Size = New System.Drawing.Size(112, 20)
+        Me.ContractSerialTextBox.Size = New System.Drawing.Size(101, 20)
         Me.ContractSerialTextBox.TabIndex = 11
         Me.ContractSerialTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -921,9 +921,9 @@ Partial Class F_WorkerHolidayInfo
         Me.ContractDateDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ContractDateDateTimePicker.Enabled = False
         Me.ContractDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.ContractDateDateTimePicker.Location = New System.Drawing.Point(239, 3)
+        Me.ContractDateDateTimePicker.Location = New System.Drawing.Point(228, 3)
         Me.ContractDateDateTimePicker.Name = "ContractDateDateTimePicker"
-        Me.ContractDateDateTimePicker.Size = New System.Drawing.Size(112, 20)
+        Me.ContractDateDateTimePicker.Size = New System.Drawing.Size(101, 20)
         Me.ContractDateDateTimePicker.TabIndex = 10
         '
         'TableLayoutPanel10

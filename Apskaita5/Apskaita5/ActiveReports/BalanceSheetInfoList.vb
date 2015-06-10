@@ -3,7 +3,7 @@ Namespace ActiveReports
     ''' <summary>
     ''' Represents a balance sheet report (part of <see cref="ActiveReports.FinancialStatementsInfo">FinancialStatementsInfo</see> report).
     ''' </summary>
-    ''' <remarks></remarks>
+    ''' <remarks>Should only be used as a child of <see cref="ActiveReports.FinancialStatementsInfo">FinancialStatementsInfo</see>.</remarks>
     <Serializable()> _
     Public Class BalanceSheetInfoList
         Inherits ReadOnlyListBase(Of BalanceSheetInfoList, BalanceSheetInfo)
