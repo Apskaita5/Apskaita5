@@ -202,22 +202,22 @@ Namespace HelperLists
 
 #Region " Data Access "
 
-        Private Sub Fetch(ByVal dr As DataRow, ByVal Offset As Integer)
+        Private Sub Fetch(ByVal dr As DataRow, ByVal offset As Integer)
 
-            _ID = CIntSafe(dr.Item(0 + Offset), 0)
-            _Name = CStrSafe(dr.Item(1 + Offset)).Trim
-            _Account = CLongSafe(dr.Item(2 + Offset), 0)
-            _BankAccountNumber = CStrSafe(dr.Item(3 + Offset)).Trim
-            _BankName = CStrSafe(dr.Item(4 + Offset)).Trim
-            _BankCode = CStrSafe(dr.Item(5 + Offset)).Trim
-            _IsLitasEsisCompliant = ConvertDbBoolean(CIntSafe(dr.Item(6 + Offset), 0))
-            _CurrencyCode = CStrSafe(dr.Item(7 + Offset)).Trim
-            _EnforceUniqueOperationID = ConvertDbBoolean(CIntSafe(dr.Item(8 + Offset), 0))
-            _BankFeeLimit = CIntSafe(dr.Item(9 + Offset), 0)
-            _Type = ConvertEnumDatabaseCode(Of CashAccountType)(CIntSafe(dr.Item(10 + Offset), 0))
-            _IsObsolete = ConvertDbBoolean(CIntSafe(dr.Item(11 + Offset), 0))
-            _BankFeeCostsAccount = CLongSafe(dr.Item(12 + Offset), 0)
-            _ManagingPersonID = CIntSafe(dr.Item(13 + Offset), 0)
+            _ID = CIntSafe(dr.Item(0 + offset), 0)
+            _Name = CStrSafe(dr.Item(1 + offset)).Trim
+            _Account = CLongSafe(dr.Item(2 + offset), 0)
+            _BankAccountNumber = CStrSafe(dr.Item(3 + offset)).Trim
+            _BankName = CStrSafe(dr.Item(4 + offset)).Trim
+            _BankCode = CStrSafe(dr.Item(5 + offset)).Trim
+            _IsLitasEsisCompliant = ConvertDbBoolean(CIntSafe(dr.Item(6 + offset), 0))
+            _CurrencyCode = CStrSafe(dr.Item(7 + offset)).Trim
+            _EnforceUniqueOperationID = ConvertDbBoolean(CIntSafe(dr.Item(8 + offset), 0))
+            _BankFeeLimit = CIntSafe(dr.Item(9 + offset), 0)
+            _Type = EnumValueAttribute.ConvertDatabaseID(Of CashAccountType)(CIntSafe(dr.Item(10 + offset), 0))
+            _IsObsolete = ConvertDbBoolean(CIntSafe(dr.Item(11 + offset), 0))
+            _BankFeeCostsAccount = CLongSafe(dr.Item(12 + offset), 0)
+            _ManagingPersonID = CIntSafe(dr.Item(13 + offset), 0)
 
         End Sub
 

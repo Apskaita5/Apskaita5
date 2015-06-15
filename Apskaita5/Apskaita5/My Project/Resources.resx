@@ -4425,4 +4425,433 @@
   <data name="Workers_WorkTimeSheet_YearNull" xml:space="preserve">
     <value>Klaida. Nenurodyti metai.</value>
   </data>
+  <data name="Documents_AccumulativeCostsItemList_CannotRemoveItem" xml:space="preserve">
+    <value>Klaida. Negalima pašalinti eilutės "{0}":{1}{2}</value>
+  </data>
+  <data name="Documents_AccumulativeCostsItemList_CannotUpdateItem" xml:space="preserve">
+    <value>Klaida. Negalima pakeisti eilutės "{0}":{1}{2}</value>
+  </data>
+  <data name="Documents_AccumulativeCostsItemList_ListEmpty" xml:space="preserve">
+    <value>Klaida. Neįvestas nė vienas periodas.</value>
+  </data>
+  <data name="Documents_AccumulativeCostsItemList_NoSumToDistribute" xml:space="preserve">
+    <value>Klaida. Nenurodyta sukauptų sąnaudų (pajamų) suma.</value>
+  </data>
+  <data name="Documents_AccumulativeCostsItemList_SomeItemsReadonly" xml:space="preserve">
+    <value>Ne visos paskirstymo eilutės gali būti keičiamos dėl vėlesnėmis datomis registruotų uždarymų:{0}{1}</value>
+  </data>
+  <data name="Documents_AccumulativeCostsItem_SaveInvalid" xml:space="preserve">
+    <value>ti metodą PrepareChildJournalEntry.</value>
+  </data>
+  <data name="Documents_AccumulativeCostsItem_ToString" xml:space="preserve">
+    <value>{0} sukauptų sąnaudų (pajamų) paskirstymas (grąžinimas) - {1} {2}</value>
+  </data>
+  <data name="Documents_AccumulativeCostsItem_TypeName" xml:space="preserve">
+    <value>sukauptų sąnaudų (pajamų) paskirstymas (grąžinimas)</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_AccountDistributedCostsInvalid" xml:space="preserve">
+    <value>Nesutampa nuostolių (pajamų) ir jų skirstymo sąskaitos.</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_DateInvalid" xml:space="preserve">
+    <value>Sąnaudos skirstomos anksčiau nei buvo sukauptos ({0}).</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_DefaultContent" xml:space="preserve">
+    <value>sukauptos sąnaudos (pajamos)</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_DefaultDocNumber" xml:space="preserve">
+    <value>Buh. Paž.</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_DeleteInvalid" xml:space="preserve">
+    <value>Klaida. Operacijos pašalinti neleidžiama:{0}{1}</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_SumDistributedInvalid" xml:space="preserve">
+    <value>Nesutampa sukauptų ir paskirstytų nuostolių (pajamų) suma.</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_ToString" xml:space="preserve">
+    <value>{0} sukauptų sąnaudų (pajamų) operacija Nr. {1} (ID={2})</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_TypeName" xml:space="preserve">
+    <value>sukauptų sąnaudų (pajamų) operacija</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_AccountCurrencyRateChangeEffectNull" xml:space="preserve">
+    <value>Nenurodyta valiutos kurso pasikeitimo įtakos pajamų (sąnaudų) sąskaita.</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_AccountVatNull" xml:space="preserve">
+    <value>Nenurodyta PVM (sąnaudų/atskaitos) apskaitos sąskaita.</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_CurrencyRateChangeEffectInvalid" xml:space="preserve">
+    <value>Valiutos kurso pasikeitimo įtaka galima tik valiutinėse operacijose.</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceDateAndNumberFormat" xml:space="preserve">
+    <value>{0} {1} Nr. {2}</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceInfoNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta sąskaita faktūra.</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_NullPersonName" xml:space="preserve">
+    <value>nenurodytas</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_PersonInvalid" xml:space="preserve">
+    <value>Klaida. Nurodytas kontrahentas neatitinka sąskaitos faktūros kontrahento.</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_PersonNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas sąskaitos faktūros kontrahentas.</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SubTypeInvoiceMade" xml:space="preserve">
+    <value>išrašyta sąskaita faktūra</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SubTypeInvoiceReceived" xml:space="preserve">
+    <value>gauta sąskaita faktūra</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SubTypeOtherPayed" xml:space="preserve">
+    <value>apmokėtas dokumentas</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SubTypeOtherReceived" xml:space="preserve">
+    <value>pinigų gavimo dokumentas</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SumInvalid" xml:space="preserve">
+    <value>Dokumento suma avanso apyskaitos valiuta negali būti didesnė už priskirtos sąskaitos faktūros sumą ta pačia valiuta. (galimas dalinis apmokėjimas, bet ne permoka)</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SumLTLInvalid" xml:space="preserve">
+    <value>Dokumento suma bazine valiuta negali būti didesnė už priskirtos sąskaitos faktūros sumą ta pačia valiuta. (galimas dalinis apmokėjimas, bet ne permoka)</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_ToString" xml:space="preserve">
+    <value>{0} {1} Nr. {2}, kontrahentas - {3}, {4}</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_TypeName" xml:space="preserve">
+    <value>avanso apyskaitos eilutė</value>
+  </data>
+  <data name="Common_CannotUpdateFinancialData" xml:space="preserve">
+    <value>Klaida. Koreguoti finansinių duomenų neleidžiama:{0}{1}</value>
+  </data>
+  <data name="Documents_AdvanceReport_ToString" xml:space="preserve">
+    <value>{0} avanso apyskaita Nr. {1} (ID={2})</value>
+  </data>
+  <data name="Documents_AdvanceReport_TypeName" xml:space="preserve">
+    <value>avanso apyskaita</value>
+  </data>
+  <data name="Documents_AccumulativeCostsItem_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Documents_AccumulativeCostsItem_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Documents_AccumulativeCostsItem_Sum" xml:space="preserve">
+    <value>paskirstoma suma</value>
+  </data>
+  <data name="Documents_AccumulativeCostsItem_SumIsReadOnly" xml:space="preserve">
+    <value>sumos keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_AccountAccumulatedCosts" xml:space="preserve">
+    <value>sukauptų sąnaudų (pajamų) sąskaita</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_AccountAccumulatedCostsIsReadOnly" xml:space="preserve">
+    <value>sukauptų sąnaudų (pajamų) sąskaitos keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_AccountCosts" xml:space="preserve">
+    <value>sąnaudų (pajamų) sąskaita</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_AccountCostsIsReadOnly" xml:space="preserve">
+    <value>sąnaudų (pajamų) sąskaitos keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_AccountDistributedCosts" xml:space="preserve">
+    <value>paskirstomų sąnaudų (pajamų) sąskaita</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_AccountDistributedCostsIsReadOnly" xml:space="preserve">
+    <value>paskirstomų sąnaudų (pajamų) sąskaitos keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_Comments" xml:space="preserve">
+    <value>komentarai</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_Content" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_IsAccumulatedIncome" xml:space="preserve">
+    <value>sukauptos pajamos</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_IsAccumulatedIncomeIsReadOnly" xml:space="preserve">
+    <value>tipo keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_Items" xml:space="preserve">
+    <value>paskirstymo eilutės</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_ItemsSorted" xml:space="preserve">
+    <value>paskirstymo eilutės</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_Sum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_SumDistributed" xml:space="preserve">
+    <value>paskirstyta suma</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_SumIsReadOnly" xml:space="preserve">
+    <value>sumos keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AccumulativeCosts_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_Account" xml:space="preserve">
+    <value>sąnaudų sąskaita</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_AccountCurrencyRateChangeEffect" xml:space="preserve">
+    <value>valiutos kurso pasikeit. sąnaudų sąsk.</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_AccountCurrencyRateChangeEffectIsReadOnly" xml:space="preserve">
+    <value>valiutos kurso pasikeit. sąnaudų sąskaitos keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_AccountIsReadOnly" xml:space="preserve">
+    <value>sąnaudų sąskaitos keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_AccountVat" xml:space="preserve">
+    <value>PVM sąskaita</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_AccountVatIsReadOnly" xml:space="preserve">
+    <value>PVM sąskaitos keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_CanFixInvoiceData" xml:space="preserve">
+    <value>Neatitikimą galima ištaisyti tiesiog išsaugojus avanso apyskaitą.</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_CannotFixInvoiceData" xml:space="preserve">
+    <value>Neatitikimo negalima ištaisyti, nes avanso apyskaitai yra keitimo apribojimų.</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_Content" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_CurrencyRateChangeEffect" xml:space="preserve">
+    <value>valiutos kurso pasikeit. sąnaudos</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_CurrencyRateChangeEffectIsReadOnly" xml:space="preserve">
+    <value>valiutos kurso pasikeit. sąnaudų keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_Expenses" xml:space="preserve">
+    <value>sąnaudos</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_ExpensesIsReadOnly" xml:space="preserve">
+    <value>tipo keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_Income" xml:space="preserve">
+    <value>pajamos</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_IncomeIsReadOnly" xml:space="preserve">
+    <value>tipo keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceAccountHasChanged" xml:space="preserve">
+    <value>Eilutėje {0} pasikeitė susietos sąskaitos tiekėjų (pirkėjų) apskaitos sąskaita. {1}</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceContent" xml:space="preserve">
+    <value>sąskaitos turinys</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceCurrencyCode" xml:space="preserve">
+    <value>sąskaitos valiuta</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceCurrencyRate" xml:space="preserve">
+    <value>sąskaitos valiutos kursas</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceDataMissing" xml:space="preserve">
+    <value>Klaida eilutėje {0}: nurodytas sąskaitos ID={1}, tačiau tokios sąskaitos duomenų nėra.</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceDate" xml:space="preserve">
+    <value>sąskaitos data</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceDateAndNumber" xml:space="preserve">
+    <value>sąskaitos data ir Nr.</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceDateMismatch" xml:space="preserve">
+    <value>Sąskaitos apmokėjimo dokumentas neturėtų būti ankstesnis už sąskaitos datą.</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceID" xml:space="preserve">
+    <value>sąskaitos ID</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceIsMade" xml:space="preserve">
+    <value>išrašyta sąskaita</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoicePersonHasChanged" xml:space="preserve">
+    <value>Eilutėje {0} pasikeitė susietos sąskaitos kontrahentas. {1}</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceSumLTL" xml:space="preserve">
+    <value>sąskaitos suma bazine valiuta</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceSumOriginal" xml:space="preserve">
+    <value>sąskaitos suma</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceSumTotal" xml:space="preserve">
+    <value>sąskaitos suma viso apyskaitos valiuta</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceSumTotalLTL" xml:space="preserve">
+    <value>sąskaitos viso suma bazine valiuta</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceSumTotalOriginal" xml:space="preserve">
+    <value>sąskaitos suma viso</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceSumVatLTL" xml:space="preserve">
+    <value>sąskaitos PVM suma bazine valiuta</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceSumVatOriginal" xml:space="preserve">
+    <value>sąskaitos PVM suma</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_InvoiceTypeMismatch" xml:space="preserve">
+    <value>Eilutėje {0} yra neatitikimas tarp sąskaitos tipo ir eilutės tipo. {1}</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_Person" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_PersonIsReadOnly" xml:space="preserve">
+    <value>kontrahento keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_Sum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SumCorrectionLTL" xml:space="preserve">
+    <value>sumos bazine valiuta korekc.</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SumCorrectionLTLIsReadOnly" xml:space="preserve">
+    <value>sumos bazine valiuta keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SumIsReadOnly" xml:space="preserve">
+    <value>sumos keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SumLTL" xml:space="preserve">
+    <value>suma bazine valiuta</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SumTotal" xml:space="preserve">
+    <value>suma viso</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SumTotalLTL" xml:space="preserve">
+    <value>suma viso bazine valiuta</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SumVat" xml:space="preserve">
+    <value>PVM suma</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SumVatCorrection" xml:space="preserve">
+    <value>PVM sumos korekc.</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SumVatCorrectionIsReadOnly" xml:space="preserve">
+    <value>PVM sumos korekc. keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SumVatCorrectionLTL" xml:space="preserve">
+    <value>PVM sumos  bazine valiuta korekc.</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SumVatCorrectionLTLIsReadOnly" xml:space="preserve">
+    <value>sumos bazine valiuta korekc. keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_SumVatLTL" xml:space="preserve">
+    <value>PVM suma bazine valiuta</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_VatRate" xml:space="preserve">
+    <value>PVM tarifas</value>
+  </data>
+  <data name="Documents_AdvanceReportItem_VatRateIsReadOnly" xml:space="preserve">
+    <value>PVM tarifo keisti neleidžiama</value>
+  </data>
+  <data name="Documents_AdvanceReport_Account" xml:space="preserve">
+    <value>atskaitingo asmens sąsk.</value>
+  </data>
+  <data name="Documents_AdvanceReport_Comments" xml:space="preserve">
+    <value>komentarai</value>
+  </data>
+  <data name="Documents_AdvanceReport_CommentsInternal" xml:space="preserve">
+    <value>komentarai vidiniai</value>
+  </data>
+  <data name="Documents_AdvanceReport_Content" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Documents_AdvanceReport_CurrencyCode" xml:space="preserve">
+    <value>valiuta</value>
+  </data>
+  <data name="Documents_AdvanceReport_CurrencyRate" xml:space="preserve">
+    <value>valiutos kursas</value>
+  </data>
+  <data name="Documents_AdvanceReport_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Documents_AdvanceReport_DateInvalid" xml:space="preserve">
+    <value>Data negali būti ankstesnė nei vėliausia visų eilučių data ({0}).</value>
+  </data>
+  <data name="Documents_AdvanceReport_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Documents_AdvanceReport_FetchWarnings" xml:space="preserve">
+    <value>duomenų neatitikimai</value>
+  </data>
+  <data name="Documents_AdvanceReport_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Documents_AdvanceReport_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Documents_AdvanceReport_Person" xml:space="preserve">
+    <value>atskaitingas asmuo</value>
+  </data>
+  <data name="Documents_AdvanceReport_ReportItems" xml:space="preserve">
+    <value>eilutės</value>
+  </data>
+  <data name="Documents_AdvanceReport_ReportItemsSorted" xml:space="preserve">
+    <value>eilutės</value>
+  </data>
+  <data name="Documents_AdvanceReport_Sum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="Documents_AdvanceReport_SumLTL" xml:space="preserve">
+    <value>suma bazine valiuta</value>
+  </data>
+  <data name="Documents_AdvanceReport_SumTotal" xml:space="preserve">
+    <value>viso suma</value>
+  </data>
+  <data name="Documents_AdvanceReport_SumTotalLTL" xml:space="preserve">
+    <value>viso suma bazine valiuta</value>
+  </data>
+  <data name="Documents_AdvanceReport_SumVat" xml:space="preserve">
+    <value>PVM suma</value>
+  </data>
+  <data name="Documents_AdvanceReport_SumVatLTL" xml:space="preserve">
+    <value>PVM suma bazine valiuta</value>
+  </data>
+  <data name="Documents_AdvanceReport_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Documents_CashAccountList_ListEmpty" xml:space="preserve">
+    <value>Klaida. Neįvesta nė viena eilutė.</value>
+  </data>
+  <data name="Documents_CashAccountList_RemoveInvalid" xml:space="preserve">
+    <value>Klaida. Sąskaitoje "{0}" yra operacijų, jos pašalinti negalima.</value>
+  </data>
+  <data name="Documents_CashAccountType_BankAccount" xml:space="preserve">
+    <value>banko sąskaita</value>
+  </data>
+  <data name="Documents_CashAccountType_PseudoBankAccount" xml:space="preserve">
+    <value>pseudo banko sąskaita</value>
+  </data>
+  <data name="Documents_CashAccountType_Till" xml:space="preserve">
+    <value>kasa</value>
+  </data>
+  <data name="Documents_CashAccount_BankWithoutUniqueCodes" xml:space="preserve">
+    <value>Banko arba pseudo banko sąskaitai nenustatytas privalomas unikalus kodas. Be unikalių operacijų kodų importuojant duomenis nebus įmanoma patikimai nustatyti, ar konkreti banko operacija jau yra įtraukta į duomenų bazę.</value>
+  </data>
+  <data name="Documents_CashAccount_ToString" xml:space="preserve">
+    <value>{0} {1}: {2} (ID={3})</value>
+  </data>
+  <data name="Documents_CashAccount_TypeName" xml:space="preserve">
+    <value>lėšų apskaitos sąskaita</value>
+  </data>
 </root>

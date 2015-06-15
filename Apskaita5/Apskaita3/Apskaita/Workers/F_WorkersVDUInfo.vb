@@ -92,7 +92,7 @@ Public Class F_WorkersVDUInfo
         Dim contractList As ShortLabourContractList
         Try
             contractList = LoadObject(Of ShortLabourContractList) _
-                (Nothing, "GetListForPerson", True, currentWorker.ID)
+                (Nothing, "GetList", True, currentWorker.ID)
         Catch ex As Exception
             ShowError(ex)
             Exit Sub

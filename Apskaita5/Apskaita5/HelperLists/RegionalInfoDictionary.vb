@@ -2,6 +2,10 @@
 
 Namespace HelperLists
 
+    ''' <summary>
+    ''' Represents a helper object that holds dictionaries of localized names and prices.
+    ''' </summary>
+    ''' <remarks></remarks>
     <Serializable()> _
     Public Class RegionalInfoDictionary
         Inherits ReadOnlyBase(Of RegionalInfoDictionary)

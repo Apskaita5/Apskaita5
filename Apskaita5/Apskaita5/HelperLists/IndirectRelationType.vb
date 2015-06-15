@@ -5,6 +5,7 @@ Namespace HelperLists
         LongTermAssetsOperation
         LongTermAssetsPurchase
         GoodsOperation
+        AdvanceReport
     End Enum
 
 End Namespace

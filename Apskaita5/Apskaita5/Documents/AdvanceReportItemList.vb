@@ -1,5 +1,12 @@
 Namespace Documents
 
+    ''' <summary>
+    ''' Represents a collection of an advance report document items. Contains info about documents:  
+    ''' (a) that were payed by the accountable person and needs to be reimbursed;
+    ''' (b) under which the money was received by the accountable person and needs to be redeemed by the company.
+    ''' </summary>
+    ''' <remarks>Should only be used as a child of a <see cref="AdvanceReport">AdvanceReport</see>.
+    ''' Values are stored in the database table apyskaitos.</remarks>
     <Serializable()> _
     Public Class AdvanceReportItemList
         Inherits BusinessListBase(Of AdvanceReportItemList, AdvanceReportItem)
@@ -9,6 +16,10 @@ Namespace Documents
         Private _CurrencyRate As Double = 1
         Private _CurrencyCode As String = GetCurrentCompany.BaseCurrency
 
+        ''' <summary>
+        ''' Currency rate of the parent advance report.
+        ''' </summary>
+        ''' <remarks>Used to transfer parent data to items and avoid circular references.</remarks>
         Friend ReadOnly Property CurrencyRate() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -16,6 +27,10 @@ Namespace Documents
             End Get
         End Property
 
+        ''' <summary>
+        ''' Currency code of the parent advance report.
+        ''' </summary>
+        ''' <remarks>Used to transfer parent data to items and avoid circular references.</remarks>
         Friend ReadOnly Property CurrencyCode() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -24,28 +39,23 @@ Namespace Documents
         End Property
 
 
-        Friend Sub UpdateCurrencyRate(ByVal nCurrencyRate As Double)
+        ''' <summary>
+        ''' Updates item data when the parent currency data changes.
+        ''' </summary>
+        ''' <param name="nCurrencyCode">New currency code of the parent advance report.</param>
+        ''' <param name="nCurrencyRate">New currency rate of the parent advance report.</param>
+        ''' <remarks></remarks>
+        Friend Sub UpdateCurrency(ByVal nCurrencyCode As String, ByVal nCurrencyRate As Double)
 
             RaiseListChangedEvents = False
 
             _CurrencyRate = nCurrencyRate
-            For Each o As AdvanceReportItem In Me
-                o.UpdateCurrencyRate(nCurrencyRate)
-            Next
-
-            RaiseListChangedEvents = True
-
-            Me.ResetBindings()
-
-        End Sub
-
-        Friend Sub UpdateCurrencyCode(ByVal nCurrencyCode As String)
-
-            RaiseListChangedEvents = False
-
             _CurrencyCode = nCurrencyCode
+
+            Dim baseCurrency As String = GetCurrentCompany.BaseCurrency
+
             For Each o As AdvanceReportItem In Me
-                If o.InvoiceID > 0 Then o.UpdateCurrencyCode(nCurrencyCode)
+                o.UpdateCurrency(_CurrencyRate, _CurrencyCode, baseCurrency)
             Next
 
             RaiseListChangedEvents = True
@@ -54,6 +64,10 @@ Namespace Documents
 
         End Sub
 
+        ''' <summary>
+        ''' Gets a maximum (latest) itam date within the list. Returnes Date.MinValue if no item in the list.
+        ''' </summary>
+        ''' <remarks></remarks>
         Friend Function GetMaxDate() As Date
             If Me.Count < 1 Then Return Date.MinValue
             Dim result As Date = Date.MinValue
@@ -65,9 +79,9 @@ Namespace Documents
 
 
         Protected Overrides Function AddNewCore() As Object
-            Dim NewItem As AdvanceReportItem = AdvanceReportItem.NewAdvanceReportItem
-            Me.Add(NewItem)
-            Return NewItem
+            Dim newItem As AdvanceReportItem = AdvanceReportItem.NewAdvanceReportItem
+            Me.Add(newItem)
+            Return newItem
         End Function
 
 
@@ -90,6 +104,13 @@ Namespace Documents
             Return result
         End Function
 
+        Public Function HasWarnings() As Boolean
+            For Each i As AdvanceReportItem In Me
+                If i.BrokenRulesCollection.WarningCount > 0 Then Return True
+            Next
+            Return False
+        End Function
+
 #End Region
 
 #Region " Factory Methods "
@@ -100,8 +121,8 @@ Namespace Documents
 
         Friend Shared Function GetAdvanceReportItemList(ByVal myData As DataTable, _
             ByVal pCurrencyRate As Double, ByVal pCurrencyCode As String, _
-            ByVal nFinancialDataCanChange As Boolean) As AdvanceReportItemList
-            Return New AdvanceReportItemList(myData, pCurrencyRate, pCurrencyCode, nFinancialDataCanChange)
+            ByVal nFinancialDataCanChange As Boolean, ByRef fetchWarnings As String) As AdvanceReportItemList
+            Return New AdvanceReportItemList(myData, pCurrencyRate, pCurrencyCode, nFinancialDataCanChange, fetchWarnings)
         End Function
 
 
@@ -115,13 +136,13 @@ Namespace Documents
 
 
         Private Sub New(ByVal myData As DataTable, ByVal pCurrencyRate As Double, _
-            ByVal pCurrencyCode As String, ByVal nFinancialDataCanChange As Boolean)
+            ByVal pCurrencyCode As String, ByVal nFinancialDataCanChange As Boolean, ByRef fetchWarnings As String)
             ' require use of factory methods
             MarkAsChild()
             Me.AllowEdit = True
             Me.AllowNew = nFinancialDataCanChange
             Me.AllowRemove = nFinancialDataCanChange
-            Fetch(myData, pCurrencyRate, pCurrencyCode, nFinancialDataCanChange)
+            Fetch(myData, pCurrencyRate, pCurrencyCode, nFinancialDataCanChange, fetchWarnings)
         End Sub
 
 #End Region
@@ -129,7 +150,8 @@ Namespace Documents
 #Region " Data Access "
 
         Private Sub Fetch(ByVal myData As DataTable, ByVal pCurrencyRate As Double, _
-            ByVal pCurrencyCode As String, ByVal nFinancialDataCanChange As Boolean)
+            ByVal pCurrencyCode As String, ByVal nFinancialDataCanChange As Boolean, _
+            ByRef fetchWarnings As String)
 
             RaiseListChangedEvents = False
 
@@ -138,7 +160,7 @@ Namespace Documents
 
             For Each dr As DataRow In myData.Rows
                 Add(AdvanceReportItem.GetAdvanceReportItem(dr, pCurrencyRate, _
-                    pCurrencyCode, nFinancialDataCanChange))
+                    pCurrencyCode, nFinancialDataCanChange, fetchWarnings))
             Next
 
             RaiseListChangedEvents = True

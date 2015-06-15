@@ -1,6 +1,11 @@
 Imports ApskaitaObjects.Workers
 Namespace HelperLists
 
+    ''' <summary>
+    ''' Represents an immutable value object for work (or rest) time class (type).
+    ''' </summary>
+    ''' <remarks>Corresponds to <see cref="Workers.WorkTimeClass">Workers.WorkTimeClass</see>.
+    ''' Values are stored in the database table worktimeclasss.</remarks>
     <Serializable()> _
     Public Class WorkTimeClassInfo
         Inherits ReadOnlyBase(Of WorkTimeClassInfo)
@@ -20,6 +25,10 @@ Namespace HelperLists
         Private _AlreadyIncludedInGeneralTime As Boolean = True
 
 
+        ''' <summary>
+        ''' Whether the instance is only a placeholder.
+        ''' </summary>
+        ''' <value></value>
         Public ReadOnly Property IsEmpty() As Boolean _
             Implements IValueObjectIsEmpty.IsEmpty
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -28,6 +37,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an ID of the work (or rest) time class item that is assigned by a database (AUTOINCREMENT).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table worktimeclasss.ID.</remarks>
         Public ReadOnly Property ID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -35,6 +48,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a code of the work (or rest) time class item.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table worktimeclasss.Code.</remarks>
         Public ReadOnly Property Code() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -42,6 +59,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a name of the work (or rest) time class item.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table worktimeclasss.Name.</remarks>
         Public ReadOnly Property Name() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -49,6 +70,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a <see cref="WorkTimeType">general type</see> of the work (or rest) time class item.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table worktimeclasss.TypeID.</remarks>
         Public ReadOnly Property [Type]() As WorkTimeType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -56,6 +81,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a <see cref="WorkTimeType">general type</see> of the work (or rest) time class item as a human readable (localized) string.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table worktimeclasss.TypeID.</remarks>
         Public ReadOnly Property TypeHumanReadable() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -63,6 +92,11 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a percentage of the time to include into general work time. 
+        ''' E.g. beeing on watch at home is considered 50 percent of work time.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table worktimeclasss.InclusionPercentage.</remarks>
         Public ReadOnly Property InclusionPercentage() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -70,6 +104,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets whether a specific formula is used for calculating wage for this type of work time.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table worktimeclasss.SpecialWageShemaApplicable.</remarks>
         Public ReadOnly Property SpecialWageShemaApplicable() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -77,6 +115,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a specific formula that is used for calculating wage for this type of work time.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table worktimeclasss.SpecialWageShema.</remarks>
         Public ReadOnly Property SpecialWageShema() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -84,6 +126,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets whether this type of work (rest) time is only measured in days, not in hours.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table worktimeclasss.WithoutWorkHours.</remarks>
         Public ReadOnly Property WithoutWorkHours() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -91,16 +137,14 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets whether this type of work time is automaticaly included in general work time.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table worktimeclasss.AlreadyIncludedInGeneralTime.</remarks>
         Public ReadOnly Property AlreadyIncludedInGeneralTime() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _AlreadyIncludedInGeneralTime
-            End Get
-        End Property
-
-        Public ReadOnly Property GetMe() As WorkTimeClassInfo
-            Get
-                Return Me
             End Get
         End Property
 
@@ -158,6 +202,7 @@ Namespace HelperLists
         Friend Shared Function GetWorkTimeClassInfo(ByVal dr As DataRow, ByVal offset As Integer) As WorkTimeClassInfo
             Return New WorkTimeClassInfo(dr, offset)
         End Function
+
 
         Private Sub New()
             ' require use of factory methods
