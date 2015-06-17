@@ -6,7 +6,7 @@ Namespace HelperLists
 
 #Region " Business Methods "
 
-        Private _Guid As Guid = Guid.NewGuid
+        Private ReadOnly _Guid As Guid = Guid.NewGuid
         Private _ID As Integer = 0
         Private _Type As IndirectRelationType = IndirectRelationType.LongTermAssetsOperation
         Private _TypeHumanReadable As String = ""

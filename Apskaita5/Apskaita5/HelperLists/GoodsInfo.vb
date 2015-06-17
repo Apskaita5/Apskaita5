@@ -122,7 +122,7 @@ Namespace HelperLists
             _MeasureUnit = CStrSafe(dr.Item(2 + offset)).Trim
             _GoodsBarcode = CStrSafe(dr.Item(3 + offset)).Trim
             _GoodsCode = CStrSafe(dr.Item(4 + offset)).Trim
-            _TradeItemType = ConvertEnumDatabaseCode(Of Documents.TradedItemType)(CIntSafe(dr.Item(5 + offset), 0))
+            _TradeItemType = EnumValueAttribute.ConvertDatabaseID(Of Documents.TradedItemType)(CIntSafe(dr.Item(5 + offset), 0))
             _IsObsolete = ConvertDbBoolean(CIntSafe(dr.Item(6 + offset), 0))
 
         End Sub

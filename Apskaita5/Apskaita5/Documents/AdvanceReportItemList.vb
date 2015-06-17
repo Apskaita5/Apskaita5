@@ -190,6 +190,21 @@ Namespace Documents
 
         End Sub
 
+        Friend Function GetFullBookEntryList(ByVal accountablePersonAccount As Long) As BookEntryInternalList
+
+            Dim result As BookEntryInternalList = BookEntryInternalList. _
+                NewBookEntryInternalList(BookEntryType.Debetas)
+
+            For Each i As AdvanceReportItem In Me
+                result.AddRange(i.GetBookEntryList(accountablePersonAccount))
+            Next
+
+            result.Aggregate()
+
+            Return result
+
+        End Function
+
 #End Region
 
     End Class

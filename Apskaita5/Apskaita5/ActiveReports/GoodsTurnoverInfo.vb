@@ -606,7 +606,7 @@ Namespace ActiveReports
                 (CIntSafe(dr.Item(12), 0)))
             _ValuationMethod = ConvertEnumHumanReadable(ConvertEnumDatabaseCode(Of GoodsValuationMethod) _
                 (CIntSafe(dr.Item(13), 0)))
-            _TradeType = ConvertEnumHumanReadable(ConvertEnumDatabaseCode(Of Documents.TradedItemType) _
+            _TradeType = EnumValueAttribute.ConvertLocalizedName(EnumValueAttribute.ConvertDatabaseID(Of Documents.TradedItemType) _
                 (CIntSafe(dr.Item(14), 0)))
             _Code = CStrSafe(dr.Item(15)).Trim
             _BarCode = CStrSafe(dr.Item(16)).Trim

@@ -1,5 +1,10 @@
 Namespace Documents
 
+    ''' <summary>
+    ''' Represents list of price info for a particular regionalized object for particular currencies.
+    ''' </summary>
+    ''' <remarks>Should be only used as a child of <see cref="IRegionalDataObject">IRegionalDataObject</see>
+    ''' Values are stored in the database table regionalprices.</remarks>
     <Serializable()> _
     Public Class RegionalPriceList
         Inherits BusinessListBase(Of RegionalPriceList, RegionalPrice)
@@ -7,10 +12,11 @@ Namespace Documents
 #Region " Business Methods "
 
         Protected Overrides Function AddNewCore() As Object
-            Dim NewItem As RegionalPrice = RegionalPrice.NewRegionalPrice
-            Me.Add(NewItem)
-            Return NewItem
+            Dim newItem As RegionalPrice = RegionalPrice.NewRegionalPrice
+            Me.Add(newItem)
+            Return newItem
         End Function
+
 
         Public Function GetAllBrokenRules() As String
             Dim result As String = GetAllBrokenRulesForList(Me)
@@ -31,18 +37,28 @@ Namespace Documents
             Return result
         End Function
 
-        Public Function GetLithPriceSale() As Double
+        Public Function HasWarnings() As Boolean
             For Each i As RegionalPrice In Me
-                If i.CurrencyCode.Trim.ToUpper = GetCurrentCompany.BaseCurrency Then Return i.ValuePerUnitSales
+                If i.BrokenRulesCollection.WarningCount > 0 Then Return True
             Next
-            Return 0
+            Return False
         End Function
 
-        Public Function GetLithPricePurchase() As Double
+
+        Public Function GetPriceSaleBaseCurrency() As Double
+            Dim baseCurrency As String = GetCurrentCompany.BaseCurrency
             For Each i As RegionalPrice In Me
-                If i.CurrencyCode.Trim.ToUpper = GetCurrentCompany.BaseCurrency Then Return i.ValuePerUnitPurchases
+                If IsBaseCurrency(i.CurrencyCode, baseCurrency) Then Return i.ValuePerUnitSales
             Next
-            Return 0
+            Return 0.0
+        End Function
+
+        Public Function GetPricePurchaseBaseCurrency() As Double
+            Dim baseCurrency As String = GetCurrentCompany.BaseCurrency
+            For Each i As RegionalPrice In Me
+                If IsBaseCurrency(i.CurrencyCode, baseCurrency) Then Return i.ValuePerUnitPurchases
+            Next
+            Return 0.0
         End Function
 
 #End Region
@@ -53,13 +69,8 @@ Namespace Documents
             Return New RegionalPriceList
         End Function
 
-        Friend Shared Function GetRegionalPriceList(ByVal ConcetanatedString As String) As RegionalPriceList
-            Return New RegionalPriceList(ConcetanatedString)
-        End Function
-
-        Friend Shared Function GetRegionalPriceList(Of T As Documents.IRegionalDataObject) _
-            (ByVal parentID As Integer) As RegionalPriceList
-            Return New RegionalPriceList(GetType(T), parentID)
+        Friend Shared Function GetRegionalPriceList(ByVal parent As IRegionalDataObject) As RegionalPriceList
+            Return New RegionalPriceList(parent)
         End Function
 
 
@@ -71,59 +82,29 @@ Namespace Documents
             Me.AllowRemove = True
         End Sub
 
-        Private Sub New(ByVal ConcetanatedString As String)
+        Private Sub New(ByVal parent As IRegionalDataObject)
             ' require use of factory methods
             MarkAsChild()
             Me.AllowEdit = True
             Me.AllowNew = True
             Me.AllowRemove = True
-            Fetch(ConcetanatedString)
-        End Sub
-
-        Private Sub New(ByVal parentType As Type, ByVal parentID As Integer)
-            ' require use of factory methods
-            MarkAsChild()
-            Me.AllowEdit = True
-            Me.AllowNew = True
-            Me.AllowRemove = True
-            Fetch(parentType, parentID)
+            Fetch(parent)
         End Sub
 
 #End Region
 
 #Region " Data Access "
 
-        Private Sub Fetch(ByVal ConcetanatedString As String)
-
-            RaiseListChangedEvents = False
-
-            For Each dr As String In ConcetanatedString.Split(New String() {"@*#@"}, _
-                StringSplitOptions.RemoveEmptyEntries)
-                If Not dr Is Nothing AndAlso Not String.IsNullOrEmpty(dr.Trim) Then _
-                    Add(RegionalPrice.GetRegionalPrice(dr.Trim))
-            Next
-
-            RaiseListChangedEvents = True
-
-        End Sub
-
-        Private Sub Fetch(ByVal parentType As Type, ByVal parentID As Integer)
+        Private Sub Fetch(ByVal parent As IRegionalDataObject)
 
             Dim myComm As New SQLCommand("FetchRegionalPriceInfoListByParent")
-            If parentType Is GetType(Documents.Service) Then
-                myComm.AddParam("?AA", 0)
-            ElseIf parentType Is GetType(Goods.GoodsItem) Then
-                myComm.AddParam("?AA", 1)
-            Else
-                Throw New NotImplementedException(String.Format("Type {0} is not implemented in method {1}.Fetch.", _
-                    parentType.FullName, GetType(RegionalPriceInfoList).FullName))
-            End If
-            myComm.AddParam("?AB", parentID)
+            myComm.AddParam("?AA", EnumValueAttribute.ConvertDatabaseID(parent.RegionalObjectType))
+            myComm.AddParam("?AB", parent.RegionalObjectID)
 
             Using myData As DataTable = myComm.Fetch
 
                 RaiseListChangedEvents = False
-                
+
                 For Each dr As DataRow In myData.Rows
                     Add(RegionalPrice.GetRegionalPrice(dr))
                 Next
@@ -155,11 +136,11 @@ Namespace Documents
 
         End Sub
 
-        Friend Shared Sub Delete(ByVal ParentID As Integer, ByVal ParentType As Integer)
+        Friend Shared Sub Delete(ByVal parentID As Integer, ByVal parentType As RegionalizedObjectType)
 
             Dim myComm As New SQLCommand("DeleteAllItemsInRegionalPrices")
-            myComm.AddParam("?CD", ParentID)
-            myComm.AddParam("?CT", ParentType)
+            myComm.AddParam("?CD", parentID)
+            myComm.AddParam("?CT", EnumValueAttribute.ConvertDatabaseID(parentType))
 
             myComm.Execute()
 

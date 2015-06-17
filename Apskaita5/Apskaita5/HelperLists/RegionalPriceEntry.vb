@@ -3,9 +3,12 @@
 Namespace HelperLists
 
     ''' <summary>
-    ''' Represents a price info for a particular regionalized object for a particular currency.
+    ''' Represents a value object containing a price info for a particular regionalized object 
+    ''' for a particular currency.
     ''' </summary>
-    ''' <remarks>Values are stored in the database table regionalprices.</remarks>
+    ''' <remarks>Should only be used as a child of <see cref="RegionalPriceEntryList">RegionalPriceEntryList</see>.
+    ''' Used with <see cref="IRegionalDataObject">localized objects</see> in order to provide localization in runtime.
+    ''' Values are stored in the database table regionalprices.</remarks>
     <Serializable()> _
     Public Class RegionalPriceEntry
         Inherits ReadOnlyBase(Of RegionalPriceEntry)
@@ -56,7 +59,7 @@ Namespace HelperLists
         ''' <summary>
         ''' Price for sale.
         ''' </summary>
-        ''' <remarks>Value is stored in the database field regionalprices.ValuePerUnitPurchases.</remarks>
+        ''' <remarks>Value is stored in the database field regionalprices.ValuePerUnitSales.</remarks>
         Public ReadOnly Property ValuePerUnitSales() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -67,7 +70,7 @@ Namespace HelperLists
         ''' <summary>
         ''' Price for purchase.
         ''' </summary>
-        ''' <remarks>Value is stored in the database field regionalprices.Saskaitosnr.</remarks>
+        ''' <remarks>Value is stored in the database field regionalprices.ValuePerUnitPurchases.</remarks>
         Public ReadOnly Property ValuePerUnitPurchases() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get

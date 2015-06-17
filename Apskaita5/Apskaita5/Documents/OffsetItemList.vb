@@ -1,5 +1,11 @@
 Namespace Documents
 
+    ''' <summary>
+    ''' Represents a collection of offset items (accounting entries that needs to be canceled 
+    ''' with an equal but opposite entries).
+    ''' </summary>
+    ''' <remarks>Should only be used as a child of <see cref="Offset">Offset</see>.
+    ''' Values are stored in the database table offsetitems.</remarks>
     <Serializable()> _
     Public Class OffsetItemList
         Inherits BusinessListBase(Of OffsetItemList, OffsetItem)
@@ -7,10 +13,11 @@ Namespace Documents
 #Region " Business Methods "
 
         Protected Overrides Function AddNewCore() As Object
-            Dim NewItem As OffsetItem = OffsetItem.NewOffsetItem
-            Me.Add(NewItem)
-            Return NewItem
+            Dim newItem As OffsetItem = OffsetItem.NewOffsetItem
+            Me.Add(newItem)
+            Return newItem
         End Function
+
 
         Public Function GetAllBrokenRules() As String
             Dim result As String = GetAllBrokenRulesForList(Me)
@@ -31,6 +38,27 @@ Namespace Documents
             Return result
         End Function
 
+        Public Function HasWarnings() As Boolean
+            For Each i As OffsetItem In Me
+                If i.BrokenRulesCollection.WarningCount > 0 Then Return True
+            Next
+            Return False
+        End Function
+
+
+        Friend Function GetBookEntryList() As BookEntryInternalList
+
+            Dim result As BookEntryInternalList = BookEntryInternalList. _
+                NewBookEntryInternalList(BookEntryType.Debetas)
+
+            For Each i As OffsetItem In Me
+                result.AddRange(i.GetBookEntryList())
+            Next
+
+            Return result
+
+        End Function
+
 #End Region
 
 #Region " Factory Methods "
@@ -40,8 +68,8 @@ Namespace Documents
         End Function
 
         Friend Shared Function GetOffsetItemList(ByVal parent As Offset, _
-            ByRef BalanceOffsetItem As OffsetItem) As OffsetItemList
-            Return New OffsetItemList(parent, BalanceOffsetItem)
+            ByRef balanceOffsetItem As OffsetItem) As OffsetItemList
+            Return New OffsetItemList(parent, balanceOffsetItem)
         End Function
 
 
@@ -53,20 +81,20 @@ Namespace Documents
             Me.AllowRemove = True
         End Sub
 
-        Private Sub New(ByVal parent As Offset, ByRef BalanceOffsetItem As OffsetItem)
+        Private Sub New(ByVal parent As Offset, ByRef balanceOffsetItem As OffsetItem)
             ' require use of factory methods
             MarkAsChild()
             Me.AllowEdit = True
             Me.AllowNew = parent.ChronologicValidator.FinancialDataCanChange
             Me.AllowRemove = parent.ChronologicValidator.FinancialDataCanChange
-            Fetch(parent, BalanceOffsetItem)
+            Fetch(parent, balanceOffsetItem)
         End Sub
 
 #End Region
 
 #Region " Data Access "
 
-        Private Sub Fetch(ByVal parent As Offset, ByRef BalanceOffsetItem As OffsetItem)
+        Private Sub Fetch(ByVal parent As Offset, ByRef balanceOffsetItem As OffsetItem)
 
             Dim myComm As New SQLCommand("FetchOffsetItemList")
             myComm.AddParam("?BD", parent.ID)
@@ -75,16 +103,19 @@ Namespace Documents
 
                 RaiseListChangedEvents = False
 
-                Dim CurrentChild As OffsetItem
+                Dim currentChild As OffsetItem
 
                 For Each dr As DataRow In myData.Rows
-                    CurrentChild = OffsetItem.GetOffsetItem(dr, parent.ChronologicValidator.FinancialDataCanChange)
-                    If (CurrentChild.Person Is Nothing OrElse Not CurrentChild.Person.ID > 0) _
-                        AndAlso CurrentChild.CurrencyCode.Trim.ToUpper = GetCurrentCompany.BaseCurrency Then
-                        BalanceOffsetItem = CurrentChild
+
+                    currentChild = OffsetItem.GetOffsetItem(dr, parent.ChronologicValidator.FinancialDataCanChange)
+
+                    If (currentChild.Person Is Nothing OrElse Not currentChild.Person.IsEmpty) _
+                        AndAlso IsBaseCurrency(currentChild.CurrencyCode, GetCurrentCompany.BaseCurrency) Then
+                        balanceOffsetItem = currentChild
                     Else
-                        Add(CurrentChild)
+                        Add(currentChild)
                     End If
+
                 Next
 
                 RaiseListChangedEvents = True

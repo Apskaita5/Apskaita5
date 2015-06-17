@@ -1,5 +1,11 @@
 Namespace Documents
 
+    ''' <summary>
+    ''' Represents a list of description info for a particular <see cref="IRegionalDataObject">
+    ''' regionalized object</see> for particular languages.
+    ''' </summary>
+    ''' <remarks>Should be only used as a child of <see cref="IRegionalDataObject">IRegionalDataObject</see>.
+    ''' Values are stored in the database table regionalcontents.</remarks>
     <Serializable()> _
     Public Class RegionalContentList
         Inherits BusinessListBase(Of RegionalContentList, RegionalContent)
@@ -7,10 +13,11 @@ Namespace Documents
 #Region " Business Methods "
 
         Protected Overrides Function AddNewCore() As Object
-            Dim NewItem As RegionalContent = RegionalContent.NewRegionalContent
-            Me.Add(NewItem)
-            Return NewItem
+            Dim newItem As RegionalContent = RegionalContent.NewRegionalContent
+            Me.Add(newItem)
+            Return newItem
         End Function
+
 
         Public Function GetAllBrokenRules() As String
             Dim result As String = GetAllBrokenRulesForList(Me)
@@ -32,6 +39,13 @@ Namespace Documents
             Return result
         End Function
 
+        Public Function HasWarnings() As Boolean
+            For Each i As RegionalContent In Me
+                If i.BrokenRulesCollection.WarningCount > 0 Then Return True
+            Next
+            Return False
+        End Function
+
 #End Region
 
 #Region " Factory Methods "
@@ -40,13 +54,8 @@ Namespace Documents
             Return New RegionalContentList
         End Function
 
-        Friend Shared Function GetRegionalContentList(ByVal ConcetanatedString As String) As RegionalContentList
-            Return New RegionalContentList(ConcetanatedString)
-        End Function
-
-        Friend Shared Function GetRegionalContentList(Of T As Documents.IRegionalDataObject) _
-            (ByVal parentID As Integer) As RegionalContentList
-            Return New RegionalContentList(GetType(T), parentID)
+        Friend Shared Function GetRegionalContentList(ByVal parent As IRegionalDataObject) As RegionalContentList
+            Return New RegionalContentList(parent)
         End Function
 
 
@@ -58,54 +67,24 @@ Namespace Documents
             Me.AllowRemove = True
         End Sub
 
-        Private Sub New(ByVal ConcetanatedString As String)
+        Private Sub New(ByVal parent As IRegionalDataObject)
             ' require use of factory methods
             MarkAsChild()
             Me.AllowEdit = True
             Me.AllowNew = True
             Me.AllowRemove = True
-            Fetch(ConcetanatedString)
-        End Sub
-
-        Private Sub New(ByVal parentType As Type, ByVal parentID As Integer)
-            ' require use of factory methods
-            MarkAsChild()
-            Me.AllowEdit = True
-            Me.AllowNew = True
-            Me.AllowRemove = True
-            Fetch(parentType, parentID)
+            Fetch(parent)
         End Sub
 
 #End Region
 
 #Region " Data Access "
 
-        Private Sub Fetch(ByVal ConcetanatedString As String)
-
-            RaiseListChangedEvents = False
-
-            For Each dr As String In ConcetanatedString.Split(New String() {"@*#@"}, _
-                StringSplitOptions.RemoveEmptyEntries)
-                If Not dr Is Nothing AndAlso Not String.IsNullOrEmpty(dr.Trim) Then _
-                    Add(RegionalContent.GetRegionalContent(dr.Trim))
-            Next
-
-            RaiseListChangedEvents = True
-
-        End Sub
-
-        Private Sub Fetch(ByVal parentType As Type, ByVal parentID As Integer)
+        Private Sub Fetch(ByVal parent As IRegionalDataObject)
 
             Dim myComm As New SQLCommand("FetchRegionalContentInfoListByParent")
-            If parentType Is GetType(Documents.Service) Then
-                myComm.AddParam("?AA", 0)
-            ElseIf parentType Is GetType(Goods.GoodsItem) Then
-                myComm.AddParam("?AA", 1)
-            Else
-                Throw New NotImplementedException(String.Format("Type {0} is not implemented in method {1}.GetRegionalPriceInfoListDataTable.", _
-                    parentType.FullName, GetType(RegionalPriceInfoList).FullName))
-            End If
-            myComm.AddParam("?AB", parentID)
+            myComm.AddParam("?AA", EnumValueAttribute.ConvertDatabaseID(parent.RegionalObjectType))
+            myComm.AddParam("?AB", parent.RegionalObjectID)
 
             Using myData As DataTable = myComm.Fetch
 
@@ -142,11 +121,11 @@ Namespace Documents
 
         End Sub
 
-        Friend Shared Sub Delete(ByVal ParentID As Integer, ByVal ParentType As Integer)
+        Friend Shared Sub Delete(ByVal parentID As Integer, ByVal parentType As RegionalizedObjectType)
 
             Dim myComm As New SQLCommand("DeleteAllItemsInRegionalContents")
-            myComm.AddParam("?CD", ParentID)
-            myComm.AddParam("?CT", ParentType)
+            myComm.AddParam("?CD", parentID)
+            myComm.AddParam("?CT", EnumValueAttribute.ConvertDatabaseID(parentType))
             myComm.Execute()
 
         End Sub

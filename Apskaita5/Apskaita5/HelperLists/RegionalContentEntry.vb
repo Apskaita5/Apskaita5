@@ -3,9 +3,11 @@
 Namespace HelperLists
 
     ''' <summary>
-    ''' Represents a description info for a particular regionalized object for a particular language.
+    ''' Represents value object containing a description info for a particular localized object for a particular language.
     ''' </summary>
-    ''' <remarks>Values are stored in the database table regionalcontents.</remarks>
+    ''' <remarks>Should be only used as a child of <see cref="RegionalContentEntryList">RegionalContentEntryList</see>.
+    ''' Used with <see cref="IRegionalDataObject">localized objects</see> in order to provide localization in runtime.
+    ''' Values are stored in the database table regionalcontents.</remarks>
     <Serializable()> _
     Public Class RegionalContentEntry
         Inherits ReadOnlyBase(Of RegionalContentEntry)

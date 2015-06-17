@@ -4854,4 +4854,796 @@
   <data name="Documents_CashAccount_TypeName" xml:space="preserve">
     <value>lėšų apskaitos sąskaita</value>
   </data>
+  <data name="Documents_RegionalContent_ToString" xml:space="preserve">
+    <value>{0} -&gt; {1}, {2}</value>
+  </data>
+  <data name="Documents_RegionalContent_TypeName" xml:space="preserve">
+    <value>regioniniai pavadinimai</value>
+  </data>
+  <data name="Documents_RegionalPrice_ToString" xml:space="preserve">
+    <value>{0}: pirkimas = {1} / pardavimas = {2}</value>
+  </data>
+  <data name="Documents_RegionalPrice_TypeName" xml:space="preserve">
+    <value>regioninės kainos</value>
+  </data>
+  <data name="Documents_Service_AmountInvalid" xml:space="preserve">
+    <value>Šablone nerekomenduojama nurodyti kiekio, tai padidina klaidų išrašant sąskaitas tikimybę.</value>
+  </data>
+  <data name="Documents_Service_CannotDelete" xml:space="preserve">
+    <value>Klaida. Paslauga buvo panaudota išrašant ir (ar) registruojant sąskaitas faktūras. Jos pašalinti neleidžiama.</value>
+  </data>
+  <data name="Documents_Service_RegionalContentListEmpty" xml:space="preserve">
+    <value>Neįvesti paslaugos pavadinimai nė viena kalba.</value>
+  </data>
+  <data name="Documents_Service_RegionalPriceListEmpty" xml:space="preserve">
+    <value>Neįvestos paslaugos kainos nė viena valiuta.</value>
+  </data>
+  <data name="Documents_Service_ToString" xml:space="preserve">
+    <value>{0} paslauga "{1}" (ID={2})</value>
+  </data>
+  <data name="Documents_Service_TypeName" xml:space="preserve">
+    <value>paslauga</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_AccountInvalid" xml:space="preserve">
+    <value>Pasirinktos sąskaitos tipas yra banko sąskaita, joje vienintelis galimas operacijos tipas yra banko pavedimas, o šios operacijos tipas yra kasos pajamų orderis.</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_AdvanceReportInvalid" xml:space="preserve">
+    <value>Klaida. Prie kasos pajamų orderio gali būti pridedama tik tokia avanso apyskaita, kurioje surinktų pajamų suma didesnė už patirtų išlaidų sumą.</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_AdvanceReportNull" xml:space="preserve">
+    <value>Nenurodyta avanso apyskaita.</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_CannotAttachAdvanceReport" xml:space="preserve">
+    <value>Lėšų gavimas pagal žiniaraštį negali turėti susietos avanso apyskaitos.</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_PayerInvalid" xml:space="preserve">
+    <value>Gaunant mokėjimą pagal žiniaraštį, mokantis asmuo nenurodomas.</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_SerialNumberNotUnique" xml:space="preserve">
+    <value>Klaida. Kasos pajamų orderis su tokia serija ir numeriu jau yra.</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_SumLTLInvalid" xml:space="preserve">
+    <value>Gaunama lėšų suma bazine valiuta turi būti lygi korespondencijų sumai plius valiutos kurso pasikeitimo įtaka.</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_ToString" xml:space="preserve">
+    <value>{0} kasos pajamų orderis Nr. {1}{2} (ID={3})</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_TypeName" xml:space="preserve">
+    <value>kasos pajamų orderis</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_AccountInvalid" xml:space="preserve">
+    <value>Pasirinktos sąskaitos tipas yra banko sąskaita, joje vienintelis galimas operacijos tipas yra banko pavedimas, o šios operacijos tipas yra kasos išlaidų orderis.</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_AdvanceReportInvalid" xml:space="preserve">
+    <value>Klaida. Prie kasos išlaidų orderio gali būti pridedama tik tokia avanso apyskaita, kurioje patirtų išlaidų suma didesnė už surinktų pajamų sumą.</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_AdvanceReportNull" xml:space="preserve">
+    <value>Nenurodyta avanso apyskaita.</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_CannotAttachAdvanceReport" xml:space="preserve">
+    <value>Lėšų išmokėjimas pagal žiniaraštį negali turėti susietos avanso apyskaitos.</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_PayerInvalid" xml:space="preserve">
+    <value>Atliekant mokėjimus pagal žiniaraštį, mokantis asmuo nenurodomas.</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_SerialNumberNotUnique" xml:space="preserve">
+    <value>Klaida. Kasos išlaidų orderis su tokia serija ir numeriu jau yra.</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_SumLTLInvalid" xml:space="preserve">
+    <value>Gaunama lėšų suma bazine valiuta turi būti lygi korespondencijų sumai minus valiutos kurso pasikeitimo įtaka.</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_ToString" xml:space="preserve">
+    <value>{0} kasos išlaidų orderis Nr. {1}{2} (ID={3})</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_TypeName" xml:space="preserve">
+    <value>kasos išlaidų orderis</value>
+  </data>
+  <data name="Documents_TradedItemType_All" xml:space="preserve">
+    <value>perkamos ir parduodamos</value>
+  </data>
+  <data name="Documents_TradedItemType_Purchases" xml:space="preserve">
+    <value>perkamos</value>
+  </data>
+  <data name="Documents_TradedItemType_Sales" xml:space="preserve">
+    <value>parduodamos</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_Account" xml:space="preserve">
+    <value>atskaitingo asmens sąsk.</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_Comments" xml:space="preserve">
+    <value>pastabos</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_CommentsInternal" xml:space="preserve">
+    <value>vidinės pastabos</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_Content" xml:space="preserve">
+    <value>turinys</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_CurrencyCode" xml:space="preserve">
+    <value>valiuta</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_CurrencyRate" xml:space="preserve">
+    <value>kursas</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_ExpensesSum" xml:space="preserve">
+    <value>išlaidų suma</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_ExpensesSumLTL" xml:space="preserve">
+    <value>išlaidų suma bazine valiuta</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_ExpensesSumTotal" xml:space="preserve">
+    <value>išlaidų suma viso</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_ExpensesSumTotalLTL" xml:space="preserve">
+    <value>išlaidų suma viso bazine valiuta</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_ExpensesSumVat" xml:space="preserve">
+    <value>išlaidų PVM</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_ExpensesSumVatLTL" xml:space="preserve">
+    <value>išlaidų PVM bazine valiuta</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_IncomeSum" xml:space="preserve">
+    <value>įplaukų suma</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_IncomeSumLTL" xml:space="preserve">
+    <value>įplaukų suma bazine valiuta</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_IncomeSumTotal" xml:space="preserve">
+    <value>įplaukų suma viso</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_IncomeSumTotalLTL" xml:space="preserve">
+    <value>įplaukų suma viso bazine valiuta</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_IncomeSumVat" xml:space="preserve">
+    <value>įplaukų PVM</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_IncomeSumVatLTL" xml:space="preserve">
+    <value>įplaukų PVM bazine valiuta</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_IsIncomeTillOrder" xml:space="preserve">
+    <value>pajamų orderis</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_PersonCode" xml:space="preserve">
+    <value>konktrahento kodas</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_PersonID" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_PersonName" xml:space="preserve">
+    <value>kontrahento pavadinimas</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_TillOrderData" xml:space="preserve">
+    <value>kasos orderis</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_TillOrderID" xml:space="preserve">
+    <value>kasos orderio ID</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_AccountName" xml:space="preserve">
+    <value>lėšų sąskaita</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_BankCurrencyConversionCosts" xml:space="preserve">
+    <value>valiutos konvertavimo sąnaudos</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_BankCurrencyConversionCostsLTL" xml:space="preserve">
+    <value>valiutos konvertavimo sąnaudos bazine valiuta</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_BookEntryList" xml:space="preserve">
+    <value>kontavimai</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_Content" xml:space="preserve">
+    <value>turinys</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_CurrencyCode" xml:space="preserve">
+    <value>valiuta</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_CurrencyRate" xml:space="preserve">
+    <value>kursas</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_CurrencyRateChangeImpact" xml:space="preserve">
+    <value>valiutos kurso pasik. įtaka</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_CurrencyRateInAccount" xml:space="preserve">
+    <value>kursas lėšų sąskaitoje</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_OperationType" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_OperationTypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_OriginalContent" xml:space="preserve">
+    <value>originalus turinys</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_OriginalPerson" xml:space="preserve">
+    <value>originalus kontrahentas</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_Person" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_Sum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_SumBookEntry" xml:space="preserve">
+    <value>suma kontavimų</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_SumInAccount" xml:space="preserve">
+    <value>suma lėšų sąskaitoje</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_SumLTL" xml:space="preserve">
+    <value>suma bazine valiuta</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_UniqueCode" xml:space="preserve">
+    <value>unik. kodas</value>
+  </data>
+  <data name="ActiveReports_DebtInfo_DebtBegin" xml:space="preserve">
+    <value>skola pr.</value>
+  </data>
+  <data name="ActiveReports_DebtInfo_DebtEnd" xml:space="preserve">
+    <value>skola pb.</value>
+  </data>
+  <data name="ActiveReports_DebtInfo_PersonAddress" xml:space="preserve">
+    <value>adresas</value>
+  </data>
+  <data name="ActiveReports_DebtInfo_PersonCode" xml:space="preserve">
+    <value>įmonės/asmens kodas</value>
+  </data>
+  <data name="ActiveReports_DebtInfo_PersonGroup" xml:space="preserve">
+    <value>grupė</value>
+  </data>
+  <data name="ActiveReports_DebtInfo_PersonID" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="ActiveReports_DebtInfo_PersonName" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="ActiveReports_DebtInfo_PersonVatCode" xml:space="preserve">
+    <value>PVM mokėtojo kodas</value>
+  </data>
+  <data name="ActiveReports_DebtInfo_TurnoverCredit" xml:space="preserve">
+    <value>apyvarta (kreditas)</value>
+  </data>
+  <data name="ActiveReports_DebtInfo_TurnoverDebet" xml:space="preserve">
+    <value>apyvarta (debetas)</value>
+  </data>
+  <data name="ActiveReports_UnsettledDocumentInfo_Content" xml:space="preserve">
+    <value>turinys</value>
+  </data>
+  <data name="ActiveReports_UnsettledDocumentInfo_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="ActiveReports_UnsettledDocumentInfo_Debt" xml:space="preserve">
+    <value>skola</value>
+  </data>
+  <data name="ActiveReports_UnsettledDocumentInfo_DocNo" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="ActiveReports_UnsettledDocumentInfo_DocType" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="ActiveReports_UnsettledDocumentInfo_DocTypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="ActiveReports_UnsettledDocumentInfo_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="ActiveReports_UnsettledDocumentInfo_SumInDocument" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="ActiveReports_UnsettledPersonInfo_Address" xml:space="preserve">
+    <value>adresas</value>
+  </data>
+  <data name="ActiveReports_UnsettledPersonInfo_Code" xml:space="preserve">
+    <value>įmonės/asmens kodas</value>
+  </data>
+  <data name="ActiveReports_UnsettledPersonInfo_CodeInternal" xml:space="preserve">
+    <value>vidinis kodas</value>
+  </data>
+  <data name="ActiveReports_UnsettledPersonInfo_CodeVat" xml:space="preserve">
+    <value>PVM mokėtojo kodas</value>
+  </data>
+  <data name="ActiveReports_UnsettledPersonInfo_ContactInfo" xml:space="preserve">
+    <value>kontaktinė info</value>
+  </data>
+  <data name="ActiveReports_UnsettledPersonInfo_Debt" xml:space="preserve">
+    <value>skola</value>
+  </data>
+  <data name="ActiveReports_UnsettledPersonInfo_Email" xml:space="preserve">
+    <value>e-paštas</value>
+  </data>
+  <data name="ActiveReports_UnsettledPersonInfo_ID" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="ActiveReports_UnsettledPersonInfo_Items" xml:space="preserve">
+    <value>neapmokėti dokumentai</value>
+  </data>
+  <data name="ActiveReports_UnsettledPersonInfo_ItemsSorted" xml:space="preserve">
+    <value>neapmokėti dokumentai</value>
+  </data>
+  <data name="ActiveReports_UnsettledPersonInfo_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="Common_InvalidJournalEntryDocumentType" xml:space="preserve">
+    <value>Klaida. Bendrojo žurnalo operacijos, kurios ID={0}, dokumento tipas yra {1}, o ne {2}.</value>
+  </data>
+  <data name="Documents_CashAccount_Account" xml:space="preserve">
+    <value>apskaitos sąsk.</value>
+  </data>
+  <data name="Documents_CashAccount_BalanceAtBegining" xml:space="preserve">
+    <value>likutis pradžioje</value>
+  </data>
+  <data name="Documents_CashAccount_BankAccountNumber" xml:space="preserve">
+    <value>banko sąskaitos Nr.</value>
+  </data>
+  <data name="Documents_CashAccount_BankCode" xml:space="preserve">
+    <value>banko kodas</value>
+  </data>
+  <data name="Documents_CashAccount_BankFeeCostsAccount" xml:space="preserve">
+    <value>komisinių sąnaudų sąsk.</value>
+  </data>
+  <data name="Documents_CashAccount_BankFeeLimit" xml:space="preserve">
+    <value>tipinis komisinių limitas</value>
+  </data>
+  <data name="Documents_CashAccount_BankName" xml:space="preserve">
+    <value>banko pavadinimas</value>
+  </data>
+  <data name="Documents_CashAccount_CurrencyCode" xml:space="preserve">
+    <value>valiuta</value>
+  </data>
+  <data name="Documents_CashAccount_EnforceUniqueOperationID" xml:space="preserve">
+    <value>reikalauti unik. kodo</value>
+  </data>
+  <data name="Documents_CashAccount_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Documents_CashAccount_IsInUse" xml:space="preserve">
+    <value>yra operacijų</value>
+  </data>
+  <data name="Documents_CashAccount_IsLitasEsisCompliant" xml:space="preserve">
+    <value>palaiko LITAS-ESIS</value>
+  </data>
+  <data name="Documents_CashAccount_IsObsolete" xml:space="preserve">
+    <value>nebenaudojama</value>
+  </data>
+  <data name="Documents_CashAccount_ManagingPerson" xml:space="preserve">
+    <value>administruojantis bankas (kontrahentas)</value>
+  </data>
+  <data name="Documents_CashAccount_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="Documents_CashAccount_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Documents_CashAccount_TypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Documents_OffsetItem_Account" xml:space="preserve">
+    <value>sąskaita</value>
+  </data>
+  <data name="Documents_OffsetItem_AccountCurrencyRateChangeImpact" xml:space="preserve">
+    <value>valiutos kurso pasik. sąsk.</value>
+  </data>
+  <data name="Documents_OffsetItem_AccountCurrencyRateChangeImpactIsReadOnly" xml:space="preserve">
+    <value>valiutos kurso pasik. sąsk. negali būti keičiama</value>
+  </data>
+  <data name="Documents_OffsetItem_AccountIsReadOnly" xml:space="preserve">
+    <value>sąskaita negali būti keičiama</value>
+  </data>
+  <data name="Documents_OffsetItem_BalanceItemComment" xml:space="preserve">
+    <value>užskaitą balansuojantis įrašas</value>
+  </data>
+  <data name="Documents_OffsetItem_Comments" xml:space="preserve">
+    <value>pastabos</value>
+  </data>
+  <data name="Documents_OffsetItem_Credit" xml:space="preserve">
+    <value>suma (kreditas)</value>
+  </data>
+  <data name="Documents_OffsetItem_CurrencyCode" xml:space="preserve">
+    <value>valiuta</value>
+  </data>
+  <data name="Documents_OffsetItem_CurrencyCodeIsReadOnly" xml:space="preserve">
+    <value>valiuta  negali būti keičiama</value>
+  </data>
+  <data name="Documents_OffsetItem_CurrencyRate" xml:space="preserve">
+    <value>kursas</value>
+  </data>
+  <data name="Documents_OffsetItem_CurrencyRateChangeImpact" xml:space="preserve">
+    <value>valiutos kurso pasik. įtaka</value>
+  </data>
+  <data name="Documents_OffsetItem_CurrencyRateChangeImpactIsReadOnly" xml:space="preserve">
+    <value>valiutos kurso pasik. įtaka negali būti keičiama</value>
+  </data>
+  <data name="Documents_OffsetItem_CurrencyRateIsReadOnly" xml:space="preserve">
+    <value>kursas negali būti keičiamas</value>
+  </data>
+  <data name="Documents_OffsetItem_Debit" xml:space="preserve">
+    <value>suma (debetas)</value>
+  </data>
+  <data name="Documents_OffsetItem_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Documents_OffsetItem_NullPersonName" xml:space="preserve">
+    <value>nenurodytas</value>
+  </data>
+  <data name="Documents_OffsetItem_Person" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="Documents_OffsetItem_PersonIsReadOnly" xml:space="preserve">
+    <value>kontrahentas negali būti keičiamas</value>
+  </data>
+  <data name="Documents_OffsetItem_Sum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="Documents_OffsetItem_SumIsReadOnly" xml:space="preserve">
+    <value>suma negali būti keičiama</value>
+  </data>
+  <data name="Documents_OffsetItem_SumLTL" xml:space="preserve">
+    <value>suma bazine valiuta</value>
+  </data>
+  <data name="Documents_OffsetItem_ToString" xml:space="preserve">
+    <value>užskaitos eilutė, sąsk. {0}, suma {1} {2}, kontrahentas {3}</value>
+  </data>
+  <data name="Documents_OffsetItem_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Documents_OffsetItem_TypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Documents_OffsetItem_TypeName" xml:space="preserve">
+    <value>užskaitos eilutė</value>
+  </data>
+  <data name="Documents_Offset_BalanceAccount" xml:space="preserve">
+    <value>balansavimo sąsk.</value>
+  </data>
+  <data name="Documents_Offset_BalanceItemID" xml:space="preserve">
+    <value>balanso eilutės ID</value>
+  </data>
+  <data name="Documents_Offset_BalanceSum" xml:space="preserve">
+    <value>balansavimo suma</value>
+  </data>
+  <data name="Documents_Offset_Content" xml:space="preserve">
+    <value>turinys (aprašymas)</value>
+  </data>
+  <data name="Documents_Offset_CostsBalanceAccountExpected" xml:space="preserve">
+    <value>Neigiamas užskaitos balansas reiškia, kad įmonė turi nuostolio iš užskaitos, todėl teigtina, kad turėtų būti pasirenkama 6 klasės balansavimo rezultato sąskaita.</value>
+  </data>
+  <data name="Documents_Offset_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Documents_Offset_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Documents_Offset_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Documents_Offset_IncomeBalanceAccountExpected" xml:space="preserve">
+    <value>Teigiamas užskaitos balansas reiškia, kad įmonė turi naudos iš užskaitos, todėl teigtina, kad turėtų būti pasirenkama 5 klasės balansavimo rezultato sąskaita.</value>
+  </data>
+  <data name="Documents_Offset_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Documents_Offset_InvalidBalance" xml:space="preserve">
+    <value>Nesutampa debeto ir kredito kontavimų sumos.</value>
+  </data>
+  <data name="Documents_Offset_ItemList" xml:space="preserve">
+    <value>užskaitos eilutės</value>
+  </data>
+  <data name="Documents_Offset_ItemListSorted" xml:space="preserve">
+    <value>užskaitos eilutės</value>
+  </data>
+  <data name="Documents_Offset_SumCredit" xml:space="preserve">
+    <value>suma (kreditas)</value>
+  </data>
+  <data name="Documents_Offset_SumDebit" xml:space="preserve">
+    <value>suma (debetas)</value>
+  </data>
+  <data name="Documents_Offset_ToString" xml:space="preserve">
+    <value>{0} užskaitos dokumentas Nr. {1} (ID={2})</value>
+  </data>
+  <data name="Documents_Offset_TypeName" xml:space="preserve">
+    <value>užskaitos dokumentas</value>
+  </data>
+  <data name="Documents_Offset_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Documents_RegionalContent_ContentInvoice" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="Documents_RegionalContent_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Documents_RegionalContent_LanguageCode" xml:space="preserve">
+    <value>kalbos kodas</value>
+  </data>
+  <data name="Documents_RegionalContent_LanguageName" xml:space="preserve">
+    <value>kalba</value>
+  </data>
+  <data name="Documents_RegionalContent_MeasureUnit" xml:space="preserve">
+    <value>mato vnt.</value>
+  </data>
+  <data name="Documents_RegionalContent_VatExempt" xml:space="preserve">
+    <value>PVM išimtis</value>
+  </data>
+  <data name="Documents_RegionalPrice_CurrencyCode" xml:space="preserve">
+    <value>valiuta</value>
+  </data>
+  <data name="Documents_RegionalPrice_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Documents_RegionalPrice_ValuePerUnitPurchases" xml:space="preserve">
+    <value>vnt. kaina pirkimai</value>
+  </data>
+  <data name="Documents_RegionalPrice_ValuePerUnitSales" xml:space="preserve">
+    <value>vnt. kaina pardavimai</value>
+  </data>
+  <data name="Documents_Service_AccountPurchase" xml:space="preserve">
+    <value>pirkimų sąsk.</value>
+  </data>
+  <data name="Documents_Service_AccountSales" xml:space="preserve">
+    <value>pardavimų sąsk.</value>
+  </data>
+  <data name="Documents_Service_AccountVatPurchase" xml:space="preserve">
+    <value>PVM sąsk. pirkimams</value>
+  </data>
+  <data name="Documents_Service_AccountVatSales" xml:space="preserve">
+    <value>PVM sąsk. pardavimams</value>
+  </data>
+  <data name="Documents_Service_Amount" xml:space="preserve">
+    <value>kiekis</value>
+  </data>
+  <data name="Documents_Service_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Documents_Service_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Documents_Service_IsInUse" xml:space="preserve">
+    <value>yra operacijų</value>
+  </data>
+  <data name="Documents_Service_IsObsolete" xml:space="preserve">
+    <value>nebenaudojama</value>
+  </data>
+  <data name="Documents_Service_NameShort" xml:space="preserve">
+    <value>trumpas pavadinimas</value>
+  </data>
+  <data name="Documents_Service_RateVatPurchase" xml:space="preserve">
+    <value>PVM tarifas pirkimams</value>
+  </data>
+  <data name="Documents_Service_RateVatSales" xml:space="preserve">
+    <value>PVM tarifas pardavimams</value>
+  </data>
+  <data name="Documents_Service_RegionalContents" xml:space="preserve">
+    <value>regioniniai pavadinimai</value>
+  </data>
+  <data name="Documents_Service_RegionalContentsSorted" xml:space="preserve">
+    <value>regioniniai pavadinimai</value>
+  </data>
+  <data name="Documents_Service_RegionalPrices" xml:space="preserve">
+    <value>regioninės kainos</value>
+  </data>
+  <data name="Documents_Service_RegionalPricesSorted" xml:space="preserve">
+    <value>regioninės kainos</value>
+  </data>
+  <data name="Documents_Service_ServiceCode" xml:space="preserve">
+    <value>kodas</value>
+  </data>
+  <data name="Documents_Service_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Documents_Service_TypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Documents_Service_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_Account" xml:space="preserve">
+    <value>lėšų sąskaita</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_AccountCurrency" xml:space="preserve">
+    <value>valiuta</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_AccountCurrencyRateChangeImpact" xml:space="preserve">
+    <value>valiutos kurso pasik. sąsk.</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_AccountCurrencyRateChangeImpactIsReadOnly" xml:space="preserve">
+    <value>valiutos kurso pasik. sąsk. negali būti keičiama</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_AccountIsReadOnly" xml:space="preserve">
+    <value>lėšų sąskaita negali būti keičiama</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_AddDateToNumberOptionWasUsed" xml:space="preserve">
+    <value>data įtraukta į pilną numerį</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_AdditionalContent" xml:space="preserve">
+    <value>papildoma info</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_AdvanceReportDescription" xml:space="preserve">
+    <value>avanso apyskaita</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_AdvanceReportID" xml:space="preserve">
+    <value>avanso apyskaitos ID</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_AttachmentsDescription" xml:space="preserve">
+    <value>priedai</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_BookEntryItems" xml:space="preserve">
+    <value>kontavimai</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_BookEntryItemsIsReadOnly" xml:space="preserve">
+    <value>kontavimai negali būti keičiami</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_BookEntryItemsSorted" xml:space="preserve">
+    <value>kontavimai</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_Content" xml:space="preserve">
+    <value>turinys</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_CurrencyRateChangeImpact" xml:space="preserve">
+    <value>valiutos kurso pasik. įtaka</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_CurrencyRateChangeImpactIsReadOnly" xml:space="preserve">
+    <value>valiutos kurso pasik. įtaka negali būti keičiama</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_CurrencyRateInAccount" xml:space="preserve">
+    <value>kursas</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_CurrencyRateInAccountIsReadOnly" xml:space="preserve">
+    <value>kursas negali būti keičiamas</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_DocumentNumber" xml:space="preserve">
+    <value>Nr.</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_DocumentSerial" xml:space="preserve">
+    <value>serija</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_FullDocumentNumber" xml:space="preserve">
+    <value>pilnas numeris</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_IsUnderPayRoll" xml:space="preserve">
+    <value>pgl. žiniaraštį</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_Payer" xml:space="preserve">
+    <value>mokėtojas</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_PayersRepresentative" xml:space="preserve">
+    <value>mokėtojo atstovas</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_Sum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_SumCorespondences" xml:space="preserve">
+    <value>suma kontavimų</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_SumIsReadOnly" xml:space="preserve">
+    <value>suma negali būti keičiama</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_SumLTL" xml:space="preserve">
+    <value>suma bazine valiuta</value>
+  </data>
+  <data name="Documents_TillIncomeOrder_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_Account" xml:space="preserve">
+    <value>lėšų sąskaita</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_AccountCurrency" xml:space="preserve">
+    <value>valiuta</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_AccountCurrencyRateChangeImpact" xml:space="preserve">
+    <value>valiutos kurso pasik. sąsk.</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_AccountCurrencyRateChangeImpactIsReadOnly" xml:space="preserve">
+    <value>valiutos kurso pasik. sąsk. negali būti keičiama</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_AccountIsReadOnly" xml:space="preserve">
+    <value>lėšų sąskaita negali būti keičiama</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_AddDateToNumberOptionWasUsed" xml:space="preserve">
+    <value>data įtraukta į pilną numerį</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_AdditionalContent" xml:space="preserve">
+    <value>papildoma info</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_AdvanceReportDescription" xml:space="preserve">
+    <value>avanso apyskaita</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_AdvanceReportID" xml:space="preserve">
+    <value>avanso apyskaitos ID</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_AttachmentsDescription" xml:space="preserve">
+    <value>priedai</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_BookEntryItems" xml:space="preserve">
+    <value>kontavimai</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_BookEntryItemsIsReadOnly" xml:space="preserve">
+    <value>kontavimai negali būti keičiami</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_BookEntryItemsSorted" xml:space="preserve">
+    <value>kontavimai</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_Content" xml:space="preserve">
+    <value>turinys</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_CurrencyRateChangeImpact" xml:space="preserve">
+    <value>valiutos kurso pasik. įtaka</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_CurrencyRateChangeImpactIsReadOnly" xml:space="preserve">
+    <value>valiutos kurso pasik. įtaka negali būti keičiama</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_CurrencyRateInAccount" xml:space="preserve">
+    <value>kursas</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_CurrencyRateInAccountIsReadOnly" xml:space="preserve">
+    <value>kursas negali būti keičiamas</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_DocumentNumber" xml:space="preserve">
+    <value>Nr.</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_DocumentSerial" xml:space="preserve">
+    <value>serija</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_FullDocumentNumber" xml:space="preserve">
+    <value>pilnas numeris</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_IsUnderPayRoll" xml:space="preserve">
+    <value>pgl. žiniaraštį</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_Receiver" xml:space="preserve">
+    <value>gavėjas</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_ReceiversRepresentative" xml:space="preserve">
+    <value>gavėjo atstovas</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_Sum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_SumCorespondences" xml:space="preserve">
+    <value>suma kontavimų</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_SumIsReadOnly" xml:space="preserve">
+    <value>suma negali būti keičiama</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_SumLTL" xml:space="preserve">
+    <value>suma bazine valiuta</value>
+  </data>
+  <data name="Documents_TillSpendingsOrder_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
 </root>
