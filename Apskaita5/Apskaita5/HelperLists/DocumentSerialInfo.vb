@@ -1,5 +1,9 @@
 Namespace HelperLists
 
+    ''' <summary>
+    ''' Represents a <see cref="ApskaitaObjects.Settings.DocumentSerial">document serial</see> value object.
+    ''' </summary>
+    ''' <remarks>Values are stored in the database table serijos.</remarks>
     <Serializable()> _
     Public Class DocumentSerialInfo
         Inherits ReadOnlyBase(Of DocumentSerialInfo)
@@ -10,8 +14,13 @@ Namespace HelperLists
         Private _ID As Integer = 0
         Private _Serial As String = ""
         Private _DocumentType As Settings.DocumentSerialType = Settings.DocumentSerialType.Invoice
+        Private _DocumentTypeHumanReadable As String = ""
 
 
+        ''' <summary>
+        ''' Whether an object is a place holder (does not represent a real document serial).
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property IsEmpty() As Boolean _
             Implements IValueObjectIsEmpty.IsEmpty
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -20,6 +29,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an ID of the serial that is assigned by a database (AUTOINCREMENT).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table serijos.Serijos_ID.</remarks>
         Public ReadOnly Property ID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -27,6 +40,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a serial.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table serijos.Serija.</remarks>
         Public ReadOnly Property Serial() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -34,6 +51,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a document type that the serial is ment for.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table serijos.Serijos_dok.</remarks>
         Public ReadOnly Property DocumentType() As Settings.DocumentSerialType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -41,16 +62,14 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a document type that the serial is ment for as a localized human readable string.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table serijos.Serijos_dok.</remarks>
         Public ReadOnly Property DocumentTypeHumanReadable() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return ConvertEnumHumanReadable(_DocumentType)
-            End Get
-        End Property
-
-        Public ReadOnly Property GetMe() As DocumentSerialInfo
-            Get
-                Return Me
+                Return _DocumentTypeHumanReadable
             End Get
         End Property
 
@@ -88,8 +107,9 @@ Namespace HelperLists
         Private Sub Fetch(ByVal dr As DataRow)
 
             _ID = CIntSafe(dr.Item(0), 0)
-            _DocumentType = ConvertEnumDatabaseStringCode(Of Settings.DocumentSerialType) _
+            _DocumentType = EnumValueAttribute.ConvertDatabaseCharID(Of Settings.DocumentSerialType) _
                 (CStrSafe(dr.Item(1)))
+            _DocumentTypeHumanReadable = EnumValueAttribute.ConvertLocalizedName(_DocumentType)
             _Serial = CStrSafe(dr.Item(2)).Trim
 
         End Sub

@@ -1,18 +1,26 @@
 Namespace Settings
 
+    ''' <summary>
+    ''' Represents a <see cref="General.CompanyAccount">company's account</see> value object.
+    ''' </summary>
+    ''' <remarks>Should only be used as a child of <see cref="CompanyRateInfoList">CompanyRateInfoList</see>.
+    ''' Values are stored in the database table companyrates.</remarks>
     <Serializable()> _
     Public Class CompanyRateInfo
         Inherits ReadOnlyBase(Of CompanyRateInfo)
 
 #Region " Business Methods "
 
-        Private _Guid As Guid = Guid.NewGuid
+        Private ReadOnly _Guid As Guid = Guid.NewGuid
         Private _ID As Integer = 0
         Private _Type As General.DefaultRateType = General.DefaultRateType.Vat
         Private _TypeHumanReadable As String = ""
         Private _Value As Double = 0
 
-
+        ''' <summary>
+        ''' Gets an ID of the company rate (assigned automaticaly by DB AUTOINCREMENT).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field companyrates.ID.</remarks>
         Public ReadOnly Property ID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -20,6 +28,10 @@ Namespace Settings
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a rate type.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field companyrates.Code.</remarks>
         Public ReadOnly Property [Type]() As General.DefaultRateType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -27,6 +39,10 @@ Namespace Settings
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a human readable (localized) description of rate type.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field companyrates.Code.</remarks>
         Public ReadOnly Property TypeHumanReadable() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -34,6 +50,10 @@ Namespace Settings
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets the rate value.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field companyrates.RateValue.</remarks>
         Public ReadOnly Property Value() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -47,7 +67,7 @@ Namespace Settings
         End Function
 
         Public Overrides Function ToString() As String
-            Return _TypeHumanReadable & " = " & _Value.ToString("##,0.00")
+            Return String.Format("{0} = {1}", _TypeHumanReadable, DblParser(_Value))
         End Function
 
 #End Region
@@ -82,7 +102,7 @@ Namespace Settings
 
             _ID = CIntSafe(dr.Item(0), 0)
             _Type = EnumValueAttribute.ConvertDatabaseID(Of General.DefaultRateType)(CIntSafe(dr.Item(1), 0))
-            _TypeHumanReadable = ConvertEnumHumanReadable(_Type)
+            _TypeHumanReadable = EnumValueAttribute.ConvertLocalizedName(_Type)
             _Value = CDblSafe(dr.Item(2), 2, 0)
 
         End Sub

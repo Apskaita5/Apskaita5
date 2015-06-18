@@ -60,6 +60,7 @@ Namespace HelperLists
         ''' Price for sale.
         ''' </summary>
         ''' <remarks>Value is stored in the database field regionalprices.ValuePerUnitSales.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ValuePerUnitSales() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -71,6 +72,7 @@ Namespace HelperLists
         ''' Price for purchase.
         ''' </summary>
         ''' <remarks>Value is stored in the database field regionalprices.ValuePerUnitPurchases.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ValuePerUnitPurchases() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get

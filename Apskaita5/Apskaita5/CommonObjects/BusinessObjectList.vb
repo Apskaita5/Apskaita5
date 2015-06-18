@@ -14,7 +14,7 @@ Public Class BusinessObjectCollection(Of T)
 
 #Region " Business Methods "
 
-    Private _Guid As Guid = Guid.NewGuid
+    Private ReadOnly _Guid As Guid = Guid.NewGuid
     Private _Result As List(Of T) = Nothing
     Private _SkipedObjects As String = ""
     Private _SkipedObjectsCount As Integer = 0

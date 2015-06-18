@@ -91,7 +91,7 @@ Namespace ActiveReports
         ''' Account credit balance (if any) at <see cref="FinancialStatementsInfo.FirstPeriodDateStart">FinancialStatementsInfo.FirstPeriodDateStart</see>.
         ''' </summary>
         ''' <remarks></remarks>
-        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property CreditBalanceFormerPeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get

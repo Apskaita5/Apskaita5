@@ -260,7 +260,7 @@ Namespace HelperLists
         ''' </summary>
         ''' <returns></returns>
         ''' <remarks>Should only be invoked server side.</remarks>
-        Friend Shared Function GetListServerSide() As RegionalInfoDictionary
+        Friend Shared Function GetListChild() As RegionalInfoDictionary
             Dim result As New RegionalInfoDictionary
             result.DataPortal_Fetch(New Criteria)
             Return result

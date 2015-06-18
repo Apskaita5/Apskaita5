@@ -2,8 +2,9 @@
 
     ''' <summary>
     ''' Represents an item of <see cref="UnsettledPersonInfoList">UnsettledPersonInfoList</see> report.
+    ''' Contains information about a person and total debt.
     ''' </summary>
-    ''' <remarks></remarks>
+    ''' <remarks>Should onle be used as a child of <see cref="UnsettledPersonInfoList">UnsettledPersonInfoList</see>.</remarks>
     <Serializable()> _
     Public Class UnsettledPersonInfo
         Inherits ReadOnlyBase(Of UnsettledPersonInfo)
@@ -117,6 +118,7 @@
         ''' Gets the total debt of (to) the person.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property Debt() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -155,7 +157,8 @@
         End Function
 
         Public Overrides Function ToString() As String
-            Return String.Format("{0} ({1}) = {2}", _Name, _Code, _Debt.ToString)
+            Return String.Format(My.Resources.ActiveReports_UnsettledPersonInfo_ToString, _
+                _Name, _Code, _Debt.ToString)
         End Function
 
 #End Region

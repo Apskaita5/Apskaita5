@@ -1,19 +1,27 @@
 Imports ApskaitaObjects.General
 Namespace Settings
 
+    ''' <summary>
+    ''' Represents a <see cref="General.CompanyAccount">company's default account</see> value object.
+    ''' </summary>
+    ''' <remarks>Values are stored in the database table companyaccounts.</remarks>
     <Serializable()> _
     Public Class CompanyAccountInfo
         Inherits ReadOnlyBase(Of CompanyAccountInfo)
 
 #Region " Business Methods "
 
-        Private _Guid As Guid = Guid.NewGuid
+        Private ReadOnly _Guid As Guid = Guid.NewGuid
         Private _ID As Integer = 0
         Private _Type As DefaultAccountType = DefaultAccountType.Bank
         Private _TypeHumanReadable As String = ""
         Private _Value As Long = 0
 
 
+        ''' <summary>
+        ''' Gets an ID of the company account (assigned automaticaly by DB AUTOINCREMENT).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field companyaccounts.ID.</remarks>
         Public ReadOnly Property ID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -21,6 +29,10 @@ Namespace Settings
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a <see cref="General.DefaultAccountType">type</see> of the company account.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field companyaccounts.Code.</remarks>
         Public ReadOnly Property [Type]() As DefaultAccountType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -28,6 +40,10 @@ Namespace Settings
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a human readable <see cref="General.DefaultAccountType">type</see> of the company account.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field companyaccounts.Code.</remarks>
         Public ReadOnly Property TypeHumanReadable() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -35,6 +51,10 @@ Namespace Settings
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets the <see cref="General.Account.ID">account</see>.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field companyaccounts.AccountValue.</remarks>
         Public ReadOnly Property Value() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -49,7 +69,7 @@ Namespace Settings
         End Function
 
         Public Overrides Function ToString() As String
-            Return _TypeHumanReadable & " = " & _Value.ToString
+            Return String.Format("{0} = {1}", _TypeHumanReadable, _Value.ToString)
         End Function
 
 #End Region
@@ -77,7 +97,7 @@ Namespace Settings
             _ID = CIntSafe(dr.Item(0), 0)
             _Type = EnumValueAttribute.ConvertDatabaseID(Of DefaultAccountType)(CIntSafe(dr.Item(1), 0))
             _TypeHumanReadable = EnumValueAttribute.ConvertLocalizedName(_Type)
-            _Value = CIntSafe(dr.Item(2), 0)
+            _Value = CLongSafe(dr.Item(2), 0)
 
         End Sub
 

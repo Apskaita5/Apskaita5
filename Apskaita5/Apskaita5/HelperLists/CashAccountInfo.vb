@@ -1,6 +1,10 @@
 Imports ApskaitaObjects.Documents
 Namespace HelperLists
 
+    ''' <summary>
+    ''' Represents a <see cref="Documents.CashAccount">cash account</see> value object.
+    ''' </summary>
+    ''' <remarks>Values are stored in the database table cashaccounts.</remarks>
     <Serializable()> _
     Public Class CashAccountInfo
         Inherits ReadOnlyBase(Of CashAccountInfo)
@@ -24,6 +28,10 @@ Namespace HelperLists
         Private _IsObsolete As Boolean = False
 
 
+        ''' <summary>
+        ''' Whether an object is a place holder (does not represent a real cash account).
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property IsEmpty() As Boolean _
             Implements IValueObjectIsEmpty.IsEmpty
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -32,6 +40,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an ID of the cash account that is assigned by a database (AUTOINCREMENT).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table cashaccounts.ID.</remarks>
         Public ReadOnly Property ID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -39,6 +51,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets <see cref="CashAccountType">a type of the cash account</see>.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table cashaccounts.TypeID.</remarks>
         Public ReadOnly Property [Type]() As CashAccountType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -46,6 +62,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets <see cref="General.Account.ID">an account</see> for the cash account.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table cashaccounts.Account.</remarks>
         Public ReadOnly Property Account() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -53,6 +73,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets <see cref="General.Account.ID">an account</see> for the bank fee costs.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table cashaccounts.Account.</remarks>
         Public ReadOnly Property BankFeeCostsAccount() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -60,6 +84,11 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an ID of the person that is responsible for the cash account administration 
+        ''' (e.g. some bank, PayPal, etc.).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table cashaccounts.ManagingPersonID.</remarks>
         Public ReadOnly Property ManagingPersonID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -67,6 +96,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a name of the cash account. 
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table cashaccounts.Name.</remarks>
         Public ReadOnly Property Name() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -74,6 +107,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a number of the cash account (e.g. IBAN).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table cashaccounts.BankAccountNumber.</remarks>
         Public ReadOnly Property BankAccountNumber() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -81,6 +118,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a name of the bank that is administering the cash account.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table cashaccounts.BankName.</remarks>
         Public ReadOnly Property BankName() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -88,6 +129,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a company registration code of the bank that is administering the cash account.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table cashaccounts.BankCode.</remarks>
         Public ReadOnly Property BankCode() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -95,6 +140,11 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets whether the bank, that is administering the cash account, 
+        ''' supports LITAS-ESIS standard for electronic bank data.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table cashaccounts.BankCode.</remarks>
         Public ReadOnly Property IsLitasEsisCompliant() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -102,6 +152,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets the currency of the cash account.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table cashaccounts.CurrencyCode.</remarks>
         Public ReadOnly Property CurrencyCode() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -109,6 +163,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets whether to enforce the uniqueness of <see cref="BankOperation.UniqueCode">BankOperation.UniqueCode</see>.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table cashaccounts.EnforceUniqueOperationID.</remarks>
         Public ReadOnly Property EnforceUniqueOperationID() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -116,6 +174,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an amount of a withdrawal that is treated as a bank fee when importing data.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table cashaccounts.BankFeeLimit.</remarks>
         Public ReadOnly Property BankFeeLimit() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -123,16 +185,14 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets whether the cash account is obsolete, no longer in use.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table cashaccounts.IsObsolete.</remarks>
         Public ReadOnly Property IsObsolete() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _IsObsolete
-            End Get
-        End Property
-
-        Public ReadOnly Property GetMe() As CashAccountInfo
-            Get
-                Return Me
             End Get
         End Property
 
@@ -169,13 +229,14 @@ Namespace HelperLists
             Return -1
         End Function
 
+
         Protected Overrides Function GetIdValue() As Object
             Return _ID
         End Function
 
         Public Overrides Function ToString() As String
-            If Not _ID > 0 Then Return ""
-            Return _Account.ToString & " (" & _CurrencyCode.Trim.ToUpper & ") - " & _Name
+            Return String.Format(My.Resources.HelperLists_CashAccountInfo_ToString, _
+                _Account.ToString, _CurrencyCode.Trim.ToUpper, _Name)
         End Function
 
 #End Region
@@ -189,6 +250,7 @@ Namespace HelperLists
         Friend Shared Function NewCashAccountInfo() As CashAccountInfo
             Return New CashAccountInfo()
         End Function
+
 
         Private Sub New()
             ' require use of factory methods

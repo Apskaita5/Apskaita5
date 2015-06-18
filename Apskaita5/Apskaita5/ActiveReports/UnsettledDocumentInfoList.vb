@@ -4,7 +4,7 @@
     ''' Represents a list of the unsettled documents for <see cref="UnsettledPersonInfo">UnsettledPersonInfo</see>
     ''' as part of <see cref="UnsettledPersonInfoList">UnsettledPersonInfoList</see> report.
     ''' </summary>
-    ''' <remarks></remarks>
+    ''' <remarks>Should onle be used as a child of <see cref="UnsettledPersonInfo">UnsettledPersonInfo</see>.</remarks>
     <Serializable()> _
     Public Class UnsettledDocumentInfoList
         Inherits ReadOnlyListBase(Of UnsettledDocumentInfoList, UnsettledDocumentInfo)

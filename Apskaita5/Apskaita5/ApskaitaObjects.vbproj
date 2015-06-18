@@ -272,8 +272,6 @@
     <Compile Include="Documents\InvoiceReceivedItem.vb" />
     <Compile Include="Documents\InvoiceReceivedItemList.vb" />
     <Compile Include="CommonObjects\DocumentType.vb" />
-    <Compile Include="General\ConsolidatedReportItemType.vb" />
-    <Compile Include="General\ConsolidatedReportType.vb" />
     <Compile Include="General\CompanyObjects\DefaultAccountType.vb" />
     <Compile Include="General\FinancialStatementType.vb" />
     <Compile Include="Goods\GoodsAccountingMethod.vb" />
@@ -312,10 +310,6 @@
     <Compile Include="General\TransferOfBalanceAnalyticsList.vb" />
     <Compile Include="HelperLists\DocumentSerialInfo.vb" />
     <Compile Include="HelperLists\DocumentSerialInfoList.vb" />
-    <Compile Include="HelperLists\RegionalContentInfo.vb" />
-    <Compile Include="HelperLists\RegionalContentInfoList.vb" />
-    <Compile Include="HelperLists\RegionalPriceInfo.vb" />
-    <Compile Include="HelperLists\RegionalPriceInfoList.vb" />
     <Compile Include="HelperLists\ServiceInfo.vb" />
     <Compile Include="HelperLists\ServiceInfoList.vb" />
     <Compile Include="HelperLists\TemplateJournalEntryInfo.vb" />

@@ -1,5 +1,11 @@
 Namespace HelperLists
 
+    ''' <summary>
+    ''' Represents an item of <see cref="IndirectRelationInfoList">IndirectRelationInfoList</see>.
+    ''' Contains information about indirect referencies to the journal entry by other documents.
+    ''' (when a journal entry is attached to some document, not created and managed by the document)
+    ''' </summary>
+    ''' <remarks></remarks>
     <Serializable()> _
     Public Class IndirectRelationInfo
         Inherits ReadOnlyBase(Of IndirectRelationInfo)
@@ -17,6 +23,10 @@ Namespace HelperLists
         Private _AssetOperationType As Assets.LtaOperationType = Assets.LtaOperationType.Transfer
 
 
+        ''' <summary>
+        ''' Gets an ID of the document or operation that references the journal entry.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property ID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -24,6 +34,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a type of the document or operation that references the journal entry.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property [Type]() As IndirectRelationType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -31,6 +45,11 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a type of the document or operation, that references the journal entry, 
+        ''' as a localized human readable string.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property TypeHumanReadable() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -38,6 +57,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a date of the document or operation that references the journal entry.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property [Date]() As Date
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -45,6 +68,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a number of the document or operation that references the journal entry.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property DocumentNumber() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -52,6 +79,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a content (description) of the document or operation that references the journal entry.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property Content() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -59,6 +90,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a type of the goods operation that references the journal entry.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property GoodsOperationType() As Goods.GoodsOperationType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -66,16 +101,14 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a type of the asset operation that references the journal entry.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property AssetOperationType() As Assets.LtaOperationType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _AssetOperationType
-            End Get
-        End Property
-
-        Public ReadOnly Property GetMe() As IndirectRelationInfo
-            Get
-                Return Me
             End Get
         End Property
 
@@ -86,8 +119,8 @@ Namespace HelperLists
         End Function
 
         Public Overrides Function ToString() As String
-            Return "Susietos operacijos tipas - " & _TypeHumanReadable & ", dokumentas " _
-                & _Date.ToShortDateString & " Nr. " & _DocumentNumber & ": " & _Content
+            Return String.Format(My.Resources.HelperLists_IndirectRelationInfo_ToString, _
+                _Date.ToString("yyyy-MM-dd"), _TypeHumanReadable, _DocumentNumber, _ID.ToString(), _Content)
         End Function
 
 #End Region
@@ -112,21 +145,23 @@ Namespace HelperLists
 
         Private Sub Fetch(ByVal dr As DataRow)
 
-            _Type = ConvertEnumDatabaseCode(Of IndirectRelationType)(CIntSafe(dr.Item(0), 0))
+            _Type = EnumValueAttribute.ConvertDatabaseID(Of IndirectRelationType)(CIntSafe(dr.Item(0), 0))
             _ID = CIntSafe(dr.Item(1), 0)
             _Date = CDateSafe(dr.Item(2), Today)
             _DocumentNumber = CStrSafe(dr.Item(3)).Trim
             _Content = CStrSafe(dr.Item(4)).Trim
-            _TypeHumanReadable = ConvertEnumHumanReadable(_Type)
+            _TypeHumanReadable = EnumValueAttribute.ConvertLocalizedName(_Type)
 
             If _Type = IndirectRelationType.GoodsOperation Then
                 _GoodsOperationType = ConvertEnumDatabaseCode(Of Goods.GoodsOperationType) _
                     (CIntSafe(dr.Item(5), 1))
-                _TypeHumanReadable = _TypeHumanReadable & ":" & ConvertEnumHumanReadable(_GoodsOperationType)
+                _TypeHumanReadable = String.Format("{0}: {1}", _TypeHumanReadable, _
+                    ConvertEnumHumanReadable(_GoodsOperationType))
             ElseIf _Type = IndirectRelationType.LongTermAssetsOperation Then
                 _AssetOperationType = ConvertEnumDatabaseStringCode(Of Assets.LtaOperationType) _
                     (CStrSafe(dr.Item(5)))
-                _TypeHumanReadable = _TypeHumanReadable & ":" & ConvertEnumHumanReadable(_AssetOperationType)
+                _TypeHumanReadable = String.Format("{0}: {1}", _TypeHumanReadable, _
+                    ConvertEnumHumanReadable(_AssetOperationType))
             End If
 
         End Sub

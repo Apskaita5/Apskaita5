@@ -1,5 +1,9 @@
 Namespace HelperLists
 
+    ''' <summary>
+    ''' Represents a <see cref="Documents.Service">service's</see> value object.
+    ''' </summary>
+    ''' <remarks>Values are stored in the database table paslaugos.</remarks>
     <Serializable()> _
     Public Class ServiceInfo
         Inherits ReadOnlyBase(Of ServiceInfo)
@@ -18,12 +22,15 @@ Namespace HelperLists
         Private _AccountPurchase As Long = 0
         Private _RateVatPurchase As Double = 0
         Private _AccountVatPurchase As Long = 0
-        Private _RegionalContents As RegionalContentInfoList
-        Private _RegionalPrices As RegionalPriceInfoList
         Private _IsObsolete As Boolean = False
-        Private _IsInUse As Boolean = False
+        Private _NameInvoice As String = ""
+        Private _MeasureUnit As String = ""
 
 
+        ''' <summary>
+        ''' Gets whether an object is a place holder (does not represent a real service).
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property IsEmpty() As Boolean _
             Implements IValueObjectIsEmpty.IsEmpty
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -32,6 +39,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an ID of the service that is assigned by a database (AUTOINCREMENT).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field paslaugos.ID.</remarks>
         Public ReadOnly Property ID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -39,6 +50,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets how the service is used in trade operations (sale, purchase, etc.).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field paslaugos.Tip.</remarks>
         Public ReadOnly Property [Type]() As Documents.TradedItemType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -46,6 +61,11 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets how the service is used in trade operations (sale, purchase, etc.) 
+        ''' as localized human readable string.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field paslaugos.Tip.</remarks>
         Public ReadOnly Property TypeHumanReadable() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -53,6 +73,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a short name of the service (as used in dropboxes).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field paslaugos.TrPav.</remarks>
         Public ReadOnly Property NameShort() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -60,13 +84,22 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a default amount of the service.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field paslaugos.Amount.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDAMOUNTINVOICEMADE)> _
         Public ReadOnly Property Amount() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_Amount, 4)
+                Return CRound(_Amount, ROUNDAMOUNTINVOICEMADE)
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a default <see cref="General.Account.ID">sales account</see> for the service.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field paslaugos.S_Sask.</remarks>
         Public ReadOnly Property AccountSales() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -74,6 +107,11 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a default VAT rate for the service beeing sold.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field paslaugos.PVM.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property RateVatSales() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -81,6 +119,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a default <see cref="General.Account.ID">sales VAT account</see> for the service.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field paslaugos.P_Sask.</remarks>
         Public ReadOnly Property AccountVatSales() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -88,6 +130,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a default <see cref="General.Account.ID">purchase (costs) account</see> for the service.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field paslaugos.AccountPurchase.</remarks>
         Public ReadOnly Property AccountPurchase() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -95,6 +141,11 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a default VAT rate for the service beeing purchased.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field paslaugos.RateVatPurchase.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property RateVatPurchase() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -102,6 +153,10 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a default <see cref="General.Account.ID">purchase VAT account</see> for the service.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field paslaugos.AccountVatPurchase.</remarks>
         Public ReadOnly Property AccountVatPurchase() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -109,20 +164,10 @@ Namespace HelperLists
             End Get
         End Property
 
-        Public ReadOnly Property RegionalContents() As RegionalContentInfoList
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _RegionalContents
-            End Get
-        End Property
-
-        Public ReadOnly Property RegionalPrices() As RegionalPriceInfoList
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _RegionalPrices
-            End Get
-        End Property
-
+        ''' <summary>
+        ''' Gets whether the service is obsolete (no longer in use).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field paslaugos.Obsol.</remarks>
         Public ReadOnly Property IsObsolete() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -130,36 +175,27 @@ Namespace HelperLists
             End Get
         End Property
 
-        Public ReadOnly Property IsInUse() As Boolean
+        ''' <summary>
+        ''' Gets a service name in the base language.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property NameInvoice() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return _IsInUse
+                Return _NameInvoice.Trim
             End Get
         End Property
 
-
-        Public ReadOnly Property GetMe() As ServiceInfo
+        ''' <summary>
+        ''' Gets a service measure unit in the base language.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property MeasureUnit() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return Me
+                Return _MeasureUnit.Trim
             End Get
         End Property
-
-
-        Public Function GetRegionalContent(ByVal LanguageCode As String) As RegionalContentInfo
-            If _RegionalContents Is Nothing Then Return Nothing
-            For Each r As RegionalContentInfo In _RegionalContents
-                If r.LanguageCode.Trim.ToUpper = LanguageCode.Trim.ToUpper Then Return r
-            Next
-            Return Nothing
-        End Function
-
-        Public Function GetRegionalPrices(ByVal CurrencyCode As String) As RegionalPriceInfo
-            If _RegionalPrices Is Nothing Then Return Nothing
-            For Each r As RegionalPriceInfo In _RegionalPrices
-                If r.CurrencyCode.Trim.ToUpper = CurrencyCode.Trim.ToUpper Then Return r
-            Next
-            Return Nothing
-        End Function
 
 
         Public Shared Operator =(ByVal a As ServiceInfo, ByVal b As ServiceInfo) As Boolean
@@ -193,12 +229,12 @@ Namespace HelperLists
             Return -1
         End Function
 
+
         Protected Overrides Function GetIdValue() As Object
             Return _ID
         End Function
 
         Public Overrides Function ToString() As String
-            If Not _ID > 0 Then Return ""
             Return _NameShort
         End Function
 
@@ -207,19 +243,15 @@ Namespace HelperLists
 #Region " Factory Methods "
 
         Friend Shared Function NewServiceInfo() As ServiceInfo
-            Dim result As New ServiceInfo
-            result._RegionalContents = RegionalContentInfoList.NewRegionalContentInfoList
-            result._RegionalPrices = RegionalPriceInfoList.NewRegionalPriceInfoList
-            Return result
+            Return New ServiceInfo
         End Function
 
-        Friend Shared Function GetServiceInfo(ByVal dr As DataRow, ByVal contentData As DataTable, _
-            ByVal priceData As DataTable) As ServiceInfo
-            Return New ServiceInfo(dr, contentData, priceData)
+        Friend Shared Function GetServiceInfo(ByVal dr As DataRow) As ServiceInfo
+            Return New ServiceInfo(dr)
         End Function
 
-        Friend Shared Function GetServiceInfo(ByVal ServiceID As Integer) As ServiceInfo
-            Return New ServiceInfo(ServiceID)
+        Friend Shared Function GetServiceInfo(ByVal serviceID As Integer) As ServiceInfo
+            Return New ServiceInfo(serviceID)
         End Function
 
 
@@ -227,20 +259,19 @@ Namespace HelperLists
             ' require use of factory methods
         End Sub
 
-        Private Sub New(ByVal dr As DataRow, ByVal contentData As DataTable, ByVal priceData As DataTable)
-            Fetch(dr, contentData, priceData)
+        Private Sub New(ByVal dr As DataRow)
+            Fetch(dr)
         End Sub
 
-        Private Sub New(ByVal ServiceID As Integer)
-            Fetch(ServiceID)
+        Private Sub New(ByVal serviceID As Integer)
+            Fetch(serviceID)
         End Sub
 
 #End Region
 
 #Region " Data Access "
 
-        Private Sub Fetch(ByVal dr As DataRow, ByVal contentData As DataTable, _
-            ByVal priceData As DataTable)
+        Private Sub Fetch(ByVal dr As DataRow)
 
             _ID = CIntSafe(dr.Item(0), 0)
             _Type = EnumValueAttribute.ConvertDatabaseID(Of Documents.TradedItemType)(CIntSafe(dr.Item(1), 0))
@@ -254,31 +285,20 @@ Namespace HelperLists
             _AccountVatSales = CLongSafe(dr.Item(8), 0)
             _AccountPurchase = CLongSafe(dr.Item(9), 0)
             _AccountVatPurchase = CLongSafe(dr.Item(10), 0)
-
-            If contentData Is Nothing Then
-                _RegionalContents = RegionalContentInfoList.GetRegionalContentInfoList(Of Documents.Service)(_ID)
-            Else
-                _RegionalContents = RegionalContentInfoList.GetRegionalContentInfoList(_ID, contentData)
-            End If
-
-            If priceData Is Nothing Then
-                _RegionalPrices = RegionalPriceInfoList.GetRegionalPriceInfoList(Of Documents.Service)(_ID)
-            Else
-                _RegionalPrices = RegionalPriceInfoList.GetRegionalPriceInfoList(_ID, priceData)
-            End If
-
-            '_IsInUse = ConvertDbBoolean(CIntSafe(dr.Item(0), 0))
+            _NameInvoice = CStrSafe(dr.Item(11)).Trim
+            _MeasureUnit = CStrSafe(dr.Item(12)).Trim
 
         End Sub
 
         Private Sub Fetch(ByVal serviceID As Integer)
 
             Dim myComm As New SQLCommand("FetchServiceInfo")
-            myComm.AddParam("?SD", ServiceID)
+            myComm.AddParam("?SD", serviceID)
+            myComm.AddParam("?LN", LanguageCodeLith)
 
             Using myData As DataTable = myComm.Fetch
                 If myData.Rows.Count < 1 Then Exit Sub
-                Fetch(myData.Rows(0), Nothing, Nothing)
+                Fetch(myData.Rows(0))
             End Using
 
         End Sub

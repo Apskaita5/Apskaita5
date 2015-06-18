@@ -11,7 +11,7 @@ Namespace ActiveReports
 
 #Region " Business Methods "
 
-        Private _ID As Guid = Guid.NewGuid
+        Private ReadOnly _ID As Guid = Guid.NewGuid
         Private _JournalEntryID As Integer
         Private _JournalEntryDate As Date
         Private _DocType As DocumentType

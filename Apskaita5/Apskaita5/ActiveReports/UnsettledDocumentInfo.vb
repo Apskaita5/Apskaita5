@@ -1,5 +1,10 @@
 ﻿Namespace ActiveReports
 
+    ''' <summary>
+    ''' Represents an item of <see cref="UnsettledPersonInfoList">UnsettledPersonInfoList</see> report.
+    ''' Contains information about an unsettled (not payed) documents.
+    ''' </summary>
+    ''' <remarks>Should only be used as a child of <see cref="UnsettledDocumentInfoList">UnsettledDocumentInfoList</see>.</remarks>
     <Serializable()> _
     Public Class UnsettledDocumentInfo
         Inherits ReadOnlyBase(Of UnsettledDocumentInfo)
@@ -80,6 +85,7 @@
         ''' Gets the total sum of debt in the document.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property SumInDocument() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -91,6 +97,7 @@
         ''' Gets the unsettled part of debt in the document.
         ''' </summary>
         ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property Debt() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -99,23 +106,13 @@
         End Property
 
 
-        ''' <summary>
-        ''' Ajusts the last document debt so that it does not exceed actual total debt.
-        ''' </summary>
-        ''' <param name="value">A value by which debt shall be reduced.</param>
-        ''' <remarks></remarks>
-        Friend Sub AdjustDebt(ByVal value As Double)
-            _Debt = CRound(_Debt - value, 2)
-        End Sub
-
-
         Protected Overrides Function GetIdValue() As Object
             Return _ID
         End Function
 
         Public Overrides Function ToString() As String
-            Return String.Format("{0} Nr. {1}: {2}", _Date.ToString("yyyy-MM-dd"), _
-                _DocNo, GetLimitedLengthString(_Content, 100))
+            Return String.Format(My.Resources.ActiveReports_UnsettledDocumentInfo_ToString, _
+                _Date.ToString("yyyy-MM-dd"), _DocNo, GetLimitedLengthString(_Content, 100))
         End Function
 
 #End Region
@@ -146,7 +143,7 @@
 
         Private Sub Fetch(ByVal dr As DataRow)
 
-            _ID = CIntSafe(dr.item(0), 0)
+            _ID = CIntSafe(dr.Item(0), 0)
             _Date = CDateSafe(dr.Item(1), Today)
             _DocNo = CStrSafe(dr.Item(2)).Trim
             _DocType = ConvertEnumDatabaseStringCode(Of DocumentType)(CStrSafe(dr.Item(3)))
@@ -155,6 +152,15 @@
             _SumInDocument = CDblSafe(dr.Item(5), 2, 0)
             _Debt = _SumInDocument
 
+        End Sub
+
+        ''' <summary>
+        ''' Ajusts the last document debt so that it does not exceed actual total debt.
+        ''' </summary>
+        ''' <param name="value">A value by which debt shall be reduced.</param>
+        ''' <remarks></remarks>
+        Friend Sub AdjustDebt(ByVal value As Double)
+            _Debt = CRound(_Debt - value, 2)
         End Sub
 
 #End Region

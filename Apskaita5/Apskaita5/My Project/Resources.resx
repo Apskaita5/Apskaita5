@@ -5646,4 +5646,133 @@
   <data name="Documents_TillSpendingsOrder_UpdateDate" xml:space="preserve">
     <value>pakeista</value>
   </data>
+  <data name="ActiveReports_AdvanceReportInfo_TillOrderDataFormat" xml:space="preserve">
+    <value>{0} {1} Nr. {2}</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_ToString" xml:space="preserve">
+    <value>{0} avanso apyskaita Nr. {1}, atskaitingas asmuo {2}, suma {3} {4} (BŽ ID={5})</value>
+  </data>
+  <data name="ActiveReports_AdvanceReportInfo_TypeName" xml:space="preserve">
+    <value>avanso apyskaitos informacija</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_ToString" xml:space="preserve">
+    <value>{0} {1} Nr. {2}, suma - {3} {4} (BŽ ID={5})</value>
+  </data>
+  <data name="ActiveReports_CashOperationInfo_TypeName" xml:space="preserve">
+    <value>operacija su lėšomis</value>
+  </data>
+  <data name="ActiveReports_DebtInfoList_AccountNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta skolų apskaitos sąskaita.</value>
+  </data>
+  <data name="ActiveReports_DebtInfoList_TypeName" xml:space="preserve">
+    <value>pirkėjų (tiekėjų) skolų ataskaita</value>
+  </data>
+  <data name="ActiveReports_DebtInfo_ToString" xml:space="preserve">
+    <value>{0} ({1}) skola laikotarpio pb. {2}</value>
+  </data>
+  <data name="ActiveReports_DebtInfo_TypeName" xml:space="preserve">
+    <value>pirkėjo/tiekėjo apyvarta</value>
+  </data>
+  <data name="ActiveReports_UnsettledDocumentInfo_ToString" xml:space="preserve">
+    <value>{0} Nr. {1}: {2}</value>
+  </data>
+  <data name="ActiveReports_UnsettledDocumentInfo_TypeName" xml:space="preserve">
+    <value>neapmokėtas dokumentas</value>
+  </data>
+  <data name="ActiveReports_UnsettledPersonInfo_ToString" xml:space="preserve">
+    <value>{0} ({1}) = {2}</value>
+  </data>
+  <data name="ActiveReports_UnsettledPersonInfo_TypeName" xml:space="preserve">
+    <value>pirkėjo/tiekėjo skola</value>
+  </data>
+  <data name="HelperLists_CashAccountInfo_ToString" xml:space="preserve">
+    <value>{0} ({1}) - {2}</value>
+  </data>
+  <data name="HelperLists_CashAccountInfo_TypeName" xml:space="preserve">
+    <value>lėšų apskaitos sąskaita</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_ClosingExistsAfterJournalEntry" xml:space="preserve">
+    <value>Klaida. Operacijos data ({0}) yra ankstesnė nei paskutinio 5/6 klasių uždarymo arba likučių perkėlimo data ({1}).</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_ClosingExistsAfterTransferOfBalance" xml:space="preserve">
+    <value>Klaida. Apskaitoje {0} yra registruota 5/6 klasių uždarymo operacija. Likučių perkėlimo negalima pašalinti, kai egzistuoja bent vienas uždarymas.</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_JournalEntryHasReferences" xml:space="preserve">
+    <value>Klaida. Bendrojo žurnalo įrašas turi netiesiogiai susietų operacijų:{0}{1}</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_ToString" xml:space="preserve">
+    <value>{0} bendrojo žurnalo įrašas Nr. {1} (ID={2}): {3}.{4}Susieti dokumentai (operacijos):{5}{6}.</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_TypeName" xml:space="preserve">
+    <value>susietų dokumentų ataskaita</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfoList_UnexpectedType" xml:space="preserve">
+    <value>Klaida. Bendrojo žurnalo įrašo dokumento tipas - {0} - neatitinka norimo trinti dokumento tipo - {1}.</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfo_ToString" xml:space="preserve">
+    <value>{0} {1} Nr. {2} (ID={3}), {4}</value>
+  </data>
+  <data name="HelperLists_IndirectRelationInfo_TypeName" xml:space="preserve">
+    <value>susietas dokumentas (operacija)</value>
+  </data>
+  <data name="HelperLists_IndirectRelationType_AdvanceReport" xml:space="preserve">
+    <value>avanso apyskaita</value>
+  </data>
+  <data name="HelperLists_IndirectRelationType_GoodsOperation" xml:space="preserve">
+    <value>operacija su prekėmis</value>
+  </data>
+  <data name="HelperLists_IndirectRelationType_LongTermAssetsOperation" xml:space="preserve">
+    <value>operacija su ilgalaikiu turtu</value>
+  </data>
+  <data name="HelperLists_IndirectRelationType_LongTermAssetsPurchase" xml:space="preserve">
+    <value>ilgalaikio turto įsigijimas</value>
+  </data>
+  <data name="HelperLists_IndirectRelationType_PayoutToResident" xml:space="preserve">
+    <value>išmoka fiziniam asmeniui</value>
+  </data>
+  <data name="Settings_CompanyInfo_DefaultAccountNull" xml:space="preserve">
+    <value>Nenustatyta {0} sąskaita.</value>
+  </data>
+  <data name="Settings_CompanyInfo_DefaultRateNull" xml:space="preserve">
+    <value>Nenustatytas {0} tarifas.</value>
+  </data>
+  <data name="Settings_CompanyInfo_InvalidRate" xml:space="preserve">
+    <value>{0} negali būti mažesnis kaip {1} proc.</value>
+  </data>
+  <data name="Settings_CompanyInfo_NpdFormulaNull" xml:space="preserve">
+    <value>Nenustatyta NPD formulė.</value>
+  </data>
+  <data name="Settings_CompanyInfo_ToString" xml:space="preserve">
+    <value>{0}, įmonės kodas {1}</value>
+  </data>
+  <data name="Settings_CompanyInfo_TypeName" xml:space="preserve">
+    <value>bendri įmonės duomenys</value>
+  </data>
+  <data name="Settings_DocumentSerialList_ListEmpty" xml:space="preserve">
+    <value>Klaida. Neįvesta nė viena serija.</value>
+  </data>
+  <data name="Settings_DocumentSerialType_Invoice" xml:space="preserve">
+    <value>sąskaita - faktūra</value>
+  </data>
+  <data name="Settings_DocumentSerialType_LabourContract" xml:space="preserve">
+    <value>darbo sutartis</value>
+  </data>
+  <data name="Settings_DocumentSerialType_TillIncomeOrder" xml:space="preserve">
+    <value>kasos pajamų orderis</value>
+  </data>
+  <data name="Settings_DocumentSerialType_TillSpendingsOrder" xml:space="preserve">
+    <value>kasos išlaidų orderis</value>
+  </data>
+  <data name="Settings_DocumentSerial_ItemNotUnique" xml:space="preserve">
+    <value>Dokumento serija privalo būti unikali.</value>
+  </data>
+  <data name="Settings_DocumentSerial_ItemWasUsed" xml:space="preserve">
+    <value>Klaida. Dokumento "{0}" serija "{1}" buvo naudota registruojant atitinkamus dokumentus. Jos keisti ar pašalinti neleidžiama.</value>
+  </data>
+  <data name="Settings_DocumentSerial_ToString" xml:space="preserve">
+    <value>{0} ({1})</value>
+  </data>
+  <data name="Settings_DocumentSerial_TypeName" xml:space="preserve">
+    <value>dokumento serija</value>
+  </data>
 </root>
