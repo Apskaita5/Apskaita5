@@ -1,0 +1,376 @@
+﻿Namespace ActiveReports.Declarations
+
+    <Serializable()> _
+    Public Class DeclarationSD13_5
+        Implements IDeclaration
+
+        Private Const DECLARATION_NAME As String = "SD13 v.5"
+
+        Private _Warnings As String = ""
+
+
+        Public ReadOnly Property Name() As String Implements IDeclaration.Name
+            Get
+                Return DECLARATION_NAME
+            End Get
+        End Property
+
+        Public ReadOnly Property ValidFrom() As Date Implements IDeclaration.ValidFrom
+            Get
+                Return Date.MinValue
+            End Get
+        End Property
+
+        Public ReadOnly Property ValidTo() As Date Implements IDeclaration.ValidTo
+            Get
+                Return New Date(2009, 12, 31)
+            End Get
+        End Property
+
+        Public ReadOnly Property Warnings() As String Implements IDeclaration.Warnings
+            Get
+                Return _Warnings
+            End Get
+        End Property
+
+
+        Public Function GetBaseDataSet(ByVal criteria As DeclarationCriteria) As DataSet _
+            Implements IDeclaration.GetBaseDataSet
+
+            If Not IsValid(criteria) Then
+                Throw New Exception(String.Format(My.Resources.ActiveReports_IDeclaration_ArgumentsNull, _
+                    vbCrLf, GetAllErrors(criteria)))
+            End If
+
+            Dim result As New DataSet
+            result.Tables.Add(Declaration.FetchGeneralDataTable)
+
+            Dim sd As New DataTable("Specific")
+            sd.Columns.Add("Date")
+            sd.Columns.Add("SODRADepartment")
+            sd.Columns.Add("InsuredCount")
+            sd.Columns.Add("TotalIncome")
+            sd.Columns.Add("TotalPayments")
+            sd.Columns.Add("TarifForInsurant")
+            sd.Columns.Add("TarifForAssured")
+            sd.Columns.Add("TarifTotal")
+            sd.Columns.Add("DateFrom")
+            sd.Columns.Add("DateTo")
+            sd.Rows.Add()
+
+            Dim dd As New DataTable("Details")
+            dd.Columns.Add("Count")
+            dd.Columns.Add("PersonCode")
+            dd.Columns.Add("SODRASerial")
+            dd.Columns.Add("SODRACode")
+            dd.Columns.Add("Date")
+            dd.Columns.Add("Income")
+            dd.Columns.Add("Payment")
+            dd.Columns.Add("PersonName")
+            dd.Columns.Add("ReasonCode")
+            dd.Columns.Add("ReasonText")
+
+            Try
+
+                Dim myComm As New SQLCommand("FetchDeclarationSD13")
+                myComm.AddParam("?DF", criteria.DateFrom.Date)
+                myComm.AddParam("?DT", criteria.DateTo.Date)
+
+                Using myData As DataTable = myComm.Fetch
+
+                    Dim smB As Double = 0
+                    Dim smI As Double = 0
+                    Dim trIs As Double = 0
+                    Dim trPri As Double = 0
+                    Dim sc As HelperLists.NameValueItemList = _
+                        HelperLists.NameValueItemList.GetNameValueItemList(HelperLists.SettingListType.SodraCodeList)
+                    Dim i As Integer = 0
+
+                    For Each dr As DataRow In myData.Rows
+                        dd.Rows.Add()
+                        dd.Rows(i).Item(0) = i + 1
+                        dd.Rows(i).Item(1) = dr.Item(0).ToString
+                        If Not IsDBNull(dr.Item(1)) AndAlso Not String.IsNullOrEmpty(dr.Item(1).ToString.Trim) Then
+                            dd.Rows(i).Item(2) = dr.Item(1).ToString.Trim.Substring(0, 2)
+                            dd.Rows(i).Item(3) = GetNumericPart(dr.Item(1).ToString.Trim)
+                        Else
+                            dd.Rows(i).Item(2) = ""
+                            dd.Rows(i).Item(3) = ""
+                        End If
+                        dd.Rows(i).Item(4) = CDate(dr.Item(2)).ToShortDateString
+                        dd.Rows(i).Item(5) = DblParser(CDbl(dr.Item(3)))
+                        dd.Rows(i).Item(6) = DblParser(CDbl(dr.Item(4)))
+                        dd.Rows(i).Item(7) = GetLimitedLengthString(dr.Item(5).ToString.Trim, 68)
+
+                        If Not IsDBNull(dr.Item(6)) AndAlso Not String.IsNullOrEmpty(dr.Item(6).ToString.Trim) Then
+                            Dim sci As NameValueItem = sc.GetItemByValue(dr.Item(6).ToString.Trim)
+                            If sci Is Nothing Then Throw New Exception("Klaida. Nežinomas priežasties kodas '" & _
+                                dr.Item(6).ToString.Trim & "'.")
+                            dd.Rows(i).Item(8) = sci.Value
+                            dd.Rows(i).Item(9) = sci.Name
+                        Else
+                            dd.Rows(i).Item(8) = ""
+                            dd.Rows(i).Item(9) = ""
+                        End If
+
+                        smB = smB + CDbl(dr.Item(3))
+                        smI = smI + CDbl(dr.Item(4))
+
+                        If CDblSafe(dr.Item(7), 2, 0) > 0 Then trIs = CDblSafe(dr.Item(7), 2, 0)
+                        If CDblSafe(dr.Item(8), 2, 0) > 0 Then trPri = CDblSafe(dr.Item(8), 2, 0)
+
+                        i += 1
+
+                    Next
+
+                    sd.Rows(0).Item("SODRADepartment") = criteria.SodraDepartment
+                    sd.Rows(0).Item("InsuredCount") = myData.Rows.Count
+                    sd.Rows(0).Item("TotalIncome") = DblParser(smB)
+                    sd.Rows(0).Item("TotalPayments") = DblParser(smI)
+                    sd.Rows(0).Item("TarifForInsurant") = CRound(trIs)
+                    sd.Rows(0).Item("TarifForAssured") = CRound(trPri)
+                    sd.Rows(0).Item("TarifTotal") = CRound(trIs + trPri)
+                    sd.Rows(0).Item("DateFrom") = criteria.DateFrom.ToShortDateString
+                    sd.Rows(0).Item("DateTo") = criteria.DateTo.ToShortDateString
+                    sd.Rows(0).Item("Date") = criteria.Date.ToShortDateString
+
+                End Using
+
+                result.Tables.Add(sd)
+                result.Tables.Add(dd)
+
+            Catch ex As Exception
+                sd.Dispose()
+                dd.Dispose()
+                result.Dispose()
+                Throw
+            End Try
+
+            Return result
+
+        End Function
+
+        Public Function GetFfDataDataSet(ByVal declarationDataSet As DataSet, _
+            ByVal preparatorName As String) As DataSet _
+            Implements IDeclaration.GetFfDataDataSet
+
+            If declarationDataSet Is Nothing Then
+                Throw New ArgumentNullException("declarationDataSet")
+            End If
+
+            If preparatorName Is Nothing Then
+                preparatorName = ""
+            End If
+
+            Dim dds As DataSet = declarationDataSet
+            Dim i As Integer
+            Dim currentUser As AccDataAccessLayer.Security.AccIdentity = GetCurrentIdentity()
+
+            Dim pageCount As Integer = 2
+            If dds.Tables("Details").Rows.Count > 6 Then
+
+                Dim myDoc As New Xml.XmlDocument
+                myDoc.Load(AppPath() & FILENAMEFFDATASD13_5)
+            
+                pageCount = Convert.ToInt32(Math.Ceiling((dds.Tables("Details").Rows.Count - 6) / 5) + 2)
+                For i = 1 To pageCount - 2
+                    Dim addPg As Xml.XmlElement = DirectCast(myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0). _
+                        ChildNodes(0).ChildNodes(1).Clone, Xml.XmlElement)
+                    myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0).ChildNodes(0).AppendChild(addPg)
+                    Dim addTb As Xml.XmlElement = DirectCast(myDoc.ChildNodes(1).ChildNodes(0). _
+                        ChildNodes(1).ChildNodes(1).Clone, Xml.XmlElement)
+                    addTb.Attributes(1).Value = (i + 2).ToString
+                    myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).AppendChild(addTb)
+                Next
+                myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).Attributes(0).Value = pageCount.ToString
+                myDoc.Save(AppPath() & FILENAMEFFDATATEMP)
+            Else
+                
+                IO.File.Copy(AppPath() & FILENAMEFFDATASD13_5, AppPath() & FILENAMEFFDATATEMP)
+
+            End If
+
+            ' read ffdata xml structure to dataset
+            Dim formDataSet As New DataSet
+            Using formFileStream As IO.FileStream = New IO.FileStream( _
+                AppPath() & FILENAMEFFDATATEMP, IO.FileMode.Open)
+                formDataSet.ReadXml(formFileStream)
+                formFileStream.Close()
+            End Using
+
+            formDataSet.Tables(0).Rows(0).Item(3) = currentUser.Name
+            formDataSet.Tables(0).Rows(0).Item(4) = GetDateInFFDataFormat(Today)
+            formDataSet.Tables(1).Rows(0).Item(2) = AppPath() & FILENAMEMXFDSD13_5
+            
+            Dim specificDataRow As DataRow = dds.Tables("Specific").Rows(0)
+
+            For i = 1 To formDataSet.Tables(8).Rows.Count ' bendri duomenys
+                If formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "InsurerName" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString( _
+                        dds.Tables("General").Rows(0).Item(0).ToString, 68).ToUpper
+                ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "InsurerCode" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = dds.Tables("General").Rows(0).Item(3)
+                ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "JuridicalPersonCode" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = dds.Tables("General").Rows(0).Item(1)
+                ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "InsurerPhone" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString(dds.Tables("General").Rows(0).Item(8).ToString, 15)
+                ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "InsurerAddress" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString( _
+                        dds.Tables("General").Rows(0).Item(2).ToString, 68).ToUpper
+                ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "RecipientDepName" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = specificDataRow.Item(1).ToString
+                ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "DocDate" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetDateInFFDataFormat( _
+                        CDate(specificDataRow.Item(0)))
+                ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "DocNumber" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = "1"
+                ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "TaxRateInsurer" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                        CDbl(specificDataRow.Item(6)))
+                ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "TaxRatePerson" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                        CDbl(specificDataRow.Item(5)))
+                ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "TaxRateTotal" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                        CDbl(specificDataRow.Item(7)))
+                ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "PersonCountTotal" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = specificDataRow.Item(2).ToString
+                ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "InsIncomeTotal" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                        CDbl(specificDataRow.Item(3)))
+                ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "PaymentTotal" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                        CDbl(specificDataRow.Item(4)))
+                ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "ManagerJobPosition" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = "DIREKTORIUS"
+                ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "ManagerFullName" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = dds.Tables("General").Rows(0).Item(9).ToString.Trim.ToUpper
+                ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "PreparatorDetails" Then
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = preparatorName.Trim.ToUpper
+                End If
+            Next
+
+            If Not dds.Tables("Details").Rows.Count > 0 Then Return formDataSet
+
+            Dim detailsDataTable As DataTable = dds.Tables("Details")
+            Dim j As Integer
+            Dim pageIncome As Double = 0
+            Dim pagePayments As Double = 0
+
+            ' first person appears on the title page (not an appendix)
+            formDataSet.Tables(8).Rows(18).Item(1) = 1
+            formDataSet.Tables(8).Rows(19).Item(1) = detailsDataTable.Rows(0).Item(1)
+            formDataSet.Tables(8).Rows(20).Item(1) = detailsDataTable.Rows(0).Item(2)
+            formDataSet.Tables(8).Rows(21).Item(1) = detailsDataTable.Rows(0).Item(3)
+            formDataSet.Tables(8).Rows(22).Item(1) = GetDateInFFDataFormat(CDate(detailsDataTable.Rows(0).Item(4)))
+            formDataSet.Tables(8).Rows(23).Item(1) = GetNumberInFFDataFormat(CDbl(detailsDataTable.Rows(0).Item(5)))
+            formDataSet.Tables(8).Rows(24).Item(1) = GetNumberInFFDataFormat(CDbl(detailsDataTable.Rows(0).Item(6)))
+            formDataSet.Tables(8).Rows(25).Item(1) = detailsDataTable.Rows(0).Item(7)
+            formDataSet.Tables(8).Rows(26).Item(1) = detailsDataTable.Rows(0).Item(8)
+            formDataSet.Tables(8).Rows(27).Item(1) = detailsDataTable.Rows(0).Item(9)
+
+            For i = 1 To pageCount - 1
+                pageIncome = 0
+                pagePayments = 0
+                For j = 1 To Math.Min(5, detailsDataTable.Rows.Count - (i - 1) * 5 - 1)
+                    formDataSet.Tables(8).Rows(38 + (j - 1) * 10 + (i - 1) * 59).Item(1) = (i - 1) * 5 + j + 1
+                    formDataSet.Tables(8).Rows(39 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                        detailsDataTable.Rows((i - 1) * 5 + j).Item(1)
+                    formDataSet.Tables(8).Rows(40 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                        detailsDataTable.Rows((i - 1) * 5 + j).Item(2)
+                    formDataSet.Tables(8).Rows(41 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                        detailsDataTable.Rows((i - 1) * 5 + j).Item(3)
+                    formDataSet.Tables(8).Rows(42 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                        GetDateInFFDataFormat(CDate(detailsDataTable.Rows((i - 1) * 5 + j).Item(4)))
+                    formDataSet.Tables(8).Rows(43 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                        GetNumberInFFDataFormat(CDbl(detailsDataTable.Rows((i - 1) * 5 + j).Item(5)))
+                    formDataSet.Tables(8).Rows(44 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                        GetNumberInFFDataFormat(CDbl(detailsDataTable.Rows((i - 1) * 5 + j).Item(6)))
+                    formDataSet.Tables(8).Rows(45 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                        detailsDataTable.Rows((i - 1) * 5 + j).Item(7)
+                    formDataSet.Tables(8).Rows(46 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                        detailsDataTable.Rows((i - 1) * 5 + j).Item(8)
+                    formDataSet.Tables(8).Rows(47 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                        detailsDataTable.Rows((i - 1) * 5 + j).Item(9)
+                    pageIncome = pageIncome + CDbl(detailsDataTable.Rows((i - 1) * 5 + j).Item(5))
+                    pagePayments = pagePayments + CDbl(detailsDataTable.Rows((i - 1) * 5 + j).Item(6))
+                Next
+                formDataSet.Tables(8).Rows(88 + (i - 1) * 59).Item(1) = GetNumberInFFDataFormat(pageIncome)
+                formDataSet.Tables(8).Rows(89 + (i - 1) * 59).Item(1) = GetNumberInFFDataFormat(pagePayments)
+            Next
+
+            Return formDataSet
+
+        End Function
+
+
+        Public Function GetAllErrors(ByVal criteria As DeclarationCriteria) As String _
+           Implements IDeclaration.GetAllErrors
+
+            Dim result As String = ""
+            Dim currentError As String = ""
+            Dim currentIsWarning As Boolean = False
+
+            If Not criteria.TryValidateSodraDepartment(currentIsWarning, currentError) Then
+                If Not currentIsWarning Then
+                    result = AddWithNewLine(result, currentError, False)
+                End If
+            End If
+
+            Return result
+
+        End Function
+
+        Public Function GetAllWarnings(ByVal criteria As DeclarationCriteria) As String _
+            Implements IDeclaration.GetAllWarnings
+
+            Dim result As String = ""
+            Dim currentError As String = ""
+            Dim currentIsWarning As Boolean = False
+
+            If Not criteria.TryValidateSodraDepartment(currentIsWarning, currentError) Then
+                If currentIsWarning Then
+                    result = AddWithNewLine(result, currentError, False)
+                End If
+            End If
+
+            Return result
+
+        End Function
+
+        Public Function HasWarnings(ByVal criteria As DeclarationCriteria) As Boolean _
+            Implements IDeclaration.HasWarnings
+
+            Dim currentError As String = ""
+            Dim currentIsWarning As Boolean = False
+
+            If Not criteria.TryValidateSodraDepartment(currentIsWarning, currentError) Then
+                If currentIsWarning Then Return True
+            End If
+
+            Return False
+
+        End Function
+
+        Public Function IsValid(ByVal criteria As DeclarationCriteria) As Boolean _
+            Implements IDeclaration.IsValid
+
+            Dim currentError As String = ""
+            Dim currentIsWarning As Boolean = False
+
+            If Not criteria.TryValidateSodraDepartment(currentIsWarning, currentError) Then
+                If Not currentIsWarning Then Return False
+            End If
+
+            Return True
+
+        End Function
+
+
+        Public Overrides Function ToString() As String
+            Return DECLARATION_NAME
+        End Function
+
+    End Class
+
+End Namespace
