@@ -1,3 +1,7 @@
+Imports System.Runtime.Serialization
+Imports System.Runtime.Serialization.Formatters.Binary
+Imports System.IO
+
 Public Module CommonMethods
 
     ''' <summary>
@@ -166,6 +170,31 @@ Public Module CommonMethods
         Return result
     End Function
 
+    ''' <summary>
+    ''' Clones an object using binary serialization.
+    ''' </summary>
+    ''' <typeparam name="T">Type of the object to clone.</typeparam>
+    ''' <param name="source">Object to clone.</param>
+    ''' <remarks></remarks>
+    Public Function Clone(Of T)(ByVal source As T) As T
+
+        If Not GetType(T).IsSerializable Then
+            Throw New ArgumentException(My.Resources.CommonMethods_TheTypeMustBeSerializable, "source")
+        End If
+
+        ' Don't serialize a null object, simply return the default for that object
+        If [Object].ReferenceEquals(source, Nothing) Then
+            Return Nothing
+        End If
+
+        Dim formatter As IFormatter = New BinaryFormatter()
+        Using stream As Stream = New MemoryStream()
+            formatter.Serialize(stream, source)
+            stream.Seek(0, SeekOrigin.Begin)
+            Return DirectCast(formatter.Deserialize(stream), T)
+        End Using
+
+    End Function
 
 #Region " String manipulation methods "
 

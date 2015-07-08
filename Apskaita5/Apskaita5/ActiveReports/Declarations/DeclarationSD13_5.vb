@@ -1,46 +1,87 @@
 ﻿Namespace ActiveReports.Declarations
 
+    ''' <summary>
+    ''' Represents an implementation of a <see cref="Declaration">Declaration</see>
+    ''' for a state social security administration (SODRA) report No. SD13 version 5.
+    ''' </summary>
+    ''' <remarks>Object is responsible for fetching the report data to a dataset
+    ''' and transforming the dataset to ffdata format (required by the FormFiller application).</remarks>
     <Serializable()> _
     Public Class DeclarationSD13_5
         Implements IDeclaration
 
         Private Const DECLARATION_NAME As String = "SD13 v.5"
 
-        Private _Warnings As String = ""
 
-
+        ''' <summary>
+        ''' Gets a name of the declaration.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property Name() As String Implements IDeclaration.Name
             Get
                 Return DECLARATION_NAME
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a start of the period that the declaration is valid for.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property ValidFrom() As Date Implements IDeclaration.ValidFrom
             Get
                 Return Date.MinValue
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an end of the period that the declaration is valid for.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property ValidTo() As Date Implements IDeclaration.ValidTo
             Get
-                Return New Date(2009, 12, 31)
+                Return Date.MaxValue
             End Get
         End Property
 
-        Public ReadOnly Property Warnings() As String Implements IDeclaration.Warnings
+        ''' <summary>
+        ''' Gets a number of details tables within the declaration.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property DetailsTableCount() As Integer _
+            Implements IDeclaration.DetailsTableCount
             Get
-                Return _Warnings
+                Return 1
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a name of the rdlc file that should be used to print the declaration.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property RdlcFileName() As String _
+            Implements IDeclaration.RdlcFileName
+            Get
+                Return "R_Declaration_SD13.rdlc"
             End Get
         End Property
 
 
-        Public Function GetBaseDataSet(ByVal criteria As DeclarationCriteria) As DataSet _
+        ''' <summary>
+        ''' Gets a declaration data from a database in a form of a dataset.
+        ''' </summary>
+        ''' <param name="criteria">criteria of the declaration that holds data required to fetch the declaration data</param>
+        ''' <param name="warnings">output parameter containg warnings that were issued during the fetch procedure
+        ''' (indicates some discrepancies in data, that are not critical for the data fetched)</param>
+        ''' <remarks></remarks>
+        Public Function GetBaseDataSet(ByVal criteria As DeclarationCriteria, ByRef warnings As String) As DataSet _
             Implements IDeclaration.GetBaseDataSet
 
             If Not IsValid(criteria) Then
                 Throw New Exception(String.Format(My.Resources.ActiveReports_IDeclaration_ArgumentsNull, _
                     vbCrLf, GetAllErrors(criteria)))
             End If
+
+            warnings = ""
 
             Dim result As New DataSet
             result.Tables.Add(Declaration.FetchGeneralDataTable)
@@ -104,8 +145,8 @@
 
                         If Not IsDBNull(dr.Item(6)) AndAlso Not String.IsNullOrEmpty(dr.Item(6).ToString.Trim) Then
                             Dim sci As NameValueItem = sc.GetItemByValue(dr.Item(6).ToString.Trim)
-                            If sci Is Nothing Then Throw New Exception("Klaida. Nežinomas priežasties kodas '" & _
-                                dr.Item(6).ToString.Trim & "'.")
+                            If sci Is Nothing Then Throw New Exception(String.Format( _
+                                My.Resources.ActiveReports_Declarations_DeclarationSD13_1_UnknownReasonCode, CStrSafe(dr.Item(6))))
                             dd.Rows(i).Item(8) = sci.Value
                             dd.Rows(i).Item(9) = sci.Name
                         Else
@@ -150,6 +191,12 @@
 
         End Function
 
+        ''' <summary>
+        ''' Gets a ffdata format dataset.
+        ''' </summary>
+        ''' <param name="declarationDataSet">a declaration dataset fetched by the <see cref="GetBaseDataSet">GetBaseDataSet</see> method.</param>
+        ''' <param name="preparatorName">a name of the person who prepared the declaration.</param>
+        ''' <remarks></remarks>
         Public Function GetFfDataDataSet(ByVal declarationDataSet As DataSet, _
             ByVal preparatorName As String) As DataSet _
             Implements IDeclaration.GetFfDataDataSet
@@ -171,7 +218,7 @@
 
                 Dim myDoc As New Xml.XmlDocument
                 myDoc.Load(AppPath() & FILENAMEFFDATASD13_5)
-            
+
                 pageCount = Convert.ToInt32(Math.Ceiling((dds.Tables("Details").Rows.Count - 6) / 5) + 2)
                 For i = 1 To pageCount - 2
                     Dim addPg As Xml.XmlElement = DirectCast(myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0). _
@@ -185,7 +232,7 @@
                 myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).Attributes(0).Value = pageCount.ToString
                 myDoc.Save(AppPath() & FILENAMEFFDATATEMP)
             Else
-                
+
                 IO.File.Copy(AppPath() & FILENAMEFFDATASD13_5, AppPath() & FILENAMEFFDATATEMP)
 
             End If
@@ -201,7 +248,7 @@
             formDataSet.Tables(0).Rows(0).Item(3) = currentUser.Name
             formDataSet.Tables(0).Rows(0).Item(4) = GetDateInFFDataFormat(Today)
             formDataSet.Tables(1).Rows(0).Item(2) = AppPath() & FILENAMEMXFDSD13_5
-            
+
             Dim specificDataRow As DataRow = dds.Tables("Specific").Rows(0)
 
             For i = 1 To formDataSet.Tables(8).Rows.Count ' bendri duomenys

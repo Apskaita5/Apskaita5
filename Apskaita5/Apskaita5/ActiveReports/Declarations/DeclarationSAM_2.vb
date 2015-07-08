@@ -1,46 +1,87 @@
 ﻿Namespace ActiveReports.Declarations
 
+    ''' <summary>
+    ''' Represents an implementation of a <see cref="Declaration">Declaration</see>
+    ''' for a state social security administration (SODRA) report No. SAM version 2.
+    ''' </summary>
+    ''' <remarks>Object is responsible for fetching the report data to a dataset
+    ''' and transforming the dataset to ffdata format (required by the FormFiller application).</remarks>
     <Serializable()> _
     Public Class DeclarationSAM_2
         Implements IDeclaration
 
         Private Const DECLARATION_NAME As String = "SAM v.2"
 
-        Private _Warnings As String = ""
 
-
+        ''' <summary>
+        ''' Gets a name of the declaration.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property Name() As String Implements IDeclaration.Name
             Get
                 Return DECLARATION_NAME
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a start of the period that the declaration is valid for.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property ValidFrom() As Date Implements IDeclaration.ValidFrom
             Get
                 Return Date.MinValue
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an end of the period that the declaration is valid for.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property ValidTo() As Date Implements IDeclaration.ValidTo
             Get
                 Return New Date(2009, 12, 31)
             End Get
         End Property
 
-        Public ReadOnly Property Warnings() As String Implements IDeclaration.Warnings
+        ''' <summary>
+        ''' Gets a number of details tables within the declaration.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property DetailsTableCount() As Integer _
+            Implements IDeclaration.DetailsTableCount
             Get
-                Return _Warnings
+                Return 1
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a name of the rdlc file that should be used to print the declaration.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property RdlcFileName() As String _
+            Implements IDeclaration.RdlcFileName
+            Get
+                Return "R_Declaration_SAM_2.rdlc"
             End Get
         End Property
 
 
-        Public Function GetBaseDataSet(ByVal criteria As DeclarationCriteria) As DataSet _
+        ''' <summary>
+        ''' Gets a declaration data from a database in a form of a dataset.
+        ''' </summary>
+        ''' <param name="criteria">criteria of the declaration that holds data required to fetch the declaration data</param>
+        ''' <param name="warnings">output parameter containg warnings that were issued during the fetch procedure
+        ''' (indicates some discrepancies in data, that are not critical for the data fetched)</param>
+        ''' <remarks></remarks>
+        Public Function GetBaseDataSet(ByVal criteria As DeclarationCriteria, ByRef warnings As String) As DataSet _
             Implements IDeclaration.GetBaseDataSet
 
             If Not IsValid(criteria) Then
                 Throw New Exception(String.Format(My.Resources.ActiveReports_IDeclaration_ArgumentsNull, _
                     vbCrLf, GetAllErrors(criteria)))
             End If
+
+            warnings = ""
 
             Dim result As New DataSet
             result.Tables.Add(Declaration.FetchGeneralDataTable)
@@ -87,14 +128,12 @@
                     Declaration.ClearDatatable(myData, 0)
 
                     If myData.Rows.Count > 1 Then
-                        _Warnings = "DĖMESIO. Pasirinktą mėnesį buvo taikomi skirtingi " _
-                        & "SODROS ir PSD tarifai: "
+                        warnings = My.Resources.ActiveReports_Declarations_DeclarationSAM_2_RatesDiffer
                         For Each dr As DataRow In myData.Rows
-                            _Warnings = _Warnings & vbCrLf & "SODRA išskaičiuota - " & dr.Item(0).ToString _
-                            & "; PSD isšskaičiuota - " & dr.Item(2).ToString & "; SODRA Priskaičiuota - " _
-                            & dr.Item(1).ToString & "PSD priskaičiuota - " & dr.Item(3).ToString & ";"
+                            warnings = warnings & vbCrLf & String.Format(My.Resources.ActiveReports_Declarations_DeclarationSAM_2_RateDescription, _
+                                DblParser(CDblSafe(dr.Item(0), 2, 0)), DblParser(CDblSafe(dr.Item(2), 2, 0)), _
+                                DblParser(CDblSafe(dr.Item(1), 2, 0)), DblParser(CDblSafe(dr.Item(3), 2, 0)))
                         Next
-                        _Warnings = _Warnings & vbCrLf & "Deklaracijoje naudojama tik pirmoji tarifų kombinacija."
 
                     ElseIf myData.Rows.Count < 1 Then
 
@@ -104,9 +143,7 @@
                         myData.Rows(0).Item(2) = GetCurrentCompany.Rates.GetRate(General.DefaultRateType.PsdEmployee)
                         myData.Rows(0).Item(3) = GetCurrentCompany.Rates.GetRate(General.DefaultRateType.PsdEmployer)
 
-                        _Warnings = "DĖMESIO. Pasirinktą mėnesį nebuvo apskaitoje registruotų " _
-                        & "darbo užmokesčio žiniaraščių, iš kurių būtų matomi pasirinktą mėnesį " _
-                        & "faktiškai taikyti SODROS įmokų tarifai. Deklaracijoje naudojami einamieji tarifai."
+                        warnings = My.Resources.ActiveReports_Declarations_DeclarationSAM_2_WageNull
 
                     End If
 
@@ -173,6 +210,12 @@
 
         End Function
 
+        ''' <summary>
+        ''' Gets a ffdata format dataset.
+        ''' </summary>
+        ''' <param name="declarationDataSet">a declaration dataset fetched by the <see cref="GetBaseDataSet">GetBaseDataSet</see> method.</param>
+        ''' <param name="preparatorName">a name of the person who prepared the declaration.</param>
+        ''' <remarks></remarks>
         Public Function GetFfDataDataSet(ByVal declarationDataSet As DataSet, _
             ByVal preparatorName As String) As DataSet _
             Implements IDeclaration.GetFfDataDataSet

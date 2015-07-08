@@ -155,13 +155,14 @@
     <Compile Include="Assets\LongTermAssetCustomGroup.vb" />
     <Compile Include="Assets\LtaAccountChangeType.vb" />
     <Compile Include="Assets\LtaOperationType.vb" />
+    <Compile Include="Assets\OperationBackground.vb" />
     <Compile Include="Assets\OperationChronologicValidator.vb" />
     <Compile Include="Assets\OperationChronologicValidatorItem.vb" />
+    <Compile Include="Assets\OperationPersistenceObject.vb" />
     <Compile Include="CommonObjects\AccountFieldAttribute.vb" />
     <Compile Include="CommonObjects\BookEntryType.vb" />
     <Compile Include="CommonObjects\BusinessObjectList.vb" />
     <Compile Include="CommonObjects\ComplexChronologicValidator.vb" />
-    <Compile Include="CommonObjects\DeclarationType.vb" />
     <Compile Include="CommonObjects\DoubleFieldAttribute.vb" />
     <Compile Include="CommonObjects\EmptyChronologicValidator.vb" />
     <Compile Include="CommonObjects\EnumValueAttribute.vb" />

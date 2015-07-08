@@ -106,8 +106,8 @@ Public Class F_WorkerHolidayInfo
 
     End Sub
 
-    Private Sub HolidaySpentListDataGridView_CellContentClick(ByVal sender As System.Object, _
-        ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles HolidaySpentListDataGridView.CellContentClick
+    Private Sub HolidaySpentListDataGridView_CellDoubleClick(ByVal sender As System.Object, _
+        ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles HolidaySpentListDataGridView.CellDoubleClick
 
         If Obj Is Nothing OrElse e.RowIndex < 0 Then Exit Sub
 

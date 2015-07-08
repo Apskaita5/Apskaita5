@@ -291,11 +291,11 @@ Namespace ActiveReports
         End Function
 
 
-        Public Function NewDeclarationCriteria() As DeclarationCriteria
+        Public Shared Function NewDeclarationCriteria() As DeclarationCriteria
             Return New DeclarationCriteria()
         End Function
 
-        Public Function NewDeclarationCriteria(ByVal nDate As Date, ByVal nDateFrom As Date, ByVal nDateTo As Date, _
+        Public Shared Function NewDeclarationCriteria(ByVal nDate As Date, ByVal nDateFrom As Date, ByVal nDateTo As Date, _
             ByVal nDeclarationType As IDeclaration, ByVal nYear As Integer, ByVal nQuarter As Integer, _
             ByVal nMonth As Integer, ByVal nMunicipalityCode As String, ByVal nSodraDepartment As String, _
             ByVal nSodraAccount As Long, ByVal nSodraAccount2 As Long, ByVal nSodraRate As Double) As DeclarationCriteria

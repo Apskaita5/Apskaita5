@@ -75,11 +75,11 @@ Public Module CurrencyMethods
     ''' <remarks></remarks>
     Public Function GetCurrencySafe(ByVal currencyCode As String, ByVal baseCurrency As String) As String
 
-        If baseCurrency Is Nothing OrElse String.IsNullOrEmpty(baseCurrency.Trim) Then
-            Throw New ArgumentNullException("Parameter baseCurrency cannot be null or empty for method Utilities.GetCurrencySafe.")
+        If StringIsNullOrEmpty(baseCurrency) Then
+            Throw New ArgumentNullException("baseCurrency")
         End If
 
-        If currencyCode Is Nothing OrElse String.IsNullOrEmpty(currencyCode.Trim) Then
+        If StringIsNullOrEmpty(currencyCode) Then
 
             Return baseCurrency
 
@@ -115,8 +115,7 @@ Public Module CurrencyMethods
     Public Function ConvertCurrency(ByVal amountToConvert As Double, ByVal originalCurrency As String, _
         ByVal originalCurrencyRate As Double, ByVal targetCurrency As String, ByVal targetCurrencyRate As Double, _
         ByVal baseCurrency As String, ByVal amountSignificantDigits As Integer, _
-        ByVal currencyRateSignificantDigits As Integer, _
-        ByVal defaultAmount As Double) As Double
+        ByVal currencyRateSignificantDigits As Integer, ByVal defaultAmount As Double) As Double
 
         ' zero remains zero in any currency
         If CRound(amountToConvert, amountSignificantDigits) = 0 Then
@@ -152,6 +151,83 @@ Public Module CurrencyMethods
         Else
             Return CRound(defaultAmount, amountSignificantDigits)
         End If
+
+    End Function
+
+    ''' <summary>
+    ''' Converts <paramref name="amountToConvert">amountToConvert</paramref> to the base currency.
+    ''' </summary>
+    ''' <param name="amountToConvert">Amount to convert accounted in <paramref name="currency" />.</param>
+    ''' <param name="currency">ISO 4217 code for the currency that the <paramref name="amountToConvert" /> is accounted in.</param>
+    ''' <param name="currencyRate">Currency rate with respect to the <paramref name="baseCurrency" />
+    ''' for the currency that the <paramref name="amountToConvert" /> is accounted in.</param>
+    ''' <param name="baseCurrency">Base currency identified by ISO 4217 code.</param>
+    ''' <param name="amountSignificantDigits">Round order applied to the result.</param>
+    ''' <param name="currencyRateSignificantDigits">Round order applied to <paramref name="currencyRate" />.</param>
+    ''' <remarks></remarks>
+    Public Function ConvertToBaseCurrency(ByVal amountToConvert As Double, ByVal currency As String, _
+        ByVal currencyRate As Double, ByVal baseCurrency As String, ByVal amountSignificantDigits As Integer, _
+        ByVal currencyRateSignificantDigits As Integer) As Double
+
+        If IsBaseCurrency(currency, baseCurrency) Then
+            Return CRound(amountToConvert, amountSignificantDigits)
+        End If
+
+        Dim validatedCurrencyRate As Double = CRound(currencyRate, currencyRateSignificantDigits)
+        Dim validatedAmount As Double = CRound(amountToConvert, amountSignificantDigits)
+
+        Return CRound(validatedAmount * validatedCurrencyRate, amountSignificantDigits)
+
+    End Function
+
+    ''' <summary>
+    ''' Converts <paramref name="amountToConvert">amountToConvert</paramref> to the base currency.
+    ''' </summary>
+    ''' <param name="amountToConvert">Amount to convert accounted in <paramref name="currency" />.</param>
+    ''' <param name="targetCurrency">ISO 4217 code for the currency that the <paramref name="amountToConvert" /> is accounted in.</param>
+    ''' <param name="currencyRate">Currency rate with respect to the <paramref name="baseCurrency" />
+    ''' for the currency that the <paramref name="amountToConvert" /> is accounted in.</param>
+    ''' <param name="baseCurrency">Base currency identified by ISO 4217 code.</param>
+    ''' <param name="amountSignificantDigits">Round order applied to the result.</param>
+    ''' <param name="currencyRateSignificantDigits">Round order applied to <paramref name="currencyRate" />.</param>
+    ''' <param name="defaultAmount">Return value in case a conversion is not possible, 
+    ''' e.g. <paramref name="currencyRate" /> is zero.</param>
+    ''' <remarks></remarks>
+    Public Function ConvertFromBaseCurrency(ByVal amountToConvert As Double, ByVal targetCurrency As String, _
+        ByVal currencyRate As Double, ByVal baseCurrency As String, ByVal amountSignificantDigits As Integer, _
+        ByVal currencyRateSignificantDigits As Integer, ByVal defaultAmount As Double) As Double
+
+        If IsBaseCurrency(targetCurrency, baseCurrency) Then
+            Return CRound(amountToConvert, amountSignificantDigits)
+        End If
+
+        Dim validatedCurrencyRate As Double = CRound(currencyRate, currencyRateSignificantDigits)
+        Dim validatedAmount As Double = CRound(amountToConvert, amountSignificantDigits)
+
+        If CRound(currencyRate, currencyRateSignificantDigits) > 0.0 Then
+            Return CRound(validatedAmount / validatedCurrencyRate, amountSignificantDigits)
+        Else
+            Return CRound(defaultAmount, amountSignificantDigits)
+        End If
+
+    End Function
+
+    ''' <summary>
+    ''' Checks if the <paramref name="currencyCode">currency code</paramref> is a valid ISO 4217 code.
+    ''' </summary>
+    ''' <param name="currencyCode">A currency code to check.</param>
+    ''' <param name="emptyCurrencyIsInvalid">Whether to consider a null or empty string as an invalid currency.
+    ''' Default - consider a null or empty string as the base currency, i.e. valid.</param>
+    ''' <returns><code>True</code> if the <paramref name="currencyCode" /> is a valid ISO 4217 code..</returns>
+    ''' <remarks></remarks>
+    Public Function IsValidCurrency(ByVal currencyCode As String, _
+        Optional ByVal emptyCurrencyIsInvalid As Boolean = False) As Boolean
+
+        If StringIsNullOrEmpty(currencyCode) Then
+            Return Not emptyCurrencyIsInvalid
+        End If
+
+        Return Array.IndexOf(CurrencyCodes, currencyCode.Trim.ToUpper()) >= 0
 
     End Function
 

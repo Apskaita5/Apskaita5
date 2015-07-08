@@ -684,4 +684,7 @@
   <data name="LanguageCode_zu" xml:space="preserve">
     <value>Zulų kalba</value>
   </data>
+  <data name="CommonMethods_TheTypeMustBeSerializable" xml:space="preserve">
+    <value>The type must be serializable.</value>
+  </data>
 </root>

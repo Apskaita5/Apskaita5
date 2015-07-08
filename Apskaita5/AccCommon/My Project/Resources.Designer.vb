@@ -88,6 +88,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to The type must be serializable..
+        '''</summary>
+        Friend ReadOnly Property CommonMethods_TheTypeMustBeSerializable() As String
+            Get
+                Return ResourceManager.GetString("CommonMethods_TheTypeMustBeSerializable", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Afarų kalba.
         '''</summary>
         Friend ReadOnly Property LanguageCode_aa() As String

@@ -1494,11 +1494,128 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nėra suformuotos deklaracijos..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_Declaration_DeclarationDataSetNull() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_Declaration_DeclarationDataSetNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Dėl nežinomų priežasčių nepavyko konvertuoti deklaracijos duomenų į ffdata formatą..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_Declaration_FailedTransformationToFfdata() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_Declaration_FailedTransformationToFfdata", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to data.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DeclarationCriteria_Date() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DeclarationCriteria_Date", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to periodo pradžia.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DeclarationCriteria_DateFrom() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DeclarationCriteria_DateFrom", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to periodo pabaiga.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DeclarationCriteria_DateTo() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DeclarationCriteria_DateTo", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to deklaracijos tipas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DeclarationCriteria_DeclarationType() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DeclarationCriteria_DeclarationType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Nenurodytas deklaracijos tipas..
         '''</summary>
         Friend ReadOnly Property ActiveReports_DeclarationCriteria_DeclarationTypeNull() As String
             Get
                 Return ResourceManager.GetString("ActiveReports_DeclarationCriteria_DeclarationTypeNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to mėnuo.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DeclarationCriteria_Month() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DeclarationCriteria_Month", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to savivaldybės kodas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DeclarationCriteria_MunicipalityCode() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DeclarationCriteria_MunicipalityCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ketvirtis.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DeclarationCriteria_Quarter() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DeclarationCriteria_Quarter", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to mokėtinų SODRA įmokų sąsk..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DeclarationCriteria_SodraAccount() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DeclarationCriteria_SodraAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to mokėtinų SODRA įmokų papildoma sąsk..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DeclarationCriteria_SodraAccount2() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DeclarationCriteria_SodraAccount2", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to SODRA skyrius.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DeclarationCriteria_SodraDepartment() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DeclarationCriteria_SodraDepartment", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to SODRA tarifas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DeclarationCriteria_SodraRate() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DeclarationCriteria_SodraRate", resourceCulture)
             End Get
         End Property
         
@@ -1517,6 +1634,42 @@ Namespace My.Resources
         Friend ReadOnly Property ActiveReports_DeclarationCriteria_TypeName() As String
             Get
                 Return ResourceManager.GetString("ActiveReports_DeclarationCriteria_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to metai.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DeclarationCriteria_Year() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DeclarationCriteria_Year", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to SODRA išskaičiuota - {0}; PSD isšskaičiuota - {1}; SODRA Priskaičiuota - {2}; PSD priskaičiuota - {3};.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_Declarations_DeclarationSAM_2_RateDescription() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_Declarations_DeclarationSAM_2_RateDescription", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to DĖMESIO. Pasirinktą mėnesį buvo taikomi skirtingi SODROS ir PSD tarifai (deklaracijoje naudojama tik pirmoji tarifų kombinacija):.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_Declarations_DeclarationSAM_2_RatesDiffer() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_Declarations_DeclarationSAM_2_RatesDiffer", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to DĖMESIO. Pasirinktą mėnesį nebuvo apskaitoje registruotų darbo užmokesčio žiniaraščių, iš kurių būtų matomi pasirinktą mėnesį faktiškai taikyti SODROS įmokų tarifai. Deklaracijoje naudojami einamieji tarifai..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_Declarations_DeclarationSAM_2_WageNull() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_Declarations_DeclarationSAM_2_WageNull", resourceCulture)
             End Get
         End Property
         
@@ -1544,6 +1697,15 @@ Namespace My.Resources
         Friend ReadOnly Property ActiveReports_Declarations_DeclarationSam1_NullRates() As String
             Get
                 Return ResourceManager.GetString("ActiveReports_Declarations_DeclarationSam1_NullRates", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nežinomas priežasties kodas &quot;{0}&quot;..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_Declarations_DeclarationSD13_1_UnknownReasonCode() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_Declarations_DeclarationSD13_1_UnknownReasonCode", resourceCulture)
             End Get
         End Property
         
@@ -4383,6 +4545,801 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to ilgalaikis turtas.
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAsset_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAsset_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Neįmanoma apskaičiuoti amortizacijos turtui {0} (ID={1}). Amortizacija nurodytai datai jau apskaičiuota. Paskutinis amortizacijos apskaičiavimas buvo {2}, o jūs bandote skaičiuoti {3}..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_AlreadyCalculated() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_AlreadyCalculated", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Neįmanoma apskaičiuoti amortizacijos turtui {0} (ID={1}). Turtas naudotas visą jam nustatytą amortizacijos periodą, t.y. pilnai nudėvėtas..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_AmortizationComplete() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_AmortizationComplete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Į turto &quot;{0}&quot; amortizacijos laikotarpį įsiterpė {1} operacija ({2}). Pasikeitus kiekiui neįmanoma apskaičiuoti amortizacijos (amortizacijos apskaičiavimas padarytų klaidingas perleidimo/nurašymo operacijos turto nurašymo vertes, kurios buvo suformuotos be amortizacijos)..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_AmountChanged() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_AmountChanged", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas ilgalaikio turto ID..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_AssetIdNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_AssetIdNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Neįmanoma apskaičiuoti amortizacijos turtui {0} (ID={1}). Amortizacijos skaičiavimo intervale turtas nebuvo naudojamas..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_AssetNotOperational() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_AssetNotOperational", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Turto {0} (ID={1}) amortizacijos skaičiavimas pradedamas nuo jo įsigijimo ({2}), vieneto likvidacinė vertė - {3}..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_CalculationStartingWithAcquisition() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_CalculationStartingWithAcquisition", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Turto {0} (ID={1}) amortizacijos skaičiavimas pradedamas nuo jo paskutinio amortizavimo datos ({2}), vieneto likvidacinė vertė - {3}..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_CalculationStartingWithLastCalculation() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_CalculationStartingWithLastCalculatio"& _ 
+                        "n", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Turto {0} (ID={1}) amortizacijos skaičiavimas pradedamas nuo jo įvedimo į eksploataciją datos ({2}), vieneto likvidacinė vertė - {3}..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_CalculationStartingWithOperationalInit() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_CalculationStartingWithOperationalIni"& _ 
+                        "t", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Apskaičiuota amortizacija už laikotarpį nuo {0} iki {1} įskaitytinai, iš viso už {2} mėnesių. Apskaičiuota amortizacija - {3}; apskaičiuota amortizacija vienetui - {4}; apskaičiuota amortizacija vertės padidėjimui - {5}; apskaičiuota amortizacija vertės padidėjimui turto vienetui - {6}..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_CalculationString() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_CalculationString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Neįmanoma apskaičiuoti amortizacijos turtui {0} (ID={1}). Nurodyta data yra ankstesnė nei šio turto įsigijimo data ({2})..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_DateToInvalid() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_DateToInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Neįmanoma perskaičiuoti amortizacijos turtui {0} (ID={1}). Yra vėlesnė amortizacijos operacija ({2}) už taisomą ({3})..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_EditedAmortizationOperationInvalid() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_EditedAmortizationOperationInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pradiniai skaičiavimo parametrai yra: {0} Vieno mėnesio amortizacijos suma - {1}; Vieno mėnesio amortizacijos suma turto vienetui - {2}..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_InitialParameters() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_InitialParameters", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} m. {1} mėn. su turtu yra registruota (-os) operacija (-os): {2}. Po šių operacijų skaičiavimo parametrai yra: {3}. Vieno mėnesio amortizacijos suma - {4}; Vieno mėnesio amortizacijos suma turto vienetui - {5}..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_NewParamsString() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_NewParamsString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Turtas nebuvo naudojamas nuo {0} iki {1}. {2}.
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_NonOperationalPeriodClosed() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_NonOperationalPeriodClosed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Turtas nebebuvo naudojamas nuo {0}..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_NonOperationalPeriodOpen() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_NonOperationalPeriodOpen", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Per šį laikotarpį operacijų su turtu registruota nebuvo..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_NoOperationWithinPeriodString() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_NoOperationWithinPeriodString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Per šį laikotarpį su turtu buvo registruota operacija (-os): {0}. Pradėjus vėl naudoti turtą amortizacijos skaičiavimo parametrai yra: {1}. Vieno mėnesio amortizacijos suma - {2}; Vieno mėnesio amortizacijos suma turto vienetui - {3}..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_OperationWithinPeriodString() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_OperationWithinPeriodString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Kiekis - {0}; Įsigijimo savikaina - {1}; Įsigijimo savikaina vienetui - {2}; Vertės padidėjimas - {3}; Vertės padidėjimas vienetui - {4}; Sukaupta amortizacija - {5}; Sukaupta amortizacija vienetui - {6}; Vertės padidėjimo sukaupta amortizacija - {7}; Vertės padidėjimo sukaupta amortizacija vienetui - {8}; Amortizacijos periodas (m.) - {9}; Amortizacija apskaičiuota už mėn. - {10}; Naudojama - {11}..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_ParameterString() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_ParameterString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Turto amortizacijos skaičiavimas užbaigtas. Iš viso apskaičiuota: amortizacijos - {0}; amortizacijos turto vienetui - {1}; amortizacijos perkainotai daliai - {2}; amortizacijos perkainotai daliai turto vienetui- {3}. Amortizacija priskaičiuota už {4} mėnesių..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_SummaryString() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_SummaryString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to amortizacijos paskaičiavimas IT, kurio ID={0}, {1} dienai.
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to amortizacijos paskaičiavimas.
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAssetAmortizationCalculation_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAssetAmortizationCalculation_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įsigijimo savikaina pb..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AfterOperationAcquisitionAccountValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AfterOperationAcquisitionAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vnt. įsigijimo savikaina pb..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AfterOperationAcquisitionAccountValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AfterOperationAcquisitionAccountValuePerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įsigijimo savikainos nusidėvėjimas pb..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AfterOperationAmortizationAccountValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AfterOperationAmortizationAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vnt. įsigijimo savikainos nusidėvėjimas pb..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AfterOperationAmortizationAccountValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AfterOperationAmortizationAccountValuePerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kiekis pb..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AfterOperationAssetAmount() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AfterOperationAssetAmount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vertė pb..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AfterOperationAssetValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AfterOperationAssetValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vnt. vertė pb..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AfterOperationAssetValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AfterOperationAssetValuePerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainota/sumažėjusi vertės dalis pb..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AfterOperationAssetValueRevaluedPortion() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AfterOperationAssetValueRevaluedPortion", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainota/sumažėjusi vnt. vertės dalis pb..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AfterOperationAssetValueRevaluedPortionPerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AfterOperationAssetValueRevaluedPortionPerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vertės sumažėjimas pb..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AfterOperationValueDecreaseAccountValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AfterOperationValueDecreaseAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vnt. vertės sumažėjimas pb..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AfterOperationValueDecreaseAccountValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AfterOperationValueDecreaseAccountValuePerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainota vertės dalis pb..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AfterOperationValueIncreaseAccountValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AfterOperationValueIncreaseAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainota vnt. vertės dalis pb..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AfterOperationValueIncreaseAccountValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AfterOperationValueIncreaseAccountValuePerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainotos vertės dalies nusidėvėjimas pb..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AfterOperationValueIncreaseAmortizationAccountValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AfterOperationValueIncreaseAmortizationAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainotos vnt. vertės dalies nusidėvėjimas pb..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AfterOperationValueIncreaseAmortizationAccountValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AfterOperationValueIncreaseAmortizationAccountValuePer"& _ 
+                        "Unit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įsigijimo savikainos sąsk..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AssetAcquiredAccount() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AssetAcquiredAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įsigijimo BŽ ID.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AssetAquisitionID() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AssetAquisitionID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įsigijimo savikainos nusidėvėjimo sąsk..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AssetContraryAccount() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AssetContraryAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įsigijimo data.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AssetDateAcquired() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AssetDateAcquired", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AssetID() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AssetID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to likvidacinė vnt. vertė.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AssetLiquidationValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AssetLiquidationValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to mato vnt..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AssetMeasureUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AssetMeasureUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AssetName() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AssetName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vertės sumažėjimo sąsk..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AssetValueDecreaseAccount() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AssetValueDecreaseAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainotos vertės dalies sąsk..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AssetValueIncreaseAccount() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AssetValueIncreaseAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainotos vertės dalies nusidėvėjimo sąsk..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_AssetValueIncreaseAmortizationAccount() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_AssetValueIncreaseAmortizationAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Ilgalaikio turto vertė negali tuo pat metu būti ir padidinta ir sumažinta..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CannotIncreaseAndDecreaseSimultaniously() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CannotIncreaseAndDecreaseSimultaniously", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įsigijimo savikainos pokytis.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_ChangeAcquisitionAccountValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_ChangeAcquisitionAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vnt. įsigijimo savikainos pokytis.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_ChangeAcquisitionAccountValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_ChangeAcquisitionAccountValuePerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įsigijimo savikainos nusidėvėjimo pokytis.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_ChangeAmortizationAccountValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_ChangeAmortizationAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vnt. įsigijimo savikainos nusidėvėjimo pokytis.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_ChangeAmortizationAccountValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_ChangeAmortizationAccountValuePerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kiekio pokytis.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_ChangeAssetAmount() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_ChangeAssetAmount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainotos/sumažėjusios vertės dalies pokytis.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_ChangeAssetRevaluedPortionUnitValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_ChangeAssetRevaluedPortionUnitValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainotos/sumažėjusios vnt. vertės dalies pokytis.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_ChangeAssetRevaluedPortionValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_ChangeAssetRevaluedPortionValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vnt. vertės pokytis.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_ChangeAssetUnitValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_ChangeAssetUnitValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vertės pokytis.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_ChangeAssetValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_ChangeAssetValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vertės sumažėjimo pokytis.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_ChangeValueDecreaseAccountValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_ChangeValueDecreaseAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vnt. vertės sumažėjimo pokytis.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_ChangeValueDecreaseAccountValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_ChangeValueDecreaseAccountValuePerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainotos vertės daleis pokytis.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_ChangeValueIncreaseAccountValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_ChangeValueIncreaseAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainotos vnt. vertės dalies pokytis.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_ChangeValueIncreaseAccountValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_ChangeValueIncreaseAccountValuePerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainotos vertės dalies nusidėvėjimo pokytis.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_ChangeValueIncreaseAmortizationAccountValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_ChangeValueIncreaseAmortizationAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainotos vnt. vertės dalies nusidėvėjimo pokytis.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_ChangeValueIncreaseAmortizationAccountValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_ChangeValueIncreaseAmortizationAccountValuePerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įsigijimo savikaina pr..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentAcquisitionAccountValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentAcquisitionAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vnt. įsigijimo savikaina pr..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentAcquisitionAccountValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentAcquisitionAccountValuePerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įsigijimo savikainos nusidėvėjimas pr..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentAmortizationAccountValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentAmortizationAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vnt. įsigijimo savikainos nusidėvėjimas pr..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentAmortizationAccountValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentAmortizationAccountValuePerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to amortizacijos laikotarpis m..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentAmortizationPeriod() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentAmortizationPeriod", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kiekis pr..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentAssetAmount() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentAssetAmount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vertė pr..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentAssetValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentAssetValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vnt. vertė pr..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentAssetValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentAssetValuePerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainota/sumažėjusi vertės dalis pr..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentAssetValueRevaluedPortion() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentAssetValueRevaluedPortion", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainota/sumažėjusi vnt. vertės dalis pr..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentAssetValueRevaluedPortionPerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentAssetValueRevaluedPortionPerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to naudojama.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentUsageStatus() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentUsageStatus", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to amortizacija paskaičiuota už mėn. pr..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentUsageTermMonths() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentUsageTermMonths", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vertės sumažėjimas pr..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentValueDecreaseAccountValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentValueDecreaseAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vnt. vertės sumažėjimas pr..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentValueDecreaseAccountValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentValueDecreaseAccountValuePerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainota vertės dalis pr..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentValueIncreaseAccountValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentValueIncreaseAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainota vnt. vertės dalis pr..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentValueIncreaseAccountValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentValueIncreaseAccountValuePerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainotos vertės dalies nusidėvėjimas pr..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentValueIncreaseAmortizationAccountValue() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentValueIncreaseAmortizationAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainotos vnt. vertės dalies nusidėvėjimas pr..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_CurrentValueIncreaseAmortizationAccountValuePerUnit() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_CurrentValueIncreaseAmortizationAccountValuePerUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to išjungti perskaičiavimą realiu laiku.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_DisableCalculations() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_DisableCalculations", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto &quot;{0}&quot; suvestinė informacija.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto suvestinė informacija.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationBackground_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationBackground_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} ilgalaikio turto operacija - {1}: {2}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationPersistenceObject_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationPersistenceObject_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto operacija.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationPersistenceObject_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationPersistenceObject_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. IT operacijos, kurios ID={0}, tipas yra ne {1}, o {2}..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationPersistenceObject_UnexpectedType() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationPersistenceObject_UnexpectedType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Debetas.
         '''</summary>
         Friend ReadOnly Property BookEntryType_Debetas() As String
@@ -5940,6 +6897,312 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to banko sąskaita.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_Account() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_Account", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to banko valiutos konversijos sąnaudų sąsk..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_AccountBankCurrencyConversionCosts() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_AccountBankCurrencyConversionCosts", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sąskaitos valiuta.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_AccountCurrency() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_AccountCurrency", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to valiutos kurso pasik. įtakos sąsk..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_AccountCurrencyRateChangeImpact() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_AccountCurrencyRateChangeImpact", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to banko valiutos konversijos sąnaudos.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_BankCurrencyConversionCosts() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_BankCurrencyConversionCosts", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontavimai.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_BookEntryItems() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_BookEntryItems", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontavimai.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_BookEntryItemsSorted() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_BookEntryItemsSorted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to turinys/aprašymas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_Content() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_Content", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pervedimo tarp savų sąskaitų kredituojama banko sąskaita.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_CreditCashAccount() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_CreditCashAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID pervedimo kreditinės operacijos.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_CreditTransferOperationID() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_CreditTransferOperationID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to operacijos valiuta.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_CurrencyCode() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_CurrencyCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to operacijos valiutos kursas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_CurrencyRate() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_CurrencyRate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to valiutos kurso pasik. įtaka.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_CurrencyRateChangeImpact() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_CurrencyRateChangeImpact", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sąskaitos valiutos kursas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_CurrencyRateInAccount() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_CurrencyRateInAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to data.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_Date() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_Date", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to dok. Nr..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_DocumentNumber() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_DocumentNumber", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida importuojant operaciją &quot;{0}&quot;, nepavyko suformuoti operacijos ir (ar) bendrojo žurnalo įrašo:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_FailedCreateBankOperation() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_FailedCreateBankOperation", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_ID() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įtraukta.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_InsertDate() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_InsertDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pasirinktos sąskaitos tipas - ne banko sąskaita, o {0}..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_InvalidCashAccount() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_InvalidCashAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Kredituojama sąskaita negali sutapti su debetuojama..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_InvalidCreditCashAccount() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_InvalidCreditCashAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Operacijos suma litais turi būti lygi korespondencijų sumai minus valiutos kurso pasikeitimo įtaka..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_InvalidSumLtlForCredit() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_InvalidSumLtlForCredit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Operacijos suma litais turi būti lygi korespondencijų sumai plius valiutos kurso pasikeitimo įtaka..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_InvalidSumLtlForDebit() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_InvalidSumLtlForDebit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kreditas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_IsCredit() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_IsCredit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to debitas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_IsDebit() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_IsDebit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pervedimas tarp savų sąskaitų.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_IsTransferBetweenAccounts() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_IsTransferBetweenAccounts", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to BŽ ID.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_JournalEntryID() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_JournalEntryID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to originalus turinys.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_OriginalContent() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_OriginalContent", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to originalus kontrahentas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_OriginalPerson() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_OriginalPerson", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahentas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_Person() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_Person", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_Sum() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_Sum", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma kontavimuose.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_SumCorespondences() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_SumCorespondences", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma sąskaitoje.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_SumInAccount() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_SumInAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma bazine valiuta.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_SumLTL() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_SumLTL", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to {0} banko operacija Nr. {1} = {2} {3} (ID={4}).
         '''</summary>
         Friend ReadOnly Property Documents_BankOperation_ToString() As String
@@ -5954,6 +7217,24 @@ Namespace My.Resources
         Friend ReadOnly Property Documents_BankOperation_TypeName() As String
             Get
                 Return ResourceManager.GetString("Documents_BankOperation_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to unik. kodas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_UniqueCode() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_UniqueCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to unik. kodas pervedimo kreditinės operacijos.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_UniqueCodeInCreditAccount() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_UniqueCodeInCreditAccount", resourceCulture)
             End Get
         End Property
         
@@ -5981,6 +7262,555 @@ Namespace My.Resources
         Friend ReadOnly Property Documents_BankOperation_UniqueCodeInvalidDebit() As String
             Get
                 Return ResourceManager.GetString("Documents_BankOperation_UniqueCodeInvalidDebit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pakeista.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_UpdateDate() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_UpdateDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to banko valiutos konversijos sąnaudų sąsk..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_AccountBankCurrencyConversionCosts() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_AccountBankCurrencyConversionCosts", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontuojama sąsk..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_AccountCorresponding() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_AccountCorresponding", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to banko valiutos konversijos sąnaudos.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_BankCurrencyConversionCosts() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_BankCurrencyConversionCosts", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Eilutė nėra priskirta prie banko sąnaudų, nors sprendžiant pagal mažą sumą tai banko mokesčiai..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_BankFeeProbability() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_BankFeeProbability", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to turinys/aprašymas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_Content() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_Content", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}; įmokos kodas - {1}.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_ContentWithPaymentCode() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_ContentWithPaymentCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to operacijos valiuta.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_Currency() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_Currency", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to operacijos valiutos kursas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_CurrencyRate() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_CurrencyRate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sąskaitos valiutos kursas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_CurrencyRateInAccount() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_CurrencyRateInAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to data.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_Date() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_Date", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to aprašymo nėra.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_DefaultContent() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_DefaultContent", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to dok. Nr..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_DocumentNumber() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_DocumentNumber", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įtraukta į duomenų bazę.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_ExistsInDatabase() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_ExistsInDatabase", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įplaukos (debetas).
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_Inflow() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_Inflow", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Metodas RecognizeItem gali būti invoke&apos;inamas tik po to, kai visi duomenys jau yra map&apos;inti sąraše..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_InvalidInvokeCheckIfUniqueCodeIsEnforcable() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_InvalidInvokeCheckIfUniqueCodeIsEnforcable", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Metodas RecognizeItem gali būti invoke&apos;inamas tik po to, kai visi duomenys jau yra map&apos;inti sąraše..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_InvalidInvokeRecognizeItem() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_InvalidInvokeRecognizeItem", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida atpažįstant banko operacijos duomenis.{0}Eilutė: &quot;{1}&quot;.{2}{3}..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_InvalidSourceString() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_InvalidSourceString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to banko komisinis.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_IsBankCosts() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_IsBankCosts", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Eilutė priskirta prie banko sąnaudų, nors sprendžiant pagal didelę sumą tai nėra banko mokesčiai..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_NotBankFeeProbability() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_NotBankFeeProbability", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_OperationDatabaseID() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_OperationDatabaseID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_OriginalSum() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_OriginalSum", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to data&lt;BR&gt;dokumento numeris&lt;BR&gt;asmens kodas&lt;BR&gt;asmens pavadinimas&lt;BR&gt;turinys/aprašas&lt;BR&gt;pajamos(&quot;&quot;)/išlaidos(&quot;x&quot;)&lt;BR&gt;valiuta&lt;BR&gt;originali suma&lt;BR&gt;suma bazine valiuta&lt;BR&gt;unikalus kodas&lt;BR&gt;asmens (banko) sąskaitos numeris&lt;BR&gt;asmens banko pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_PasteColumns() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_PasteColumns", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Banko operacijos duomenys {0} stulpeliuose turi būti išdėstyti tokia seka: {1}..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_PasteColumnsDescription() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_PasteColumnsDescription", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to išlaidos (kreditas).
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_Payout() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_Payout", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahentas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_Person() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_Person", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento banko sąskaita.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_PersonBankAccount() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_PersonBankAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento bankas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_PersonBankName() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_PersonBankName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento įmonės (asmens) kodas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_PersonCode() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_PersonCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_PersonName() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_PersonName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to galimai įtraukta į duomenų bazę.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_ProbablyExistsInDatabase() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_ProbablyExistsInDatabase", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma sąskaitoje.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_SumInAccount() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_SumInAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma bazine valiuta.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_SumLTL() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_SumLTL", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma bazine valiuta banko duomenimis.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_SumLTLBank() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_SumLTLBank", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} importuota banko operacija Nr. {1} kontrahentui {2} ({3}).
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_ToString() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to importuota banko operacija.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to unik. kodas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_UniqueCode() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_UniqueCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Duomenyse ne visur nurodyti unikalūs operacijų kodai, o pasirinktoje sąskaitoje reikalaujama garantuoti kodų unikalumą..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_UniqueCodeNotSpecified() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_UniqueCodeNotSpecified", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Importuojamuose duomenyse nurodomi unikalūs operacijos kodai nėra unikalūs (pasikartoja), o sąskaitai yra nustatytas reikalavimas garantuoti unikalaus kodo unikalumą..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_UniqueCodesInvalid() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_UniqueCodesInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to banko sąskaita.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_Account() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_Account", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nurodyta lėšų apskaitos sąskaita nėra banko sąskaita..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_AccountInvalid() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_AccountInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodyta banko sąskaita, į kurią importuojami duomenys..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_AccountNull() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_AccountNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to balansas pb..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_BalanceEnd() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_BalanceEnd", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to balansas pr..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_BalanceStart() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_BalanceStart", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to laikotarpio pb..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_DateEnd() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_DateEnd", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to laikotarpio pr..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_DateStart() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_DateStart", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Duomenys įkrauti iš LITAS-ESIS formato failo - banko išrašo.{0}Banko išrašo periodas nuo {1} iki {2}, valiuta - {3}.{4}Balansas pradžioje - {5}.{6}Įplaukos per išrašo laikotarpį - {7}.{8}Išlaidos per išrašo laikotarpį - {9}.{10}Balansas pabaigoje - {11}..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_DescriptionStringLitasEsis() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_DescriptionStringLitasEsis", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Duomenys įkrauti iš copy - paste&apos;o..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_DescriptionStringPasteString() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_DescriptionStringPasteString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas failas..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_FileNameNull() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_FileNameNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Failas &apos;{0}&apos; nerastas..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_FileNotFound() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_FileNotFound", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to importo šaltinis.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_ImportsSource() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_ImportsSource", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to viso įplaukų.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_Income() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_Income", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Duomenys privalo būti išdėstyti {0} stulpelių, o paste&apos;inamuose duomenys yra {1} stulpelių.{2}{3}.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_InvalidColumnCountInPasteString() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_InvalidColumnCountInPasteString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Faile nurodyta sąskaitos valiuta ({0}) nesutampa su nurodytos banko sąskaitos valiuta ({1})..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_InvalidCurrency() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_InvalidCurrency", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Failas nėra banko duomenų failas LITAS-ESIS formatu arba išraše nėra operacijų..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_InvalidFileContent() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_InvalidFileContent", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Faile nurodytas sąskaitos (IBAN) numeris ({0}) nesutampa su nurodytos banko sąskaitos (IBAN) numeriu ({1})..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_InvalidIBAN() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_InvalidIBAN", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Neįvesta nė viena eilutė..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_ListEmpty() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_ListEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Clipboard&apos;as tuščias, nėra ką paste&apos;inti.{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_PasteStringNull() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_PasteStringNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to viso išmokų.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_Spendings() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_Spendings", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Duomenyse pasikartoja unikalūs operacijų kodai, o pasirinktoje sąskaitoje reikalaujama garantuoti kodų unikalumą. Operacijos su pasikartojančiu unikaliu kodu:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_UniqueCodeDuplicates() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_UniqueCodeDuplicates", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Duomenyse ne visur nurodyti unikalūs operacijų kodai, o pasirinktoje sąskaitoje reikalaujama garantuoti kodų unikalumą. Operacijos be unikalaus kodo:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItemList_UniqueCodesMissing() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItemList_UniqueCodesMissing", resourceCulture)
             End Get
         End Property
         

@@ -5811,4 +5811,613 @@
   <data name="ActiveReports_DeclarationCriteria_TypeName" xml:space="preserve">
     <value>deklaracijos parametrai</value>
   </data>
+  <data name="ActiveReports_DeclarationCriteria_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="ActiveReports_DeclarationCriteria_DateFrom" xml:space="preserve">
+    <value>periodo pradžia</value>
+  </data>
+  <data name="ActiveReports_DeclarationCriteria_DateTo" xml:space="preserve">
+    <value>periodo pabaiga</value>
+  </data>
+  <data name="ActiveReports_DeclarationCriteria_DeclarationType" xml:space="preserve">
+    <value>deklaracijos tipas</value>
+  </data>
+  <data name="ActiveReports_DeclarationCriteria_Month" xml:space="preserve">
+    <value>mėnuo</value>
+  </data>
+  <data name="ActiveReports_DeclarationCriteria_MunicipalityCode" xml:space="preserve">
+    <value>savivaldybės kodas</value>
+  </data>
+  <data name="ActiveReports_DeclarationCriteria_Quarter" xml:space="preserve">
+    <value>ketvirtis</value>
+  </data>
+  <data name="ActiveReports_DeclarationCriteria_SodraAccount" xml:space="preserve">
+    <value>mokėtinų SODRA įmokų sąsk.</value>
+  </data>
+  <data name="ActiveReports_DeclarationCriteria_SodraAccount2" xml:space="preserve">
+    <value>mokėtinų SODRA įmokų papildoma sąsk.</value>
+  </data>
+  <data name="ActiveReports_DeclarationCriteria_SodraDepartment" xml:space="preserve">
+    <value>SODRA skyrius</value>
+  </data>
+  <data name="ActiveReports_DeclarationCriteria_SodraRate" xml:space="preserve">
+    <value>SODRA tarifas</value>
+  </data>
+  <data name="ActiveReports_DeclarationCriteria_Year" xml:space="preserve">
+    <value>metai</value>
+  </data>
+  <data name="ActiveReports_Declarations_DeclarationSAM_2_RateDescription" xml:space="preserve">
+    <value>SODRA išskaičiuota - {0}; PSD isšskaičiuota - {1}; SODRA Priskaičiuota - {2}; PSD priskaičiuota - {3};</value>
+  </data>
+  <data name="ActiveReports_Declarations_DeclarationSAM_2_RatesDiffer" xml:space="preserve">
+    <value>DĖMESIO. Pasirinktą mėnesį buvo taikomi skirtingi SODROS ir PSD tarifai (deklaracijoje naudojama tik pirmoji tarifų kombinacija):</value>
+  </data>
+  <data name="ActiveReports_Declarations_DeclarationSAM_2_WageNull" xml:space="preserve">
+    <value>DĖMESIO. Pasirinktą mėnesį nebuvo apskaitoje registruotų darbo užmokesčio žiniaraščių, iš kurių būtų matomi pasirinktą mėnesį faktiškai taikyti SODROS įmokų tarifai. Deklaracijoje naudojami einamieji tarifai.</value>
+  </data>
+  <data name="ActiveReports_Declarations_DeclarationSD13_1_UnknownReasonCode" xml:space="preserve">
+    <value>Klaida. Nežinomas priežasties kodas "{0}".</value>
+  </data>
+  <data name="ActiveReports_Declaration_DeclarationDataSetNull" xml:space="preserve">
+    <value>Klaida. Nėra suformuotos deklaracijos.</value>
+  </data>
+  <data name="ActiveReports_Declaration_FailedTransformationToFfdata" xml:space="preserve">
+    <value>Klaida. Dėl nežinomų priežasčių nepavyko konvertuoti deklaracijos duomenų į ffdata formatą.</value>
+  </data>
+  <data name="Documents_BankOperationItem_ToString" xml:space="preserve">
+    <value>{0} importuota banko operacija Nr. {1} kontrahentui {2} ({3})</value>
+  </data>
+  <data name="Documents_BankOperationItem_TypeName" xml:space="preserve">
+    <value>importuota banko operacija</value>
+  </data>
+  <data name="Assets_OperationPersistenceObject_ToString" xml:space="preserve">
+    <value>{0} ilgalaikio turto operacija - {1}: {2}</value>
+  </data>
+  <data name="Assets_OperationPersistenceObject_TypeName" xml:space="preserve">
+    <value>ilgalaikio turto operacija</value>
+  </data>
+  <data name="Assets_OperationBackground_ToString" xml:space="preserve">
+    <value>ilgalaikio turto "{0}" suvestinė informacija</value>
+  </data>
+  <data name="Assets_OperationBackground_TypeName" xml:space="preserve">
+    <value>ilgalaikio turto suvestinė informacija</value>
+  </data>
+  <data name="Assets_OperationPersistenceObject_UnexpectedType" xml:space="preserve">
+    <value>Klaida. IT operacijos, kurios ID={0}, tipas yra ne {1}, o {2}.</value>
+  </data>
+  <data name="Assets_OperationBackground_AfterOperationAcquisitionAccountValue" xml:space="preserve">
+    <value>įsigijimo savikaina pb.</value>
+  </data>
+  <data name="Assets_OperationBackground_AfterOperationAcquisitionAccountValuePerUnit" xml:space="preserve">
+    <value>vnt. įsigijimo savikaina pb.</value>
+  </data>
+  <data name="Assets_OperationBackground_AfterOperationAmortizationAccountValue" xml:space="preserve">
+    <value>įsigijimo savikainos nusidėvėjimas pb.</value>
+  </data>
+  <data name="Assets_OperationBackground_AfterOperationAmortizationAccountValuePerUnit" xml:space="preserve">
+    <value>vnt. įsigijimo savikainos nusidėvėjimas pb.</value>
+  </data>
+  <data name="Assets_OperationBackground_AfterOperationAssetAmount" xml:space="preserve">
+    <value>kiekis pb.</value>
+  </data>
+  <data name="Assets_OperationBackground_AfterOperationAssetValue" xml:space="preserve">
+    <value>vertė pb.</value>
+  </data>
+  <data name="Assets_OperationBackground_AfterOperationAssetValuePerUnit" xml:space="preserve">
+    <value>vnt. vertė pb.</value>
+  </data>
+  <data name="Assets_OperationBackground_AfterOperationAssetValueRevaluedPortion" xml:space="preserve">
+    <value>perkainota/sumažėjusi vertės dalis pb.</value>
+  </data>
+  <data name="Assets_OperationBackground_AfterOperationAssetValueRevaluedPortionPerUnit" xml:space="preserve">
+    <value>perkainota/sumažėjusi vnt. vertės dalis pb.</value>
+  </data>
+  <data name="Assets_OperationBackground_AfterOperationValueDecreaseAccountValue" xml:space="preserve">
+    <value>vertės sumažėjimas pb.</value>
+  </data>
+  <data name="Assets_OperationBackground_AfterOperationValueDecreaseAccountValuePerUnit" xml:space="preserve">
+    <value>vnt. vertės sumažėjimas pb.</value>
+  </data>
+  <data name="Assets_OperationBackground_AfterOperationValueIncreaseAccountValue" xml:space="preserve">
+    <value>perkainota vertės dalis pb.</value>
+  </data>
+  <data name="Assets_OperationBackground_AfterOperationValueIncreaseAccountValuePerUnit" xml:space="preserve">
+    <value>perkainota vnt. vertės dalis pb.</value>
+  </data>
+  <data name="Assets_OperationBackground_AfterOperationValueIncreaseAmortizationAccountValue" xml:space="preserve">
+    <value>perkainotos vertės dalies nusidėvėjimas pb.</value>
+  </data>
+  <data name="Assets_OperationBackground_AfterOperationValueIncreaseAmortizationAccountValuePerUnit" xml:space="preserve">
+    <value>perkainotos vnt. vertės dalies nusidėvėjimas pb.</value>
+  </data>
+  <data name="Assets_OperationBackground_AssetAcquiredAccount" xml:space="preserve">
+    <value>įsigijimo savikainos sąsk.</value>
+  </data>
+  <data name="Assets_OperationBackground_AssetAquisitionID" xml:space="preserve">
+    <value>įsigijimo BŽ ID</value>
+  </data>
+  <data name="Assets_OperationBackground_AssetContraryAccount" xml:space="preserve">
+    <value>įsigijimo savikainos nusidėvėjimo sąsk.</value>
+  </data>
+  <data name="Assets_OperationBackground_AssetDateAcquired" xml:space="preserve">
+    <value>įsigijimo data</value>
+  </data>
+  <data name="Assets_OperationBackground_AssetID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Assets_OperationBackground_AssetLiquidationValue" xml:space="preserve">
+    <value>likvidacinė vnt. vertė</value>
+  </data>
+  <data name="Assets_OperationBackground_AssetMeasureUnit" xml:space="preserve">
+    <value>mato vnt.</value>
+  </data>
+  <data name="Assets_OperationBackground_AssetName" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="Assets_OperationBackground_AssetValueDecreaseAccount" xml:space="preserve">
+    <value>vertės sumažėjimo sąsk.</value>
+  </data>
+  <data name="Assets_OperationBackground_AssetValueIncreaseAccount" xml:space="preserve">
+    <value>perkainotos vertės dalies sąsk.</value>
+  </data>
+  <data name="Assets_OperationBackground_AssetValueIncreaseAmortizationAccount" xml:space="preserve">
+    <value>perkainotos vertės dalies nusidėvėjimo sąsk.</value>
+  </data>
+  <data name="Assets_OperationBackground_CannotIncreaseAndDecreaseSimultaniously" xml:space="preserve">
+    <value>Ilgalaikio turto vertė negali tuo pat metu būti ir padidinta ir sumažinta.</value>
+  </data>
+  <data name="Assets_OperationBackground_ChangeAcquisitionAccountValue" xml:space="preserve">
+    <value>įsigijimo savikainos pokytis</value>
+  </data>
+  <data name="Assets_OperationBackground_ChangeAcquisitionAccountValuePerUnit" xml:space="preserve">
+    <value>vnt. įsigijimo savikainos pokytis</value>
+  </data>
+  <data name="Assets_OperationBackground_ChangeAmortizationAccountValue" xml:space="preserve">
+    <value>įsigijimo savikainos nusidėvėjimo pokytis</value>
+  </data>
+  <data name="Assets_OperationBackground_ChangeAmortizationAccountValuePerUnit" xml:space="preserve">
+    <value>vnt. įsigijimo savikainos nusidėvėjimo pokytis</value>
+  </data>
+  <data name="Assets_OperationBackground_ChangeAssetAmount" xml:space="preserve">
+    <value>kiekio pokytis</value>
+  </data>
+  <data name="Assets_OperationBackground_ChangeAssetRevaluedPortionUnitValue" xml:space="preserve">
+    <value>perkainotos/sumažėjusios vertės dalies pokytis</value>
+  </data>
+  <data name="Assets_OperationBackground_ChangeAssetRevaluedPortionValue" xml:space="preserve">
+    <value>perkainotos/sumažėjusios vnt. vertės dalies pokytis</value>
+  </data>
+  <data name="Assets_OperationBackground_ChangeAssetUnitValue" xml:space="preserve">
+    <value>vnt. vertės pokytis</value>
+  </data>
+  <data name="Assets_OperationBackground_ChangeAssetValue" xml:space="preserve">
+    <value>vertės pokytis</value>
+  </data>
+  <data name="Assets_OperationBackground_ChangeValueDecreaseAccountValue" xml:space="preserve">
+    <value>vertės sumažėjimo pokytis</value>
+  </data>
+  <data name="Assets_OperationBackground_ChangeValueDecreaseAccountValuePerUnit" xml:space="preserve">
+    <value>vnt. vertės sumažėjimo pokytis</value>
+  </data>
+  <data name="Assets_OperationBackground_ChangeValueIncreaseAccountValue" xml:space="preserve">
+    <value>perkainotos vertės daleis pokytis</value>
+  </data>
+  <data name="Assets_OperationBackground_ChangeValueIncreaseAccountValuePerUnit" xml:space="preserve">
+    <value>perkainotos vnt. vertės dalies pokytis</value>
+  </data>
+  <data name="Assets_OperationBackground_ChangeValueIncreaseAmortizationAccountValue" xml:space="preserve">
+    <value>perkainotos vertės dalies nusidėvėjimo pokytis</value>
+  </data>
+  <data name="Assets_OperationBackground_ChangeValueIncreaseAmortizationAccountValuePerUnit" xml:space="preserve">
+    <value>perkainotos vnt. vertės dalies nusidėvėjimo pokytis</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentAcquisitionAccountValue" xml:space="preserve">
+    <value>įsigijimo savikaina pr.</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentAcquisitionAccountValuePerUnit" xml:space="preserve">
+    <value>vnt. įsigijimo savikaina pr.</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentAmortizationAccountValue" xml:space="preserve">
+    <value>įsigijimo savikainos nusidėvėjimas pr.</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentAmortizationAccountValuePerUnit" xml:space="preserve">
+    <value>vnt. įsigijimo savikainos nusidėvėjimas pr.</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentAmortizationPeriod" xml:space="preserve">
+    <value>amortizacijos laikotarpis m.</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentAssetAmount" xml:space="preserve">
+    <value>kiekis pr.</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentAssetValue" xml:space="preserve">
+    <value>vertė pr.</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentAssetValuePerUnit" xml:space="preserve">
+    <value>vnt. vertė pr.</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentAssetValueRevaluedPortion" xml:space="preserve">
+    <value>perkainota/sumažėjusi vertės dalis pr.</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentAssetValueRevaluedPortionPerUnit" xml:space="preserve">
+    <value>perkainota/sumažėjusi vnt. vertės dalis pr.</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentUsageStatus" xml:space="preserve">
+    <value>naudojama</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentUsageTermMonths" xml:space="preserve">
+    <value>amortizacija paskaičiuota už mėn. pr.</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentValueDecreaseAccountValue" xml:space="preserve">
+    <value>vertės sumažėjimas pr.</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentValueDecreaseAccountValuePerUnit" xml:space="preserve">
+    <value>vnt. vertės sumažėjimas pr.</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentValueIncreaseAccountValue" xml:space="preserve">
+    <value>perkainota vertės dalis pr.</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentValueIncreaseAccountValuePerUnit" xml:space="preserve">
+    <value>perkainota vnt. vertės dalis pr.</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentValueIncreaseAmortizationAccountValue" xml:space="preserve">
+    <value>perkainotos vertės dalies nusidėvėjimas pr.</value>
+  </data>
+  <data name="Assets_OperationBackground_CurrentValueIncreaseAmortizationAccountValuePerUnit" xml:space="preserve">
+    <value>perkainotos vnt. vertės dalies nusidėvėjimas pr.</value>
+  </data>
+  <data name="Assets_OperationBackground_DisableCalculations" xml:space="preserve">
+    <value>išjungti perskaičiavimą realiu laiku</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_AlreadyCalculated" xml:space="preserve">
+    <value>Klaida. Neįmanoma apskaičiuoti amortizacijos turtui {0} (ID={1}). Amortizacija nurodytai datai jau apskaičiuota. Paskutinis amortizacijos apskaičiavimas buvo {2}, o jūs bandote skaičiuoti {3}.</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_AmortizationComplete" xml:space="preserve">
+    <value>Klaida. Neįmanoma apskaičiuoti amortizacijos turtui {0} (ID={1}). Turtas naudotas visą jam nustatytą amortizacijos periodą, t.y. pilnai nudėvėtas.</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_AssetIdNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas ilgalaikio turto ID.</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_AssetNotOperational" xml:space="preserve">
+    <value>Klaida. Neįmanoma apskaičiuoti amortizacijos turtui {0} (ID={1}). Amortizacijos skaičiavimo intervale turtas nebuvo naudojamas.</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_CalculationStartingWithAcquisition" xml:space="preserve">
+    <value>Turto {0} (ID={1}) amortizacijos skaičiavimas pradedamas nuo jo įsigijimo ({2}), vieneto likvidacinė vertė - {3}.</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_CalculationStartingWithLastCalculation" xml:space="preserve">
+    <value>Turto {0} (ID={1}) amortizacijos skaičiavimas pradedamas nuo jo paskutinio amortizavimo datos ({2}), vieneto likvidacinė vertė - {3}.</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_CalculationStartingWithOperationalInit" xml:space="preserve">
+    <value>Turto {0} (ID={1}) amortizacijos skaičiavimas pradedamas nuo jo įvedimo į eksploataciją datos ({2}), vieneto likvidacinė vertė - {3}.</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_DateToInvalid" xml:space="preserve">
+    <value>Klaida. Neįmanoma apskaičiuoti amortizacijos turtui {0} (ID={1}). Nurodyta data yra ankstesnė nei šio turto įsigijimo data ({2}).</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_EditedAmortizationOperationInvalid" xml:space="preserve">
+    <value>Klaida. Neįmanoma perskaičiuoti amortizacijos turtui {0} (ID={1}). Yra vėlesnė amortizacijos operacija ({2}) už taisomą ({3}).</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_InitialParameters" xml:space="preserve">
+    <value>Pradiniai skaičiavimo parametrai yra: {0} Vieno mėnesio amortizacijos suma - {1}; Vieno mėnesio amortizacijos suma turto vienetui - {2}.</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_ParameterString" xml:space="preserve">
+    <value>Kiekis - {0}; Įsigijimo savikaina - {1}; Įsigijimo savikaina vienetui - {2}; Vertės padidėjimas - {3}; Vertės padidėjimas vienetui - {4}; Sukaupta amortizacija - {5}; Sukaupta amortizacija vienetui - {6}; Vertės padidėjimo sukaupta amortizacija - {7}; Vertės padidėjimo sukaupta amortizacija vienetui - {8}; Amortizacijos periodas (m.) - {9}; Amortizacija apskaičiuota už mėn. - {10}; Naudojama - {11}.</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_ToString" xml:space="preserve">
+    <value>amortizacijos paskaičiavimas IT, kurio ID={0}, {1} dienai</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_TypeName" xml:space="preserve">
+    <value>amortizacijos paskaičiavimas</value>
+  </data>
+  <data name="Assets_LongTermAsset_TypeName" xml:space="preserve">
+    <value>ilgalaikis turtas</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_AmountChanged" xml:space="preserve">
+    <value>Klaida. Į turto "{0}" amortizacijos laikotarpį įsiterpė {1} operacija ({2}). Pasikeitus kiekiui neįmanoma apskaičiuoti amortizacijos (amortizacijos apskaičiavimas padarytų klaidingas perleidimo/nurašymo operacijos turto nurašymo vertes, kurios buvo suformuotos be amortizacijos).</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_CalculationString" xml:space="preserve">
+    <value>Apskaičiuota amortizacija už laikotarpį nuo {0} iki {1} įskaitytinai, iš viso už {2} mėnesių. Apskaičiuota amortizacija - {3}; apskaičiuota amortizacija vienetui - {4}; apskaičiuota amortizacija vertės padidėjimui - {5}; apskaičiuota amortizacija vertės padidėjimui turto vienetui - {6}.</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_NewParamsString" xml:space="preserve">
+    <value>{0} m. {1} mėn. su turtu yra registruota (-os) operacija (-os): {2}. Po šių operacijų skaičiavimo parametrai yra: {3}. Vieno mėnesio amortizacijos suma - {4}; Vieno mėnesio amortizacijos suma turto vienetui - {5}.</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_NonOperationalPeriodClosed" xml:space="preserve">
+    <value>Turtas nebuvo naudojamas nuo {0} iki {1}. {2}</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_NonOperationalPeriodOpen" xml:space="preserve">
+    <value>Turtas nebebuvo naudojamas nuo {0}.</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_NoOperationWithinPeriodString" xml:space="preserve">
+    <value>Per šį laikotarpį operacijų su turtu registruota nebuvo.</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_OperationWithinPeriodString" xml:space="preserve">
+    <value>Per šį laikotarpį su turtu buvo registruota operacija (-os): {0}. Pradėjus vėl naudoti turtą amortizacijos skaičiavimo parametrai yra: {1}. Vieno mėnesio amortizacijos suma - {2}; Vieno mėnesio amortizacijos suma turto vienetui - {3}.</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_SummaryString" xml:space="preserve">
+    <value>Turto amortizacijos skaičiavimas užbaigtas. Iš viso apskaičiuota: amortizacijos - {0}; amortizacijos turto vienetui - {1}; amortizacijos perkainotai daliai - {2}; amortizacijos perkainotai daliai turto vienetui- {3}. Amortizacija priskaičiuota už {4} mėnesių.</value>
+  </data>
+  <data name="Documents_BankOperation_InvalidCashAccount" xml:space="preserve">
+    <value>Pasirinktos sąskaitos tipas - ne banko sąskaita, o {0}.</value>
+  </data>
+  <data name="Documents_BankOperation_InvalidCreditCashAccount" xml:space="preserve">
+    <value>Kredituojama sąskaita negali sutapti su debetuojama.</value>
+  </data>
+  <data name="Documents_BankOperation_InvalidSumLtlForCredit" xml:space="preserve">
+    <value>Operacijos suma litais turi būti lygi korespondencijų sumai minus valiutos kurso pasikeitimo įtaka.</value>
+  </data>
+  <data name="Documents_BankOperation_InvalidSumLtlForDebit" xml:space="preserve">
+    <value>Operacijos suma litais turi būti lygi korespondencijų sumai plius valiutos kurso pasikeitimo įtaka.</value>
+  </data>
+  <data name="Documents_BankOperationItemList_AccountInvalid" xml:space="preserve">
+    <value>Klaida. Nurodyta lėšų apskaitos sąskaita nėra banko sąskaita.</value>
+  </data>
+  <data name="Documents_BankOperationItemList_AccountNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta banko sąskaita, į kurią importuojami duomenys.</value>
+  </data>
+  <data name="Documents_BankOperationItemList_FileNameNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas failas.</value>
+  </data>
+  <data name="Documents_BankOperationItemList_FileNotFound" xml:space="preserve">
+    <value>Klaida. Failas '{0}' nerastas.</value>
+  </data>
+  <data name="Documents_BankOperationItemList_InvalidColumnCountInPasteString" xml:space="preserve">
+    <value>Klaida. Duomenys privalo būti išdėstyti {0} stulpelių, o paste'inamuose duomenys yra {1} stulpelių.{2}{3}</value>
+  </data>
+  <data name="Documents_BankOperationItemList_InvalidCurrency" xml:space="preserve">
+    <value>Klaida. Faile nurodyta sąskaitos valiuta ({0}) nesutampa su nurodytos banko sąskaitos valiuta ({1}).</value>
+  </data>
+  <data name="Documents_BankOperationItemList_InvalidFileContent" xml:space="preserve">
+    <value>Klaida. Failas nėra banko duomenų failas LITAS-ESIS formatu arba išraše nėra operacijų.</value>
+  </data>
+  <data name="Documents_BankOperationItemList_InvalidIBAN" xml:space="preserve">
+    <value>Klaida. Faile nurodytas sąskaitos (IBAN) numeris ({0}) nesutampa su nurodytos banko sąskaitos (IBAN) numeriu ({1}).</value>
+  </data>
+  <data name="Documents_BankOperationItemList_ListEmpty" xml:space="preserve">
+    <value>Klaida. Neįvesta nė viena eilutė.</value>
+  </data>
+  <data name="Documents_BankOperationItemList_PasteStringNull" xml:space="preserve">
+    <value>Klaida. Clipboard'as tuščias, nėra ką paste'inti.{0}{1}</value>
+  </data>
+  <data name="Documents_BankOperationItemList_UniqueCodeDuplicates" xml:space="preserve">
+    <value>Klaida. Duomenyse pasikartoja unikalūs operacijų kodai, o pasirinktoje sąskaitoje reikalaujama garantuoti kodų unikalumą. Operacijos su pasikartojančiu unikaliu kodu:{0}{1}</value>
+  </data>
+  <data name="Documents_BankOperationItemList_UniqueCodesMissing" xml:space="preserve">
+    <value>Klaida. Duomenyse ne visur nurodyti unikalūs operacijų kodai, o pasirinktoje sąskaitoje reikalaujama garantuoti kodų unikalumą. Operacijos be unikalaus kodo:{0}{1}</value>
+  </data>
+  <data name="Documents_BankOperationItem_ContentWithPaymentCode" xml:space="preserve">
+    <value>{0}; įmokos kodas - {1}</value>
+  </data>
+  <data name="Documents_BankOperationItem_DefaultContent" xml:space="preserve">
+    <value>aprašymo nėra</value>
+  </data>
+  <data name="Documents_BankOperationItem_InvalidSourceString" xml:space="preserve">
+    <value>Klaida atpažįstant banko operacijos duomenis.{0}Eilutė: "{1}".{2}{3}.</value>
+  </data>
+  <data name="Documents_BankOperationItem_PasteColumns" xml:space="preserve">
+    <value>data&lt;BR&gt;dokumento numeris&lt;BR&gt;asmens kodas&lt;BR&gt;asmens pavadinimas&lt;BR&gt;turinys/aprašas&lt;BR&gt;pajamos("")/išlaidos("x")&lt;BR&gt;valiuta&lt;BR&gt;originali suma&lt;BR&gt;suma bazine valiuta&lt;BR&gt;unikalus kodas&lt;BR&gt;asmens (banko) sąskaitos numeris&lt;BR&gt;asmens banko pavadinimas</value>
+  </data>
+  <data name="Documents_BankOperationItem_PasteColumnsDescription" xml:space="preserve">
+    <value>Banko operacijos duomenys {0} stulpeliuose turi būti išdėstyti tokia seka: {1}.</value>
+  </data>
+  <data name="Documents_BankOperationItemList_DescriptionStringLitasEsis" xml:space="preserve">
+    <value>Duomenys įkrauti iš LITAS-ESIS formato failo - banko išrašo.{0}Banko išrašo periodas nuo {1} iki {2}, valiuta - {3}.{4}Balansas pradžioje - {5}.{6}Įplaukos per išrašo laikotarpį - {7}.{8}Išlaidos per išrašo laikotarpį - {9}.{10}Balansas pabaigoje - {11}.</value>
+  </data>
+  <data name="Documents_BankOperationItemList_DescriptionStringPasteString" xml:space="preserve">
+    <value>Duomenys įkrauti iš copy - paste'o.</value>
+  </data>
+  <data name="Documents_BankOperationItem_InvalidInvokeCheckIfUniqueCodeIsEnforcable" xml:space="preserve">
+    <value>Klaida. Metodas RecognizeItem gali būti invoke'inamas tik po to, kai visi duomenys jau yra map'inti sąraše.</value>
+  </data>
+  <data name="Documents_BankOperationItem_InvalidInvokeRecognizeItem" xml:space="preserve">
+    <value>Klaida. Metodas RecognizeItem gali būti invoke'inamas tik po to, kai visi duomenys jau yra map'inti sąraše.</value>
+  </data>
+  <data name="Documents_BankOperationItem_UniqueCodeNotSpecified" xml:space="preserve">
+    <value>Klaida. Duomenyse ne visur nurodyti unikalūs operacijų kodai, o pasirinktoje sąskaitoje reikalaujama garantuoti kodų unikalumą.</value>
+  </data>
+  <data name="Documents_BankOperationItem_UniqueCodesInvalid" xml:space="preserve">
+    <value>Klaida. Importuojamuose duomenyse nurodomi unikalūs operacijos kodai nėra unikalūs (pasikartoja), o sąskaitai yra nustatytas reikalavimas garantuoti unikalaus kodo unikalumą.</value>
+  </data>
+  <data name="Documents_BankOperationItemList_Account" xml:space="preserve">
+    <value>banko sąskaita</value>
+  </data>
+  <data name="Documents_BankOperationItemList_BalanceEnd" xml:space="preserve">
+    <value>balansas pb.</value>
+  </data>
+  <data name="Documents_BankOperationItemList_BalanceStart" xml:space="preserve">
+    <value>balansas pr.</value>
+  </data>
+  <data name="Documents_BankOperationItemList_DateEnd" xml:space="preserve">
+    <value>laikotarpio pb.</value>
+  </data>
+  <data name="Documents_BankOperationItemList_DateStart" xml:space="preserve">
+    <value>laikotarpio pr.</value>
+  </data>
+  <data name="Documents_BankOperationItemList_ImportsSource" xml:space="preserve">
+    <value>importo šaltinis</value>
+  </data>
+  <data name="Documents_BankOperationItemList_Income" xml:space="preserve">
+    <value>viso įplaukų</value>
+  </data>
+  <data name="Documents_BankOperationItemList_Spendings" xml:space="preserve">
+    <value>viso išmokų</value>
+  </data>
+  <data name="Documents_BankOperationItem_AccountBankCurrencyConversionCosts" xml:space="preserve">
+    <value>banko valiutos konversijos sąnaudų sąsk.</value>
+  </data>
+  <data name="Documents_BankOperationItem_AccountCorresponding" xml:space="preserve">
+    <value>kontuojama sąsk.</value>
+  </data>
+  <data name="Documents_BankOperationItem_BankCurrencyConversionCosts" xml:space="preserve">
+    <value>banko valiutos konversijos sąnaudos</value>
+  </data>
+  <data name="Documents_BankOperationItem_BankFeeProbability" xml:space="preserve">
+    <value>Eilutė nėra priskirta prie banko sąnaudų, nors sprendžiant pagal mažą sumą tai banko mokesčiai.</value>
+  </data>
+  <data name="Documents_BankOperationItem_Content" xml:space="preserve">
+    <value>turinys/aprašymas</value>
+  </data>
+  <data name="Documents_BankOperationItem_Currency" xml:space="preserve">
+    <value>operacijos valiuta</value>
+  </data>
+  <data name="Documents_BankOperationItem_CurrencyRate" xml:space="preserve">
+    <value>operacijos valiutos kursas</value>
+  </data>
+  <data name="Documents_BankOperationItem_CurrencyRateInAccount" xml:space="preserve">
+    <value>sąskaitos valiutos kursas</value>
+  </data>
+  <data name="Documents_BankOperationItem_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Documents_BankOperationItem_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Documents_BankOperationItem_ExistsInDatabase" xml:space="preserve">
+    <value>įtraukta į duomenų bazę</value>
+  </data>
+  <data name="Documents_BankOperationItem_Inflow" xml:space="preserve">
+    <value>įplaukos (debetas)</value>
+  </data>
+  <data name="Documents_BankOperationItem_IsBankCosts" xml:space="preserve">
+    <value>banko komisinis</value>
+  </data>
+  <data name="Documents_BankOperationItem_NotBankFeeProbability" xml:space="preserve">
+    <value>Eilutė priskirta prie banko sąnaudų, nors sprendžiant pagal didelę sumą tai nėra banko mokesčiai.</value>
+  </data>
+  <data name="Documents_BankOperationItem_OperationDatabaseID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Documents_BankOperationItem_OriginalSum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="Documents_BankOperationItem_Payout" xml:space="preserve">
+    <value>išlaidos (kreditas)</value>
+  </data>
+  <data name="Documents_BankOperationItem_Person" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="Documents_BankOperationItem_PersonBankAccount" xml:space="preserve">
+    <value>kontrahento banko sąskaita</value>
+  </data>
+  <data name="Documents_BankOperationItem_PersonBankName" xml:space="preserve">
+    <value>kontrahento bankas</value>
+  </data>
+  <data name="Documents_BankOperationItem_PersonCode" xml:space="preserve">
+    <value>kontrahento įmonės (asmens) kodas</value>
+  </data>
+  <data name="Documents_BankOperationItem_PersonName" xml:space="preserve">
+    <value>kontrahento pavadinimas</value>
+  </data>
+  <data name="Documents_BankOperationItem_ProbablyExistsInDatabase" xml:space="preserve">
+    <value>galimai įtraukta į duomenų bazę</value>
+  </data>
+  <data name="Documents_BankOperationItem_SumInAccount" xml:space="preserve">
+    <value>suma sąskaitoje</value>
+  </data>
+  <data name="Documents_BankOperationItem_SumLTL" xml:space="preserve">
+    <value>suma bazine valiuta</value>
+  </data>
+  <data name="Documents_BankOperationItem_SumLTLBank" xml:space="preserve">
+    <value>suma bazine valiuta banko duomenimis</value>
+  </data>
+  <data name="Documents_BankOperationItem_UniqueCode" xml:space="preserve">
+    <value>unik. kodas</value>
+  </data>
+  <data name="Documents_BankOperation_Account" xml:space="preserve">
+    <value>banko sąskaita</value>
+  </data>
+  <data name="Documents_BankOperation_AccountBankCurrencyConversionCosts" xml:space="preserve">
+    <value>banko valiutos konversijos sąnaudų sąsk.</value>
+  </data>
+  <data name="Documents_BankOperation_AccountCurrency" xml:space="preserve">
+    <value>sąskaitos valiuta</value>
+  </data>
+  <data name="Documents_BankOperation_AccountCurrencyRateChangeImpact" xml:space="preserve">
+    <value>valiutos kurso pasik. įtakos sąsk.</value>
+  </data>
+  <data name="Documents_BankOperation_BankCurrencyConversionCosts" xml:space="preserve">
+    <value>banko valiutos konversijos sąnaudos</value>
+  </data>
+  <data name="Documents_BankOperation_BookEntryItems" xml:space="preserve">
+    <value>kontavimai</value>
+  </data>
+  <data name="Documents_BankOperation_BookEntryItemsSorted" xml:space="preserve">
+    <value>kontavimai</value>
+  </data>
+  <data name="Documents_BankOperation_Content" xml:space="preserve">
+    <value>turinys/aprašymas</value>
+  </data>
+  <data name="Documents_BankOperation_CreditCashAccount" xml:space="preserve">
+    <value>pervedimo tarp savų sąskaitų kredituojama banko sąskaita</value>
+  </data>
+  <data name="Documents_BankOperation_CreditTransferOperationID" xml:space="preserve">
+    <value>ID pervedimo kreditinės operacijos</value>
+  </data>
+  <data name="Documents_BankOperation_CurrencyCode" xml:space="preserve">
+    <value>operacijos valiuta</value>
+  </data>
+  <data name="Documents_BankOperation_CurrencyRate" xml:space="preserve">
+    <value>operacijos valiutos kursas</value>
+  </data>
+  <data name="Documents_BankOperation_CurrencyRateChangeImpact" xml:space="preserve">
+    <value>valiutos kurso pasik. įtaka</value>
+  </data>
+  <data name="Documents_BankOperation_CurrencyRateInAccount" xml:space="preserve">
+    <value>sąskaitos valiutos kursas</value>
+  </data>
+  <data name="Documents_BankOperation_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Documents_BankOperation_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Documents_BankOperation_FailedCreateBankOperation" xml:space="preserve">
+    <value>Klaida importuojant operaciją "{0}", nepavyko suformuoti operacijos ir (ar) bendrojo žurnalo įrašo:{1}{2}</value>
+  </data>
+  <data name="Documents_BankOperation_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Documents_BankOperation_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Documents_BankOperation_IsCredit" xml:space="preserve">
+    <value>kreditas</value>
+  </data>
+  <data name="Documents_BankOperation_IsDebit" xml:space="preserve">
+    <value>debitas</value>
+  </data>
+  <data name="Documents_BankOperation_IsTransferBetweenAccounts" xml:space="preserve">
+    <value>pervedimas tarp savų sąskaitų</value>
+  </data>
+  <data name="Documents_BankOperation_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Documents_BankOperation_OriginalContent" xml:space="preserve">
+    <value>originalus turinys</value>
+  </data>
+  <data name="Documents_BankOperation_OriginalPerson" xml:space="preserve">
+    <value>originalus kontrahentas</value>
+  </data>
+  <data name="Documents_BankOperation_Person" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="Documents_BankOperation_Sum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="Documents_BankOperation_SumCorespondences" xml:space="preserve">
+    <value>suma kontavimuose</value>
+  </data>
+  <data name="Documents_BankOperation_SumInAccount" xml:space="preserve">
+    <value>suma sąskaitoje</value>
+  </data>
+  <data name="Documents_BankOperation_SumLTL" xml:space="preserve">
+    <value>suma bazine valiuta</value>
+  </data>
+  <data name="Documents_BankOperation_UniqueCode" xml:space="preserve">
+    <value>unik. kodas</value>
+  </data>
+  <data name="Documents_BankOperation_UniqueCodeInCreditAccount" xml:space="preserve">
+    <value>unik. kodas pervedimo kreditinės operacijos</value>
+  </data>
+  <data name="Documents_BankOperation_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
 </root>
