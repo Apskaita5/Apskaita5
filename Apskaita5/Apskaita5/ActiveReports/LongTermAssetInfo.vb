@@ -1,5 +1,11 @@
-Namespace Assets
+Namespace ActiveReports
 
+    ''' <summary>
+    ''' Represents an item of <see cref="ActiveReports.LongTermAssetInfoList">LongTermAssetInfoList</see> report.
+    ''' Contains information about <see cref="Assets.LongTermAsset">a long term asset</see> state.
+    ''' </summary>
+    ''' <remarks>Should only be used as a child of <see cref="ActiveReports.LongTermAssetInfoList">LongTermAssetInfoList</see>.
+    ''' Values are stored in the database table turtas.</remarks>
     <Serializable()> _
     Public Class LongTermAssetInfo
         Inherits ReadOnlyBase(Of LongTermAssetInfo)
@@ -87,6 +93,10 @@ Namespace Assets
         Private _AfterAmmount As Integer = 0
 
 
+        ''' <summary>
+        ''' Gets an ID of the LongTermAsset object (assigned by DB AUTO_INCREMENT).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field turtas.ID.</remarks>
         Public ReadOnly Property ID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -94,6 +104,10 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a name of the long term asset.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field turtas.Turtas.</remarks>
         Public ReadOnly Property Name() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -101,6 +115,10 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a measure unit of the long term asset.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field turtas.Vnt.</remarks>
         Public ReadOnly Property MeasureUnit() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -108,6 +126,10 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a name of the legal group of the long term asset.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field turtas.Grupe.</remarks>
         Public ReadOnly Property LegalGroup() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -115,6 +137,10 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a custom group of the long term asset.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field turtas.CustomGroupID.</remarks>
         Public ReadOnly Property CustomGroup() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -122,6 +148,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an acquisition date of the long term asset.
+        ''' </summary>
+        ''' <remarks>Value corresponds to the date of <see cref="AcquisitionJournalEntryID">
+        ''' the attached journal entry</see>.</remarks>
         Public ReadOnly Property AcquisitionDate() As Date
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -129,6 +160,10 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an ID of the journal entry that substantiates the acquisition of the long term asset.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field turtas.Isigijimo_dok.</remarks>
         Public ReadOnly Property AcquisitionJournalEntryID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -136,6 +171,10 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a document number of the journal entry that substantiates the acquisition of the long term asset.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property AcquisitionJournalEntryDocNumber() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -143,6 +182,10 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a content of the journal entry that substantiates the acquisition of the long term asset.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property AcquisitionJournalEntryDocContent() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -150,6 +193,21 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a type of the journal entry that substantiates the acquisition of the long term asset.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property AcquisitionJournalEntryDocType() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _AcquisitionJournalEntryDocType.Trim
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets an inventory number of the long term asset.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field turtas.InvNr.</remarks>
         Public ReadOnly Property InventoryNumber() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -157,6 +215,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets <see cref="General.Account.ID">an asset acquisitinion account</see>.
+        ''' </summary>
+        ''' <remarks>12 BAS para 12.
+        ''' Value is stored in the database field turtas.Saskaita.</remarks>
         Public ReadOnly Property AccountAcquisition() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -164,6 +227,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets <see cref="General.Account.ID">an asset amortization (depreciation) account</see>.
+        ''' </summary>
+        ''' <remarks>12 BAS para 68.
+        ''' Value is stored in the database field turtas.AccountAmortization.</remarks>
         Public ReadOnly Property AccountAccumulatedAmortization() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -171,6 +239,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets <see cref="General.Account.ID">an asset value increase account</see>.
+        ''' </summary>
+        ''' <remarks>12 BAS para 48.
+        ''' Value is stored in the database field turtas.AccountValueIncrease.</remarks>
         Public ReadOnly Property AccountValueIncrease() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -178,6 +251,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets <see cref="General.Account.ID">an asset value decrease account</see>.
+        ''' </summary>
+        ''' <remarks>12 BAS para 49.
+        ''' Value is stored in the database field turtas.AccountValueDecrease.</remarks>
         Public ReadOnly Property AccountValueDecrease() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -185,6 +263,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets <see cref="General.Account.ID">an asset revalued portion amortization account</see>.
+        ''' </summary>
+        ''' <remarks>12 BAS para 48.
+        ''' Value is stored in the database field turtas.AccountRevaluedPortionAmmortization.</remarks>
         Public ReadOnly Property AccountRevaluedPortionAmmortization() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -192,6 +275,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a liquidation (salvage) value of the long term asset per unit.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field turtas.Likutine.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property LiquidationUnitValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -199,6 +287,10 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets whether the long term asset is already operational when acquired.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field turtas.ContinuedUsage.</remarks>
         Public ReadOnly Property ContinuedUsage() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -206,6 +298,10 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a default amortization (depreciation) period for the long term asset.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field turtas.ContinuedUsage.</remarks>
         Public ReadOnly Property DefaultAmortizationPeriod() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -213,6 +309,10 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountAcquisition">AccountAcquisition</see> at the aqcuisition date.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
         Public ReadOnly Property AcquisitionAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -220,6 +320,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountAcquisition">AccountAcquisition</see> per asset unit at the aqcuisition date.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property AcquisitionAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -227,6 +332,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> at the aqcuisition date.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property AmortizationAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -234,6 +344,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> per unit at the aqcuisition date.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property AmortizationAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -241,6 +356,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> at the aqcuisition date.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ValueDecreaseAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -248,6 +368,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> per unit made at the aqcuisition date.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ValueDecreaseAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -255,6 +380,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountValueIncrease">AccountValueIncrease</see> at the aqcuisition date.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ValueIncreaseAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -262,6 +392,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountValueIncrease">AccountValueIncrease</see> per unit at the aqcuisition date.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ValueIncreaseAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -269,6 +404,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> at the aqcuisition date.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ValueIncreaseAmmortizationAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -276,6 +416,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> per unit made at the aqcuisition date.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ValueIncreaseAmmortizationAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -283,6 +428,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A total value of the long term asset at the aqcuisition date.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property Value() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -290,6 +440,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A unit value of the long term asset at the aqcuisition date.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -297,6 +452,10 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' An amount of the long term asset at the aqcuisition date.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property Ammount() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -304,6 +463,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A total value of the revalued portion of the long term asset at the aqcuisition date.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ValueRevaluedPortion() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -311,6 +475,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A unit value of the revalued portion of the long term asset at the aqcuisition date.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ValueRevaluedPortionPerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -318,6 +487,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountAcquisition">AccountAcquisition</see> at the beginning of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property BeforeAcquisitionAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -325,6 +499,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountAcquisition">AccountAcquisition</see> per unit at the beginning of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property BeforeAcquisitionAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -332,6 +511,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> at the beginning of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property BeforeAmortizationAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -339,6 +523,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> per unit at the beginning of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property BeforeAmortizationAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -346,6 +535,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> at the beginning of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property BeforeValueDecreaseAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -353,6 +547,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> per unit at the beginning of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property BeforeValueDecreaseAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -360,6 +559,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountValueIncrease">AccountValueIncrease</see> at the beginning of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property BeforeValueIncreaseAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -367,6 +571,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountValueIncrease">AccountValueIncrease</see> per unit at the beginning of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property BeforeValueIncreaseAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -374,6 +583,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> at the beginning of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property BeforeValueIncreaseAmmortizationAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -381,6 +595,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> per unit at the beginning of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property BeforeValueIncreaseAmmortizationAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -388,6 +607,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A total value of the long term asset at the beginning of the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property BeforeValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -395,6 +619,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A unit value of the long term asset at the beginning of the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property BeforeValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -402,6 +631,10 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' An amount of the long term asset at the beginning of the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property BeforeAmmount() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -409,6 +642,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A change of balance for the <see cref="AccountAcquisition">AccountAcquisition</see> during the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ChangeAcquisitionAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -416,6 +654,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A change of balance for the <see cref="AccountAcquisition">AccountAcquisition</see> per unit during the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ChangeAcquisitionAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -423,6 +666,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A change of balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> during the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ChangeAmortizationAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -430,6 +678,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A change of balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> per unit during the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ChangeAmortizationAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -437,6 +690,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A change of balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> during the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ChangeValueDecreaseAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -444,6 +702,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A change of balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> per unit during the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ChangeValueDecreaseAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -451,6 +714,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A change of balance for the <see cref="AccountValueIncrease">AccountValueIncrease</see> during the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ChangeValueIncreaseAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -458,6 +726,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A change of balance for the <see cref="AccountValueIncrease">AccountValueIncrease</see> per unit during the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ChangeValueIncreaseAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -465,6 +738,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A change of balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> during the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ChangeValueIncreaseAmmortizationAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -472,6 +750,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A change of balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> per unit during the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ChangeValueIncreaseAmmortizationAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -479,6 +762,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A change of the total value of the long term asset during the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ChangeValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -486,6 +774,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A change of the unit value of the long term asset during the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ChangeValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -493,6 +786,10 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A change of the amount of the long term asset during the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property ChangeAmmount() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -500,6 +797,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' An amount of the long term asset that was acquired during the report period.
+        ''' </summary>
+        ''' <remarks>Equals <see cref="Ammount">Ammount</see> if the asset was acquired 
+        ''' during the report period. Otherwise equals zero.</remarks>
         Public ReadOnly Property ChangeAmmountAcquired() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -507,6 +809,12 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' An total value of the long term asset that was acquired during the report period.
+        ''' </summary>
+        ''' <remarks>Equals <see cref="Value">Value</see> if the asset was acquired 
+        ''' during the report period. Otherwise equals zero.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ChangeValueAcquired() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -514,6 +822,10 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' An amount of the long term asset that was transfered (sold etc) during the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property ChangeAmmountTransfered() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -521,6 +833,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A total (balance) value of the long term asset that was transfered (sold etc) during the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ChangeValueTransfered() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -528,6 +845,10 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' An amount of the long term asset that was discarded during the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property ChangeAmmountDiscarded() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -535,6 +856,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A total (balance) value of the long term asset that was discarded during the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ChangeValueDiscarded() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -542,6 +868,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountAcquisition">AccountAcquisition</see> at the end of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property AfterAcquisitionAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -549,6 +880,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountAcquisition">AccountAcquisition</see> per unit at the end of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property AfterAcquisitionAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -556,6 +892,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> at the end of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property AfterAmortizationAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -563,6 +904,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> per unit at the end of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property AfterAmortizationAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -570,6 +916,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> at the end of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property AfterValueDecreaseAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -577,6 +928,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> per unit at the end of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property AfterValueDecreaseAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -584,6 +940,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountValueIncrease">AccountValueIncrease</see> at the end of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property AfterValueIncreaseAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -591,6 +952,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountValueIncrease">AccountValueIncrease</see> per unit at the end of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property AfterValueIncreaseAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -598,6 +964,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> at the end of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property AfterValueIncreaseAmmortizationAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -605,6 +976,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> per unit at the end of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property AfterValueIncreaseAmmortizationAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -612,6 +988,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A total value of the long term asset at the end of the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property AfterValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -619,6 +1000,11 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' A unit value of the long term asset at the end of the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property AfterValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -626,6 +1012,10 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' An amount of the long term asset at the end of the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property AfterAmmount() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -647,74 +1037,75 @@ Namespace Assets
 
 #Region " Factory Methods "
 
-        Friend Shared Function GetLongTermAssetInfo(ByVal AcquisitionDataRow As DataRow, _
-            ByVal StatusBeforeDataRow As DataRow, ByVal ChangesDataRow As DataRow, _
-            ByVal DateFrom As Date, ByVal DateTo As Date) As LongTermAssetInfo
-            Return New LongTermAssetInfo(AcquisitionDataRow, StatusBeforeDataRow, _
-                ChangesDataRow, DateFrom, DateTo)
+        Friend Shared Function GetLongTermAssetInfo(ByVal acquisitionDataRow As DataRow, _
+            ByVal statusBeforeDataRow As DataRow, ByVal changesDataRow As DataRow, _
+            ByVal dateFrom As Date, ByVal dateTo As Date) As LongTermAssetInfo
+            Return New LongTermAssetInfo(acquisitionDataRow, statusBeforeDataRow, _
+                changesDataRow, dateFrom, dateTo)
         End Function
+
 
         Private Sub New()
             ' require use of factory methods
         End Sub
 
-        Private Sub New(ByVal AcquisitionDataRow As DataRow, _
-            ByVal StatusBeforeDataRow As DataRow, ByVal ChangesDataRow As DataRow, _
-            ByVal DateFrom As Date, ByVal DateTo As Date)
-            Fetch(AcquisitionDataRow, StatusBeforeDataRow, ChangesDataRow, DateFrom, DateTo)
+        Private Sub New(ByVal acquisitionDataRow As DataRow, _
+            ByVal statusBeforeDataRow As DataRow, ByVal changesDataRow As DataRow, _
+            ByVal dateFrom As Date, ByVal dateTo As Date)
+            Fetch(acquisitionDataRow, statusBeforeDataRow, changesDataRow, dateFrom, dateTo)
         End Sub
 
 #End Region
 
 #Region " Data Access "
 
-        Private Sub Fetch(ByVal AcquisitionDataRow As DataRow, _
-            ByVal StatusBeforeDataRow As DataRow, ByVal ChangesDataRow As DataRow, _
-            ByVal DateFrom As Date, ByVal DateTo As Date)
+        Private Sub Fetch(ByVal acquisitionDataRow As DataRow, _
+            ByVal statusBeforeDataRow As DataRow, ByVal changesDataRow As DataRow, _
+            ByVal dateFrom As Date, ByVal dateTo As Date)
 
-            _ID = CIntSafe(AcquisitionDataRow.Item(0), 0)
-            _Name = CStrSafe(AcquisitionDataRow.Item(1)).Trim
-            _MeasureUnit = CStrSafe(AcquisitionDataRow.Item(2)).Trim
-            _LegalGroup = CStrSafe(AcquisitionDataRow.Item(3)).Trim
-            _CustomGroup = CStrSafe(AcquisitionDataRow.Item(4)).Trim
-            _InventoryNumber = CStrSafe(AcquisitionDataRow.Item(5)).Trim
-            _AcquisitionJournalEntryID = CIntSafe(AcquisitionDataRow.Item(6), 0)
-            _AcquisitionDate = CDateSafe(AcquisitionDataRow.Item(7), Today)
-            _AcquisitionJournalEntryDocNumber = CStrSafe(AcquisitionDataRow.Item(8)).Trim
-            _AcquisitionJournalEntryDocContent = CStrSafe(AcquisitionDataRow.Item(9)).Trim
+            _ID = CIntSafe(acquisitionDataRow.Item(0), 0)
+            _Name = CStrSafe(acquisitionDataRow.Item(1)).Trim
+            _MeasureUnit = CStrSafe(acquisitionDataRow.Item(2)).Trim
+            _LegalGroup = CStrSafe(acquisitionDataRow.Item(3)).Trim
+            _CustomGroup = CStrSafe(acquisitionDataRow.Item(4)).Trim
+            _InventoryNumber = CStrSafe(acquisitionDataRow.Item(5)).Trim
+            _AcquisitionJournalEntryID = CIntSafe(acquisitionDataRow.Item(6), 0)
+            _AcquisitionDate = CDateSafe(acquisitionDataRow.Item(7), Today)
+            _AcquisitionJournalEntryDocNumber = CStrSafe(acquisitionDataRow.Item(8)).Trim
+            _AcquisitionJournalEntryDocContent = CStrSafe(acquisitionDataRow.Item(9)).Trim
             _AcquisitionJournalEntryDocType = ConvertEnumHumanReadable( _
-                ConvertEnumDatabaseStringCode(Of DocumentType)(CStrSafe(AcquisitionDataRow.Item(10))))
-            _AccountAcquisition = CIntSafe(AcquisitionDataRow.Item(11), 0)
-            _AccountAccumulatedAmortization = CIntSafe(AcquisitionDataRow.Item(12), 0)
-            _AccountValueDecrease = CIntSafe(AcquisitionDataRow.Item(13), 0)
-            _AccountValueIncrease = CIntSafe(AcquisitionDataRow.Item(14), 0)
-            _AccountRevaluedPortionAmmortization = CIntSafe(AcquisitionDataRow.Item(15), 0)
-            _LiquidationUnitValue = CDblSafe(AcquisitionDataRow.Item(16), ROUNDUNITASSET, 0)
-            _DefaultAmortizationPeriod = CIntSafe(AcquisitionDataRow.Item(17), 0)
-            _AcquisitionAccountValuePerUnit = CDblSafe(AcquisitionDataRow.Item(18), ROUNDUNITASSET, 0)
-            _Ammount = CIntSafe(AcquisitionDataRow.Item(19), 0)
-            _AcquisitionAccountValue = CDblSafe(AcquisitionDataRow.Item(20), 2, 0)
-            _AmortizationAccountValue = CDblSafe(AcquisitionDataRow.Item(23), 2, 0)
-            _AmortizationAccountValuePerUnit = CDblSafe(AcquisitionDataRow.Item(24), ROUNDUNITASSET, 0)
-            _ValueIncreaseAmmortizationAccountValue = CDblSafe(AcquisitionDataRow.Item(25), 2, 0)
-            _ValueIncreaseAmmortizationAccountValuePerUnit = CDblSafe(AcquisitionDataRow.Item(26), ROUNDUNITASSET, 0)
-            _ContinuedUsage = ConvertDbBoolean(CIntSafe(AcquisitionDataRow.Item(27), 0))
+                ConvertEnumDatabaseStringCode(Of DocumentType)(CStrSafe(acquisitionDataRow.Item(10))))
+            _AccountAcquisition = CIntSafe(acquisitionDataRow.Item(11), 0)
+            _AccountAccumulatedAmortization = CIntSafe(acquisitionDataRow.Item(12), 0)
+            _AccountValueDecrease = CIntSafe(acquisitionDataRow.Item(13), 0)
+            _AccountValueIncrease = CIntSafe(acquisitionDataRow.Item(14), 0)
+            _AccountRevaluedPortionAmmortization = CIntSafe(acquisitionDataRow.Item(15), 0)
+            _LiquidationUnitValue = CDblSafe(acquisitionDataRow.Item(16), ROUNDUNITASSET, 0)
+            _DefaultAmortizationPeriod = CIntSafe(acquisitionDataRow.Item(17), 0)
+            _AcquisitionAccountValuePerUnit = CDblSafe(acquisitionDataRow.Item(18), ROUNDUNITASSET, 0)
+            _Ammount = CIntSafe(acquisitionDataRow.Item(19), 0)
+            _AcquisitionAccountValue = CDblSafe(acquisitionDataRow.Item(20), 2, 0)
+            _AmortizationAccountValue = CDblSafe(acquisitionDataRow.Item(23), 2, 0)
+            _AmortizationAccountValuePerUnit = CDblSafe(acquisitionDataRow.Item(24), ROUNDUNITASSET, 0)
+            _ValueIncreaseAmmortizationAccountValue = CDblSafe(acquisitionDataRow.Item(25), 2, 0)
+            _ValueIncreaseAmmortizationAccountValuePerUnit = CDblSafe(acquisitionDataRow.Item(26), ROUNDUNITASSET, 0)
+            _ContinuedUsage = ConvertDbBoolean(CIntSafe(acquisitionDataRow.Item(27), 0))
 
-            If CDblSafe(AcquisitionDataRow.Item(21)) < 0 Then
-                _ValueDecreaseAccountValuePerUnit = -CDblSafe(AcquisitionDataRow.Item(21), ROUNDUNITASSET, 0)
+            If CDblSafe(acquisitionDataRow.Item(21)) < 0 Then
+                _ValueDecreaseAccountValuePerUnit = -CDblSafe(acquisitionDataRow.Item(21), ROUNDUNITASSET, 0)
                 _ValueIncreaseAccountValuePerUnit = 0
-            ElseIf CDblSafe(AcquisitionDataRow.Item(21)) > 0 Then
-                _ValueIncreaseAccountValuePerUnit = CDblSafe(AcquisitionDataRow.Item(21), ROUNDUNITASSET, 0)
+            ElseIf CDblSafe(acquisitionDataRow.Item(21)) > 0 Then
+                _ValueIncreaseAccountValuePerUnit = CDblSafe(acquisitionDataRow.Item(21), ROUNDUNITASSET, 0)
                 _ValueDecreaseAccountValuePerUnit = 0
             Else
                 _ValueIncreaseAccountValuePerUnit = 0
                 _ValueDecreaseAccountValuePerUnit = 0
             End If
-            If CDblSafe(AcquisitionDataRow.Item(22)) < 0 Then
-                _ValueDecreaseAccountValue = -CDblSafe(AcquisitionDataRow.Item(22), 2, 0)
+            If CDblSafe(acquisitionDataRow.Item(22)) < 0 Then
+                _ValueDecreaseAccountValue = -CDblSafe(acquisitionDataRow.Item(22), 2, 0)
                 _ValueIncreaseAccountValue = 0
-            ElseIf CDblSafe(AcquisitionDataRow.Item(22)) > 0 Then
-                _ValueIncreaseAccountValue = CDblSafe(AcquisitionDataRow.Item(22), 2, 0)
+            ElseIf CDblSafe(acquisitionDataRow.Item(22)) > 0 Then
+                _ValueIncreaseAccountValue = CDblSafe(acquisitionDataRow.Item(22), 2, 0)
                 _ValueDecreaseAccountValue = 0
             Else
                 _ValueIncreaseAccountValue = 0
@@ -748,7 +1139,7 @@ Namespace Assets
 
 
 
-            If _AcquisitionDate.Date >= DateFrom.Date Then
+            If _AcquisitionDate.Date >= dateFrom.Date Then
                 _BeforeAcquisitionAccountValue = 0
                 _BeforeAcquisitionAccountValuePerUnit = 0
                 _BeforeValueDecreaseAccountValue = 0
@@ -760,7 +1151,7 @@ Namespace Assets
                 _BeforeValueIncreaseAmmortizationAccountValue = 0
                 _BeforeValueIncreaseAmmortizationAccountValuePerUnit = 0
                 _BeforeAmmount = 0
-            ElseIf StatusBeforeDataRow Is Nothing Then
+            ElseIf statusBeforeDataRow Is Nothing Then
                 _BeforeAcquisitionAccountValue = CRound(_AcquisitionAccountValue)
                 _BeforeAcquisitionAccountValuePerUnit = CRound(_AcquisitionAccountValuePerUnit, ROUNDUNITASSET)
                 _BeforeValueDecreaseAccountValue = CRound(_ValueDecreaseAccountValue)
@@ -774,28 +1165,28 @@ Namespace Assets
                     CRound(_ValueIncreaseAmmortizationAccountValuePerUnit, ROUNDUNITASSET)
                 _BeforeAmmount = _Ammount
             Else
-                _BeforeAcquisitionAccountValue = CRound(CDblSafe(StatusBeforeDataRow.Item(1), 2, 0) + _
+                _BeforeAcquisitionAccountValue = CRound(CDblSafe(statusBeforeDataRow.Item(1), 2, 0) + _
                     _AcquisitionAccountValue)
-                _BeforeAcquisitionAccountValuePerUnit = CRound(CDblSafe(StatusBeforeDataRow.Item(2), ROUNDUNITASSET, 0) + _
+                _BeforeAcquisitionAccountValuePerUnit = CRound(CDblSafe(statusBeforeDataRow.Item(2), ROUNDUNITASSET, 0) + _
                     _AcquisitionAccountValuePerUnit, ROUNDUNITASSET)
-                _BeforeValueDecreaseAccountValue = CRound(CDblSafe(StatusBeforeDataRow.Item(3), 2, 0) + _
+                _BeforeValueDecreaseAccountValue = CRound(CDblSafe(statusBeforeDataRow.Item(3), 2, 0) + _
                     _ValueDecreaseAccountValue)
-                _BeforeValueDecreaseAccountValuePerUnit = CRound(CDblSafe(StatusBeforeDataRow.Item(4), ROUNDUNITASSET, 0) + _
+                _BeforeValueDecreaseAccountValuePerUnit = CRound(CDblSafe(statusBeforeDataRow.Item(4), ROUNDUNITASSET, 0) + _
                     _ValueDecreaseAccountValuePerUnit, ROUNDUNITASSET)
-                _BeforeValueIncreaseAccountValue = CRound(CDblSafe(StatusBeforeDataRow.Item(5), 2, 0) + _
+                _BeforeValueIncreaseAccountValue = CRound(CDblSafe(statusBeforeDataRow.Item(5), 2, 0) + _
                     _ValueIncreaseAccountValue)
-                _BeforeValueIncreaseAccountValuePerUnit = CRound(CDblSafe(StatusBeforeDataRow.Item(6), ROUNDUNITASSET, 0) + _
+                _BeforeValueIncreaseAccountValuePerUnit = CRound(CDblSafe(statusBeforeDataRow.Item(6), ROUNDUNITASSET, 0) + _
                     _ValueIncreaseAccountValuePerUnit, ROUNDUNITASSET)
-                _BeforeAmortizationAccountValue = CRound(CDblSafe(StatusBeforeDataRow.Item(7), 2, 0) + _
+                _BeforeAmortizationAccountValue = CRound(CDblSafe(statusBeforeDataRow.Item(7), 2, 0) + _
                     _AmortizationAccountValue)
-                _BeforeAmortizationAccountValuePerUnit = CRound(CDblSafe(StatusBeforeDataRow.Item(8), ROUNDUNITASSET, 0) + _
+                _BeforeAmortizationAccountValuePerUnit = CRound(CDblSafe(statusBeforeDataRow.Item(8), ROUNDUNITASSET, 0) + _
                     _AmortizationAccountValuePerUnit, ROUNDUNITASSET)
-                _BeforeValueIncreaseAmmortizationAccountValue = CRound(CDblSafe(StatusBeforeDataRow.Item(9), 2, 0) + _
+                _BeforeValueIncreaseAmmortizationAccountValue = CRound(CDblSafe(statusBeforeDataRow.Item(9), 2, 0) + _
                     _ValueIncreaseAmmortizationAccountValue)
                 _BeforeValueIncreaseAmmortizationAccountValuePerUnit = _
-                    CRound(CDblSafe(StatusBeforeDataRow.Item(10), ROUNDUNITASSET, 0) _
+                    CRound(CDblSafe(statusBeforeDataRow.Item(10), ROUNDUNITASSET, 0) _
                     + _ValueIncreaseAmmortizationAccountValuePerUnit, ROUNDUNITASSET)
-                _BeforeAmmount = _Ammount - CIntSafe(StatusBeforeDataRow.Item(11))
+                _BeforeAmmount = _Ammount - CIntSafe(statusBeforeDataRow.Item(11))
             End If
             _BeforeValue = CRound(_BeforeAcquisitionAccountValue - _BeforeAmortizationAccountValue _
                 - _BeforeValueDecreaseAccountValue - _BeforeValueIncreaseAmmortizationAccountValue _
@@ -806,7 +1197,7 @@ Namespace Assets
 
 
 
-            If ChangesDataRow Is Nothing Then
+            If changesDataRow Is Nothing Then
                 _ChangeAcquisitionAccountValue = 0
                 _ChangeAcquisitionAccountValuePerUnit = 0
                 _ChangeValueDecreaseAccountValue = 0
@@ -823,23 +1214,23 @@ Namespace Assets
                 _ChangeAmmountDiscarded = 0
                 _ChangeValueDiscarded = 0
             Else
-                _ChangeAcquisitionAccountValue = CDblSafe(ChangesDataRow.Item(1), 2, 0)
-                _ChangeAcquisitionAccountValuePerUnit = CDblSafe(ChangesDataRow.Item(2), ROUNDUNITASSET, 0)
-                _ChangeValueDecreaseAccountValue = CDblSafe(ChangesDataRow.Item(3), 2, 0)
-                _ChangeValueDecreaseAccountValuePerUnit = CDblSafe(ChangesDataRow.Item(4), ROUNDUNITASSET, 0)
-                _ChangeValueIncreaseAccountValue = CDblSafe(ChangesDataRow.Item(5), 2, 0)
-                _ChangeValueIncreaseAccountValuePerUnit = CDblSafe(ChangesDataRow.Item(6), ROUNDUNITASSET, 0)
-                _ChangeAmortizationAccountValue = CDblSafe(ChangesDataRow.Item(7), 2, 0)
-                _ChangeAmortizationAccountValuePerUnit = CDblSafe(ChangesDataRow.Item(8), ROUNDUNITASSET, 0)
-                _ChangeValueIncreaseAmmortizationAccountValue = CDblSafe(ChangesDataRow.Item(9), 2, 0)
-                _ChangeValueIncreaseAmmortizationAccountValuePerUnit = CDblSafe(ChangesDataRow.Item(10), ROUNDUNITASSET, 0)
-                _ChangeAmmount = -CIntSafe(ChangesDataRow.Item(11), 0)
-                _ChangeAmmountTransfered = CIntSafe(ChangesDataRow.Item(12), 0)
-                _ChangeValueTransfered = CDblSafe(ChangesDataRow.Item(13), 2, 0)
-                _ChangeAmmountDiscarded = CIntSafe(ChangesDataRow.Item(14), 0)
-                _ChangeValueDiscarded = CDblSafe(ChangesDataRow.Item(15), 2, 0)
+                _ChangeAcquisitionAccountValue = CDblSafe(changesDataRow.Item(1), 2, 0)
+                _ChangeAcquisitionAccountValuePerUnit = CDblSafe(changesDataRow.Item(2), ROUNDUNITASSET, 0)
+                _ChangeValueDecreaseAccountValue = CDblSafe(changesDataRow.Item(3), 2, 0)
+                _ChangeValueDecreaseAccountValuePerUnit = CDblSafe(changesDataRow.Item(4), ROUNDUNITASSET, 0)
+                _ChangeValueIncreaseAccountValue = CDblSafe(changesDataRow.Item(5), 2, 0)
+                _ChangeValueIncreaseAccountValuePerUnit = CDblSafe(changesDataRow.Item(6), ROUNDUNITASSET, 0)
+                _ChangeAmortizationAccountValue = CDblSafe(changesDataRow.Item(7), 2, 0)
+                _ChangeAmortizationAccountValuePerUnit = CDblSafe(changesDataRow.Item(8), ROUNDUNITASSET, 0)
+                _ChangeValueIncreaseAmmortizationAccountValue = CDblSafe(changesDataRow.Item(9), 2, 0)
+                _ChangeValueIncreaseAmmortizationAccountValuePerUnit = CDblSafe(changesDataRow.Item(10), ROUNDUNITASSET, 0)
+                _ChangeAmmount = -CIntSafe(changesDataRow.Item(11), 0)
+                _ChangeAmmountTransfered = CIntSafe(changesDataRow.Item(12), 0)
+                _ChangeValueTransfered = CDblSafe(changesDataRow.Item(13), 2, 0)
+                _ChangeAmmountDiscarded = CIntSafe(changesDataRow.Item(14), 0)
+                _ChangeValueDiscarded = CDblSafe(changesDataRow.Item(15), 2, 0)
             End If
-            If _AcquisitionDate.Date >= DateFrom.Date AndAlso _AcquisitionDate.Date <= DateTo.Date Then
+            If _AcquisitionDate.Date >= dateFrom.Date AndAlso _AcquisitionDate.Date <= dateTo.Date Then
                 _ChangeAcquisitionAccountValue = CRound(_ChangeAcquisitionAccountValue _
                     + _AcquisitionAccountValue)
                 _ChangeAcquisitionAccountValuePerUnit = CRound(_ChangeAcquisitionAccountValuePerUnit _

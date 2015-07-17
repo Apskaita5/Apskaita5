@@ -1,5 +1,13 @@
-Namespace Assets
+Imports ApskaitaObjects.Assets
 
+Namespace ActiveReports
+
+    ''' <summary>
+    ''' Represents a collection of <see cref="LongTermAssetOperationInfo">LongTermAssetOperationInfo</see> 
+    ''' as part of the <see cref="LongTermAssetOperationInfoListParent">LongTermAssetOperationInfoListParent</see> report.
+    ''' </summary>
+    ''' <remarks>Should only be used as a child of <see cref="LongTermAssetOperationInfoListParent">LongTermAssetOperationInfoListParent</see>.
+    ''' Values are stored in the database table turtas_op.</remarks>
     <Serializable()> _
 Public Class LongTermAssetOperationInfoList
         Inherits ReadOnlyListBase(Of LongTermAssetOperationInfoList, LongTermAssetOperationInfo)
@@ -18,6 +26,7 @@ Public Class LongTermAssetOperationInfoList
             ByVal dt As DataTable) As LongTermAssetOperationInfoList
             Return New LongTermAssetOperationInfoList(parent, dt)
         End Function
+
 
         Private Sub New()
             ' require use of factory methods

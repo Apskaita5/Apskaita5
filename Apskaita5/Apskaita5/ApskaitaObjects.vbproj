@@ -295,14 +295,14 @@
     <Compile Include="HelperLists\LongTermAssetCustomGroupInfo.vb" />
     <Compile Include="HelperLists\LongTermAssetCustomGroupInfoList.vb" />
     <Compile Include="Assets\LongTermAssetCustomGroupList.vb" />
-    <Compile Include="Assets\LongTermAssetInfo.vb" />
-    <Compile Include="Assets\LongTermAssetInfoList.vb" />
+    <Compile Include="ActiveReports\LongTermAssetInfo.vb" />
+    <Compile Include="ActiveReports\LongTermAssetInfoList.vb" />
     <Compile Include="Assets\LongTermAssetOperation.vb" />
     <Compile Include="Assets\LongTermAssetOperationChild.vb" />
     <Compile Include="Assets\LongTermAssetOperationChildList.vb" />
-    <Compile Include="Assets\LongTermAssetOperationInfo.vb" />
-    <Compile Include="Assets\LongTermAssetOperationInfoList.vb" />
-    <Compile Include="Assets\LongTermAssetOperationInfoListParent.vb" />
+    <Compile Include="ActiveReports\LongTermAssetOperationInfo.vb" />
+    <Compile Include="ActiveReports\LongTermAssetOperationInfoList.vb" />
+    <Compile Include="ActiveReports\LongTermAssetOperationInfoListParent.vb" />
     <Compile Include="CommonObjects\BookEntryInternal.vb" />
     <Compile Include="CommonObjects\BookEntryInternalList.vb" />
     <Compile Include="CustomDatabaseStructureErrorManager.vb" />
@@ -331,6 +331,7 @@
     <Compile Include="HelperLists\WarehouseInfoList.vb" />
     <Compile Include="HelperLists\WorkTimeClassInfo.vb" />
     <Compile Include="HelperLists\WorkTimeClassInfoList.vb" />
+    <Compile Include="Settings\CodeType.vb" />
     <Compile Include="Settings\CommandLastDocumentNumber.vb" />
     <Compile Include="Settings\CompanyAccountInfo.vb" />
     <Compile Include="Settings\CompanyAccountInfoList.vb" />
@@ -366,6 +367,7 @@
     <Compile Include="General\PersonObjects\PersonGroupList.vb" />
     <Compile Include="General\SetupTypicalAccountsCommand.vb" />
     <Compile Include="Settings\DocumentSerialType.vb" />
+    <Compile Include="Settings\NameType.vb" />
     <Compile Include="Settings\TaxRate.vb" />
     <Compile Include="Settings\TaxRateList.vb" />
     <Compile Include="General\TemplateBookEntryList.vb" />
@@ -402,6 +404,11 @@
     <Compile Include="HelperLists\NameValueItemList.vb" />
     <Compile Include="HelperLists\SettingListType.vb" />
     <Compile Include="CommonObjects\TaxTarifType.vb" />
+    <Compile Include="Settings\XmlProxies\Code.vb" />
+    <Compile Include="Settings\XmlProxies\ConventionalAccount.vb" />
+    <Compile Include="Settings\XmlProxies\LongTermAssetGroup.vb" />
+    <Compile Include="Settings\XmlProxies\Name.vb" />
+    <Compile Include="Settings\XmlProxies\TaxRate.vb" />
     <Compile Include="Utilities.vb" />
     <Compile Include="Workers\BonusType.vb" />
     <Compile Include="ActiveReports\BonusVDUInfo.vb" />
