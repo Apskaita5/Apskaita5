@@ -109,11 +109,11 @@ Namespace Documents
 
                     currentChild = OffsetItem.GetOffsetItem(dr, parent.ChronologicValidator.FinancialDataCanChange)
 
-                    If (currentChild.Person Is Nothing OrElse Not currentChild.Person.IsEmpty) _
+                    If (currentChild.Person Is Nothing OrElse currentChild.Person.IsEmpty) _
                         AndAlso IsBaseCurrency(currentChild.CurrencyCode, GetCurrentCompany.BaseCurrency) Then
                         balanceOffsetItem = currentChild
                     Else
-                        Add(currentChild)
+                        Me.Add(currentChild)
                     End If
 
                 Next

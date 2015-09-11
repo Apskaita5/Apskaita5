@@ -7167,4 +7167,31 @@
   <data name="HelperLists_LongTermAssetCustomGroupInfo_Name1" xml:space="preserve">
     <value>grupės pavadinimas</value>
   </data>
+  <data name="Assets_LongTermAsset_AcquisitionAccountValueCorrection" xml:space="preserve">
+    <value>įsigijimo sąvikainos korekcija</value>
+  </data>
+  <data name="Assets_LongTermAsset_AcquisitionDateIsReadOnly" xml:space="preserve">
+    <value>įsigijimo datos keisti neleidžiama</value>
+  </data>
+  <data name="Assets_LongTermAsset_AllDataIsReadOnly" xml:space="preserve">
+    <value>duomenų keisti neleidžiama</value>
+  </data>
+  <data name="Assets_LongTermAsset_AmortizationAccountValueCorrection" xml:space="preserve">
+    <value>įsigijimo savik. nusidėvėjimo korekcija</value>
+  </data>
+  <data name="Assets_LongTermAsset_AmortizationDataIsReadOnly" xml:space="preserve">
+    <value>amortizacijos parametrų keisti neleidžiama</value>
+  </data>
+  <data name="Assets_LongTermAsset_FinancialDataIsReadOnly" xml:space="preserve">
+    <value>finansinių parametrų keisti neleidžiama</value>
+  </data>
+  <data name="Assets_LongTermAsset_ValueDecreaseAccountValueCorrection" xml:space="preserve">
+    <value>vertės sumažėjimo korekcija</value>
+  </data>
+  <data name="Assets_LongTermAsset_ValueIncreaseAccountValueCorrection" xml:space="preserve">
+    <value>perkainotos dalies korekcija</value>
+  </data>
+  <data name="Assets_LongTermAsset_ValueIncreaseAmmortizationAccountValueCorrection" xml:space="preserve">
+    <value>perkainotos dalies nusidėvėjimo korekcija</value>
+  </data>
 </root>

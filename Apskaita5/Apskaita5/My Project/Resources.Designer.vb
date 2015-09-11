@@ -6174,6 +6174,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to įsigijimo sąvikainos korekcija.
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAsset_AcquisitionAccountValueCorrection() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAsset_AcquisitionAccountValueCorrection", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to įsigijimo sąvikaina vnt..
         '''</summary>
         Friend ReadOnly Property Assets_LongTermAsset_AcquisitionAccountValuePerUnit() As String
@@ -6188,6 +6197,15 @@ Namespace My.Resources
         Friend ReadOnly Property Assets_LongTermAsset_AcquisitionDate() As String
             Get
                 Return ResourceManager.GetString("Assets_LongTermAsset_AcquisitionDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įsigijimo datos keisti neleidžiama.
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAsset_AcquisitionDateIsReadOnly() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAsset_AcquisitionDateIsReadOnly", resourceCulture)
             End Get
         End Property
         
@@ -6246,6 +6264,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to duomenų keisti neleidžiama.
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAsset_AllDataIsReadOnly() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAsset_AllDataIsReadOnly", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to kiekis.
         '''</summary>
         Friend ReadOnly Property Assets_LongTermAsset_Ammount() As String
@@ -6264,6 +6291,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to įsigijimo savik. nusidėvėjimo korekcija.
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAsset_AmortizationAccountValueCorrection() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAsset_AmortizationAccountValueCorrection", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to įsigijimo savik. nusidėvėjimas vnt..
         '''</summary>
         Friend ReadOnly Property Assets_LongTermAsset_AmortizationAccountValuePerUnit() As String
@@ -6278,6 +6314,15 @@ Namespace My.Resources
         Friend ReadOnly Property Assets_LongTermAsset_AmortizationCalculatedForMonths() As String
             Get
                 Return ResourceManager.GetString("Assets_LongTermAsset_AmortizationCalculatedForMonths", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to amortizacijos parametrų keisti neleidžiama.
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAsset_AmortizationDataIsReadOnly() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAsset_AmortizationDataIsReadOnly", resourceCulture)
             End Get
         End Property
         
@@ -6305,6 +6350,15 @@ Namespace My.Resources
         Friend ReadOnly Property Assets_LongTermAsset_DefaultAmortizationPeriod() As String
             Get
                 Return ResourceManager.GetString("Assets_LongTermAsset_DefaultAmortizationPeriod", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to finansinių parametrų keisti neleidžiama.
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAsset_FinancialDataIsReadOnly() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAsset_FinancialDataIsReadOnly", resourceCulture)
             End Get
         End Property
         
@@ -6570,6 +6624,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to vertės sumažėjimo korekcija.
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAsset_ValueDecreaseAccountValueCorrection() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAsset_ValueDecreaseAccountValueCorrection", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to vertės sumažėjimas vnt..
         '''</summary>
         Friend ReadOnly Property Assets_LongTermAsset_ValueDecreaseAccountValuePerUnit() As String
@@ -6588,6 +6651,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to perkainotos dalies korekcija.
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAsset_ValueIncreaseAccountValueCorrection() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAsset_ValueIncreaseAccountValueCorrection", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to perkainota dalis vnt..
         '''</summary>
         Friend ReadOnly Property Assets_LongTermAsset_ValueIncreaseAccountValuePerUnit() As String
@@ -6602,6 +6674,15 @@ Namespace My.Resources
         Friend ReadOnly Property Assets_LongTermAsset_ValueIncreaseAmmortizationAccountValue() As String
             Get
                 Return ResourceManager.GetString("Assets_LongTermAsset_ValueIncreaseAmmortizationAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perkainotos dalies nusidėvėjimo korekcija.
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAsset_ValueIncreaseAmmortizationAccountValueCorrection() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAsset_ValueIncreaseAmmortizationAccountValueCorrection", resourceCulture)
             End Get
         End Property
         
