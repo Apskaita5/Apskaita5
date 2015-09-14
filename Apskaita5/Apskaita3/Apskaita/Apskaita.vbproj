@@ -832,6 +832,7 @@
     <Compile Include="Workers\F_WorkTimeSheetInfoList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Workers\WageSheetItem.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Administration\F_BackUp.resx">
@@ -1052,6 +1053,24 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="My Project\licenses.licx" />
+    <Content Include="Reports\R_WorkersVDUInfo.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_GoodsComplexOperationDiscard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_WorkerHolidayInfo.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_LongTermAssetDiscard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_LongTermAssetUsingStart.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_LongTermAssetUsingEnd.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Tools\F_CurrencyRateChangeImpactCalculator.resx">
       <DependentUpon>F_CurrencyRateChangeImpactCalculator.vb</DependentUpon>
       <SubType>Designer</SubType>
