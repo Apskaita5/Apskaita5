@@ -3,7 +3,7 @@
 ''' </summary>
 ''' <remarks></remarks>
 <Serializable()> _
-Friend Class BookEntryInternalList
+Public Class BookEntryInternalList
     Inherits BusinessListBase(Of BookEntryInternalList, BookEntryInternal)
 
 #Region " Business Methods "
@@ -122,6 +122,22 @@ Friend Class BookEntryInternalList
         Next
 
     End Sub
+
+    ''' <summary>
+    ''' Gets a total sum of <see cref="BookEntryInternal.Ammount">BookEntryInternal.Ammount</see>
+    ''' of the specified type within the list.
+    ''' </summary>
+    ''' <param name="ofType">Type of entries to sum.</param>
+    ''' <remarks></remarks>
+    Public Function GetTotalSum(ByVal ofType As BookEntryType) As Double
+        Dim result As Double = 0
+        For Each i As BookEntryInternal In Me
+            If i.EntryType = ofType Then
+                result = CRound(result + i.Ammount)
+            End If
+        Next
+        Return result
+    End Function
 
 #End Region
 

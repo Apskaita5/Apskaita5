@@ -177,6 +177,7 @@
     <Compile Include="Documents\AccumulativeCostsChronologicValidator.vb" />
     <Compile Include="Documents\AccumulativeCostsItem.vb" />
     <Compile Include="Documents\AccumulativeCostsItemList.vb" />
+    <Compile Include="Documents\InvoiceAttachedObjects\IInvoiceAttachedObject.vb" />
     <Compile Include="Documents\InvoiceReceivedNumberUnique.vb" />
     <Compile Include="Documents\RegionalizedObjectType.vb" />
     <Compile Include="General\PersonObjects\ImportedPerson.vb" />

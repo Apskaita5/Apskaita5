@@ -3,7 +3,7 @@
 ''' </summary>
 ''' <remarks></remarks>
 <Serializable()> _
-Friend Class BookEntryInternal
+Public Class BookEntryInternal
     Inherits BusinessBase(Of BookEntryInternal)
 
 #Region " Business Methods "
