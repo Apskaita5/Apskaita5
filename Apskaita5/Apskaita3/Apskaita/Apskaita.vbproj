@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{650E821F-92C3-42F8-A052-E06E22462BEA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -122,9 +122,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.configuration" />
-    <Reference Include="System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Data">
       <Private>True</Private>
     </Reference>
@@ -628,6 +625,18 @@
     <Compile Include="Helpers\LocalSettings.vb" />
     <Compile Include="Helpers\MyCustomSettings.vb" />
     <Compile Include="Helpers\PrintingMethods.vb" />
+    <Compile Include="Tools\F_ServiceTurnoverInfoList.Designer.vb">
+      <DependentUpon>F_ServiceTurnoverInfoList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\F_ServiceTurnoverInfoList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Workers\F_HolidayPayReserve.designer.vb">
+      <DependentUpon>F_HolidayPayReserve.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Workers\F_HolidayPayReserve.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Workers\F_LabourContract.Designer.vb">
       <DependentUpon>F_LabourContract.vb</DependentUpon>
     </Compile>
@@ -656,12 +665,6 @@
       <DependentUpon>F_PayOutNaturalPersonList.vb</DependentUpon>
     </Compile>
     <Compile Include="Workers\F_PayOutNaturalPersonList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_WagePayOut.Designer.vb">
-      <DependentUpon>F_WagePayOut.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_WagePayOut.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="General\F_PersonGroups.Designer.vb">
@@ -1071,6 +1074,12 @@
     <Content Include="Reports\R_LongTermAssetUsingEnd.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Reports\R_HolidayPayReserve.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_ServiceTurnoverInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Tools\F_CurrencyRateChangeImpactCalculator.resx">
       <DependentUpon>F_CurrencyRateChangeImpactCalculator.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1247,6 +1256,12 @@
       <SubType>Designer</SubType>
       <DependentUpon>F_LongTermAssetOperationInfoListParent.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tools\F_ServiceTurnoverInfoList.resx">
+      <DependentUpon>F_ServiceTurnoverInfoList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Workers\F_HolidayPayReserve.resx">
+      <DependentUpon>F_HolidayPayReserve.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Workers\F_LabourContract.resx">
       <SubType>Designer</SubType>
       <DependentUpon>F_LabourContract.vb</DependentUpon>
@@ -1266,10 +1281,6 @@
     <EmbeddedResource Include="Workers\F_PayOutNaturalPersonList.resx">
       <SubType>Designer</SubType>
       <DependentUpon>F_PayOutNaturalPersonList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_WagePayOut.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_WagePayOut.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="General\F_Templates.resx">
       <SubType>Designer</SubType>
@@ -1559,6 +1570,12 @@
     <Content Include="MXFD\FR0573%284%29.mxfd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="MXFD\SAM-v05.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\SAM-v05.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="My Project\DataSources\AccControls.ReportData.datasource" />
     <None Include="My Project\DataSources\AccDataAccessLayer.DatabaseAccess.DatabaseStructure.DatabaseStructure.datasource" />
     <None Include="My Project\DataSources\AccDataAccessLayer.Security.DatabaseInfoList.datasource" />
@@ -1577,6 +1594,7 @@
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.PayOutNaturalPersonInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.PersonInfoItemList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.ProductionCalculationItemList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.ServiceTurnoverInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.UnsettledPersonInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.WageSheetInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.WorkerHolidayInfo.datasource" />
@@ -1591,9 +1609,7 @@
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetComplexDocument.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetComplexDocumentInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetCustomGroupList.datasource" />
-    <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetOperation.datasource" />
-    <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetOperationInfoListParent.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Documents.AccumulativeCosts.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Documents.AdvanceReport.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Documents.BankOperation.datasource" />
@@ -1797,6 +1813,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
       <Visible>False</Visible>
       <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
@@ -1812,6 +1833,11 @@
       <ProductName>.NET Framework 3.5</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
     <PublishFile Include="DevExpress.Data.v11.2">
@@ -1821,6 +1847,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.Printing.v11.2.Core">
@@ -1830,6 +1857,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.Utils.v11.2">
@@ -1839,6 +1867,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.XtraEditors.v11.2">
@@ -1848,6 +1877,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.XtraGrid.v11.2">
@@ -1857,6 +1887,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.XtraLayout.v11.2">
@@ -1866,6 +1897,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="de\DevExpress.Data.v11.2.resources">
@@ -1875,6 +1907,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="de\DevExpress.Utils.v11.2.resources">
@@ -1884,6 +1917,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="de\DevExpress.XtraEditors.v11.2.resources">
@@ -1893,6 +1927,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="de\DevExpress.XtraGrid.v11.2.resources">
@@ -1902,6 +1937,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="de\DevExpress.XtraLayout.v11.2.resources">
@@ -1911,6 +1947,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="es\DevExpress.Data.v11.2.resources">
@@ -1920,6 +1957,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="es\DevExpress.Utils.v11.2.resources">
@@ -1929,6 +1967,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="es\DevExpress.XtraEditors.v11.2.resources">
@@ -1938,6 +1977,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="es\DevExpress.XtraGrid.v11.2.resources">
@@ -1947,6 +1987,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="es\DevExpress.XtraLayout.v11.2.resources">
@@ -1956,6 +1997,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="ja\DevExpress.Data.v11.2.resources">
@@ -1965,6 +2007,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="ja\DevExpress.Utils.v11.2.resources">
@@ -1974,6 +2017,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="ja\DevExpress.XtraEditors.v11.2.resources">
@@ -1983,6 +2027,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="ja\DevExpress.XtraGrid.v11.2.resources">
@@ -1992,6 +2037,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="ja\DevExpress.XtraLayout.v11.2.resources">
@@ -2001,6 +2047,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="ru\DevExpress.Data.v11.2.resources">
@@ -2010,6 +2057,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="ru\DevExpress.Utils.v11.2.resources">
@@ -2019,6 +2067,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="ru\DevExpress.XtraEditors.v11.2.resources">
@@ -2028,6 +2077,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="ru\DevExpress.XtraGrid.v11.2.resources">
@@ -2037,6 +2087,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="ru\DevExpress.XtraLayout.v11.2.resources">
@@ -2046,6 +2097,7 @@
       <TargetPath>
       </TargetPath>
       <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
   </ItemGroup>

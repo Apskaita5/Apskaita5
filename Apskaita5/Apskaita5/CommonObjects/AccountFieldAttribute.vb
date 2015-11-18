@@ -82,7 +82,7 @@ Public Class AccountFieldAttribute
     ''' <summary>
     ''' Creates a new instance of an AccountFieldAttribute class.
     ''' </summary>
-    ''' <param name="valueIsMandatory">Whether the property value is mandatory.</param>
+    ''' <param name="valueValueRequired">Whether the property value is mandatory.</param>
     ''' <param name="valueErrorOnClassMismatch">Whether to treat account value with an invalid base class as an error (not warning).</param>
     ''' <param name="valueAcceptedClasses">A list of the allowed account base class values for the property as provided by 
     ''' <see cref="General.Account.GetAccountClass">Account.GetAccountClass</see> method.</param>

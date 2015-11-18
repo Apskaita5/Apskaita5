@@ -223,7 +223,6 @@ Public Class BusinessObjectCollection(Of T)
     ''' <summary>
     ''' Gets a collection of business objects of type C by the provided <paramref name="ids">id's</paramref>.
     ''' </summary>
-    ''' <typeparam name="C">Type of business objects to fetch.</typeparam>
     ''' <param name="ids">ID's of the business objects to fetch.</param>
     ''' <remarks></remarks>
     Public Shared Function GetBusinessObjectCollection(ByVal ids As Integer()) As BusinessObjectCollection(Of T)

@@ -13,7 +13,7 @@ DefaultDirName={pf}\Apskaita5
 DisableDirPage=yes
 DefaultGroupName=Apskaita5
 DisableProgramGroupPage=yes
-OutputDir=E:\My Documents\Inno Output
+OutputDir=D:\My Documents\Inno Output
 OutputBaseFilename=Apskaita5_setup
 MinVersion=0,5.0
 Compression=lzma
@@ -26,37 +26,39 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 
 [Files]
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Apskaita5.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\CSLA.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccDataAccessLayer.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccControls.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccWebCrawler.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ApskaitaObjects.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccCommon.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\InvoiceInfo.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\sqlite3.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\AccMigration\bin\x86\Release\AccMigration.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Reports\*"; DestDir: "{app}\Reports"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\SqlDepositories\*"; DestDir: "{app}\SqlDepositories"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\DbStructure\*"; DestDir: "{app}\DbStructure"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\tsp.dat"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\WorkTime.dat"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\PublicHolidays.dat"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FinancialStatements_Short.str"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\CommonCodes.dat"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\WTClasses.dat"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\LastUpdateA5.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MySQL_accsecurity.sql"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\FR0572(4).ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\FR0573(4).ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\SAM-v03.ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\SAM-v04.ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\13-SD-v05.ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\FR0572(4).mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\FR0573(4).mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\SAM-v03.mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\SAM-v04.mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
-Source: "E:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\13-SD-v05.mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Apskaita5.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\CSLA.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccDataAccessLayer.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccControls.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccWebCrawler.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ApskaitaObjects.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccCommon.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\InvoiceInfo.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\sqlite3.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\AccMigration\bin\x86\Release\AccMigration.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Reports\*"; DestDir: "{app}\Reports"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\SqlDepositories\*"; DestDir: "{app}\SqlDepositories"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\DbStructure\*"; DestDir: "{app}\DbStructure"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\tsp.dat"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\WorkTime.dat"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\PublicHolidays.dat"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FinancialStatements_Short.str"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\CommonCodes.dat"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\WTClasses.dat"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\LastUpdateA5.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MySQL_accsecurity.sql"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\FR0572(4).ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\FR0573(4).ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\SAM-v03.ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\SAM-v04.ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\SAM-v05.ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\13-SD-v05.ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\FR0572(4).mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\FR0573(4).mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\SAM-v03.mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\SAM-v04.mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\SAM-v05.mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\13-SD-v05.mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Run]

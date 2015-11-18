@@ -1,26 +1,38 @@
-﻿Namespace Documents.InvoiceAttachedObjects
+﻿Namespace Documents.InvoiceAdapters
 
-    Public Interface IInvoiceAttachedObject
+    ''' <summary>
+    ''' Represents a common interface for an adapter between an invoice item and some other accounting object/operation.
+    ''' </summary>
+    ''' <remarks>Any adapter, that implements this interface, can be added to an invoice by invoking 
+    ''' <see cref="InvoiceMade.AttachNewObject">InvoiceMade.AttachNewObject</see>
+    ''' or <see cref="InvoiceReceived.AttachNewObject">InvoiceReceived.AttachNewObject</see> methods.</remarks>
+    Public Interface IInvoiceAdapter
 
 #Region " Business Methods "
+
+        ''' <summary>
+        ''' Whether the attached operation is created for an <see cref="InvoiceMade">invoice made</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
+        ReadOnly Property IsForInvoiceMade() As Boolean
 
         ''' <summary>
         ''' Gets an ID of the attached operation.
         ''' </summary>
         ''' <remarks>E.g. <see cref="Goods.GoodsOperationTransfer.ID">Goods.GoodsOperationTransfer.ID</see>.</remarks>
-        ReadOnly Property ID() As Integer
+        ReadOnly Property Id() As Integer
 
         ''' <summary>
         ''' Gets an ID of the object that the attached operation acts on.
         ''' </summary>
         ''' <remarks>E.g. <see cref="Goods.GoodsOperationTransfer.GoodsInfo">Goods.GoodsOperationTransfer.GoodsInfo.ID</see>.</remarks>
-        ReadOnly Property ObjectID() As Integer
+        ReadOnly Property ObjectId() As Integer
 
         ''' <summary>
         ''' Gets a type of the attached object.
         ''' </summary>
         ''' <remarks></remarks>
-        ReadOnly Property [Type]() As InvoiceAttachedObjectType
+        ReadOnly Property [Type]() As InvoiceAdapterType
 
         ''' <summary>
         ''' Gets an underlying attached operation.
@@ -63,6 +75,13 @@
         ''' </summary>
         ''' <remarks></remarks>
         ReadOnly Property ValueObjectHasWarnings() As Boolean
+
+        ''' <summary>
+        ''' Whether the underlying attached operation implements 
+        ''' <see cref="GetCopy">GetCopy</see> method, i.e. can be copied to a new invoice.
+        ''' </summary>
+        ''' <remarks></remarks>
+        ReadOnly Property ImplementsCopy() As Boolean
 
 
         ''' <summary>
@@ -163,31 +182,13 @@
         ReadOnly Property HandlesAmount() As Boolean
 
         ''' <summary>
-        ''' Gets or sets a value of the attached operation property that corresponds to the 
+        ''' Gets a value of the attached operation property that corresponds to the 
         ''' <see cref="InvoiceMadeItem.Ammount">InvoiceMadeItem.Ammount</see>
         ''' or the <see cref="InvoiceReceivedItem.Ammount">InvoiceReceivedItem.Ammount</see>
         ''' properties if the <see cref="HandlesAmount">HandlesAmount</see> is set to TRUE.
         ''' </summary>
-        ''' <remarks></remarks>
-        Property Amount() As Double
-
-        ''' <summary>
-        ''' Whether the <see cref="InvoiceMadeItem.UnitValueLTL">InvoiceMadeItem.UnitValueLTL</see>
-        ''' or the <see cref="InvoiceReceivedItem.UnitValueLTL">InvoiceReceivedItem.UnitValueLTL</see>
-        ''' properties should set by the corresponding attached operation property and vice versa 
-        ''' (to enforce equality).
-        ''' </summary>
-        ''' <remarks></remarks>
-        ReadOnly Property HandlesUnitValue() As Boolean
-
-        ''' <summary>
-        ''' Gets or sets a value of the attached operation property that corresponds to the 
-        ''' <see cref="InvoiceMadeItem.UnitValueLTL">InvoiceMadeItem.UnitValueLTL</see>
-        ''' or the <see cref="InvoiceReceivedItem.UnitValueLTL">InvoiceReceivedItem.UnitValueLTL</see>
-        ''' properties if the <see cref="HandlesUnitValue">HandlesUnitValue</see> is set to TRUE.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Property UnitValue() As Double
+        ''' <remarks>Use <see cref="SetInvoiceFinancialData">SetInvoiceFinancialData</see> to set the value.</remarks>
+        ReadOnly Property Amount() As Double
 
         ''' <summary>
         ''' Whether the <see cref="InvoiceMadeItem.SumLTL">InvoiceMadeItem.SumLTL</see>
@@ -199,13 +200,13 @@
         ReadOnly Property HandlesSum() As Boolean
 
         ''' <summary>
-        ''' Gets or sets a value of the attached operation property that corresponds to the 
+        ''' Gets a value of the attached operation property that corresponds to the 
         ''' <see cref="InvoiceMadeItem.SumLTL">InvoiceMadeItem.SumLTL</see>
         ''' or the <see cref="InvoiceReceivedItem.SumLTL">InvoiceReceivedItem.SumLTL</see>
         ''' properties if the <see cref="HandlesSum">HandlesSum</see> is set to TRUE.
         ''' </summary>
-        ''' <remarks></remarks>
-        Property Sum() As Double
+        ''' <remarks>Use <see cref="SetInvoiceFinancialData">SetInvoiceFinancialData</see> to set the value.</remarks>
+        ReadOnly Property Sum() As Double
 
         ''' <summary>
         ''' Whether the <see cref="InvoiceMadeItem.VatRate">InvoiceMadeItem.VatRate</see>
@@ -217,20 +218,13 @@
         ReadOnly Property HandlesVatRate() As Boolean
 
         ''' <summary>
-        ''' Gets or sets a value of the attached operation property that corresponds to the 
+        ''' Gets a value of the attached operation property that corresponds to the 
         ''' <see cref="InvoiceMadeItem.VatRate">InvoiceMadeItem.VatRate</see>
-        ''' property if the <see cref="HandlesSum">HandlesVatRate</see> is set to TRUE.
+        ''' or the <see cref="InvoiceReceivedItem.VatRate">InvoiceReceivedItem.VatRate</see>
+        ''' properties if the <see cref="HandlesSum">HandlesVatRate</see> is set to TRUE.
         ''' </summary>
-        ''' <remarks></remarks>
-        Property VatRateSales() As Double
-
-        ''' <summary>
-        ''' Gets or sets a value of the attached operation property that corresponds to the 
-        ''' <see cref="InvoiceReceivedItem.VatRate">InvoiceReceivedItem.VatRate</see>
-        ''' property if the <see cref="HandlesSum">HandlesVatRate</see> is set to TRUE.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Property VatRatePurchases() As Double
+        ''' <remarks>Use <see cref="SetInvoiceFinancialData">SetInvoiceFinancialData</see> to set the value.</remarks>
+        ReadOnly Property VatRate() As Double
 
         ''' <summary>
         ''' Whether the <see cref="InvoiceMadeItem.VatRate">InvoiceMadeItem.VatRate</see>
@@ -243,18 +237,11 @@
         ''' <summary>
         ''' Gets a value of the attached operation property that provides a default (initial) value for the 
         ''' <see cref="InvoiceMadeItem.VatRate">InvoiceMadeItem.VatRate</see>
-        ''' property if the <see cref="ProvidesDefaultVatRate">ProvidesDefaultVatRate</see> is set to TRUE.
+        ''' or the <see cref="InvoiceReceivedItem.VatRate">InvoiceReceivedItem.VatRate</see>
+        ''' properties if the <see cref="ProvidesDefaultVatRate">ProvidesDefaultVatRate</see> is set to TRUE.
         ''' </summary>
         ''' <remarks></remarks>
-        ReadOnly Property DefaultVatRateSales() As Double
-
-        ''' <summary>
-        ''' Gets or sets a value of the attached operation property that provides a default (initial) value for the
-        ''' <see cref="InvoiceReceivedItem.VatRate">InvoiceReceivedItem.VatRate</see>
-        ''' property if the <see cref="ProvidesDefaultVatRate">ProvidesDefaultVatRate</see> is set to TRUE.
-        ''' </summary>
-        ''' <remarks></remarks>
-        ReadOnly Property DefaultVatRatePurchases() As Double
+        ReadOnly Property DefaultVatRate() As Double
 
         ''' <summary>
         ''' Whether the <see cref="InvoiceMadeItem.AccountVat">InvoiceMadeItem.AccountVat</see>
@@ -267,18 +254,11 @@
         ''' <summary>
         ''' Gets a value of the attached operation property that provides a default (initial) value for the 
         ''' <see cref="InvoiceReceivedItem.AccountVat">InvoiceReceivedItem.AccountVat</see>
-        ''' property if the <see cref="ProvidesDefaultVatRate">ProvidesDefaultAccountVat</see> is set to TRUE.
+        ''' or the <see cref="InvoiceMadeItem.AccountVat">InvoiceMadeItem.AccountVat</see>
+        ''' properties if the <see cref="ProvidesDefaultVatRate">ProvidesDefaultAccountVat</see> is set to TRUE.
         ''' </summary>
         ''' <remarks></remarks>
-        ReadOnly Property DefaultVatAccountPurchases() As Long
-
-        ''' <summary>
-        ''' Gets a value of the attached operation property that provides a default (initial) value for the 
-        ''' <see cref="InvoiceMadeItem.AccountVat">InvoiceMadeItem.AccountVat</see>
-        ''' property if the <see cref="ProvidesDefaultVatRate">ProvidesDefaultAccountVat</see> is set to TRUE.
-        ''' </summary>
-        ''' <remarks></remarks>
-        ReadOnly Property DefaultVatAccountSales() As Long
+        ReadOnly Property DefaultVatAccount() As Long
 
         ''' <summary>
         ''' Whether the <see cref="InvoiceMadeItem.AccountIncome">InvoiceMadeItem.AccountIncome</see>
@@ -291,18 +271,11 @@
         ''' <summary>
         ''' Gets a value of the attached operation property that provides a default (initial) value for the 
         ''' <see cref="InvoiceReceivedItem.AccountCosts">InvoiceReceivedItem.AccountCosts</see>
-        ''' property if the <see cref="ProvidesDefaultAccount">ProvidesDefaultAccount</see> is set to TRUE.
+        ''' or the <see cref="InvoiceMadeItem.AccountIncome">InvoiceMadeItem.AccountIncome</see>
+        ''' properties if the <see cref="ProvidesDefaultAccount">ProvidesDefaultAccount</see> is set to TRUE.
         ''' </summary>
         ''' <remarks></remarks>
-        ReadOnly Property DefaultAccountCosts() As Long
-
-        ''' <summary>
-        ''' Gets a value of the attached operation property that provides a default (initial) value for the 
-        ''' <see cref="InvoiceMadeItem.AccountIncome">InvoiceMadeItem.AccountIncome</see>
-        ''' property if the <see cref="ProvidesDefaultAccount">ProvidesDefaultAccount</see> is set to TRUE.
-        ''' </summary>
-        ''' <remarks></remarks>
-        ReadOnly Property DefaultVatAccountIncome() As Long
+        ReadOnly Property DefaultAccount() As Long
 
         ''' <summary>
         ''' Whether the <see cref="InvoiceMadeItem.SumVatLTL">InvoiceMadeItem.SumVatLTL</see>
@@ -341,6 +314,39 @@
         ''' <remarks></remarks>
         Sub SetInvoiceDate(ByVal newInvoiceDate As Date)
 
+        ''' <summary>
+        ''' Sets the attached operation financial data (unit value, amount and total sum) 
+        ''' with the values of InvoiceMadeItem.
+        ''' </summary>
+        ''' <param name="parentInvoiceMadeItem"></param>
+        ''' <remarks></remarks>
+        Sub SetInvoiceFinancialData(ByVal parentInvoiceMadeItem As InvoiceMadeItem)
+
+        ''' <summary>
+        ''' Sets the attached operation financial data (unit value, amount and total sum) 
+        ''' with the values of InvoiceReceivedItem.
+        ''' </summary>
+        ''' <param name="parentInvoiceReceivedItem"></param>
+        ''' <remarks></remarks>
+        Sub SetInvoiceFinancialData(ByVal parentInvoiceReceivedItem As InvoiceReceivedItem)
+
+        ''' <summary>
+        ''' Gets a copy of the adapter. 
+        ''' </summary>
+        ''' <remarks>Used to support invoice copy functionality.
+        ''' Should always check <see cref="ImplementsCopy">ImplementsCopy</see>
+        ''' property before invoking this method.</remarks>
+        Function GetCopy() As IInvoiceAdapter
+
+        ''' <summary>
+        ''' Checks if some other adapter is compatible with the current one.
+        ''' </summary>
+        ''' <param name="adapter">an IInvoiceAdapter to check for compatibility</param>
+        ''' <param name="explanation">out parameter, returns explanation of incompatibility</param>
+        ''' <remarks></remarks>
+        Function IsCompatibleWithAdapter(ByVal adapter As IInvoiceAdapter, _
+            ByRef explanation As String) As Boolean
+
 #End Region
 
 #Region " Validation Rules "
@@ -364,26 +370,7 @@
         Function ValidateAmount(ByVal invoiceItem As InvoiceReceivedItem, ByVal e As Csla.Validation.RuleArgs) As Boolean
 
         ''' <summary>
-        ''' Validates a value of the <see cref="InvoiceMadeItem.UnitValueLTL">InvoiceMadeItem.UnitValueLTL</see>
-        ''' property. Returnes false if the unit value is invalid or a warning is generated.
-        ''' </summary>
-        ''' <param name="invoiceItem"></param>
-        ''' <param name="e"></param>
-        ''' <remarks>Complements validation performed by an invoice item.</remarks>
-        Function ValidateUnitValue(ByVal invoiceItem As InvoiceMadeItem, ByVal e As Csla.Validation.RuleArgs) As Boolean
-
-        ''' <summary>
-        ''' Validates a value of the <see cref="InvoiceReceivedItem.Ammount">InvoiceReceivedItem.UnitValueLTL</see>
-        ''' property. Returnes false if the unit value is invalid or a warning is generated.
-        ''' </summary>
-        ''' <param name="invoiceItem"></param>
-        ''' <param name="e"></param>
-        ''' <remarks>Complements validation performed by an invoice item.</remarks>
-        Function ValidateUnitValue(ByVal invoiceItem As InvoiceReceivedItem, ByVal e As Csla.Validation.RuleArgs) As Boolean
-
-        ''' <summary>
         ''' Validates a value of the <see cref="InvoiceMadeItem.SumLTL">InvoiceMadeItem.SumLTL</see>
-        ''' or the <see cref="InvoiceReceivedItem.SumLTL">InvoiceReceivedItem.SumLTL</see>
         ''' property. Returnes false if the sum is invalid or a warning is generated.
         ''' </summary>
         ''' <param name="invoiceItem"></param>
@@ -399,6 +386,24 @@
         ''' <param name="e"></param>
         ''' <remarks>Complements validation performed by an invoice item.</remarks>
         Function ValidateSum(ByVal invoiceItem As InvoiceReceivedItem, ByVal e As Csla.Validation.RuleArgs) As Boolean
+
+        ''' <summary>
+        ''' Validates a value of the <see cref="InvoiceMadeItem.SumTotalLTL">InvoiceMadeItem.SumTotalLTL</see>
+        ''' property. Returnes false if the sum is invalid or a warning is generated.
+        ''' </summary>
+        ''' <param name="invoiceItem"></param>
+        ''' <param name="e"></param>
+        ''' <remarks>Complements validation performed by an invoice item.</remarks>
+        Function ValidateTotalSum(ByVal invoiceItem As InvoiceMadeItem, ByVal e As Csla.Validation.RuleArgs) As Boolean
+
+        ''' <summary>
+        ''' Validates a value of the <see cref="InvoiceReceivedItem.SumTotalLTL">InvoiceReceivedItem.SumTotalLTL</see>
+        ''' property. Returnes false if the sum is invalid or a warning is generated.
+        ''' </summary>
+        ''' <param name="invoiceItem"></param>
+        ''' <param name="e"></param>
+        ''' <remarks>Complements validation performed by an invoice item.</remarks>
+        Function ValidateTotalSum(ByVal invoiceItem As InvoiceReceivedItem, ByVal e As Csla.Validation.RuleArgs) As Boolean
 
         ''' <summary>
         ''' Validates a value of the <see cref="InvoiceMadeItem.AccountIncome">InvoiceMadeItem.AccountIncome</see>
@@ -425,6 +430,26 @@
 #Region " Data Access "
 
         ''' <summary>
+        ''' Inserts the attached operation data into a database or updates the data in a database.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Sub Update(ByVal parentInvoice As InvoiceMade)
+
+        ''' <summary>
+        ''' Inserts the attached operation data into a database or updates the data in a database.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Sub Update(ByVal parentInvoice As InvoiceReceived)
+
+
+        ''' <summary>
+        ''' Deletes the attached operation data from a database.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Sub DeleteSelf()
+
+
+        ''' <summary>
         ''' Checks if the attached operation data can be inserted into a database or updated. 
         ''' Throws an exception if not.
         ''' </summary>
@@ -441,24 +466,6 @@
         Sub CheckIfCanDelete(ByVal parentChronologyValidator As IChronologicValidator)
 
         ''' <summary>
-        ''' Deletes the attached operation data from a database.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Sub DeleteSelf()
-
-        ''' <summary>
-        ''' Inserts the attached operation data into a database or updates the data in a database.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Sub Update(ByVal parentInvoice As InvoiceMade)
-
-        ''' <summary>
-        ''' Inserts the attached operation data into a database or updates the data in a database.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Sub Update(ByVal parentInvoice As InvoiceReceived)
-
-        ''' <summary>
         ''' Gets a book entries required by the attached operation.
         ''' </summary>
         ''' <param name="invoiceItem"></param>
@@ -471,6 +478,30 @@
         ''' <param name="invoiceItem"></param>
         ''' <remarks></remarks>
         Function GetBookEntryList(ByVal invoiceItem As InvoiceReceivedItem) As BookEntryInternalList
+
+        ''' <summary>
+        ''' Sets the encapsulated operation properties that are handled by the
+        ''' parent <see cref="InvoiceMade">InvoiceMade</see>, e.g. date, document number, etc.
+        ''' </summary>
+        ''' <param name="parentInvoice"></param>
+        ''' <remarks>Is invoked on each invoice item adapter before other validation 
+        ''' and actual update is performed, because setting parent invoice properties
+        ''' can render adapter (and owner invoice item) dirty or invalid.
+        ''' The method also safeguards that all the adapter properties are
+        ''' always in sync with the parent invoice properties.</remarks>
+        Sub SetParentData(ByVal parentInvoice As InvoiceMade)
+
+        ''' <summary>
+        ''' Sets the encapsulated operation properties that are handled by the
+        ''' parent <see cref="InvoiceReceived">InvoiceReceived</see>, e.g. date, document number, etc.
+        ''' </summary>
+        ''' <param name="parentInvoice"></param>
+        ''' <remarks>Is invoked on each invoice item adapter before other validation 
+        ''' and actual update is performed, because setting parent invoice properties
+        ''' can render adapter (and owner invoice item) dirty or invalid.
+        ''' The method also safeguards that all the adapter properties are
+        ''' always in sync with the parent invoice properties.</remarks>
+        Sub SetParentData(ByVal parentInvoice As InvoiceReceived)
 
 #End Region
 

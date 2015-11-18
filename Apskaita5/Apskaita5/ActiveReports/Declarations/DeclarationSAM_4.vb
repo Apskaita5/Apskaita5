@@ -133,18 +133,27 @@
 
                 Using myData As DataTable = myComm.Fetch
                     For Each dr As DataRow In myData.Rows
+
                         dd.Rows.Add()
+
                         dd.Rows(i).Item(0) = i + 1
-                        dd.Rows(i).Item(1) = dr.Item(1).ToString.Trim
-                        dd.Rows(i).Item(2) = dr.Item(2).ToString.Trim.Substring(0, 2)
-                        dd.Rows(i).Item(3) = GetNumericPart(dr.Item(2).ToString.Trim)
-                        dd.Rows(i).Item(4) = dr.Item(0).ToString.Trim.ToUpper
+                        dd.Rows(i).Item(1) = CStrSafe(dr.Item(1)).Trim
+                        If CStrSafe(dr.Item(2)).Trim.Length > 1 Then
+                            dd.Rows(i).Item(2) = CStrSafe(dr.Item(2)).Trim.Substring(0, 2)
+                            dd.Rows(i).Item(3) = GetNumericPart(CStrSafe(dr.Item(2)).Trim)
+                        Else
+                            dd.Rows(i).Item(2) = ""
+                            dd.Rows(i).Item(3) = ""
+                        End If
+                        dd.Rows(i).Item(4) = CStrSafe(dr.Item(0)).Trim.ToUpper
                         dd.Rows(i).Item(5) = DblParser(CDblSafe(dr.Item(3), 2, 0))
                         dd.Rows(i).Item(6) = DblParser(CDblSafe(dr.Item(4), 2, 0))
 
                         totalIncome = CRound(totalIncome + CDblSafe(dr.Item(3), 2, 0), 2)
                         totalPayments = CRound(totalPayments + CDblSafe(dr.Item(4), 2, 0), 2)
+
                         i += 1
+
                     Next
                 End Using
 

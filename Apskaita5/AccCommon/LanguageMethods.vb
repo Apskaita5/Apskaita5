@@ -230,22 +230,23 @@ Public Module LanguageMethods
         ByVal baseLanguageCode As String) As Boolean
 
         Dim validatedBaseCode As String = baseLanguageCode
-        If String.IsNullOrEmpty(baseLanguageCode) OrElse Not IsLanguageCodeValid(baseLanguageCode) Then
+        If StringIsNullOrEmpty(baseLanguageCode) OrElse Not IsLanguageCodeValid(baseLanguageCode) Then
             validatedBaseCode = DefaultBaseLanguage
         End If
 
         Dim validatedCode1 As String = languageCode1
-        If String.IsNullOrEmpty(languageCode1) OrElse Not IsLanguageCodeValid(languageCode1) Then
+        If StringIsNullOrEmpty(languageCode1) OrElse Not IsLanguageCodeValid(languageCode1) Then
             validatedCode1 = validatedBaseCode
         End If
 
         Dim validatedCode2 As String = languageCode2
-        If String.IsNullOrEmpty(languageCode2) OrElse Not IsLanguageCodeValid(languageCode2) Then
+        If StringIsNullOrEmpty(languageCode2) OrElse Not IsLanguageCodeValid(languageCode2) Then
             validatedCode2 = validatedBaseCode
         End If
 
         Return (validatedCode1.Trim.ToUpper() = validatedCode2.Trim.ToUpper())
 
     End Function
+
 
 End Module

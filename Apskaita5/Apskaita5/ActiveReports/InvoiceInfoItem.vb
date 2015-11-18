@@ -1,42 +1,56 @@
 
 Namespace ActiveReports
 
+    ''' <summary>
+    ''' Represents report information about an <see cref="Documents.InvoiceMade">InvoiceMade</see>
+    ''' or an <see cref="Documents.InvoiceReceived">InvoiceReceived</see>.
+    ''' </summary>
+    ''' <remarks>Should only be used as a child of <see cref="InvoiceInfoItemList">InvoiceInfoItemList</see>.</remarks>
     <Serializable()> _
     Public Class InvoiceInfoItem
         Inherits ReadOnlyBase(Of InvoiceInfoItem)
 
 #Region " Business Methods "
 
-        Private _ID As Integer
-        Private _Type As InvoiceInfoType
-        Private _PersonID As Integer
-        Private _PersonName As String
-        Private _PersonCode As String
-        Private _PersonVatCode As String
-        Private _PersonEmail As String
-        Private _PersonAccount As Long
-        Private _Date As Date
-        Private _Number As String
-        Private _Content As String
-        Private _CurrencyCode As String
-        Private _CurrencyRate As Double
-        Private _LanguageName As String
-        Private _CommentsInternal As String
-        Private _VatRate As Double
-        Private _Sum As Double
-        Private _SumVat As Double
-        Private _TotalSum As Double
-        Private _SumLTL As Double
-        Private _SumVatLTL As Double
-        Private _TotalSumLTL As Double
-        Private _SumDiscount As Double
-        Private _SumVatDiscount As Double
-        Private _TotalSumDiscount As Double
-        Private _SumDiscountLTL As Double
-        Private _SumVatDiscountLTL As Double
-        Private _TotalSumDiscountLTL As Double
+        Private _ID As Integer = 0
+        Private _Type As InvoiceInfoType = InvoiceInfoType.InvoiceMade
+        Private _PersonID As Integer = 0
+        Private _PersonName As String = ""
+        Private _PersonCode As String = ""
+        Private _PersonVatCode As String = ""
+        Private _PersonEmail As String = ""
+        Private _PersonAccount As Long = 0
+        Private _Date As Date = Today
+        Private _Number As String = ""
+        Private _Content As String = ""
+        Private _CurrencyCode As String = ""
+        Private _CurrencyRate As Double = 0
+        Private _LanguageName As String = ""
+        Private _CommentsInternal As String = ""
+        Private _VatRate As Double = 0
+        Private _Sum As Double = 0
+        Private _SumVat As Double = 0
+        Private _TotalSum As Double = 0
+        Private _SumLTL As Double = 0
+        Private _SumVatLTL As Double = 0
+        Private _TotalSumLTL As Double = 0
+        Private _SumDiscount As Double = 0
+        Private _SumVatDiscount As Double = 0
+        Private _TotalSumDiscount As Double = 0
+        Private _SumDiscountLTL As Double = 0
+        Private _SumVatDiscountLTL As Double = 0
+        Private _TotalSumDiscountLTL As Double = 0
+        Private _SumVatVirtual As Double = 0
+        Private _SumVatLTLVirtual As Double = 0
 
 
+        ''' <summary>
+        ''' Gets an ID of the invoice.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceMade.ID">InvoiceMade.ID</see>
+        ''' or <see cref="Documents.InvoiceReceived.ID">InvoiceReceived.ID</see> properties.
+        ''' Matches <see cref="General.JournalEntry.ID">the ID 
+        ''' of the journal entry</see> that is created by the invoice.</remarks>
         Public ReadOnly Property ID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -44,6 +58,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a <see cref="InvoiceInfoType">type of the invoice</see> (made or received).
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property Type() As InvoiceInfoType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -51,6 +69,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an ID of the person in the invoice.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceMade.Payer">InvoiceMade.Payer</see>
+        ''' or <see cref="Documents.InvoiceReceived.Supplier">InvoiceReceived.Supplier</see> properties.</remarks>
         Public ReadOnly Property PersonID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -58,6 +81,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a name of the person in the invoice.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceMade.Payer">InvoiceMade.Payer</see>
+        ''' or <see cref="Documents.InvoiceReceived.Supplier">InvoiceReceived.Supplier</see> properties.</remarks>
         Public ReadOnly Property PersonName() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -65,6 +93,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an official registration code of the person in the invoice.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceMade.Payer">InvoiceMade.Payer</see>
+        ''' or <see cref="Documents.InvoiceReceived.Supplier">InvoiceReceived.Supplier</see> properties.</remarks>
         Public ReadOnly Property PersonCode() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -72,6 +105,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a VAT code of the person in the invoice.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceMade.Payer">InvoiceMade.Payer</see>
+        ''' or <see cref="Documents.InvoiceReceived.Supplier">InvoiceReceived.Supplier</see> properties.</remarks>
         Public ReadOnly Property PersonVatCode() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -79,6 +117,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an email address of the person in the invoice.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceMade.Payer">InvoiceMade.Payer</see>
+        ''' or <see cref="Documents.InvoiceReceived.Supplier">InvoiceReceived.Supplier</see> properties.</remarks>
         Public ReadOnly Property PersonEmail() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -86,6 +129,13 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets the <see cref="General.Account.ID">account</see> that is debited/credited
+        ''' by the total sum receivable/the total sum payable from/to the person in the invoice.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceMade.AccountPayer">InvoiceMade.AccountPayer</see>
+        ''' or <see cref="Documents.InvoiceReceived.AccountSupplier">InvoiceReceived.AccountSupplier</see> properties.</remarks>
+        <AccountField(ValueRequiredLevel.Optional, False, 1, 2, 3, 4, 5, 6)> _
         Public ReadOnly Property PersonAccount() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -93,6 +143,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a date of the invoice.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceMade.Date">InvoiceMade.Date</see>
+        ''' or <see cref="Documents.InvoiceReceived.Date">InvoiceReceived.Date</see> properties.</remarks>
         Public ReadOnly Property [Date]() As Date
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -100,6 +155,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a serial and number (concetanated) of the invoice.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceMade.FullNumber">InvoiceMade.FullNumber</see>
+        ''' or <see cref="Documents.InvoiceReceived.Number">InvoiceReceived.Number</see> properties.</remarks>
         Public ReadOnly Property Number() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -107,6 +167,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a content (description) of the invoice.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceMade.Content">InvoiceMade.Content</see>
+        ''' or <see cref="Documents.InvoiceReceived.Content">InvoiceReceived.Content</see> properties.</remarks>
         Public ReadOnly Property Content() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -114,6 +179,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a code of the original currency of the invoice.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceMade.CurrencyCode">InvoiceMade.CurrencyCode</see>
+        ''' or <see cref="Documents.InvoiceReceived.CurrencyCode">InvoiceReceived.CurrencyCode</see> properties.</remarks>
         Public ReadOnly Property CurrencyCode() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -121,13 +191,24 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a rate of the original currency of the invoice.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceMade.CurrencyRate">InvoiceMade.CurrencyRate</see>
+        ''' or <see cref="Documents.InvoiceReceived.CurrencyRate">InvoiceReceived.CurrencyRate</see> properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDCURRENCYRATE)> _
         Public ReadOnly Property CurrencyRate() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_CurrencyRate, 6)
+                Return CRound(_CurrencyRate, ROUNDCURRENCYRATE)
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an original language of the invoice.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceMade.LanguageName">InvoiceMade.LanguageName</see>
+        ''' property. Equals base language for an InvoiceReceived.</remarks>
         Public ReadOnly Property LanguageName() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -135,6 +216,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets internal comments (for an accountant) of the invoice.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceMade.CommentsInternal">InvoiceMade.CommentsInternal</see>
+        ''' or <see cref="Documents.InvoiceReceived.CommentsInternal">InvoiceReceived.CommentsInternal</see> properties.</remarks>
         Public ReadOnly Property CommentsInternal() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -142,6 +228,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a maximum VAT rate in the invoice.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceMadeItem.VatRate">InvoiceMadeItem.VatRate</see>
+        ''' or <see cref="Documents.InvoiceReceivedItem.VatRate">InvoiceReceivedItem.VatRate</see> properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property VatRate() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -149,6 +241,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a total sum of the invoice in the invoice original currency 
+        ''' including discount, excluding VAT.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property Sum() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -156,6 +254,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a total VAT sum of the invoice in the invoice original currency 
+        ''' including discount VAT.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property SumVat() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -163,6 +267,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a total sum of the invoice in the invoice original currency
+        ''' including discount and VAT.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property TotalSum() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -170,6 +280,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a total sum of the invoice in the base currency 
+        ''' including discount, excluding VAT.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property SumLTL() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -177,6 +293,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a total VAT sum of the invoice in the base currency 
+        ''' including discount VAT.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property SumVatLTL() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -184,6 +306,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a total sum of the invoice in the base currency
+        ''' including discount and VAT.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property TotalSumLTL() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -191,6 +319,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a discount sum in the invoice in the invoice original currency excluding VAT.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property SumDiscount() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -198,6 +331,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a discount VAT sum in the invoice in the invoice original currency.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property SumVatDiscount() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -205,6 +343,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a total discount sum in the invoice in the invoice original currency 
+        ''' including VAT.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property TotalSumDiscount() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -212,6 +356,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a discount sum in the invoice in the base currency excluding VAT.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property SumDiscountLTL() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -219,6 +368,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a discount VAT sum in the invoice in the base currency.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property SumVatDiscountLTL() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -226,6 +380,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a total discount sum in the invoice in the base currency including VAT.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property TotalSumDiscountLTL() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -233,6 +392,31 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a total virtual (indirect) VAT sum in the invoice 
+        ''' in the invoice original currency.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
+        Public ReadOnly Property SumVatVirtual() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_SumVatVirtual)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a total virtual (indirect) VAT sum in the invoice in the base currency.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceMadeItem.VatIsVirtual">InvoiceMadeItem.VatIsVirtual</see>
+        ''' or <see cref="Documents.InvoiceReceived.IndirectVatSum">InvoiceReceived.IndirectVatSum</see> properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
+        Public ReadOnly Property SumVatLTLVirtual() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_SumVatLTLVirtual)
+            End Get
+        End Property
 
 
         Protected Overrides Function GetIdValue() As Object
@@ -240,7 +424,8 @@ Namespace ActiveReports
         End Function
 
         Public Overrides Function ToString() As String
-            Return String.Format("{0} Nr. {1}: {2}", _Date.ToString("yyyy-MM-dd"), _Number, _Content)
+            Return String.Format(My.Resources.ActiveReports_InvoiceInfoItem_ToString, _
+                _Date.ToString("yyyy-MM-dd"), _Number, _Content)
         End Function
 
 #End Region
@@ -297,6 +482,8 @@ Namespace ActiveReports
             _TotalSumLTL = CRound(_SumLTL + _SumVatLTL)
 
             _PersonAccount = CLongSafe(dr.Item(22), 0)
+            _SumVatVirtual = CDblSafe(dr.Item(23), 2, 0)
+            _SumVatLTLVirtual = CDblSafe(dr.Item(24), 2, 0)
 
         End Sub
 

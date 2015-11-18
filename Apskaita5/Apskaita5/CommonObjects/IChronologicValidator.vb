@@ -29,7 +29,11 @@ Public Interface IChronologicValidator
     ''' <remarks></remarks>
     ReadOnly Property FinancialDataCanChange() As Boolean
 
-
+    ''' <summary>
+    ''' Wheather the financial data of the validated (parent) object is allowed 
+    ''' to be changed by it's parent document.
+    ''' </summary>
+    ''' <remarks></remarks>
     ReadOnly Property ParentFinancialDataCanChange() As Boolean
 
     ''' <summary>
@@ -57,12 +61,17 @@ Public Interface IChronologicValidator
     ReadOnly Property MaxDate() As Date
 
     ''' <summary>
-    ''' Gets a human readable explanation of why the financial data of the validated (parent) object 
+    ''' Gets a human readable explanation of why the financial data of the validated object 
     ''' is NOT allowed to be changed.
     ''' </summary>
     ''' <remarks></remarks>
     ReadOnly Property FinancialDataCanChangeExplanation() As String
 
+    ''' <summary>
+    ''' Gets a human readable explanation of why the financial data of the validated object 
+    ''' is NOT allowed to be changed by it's parent document.
+    ''' </summary>
+    ''' <remarks></remarks>
     ReadOnly Property ParentFinancialDataCanChangeExplanation() As String
 
     ''' <summary>
@@ -95,10 +104,10 @@ Public Interface IChronologicValidator
     ''' </summary>
     ''' <param name="OperationDate">The object's date to validate.</param>
     ''' <param name="ErrorMessage">Returned error/warning message corresponds to <see cref="Csla.Validation.RuleArgs.Description">RuleArgs.Description</see> property.</param>
-    ''' <param name="ErrorSeverity">Returned error severity (error/warning) corresponds to <see cref="Csla.Validation.RuleArgs.Severity">RuleArgs.Severity</see> property.</param>
+    ''' <param name="errorSeverity">Returned error severity (error/warning) corresponds to <see cref="Csla.Validation.RuleArgs.Severity">RuleArgs.Severity</see> property.</param>
     ''' <returns>Returnes TRUE if there are no errors or warnings, otherwise - FALSE.</returns>
     ''' <remarks></remarks>
     Function ValidateOperationDate(ByVal operationDate As Date, ByRef errorMessage As String, _
-        ByRef ErrorSeverity As Csla.Validation.RuleSeverity) As Boolean
+        ByRef errorSeverity As Csla.Validation.RuleSeverity) As Boolean
 
 End Interface

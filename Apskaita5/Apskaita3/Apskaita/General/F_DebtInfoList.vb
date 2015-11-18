@@ -54,7 +54,7 @@ Public Class F_DebtInfoList
                 Obj = LoadObject(Of ActiveReports.DebtInfoList)(Nothing, "GetDebtInfoList", True, _
                     DateFromDateTimePicker.Value.Date, DateToDateTimePicker.Value.Date, _
                     AccountAccGridComboBox.SelectedValue, IsBuyerRadioButton.Checked, _
-                    PersonGroupComboBox.SelectedItem)
+                    PersonGroupComboBox.SelectedItem, IgnorePersonTypeCheckBox.Checked)
             Catch ex As Exception
                 ShowError(ex)
                 Exit Sub

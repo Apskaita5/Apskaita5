@@ -4,13 +4,12 @@ Namespace DatabaseAccess
     Public Class SqlTransaction
         Implements IDisposable
 
-        Private _TransactionExisted As Boolean = False
+        Private _IsTransactionOwner As Boolean = True
         Private _TransactionCommited As Boolean = False
 
-
-        Public ReadOnly Property TransactionExisted() As Boolean
+        Public ReadOnly Property IsTransactionOwner() As Boolean
             Get
-                Return _TransactionExisted
+                Return _IsTransactionOwner
             End Get
         End Property
 
@@ -18,7 +17,7 @@ Namespace DatabaseAccess
         Public Sub New()
 
             If TransactionExists() Then
-                _TransactionExisted = True
+                _IsTransactionOwner = False
                 Exit Sub
             End If
 
@@ -27,13 +26,16 @@ Namespace DatabaseAccess
         End Sub
 
         Public Sub Commit()
-            If _TransactionExisted Then Exit Sub
+            If Not _IsTransactionOwner OrElse _TransactionCommited Then Exit Sub
             TransactionCommit()
             _TransactionCommited = True
         End Sub
 
-        Private Sub ExceptionThrown()
-
+        Public Sub SetNonSqlException(ByVal ex As Exception)
+            If Not _IsTransactionOwner OrElse _TransactionCommited Then Exit Sub
+            If TransactionExists() Then
+                TransactionRollBack(ex)
+            End If
         End Sub
 
         Private disposedValue As Boolean = False        ' To detect redundant calls
@@ -43,8 +45,8 @@ Namespace DatabaseAccess
             If Not Me.disposedValue Then
                 If disposing Then
                     ' TODO: free unmanaged resources when explicitly called
-                    If Not _TransactionExisted AndAlso Not _TransactionCommited Then
-
+                    If _IsTransactionOwner AndAlso TransactionExists() Then
+                        TransactionRollBack(New Exception("Klaida. Neužbaigta SQL transakcija."))
                     End If
                 End If
                 ' TODO: free shared unmanaged resources

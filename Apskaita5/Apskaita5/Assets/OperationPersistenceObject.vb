@@ -34,6 +34,7 @@
         Private _JournalEntryBookEntries As String = ""
         Private _JournalEntryDocumentType As DocumentType = DocumentType.None
         Private _IsComplexAct As Boolean = False
+        Private _ComplexActID As Integer = 0
         Private _Content As String = ""
         Private _AccountCorresponding As Long = 0
         Private _ActNumber As Integer = 0
@@ -279,6 +280,23 @@
             Set(ByVal value As Boolean)
                 If _IsComplexAct <> value Then
                     _IsComplexAct = value
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
+        ''' Gets or sets the ID of the long term asset complex operation.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field turtas_op.IsComplexAct.</remarks>
+        Public Property ComplexActID() As Integer
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _ComplexActID
+            End Get
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Set(ByVal value As Integer)
+                If _ComplexActID <> value Then
+                    _ComplexActID = value
                 End If
             End Set
         End Property
@@ -678,6 +696,28 @@
 
         End Function
 
+        ''' <summary>
+        ''' Gets a new ID value for a complex long term asset operation.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Friend Shared Function GetNewComplexOperationID() As Integer
+
+            Dim result As Integer
+
+            Dim myComm As New SQLCommand("FetchLongTermAssetOperationChildListParentLastNumber")
+
+            Using myData As DataTable = myComm.Fetch
+                Try
+                    result = CIntSafe(myData.Rows(0).Item(0), 0) + 1
+                Catch ex As Exception
+                    result = 1
+                End Try
+            End Using
+
+            Return result
+
+        End Function
+
 
         Public Overrides Function ToString() As String
             Return String.Format(My.Resources.Assets_OperationPersistenceObject_ToString, _
@@ -708,6 +748,24 @@
         Friend Shared Function GetOperationPersistenceObject(ByVal operationID As Integer, _
             ByVal expectedType As LtaOperationType) As OperationPersistenceObject
             Return New OperationPersistenceObject(operationID, expectedType)
+        End Function
+
+        ''' <summary>
+        ''' Gets an existing OperationPersistenceObject instance list 
+        ''' for a complex operation from a database.
+        ''' </summary>
+        ''' <param name="complexOperationID">An ID of the complex operation.</param>
+        ''' <param name="expectedType">An operation type that the parent long term asset operation expects to get.</param>
+        ''' <remarks></remarks>
+        Friend Shared Function GetOperationPersistenceObjectList(ByVal complexOperationID As Integer, _
+            ByVal expectedType As LtaOperationType) As List(Of OperationPersistenceObject)
+
+            Dim result As New List(Of OperationPersistenceObject)
+
+            'TODO: do fetch
+
+            Return result
+
         End Function
 
 
@@ -756,7 +814,8 @@
 
                 _AccountOperationType = EnumValueAttribute.ConvertDatabaseCharID(Of LtaAccountChangeType)(CStrSafe(dr.Item(3)))
                 _OperationDate = CDateSafe(dr.Item(4), Today)
-                _IsComplexAct = ConvertDbBoolean(CIntSafe(dr.Item(5), 0))
+                _ComplexActID = CIntSafe(dr.Item(5), 0)
+                _IsComplexAct = (_ComplexActID > 0)
                 _Content = CStrSafe(dr.Item(6)).Trim
                 _AccountCorresponding = CLongSafe(dr.Item(7), 0)
                 _ActNumber = CIntSafe(dr.Item(8), 0)
@@ -800,7 +859,11 @@
             Dim myComm As New SQLCommand("InsertAssetOperationPersistenceObject")
             AddWithGeneralParams(myComm)
             AddWithFinancialParams(myComm)
-            myComm.AddParam("?AC", ConvertDbBoolean(_IsComplexAct))
+            If _IsComplexAct Then
+                myComm.AddParam("?AC", _ComplexActID)
+            Else
+                myComm.AddParam("?AC", 0)
+            End If
             myComm.AddParam("?BA", _AssetID)
             myComm.AddParam("?BB", EnumValueAttribute.ConvertDatabaseCharID(_OperationType))
 
@@ -841,6 +904,28 @@
 
         End Sub
 
+        ''' <summary>
+        ''' Gets a long term asset operation ID by the operation's journal entry ID.
+        ''' </summary>
+        ''' <param name="journalEntryID">A journal entry ID to find an operation ID by.</param>
+        ''' <remarks></remarks>
+        Friend Shared Function GetOperationIdByJournalEntry(ByVal journalEntryID As Integer) As Integer
+
+            Dim myComm As New SQLCommand("FetchLongTermAssetOperationIdByJournalEntryId")
+            myComm.AddParam("?JD", journalEntryID)
+
+            Using myData As DataTable = myComm.Fetch
+
+                If myData.Rows.Count < 1 OrElse Not CIntSafe(myData.Rows(0).Item(0), 0) > 0 Then
+                    Throw New Exception(String.Format("Klaida. Nerasti ilgalaikio turto amortizacijos operacijos duomenys pagal BŽ ID={0}.", _
+                        journalEntryID.ToString))
+                End If
+
+                Return CIntSafe(myData.Rows(0).Item(0), 0)
+
+            End Using
+
+        End Function
 
         Private Sub AddWithGeneralParams(ByRef myComm As SQLCommand)
 

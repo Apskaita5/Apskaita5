@@ -23,6 +23,9 @@ Public Class EmptyChronologicValidator
     Private _MaxDateExplanation As String = ""
     Private _LimitsExplanation As String = ""
     Private _BackgroundExplanation As String = ""
+    Private _ParentFinancialDataCanChange As Boolean = True
+    Private _ParentFinancialDataCanChangeExplanation As String = ""
+
 
     ''' <summary>
     ''' Gets an ID of the validated (parent) object. 
@@ -192,23 +195,33 @@ Public Class EmptyChronologicValidator
         End Get
     End Property
 
+    ''' <summary>
+    ''' Wheather the financial data of the validated (parent) object is allowed 
+    ''' to be changed by it's parent document.
+    ''' </summary>
+    ''' <remarks></remarks>
     Public ReadOnly Property ParentFinancialDataCanChange() As Boolean _
         Implements IChronologicValidator.ParentFinancialDataCanChange
         Get
-            Return _FinancialDataCanChange
+            Return _ParentFinancialDataCanChange
         End Get
     End Property
 
+    ''' <summary>
+    ''' Gets a human readable explanation of why the financial data of the validated object 
+    ''' is NOT allowed to be changed by it's parent document.
+    ''' </summary>
+    ''' <remarks></remarks>
     Public ReadOnly Property ParentFinancialDataCanChangeExplanation() As String _
         Implements IChronologicValidator.ParentFinancialDataCanChangeExplanation
         Get
-            Return _FinancialDataCanChangeExplanation
+            Return _ParentFinancialDataCanChangeExplanation
         End Get
     End Property
 
 
-    Public Function ValidateOperationDate(ByVal OperationDate As Date, ByRef ErrorMessage As String, _
-        ByRef ErrorSeverity As Csla.Validation.RuleSeverity) As Boolean _
+    Public Function ValidateOperationDate(ByVal operationDate As Date, ByRef errorMessage As String, _
+        ByRef errorSeverity As Csla.Validation.RuleSeverity) As Boolean _
         Implements IChronologicValidator.ValidateOperationDate
 
         Return True
@@ -228,8 +241,14 @@ Public Class EmptyChronologicValidator
 
 #Region " Factory Methods "
 
-    Friend Shared Function NewEmptyChronologicValidator(ByVal nOperationName As String) As EmptyChronologicValidator
-        Return New EmptyChronologicValidator(nOperationName)
+    ''' <summary>
+    ''' Gets a new EmptyChronologicValidator instance for a new or an existing operation (object).
+    ''' </summary>
+    ''' <param name="operationName">A name of the validated operation (object).</param>
+    ''' <remarks></remarks>
+    Friend Shared Function NewEmptyChronologicValidator(ByVal operationName As String, _
+        ByVal parentValidator As IChronologicValidator) As EmptyChronologicValidator
+        Return New EmptyChronologicValidator(operationName, parentValidator)
     End Function
 
 
@@ -237,17 +256,24 @@ Public Class EmptyChronologicValidator
         ' require use of factory methods
     End Sub
 
-    Private Sub New(ByVal nOperationName As String)
-        Create(nOperationName)
+    Private Sub New(ByVal nOperationName As String, ByVal parentValidator As IChronologicValidator)
+        Create(nOperationName, parentValidator)
     End Sub
 
 #End Region
 
 #Region " Data Access "
 
-    Private Sub Create(ByVal nOperationName As String)
+    Private Sub Create(ByVal nOperationName As String, ByVal parentValidator As IChronologicValidator)
 
         _CurrentOperationName = nOperationName
+
+        If Not parentValidator Is Nothing AndAlso Not parentValidator.FinancialDataCanChange Then
+
+            _ParentFinancialDataCanChange = False
+            _ParentFinancialDataCanChangeExplanation = parentValidator.FinancialDataCanChangeExplanation
+
+        End If
 
     End Sub
 

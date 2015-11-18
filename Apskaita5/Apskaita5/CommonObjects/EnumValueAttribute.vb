@@ -188,7 +188,7 @@ Public Class EnumValueAttribute
     ''' <summary>
     ''' Gets a list of localized human readable names of ENUM values.
     ''' </summary>
-    ''' <typeparam name="T">Type of the ENUM.</typeparam>
+    ''' <param name="enumType">Type of the ENUM.</param>
     ''' <remarks>Convention for the naming of the resource is full type name excluding assembly name
     ''' and an ENUM value name with "." replaced by "_", e.g. General_DefaultAccountType_Till.</remarks>
     Public Shared Function GetLocalizedNameList(ByVal enumType As Type) As List(Of String)

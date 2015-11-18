@@ -107,6 +107,7 @@ Namespace General
                 AddRow(myData, DefaultAccountType.OtherGpmPayable)
                 AddRow(myData, DefaultAccountType.OtherPsdPayable)
                 AddRow(myData, DefaultAccountType.OtherSodraPayable)
+                AddRow(myData, DefaultAccountType.HolidayReserve)
                 AddRow(myData, DefaultAccountType.ClosingSummary)
                 AddRow(myData, DefaultAccountType.CurrentProfit)
                 AddRow(myData, DefaultAccountType.FormerProfit)

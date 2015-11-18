@@ -149,6 +149,12 @@ Namespace General
         ''' <remarks></remarks>
         <EnumValue(23, "GV")> _
         GoodsValueReduction
+        ''' <summary>
+        ''' Default <see cref="General.CompanyAccount">account</see> that stores holiday reserve.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <EnumValue(24, "HR")> _
+        HolidayReserve
     End Enum
 
 End Namespace

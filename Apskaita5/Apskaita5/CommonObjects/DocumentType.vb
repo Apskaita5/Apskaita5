@@ -20,5 +20,6 @@ Public Enum DocumentType
     AdvanceReport
     Offset
     AccumulatedCosts
+    HolidayReserve
     None
 End Enum

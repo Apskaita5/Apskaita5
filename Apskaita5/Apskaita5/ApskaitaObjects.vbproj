@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <OutputType>Library</OutputType>
     <RootNamespace>ApskaitaObjects</RootNamespace>
@@ -109,9 +109,14 @@
     <Compile Include="ActiveReports\Declarations\DeclarationSAM_2.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationSAM_3.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationSAM_4.vb" />
+    <Compile Include="ActiveReports\Declarations\DeclarationSAM_5.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationSD13_1.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationSD13_2.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationSD13_5.vb" />
+    <Compile Include="ActiveReports\Declarations\InvoiceRegisterFR0671_1.vb" />
+    <Compile Include="ActiveReports\Declarations\InvoiceRegisterFR0671_2.vb" />
+    <Compile Include="ActiveReports\Declarations\InvoiceRegisterFR0672_1.vb" />
+    <Compile Include="ActiveReports\Declarations\InvoiceRegisterFR0672_2.vb" />
     <Compile Include="ActiveReports\FinancialStatementsInfo.vb" />
     <Compile Include="ActiveReports\GoodsOperationInfo.vb" />
     <Compile Include="ActiveReports\GoodsOperationInfoList.vb" />
@@ -123,6 +128,7 @@
     <Compile Include="ActiveReports\HolidaySpentItem.vb" />
     <Compile Include="ActiveReports\HolidaySpentItemList.vb" />
     <Compile Include="ActiveReports\HolidaySpentItemType.vb" />
+    <Compile Include="ActiveReports\IInvoiceRegisterDeclaration.vb" />
     <Compile Include="ActiveReports\IncomeStatementInfo.vb" />
     <Compile Include="ActiveReports\IncomeStatementInfoList.vb" />
     <Compile Include="ActiveReports\InvoiceInfoItem.vb" />
@@ -136,6 +142,8 @@
     <Compile Include="ActiveReports\PersonInfoItemList.vb" />
     <Compile Include="ActiveReports\ProductionCalculationItem.vb" />
     <Compile Include="ActiveReports\ProductionCalculationItemList.vb" />
+    <Compile Include="ActiveReports\ServiceTurnoverInfo.vb" />
+    <Compile Include="ActiveReports\ServiceTurnoverInfoList.vb" />
     <Compile Include="ActiveReports\UnsettledDocumentInfo.vb" />
     <Compile Include="ActiveReports\UnsettledDocumentInfoList.vb" />
     <Compile Include="ActiveReports\UnsettledPersonInfo.vb" />
@@ -146,6 +154,7 @@
     <Compile Include="ActiveReports\WorkTimeSheetInfo.vb" />
     <Compile Include="ActiveReports\WorkTimeSheetInfoList.vb" />
     <Compile Include="Assets\AcquisitionChronologicValidator.vb" />
+    <Compile Include="Assets\ComplexOperationAmortization.vb" />
     <Compile Include="Assets\LongTermAsset.vb" />
     <Compile Include="Assets\LongTermAssetAmortizationCalculation.vb" />
     <Compile Include="Assets\LongTermAssetAmortizationCalculationList.vb" />
@@ -155,9 +164,14 @@
     <Compile Include="Assets\LongTermAssetCustomGroup.vb" />
     <Compile Include="Assets\LtaAccountChangeType.vb" />
     <Compile Include="Assets\LtaOperationType.vb" />
+    <Compile Include="Assets\OperationAmortization.vb" />
+    <Compile Include="Assets\OperationAmortizationList.vb" />
     <Compile Include="Assets\OperationBackground.vb" />
+    <Compile Include="Assets\OperationChronologicDescriptor.vb" />
     <Compile Include="Assets\OperationChronologicValidator.vb" />
     <Compile Include="Assets\OperationChronologicValidatorItem.vb" />
+    <Compile Include="Assets\OperationDelta.vb" />
+    <Compile Include="Assets\OperationDeltaList.vb" />
     <Compile Include="Assets\OperationPersistenceObject.vb" />
     <Compile Include="CommonObjects\AccountFieldAttribute.vb" />
     <Compile Include="CommonObjects\BookEntryType.vb" />
@@ -177,7 +191,16 @@
     <Compile Include="Documents\AccumulativeCostsChronologicValidator.vb" />
     <Compile Include="Documents\AccumulativeCostsItem.vb" />
     <Compile Include="Documents\AccumulativeCostsItemList.vb" />
-    <Compile Include="Documents\InvoiceAttachedObjects\IInvoiceAttachedObject.vb" />
+    <Compile Include="Documents\InvoiceAdapters\AssetAcquisitionInvoiceAdapter.vb" />
+    <Compile Include="Documents\InvoiceAdapters\AssetAcquisitionValueIncreaseInvoiceAdapter.vb" />
+    <Compile Include="Documents\InvoiceAdapters\AssetSaleInvoiceAdapter.vb" />
+    <Compile Include="Documents\InvoiceAdapters\GoodsAcquisitionInvoiceAdapter.vb" />
+    <Compile Include="Documents\InvoiceAdapters\GoodsAddedCostsInvoiceAdapter.vb" />
+    <Compile Include="Documents\InvoiceAdapters\GoodsDiscountInvoiceAdapter.vb" />
+    <Compile Include="Documents\InvoiceAdapters\GoodsSaleInvoiceAdapter.vb" />
+    <Compile Include="Documents\InvoiceAdapters\IInvoiceAdapter.vb" />
+    <Compile Include="Documents\InvoiceAdapters\InvoiceAdapterFactory.vb" />
+    <Compile Include="Documents\InvoiceAdapters\ServiceInvoiceAdapter.vb" />
     <Compile Include="Documents\InvoiceReceivedNumberUnique.vb" />
     <Compile Include="Documents\RegionalizedObjectType.vb" />
     <Compile Include="General\PersonObjects\ImportedPerson.vb" />
@@ -264,7 +287,7 @@
     <Compile Include="Documents\BankOperation.vb" />
     <Compile Include="Documents\CommandDocumentIdByExternalId.vb" />
     <Compile Include="Documents\InvoiceAttachedObject.vb" />
-    <Compile Include="Documents\InvoiceAttachedObjectType.vb" />
+    <Compile Include="Documents\InvoiceAdapters\InvoiceAdapterType.vb" />
     <Compile Include="Documents\InvoiceType.vb" />
     <Compile Include="Documents\IRegionalDataObject.vb" />
     <Compile Include="Documents\Offset.vb" />
@@ -421,6 +444,9 @@
     <Compile Include="Workers\DayWorkTimeList.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationSam1.vb" />
     <Compile Include="ActiveReports\IDeclaration.vb" />
+    <Compile Include="Workers\HolidayPayReserve.vb" />
+    <Compile Include="Workers\HolidayPayReserveItem.vb" />
+    <Compile Include="Workers\HolidayPayReserveItemList.vb" />
     <Compile Include="Workers\SheetChronologicValidator.vb" />
     <Compile Include="ActiveReports\SodraRateInfo.vb" />
     <Compile Include="Workers\SpecialWorkTimeItem.vb" />
@@ -442,12 +468,9 @@
     <Compile Include="ActiveReports\WorkerHolidayInfo.vb" />
     <Compile Include="Workers\WageItem.vb" />
     <Compile Include="Workers\WageItemList.vb" />
-    <Compile Include="Workers\WagePayOutDocument.vb" />
-    <Compile Include="Workers\WagePayOutItemList.vb" />
     <Compile Include="Workers\WageSheet.vb" />
     <Compile Include="ActiveReports\WageSheetInfo.vb" />
     <Compile Include="ActiveReports\WageSheetInfoList.vb" />
-    <Compile Include="Workers\WagePayOutItem.vb" />
     <Compile Include="ActiveReports\WorkersVDUInfo.vb" />
     <Compile Include="ActiveReports\WorkersVDUInfoList.vb" />
     <Compile Include="Workers\WorkTime.vb" />

@@ -117,9 +117,7 @@ Namespace HelperLists
         ''' <param name="objectType">Type of the regionalizable object.</param>
         ''' <param name="objectID">ID of the regionalizable object.</param>
         ''' <param name="languageCode">Language to look for.</param>
-        ''' for an invoice in <paramref name="languageCode">selected language</paramref>.</param>
-        ''' for an invoice in <paramref name="languageCode">selected language</paramref>.</param>
-        ''' ''' <param name="vatExempt">Returns a regionalizable object VAT exempt description 
+        ''' <param name="vatExemptLT">Returns a regionalizable object VAT exempt description 
         ''' for an invoice in base language.</param>
         ''' <param name="vatExempt">Returns a regionalizable object VAT exempt description 
         ''' for an invoice in <paramref name="languageCode">selected language</paramref>.</param>

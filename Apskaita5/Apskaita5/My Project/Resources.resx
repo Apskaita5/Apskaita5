@@ -7194,4 +7194,1429 @@
   <data name="Assets_LongTermAsset_ValueIncreaseAmmortizationAccountValueCorrection" xml:space="preserve">
     <value>perkainotos dalies nusidėvėjimo korekcija</value>
   </data>
+  <data name="Documents_InvoiceMadeItem_InvalidDocumentUpdate" xml:space="preserve">
+    <value>Jokie sąskaitos faktūros finansiniai duomenys negali būti keičiami, žr. dokumentui taikomus ribojimus.</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_InvalidItemUpdate" xml:space="preserve">
+    <value>Eilutės ""{0}"" finansiniai duomenys negali būti keičiami: {1}</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_ToString" xml:space="preserve">
+    <value>{0}: {1} {2} po {3} {4}</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_TypeName" xml:space="preserve">
+    <value>išrašytos sąskaitos eilutė</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DoomyMeasureUnit" xml:space="preserve">
+    <value>vnt.</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DoomyMeasureUnitAltLng" xml:space="preserve">
+    <value>unit</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DoomyNameInvoice" xml:space="preserve">
+    <value>Kažkokios paslaugos {0}</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DoomyNameInvoiceAltLng" xml:space="preserve">
+    <value>Some services {0} in alternative language</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_InvalidItemDelete" xml:space="preserve">
+    <value>Klaida. Sąskaitos faktūros eilutės "{0}" pašalinti neleidžiama:{1}{2}</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_InvalidDocumentUpdate" xml:space="preserve">
+    <value>Jokie sąskaitos faktūros finansiniai duomenys negali būti keičiami, žr. dokumentui taikomus ribojimus.</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_InvalidItemDelete" xml:space="preserve">
+    <value>Klaida. Sąskaitos faktūros eilutės "{0}" pašalinti neleidžiama:{1}{2}</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_InvalidItemUpdate" xml:space="preserve">
+    <value>Eilutės ""{0}"" finansiniai duomenys negali būti keičiami: {1}</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_ToString" xml:space="preserve">
+    <value>{0}: {1} {2} po {3} {4}</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_TypeName" xml:space="preserve">
+    <value>gautos sąskaitos eilutė</value>
+  </data>
+  <data name="Common_IndexOutOfRange" xml:space="preserve">
+    <value>Index out of range: Index={0}, Count={1}.</value>
+  </data>
+  <data name="Common_TypeDoesNotImplementInterface" xml:space="preserve">
+    <value>Klaida. Tipas "{0}" neimplementuoja interfeiso "{1}".</value>
+  </data>
+  <data name="Documents_InvoiceMade_DoomyInvoiceCurrency" xml:space="preserve">
+    <value>USD</value>
+  </data>
+  <data name="Documents_InvoiceMade_DoomyInvoiceLanguage" xml:space="preserve">
+    <value>EN</value>
+  </data>
+  <data name="Documents_InvoiceMade_ToString" xml:space="preserve">
+    <value>{0} išrašyta sąskaita faktūra Nr. {1}{2} (ID={3}): {4}.</value>
+  </data>
+  <data name="Documents_InvoiceMade_TypeName" xml:space="preserve">
+    <value>išrašyta sąskaita faktūra</value>
+  </data>
+  <data name="Documents_InvoiceReceived_ExternalIdNotUnique" xml:space="preserve">
+    <value>Klaida. Išorinis ID="{0}" jau egzistuoja duomenų bazėje.</value>
+  </data>
+  <data name="Documents_InvoiceReceived_ToString" xml:space="preserve">
+    <value>{0} gauta sąskaita faktūra Nr. {1} (ID={2}): {3}.</value>
+  </data>
+  <data name="Documents_InvoiceReceived_TypeName" xml:space="preserve">
+    <value>išrašyta sąskaita faktūra</value>
+  </data>
+  <data name="Documents_InvoiceMade_DoomyCommentsInternal" xml:space="preserve">
+    <value>Kažkokie vidiniai komentarai</value>
+  </data>
+  <data name="Documents_InvoiceMade_DoomyContent" xml:space="preserve">
+    <value>Kažkoks turinys (aprašymas)</value>
+  </data>
+  <data name="Documents_InvoiceMade_DoomyCustomInfo" xml:space="preserve">
+    <value>Kažkokia papildoma klientui matoma informacija</value>
+  </data>
+  <data name="Documents_InvoiceMade_DoomyCustomInfoAltLng" xml:space="preserve">
+    <value>Some additional info for client in original invoice language</value>
+  </data>
+  <data name="Documents_InvoiceMade_DoomySerial" xml:space="preserve">
+    <value>ORD</value>
+  </data>
+  <data name="Documents_InvoiceMade_InvalidSaveForDoomy" xml:space="preserve">
+    <value>Klaida. Pavyzdinės faktūros negalima išsaugoti duomenų bazėje.</value>
+  </data>
+  <data name="Assets_ComplexOperationAmortization_CannotChangeFinancialData" xml:space="preserve">
+    <value>Klaida. Koreguoti dokumento finansinius duomenis neleidžiama:{0}{1}</value>
+  </data>
+  <data name="Assets_ComplexOperationAmortization_CannotChangeFinancialDataFull" xml:space="preserve">
+    <value>Klaida. Koreguoti dokumento finansinius duomenis, įskaitant eilučių pridėjimą ar ištrynimą, neleidžiama:{0}{1}</value>
+  </data>
+  <data name="Assets_ComplexOperationAmortization_DocumentEmpty" xml:space="preserve">
+    <value>Klaida. Dokumente nėra nė vienos eilutės.</value>
+  </data>
+  <data name="Assets_ComplexOperationAmortization_InvalidDelete" xml:space="preserve">
+    <value>Klaida. Dokumento pašalinti neleidžiama:{0}{1}</value>
+  </data>
+  <data name="Assets_ComplexOperationAmortization_OperationIDNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas kompleksinės ilgalaikio turto amortizacijos operacijos ID.</value>
+  </data>
+  <data name="Assets_ComplexOperationAmortization_ToString" xml:space="preserve">
+    <value>kompleksinis ilgalaikio turto amortizacijos paskaičiavimo dokumentas</value>
+  </data>
+  <data name="Assets_ComplexOperationAmortization_TypeName" xml:space="preserve">
+    <value>{0} kompleksinis ilgalaikio turto amortizacijos paskaičiavimas Nr. {1} (ID={2})</value>
+  </data>
+  <data name="Assets_OperationAmortizationList_AssetIDsNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas nė vienas ilgalaikio turto ID.</value>
+  </data>
+  <data name="Assets_OperationAmortizationList_AssetNotFoundForCalculation" xml:space="preserve">
+    <value>Klaida. Amortizacija paskaičiuota ilgalaikiam turtui, kurio ID={0}, o šiame dokumente tokio ilgalaikio turto nėra.</value>
+  </data>
+  <data name="Assets_OperationAmortizationList_CalculationImportException" xml:space="preserve">
+    <value>Klaida. Nepavyko įkelti amortizacijos paskaičiavimų:{0}{1}</value>
+  </data>
+  <data name="Assets_OperationAmortizationList_CalculationImportWarning" xml:space="preserve">
+    <value>Pavyko įkelti {0} iš {1} amortizacijos paskaičiavimų. Įkeliant paskaičiavimus įvyko šios klaidos:{2}{3}</value>
+  </data>
+  <data name="Assets_OperationAmortizationList_CalculationsCountMismatch" xml:space="preserve">
+    <value>Nesutampa eilučių kiekis dokumente ({0}) ir kalkuliacijų sąraše ({1}).</value>
+  </data>
+  <data name="Assets_OperationAmortizationList_CalculationsNull" xml:space="preserve">
+    <value>Klaida. Nenurodytos kalkuliacijos, kurias būtų galima įkelti.</value>
+  </data>
+  <data name="Assets_OperationAmortizationList_ToString" xml:space="preserve">
+    <value>kompleksinės ilgalaikio turto amortizacijos dokumento operacijos</value>
+  </data>
+  <data name="Assets_OperationAmortizationList_TypeName" xml:space="preserve">
+    <value>kompleksinės ilgalaikio turto amortizacijos dokumento operacijos</value>
+  </data>
+  <data name="Assets_OperationAmortization_CannotChangeFinancialData" xml:space="preserve">
+    <value>Klaida. Ilgalaikio turto '{0}' amortizacijos operacijos finansinių duomenų keisti neleidžiama:{1}{2}</value>
+  </data>
+  <data name="Assets_OperationAmortization_InvalidCalculationAsset" xml:space="preserve">
+    <value>Klaida. Amortizacija paskaičiuota ilgalaikiam turtui, kurio ID={0}, o šioje operacijoje ilgalaikio turto ID={1}.</value>
+  </data>
+  <data name="Assets_OperationAmortization_InvalidCalculationDate" xml:space="preserve">
+    <value>Klaida. Ilgalaikio turto '{0}' amortizacija paskaičiuota {1} datai, o šios operacijos data yra {2}.</value>
+  </data>
+  <data name="Assets_OperationAmortization_InvalidDelete" xml:space="preserve">
+    <value>Klaida. Ilgalaikio turto "{0}" amortizacijos apskaičiavimo operacijos pašalinti neleidžiama:{1}{2}</value>
+  </data>
+  <data name="Assets_OperationAmortization_InvalidDeleteChild" xml:space="preserve">
+    <value>Klaida. Ši IT operacija buvo registruota formuojant kompleksinį dokumentą (aktą). Ji gali būti pašalinta tik redaguojant šį kompleksinį dokumentą (aktą).</value>
+  </data>
+  <data name="Assets_OperationAmortization_RevaluedPortionDoesNotExist" xml:space="preserve">
+    <value>Parvertintos dalies vertė lygi nuliui, nėra amortizacijos objekto.</value>
+  </data>
+  <data name="Assets_OperationAmortization_RevaluedPortionNull" xml:space="preserve">
+    <value>Nenurodytas turto pervertintos dalies vertės pokytis.</value>
+  </data>
+  <data name="Assets_OperationAmortization_ToString" xml:space="preserve">
+    <value>{0} ilgalaikio turto "{1}" amortizacijos paskaičiavimas Nr. {2} (ID={3})</value>
+  </data>
+  <data name="Assets_OperationAmortization_ToStringChild" xml:space="preserve">
+    <value>ilgalaikio turto "{0}" amortizacijos paskaičiavimas (ID={1})</value>
+  </data>
+  <data name="Assets_OperationAmortization_TypeName" xml:space="preserve">
+    <value>ilgalaikio turto amortizacijos paskaičiavimas</value>
+  </data>
+  <data name="Assets_OperationBackground_AcquisitionValueInvalid" xml:space="preserve">
+    <value>Įsigijimo vertė su amortizacija po operacijos negali būti mažesnė už likvidacinę vertę.</value>
+  </data>
+  <data name="Assets_OperationBackground_AmountInvalid" xml:space="preserve">
+    <value>Kiekis po operacijos negali būti mažesnis už nulį.</value>
+  </data>
+  <data name="Assets_OperationBackground_BalanceInvalid" xml:space="preserve">
+    <value>Likutis po operacijos negali būti mažesnis už nulį.</value>
+  </data>
+  <data name="Assets_OperationBackground_NullBalanceRequired" xml:space="preserve">
+    <value>Likutis turi būti lygus nuliui, kai turto kiekio likutis lygus nuliui.</value>
+  </data>
+  <data name="Assets_OperationBackground_RevaluedPortionAmortizationInvalid" xml:space="preserve">
+    <value>Pervertintos dalies amortizacija negali būti didesnė už pervertintos dalies vertę.</value>
+  </data>
+  <data name="Assets_OperationBackground_UnitValueChangeInvalid" xml:space="preserve">
+    <value>Vieneto vertės pokytis negalimas, kai turto likutis lygus nuliui.</value>
+  </data>
+  <data name="Assets_OperationBackground_UnitValueInvalid" xml:space="preserve">
+    <value>Vieneto vertės pokytis kart kiekis negali skirtis nuo bendro vertės pokyčio daugiau kaip {0}.</value>
+  </data>
+  <data name="Assets_OperationBackground_UnitValueInvalidForSingleUnit" xml:space="preserve">
+    <value>Vieneto vertės pokytis turi būti lygus bendram vertės pokyčiui, kai kiekis lygus vienetui.</value>
+  </data>
+  <data name="Assets_OperationChronologicDescriptor_TypeNotImplemented" xml:space="preserve">
+    <value>Klaida. Neimplementuoti chronologiniai apribojimai ilgalaikio turto operacijos tipui {0}.</value>
+  </data>
+  <data name="Assets_OperationChronologicValidator_DateIsLockedExplanation" xml:space="preserve">
+    <value>Operacijos data negali keistis, nes po šios operacijos buvo registruota ribojanti operacija ({0}).</value>
+  </data>
+  <data name="Assets_OperationChronologicValidator_DescriptionFirstOperationsAfter" xml:space="preserve">
+    <value>Pirmos operacijos su ilgalaikiu turtu po keičiamos operacijos:{0}{1}</value>
+  </data>
+  <data name="Assets_OperationChronologicValidator_DescriptionLastOperations" xml:space="preserve">
+    <value>Paskutinės operacijos su ilgalaikiu turtu:{0}{1}</value>
+  </data>
+  <data name="Assets_OperationChronologicValidator_DescriptionLastOperationsBefore" xml:space="preserve">
+    <value>Paskutinės operacijos su ilgalaikiu turtu iki keičiamos operacijos:{0}{1}</value>
+  </data>
+  <data name="Assets_OperationChronologicValidator_DescriptionLimits" xml:space="preserve">
+    <value>Operacijai taikomi apribojimai:{0}{1}</value>
+  </data>
+  <data name="Assets_OperationChronologicValidator_DescriptionLimitsNull" xml:space="preserve">
+    <value>Operacijai nėra taikomi jokie apribojimai.</value>
+  </data>
+  <data name="Assets_OperationChronologicValidator_FinancialDataCanChangeExplanation" xml:space="preserve">
+    <value>Finansinių operacijos duomenų keisti negalima, nes vėlesne data yra registruota operacijų su turtu.</value>
+  </data>
+  <data name="Assets_OperationChronologicValidator_MaxDateExplanation" xml:space="preserve">
+    <value>Maksimali leidžiama operacijos data yra {0}, nes šia data yra registruota operacijų su turtu.</value>
+  </data>
+  <data name="Assets_OperationChronologicValidator_MinDateByAcquisitionDate" xml:space="preserve">
+    <value>Minimali leidžiama operacijos data yra {0}, nes tada šis turtas buvo įgytas.</value>
+  </data>
+  <data name="Assets_OperationChronologicValidator_MinDateExplanation" xml:space="preserve">
+    <value>Minimali leidžiama operacijos data yra {0}, nes prieš tai yra registruota operacijų su turtu.</value>
+  </data>
+  <data name="Assets_OperationChronologicValidator_ToString" xml:space="preserve">
+    <value>ilgalaikio turto operacijos chronologijos taisyklės tipui - {0}</value>
+  </data>
+  <data name="Assets_OperationChronologicValidator_TypeName" xml:space="preserve">
+    <value>ilgalaikio turto operacijos chronologijos taisyklės</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_AccountCostsInvalid" xml:space="preserve">
+    <value>Nesutampa įsigijimo savikainos sąskaita nurodyta sąskaitos eilutėje ({0}) ir susietoje ilgalaikio turto įsigijimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_AccountCostsNull" xml:space="preserve">
+    <value>Nenurodyta įsigijimo savikainos sąskaita.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_AccountIncomeInvalid" xml:space="preserve">
+    <value>Nesutampa įsigijimo savikainos sąskaita nurodyta sąskaitos eilutėje ({0}) ir susietoje ilgalaikio turto įsigijimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_AccountIncomeNull" xml:space="preserve">
+    <value>Nenurodyta įsigijimo savikainos sąskaita.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_AmountInvalidGeneral" xml:space="preserve">
+    <value>Įsigyjant ilgalaikį turtą kiekis turi būti sveikas skaičius (be kablelio).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_AmountInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita įsigyti ilgalaikį turtą reikalinga kreditinė eilutė, t.y. kiekis ir suma turi būti neigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_AmountInvalidReceived" xml:space="preserve">
+    <value>Norint gaunama sąskaita įsigyti ilgalaikį turtą reikalinga debetinė eilutė, t.y. kiekis ir suma turi būti teigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_AmountMismatch" xml:space="preserve">
+    <value>Nesutampa įsigijimo kiekis, nurodytas sąskaitos eilutėje ({0}) ir susietoje ilgalaikio turto įsigijimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_SumInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita įsigyti ilgalaikį turtą reikalinga kreditinė eilutė, t.y. kiekis ir suma turi būti neigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_SumInvalidReceived" xml:space="preserve">
+    <value>Norint gaunama sąskaita įsigyti ilgalaikį turtą reikalinga debetinė eilutė, t.y. kiekis ir suma turi būti teigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_SumMismatch" xml:space="preserve">
+    <value>Nesutampa įsigijimo suma, nurodyta sąskaitos eilutėje ({0}) ir susietoje ilgalaikio turto įsigijimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_SumTotalInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita įsigyti ilgalaikį turtą reikalinga kreditinė eilutė, t.y. kiekis ir suma turi būti neigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_SumTotalInvalidReceived" xml:space="preserve">
+    <value>Norint gaunama sąskaita įsigyti ilgalaikį turtą reikalinga debetinė eilutė, t.y. kiekis ir suma turi būti teigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_SumTotalMismatch" xml:space="preserve">
+    <value>Nesutampa įsigijimo suma, nurodyta sąskaitos eilutėje ({0}) ir susietoje ilgalaikio turto įsigijimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_ToString" xml:space="preserve">
+    <value>ilgalaikio turto įsigijimas</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_TypeName" xml:space="preserve">
+    <value>ilgalaikio turto įsigijimo adapteris</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_SumInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita padidinti ilgalaikio turto savikainą reikalinga kreditinė eilutė, t.y. suma turi būti neigiama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_SumInvalidReceived" xml:space="preserve">
+    <value>Norint gaunama sąskaita padidinti ilgalaikio turto savikainą reikalinga debetinė eilutė, t.y. suma turi būti teigiama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_SumMismatch" xml:space="preserve">
+    <value>Nesutampa savikainos padidinimo suma, nurodyta sąskaitos eilutėje ({0}) ir susietoje ilgalaikio turto įsigijimo savikainos padidinimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_SumTotalInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita padidinti ilgalaikio turto savikainą reikalinga kreditinė eilutė, t.y. suma turi būti neigiama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_SumTotalInvalidReceived" xml:space="preserve">
+    <value>Norint gaunama sąskaita padidinti ilgalaikio turto savikainą reikalinga debetinė eilutė, t.y. suma turi būti teigiama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_SumTotalMismatch" xml:space="preserve">
+    <value>Nesutampa savikainos padidinimo suma, nurodyta sąskaitos eilutėje ({0}) ir susietoje ilgalaikio turto įsigijimo savikainos padidinimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_ToString" xml:space="preserve">
+    <value>ilgalaikio turto įsigijimo savikainos padidinimas: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_TypeName" xml:space="preserve">
+    <value>ilgalaikio turto įsigijimo savikainos padidinimo adapteris</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_AccountCostsInvalid" xml:space="preserve">
+    <value>Nesutampa pardavimo rezultato (pajamų/sąnaudų) sąskaita nurodyta sąskaitos eilutėje ({0}) ir susietoje ilgalaikio turto perleidimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_AccountCostsNull" xml:space="preserve">
+    <value>Nenurodyta pardavimo rezultato (pajamų/sąnaudų) sąskaita.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_AccountIncomeInvalid" xml:space="preserve">
+    <value>Nesutampa pardavimo rezultato (pajamų/sąnaudų) sąskaita nurodyta sąskaitos eilutėje ({0}) ir susietoje ilgalaikio turto perleidimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_AccountIncomeNull" xml:space="preserve">
+    <value>Nenurodyta pardavimo rezultato (pajamų/sąnaudų) sąskaita.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_AmountInvalidGeneral" xml:space="preserve">
+    <value>Perleidžiant ilgalaikį turtą kiekis turi būti sveikas skaičius (be kablelio).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_AmountInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita perleisti ilgalaikį turtą reikalinga debetinė eilutė, t.y. kiekis ir suma turi būti teigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_AmountInvalidReceived" xml:space="preserve">
+    <value>Norint gaunama sąskaita perleisti ilgalaikį turtą reikalinga kreditinė eilutė, t.y. kiekis ir suma turi būti neigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_AmountMismatch" xml:space="preserve">
+    <value>Nesutampa perleidžiamas kiekis, nurodytas sąskaitos eilutėje ({0}) ir susietoje ilgalaikio turto perleidimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_SumInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita perleisti ilgalaikį turtą reikalinga debetinė eilutė, t.y. kiekis ir suma turi būti teigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_SumInvalidReceived" xml:space="preserve">
+    <value>Norint gaunama sąskaita perleisti ilgalaikį turtą reikalinga kreditinė eilutė, t.y. kiekis ir suma turi būti neigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_SumTotalInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita perleisti ilgalaikį turtą reikalinga debetinė eilutė, t.y. kiekis ir suma turi būti teigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_SumTotalInvalidReceived" xml:space="preserve">
+    <value>Norint gaunama sąskaita perleisti ilgalaikį turtą reikalinga kreditinė eilutė, t.y. kiekis ir suma turi būti neigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_ToString" xml:space="preserve">
+    <value>ilgalaikio turto perleidimas: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_TypeName" xml:space="preserve">
+    <value>ilgalaikio turto perleidimo adapteris</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_AccountCostsInvalid" xml:space="preserve">
+    <value>Nesutampa įsigijimo savikainos sąskaita nurodyta sąskaitos eilutėje ({0}) ir susietoje prekių įsigijimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_AccountCostsNull" xml:space="preserve">
+    <value>Nenurodyta įsigijimo savikainos sąskaita.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_AccountIncomeInvalid" xml:space="preserve">
+    <value>Nesutampa įsigijimo savikainos sąskaita nurodyta sąskaitos eilutėje ({0}) ir susietoje prekių įsigijimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_AccountIncomeNull" xml:space="preserve">
+    <value>Nenurodyta įsigijimo savikainos sąskaita.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_AmountInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita įsigyti prekes reikalinga kreditinė eilutė, t.y. kiekis ir suma turi būti neigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_AmountInvalidReceived" xml:space="preserve">
+    <value>Norint gauta sąskaita įsigyti prekes reikalinga debetinė eilutė, t.y. kiekis ir suma turi būti teigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_AmountMismatch" xml:space="preserve">
+    <value>Nesutampa įsigijimo kiekis, nurodytas sąskaitos eilutėje ({0}) ir susietoje prekių įsigijimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_SumInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita įsigyti prekes reikalinga kreditinė eilutė, t.y. kiekis ir suma turi būti neigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_SumInvalidReceived" xml:space="preserve">
+    <value>Norint gaunama sąskaita įsigyti prekes reikalinga debetinė eilutė, t.y. kiekis ir suma turi būti teigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_SumMismatch" xml:space="preserve">
+    <value>Nesutampa įsigijimo suma, nurodyta sąskaitos eilutėje ({0}) ir susietoje prekių įsigijimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_SumTotalInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita įsigyti prekes reikalinga kreditinė eilutė, t.y. kiekis ir suma turi būti neigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_SumTotalInvalidReceived" xml:space="preserve">
+    <value>Norint gaunama sąskaita įsigyti prekes reikalinga debetinė eilutė, t.y. kiekis ir suma turi būti teigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_SumTotalMismatch" xml:space="preserve">
+    <value>Nesutampa įsigijimo suma, nurodyta sąskaitos eilutėje ({0}) ir susietoje prekių įsigijimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_ToString" xml:space="preserve">
+    <value>prekių įsigijimas: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_TypeName" xml:space="preserve">
+    <value>prekių įsigijimo adapteris</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_AccountCostsInvalid" xml:space="preserve">
+    <value>Visos prekių savikainos padidinimo sąskaitos yra tvarkomos susietoje operacijoje, sąskaitos eilutėje nurodyta sąnaudų sąskaita nebus naudojama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_AccountIncomeInvalid" xml:space="preserve">
+    <value>Visos prekių savikainos padidinimo apskaitos sąskaitos yra tvarkomos susietoje operacijoje, sąskaitos eilutėje nurodyta pajamų sąskaita nebus naudojama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_SumInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita padidinti prekių savikainą reikalinga kreditinė eilutė, t.y. suma turi būti neigiama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_SumInvalidReceived" xml:space="preserve">
+    <value>Norint gaunama sąskaita padidinti prekių savikainą reikalinga debetinė eilutė, t.y. suma turi būti teigiama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_SumMismatch" xml:space="preserve">
+    <value>Nesutampa savikainos padidinimo suma, nurodyta sąskaitos eilutėje ({0}) ir susietoje prekių savikainos padidinimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_SumTotalInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita padidinti prekių savikainą reikalinga kreditinė eilutė, t.y. suma turi būti neigiama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_SumTotalInvalidReceived" xml:space="preserve">
+    <value>Norint gaunama sąskaita padidinti prekių savikainą reikalinga debetinė eilutė, t.y. suma turi būti teigiama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_SumTotalMismatch" xml:space="preserve">
+    <value>Nesutampa savikainos padidinimo suma, nurodyta sąskaitos eilutėje ({0}) ir susietoje prekių savikainos padidinimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_ToString" xml:space="preserve">
+    <value>prekių įsigijimo savikainos padidinimas: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_TypeName" xml:space="preserve">
+    <value>prekių įsigijimo savikainos padidinimo adapteris</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_AccountCostsInvalid" xml:space="preserve">
+    <value>Visos prekių nuolaidos apskaitos sąskaitos yra tvarkomos susietoje operacijoje, sąskaitos eilutėje nurodyta sąnaudų sąskaita nebus naudojama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_AccountIncomeInvalid" xml:space="preserve">
+    <value>Visos prekių nuolaidos apskaitos sąskaitos yra tvarkomos susietoje operacijoje, sąskaitos eilutėje nurodyta pajamų sąskaita nebus naudojama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_SumInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita gauti nuolaidą prekėms reikalinga debetinė eilutė, t.y. suma turi būti teigiama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_SumInvalidReceived" xml:space="preserve">
+    <value>Norint gaunama sąskaita gauti nuolaidą prekėms reikalinga kreditinė eilutė, t.y. suma turi būti neigiama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_SumMismatch" xml:space="preserve">
+    <value>Nesutampa nuolaidos suma, nurodyta sąskaitos eilutėje ({0}) ir susietoje prekių nuolaidos operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_SumTotalInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita gauti nuolaidą prekėms reikalinga debetinė eilutė, t.y. suma turi būti teigiama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_SumTotalInvalidReceived" xml:space="preserve">
+    <value>Norint gaunama sąskaita gauti nuolaidą prekėms reikalinga kreditinė eilutė, t.y. suma turi būti neigiama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_SumTotalMismatch" xml:space="preserve">
+    <value>Nesutampa savikainos padidinimo suma, nurodyta sąskaitos eilutėje ({0}) ir susietoje prekių nuolaidos operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_ToString" xml:space="preserve">
+    <value>gauta nuolaida prekėms: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_TypeName" xml:space="preserve">
+    <value>prekėms gautos nuolaidos adapteris</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_AmountInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita perleisti prekes reikalinga debetinė eilutė, t.y. kiekis ir suma turi būti teigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_AmountInvalidReceived" xml:space="preserve">
+    <value>Norint gauta sąskaita perleisti prekes reikalinga kreditinė eilutė, t.y. kiekis ir suma turi būti neigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_AmountMismatch" xml:space="preserve">
+    <value>Nesutampa perleidžiamas kiekis, nurodytas sąskaitos eilutėje ({0}) ir susietoje prekių perleidimo operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_SumInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita perleisti prekes reikalinga debetinė eilutė, t.y. kiekis ir suma turi būti teigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_SumInvalidReceived" xml:space="preserve">
+    <value>Norint gaunama sąskaita perleisti prkes reikalinga kreditinė eilutė, t.y. kiekis ir suma turi būti neigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_SumTotalInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita perleisti prekes reikalinga debetinė eilutė, t.y. kiekis ir suma turi būti teigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_SumTotalInvalidReceived" xml:space="preserve">
+    <value>Norint gaunama sąskaita perleisti prekes reikalinga kreditinė eilutė, t.y. kiekis ir suma turi būti neigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_ToString" xml:space="preserve">
+    <value>prekių perleidimas: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_TypeName" xml:space="preserve">
+    <value>prekių perleidimo adapteris</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_IInvoiceAdapter_InvalidAccountValidationOperation" xml:space="preserve">
+    <value>Klaida. {0} negali validuoti sąskaitos.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_ServiceInvoiceAdapter_ToString" xml:space="preserve">
+    <value>paslauga: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_ServiceInvoiceAdapter_TypeName" xml:space="preserve">
+    <value>paslaugos adapteris</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_ApplicableUnusedHolidayDays" xml:space="preserve">
+    <value>taikomas nepan. atost. kiekis k.d.</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_ApplicableVDUDaily" xml:space="preserve">
+    <value>taikomas dien. VDU</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_ApplicableWorkDaysRatio" xml:space="preserve">
+    <value>taikomas darbo dienų koeficientas</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_BonusBase" xml:space="preserve">
+    <value>premijų bazė</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_BonusQuarterly" xml:space="preserve">
+    <value>ketvirtinės premijos</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_BonusVDUDaily" xml:space="preserve">
+    <value>dien. VDU pgl. premijas</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_BonusVDUHourly" xml:space="preserve">
+    <value>val. VDU pgl. premijas</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_BonusYearly" xml:space="preserve">
+    <value>viso metinių premijų</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_Comments" xml:space="preserve">
+    <value>pastabos</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_ContractDate" xml:space="preserve">
+    <value>sutarties data</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_ContractNumber" xml:space="preserve">
+    <value>sutarties Nr.</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_ContractSerial" xml:space="preserve">
+    <value>sutarties serija</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_ConventionalExtraPay" xml:space="preserve">
+    <value>priedas sutartyje</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_ConventionalWage" xml:space="preserve">
+    <value>darbo užmok. sutartyje</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_HolidayPayReserveValue" xml:space="preserve">
+    <value>rezervo vertė</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_HolidayRate" xml:space="preserve">
+    <value>atostogų norma</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_PersonCode" xml:space="preserve">
+    <value>asmens kodas</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_PersonCodeSodra" xml:space="preserve">
+    <value>SODRA kodas</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_PersonID" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_PersonName" xml:space="preserve">
+    <value>vardas, pavardė</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_Position" xml:space="preserve">
+    <value>pareigos</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_StandartDaysForTheCurrentMonth" xml:space="preserve">
+    <value>einamojo mėn. grafiko d.d.</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_StandartHoursForTheCurrentMonth" xml:space="preserve">
+    <value>einamojo mėn. grafiko d.v.</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_ToString" xml:space="preserve">
+    <value>{0}, darbo sutartis Nr. {1}{2}</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_TotalCumulatedHolidayDays" xml:space="preserve">
+    <value>viso sukaupta atost. k.d.</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_TotalHolidayDaysCorrection" xml:space="preserve">
+    <value>viso atost. korekciju k.d.</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_TotalHolidayDaysGranted" xml:space="preserve">
+    <value>viso suteikta atost. k.d.</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_TotalHolidayDaysUsed" xml:space="preserve">
+    <value>viso panaudota atost. k.d.</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_TotalScheduledDays" xml:space="preserve">
+    <value>viso d.d. pgl. grafiką VDU skaičiavimui</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_TotalScheduledHours" xml:space="preserve">
+    <value>viso d.v. pgl. grafiką VDU skaičiavimui</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_TotalUnusedHolidayDays" xml:space="preserve">
+    <value>viso nepanaudotų atost. k.d.</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_TotalVDUDaily" xml:space="preserve">
+    <value>viso apskaičiuotas dien. VDU</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_TotalVDUHourly" xml:space="preserve">
+    <value>viso apskaičiuotas val. VDU</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_TotalWage" xml:space="preserve">
+    <value>viso darbo užmokesčio VDU skaičiavimui</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_TotalWorkDays" xml:space="preserve">
+    <value>viso d.d. faktiškai VDU skaičiavimui</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_TotalWorkHours" xml:space="preserve">
+    <value>viso d.v. faktiškai VDU skaičiavimui</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_TotalWorkPeriodInDays" xml:space="preserve">
+    <value>viso atostogų stažas k.d.</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_TotalWorkPeriodInYears" xml:space="preserve">
+    <value>viso atostogų stažas metais</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_TypeName" xml:space="preserve">
+    <value>nepanaudotų atostogų rezervo paskaičiavimas darbo sutarčiai</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_WageType" xml:space="preserve">
+    <value>darbo užmok. tipas</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_WageTypeHumanReadable" xml:space="preserve">
+    <value>darbo užmok. tipas</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_WageVDUDaily" xml:space="preserve">
+    <value>dien. VDU pgl. DU</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_WageVDUHourly" xml:space="preserve">
+    <value>val. VDU pgl. DU</value>
+  </data>
+  <data name="Workers_HolidayPayReserveItem_WorkLoad" xml:space="preserve">
+    <value>krūvis (etatai)</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_AccountReserveNull" xml:space="preserve">
+    <value>Klaida. Prie bendrų įmonės duomenų nenustatyta atostogų rezervo sąskaita.</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_ToString" xml:space="preserve">
+    <value>{0} nepanaudotų atostogų rezervo paskaičiavimo pažyma Nr. {1} (ID={2})</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_TypeName" xml:space="preserve">
+    <value>nepanaudotų atostogų rezervo paskaičiavimo pažyma</value>
+  </data>
+  <data name="General_DefaultAccountType_HolidayReserve" xml:space="preserve">
+    <value>atostogų rezervas</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_AccountCosts" xml:space="preserve">
+    <value>sąnaudų sąskaita</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_AccountCostsIsReadOnly" xml:space="preserve">
+    <value>sąnaudų sąskaitos keisti neleidžiama</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_AccountReserve" xml:space="preserve">
+    <value>rezervo sąskaita</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_Comments" xml:space="preserve">
+    <value>komentarai</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_Content" xml:space="preserve">
+    <value>turinys (aprašymas)</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_Items" xml:space="preserve">
+    <value>nepanaudotų atsotogų rezervo detalios eilutės</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_ItemsSorted" xml:space="preserve">
+    <value>nepanaudotų atsotogų rezervo detalios eilutės</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_Number" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_TaxRate" xml:space="preserve">
+    <value>darbdavio mokesčių tarifas</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_TaxRateIsReadOnly" xml:space="preserve">
+    <value>darbdavio mokesčių tarifo keisti neleidžiama</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_TotalSumChange" xml:space="preserve">
+    <value>viso pokytis</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_TotalSumCurrent" xml:space="preserve">
+    <value>esamas rezervo balansas</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_TotalSumEvaluated" xml:space="preserve">
+    <value>viso paskaičiuota</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_TotalSumEvaluatedBeforeTaxes" xml:space="preserve">
+    <value>viso paskaičiuota prieš mokesčius</value>
+  </data>
+  <data name="Workers_HolidayPayReserve_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_IInvoiceAdapter_GetCopyIsNotImplemented" xml:space="preserve">
+    <value>Susieta operacija, kurios tipas yra "{0}", negali būti kopijuojama.</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_InvalidInvoiceAdapter" xml:space="preserve">
+    <value>Susieta operacija yra skirta gautai, o ne išrašytai sąskaitai faktūrai.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_InvoiceAdapterFactory_OperationTypeNotImplemented" xml:space="preserve">
+    <value>Klaida. Susietos operacijos tipas "{0}" neimplementuotas modulyje InvoiceAdapterFactory.</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_BaseCurrencyCorrectionInvalid" xml:space="preserve">
+    <value>Sumų bazine valiuta korekcija negalima, kai sąskaitos faktūros valiuta sutampa su bazine.</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DiscountCorrectionInvalid" xml:space="preserve">
+    <value>Nuolaidos bazine valiuta korekcija negalima, kai nuolaida lygi nuliui.</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DiscountInCreditItem" xml:space="preserve">
+    <value>Kreditinėse eilutėse negali būti nuolaidos.</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DiscountNegative" xml:space="preserve">
+    <value>Nuolaida negali būti neigiama.</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DiscountNotSupported" xml:space="preserve">
+    <value>Susieta operacija nepalaiko nuolaidos.</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DiscountVatCorrectionInvalid" xml:space="preserve">
+    <value>Nuolaidos PVM sumos bazine valiuta korekcija negalima, kai nuolaidos PVM suma lygi nuliui.</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_SumVatCorrectionInvalid" xml:space="preserve">
+    <value>PVM sumos korekcija negalima, kai PVM tarifas lygus nuliui.</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_UnitValueAndAmountBothNegative" xml:space="preserve">
+    <value>Kiekis ir vieneto kaina negali abu būti neigiami.</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_ValueExceedsLimits" xml:space="preserve">
+    <value>Laukelio {0} vertė negali būti didesnė nei laukelio {1} vertė.</value>
+  </data>
+  <data name="Documents_InvoiceMade_DiscountInvalid" xml:space="preserve">
+    <value>Nuolaidos negalimos kreditinėse ir debetinėse sąskaitose.</value>
+  </data>
+  <data name="Documents_InvoiceMade_DiscountSumInvalid" xml:space="preserve">
+    <value>Nuolaidos suma negali būti didesnė už sąskaitos sumą.</value>
+  </data>
+  <data name="Documents_InvoiceMade_ExternalIdNotUnique" xml:space="preserve">
+    <value>Klaida. Išorinis ID="{0}" jau egzistuoja duomenų bazėje.</value>
+  </data>
+  <data name="Documents_InvoiceMade_NoItems" xml:space="preserve">
+    <value>Nenurodyta nė viena sąskaitos eilutė.</value>
+  </data>
+  <data name="Documents_InvoiceMade_SerialNumberNotUnique" xml:space="preserve">
+    <value>Klaida. Sąskaita - faktūra su tokia serija ir numeriu jau yra.</value>
+  </data>
+  <data name="Documents_InvoiceMade_SumInvalidForCreditInvoice" xml:space="preserve">
+    <value>Kreditinė sąskaita turėtų būti neigiama.</value>
+  </data>
+  <data name="Documents_InvoiceMade_SumInvalidForDebitInvoice" xml:space="preserve">
+    <value>Paprasta arba debetinė sąskaita turėtų būti teigiama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_ContentInvoiceMade" xml:space="preserve">
+    <value>Išrašyta sąskaita: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_ContentInvoiceReceived" xml:space="preserve">
+    <value>Gauta sąskaita: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_ContentInvoiceMade" xml:space="preserve">
+    <value>Išrašyta sąskaita: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_ContentInvoiceReceived" xml:space="preserve">
+    <value>Gauta sąskaita: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_ContentInvoiceMade" xml:space="preserve">
+    <value>Išrašyta sąskaita: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_ContentInvoiceReceived" xml:space="preserve">
+    <value>Gauta sąskaita: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_ContentInvoiceMade" xml:space="preserve">
+    <value>Išrašyta sąskaita: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_ContentInvoiceReceived" xml:space="preserve">
+    <value>Gauta sąskaita: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_ContentInvoiceMade" xml:space="preserve">
+    <value>Išrašyta sąskaita: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_ContentInvoiceReceived" xml:space="preserve">
+    <value>Gauta sąskaita: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_ContentInvoiceMade" xml:space="preserve">
+    <value>Išrašyta sąskaita: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_ContentInvoiceReceived" xml:space="preserve">
+    <value>Gauta sąskaita: {0}</value>
+  </data>
+  <data name="General_Account_WasUsedByHolidayReserve" xml:space="preserve">
+    <value>atostogų rezervo pažymoje</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoItemList_DeclarationFormDateInvalid" xml:space="preserve">
+    <value>Pasirinkta deklaracija galioja laikotarpiu nuo {0} iki {1}, o sąskaitų faktūrų registro laikotarpis yra nuo {2} iki {3}.</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoItemList_DeclarationFormInvalid" xml:space="preserve">
+    <value>Klaida. Deklaracijos forma neskirta šiam sąskaitų faktūrų tipui.</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoItemList_DeclarationFormNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta deklaracijos forma.</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoItemList_FileNameNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas failo pavadinimas.</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoItemList_ListIsEmpty" xml:space="preserve">
+    <value>Klaida. Registre nėra nė vienos eilutės.</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoItemList_ToString" xml:space="preserve">
+    <value>sąskaitų faktūrų registras</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoItemList_TypeName" xml:space="preserve">
+    <value>sąskaitų faktūrų registras</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoItemList_TypeNotImplemented" xml:space="preserve">
+    <value>Sąskaitos faktūros tipas "{0}" neimplementuotas.</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoItemList_UnknownErrorWhileExporting" xml:space="preserve">
+    <value>Klaida. Dėl nežinomų priežasčių nepavyko konvertuoti deklaracijos duomenų į ffdata formatą.</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoItem_ToString" xml:space="preserve">
+    <value>{0} Nr. {1}: {2}</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoItem_TypeName" xml:space="preserve">
+    <value>sąskaitų faktūrų registro eilutė</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_IncompatibleWithAcquisition" xml:space="preserve">
+    <value>Vienoje sąskaitoje faktūroje negalima ir įsigyti ilgalaikį turtą, ir padidinti jo įsigijimo savikainą.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_IncompatibleWithItself" xml:space="preserve">
+    <value>Vienoje sąskaitoje faktūroje negalima du kartus padidinti to pačio ilgalaikio turto įsigijimo savikainos.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_IncompatibleWithSale" xml:space="preserve">
+    <value>Vienoje sąskaitoje faktūroje negalima padidinti ilgalaikio turto įsigijimo savikainos ir tą patį turtą perleisti.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_IncompatibleWithAcquisition" xml:space="preserve">
+    <value>Vienoje sąskaitoje faktūroje negalima ir įsigyti ilgalaikį turtą, ir jį perleisti.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_IncompatibleWithAcquisitionValueIncrease" xml:space="preserve">
+    <value>Vienoje sąskaitoje faktūroje negalima padidinti ilgalaikio turto įsigijimo savikainos ir tą patį turtą perleisti.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetSaleInvoiceAdapter_IncompatibleWithItself" xml:space="preserve">
+    <value>Vienoje sąskaitoje faktūroje negalima du kartus perleisti to pačio ilgalaikio turto.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_IncompatibleWithItself" xml:space="preserve">
+    <value>Vienoje sąskaitoje faktūroje negalima du kartus padidinti to pačios prekės įsigijimo savikainą tame pačiame sandėlyje.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_IncompatibleWithItself" xml:space="preserve">
+    <value>Vienoje sąskaitoje faktūroje negalima du kartus registruoti gautą nuolaidą toms pačioms prekėms tame pačiame sandėlyje.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_IncompatibleWithAcquisition" xml:space="preserve">
+    <value>Vienoje sąskaitoje faktūroje negalima ir perleisti prekę ir ją įsigyti tame pačiame sandėlyje.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_IncompatibleWithAddedCosts" xml:space="preserve">
+    <value>Vienoje sąskaitoje faktūroje negalima ir perleisti prekę ir padidinti jos įsigijimo savikainą tame pačiame sandėlyje.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_IncompatibleWithDiscount" xml:space="preserve">
+    <value>Vienoje sąskaitoje faktūroje negalima ir perleisti prekę ir registruoti jai gautą nuolaidą tame pačiame sandėlyje.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_InvoiceAdapterFactory_AdaptersIncompatibleException" xml:space="preserve">
+    <value>Klaida. {0}</value>
+  </data>
+  <data name="Documents_InvoiceMade_NewAttachedOperationIsNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta operacija, kurią reikėtų pridėti prie faktūros.</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoType_InvoiceMade" xml:space="preserve">
+    <value>gautų sąskaitų faktūrų registras</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoType_InvoiceReceived" xml:space="preserve">
+    <value>išrašytų sąskaitų faktūrų registras</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_InvoiceAttachedObjectType_GoodsAcquisition" xml:space="preserve">
+    <value>prekių įsigijimas</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_InvoiceAttachedObjectType_GoodsConsignmentAdditionalCosts" xml:space="preserve">
+    <value>prekių įsigijimo savikainos padidinimas</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_InvoiceAttachedObjectType_GoodsConsignmentDiscount" xml:space="preserve">
+    <value>gauta nuolaida prekėms</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_InvoiceAttachedObjectType_GoodsTransfer" xml:space="preserve">
+    <value>prekių perleidimas</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_InvoiceAttachedObjectType_LongTermAssetAcquisitionValueChange" xml:space="preserve">
+    <value>ilgalaikio turto įsigijimo savikainos padidinimas</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_InvoiceAttachedObjectType_LongTermAssetPurchase" xml:space="preserve">
+    <value>ilgalaikio turto įsigijimas</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_InvoiceAttachedObjectType_LongTermAssetSale" xml:space="preserve">
+    <value>ilgalaikio turto perleidimas</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_InvoiceAttachedObjectType_Service" xml:space="preserve">
+    <value>paslauga</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_AccountDiscount" xml:space="preserve">
+    <value>nuolaidos sąskaita</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_AccountDiscountIsReadOnly" xml:space="preserve">
+    <value>nuolaidos sąskaita nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_AccountIncome" xml:space="preserve">
+    <value>pajamų sąskaita</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_AccountIncomeIsReadOnly" xml:space="preserve">
+    <value>pajamų sąskaita nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_AccountVat" xml:space="preserve">
+    <value>PVM sąskaita</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_AccountVatIsReadOnly" xml:space="preserve">
+    <value>PVM sąskaita nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_Ammount" xml:space="preserve">
+    <value>kiekis</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_AmmountIsReadOnly" xml:space="preserve">
+    <value>kiekis nekeičiamas</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_AttachedObject" xml:space="preserve">
+    <value>susieta operacija</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_AttachedObjectValue" xml:space="preserve">
+    <value>susieta operacija</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_CanBeCopied" xml:space="preserve">
+    <value>gali būti kopijuojama</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_Discount" xml:space="preserve">
+    <value>nuolaida</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DiscountCorrectionLTL" xml:space="preserve">
+    <value>nuolaidos EUR korekcija</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DiscountCorrectionLTLIsReadOnly" xml:space="preserve">
+    <value>nuolaidos EUR korekcija nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DiscountIsReadOnly" xml:space="preserve">
+    <value>nuolaida nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DiscountLTL" xml:space="preserve">
+    <value>nuolaida EUR</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DiscountVat" xml:space="preserve">
+    <value>nuolaidos PVM</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DiscountVatCorrection" xml:space="preserve">
+    <value>nuolaidos PVM korekcija</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DiscountVatCorrectionIsReadOnly" xml:space="preserve">
+    <value>nuolaidos PVM korekcija nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DiscountVatLTL" xml:space="preserve">
+    <value>nuolaidos PVM EUR</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DiscountVatLTLCorrection" xml:space="preserve">
+    <value>nuolaidos PVM EUR korekcija</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_DiscountVatLTLCorrectionIsReadOnly" xml:space="preserve">
+    <value>nuolaidos PVM EUR korekcija nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_IncludeVatInObject" xml:space="preserve">
+    <value>įtraukti PVM į susietą operaciją</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_IncludeVatInObjectIsReadOnly" xml:space="preserve">
+    <value>įtraukti PVM į susietą operaciją nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_MeasureUnit" xml:space="preserve">
+    <value>mato vnt.</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_MeasureUnitAltLng" xml:space="preserve">
+    <value>mato vnt. kita kalba</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_NameInvoice" xml:space="preserve">
+    <value>prekių/paslaugų pavadinimas</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_NameInvoiceAltLng" xml:space="preserve">
+    <value>prekių/paslaugų pavadinimas kita kalba</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_Sum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_SumCorrection" xml:space="preserve">
+    <value>sumos korekcija</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_SumCorrectionIsReadOnly" xml:space="preserve">
+    <value>sumos korekcija nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_SumCorrectionLTL" xml:space="preserve">
+    <value>sumos EUR korekcija</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_SumCorrectionLTLIsReadOnly" xml:space="preserve">
+    <value>sumos EUR korekcija nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_SumLTL" xml:space="preserve">
+    <value>suma EUR</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_SumTotal" xml:space="preserve">
+    <value>suma viso</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_SumTotalLTL" xml:space="preserve">
+    <value>suma viso EUR</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_SumVat" xml:space="preserve">
+    <value>PVM suma</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_SumVatCorrection" xml:space="preserve">
+    <value>PVM sumos korekcija</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_SumVatCorrectionIsReadOnly" xml:space="preserve">
+    <value>PVM sumos korekcija nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_SumVatCorrectionLTL" xml:space="preserve">
+    <value>PVM sumos EUR korekcija</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_SumVatCorrectionLTLIsReadOnly" xml:space="preserve">
+    <value>PVM sumos EUR korekcija nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_SumVatLTL" xml:space="preserve">
+    <value>PVM suma EUR</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_UnitValue" xml:space="preserve">
+    <value>vnt. kaina</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_UnitValueIsReadOnly" xml:space="preserve">
+    <value>vnt. kaina nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_UnitValueLTL" xml:space="preserve">
+    <value>vnt. kaina EUR</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_UnitValueLTLCorrection" xml:space="preserve">
+    <value>vnt. kainos EUR korekcija</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_UnitValueLTLCorrectionIsReadOnly" xml:space="preserve">
+    <value>vnt. kainos EUR korekcija nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_VatIsVirtual" xml:space="preserve">
+    <value>netiesioginis PVM</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_VatIsVirtualIsReadOnly" xml:space="preserve">
+    <value>netiesioginis PVM nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_VatRate" xml:space="preserve">
+    <value>PVM tarifas</value>
+  </data>
+  <data name="Documents_InvoiceMadeItem_VatRateIsReadOnly" xml:space="preserve">
+    <value>PVM tarifas nekeičiamas</value>
+  </data>
+  <data name="Documents_InvoiceMade_AccountPayer" xml:space="preserve">
+    <value>pirkėjo sąskaita</value>
+  </data>
+  <data name="Documents_InvoiceMade_AccountPayerIsReadOnly" xml:space="preserve">
+    <value>pirkėjo sąskaita nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMade_AddDateToNumberOptionWasUsed" xml:space="preserve">
+    <value>data įtraukta į numerį</value>
+  </data>
+  <data name="Documents_InvoiceMade_ChronologyValidator" xml:space="preserve">
+    <value>chronologijos apribojimai</value>
+  </data>
+  <data name="Documents_InvoiceMade_CommentsInternal" xml:space="preserve">
+    <value>vidiniai komentarai</value>
+  </data>
+  <data name="Documents_InvoiceMade_Content" xml:space="preserve">
+    <value>turinys (aprašymas)</value>
+  </data>
+  <data name="Documents_InvoiceMade_CurrencyCode" xml:space="preserve">
+    <value>valiuta</value>
+  </data>
+  <data name="Documents_InvoiceMade_CurrencyCodeIsReadOnly" xml:space="preserve">
+    <value>valiuta nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceMade_CurrencyRate" xml:space="preserve">
+    <value>valiutos kursas</value>
+  </data>
+  <data name="Documents_InvoiceMade_CurrencyRateIsReadOnly" xml:space="preserve">
+    <value>valiutos kursas nekeičiamas</value>
+  </data>
+  <data name="Documents_InvoiceMade_CustomInfo" xml:space="preserve">
+    <value>kita informacija</value>
+  </data>
+  <data name="Documents_InvoiceMade_CustomInfoAltLng" xml:space="preserve">
+    <value>kita informacija kita kalba</value>
+  </data>
+  <data name="Documents_InvoiceMade_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Documents_InvoiceMade_ExternalID" xml:space="preserve">
+    <value>išorinis ID (SKU)</value>
+  </data>
+  <data name="Documents_InvoiceMade_FinancialDataCannotChange" xml:space="preserve">
+    <value>Klaida. Finansinių sąskaitos duomenų keisti neleidžiama:{0}{1}</value>
+  </data>
+  <data name="Documents_InvoiceMade_FinancialDataCannotChangeFull" xml:space="preserve">
+    <value>Klaida. Finansinių sąskaitos duomenų keisti, įskaitant eilučių pridėjimą ar ištrynimą, neleidžiama:{0}{1}</value>
+  </data>
+  <data name="Documents_InvoiceMade_FullNumber" xml:space="preserve">
+    <value>formatuotas numeris</value>
+  </data>
+  <data name="Documents_InvoiceMade_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Documents_InvoiceMade_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Documents_InvoiceMade_InvoiceItemsSorted" xml:space="preserve">
+    <value>eilutės</value>
+  </data>
+  <data name="Documents_InvoiceMade_IsDoomyInvoice" xml:space="preserve">
+    <value>pavyzdinė sąskaita</value>
+  </data>
+  <data name="Documents_InvoiceMade_LanguageCode" xml:space="preserve">
+    <value>kalba</value>
+  </data>
+  <data name="Documents_InvoiceMade_LanguageName" xml:space="preserve">
+    <value>kalba</value>
+  </data>
+  <data name="Documents_InvoiceMade_Number" xml:space="preserve">
+    <value>numeris</value>
+  </data>
+  <data name="Documents_InvoiceMade_NumbersInInvoice" xml:space="preserve">
+    <value>skaitmenų numeryje</value>
+  </data>
+  <data name="Documents_InvoiceMade_Payer" xml:space="preserve">
+    <value>pirkėjas</value>
+  </data>
+  <data name="Documents_InvoiceMade_Serial" xml:space="preserve">
+    <value>serija</value>
+  </data>
+  <data name="Documents_InvoiceMade_Sum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="Documents_InvoiceMade_SumDiscount" xml:space="preserve">
+    <value>nuolaida</value>
+  </data>
+  <data name="Documents_InvoiceMade_SumDiscountLTL" xml:space="preserve">
+    <value>nuolaida EUR</value>
+  </data>
+  <data name="Documents_InvoiceMade_SumDiscountVat" xml:space="preserve">
+    <value>nuolaidos PVM</value>
+  </data>
+  <data name="Documents_InvoiceMade_SumDiscountVatLTL" xml:space="preserve">
+    <value>nuolaidos PVM EUR</value>
+  </data>
+  <data name="Documents_InvoiceMade_SumLTL" xml:space="preserve">
+    <value>suma EUR</value>
+  </data>
+  <data name="Documents_InvoiceMade_SumTotal" xml:space="preserve">
+    <value>suma viso</value>
+  </data>
+  <data name="Documents_InvoiceMade_SumTotalLTL" xml:space="preserve">
+    <value>suma viso EUR</value>
+  </data>
+  <data name="Documents_InvoiceMade_SumVat" xml:space="preserve">
+    <value>PVM suma</value>
+  </data>
+  <data name="Documents_InvoiceMade_SumVatLTL" xml:space="preserve">
+    <value>PVM suma EUR</value>
+  </data>
+  <data name="Documents_InvoiceMade_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Documents_InvoiceMade_TypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Documents_InvoiceMade_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Documents_InvoiceMade_VatExemptInfo" xml:space="preserve">
+    <value>PVM išimtys</value>
+  </data>
+  <data name="Documents_InvoiceMade_VatExemptInfoAltLng" xml:space="preserve">
+    <value>PVM išimtys kita kalba</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_AccountCosts" xml:space="preserve">
+    <value>sąnaudų sąskaita</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_AccountCostsIsReadOnly" xml:space="preserve">
+    <value>sąnaudų sąskaita nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_AccountVat" xml:space="preserve">
+    <value>PVM sąskaita</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_AccountVatIsReadOnly" xml:space="preserve">
+    <value>PVM sąskaita nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_Ammount" xml:space="preserve">
+    <value>kiekis</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_AmmountIsReadOnly" xml:space="preserve">
+    <value>kiekis nekeičiamas</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_AttachedObject" xml:space="preserve">
+    <value>susieta operacija</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_AttachedObjectValue" xml:space="preserve">
+    <value>susieta operacija</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_BaseCurrencyCorrectionInvalid" xml:space="preserve">
+    <value>Sumų bazine valiuta korekcija negalima, kai sąskaitos faktūros valiuta sutampa su bazine.</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_CanBeCopied" xml:space="preserve">
+    <value>gali būti kopijuojama</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_IncludeVatInObject" xml:space="preserve">
+    <value>įtraukti PVM į susietą operaciją</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_IncludeVatInObjectIsReadOnly" xml:space="preserve">
+    <value>įtraukti PVM į susietą operaciją nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_InvalidInvoiceAdapter" xml:space="preserve">
+    <value>Susieta operacija yra skirta išrašytai, o ne gautai sąskaitai faktūrai.</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_MeasureUnit" xml:space="preserve">
+    <value>mato vnt.</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_NameInvoice" xml:space="preserve">
+    <value>prekių/paslaugų pavadinimas</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_Sum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_SumCorrection" xml:space="preserve">
+    <value>sumos korekcija</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_SumCorrectionIsReadOnly" xml:space="preserve">
+    <value>sumos korekcija nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_SumLTL" xml:space="preserve">
+    <value>suma EUR</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_SumLTLCorrection" xml:space="preserve">
+    <value>sumos EUR korekcija</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_SumLTLCorrectionIsReadOnly" xml:space="preserve">
+    <value>sumos EUR korekcija nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_SumTotal" xml:space="preserve">
+    <value>suma viso</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_SumTotalLTL" xml:space="preserve">
+    <value>suma viso EUR</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_SumVat" xml:space="preserve">
+    <value>PVM suma</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_SumVatCorrection" xml:space="preserve">
+    <value>PVM sumos korekcija</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_SumVatCorrectionInvalid" xml:space="preserve">
+    <value>PVM sumos korekcija negalima, kai PVM tarifas lygus nuliui.</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_SumVatCorrectionIsReadOnly" xml:space="preserve">
+    <value>PVM sumos korekcija nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_SumVatLTL" xml:space="preserve">
+    <value>PVM suma EUR</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_SumVatLTLCorrection" xml:space="preserve">
+    <value>PVM sumos EUR korekcija</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_SumVatLTLCorrectionIsReadOnly" xml:space="preserve">
+    <value>PVM sumos EUR korekcija nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_UnitValue" xml:space="preserve">
+    <value>vnt. kaina</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_UnitValueAndAmountBothNegative" xml:space="preserve">
+    <value>Kiekis ir vieneto kaina negali abu būti neigiami.</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_UnitValueIsReadOnly" xml:space="preserve">
+    <value>vnt. kaina nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_UnitValueLTL" xml:space="preserve">
+    <value>vnt. kaina EUR</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_UnitValueLTLCorrection" xml:space="preserve">
+    <value>vnt. kainos EUR korekcija</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_UnitValueLTLCorrectionIsReadOnly" xml:space="preserve">
+    <value>vnt. kainos EUR korekcija nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_ValueExceedsLimits" xml:space="preserve">
+    <value>Laukelio {0} vertė negali būti didesnė nei laukelio {1} vertė.</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_VatRate" xml:space="preserve">
+    <value>PVM tarifas</value>
+  </data>
+  <data name="Documents_InvoiceReceivedItem_VatRateIsReadOnly" xml:space="preserve">
+    <value>PVM tarifas nekeičiamas</value>
+  </data>
+  <data name="Documents_InvoiceReceived_AccountSupplier" xml:space="preserve">
+    <value>tiekėjo sąskaita</value>
+  </data>
+  <data name="Documents_InvoiceReceived_AccountSupplierIsReadOnly" xml:space="preserve">
+    <value>tiekėjo sąskaita nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceReceived_ActualDate" xml:space="preserve">
+    <value>reali data</value>
+  </data>
+  <data name="Documents_InvoiceReceived_ActualDateIsApplicable" xml:space="preserve">
+    <value>reali data skiriasi nuo registruotos</value>
+  </data>
+  <data name="Documents_InvoiceReceived_ChronologyValidator" xml:space="preserve">
+    <value>chronologijos apribojimai</value>
+  </data>
+  <data name="Documents_InvoiceReceived_CommentsInternal" xml:space="preserve">
+    <value>vidiniai komentarai</value>
+  </data>
+  <data name="Documents_InvoiceReceived_Content" xml:space="preserve">
+    <value>turinys (aprašymas)</value>
+  </data>
+  <data name="Documents_InvoiceReceived_CurrencyCode" xml:space="preserve">
+    <value>valiuta</value>
+  </data>
+  <data name="Documents_InvoiceReceived_CurrencyCodeIsReadOnly" xml:space="preserve">
+    <value>valiuta nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceReceived_CurrencyRate" xml:space="preserve">
+    <value>valiutos kursas</value>
+  </data>
+  <data name="Documents_InvoiceReceived_CurrencyRateIsReadOnly" xml:space="preserve">
+    <value>valiutos kursas nekeičiamas</value>
+  </data>
+  <data name="Documents_InvoiceReceived_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Documents_InvoiceReceived_ExternalID" xml:space="preserve">
+    <value>išorinis ID (SKU)</value>
+  </data>
+  <data name="Documents_InvoiceReceived_FinancialDataCannotChange" xml:space="preserve">
+    <value>Klaida. Finansinių sąskaitos duomenų keisti neleidžiama:{0}{1}</value>
+  </data>
+  <data name="Documents_InvoiceReceived_FinancialDataCannotChangeFull" xml:space="preserve">
+    <value>Klaida. Finansinių sąskaitos duomenų keisti, įskaitant eilučių pridėjimą ar ištrynimą, neleidžiama:{0}{1}</value>
+  </data>
+  <data name="Documents_InvoiceReceived_ID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Documents_InvoiceReceived_IndirectVatAccount" xml:space="preserve">
+    <value>netiesioginio PVM sąsk.</value>
+  </data>
+  <data name="Documents_InvoiceReceived_IndirectVatAccountIsReadOnly" xml:space="preserve">
+    <value>netiesioginio PVM sąsk. Nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceReceived_IndirectVatCostsAccount" xml:space="preserve">
+    <value>netiesioginio PVM sąnaudų sąsk.</value>
+  </data>
+  <data name="Documents_InvoiceReceived_IndirectVatCostsAccountIsReadOnly" xml:space="preserve">
+    <value>netiesioginio PVM sąnaudų sąsk. nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceReceived_IndirectVatInvalid" xml:space="preserve">
+    <value>Netiesioginis PVM gali negali būti taikomas, jei sąskaitoje naudojami ne nuliniai PVM tarifai.</value>
+  </data>
+  <data name="Documents_InvoiceReceived_IndirectVatSum" xml:space="preserve">
+    <value>netiesioginis PVM</value>
+  </data>
+  <data name="Documents_InvoiceReceived_IndirectVatSumIsReadOnly" xml:space="preserve">
+    <value>netiesioginis PVM nekeičiama</value>
+  </data>
+  <data name="Documents_InvoiceReceived_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Documents_InvoiceReceived_InvoiceItemsSorted" xml:space="preserve">
+    <value>eilutės</value>
+  </data>
+  <data name="Documents_InvoiceReceived_NewAttachedOperationIsNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta operacija, kurią reikėtų pridėti prie faktūros.</value>
+  </data>
+  <data name="Documents_InvoiceReceived_NoItems" xml:space="preserve">
+    <value>Nenurodyta nė viena sąskaitos eilutė.</value>
+  </data>
+  <data name="Documents_InvoiceReceived_Number" xml:space="preserve">
+    <value>serija ir numeris</value>
+  </data>
+  <data name="Documents_InvoiceReceived_Sum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="Documents_InvoiceReceived_SumInvalidForCreditInvoice" xml:space="preserve">
+    <value>Kreditinė sąskaita turėtų būti neigiama.</value>
+  </data>
+  <data name="Documents_InvoiceReceived_SumInvalidForDebitInvoice" xml:space="preserve">
+    <value>Paprasta arba debetinė sąskaita turėtų būti teigiama.</value>
+  </data>
+  <data name="Documents_InvoiceReceived_SumLTL" xml:space="preserve">
+    <value>suma EUR</value>
+  </data>
+  <data name="Documents_InvoiceReceived_SumTotal" xml:space="preserve">
+    <value>suma viso</value>
+  </data>
+  <data name="Documents_InvoiceReceived_SumTotalLTL" xml:space="preserve">
+    <value>suma viso EUR</value>
+  </data>
+  <data name="Documents_InvoiceReceived_SumVat" xml:space="preserve">
+    <value>PVM suma</value>
+  </data>
+  <data name="Documents_InvoiceReceived_SumVatLTL" xml:space="preserve">
+    <value>PVM suma EUR</value>
+  </data>
+  <data name="Documents_InvoiceReceived_Supplier" xml:space="preserve">
+    <value>tiekėjas</value>
+  </data>
+  <data name="Documents_InvoiceReceived_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Documents_InvoiceReceived_TypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Documents_InvoiceReceived_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Documents_InvoiceType_Credit" xml:space="preserve">
+    <value>kreditinė sąskaita faktūra</value>
+  </data>
+  <data name="Documents_InvoiceType_Debit" xml:space="preserve">
+    <value>debetinė sąskaita faktūra</value>
+  </data>
+  <data name="Documents_InvoiceType_Normal" xml:space="preserve">
+    <value>paprasta sąskaita faktūra</value>
+  </data>
+  <data name="Workers_SheetChronologicValidator_FailedToFetchSheetDate" xml:space="preserve">
+    <value>Nepavyko gauti žiniaraščio datos. (ID={0})</value>
+  </data>
+  <data name="Workers_SheetChronologicValidator_MaxDateDefaultExplanation" xml:space="preserve">
+    <value>Žiniaraščio data negali būti vėlesnė nei sekančio mėnesio po priskaičiavimo paskutinė diena, t.y. {0}.</value>
+  </data>
+  <data name="Workers_SheetChronologicValidator_MinDateDefaultExplanation" xml:space="preserve">
+    <value>Žiniaraščio data negali būti ankstesnė nei mėnesio, už kurį daromi priskaičiavimai, pirma diena, t.y. {0}.</value>
+  </data>
+  <data name="ActiveReports_WorkerWageInfo_ToString" xml:space="preserve">
+    <value>darbo užmokesčio priskaičiavimai ir išmokėjimai {0} m. {1} mėn.</value>
+  </data>
+  <data name="ActiveReports_WorkerWageInfo_TypeName" xml:space="preserve">
+    <value>informacija apie darbo užmokesčio priskaičiavimus ir išmokėjimus</value>
+  </data>
 </root>

@@ -87,7 +87,7 @@ Public Class IntegerFieldAttribute
     ''' <summary>
     ''' Creates a new IntegerFieldAttribute instance.
     ''' </summary>
-    ''' <param name="valueIsMandatory">Whether the property value is mandatory (not equals 0).</param>
+    ''' <param name="valueValueRequired">Whether the property value is mandatory (not equals 0).</param>
     ''' <param name="valueAllowNegative">Whether a negative property value is allowed.</param>
     ''' <param name="valueWithinRange">Whether a property value should be within a certain range.</param>
     ''' <param name="valueMinValue">A minimum allowed property value.</param>

@@ -100,7 +100,7 @@ Public Class DoubleFieldAttribute
     ''' <summary>
     ''' Creates a new instance of DoubleFieldAttribute.
     ''' </summary>
-    ''' <param name="valueIsMandatory">Whether the property value is mandatory (not equals 0).</param>
+    ''' <param name="valueValueRequired">Whether the property value is mandatory (not equals 0).</param>
     ''' <param name="valueAllowNegative">Whether the property value can be negative.</param>
     ''' <param name="valueRound">A round order of the property value.</param>
     ''' <param name="valueWithinRange">Wheather the property value should be within a provided range.</param>

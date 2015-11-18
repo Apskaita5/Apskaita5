@@ -51,7 +51,7 @@ Public Class StringFieldAttribute
     ''' <summary>
     ''' Creates a new StringFieldAttribute instance.
     ''' </summary>
-    ''' <param name="valueIsMandatory">Whether the property value is mandatory (not null, not empty and not blank spaces only).</param>
+    ''' <param name="valueValueRequired">Whether the property value is mandatory (not null, not empty and not blank spaces only).</param>
     ''' <param name="valueMaxLength">Maximum allowed length of a string value (after TRIM).</param>
     ''' <param name="valueErrorIfExceedsMaxLength">Whether to treat the property value, that excees <paramref name="valueMaxLength">valueMaxLength</paramref> as an error (not warning).</param>
     ''' <remarks></remarks>
