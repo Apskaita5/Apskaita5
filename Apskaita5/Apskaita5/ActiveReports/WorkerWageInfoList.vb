@@ -171,9 +171,11 @@ Namespace ActiveReports
             Next
 
             For Each dr As DataRow In paymentsData.Rows
-                current = String.Format("{0}:{1}", CIntSafe(dr.Item(0), -1).ToString(), _
+                If CIntSafe(dr.Item(0), -1) > 0 Then
+                    current = String.Format("{0}:{1}", CIntSafe(dr.Item(0), -1).ToString(), _
                     GetMinLengthString(CIntSafe(dr.Item(1), -1).ToString(), 2, "0"c, True))
-                If Not result.Contains(current) Then result.Add(current)
+                    If Not result.Contains(current) Then result.Add(current)
+                End If
             Next
 
             result.Sort()

@@ -1066,10 +1066,22 @@ Namespace Documents.InvoiceAdapters
         ''' </summary>
         ''' <remarks>Inserts or updates the goods sale operation data.</remarks>
         Friend Sub Update(ByVal parentInvoice As InvoiceMade) Implements IInvoiceAdapter.Update
+
+            If _GoodsSale.OperationLimitations.FinancialDataCanChange _
+                AndAlso parentInvoice.ChronologyValidator.BaseValidator.FinancialDataCanChange Then
+
+                _GoodsSale.GetDiscardList()
+
+            End If
+
+            _GoodsSale.CheckIfCanUpdate(Nothing, True)
+
             _GoodsSale.SaveChild(parentInvoice.ID, 0, parentInvoice.Content, _
                 parentInvoice.Serial & parentInvoice.FullNumber, True, False, _
                 Not parentInvoice.ChronologyValidator.FinancialDataCanChange)
+
             MarkOld()
+
         End Sub
 
         ''' <summary>

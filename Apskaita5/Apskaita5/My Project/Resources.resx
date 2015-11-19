@@ -8044,10 +8044,10 @@
     <value>Klaida. Nenurodyta operacija, kurią reikėtų pridėti prie faktūros.</value>
   </data>
   <data name="ActiveReports_InvoiceInfoType_InvoiceMade" xml:space="preserve">
-    <value>gautų sąskaitų faktūrų registras</value>
+    <value>išrašytų sąskaitų faktūrų registras</value>
   </data>
   <data name="ActiveReports_InvoiceInfoType_InvoiceReceived" xml:space="preserve">
-    <value>išrašytų sąskaitų faktūrų registras</value>
+    <value>gautų sąskaitų faktūrų registras</value>
   </data>
   <data name="Documents_InvoiceAdapters_InvoiceAttachedObjectType_GoodsAcquisition" xml:space="preserve">
     <value>prekių įsigijimas</value>
@@ -8618,5 +8618,17 @@
   </data>
   <data name="ActiveReports_WorkerWageInfo_TypeName" xml:space="preserve">
     <value>informacija apie darbo užmokesčio priskaičiavimus ir išmokėjimus</value>
+  </data>
+  <data name="ActiveReports_WorkerWageInfoReport_ContractInfo" xml:space="preserve">
+    <value>{0} {1} (a.k. {2}), {3} darbo sutartis Nr. {4}{5}</value>
+  </data>
+  <data name="ActiveReports_WorkerWageInfoReport_ContractNumberNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas darbo sutarties numeris.</value>
+  </data>
+  <data name="ActiveReports_WorkerWageInfoReport_PersonIdNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas darbuotojo ID.</value>
+  </data>
+  <data name="ActiveReports_WorkerWageInfoReport_PersonInfo" xml:space="preserve">
+    <value>{0} (a.k. {1})</value>
   </data>
 </root>

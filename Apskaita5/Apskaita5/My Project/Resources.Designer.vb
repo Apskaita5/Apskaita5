@@ -2430,7 +2430,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to gautų sąskaitų faktūrų registras.
+        '''  Looks up a localized string similar to išrašytų sąskaitų faktūrų registras.
         '''</summary>
         Friend ReadOnly Property ActiveReports_InvoiceInfoType_InvoiceMade() As String
             Get
@@ -2439,7 +2439,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to išrašytų sąskaitų faktūrų registras.
+        '''  Looks up a localized string similar to gautų sąskaitų faktūrų registras.
         '''</summary>
         Friend ReadOnly Property ActiveReports_InvoiceInfoType_InvoiceReceived() As String
             Get
@@ -6080,6 +6080,42 @@ Namespace My.Resources
         Friend ReadOnly Property ActiveReports_WorkerWageInfo_TypeName() As String
             Get
                 Return ResourceManager.GetString("ActiveReports_WorkerWageInfo_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} {1} (a.k. {2}), {3} darbo sutartis Nr. {4}{5}.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_WorkerWageInfoReport_ContractInfo() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_WorkerWageInfoReport_ContractInfo", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas darbo sutarties numeris..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_WorkerWageInfoReport_ContractNumberNull() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_WorkerWageInfoReport_ContractNumberNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas darbuotojo ID..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_WorkerWageInfoReport_PersonIdNull() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_WorkerWageInfoReport_PersonIdNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} (a.k. {1}).
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_WorkerWageInfoReport_PersonInfo() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_WorkerWageInfoReport_PersonInfo", resourceCulture)
             End Get
         End Property
         
