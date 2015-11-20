@@ -100,9 +100,13 @@ Public Class F_WorkerHolidayInfo
 
         LabourContractComboBox.DataSource = Nothing
         LabourContractComboBox.DataSource = contractList
-        LabourContractComboBox.SelectedIndex = -1
-
-        MsgBox("Darbo sutarčių sąrašas gautas.", MsgBoxStyle.Information, "Info")
+        If contractList.Count > 0 Then
+            LabourContractComboBox.SelectedIndex = contractList.Count - 1
+        Else
+            LabourContractComboBox.SelectedIndex = -1
+            MsgBox("Klaida. Šiam darbuotojui nėra registruotų darbo sutarčių.", _
+                MsgBoxStyle.Exclamation, "Klaida.")
+        End If
 
     End Sub
 

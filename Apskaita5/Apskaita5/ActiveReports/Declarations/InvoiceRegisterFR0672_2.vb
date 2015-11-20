@@ -1,7 +1,7 @@
 ﻿Namespace ActiveReports.Declarations
 
     ''' <summary>
-    ''' Represents an implementation of an <see cref="IInvoiceRegister">IInvoiceRegister</see>
+    ''' Represents an implementation of an <see cref="IInvoiceRegisterDeclaration">IInvoiceRegisterDeclaration</see>
     ''' for a state tax inspectorate (VMI) report No. FR0672 version 2.
     ''' </summary>
     ''' <remarks>Object is responsible for exporting the <see cref="InvoiceInfoItemList">

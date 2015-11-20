@@ -6291,6 +6291,60 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Finansiniai IT įsigijimo duomenys negali būti keičiami, nes turtas buvo amortizuotas..
+        '''</summary>
+        Friend ReadOnly Property Assets_AcquisitionChronologicValidator_AmortizationExistsExplanation() As String
+            Get
+                Return ResourceManager.GetString("Assets_AcquisitionChronologicValidator_AmortizationExistsExplanation", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Įsigijimo data negali būti keičiama, nes IT buvo skaičiuota amortizacija..
+        '''</summary>
+        Friend ReadOnly Property Assets_AcquisitionChronologicValidator_AmortizationExistsExplanationForDate() As String
+            Get
+                Return ResourceManager.GetString("Assets_AcquisitionChronologicValidator_AmortizationExistsExplanationForDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Finansiniai IT įsigijimo duomenys negali būti keičiami, nes su turtu yra registruota kitų finansinių operacijų ({0}: {1})..
+        '''</summary>
+        Friend ReadOnly Property Assets_AcquisitionChronologicValidator_FinancialDataCanChangeExplanation() As String
+            Get
+                Return ResourceManager.GetString("Assets_AcquisitionChronologicValidator_FinancialDataCanChangeExplanation", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Operacijos data negali būti vėlesnė nei {0}, nes šia data yra registruota operacija - {1}..
+        '''</summary>
+        Friend ReadOnly Property Assets_AcquisitionChronologicValidator_MaxDateExplanation() As String
+            Get
+                Return ResourceManager.GetString("Assets_AcquisitionChronologicValidator_MaxDateExplanation", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto įsigijimas.
+        '''</summary>
+        Friend ReadOnly Property Assets_AcquisitionChronologicValidator_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_AcquisitionChronologicValidator_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto įsigijimo chronologiniai apribojimai.
+        '''</summary>
+        Friend ReadOnly Property Assets_AcquisitionChronologicValidator_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_AcquisitionChronologicValidator_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Klaida. Koreguoti dokumento finansinius duomenis neleidžiama:{0}{1}.
         '''</summary>
         Friend ReadOnly Property Assets_ComplexOperationAmortization_CannotChangeFinancialData() As String
@@ -6566,6 +6620,15 @@ Namespace My.Resources
         Friend ReadOnly Property Assets_LongTermAsset_ContinuedUsage() As String
             Get
                 Return ResourceManager.GetString("Assets_LongTermAsset_ContinuedUsage", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Bendros vertės korekcija galima, tik jei kiekis didesnis už vienetą..
+        '''</summary>
+        Friend ReadOnly Property Assets_LongTermAsset_CorrectionInvalid() As String
+            Get
+                Return ResourceManager.GetString("Assets_LongTermAsset_CorrectionInvalid", resourceCulture)
             End Get
         End Property
         

@@ -8631,4 +8631,25 @@
   <data name="ActiveReports_WorkerWageInfoReport_PersonInfo" xml:space="preserve">
     <value>{0} (a.k. {1})</value>
   </data>
+  <data name="Assets_AcquisitionChronologicValidator_AmortizationExistsExplanation" xml:space="preserve">
+    <value>Finansiniai IT įsigijimo duomenys negali būti keičiami, nes turtas buvo amortizuotas.</value>
+  </data>
+  <data name="Assets_AcquisitionChronologicValidator_AmortizationExistsExplanationForDate" xml:space="preserve">
+    <value>Įsigijimo data negali būti keičiama, nes IT buvo skaičiuota amortizacija.</value>
+  </data>
+  <data name="Assets_AcquisitionChronologicValidator_FinancialDataCanChangeExplanation" xml:space="preserve">
+    <value>Finansiniai IT įsigijimo duomenys negali būti keičiami, nes su turtu yra registruota kitų finansinių operacijų ({0}: {1}).</value>
+  </data>
+  <data name="Assets_AcquisitionChronologicValidator_MaxDateExplanation" xml:space="preserve">
+    <value>Operacijos data negali būti vėlesnė nei {0}, nes šia data yra registruota operacija - {1}.</value>
+  </data>
+  <data name="Assets_AcquisitionChronologicValidator_ToString" xml:space="preserve">
+    <value>ilgalaikio turto įsigijimas</value>
+  </data>
+  <data name="Assets_AcquisitionChronologicValidator_TypeName" xml:space="preserve">
+    <value>ilgalaikio turto įsigijimo chronologiniai apribojimai</value>
+  </data>
+  <data name="Assets_LongTermAsset_CorrectionInvalid" xml:space="preserve">
+    <value>Bendros vertės korekcija galima, tik jei kiekis didesnis už vienetą.</value>
+  </data>
 </root>
