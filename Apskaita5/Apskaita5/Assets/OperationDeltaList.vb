@@ -139,7 +139,7 @@
                 Throw New ArgumentNullException("assetID")
             End If
 
-            Dim myComm As New SQLCommand("")
+            Dim myComm As New SQLCommand("FetchOperationBackgroundDeltas")
             myComm.AddParam("?AD", assetID)
 
             Using myData As DataTable = myComm.Fetch()

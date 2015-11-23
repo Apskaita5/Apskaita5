@@ -2099,7 +2099,7 @@
         ''' for which the data should be fetched.</param>
         ''' <remarks></remarks>
         Friend Shared Function GetDataSourceGeneral(ByVal complexOperationId As Integer) As DataTable
-            Dim myComm As New SQLCommand("")
+            Dim myComm As New SQLCommand("FetchOperationBackgroundGeneralComplex")
             myComm.AddParam("?CD", complexOperationId)
             Return myComm.Fetch()
         End Function
@@ -2112,7 +2112,7 @@
         ''' for which the data should be fetched.</param>
         ''' <remarks></remarks>
         Friend Shared Function GetDataSourceDelta(ByVal complexOperationId As Integer) As DataTable
-            Dim myComm As New SQLCommand("")
+            Dim myComm As New SQLCommand("FetchOperationBackgroundDeltasComplex")
             myComm.AddParam("?CD", complexOperationId)
             Return myComm.Fetch()
         End Function
@@ -2162,10 +2162,8 @@
 
         Private Sub GetGeneralData(ByVal nAssetID As Integer)
 
-            Dim myComm As New SQLCommand("FetchLongTermAssetOperationBackgroundInfo")
-            myComm.AddParam("?TD", nAssetID)
-            myComm.AddParam("?OD", 0)
-            myComm.AddParam("?DT", Today.AddYears(100))
+            Dim myComm As New SQLCommand("FetchOperationBackgroundGeneral")
+            myComm.AddParam("?AD", nAssetID)
 
             Using myData As DataTable = myComm.Fetch
                 GetGeneralData(nAssetID, myData)
@@ -2200,93 +2198,66 @@
         Private Sub GetGeneralData(ByVal dr As DataRow)
 
             _AssetID = CIntSafe(dr.Item(0))
-            _AssetName = CStrSafe(dr.Item(0)).Trim
-            _AssetMeasureUnit = CStrSafe(dr.Item(1)).Trim
-            _InitialAssetAcquiredAccount = CLongSafe(dr.Item(2))
-            _InitialAssetContraryAccount = CLongSafe(dr.Item(3))
-            _InitialAssetValueDecreaseAccount = CLongSafe(dr.Item(4), 0)
-            _InitialAssetValueIncreaseAccount = CLongSafe(dr.Item(5))
-            _InitialAssetValueIncreaseAmortizationAccount = CLongSafe(dr.Item(6), 0)
-            _AssetDateAcquired = CDate(dr.Item(7))
-            _AssetAquisitionID = CIntSafe(dr.Item(8), 0)
-            _AssetLiquidationValue = CDblSafe(dr.Item(9), 2, 0)
-            _CurrentUsageStatus = ConvertDbBoolean(CIntSafe(dr.Item(10), 0))
-            _CurrentAssetAmount = CIntSafe(dr.Item(11), 0)
-            _CurrentAcquisitionAccountValuePerUnit = CDblSafe(dr.Item(12), ROUNDUNITASSET, 0)
-            _CurrentAcquisitionAccountValue = CDblSafe(dr.Item(13), 2, 0)
-            If CDbl(dr.Item(14)) < 0 Then
-                _CurrentValueDecreaseAccountValuePerUnit = -CDblSafe(dr.Item(14), ROUNDUNITASSET, 0)
-                _CurrentValueIncreaseAccountValuePerUnit = 0
-            ElseIf CDbl(dr.Item(14)) > 0 Then
-                _CurrentValueDecreaseAccountValuePerUnit = 0
-                _CurrentValueIncreaseAccountValuePerUnit = CDblSafe(dr.Item(14), ROUNDUNITASSET, 0)
+            _AssetName = CStrSafe(dr.Item(1)).Trim
+            _AssetMeasureUnit = CStrSafe(dr.Item(2)).Trim
+            _InitialAssetAcquiredAccount = CLongSafe(dr.Item(3))
+            _InitialAssetContraryAccount = CLongSafe(dr.Item(4))
+            _InitialAssetValueDecreaseAccount = CLongSafe(dr.Item(5), 0)
+            _InitialAssetValueIncreaseAccount = CLongSafe(dr.Item(6))
+            _InitialAssetValueIncreaseAmortizationAccount = CLongSafe(dr.Item(7), 0)
+            _AssetDateAcquired = CDateSafe(dr.Item(8), Date.MinValue)
+            _AssetAquisitionID = CIntSafe(dr.Item(9), 0)
+            _AssetLiquidationValue = CDblSafe(dr.Item(10), 2, 0)
+            _InitialUsageStatus = ConvertDbBoolean(CIntSafe(dr.Item(11), 0))
+            _InitialAssetAmount = CIntSafe(dr.Item(12), 0)
+            _InitialAcquisitionAccountValuePerUnit = CDblSafe(dr.Item(13), ROUNDUNITASSET, 0)
+            _InitialAcquisitionAccountValue = CDblSafe(dr.Item(14), 2, 0)
+            If CDblSafe(dr.Item(15), ROUNDUNITASSET, 0) < 0 Then
+                _InitialValueDecreaseAccountValuePerUnit = -CDblSafe(dr.Item(15), ROUNDUNITASSET, 0)
+                _InitialValueIncreaseAccountValuePerUnit = 0
+            ElseIf CDblSafe(dr.Item(15), ROUNDUNITASSET, 0) > 0 Then
+                _InitialValueDecreaseAccountValuePerUnit = 0
+                _InitialValueIncreaseAccountValuePerUnit = CDblSafe(dr.Item(15), ROUNDUNITASSET, 0)
             Else
-                _CurrentValueDecreaseAccountValuePerUnit = 0
-                _CurrentValueIncreaseAccountValuePerUnit = 0
+                _InitialValueDecreaseAccountValuePerUnit = 0
+                _InitialValueIncreaseAccountValuePerUnit = 0
             End If
-            If CDbl(dr.Item(15)) < 0 Then
-                _CurrentValueDecreaseAccountValue = -CDblSafe(dr.Item(15), 2, 0)
-                _CurrentValueIncreaseAccountValue = 0
-            ElseIf CDbl(dr.Item(15)) > 0 Then
-                _CurrentValueDecreaseAccountValue = 0
-                _CurrentValueIncreaseAccountValue = CDblSafe(dr.Item(15), 2, 0)
+            If CDblSafe(dr.Item(16), 2, 0) < 0 Then
+                _InitialValueDecreaseAccountValue = -CDblSafe(dr.Item(16), 2, 0)
+                _InitialValueIncreaseAccountValue = 0
+            ElseIf CDblSafe(dr.Item(16), 2, 0) > 0 Then
+                _InitialValueDecreaseAccountValue = 0
+                _InitialValueIncreaseAccountValue = CDblSafe(dr.Item(16), 2, 0)
             Else
-                _CurrentValueDecreaseAccountValue = 0
-                _CurrentValueIncreaseAccountValue = 0
+                _InitialValueDecreaseAccountValue = 0
+                _InitialValueIncreaseAccountValue = 0
             End If
-            _CurrentAmortizationAccountValuePerUnit = CDblSafe(dr.Item(16), ROUNDUNITASSET, 0)
-            _CurrentAmortizationAccountValue = CDblSafe(dr.Item(17), 2, 0)
-            _CurrentValueIncreaseAmortizationAccountValuePerUnit = CDblSafe(dr.Item(18), ROUNDUNITASSET, 0)
-            _CurrentValueIncreaseAmortizationAccountValue = CDblSafe(dr.Item(19), 2, 0)
-            _CurrentAmortizationPeriod = CIntSafe(dr.Item(20), 0)
-            _CurrentUsageTermMonths = CIntSafe(dr.Item(21), 0)
-            _CurrentAssetAmount = _CurrentAssetAmount + CIntSafe(dr.Item(22), 0)
-            _CurrentAcquisitionAccountValue = _
-                CRound(_CurrentAcquisitionAccountValue + CDblSafe(dr.Item(27), 2, 0))
-            _CurrentAcquisitionAccountValuePerUnit = _
-                CRound(_CurrentAcquisitionAccountValuePerUnit + _
-                CDblSafe(dr.Item(28), ROUNDUNITASSET, 0), ROUNDUNITASSET)
-            _CurrentAmortizationAccountValue = _
-                CRound(_CurrentAmortizationAccountValue + CDblSafe(dr.Item(29), 2, 0))
-            _CurrentAmortizationAccountValuePerUnit = _
-                CRound(_CurrentAmortizationAccountValuePerUnit _
-                + CDblSafe(dr.Item(30), ROUNDUNITASSET, 0), ROUNDUNITASSET)
-            _CurrentValueDecreaseAccountValue = CRound(_CurrentValueDecreaseAccountValue + _
-                CDblSafe(dr.Item(31), 2, 0))
-            _CurrentValueDecreaseAccountValuePerUnit = _
-                CRound(_CurrentValueDecreaseAccountValuePerUnit _
-                + CDblSafe(dr.Item(32), ROUNDUNITASSET, 0), ROUNDUNITASSET)
-            _CurrentValueIncreaseAccountValue = _
-                CRound(_CurrentValueIncreaseAccountValue + CDblSafe(dr.Item(33), 2, 0))
-            _CurrentValueIncreaseAccountValuePerUnit = _
-                CRound(_CurrentValueIncreaseAccountValuePerUnit _
-                + CDblSafe(dr.Item(34), ROUNDUNITASSET, 0), ROUNDUNITASSET)
-            _CurrentValueIncreaseAmortizationAccountValue = _
-                CRound(_CurrentValueIncreaseAmortizationAccountValue + CDblSafe(dr.Item(35), 2, 0))
-            _CurrentValueIncreaseAmortizationAccountValuePerUnit = _
-                CRound(_CurrentValueIncreaseAmortizationAccountValuePerUnit _
-                + CDblSafe(dr.Item(36), ROUNDUNITASSET, 0), ROUNDUNITASSET)
-            _CurrentUsageTermMonths = _CurrentUsageTermMonths + CIntSafe(dr.Item(37), 0)
-
-            If (Math.Floor(CIntSafe(dr.Item(38), 0) / 2) <> Math.Ceiling(CIntSafe(dr.Item(38), 0) / 2)) Then _
-                _CurrentUsageStatus = Not _CurrentUsageStatus
-
-            _CurrentAssetValue = CRound(_CurrentAcquisitionAccountValue + _
-                _CurrentAmortizationAccountValue + _CurrentValueDecreaseAccountValue)
-            _CurrentAssetValuePerUnit = CRound(_CurrentAcquisitionAccountValuePerUnit + _
-                _CurrentAmortizationAccountValuePerUnit + _CurrentValueDecreaseAccountValuePerUnit, ROUNDUNITASSET)
-            If _CurrentValueDecreaseAccountValue > 0 Then
-                _CurrentAssetValueRevaluedPortion = -CRound(_CurrentValueDecreaseAccountValue)
-                _CurrentAssetValueRevaluedPortionPerUnit = _
-                    -CRound(_CurrentValueDecreaseAccountValuePerUnit, ROUNDUNITASSET)
-            ElseIf _CurrentValueIncreaseAccountValue > 0 Then
-                _CurrentAssetValueRevaluedPortion = CRound(_CurrentValueIncreaseAccountValue _
-                    + _CurrentValueIncreaseAmortizationAccountValue)
-                _CurrentAssetValueRevaluedPortionPerUnit = CRound(_CurrentValueIncreaseAccountValuePerUnit _
-                    + _CurrentValueIncreaseAmortizationAccountValuePerUnit, ROUNDUNITASSET)
+            _InitialAmortizationAccountValuePerUnit = CDblSafe(dr.Item(17), ROUNDUNITASSET, 0)
+            _InitialAmortizationAccountValue = CDblSafe(dr.Item(18), 2, 0)
+            _InitialValueIncreaseAmortizationAccountValuePerUnit = CDblSafe(dr.Item(19), ROUNDUNITASSET, 0)
+            _InitialValueIncreaseAmortizationAccountValue = CDblSafe(dr.Item(20), 2, 0)
+            _InitialValueIncreaseAccountValue = CRound(_InitialValueIncreaseAccountValue + _
+                _InitialValueIncreaseAmortizationAccountValue)
+            _InitialValueIncreaseAccountValuePerUnit = CRound(_InitialValueIncreaseAccountValuePerUnit + _
+                _InitialValueIncreaseAmortizationAccountValuePerUnit, ROUNDUNITASSET)
+            _InitialAmortizationPeriod = CIntSafe(dr.Item(21), 0)
+            _InitialUsageTermMonths = CIntSafe(dr.Item(22), 0)
+            _InitialAssetValue = CRound(_InitialAcquisitionAccountValue + _
+                _InitialAmortizationAccountValue + _InitialValueDecreaseAccountValue)
+            _InitialAssetValuePerUnit = CRound(_InitialAcquisitionAccountValuePerUnit + _
+                _InitialAmortizationAccountValuePerUnit + _InitialValueDecreaseAccountValuePerUnit, ROUNDUNITASSET)
+            If _InitialValueDecreaseAccountValue > 0 Then
+                _InitialAssetValueRevaluedPortion = -CRound(_InitialValueDecreaseAccountValue)
+                _InitialAssetValueRevaluedPortionPerUnit = _
+                    -CRound(_InitialValueDecreaseAccountValuePerUnit, ROUNDUNITASSET)
+            ElseIf _InitialValueIncreaseAccountValue > 0 Then
+                _InitialAssetValueRevaluedPortion = CRound(_InitialValueIncreaseAccountValue _
+                    + _InitialValueIncreaseAmortizationAccountValue)
+                _InitialAssetValueRevaluedPortionPerUnit = CRound(_InitialValueIncreaseAccountValuePerUnit _
+                    + _InitialValueIncreaseAmortizationAccountValuePerUnit, ROUNDUNITASSET)
             Else
-                _CurrentAssetValueRevaluedPortion = 0
-                _CurrentAssetValueRevaluedPortionPerUnit = 0
+                _InitialAssetValueRevaluedPortion = 0
+                _InitialAssetValueRevaluedPortionPerUnit = 0
             End If
 
         End Sub

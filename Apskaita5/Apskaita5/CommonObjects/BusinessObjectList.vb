@@ -284,7 +284,7 @@ Public Class BusinessObjectCollection(Of T)
 
     Private Function GetFactoryMethod() As MethodInfo
 
-        Dim methodName As String = "Get" & GetType(T).Name & "OnServer"
+        Dim methodName As String = "Get" & GetType(T).Name & "Child"
 
         Dim MI As MethodInfo = Nothing
 
