@@ -8301,6 +8301,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodyta operacijos ID..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationPersistenceObject_IdNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationPersistenceObject_IdNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nerasta ilgalaikio turto operacija, kurios bendrojo žurnalo ID={0}..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationPersistenceObject_OperationNotFoundByJournalID() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationPersistenceObject_OperationNotFoundByJournalID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to {0} ilgalaikio turto operacija - {1}: {2}.
         '''</summary>
         Friend ReadOnly Property Assets_OperationPersistenceObject_ToString() As String
@@ -8315,6 +8333,15 @@ Namespace My.Resources
         Friend ReadOnly Property Assets_OperationPersistenceObject_TypeName() As String
             Get
                 Return ResourceManager.GetString("Assets_OperationPersistenceObject_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kompleksinė ilgalaikio turto operacija.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationPersistenceObject_TypeNameComplex() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationPersistenceObject_TypeNameComplex", resourceCulture)
             End Get
         End Property
         
@@ -20254,6 +20281,15 @@ Namespace My.Resources
         Friend ReadOnly Property HelperLists_WorkTimeClassInfo_WithoutWorkHours() As String
             Get
                 Return ResourceManager.GetString("HelperLists_WorkTimeClassInfo_WithoutWorkHours", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to .
+        '''</summary>
+        Friend ReadOnly Property My_Resources_Assets_OperationPersistenceObject_TypeName() As String
+            Get
+                Return ResourceManager.GetString("My.Resources.Assets_OperationPersistenceObject_TypeName", resourceCulture)
             End Get
         End Property
         

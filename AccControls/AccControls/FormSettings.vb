@@ -118,68 +118,68 @@ Public Module FormSettings
 
     End Sub
 
-    Public Sub GetXtraGridViewProperties(ByVal nXtraGrid As DevExpress.XtraGrid.GridControl, _
-        ByVal AutoResizeDataGridView As Boolean, ByVal SettingsStringCollection _
-        As System.Collections.Specialized.StringCollection)
+    'Public Sub GetXtraGridViewProperties(ByVal nXtraGrid As DevExpress.XtraGrid.GridControl, _
+    '    ByVal AutoResizeDataGridView As Boolean, ByVal SettingsStringCollection _
+    '    As System.Collections.Specialized.StringCollection)
 
-        If XtraGridDictionary Is Nothing Then GetXtraGridDictionary(SettingsStringCollection)
+    '    If XtraGridDictionary Is Nothing Then GetXtraGridDictionary(SettingsStringCollection)
 
-        Dim CurrentXtraGridViewProperties As String
+    '    Dim CurrentXtraGridViewProperties As String
 
-        Using ms As New IO.MemoryStream()
-            Dim options As New DevExpress.Utils.OptionsLayoutGrid()
-            options.Columns.StoreLayout = True
-            options.Columns.StoreAppearance = False
-            options.Columns.RemoveOldColumns = True
-            options.Columns.AddNewColumns = True
-            options.StoreAppearance = False
-            options.StoreAppearance = False
-            options.StoreDataSettings = False
-            options.StoreVisualOptions = False
-            nXtraGrid.MainView.SaveLayoutToStream(ms, options)
-            CurrentXtraGridViewProperties = Convert.ToBase64String(ms.ToArray())
-        End Using
+    '    Using ms As New IO.MemoryStream()
+    '        Dim options As New DevExpress.Utils.OptionsLayoutGrid()
+    '        options.Columns.StoreLayout = True
+    '        options.Columns.StoreAppearance = False
+    '        options.Columns.RemoveOldColumns = True
+    '        options.Columns.AddNewColumns = True
+    '        options.StoreAppearance = False
+    '        options.StoreAppearance = False
+    '        options.StoreDataSettings = False
+    '        options.StoreVisualOptions = False
+    '        nXtraGrid.MainView.SaveLayoutToStream(ms, options)
+    '        CurrentXtraGridViewProperties = Convert.ToBase64String(ms.ToArray())
+    '    End Using
 
-        If XtraGridDictionary.ContainsKey(GetFullXtraGridName(nXtraGrid)) Then
-            XtraGridDictionary.Item(GetFullXtraGridName(nXtraGrid)) = CurrentXtraGridViewProperties
-        Else
-            XtraGridDictionary.Add(GetFullXtraGridName(nXtraGrid), CurrentXtraGridViewProperties)
-        End If
+    '    If XtraGridDictionary.ContainsKey(GetFullXtraGridName(nXtraGrid)) Then
+    '        XtraGridDictionary.Item(GetFullXtraGridName(nXtraGrid)) = CurrentXtraGridViewProperties
+    '    Else
+    '        XtraGridDictionary.Add(GetFullXtraGridName(nXtraGrid), CurrentXtraGridViewProperties)
+    '    End If
 
-    End Sub
+    'End Sub
 
-    Public Sub SetXtraGridProperties(ByRef nXtraGrid As DevExpress.XtraGrid.GridControl, _
-        ByVal AutoResizeDataGridView As Boolean, ByVal SettingsStringCollection _
-        As System.Collections.Specialized.StringCollection)
+    'Public Sub SetXtraGridProperties(ByRef nXtraGrid As DevExpress.XtraGrid.GridControl, _
+    '    ByVal AutoResizeDataGridView As Boolean, ByVal SettingsStringCollection _
+    '    As System.Collections.Specialized.StringCollection)
 
-        If XtraGridDictionary Is Nothing Then GetXtraGridDictionary(SettingsStringCollection)
-        If Not XtraGridDictionary.ContainsKey(GetFullXtraGridName(nXtraGrid)) Then Exit Sub
+    '    If XtraGridDictionary Is Nothing Then GetXtraGridDictionary(SettingsStringCollection)
+    '    If Not XtraGridDictionary.ContainsKey(GetFullXtraGridName(nXtraGrid)) Then Exit Sub
 
-        Using ms As New IO.MemoryStream(Convert.FromBase64String( _
-            XtraGridDictionary(GetFullXtraGridName(nXtraGrid))))
-            nXtraGrid.MainView.Appearance.RestoreLayoutFromStream(ms)
-        End Using
+    '    Using ms As New IO.MemoryStream(Convert.FromBase64String( _
+    '        XtraGridDictionary(GetFullXtraGridName(nXtraGrid))))
+    '        nXtraGrid.MainView.Appearance.RestoreLayoutFromStream(ms)
+    '    End Using
 
-        'nXtraGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        'nXtraGrid.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader
-        'nXtraGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+    '    'nXtraGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+    '    'nXtraGrid.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader
+    '    'nXtraGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
 
-        'If AutoResizeDataGridView Then
-        '    nXtraGrid.AutoSize = True
-        '    nXtraGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-        '    nXtraGrid.AutoResizeColumns()
-        '    nXtraGrid.AutoResizeRows()
-        '    nXtraGrid.AutoResizeColumnHeadersHeight()
-        '    nXtraGrid.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders)
-        '    Exit Sub
-        'Else
-        '    nXtraGrid.AutoSize = False
-        '    nXtraGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None
-        'End If
+    '    'If AutoResizeDataGridView Then
+    '    '    nXtraGrid.AutoSize = True
+    '    '    nXtraGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+    '    '    nXtraGrid.AutoResizeColumns()
+    '    '    nXtraGrid.AutoResizeRows()
+    '    '    nXtraGrid.AutoResizeColumnHeadersHeight()
+    '    '    nXtraGrid.AutoResizeRowHeadersWidth(DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders)
+    '    '    Exit Sub
+    '    'Else
+    '    '    nXtraGrid.AutoSize = False
+    '    '    nXtraGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None
+    '    'End If
 
-        'nXtraGrid.AutoResizeColumnHeadersHeight()
+    '    'nXtraGrid.AutoResizeColumnHeadersHeight()
 
-    End Sub
+    'End Sub
 
     Private Function GetFullFormName(ByVal nForm As Form) As String
         Return nForm.GetType.Namespace.Trim.ToLower & nForm.GetType.Name.Trim.ToLower
@@ -194,9 +194,9 @@ Public Module FormSettings
             nDataGridViewColumn.Name.Trim.ToLower
     End Function
 
-    Private Function GetFullXtraGridName(ByVal nXtraGrid As DevExpress.XtraGrid.GridControl) As String
-        Return GetFullFormName(nXtraGrid.FindForm) & nXtraGrid.Name.Trim.ToLower
-    End Function
+    'Private Function GetFullXtraGridName(ByVal nXtraGrid As DevExpress.XtraGrid.GridControl) As String
+    '    Return GetFullFormName(nXtraGrid.FindForm) & nXtraGrid.Name.Trim.ToLower
+    'End Function
 
     Public Sub GetFormPropertiesDictionary(ByVal SettingsStringCollection _
         As System.Collections.Specialized.StringCollection)
@@ -271,20 +271,20 @@ Public Module FormSettings
 
     End Function
 
-    Public Function GetXtraGridPropertiesStringCollection(ByVal SettingsStringCollection _
-        As System.Collections.Specialized.StringCollection) _
-        As System.Collections.Specialized.StringCollection
+    'Public Function GetXtraGridPropertiesStringCollection(ByVal SettingsStringCollection _
+    '    As System.Collections.Specialized.StringCollection) _
+    '    As System.Collections.Specialized.StringCollection
 
-        Dim result As New System.Collections.Specialized.StringCollection
+    '    Dim result As New System.Collections.Specialized.StringCollection
 
-        If XtraGridDictionary Is Nothing Then GetXtraGridDictionary(SettingsStringCollection)
+    '    If XtraGridDictionary Is Nothing Then GetXtraGridDictionary(SettingsStringCollection)
 
-        For Each p As KeyValuePair(Of String, String) In XtraGridDictionary
-            result.Add(p.Key.Trim & Chr(9) & p.Value)
-        Next
+    '    For Each p As KeyValuePair(Of String, String) In XtraGridDictionary
+    '        result.Add(p.Key.Trim & Chr(9) & p.Value)
+    '    Next
 
-        Return result
+    '    Return result
 
-    End Function
+    'End Function
 
 End Module

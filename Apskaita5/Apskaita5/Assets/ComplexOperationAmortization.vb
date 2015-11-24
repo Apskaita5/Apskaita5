@@ -235,10 +235,10 @@
         Public Sub SetCalculations(ByVal calculationList As LongTermAssetAmortizationCalculationList, _
             ByRef warnings As String)
 
-            If Not _ChronologyValidator.BaseValidator.FinancialDataCanChange Then
+            If Not _ChronologyValidator.FinancialDataCanChange Then
                 Throw New Exception(String.Format( _
                     My.Resources.Assets_ComplexOperationAmortization_CannotChangeFinancialData, _
-                    vbCrLf, _ChronologyValidator.BaseValidator.FinancialDataCanChangeExplanation))
+                    vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
             End If
 
             _Items.SetCalculations(calculationList, warnings)
@@ -252,10 +252,10 @@
         ''' <remarks></remarks>
         Public Sub SetCalculations(ByVal calculation As LongTermAssetAmortizationCalculation)
 
-            If Not _ChronologyValidator.BaseValidator.FinancialDataCanChange Then
+            If Not _ChronologyValidator.FinancialDataCanChange Then
                 Throw New Exception(String.Format( _
                     My.Resources.Assets_ComplexOperationAmortization_CannotChangeFinancialData, _
-                    vbCrLf, _ChronologyValidator.BaseValidator.FinancialDataCanChangeExplanation))
+                    vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
             End If
 
             _Items.SetCalculations(calculation)
@@ -269,13 +269,13 @@
         Public Function GetCalculations() As LongTermAssetAmortizationCalculationList
 
             If _Items.Count < 1 Then
-                Throw New Exception("Klaida. Dokumente nėra nė vienos eilutės.")
+                Throw New Exception(My.Resources.Assets_ComplexOperationAmortization_DocumentEmpty)
             End If
 
-            If Not _ChronologyValidator.BaseValidator.FinancialDataCanChange Then
+            If Not _ChronologyValidator.FinancialDataCanChange Then
                 Throw New Exception(String.Format( _
-                    "Klaida. Koreguoti dokumento finansinius duomenis neleidžiama:{0}{1}", _
-                    vbCrLf, _ChronologyValidator.BaseValidator.FinancialDataCanChangeExplanation))
+                    My.Resources.Assets_ComplexOperationAmortization_CannotChangeFinancialData, _
+                    vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
             End If
 
             Dim resultAssetID As New List(Of Integer)
@@ -299,10 +299,10 @@
         ''' to get a list of new operations by asset ID's.</remarks>
         Public Sub AddRange(ByVal list As OperationAmortizationList)
 
-            If Not _ChronologyValidator.BaseValidator.FinancialDataCanChange Then
+            If Not _ChronologyValidator.FinancialDataCanChange Then
                 Throw New Exception(String.Format( _
                     My.Resources.Assets_ComplexOperationAmortization_CannotChangeFinancialDataFull, _
-                    vbCrLf, _ChronologyValidator.BaseValidator.FinancialDataCanChangeExplanation))
+                    vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
             End If
 
             list.SetParentDate(_Date)
@@ -567,7 +567,7 @@
             Dim operationID As Integer = criteria.Id
 
             If criteria.FetchByJournalEntryID Then
-                operationID = OperationPersistenceObject.GetOperationIdByJournalEntry(criteria.Id)
+                operationID = OperationPersistenceObject.GetComplexOperationIdByJournalEntry(criteria.Id)
             End If
 
             Fetch(operationID)
@@ -601,13 +601,8 @@
 
             Using generalData As DataTable = OperationBackground.GetDataSourceGeneral(operationID)
                 Using deltaData As DataTable = OperationBackground.GetDataSourceDelta(operationID)
-                    Using chronologicData As DataTable = OperationChronologicValidator. _
-                        GetDataSourceForOldComplexDocument(operationID, list(0).OperationDate)
-
-                        _Items = OperationAmortizationList.GetOperationAmortizationList( _
-                            list, generalData, deltaData, chronologicData, baseValidator)
-
-                    End Using
+                    _Items = OperationAmortizationList.GetOperationAmortizationList( _
+                        list, generalData, deltaData, baseValidator)
                 End Using
             End Using
 
@@ -771,10 +766,10 @@
 
         Private Sub CheckIfCanDelete()
 
-            If Not _ChronologyValidator.BaseValidator.FinancialDataCanChange Then
+            If Not _ChronologyValidator.FinancialDataCanChange Then
                 Throw New Exception(String.Format( _
                     My.Resources.Assets_ComplexOperationAmortization_InvalidDelete, _
-                    vbCrLf, _ChronologyValidator.BaseValidator.FinancialDataCanChangeExplanation))
+                    vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
             End If
 
             _Items.CheckIfCanDelete(_ChronologyValidator)

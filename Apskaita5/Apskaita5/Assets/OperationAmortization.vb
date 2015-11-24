@@ -15,8 +15,9 @@ Namespace Assets
 #Region " Business Methods "
 
         Private _Background As OperationBackground = Nothing
-        Private _ChronologyValidator As OperationChronologicValidator
+        Private _ChronologyValidator As OperationChronologicValidator2 = Nothing
 
+        Private ReadOnly _Guid As Guid = Guid.NewGuid
         Private _ID As Integer = -1
         Private _InsertDate As DateTime = Now
         Private _UpdateDate As DateTime = Now
@@ -84,7 +85,7 @@ Namespace Assets
         ''' </summary>
         ''' <remarks>A <see cref="OperationChronologicValidator">OperationChronologicValidator</see> 
         ''' is used to validate a long term asset amortization operation chronological business rules.</remarks>
-        Public ReadOnly Property ChronologyValidator() As OperationChronologicValidator
+        Public ReadOnly Property ChronologyValidator() As OperationChronologicValidator2
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _ChronologyValidator
@@ -1030,7 +1031,8 @@ Namespace Assets
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return ((Not IsChild AndAlso _IsComplexAct) OrElse _
-                    Not _ChronologyValidator.FinancialDataCanChange)
+                    Not _ChronologyValidator.FinancialDataCanChange OrElse _
+                    Not _ChronologyValidator.ParentFinancialDataCanChange)
             End Get
         End Property
 
@@ -1053,7 +1055,8 @@ Namespace Assets
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return ((Not IsChild AndAlso _IsComplexAct) OrElse _
-                    Not _ChronologyValidator.FinancialDataCanChange)
+                    Not _ChronologyValidator.FinancialDataCanChange OrElse _
+                    Not _ChronologyValidator.ParentFinancialDataCanChange)
             End Get
         End Property
 
@@ -1065,7 +1068,8 @@ Namespace Assets
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return ((Not IsChild AndAlso _IsComplexAct) OrElse _
-                    Not _ChronologyValidator.FinancialDataCanChange)
+                    Not _ChronologyValidator.FinancialDataCanChange OrElse _
+                    Not _ChronologyValidator.ParentFinancialDataCanChange)
             End Get
         End Property
 
@@ -1077,7 +1081,8 @@ Namespace Assets
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return ((Not IsChild AndAlso _IsComplexAct) OrElse _
-                    Not _ChronologyValidator.FinancialDataCanChange)
+                    Not _ChronologyValidator.FinancialDataCanChange OrElse _
+                    Not _ChronologyValidator.ParentFinancialDataCanChange)
             End Get
         End Property
 
@@ -1089,7 +1094,8 @@ Namespace Assets
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return ((Not IsChild AndAlso _IsComplexAct) OrElse _
-                    Not _ChronologyValidator.FinancialDataCanChange)
+                    Not _ChronologyValidator.FinancialDataCanChange OrElse _
+                    Not _ChronologyValidator.ParentFinancialDataCanChange)
             End Get
         End Property
 
@@ -1243,6 +1249,10 @@ Namespace Assets
                 Throw New Exception(String.Format( _
                     My.Resources.Assets_OperationAmortization_CannotChangeFinancialData, _
                     _Background.AssetName, vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
+            ElseIf Not _ChronologyValidator.ParentFinancialDataCanChange Then
+                Throw New Exception(String.Format( _
+                    My.Resources.Assets_OperationAmortization_CannotChangeFinancialData, _
+                    _Background.AssetName, vbCrLf, _ChronologyValidator.ParentFinancialDataCanChangeExplanation))
             End If
 
             _UnitValueChange = -calculation.AmortizationValuePerUnit
@@ -1356,7 +1366,7 @@ Namespace Assets
 
 
         Protected Overrides Function GetIdValue() As Object
-            Return _ID
+            Return _Guid
         End Function
 
         Public Overrides Function ToString() As String
@@ -1558,9 +1568,8 @@ Namespace Assets
         Friend Shared Function GetOperationAmortizationChild( _
             ByVal persistence As OperationPersistenceObject, _
             ByVal parentValidator As IChronologicValidator, _
-            ByVal generalData As DataTable, ByVal deltaData As DataTable, _
-            ByVal chronologicData As DataTable) As OperationAmortization
-            Return New OperationAmortization(persistence, parentValidator, generalData, deltaData, chronologicData)
+            ByVal generalData As DataTable, ByVal deltaData As DataTable) As OperationAmortization
+            Return New OperationAmortization(persistence, parentValidator, generalData, deltaData)
         End Function
 
 
@@ -1605,10 +1614,9 @@ Namespace Assets
 
         Private Sub New(ByVal persistence As OperationPersistenceObject, _
             ByVal parentValidator As IChronologicValidator, _
-            ByVal generalData As DataTable, ByVal deltaData As DataTable, _
-            ByVal chronologicData As DataTable)
+            ByVal generalData As DataTable, ByVal deltaData As DataTable)
             MarkAsChild()
-            Fetch(persistence, parentValidator, generalData, deltaData, chronologicData)
+            Fetch(persistence, parentValidator, generalData, deltaData)
         End Sub
 
 #End Region
@@ -1654,9 +1662,9 @@ Namespace Assets
 
             _Background = OperationBackground.NewOperationBackgroundChild(nAssetId)
 
-            _ChronologyValidator = OperationChronologicValidator.NewOperationChronologicValidator( _
-                nAssetId, LtaOperationType.Amortization, LtaAccountChangeType.AcquisitionAccount, _
-                _Background.AssetDateAcquired, parentValidator)
+            _ChronologyValidator = OperationChronologicValidator2.NewOperationChronologicValidator( _
+                _Background, LtaOperationType.Amortization, LtaAccountChangeType.AcquisitionAccount, _
+                parentValidator)
 
             ValidationRules.CheckRules()
 
@@ -1684,13 +1692,13 @@ Namespace Assets
                 OperationPersistenceObject.GetOperationPersistenceObject( _
                 operationID, LtaOperationType.Amortization)
 
-            Fetch(persistence, parentValidator, Nothing, Nothing, Nothing)
+            Fetch(persistence, parentValidator, Nothing, Nothing)
 
         End Sub
 
         Private Sub Fetch(ByVal persistence As OperationPersistenceObject, _
             ByVal parentValidator As IChronologicValidator, ByVal generalData As DataTable, _
-            ByVal deltaData As DataTable, ByVal chronologicData As DataTable)
+            ByVal deltaData As DataTable)
 
             _ID = persistence.ID
             _Date = persistence.OperationDate
@@ -1727,10 +1735,9 @@ Namespace Assets
 
             _Background.DisableCalculations = False
 
-            _ChronologyValidator = OperationChronologicValidator.GetOperationChronologicValidator( _
-                persistence.AssetID, LtaOperationType.Amortization, _
-                LtaAccountChangeType.AcquisitionAccount, _Background.AssetDateAcquired, _
-                _ID, _Date, parentValidator, chronologicData)
+            _ChronologyValidator = OperationChronologicValidator2.GetOperationChronologicValidator( _
+                _Background, LtaOperationType.Amortization, LtaAccountChangeType.AcquisitionAccount, _
+                _ID, _Date, parentValidator)
 
             MarkOld()
 
@@ -2009,9 +2016,8 @@ Namespace Assets
 
             If IsNew Then Exit Sub
 
-            _ChronologyValidator = OperationChronologicValidator.GetOperationChronologicValidator( _
-                _Background.AssetID, LtaOperationType.Amortization, _
-                LtaAccountChangeType.AcquisitionAccount, _Background.AssetDateAcquired, _
+            _ChronologyValidator = OperationChronologicValidator2.GetOperationChronologicValidator( _
+                _Background, LtaOperationType.Amortization, LtaAccountChangeType.AcquisitionAccount, _
                 _ID, _ChronologyValidator.CurrentOperationDate, parentValidator)
 
             If Not _ChronologyValidator.FinancialDataCanChange Then
@@ -2042,16 +2048,14 @@ Namespace Assets
 
             If IsNew Then
                 _Background = OperationBackground.NewOperationBackgroundChild(_Background.AssetID)
-                _ChronologyValidator = OperationChronologicValidator.NewOperationChronologicValidator( _
-                    _Background.AssetID, LtaOperationType.Amortization, _
-                    LtaAccountChangeType.AcquisitionAccount, _Background.AssetDateAcquired, _
+                _ChronologyValidator = OperationChronologicValidator2.NewOperationChronologicValidator( _
+                    _Background, LtaOperationType.Amortization, LtaAccountChangeType.AcquisitionAccount, _
                     parentValidator)
             Else
                 _Background = OperationBackground.GetOperationBackgroundChild( _
                     _Background.AssetID, _ID, _Date)
-                _ChronologyValidator = OperationChronologicValidator.GetOperationChronologicValidator( _
-                    _Background.AssetID, LtaOperationType.Amortization, _
-                    LtaAccountChangeType.AcquisitionAccount, _Background.AssetDateAcquired, _
+                _ChronologyValidator = OperationChronologicValidator2.GetOperationChronologicValidator( _
+                    _Background, LtaOperationType.Amortization, LtaAccountChangeType.AcquisitionAccount, _
                     _ID, _Date, parentValidator)
             End If
 

@@ -8652,4 +8652,16 @@
   <data name="Assets_LongTermAsset_CorrectionInvalid" xml:space="preserve">
     <value>Bendros vertės korekcija galima, tik jei kiekis didesnis už vienetą.</value>
   </data>
+  <data name="Assets_OperationPersistenceObject_OperationNotFoundByJournalID" xml:space="preserve">
+    <value>Klaida. Nerasta ilgalaikio turto operacija, kurios bendrojo žurnalo ID={0}.</value>
+  </data>
+  <data name="Assets_OperationPersistenceObject_TypeNameComplex" xml:space="preserve">
+    <value>kompleksinė ilgalaikio turto operacija</value>
+  </data>
+  <data name="My.Resources.Assets_OperationPersistenceObject_TypeName" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Assets_OperationPersistenceObject_IdNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta operacijos ID.</value>
+  </data>
 </root>

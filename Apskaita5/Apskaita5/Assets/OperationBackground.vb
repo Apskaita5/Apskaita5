@@ -1500,6 +1500,54 @@
         End Sub
 
 
+        ''' <summary>
+        ''' Gets the maximum (latest) date for the provided <see cref="LtaOperationType">
+        ''' long term asset operation types</see>.
+        ''' </summary>
+        ''' <param name="operationTypes"><see cref="LtaOperationType">Long term asset 
+        ''' operation types</see> to evaluate. If null, all the operations are evaluated.</param>
+        ''' <remarks>Returnes Date.MinValue if no operation match is found.</remarks>
+        Public Function GetDateMax(ByVal operationTypes As LtaOperationType()) As Date
+            Return _DeltaList.GetDateMax(operationTypes)
+        End Function
+
+        ''' <summary>
+        ''' Gets the minimum (most recent) date for the provided <see cref="LtaOperationType">
+        ''' long term asset operation types</see>.
+        ''' </summary>
+        ''' <param name="operationTypes"><see cref="LtaOperationType">Long term asset 
+        ''' operation types</see> to evaluate. If null, all the operations are evaluated.</param>
+        ''' <remarks>Returnes Date.MaxValue if no operation match is found.</remarks>
+        Public Function GetDateMin(ByVal operationTypes As LtaOperationType()) As Date
+            Return _DeltaList.GetDateMin(operationTypes)
+        End Function
+
+        ''' <summary>
+        ''' Gets the maximum (latest) date for the provided <see cref="LtaOperationType">
+        ''' long term asset operation types</see> before the current operation date.
+        ''' </summary>
+        ''' <param name="operationDate">current operation date</param>
+        ''' <param name="operationTypes"><see cref="LtaOperationType">Long term asset 
+        ''' operation types</see> to evaluate. If null, all the operations are evaluated.</param>
+        ''' <remarks>Returnes Date.MinValue if no operation match is found.</remarks>
+        Public Function GetDateLastBefore(ByVal operationDate As Date, _
+            ByVal operationTypes As LtaOperationType()) As Date
+            Return _DeltaList.GetDateLastBefore(operationDate, operationTypes)
+        End Function
+
+        ''' <summary>
+        ''' Gets the minimum (most recent) date for the provided <see cref="LtaOperationType">
+        ''' long term asset operation types</see> after the current operation date.
+        ''' </summary>
+        ''' <param name="operationDate">current operation date</param>
+        ''' <param name="operationTypes"><see cref="LtaOperationType">Long term asset 
+        ''' operation types</see> to evaluate. If null, all the operations are evaluated.</param>
+        ''' <remarks>Returnes Date.MaxValue if no operation match is found.</remarks>
+        Public Function GetDateFirstAfter(ByVal operationDate As Date, _
+            ByVal operationTypes As LtaOperationType()) As Date
+            Return _DeltaList.GetDateFirstAfter(operationDate, operationTypes)
+        End Function
+
         Protected Overrides Function GetIdValue() As Object
             Return _AssetID
         End Function

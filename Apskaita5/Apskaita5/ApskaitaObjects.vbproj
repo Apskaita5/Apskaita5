@@ -155,6 +155,7 @@
     <Compile Include="ActiveReports\WorkTimeSheetInfoList.vb" />
     <Compile Include="Assets\AcquisitionChronologicValidator.vb" />
     <Compile Include="Assets\ComplexOperationAmortization.vb" />
+    <Compile Include="Assets\OperationChronologicValidator2.vb" />
     <Compile Include="Assets\LongTermAsset.vb" />
     <Compile Include="Assets\LongTermAssetAmortizationCalculation.vb" />
     <Compile Include="Assets\LongTermAssetAmortizationCalculationList.vb" />

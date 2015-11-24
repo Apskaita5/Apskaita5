@@ -279,10 +279,9 @@
         Friend Shared Function GetOperationAmortizationList( _
             ByVal persistanceList As List(Of OperationPersistenceObject), _
             ByVal generalData As DataTable, ByVal deltaData As DataTable, _
-            ByVal chronologicData As DataTable, ByVal parentValidator As SimpleChronologicValidator) _
-            As OperationAmortizationList
+            ByVal parentValidator As SimpleChronologicValidator) As OperationAmortizationList
             Return New OperationAmortizationList(persistanceList, generalData, _
-                deltaData, chronologicData, parentValidator)
+                deltaData, parentValidator)
         End Function
 
 
@@ -296,12 +295,12 @@
 
         Private Sub New(ByVal persistanceList As List(Of OperationPersistenceObject), _
             ByVal generalData As DataTable, ByVal deltaData As DataTable, _
-            ByVal chronologicData As DataTable, ByVal parentValidator As SimpleChronologicValidator)
+            ByVal parentValidator As SimpleChronologicValidator)
             MarkAsChild()
             Me.AllowEdit = True
             Me.AllowNew = False
             Me.AllowRemove = True
-            Fetch(persistanceList, generalData, deltaData, chronologicData, parentValidator)
+            Fetch(persistanceList, generalData, deltaData, parentValidator)
         End Sub
 
 #End Region
@@ -346,7 +345,7 @@
 
         Private Sub Fetch(ByVal persistanceList As List(Of OperationPersistenceObject), _
             ByVal generalData As DataTable, ByVal deltaData As DataTable, _
-            ByVal chronologicData As DataTable, ByVal parentValidator As SimpleChronologicValidator)
+            ByVal parentValidator As SimpleChronologicValidator)
 
             RaiseListChangedEvents = False
 
@@ -357,7 +356,7 @@
             For Each p As OperationPersistenceObject In persistanceList
 
                 MyBase.Add(OperationAmortization.GetOperationAmortizationChild( _
-                    p, parentValidator, generalData, deltaData, chronologicData))
+                    p, parentValidator, generalData, deltaData))
 
             Next
 

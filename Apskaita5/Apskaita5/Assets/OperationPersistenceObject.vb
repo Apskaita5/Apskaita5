@@ -721,7 +721,8 @@
 
         Public Overrides Function ToString() As String
             Return String.Format(My.Resources.Assets_OperationPersistenceObject_ToString, _
-                _OperationDate.ToString("yyyy-MM-dd"), EnumValueAttribute.ConvertLocalizedName(_OperationType), _Content)
+                _OperationDate.ToString("yyyy-MM-dd"), _
+                EnumValueAttribute.ConvertLocalizedName(_OperationType), _Content)
         End Function
 
 #End Region
@@ -760,9 +761,31 @@
         Friend Shared Function GetOperationPersistenceObjectList(ByVal complexOperationID As Integer, _
             ByVal expectedType As LtaOperationType) As List(Of OperationPersistenceObject)
 
+            If Not complexOperationID > 0 Then
+                Throw New Exception(My.Resources.Assets_OperationPersistenceObject_IdNull)
+            End If
+
             Dim result As New List(Of OperationPersistenceObject)
 
-            'TODO: do fetch
+            Dim myComm As New SQLCommand("FetchAssetOperationPersistenceObjectList")
+            myComm.AddParam("?OD", complexOperationID)
+
+            Using myData As DataTable = myComm.Fetch()
+
+                If myData.Rows.Count < 1 Then Throw New Exception(String.Format( _
+                    My.Resources.Common_ObjectNotFound, My.Resources.Assets_OperationPersistenceObject_TypeNameComplex, _
+                    complexOperationID.ToString()))
+
+                For Each dr As DataRow In myData.Rows
+                    result.Add(New OperationPersistenceObject(dr))
+                Next
+
+                If expectedType <> result(0).OperationType Then Throw New Exception(String.Format( _
+                    My.Resources.Assets_OperationPersistenceObject_UnexpectedType, complexOperationID.ToString(), _
+                    EnumValueAttribute.ConvertLocalizedName(expectedType), _
+                    EnumValueAttribute.ConvertLocalizedName(result(0).OperationType)))
+
+            End Using
 
             Return result
 
@@ -781,6 +804,10 @@
             Fetch(operationID, expectedType)
         End Sub
 
+        Private Sub New(ByVal dr As DataRow)
+            Fetch(dr)
+        End Sub
+
 #End Region
 
 #Region " Data Access "
@@ -792,6 +819,10 @@
 
         Private Sub Fetch(ByVal operationID As Integer, ByVal expectedType As LtaOperationType)
 
+            If Not operationID > 0 Then
+                Throw New Exception(My.Resources.Assets_OperationPersistenceObject_IdNull)
+            End If
+
             Dim myComm As New SQLCommand("FetchAssetOperationPersistenceObject")
             myComm.AddParam("?OD", operationID)
 
@@ -801,56 +832,59 @@
                     My.Resources.Common_ObjectNotFound, My.Resources.Assets_OperationPersistenceObject_TypeName, _
                     operationID.ToString()))
 
-                Dim dr As DataRow = myData.Rows(0)
-
-                _ID = CIntSafe(dr.Item(0), 0)
-                _AssetID = CIntSafe(dr.Item(1), 0)
-                _OperationType = EnumValueAttribute.ConvertDatabaseCharID(Of LtaOperationType)(CStrSafe(dr.Item(2)))
+                Fetch(myData.Rows(0))
 
                 If expectedType <> _OperationType Then Throw New Exception(String.Format( _
                     My.Resources.Assets_OperationPersistenceObject_UnexpectedType, _ID.ToString(), _
                     EnumValueAttribute.ConvertLocalizedName(expectedType), _
                     EnumValueAttribute.ConvertLocalizedName(_OperationType)))
 
-                _AccountOperationType = EnumValueAttribute.ConvertDatabaseCharID(Of LtaAccountChangeType)(CStrSafe(dr.Item(3)))
-                _OperationDate = CDateSafe(dr.Item(4), Today)
-                _ComplexActID = CIntSafe(dr.Item(5), 0)
-                _IsComplexAct = (_ComplexActID > 0)
-                _Content = CStrSafe(dr.Item(6)).Trim
-                _AccountCorresponding = CLongSafe(dr.Item(7), 0)
-                _ActNumber = CIntSafe(dr.Item(8), 0)
-                _UnitValueChange = CDblSafe(dr.Item(9), ROUNDUNITASSET, 0)
-                _AmmountChange = CIntSafe(dr.Item(10), 0)
-                _TotalValueChange = CDblSafe(dr.Item(11), 2, 0)
-                _NewAmortizationPeriod = CIntSafe(dr.Item(12), 0)
-                _AmortizationCalculations = CStrSafe(dr.Item(13)).Trim
-                _RevaluedPortionUnitValueChange = CDblSafe(dr.Item(14), ROUNDUNITASSET, 0)
-                _RevaluedPortionTotalValueChange = CDblSafe(dr.Item(15), 2, 0)
-                _AcquisitionAccountChange = CDblSafe(dr.Item(16), 2, 0)
-                _AcquisitionAccountChangePerUnit = CDblSafe(dr.Item(17), ROUNDUNITASSET, 0)
-                _AmortizationAccountChange = CDblSafe(dr.Item(18), 2, 0)
-                _AmortizationAccountChangePerUnit = CDblSafe(dr.Item(19), ROUNDUNITASSET, 0)
-                _ValueDecreaseAccountChange = CDblSafe(dr.Item(20), 2, 0)
-                _ValueDecreaseAccountChangePerUnit = CDblSafe(dr.Item(21), ROUNDUNITASSET, 0)
-                _ValueIncreaseAccountChange = CDblSafe(dr.Item(22), 2, 0)
-                _ValueIncreaseAccountChangePerUnit = CDblSafe(dr.Item(23), ROUNDUNITASSET, 0)
-                _ValueIncreaseAmmortizationAccountChange = CDblSafe(dr.Item(24), 2, 0)
-                _ValueIncreaseAmmortizationAccountChangePerUnit = CDblSafe(dr.Item(25), ROUNDUNITASSET, 0)
-                _AmortizationCalculatedForMonths = CIntSafe(dr.Item(26), 0)
-                _InsertDate = CTimeStampSafe(dr.Item(27))
-                _UpdateDate = CTimeStampSafe(dr.Item(28))
-                _JournalEntryID = CIntSafe(dr.Item(30), 0)
-                _JournalEntryDocumentNumber = CStrSafe(dr.Item(31)).Trim
-                _JournalEntryDate = CDateSafe(dr.Item(32), Today)
-                _JournalEntryContent = CStrSafe(dr.Item(33)).Trim
-                _JournalEntryDocumentType = ConvertEnumDatabaseStringCode(Of DocumentType)(CStrSafe(dr.Item(34)))
-                _JournalEntryPersonID = CIntSafe(dr.Item(35), 0)
-                _JournalEntryPersonName = CStrSafe(dr.Item(36)).Trim
-                _JournalEntryPersonCode = CStrSafe(dr.Item(37)).Trim
-                _JournalEntryBookEntries = CStrSafe(dr.Item(38)).Trim
-                _JournalEntryAmount = CDblSafe(dr.Item(39), 2, 0)
-
             End Using
+
+        End Sub
+
+        Private Sub Fetch(ByVal dr As DataRow)
+
+            _ID = CIntSafe(dr.Item(0), 0)
+            _AssetID = CIntSafe(dr.Item(1), 0)
+            _OperationType = EnumValueAttribute.ConvertDatabaseCharID(Of LtaOperationType)(CStrSafe(dr.Item(2)))
+            _AccountOperationType = EnumValueAttribute.ConvertDatabaseCharID(Of LtaAccountChangeType)(CStrSafe(dr.Item(3)))
+            _OperationDate = CDateSafe(dr.Item(4), Today)
+            _ComplexActID = CIntSafe(dr.Item(5), 0)
+            _IsComplexAct = (_ComplexActID > 0)
+            _Content = CStrSafe(dr.Item(6)).Trim
+            _AccountCorresponding = CLongSafe(dr.Item(7), 0)
+            _ActNumber = CIntSafe(dr.Item(8), 0)
+            _UnitValueChange = CDblSafe(dr.Item(9), ROUNDUNITASSET, 0)
+            _AmmountChange = CIntSafe(dr.Item(10), 0)
+            _TotalValueChange = CDblSafe(dr.Item(11), 2, 0)
+            _NewAmortizationPeriod = CIntSafe(dr.Item(12), 0)
+            _AmortizationCalculations = CStrSafe(dr.Item(13)).Trim
+            _RevaluedPortionUnitValueChange = CDblSafe(dr.Item(14), ROUNDUNITASSET, 0)
+            _RevaluedPortionTotalValueChange = CDblSafe(dr.Item(15), 2, 0)
+            _AcquisitionAccountChange = CDblSafe(dr.Item(16), 2, 0)
+            _AcquisitionAccountChangePerUnit = CDblSafe(dr.Item(17), ROUNDUNITASSET, 0)
+            _AmortizationAccountChange = CDblSafe(dr.Item(18), 2, 0)
+            _AmortizationAccountChangePerUnit = CDblSafe(dr.Item(19), ROUNDUNITASSET, 0)
+            _ValueDecreaseAccountChange = CDblSafe(dr.Item(20), 2, 0)
+            _ValueDecreaseAccountChangePerUnit = CDblSafe(dr.Item(21), ROUNDUNITASSET, 0)
+            _ValueIncreaseAccountChange = CDblSafe(dr.Item(22), 2, 0)
+            _ValueIncreaseAccountChangePerUnit = CDblSafe(dr.Item(23), ROUNDUNITASSET, 0)
+            _ValueIncreaseAmmortizationAccountChange = CDblSafe(dr.Item(24), 2, 0)
+            _ValueIncreaseAmmortizationAccountChangePerUnit = CDblSafe(dr.Item(25), ROUNDUNITASSET, 0)
+            _AmortizationCalculatedForMonths = CIntSafe(dr.Item(26), 0)
+            _InsertDate = CTimeStampSafe(dr.Item(27))
+            _UpdateDate = CTimeStampSafe(dr.Item(28))
+            _JournalEntryID = CIntSafe(dr.Item(30), 0)
+            _JournalEntryDocumentNumber = CStrSafe(dr.Item(31)).Trim
+            _JournalEntryDate = CDateSafe(dr.Item(32), Today)
+            _JournalEntryContent = CStrSafe(dr.Item(33)).Trim
+            _JournalEntryDocumentType = ConvertEnumDatabaseStringCode(Of DocumentType)(CStrSafe(dr.Item(34)))
+            _JournalEntryPersonID = CIntSafe(dr.Item(35), 0)
+            _JournalEntryPersonName = CStrSafe(dr.Item(36)).Trim
+            _JournalEntryPersonCode = CStrSafe(dr.Item(37)).Trim
+            _JournalEntryBookEntries = CStrSafe(dr.Item(38)).Trim
+            _JournalEntryAmount = CDblSafe(dr.Item(39), 2, 0)
 
         End Sub
 
@@ -917,7 +951,30 @@
             Using myData As DataTable = myComm.Fetch
 
                 If myData.Rows.Count < 1 OrElse Not CIntSafe(myData.Rows(0).Item(0), 0) > 0 Then
-                    Throw New Exception(String.Format("Klaida. Nerasti ilgalaikio turto amortizacijos operacijos duomenys pagal BŽ ID={0}.", _
+                    Throw New Exception(String.Format(My.Resources.Assets_OperationPersistenceObject_OperationNotFoundByJournalID, _
+                        journalEntryID.ToString))
+                End If
+
+                Return CIntSafe(myData.Rows(0).Item(0), 0)
+
+            End Using
+
+        End Function
+
+        ''' <summary>
+        ''' Gets a complex long term asset operation ID by the operation's journal entry ID.
+        ''' </summary>
+        ''' <param name="journalEntryID">A journal entry ID to find a complex operation ID by.</param>
+        ''' <remarks></remarks>
+        Friend Shared Function GetComplexOperationIdByJournalEntry(ByVal journalEntryID As Integer) As Integer
+
+            Dim myComm As New SQLCommand("FetchLongTermAssetComplexOperationIdByJournalEntryId")
+            myComm.AddParam("?JD", journalEntryID)
+
+            Using myData As DataTable = myComm.Fetch
+
+                If myData.Rows.Count < 1 OrElse Not CIntSafe(myData.Rows(0).Item(0), 0) > 0 Then
+                    Throw New Exception(String.Format(My.Resources.Assets_OperationPersistenceObject_OperationNotFoundByJournalID, _
                         journalEntryID.ToString))
                 End If
 
