@@ -825,7 +825,7 @@ Namespace Assets
         ''' Gets or sets a number of the long term asset operation document.
         ''' </summary>
         ''' <remarks>Value is stored in the database field turtas_op.ActNumber.</remarks>
-        <StringField(ValueRequiredLevel.Mandatory, 255)> _
+        <StringField(ValueRequiredLevel.Mandatory, 30)> _
         Public Property DocumentNumber() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -1562,8 +1562,6 @@ Namespace Assets
         ''' (could be null, if the parent document does not support bulk background data fetch)</param>
         ''' <param name="deltaData">An asset delta data datasource for the <see cref="OperationBackground">OperationBackground</see>.
         ''' (could be null, if the parent document does not support bulk background data fetch)</param>
-        ''' <param name="chronologicData">A datasource for <see cref="OperationChronologicValidator">OperationChronologicValidator</see>
-        ''' (could be null, if the parent document does not support bulk chronology data fetch)</param>
         ''' <remarks></remarks>
         Friend Shared Function GetOperationAmortizationChild( _
             ByVal persistence As OperationPersistenceObject, _

@@ -125,7 +125,7 @@
         ''' </summary>
         ''' <remarks>Value is stored in the database field turtas_op.ActNumber.
         ''' (same for all the child operations)</remarks>
-        <StringField(ValueRequiredLevel.Mandatory, 255)> _
+        <StringField(ValueRequiredLevel.Mandatory, 30)> _
         Public Property DocumentNumber() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get

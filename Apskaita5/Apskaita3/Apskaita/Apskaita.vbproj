@@ -229,6 +229,24 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Assets\BackgroundInfoPanel.Designer.vb">
+      <DependentUpon>BackgroundInfoPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\BackgroundInfoPanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Assets\F_AssetSelectionList.Designer.vb">
+      <DependentUpon>F_AssetSelectionList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\F_AssetSelectionList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assets\F_ComplexOperationAmortization.Designer.vb">
+      <DependentUpon>F_ComplexOperationAmortization.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\F_ComplexOperationAmortization.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Assets\F_LongTermAssetComplexDocument.Designer.vb">
       <DependentUpon>F_LongTermAssetComplexDocument.vb</DependentUpon>
     </Compile>
@@ -239,6 +257,12 @@
       <DependentUpon>F_LongTermAssetComplexDocumentInfoList.vb</DependentUpon>
     </Compile>
     <Compile Include="Assets\F_LongTermAssetComplexDocumentInfoList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assets\F_OperationAmortization.Designer.vb">
+      <DependentUpon>F_OperationAmortization.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\F_OperationAmortization.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Constants.vb" />
@@ -896,6 +920,15 @@
       <DependentUpon>LocalUserListUserControl.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Assets\BackgroundInfoPanel.resx">
+      <DependentUpon>BackgroundInfoPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\F_AssetSelectionList.resx">
+      <DependentUpon>F_AssetSelectionList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\F_ComplexOperationAmortization.resx">
+      <DependentUpon>F_ComplexOperationAmortization.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assets\F_LongTermAssetComplexDocument.resx">
       <SubType>Designer</SubType>
       <DependentUpon>F_LongTermAssetComplexDocument.vb</DependentUpon>
@@ -903,6 +936,9 @@
     <EmbeddedResource Include="Assets\F_LongTermAssetComplexDocumentInfoList.resx">
       <SubType>Designer</SubType>
       <DependentUpon>F_LongTermAssetComplexDocumentInfoList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\F_OperationAmortization.resx">
+      <DependentUpon>F_OperationAmortization.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Documents\F_AccumulativeCosts.resx">
       <SubType>Designer</SubType>
@@ -1603,6 +1639,7 @@
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.ImprestSheetInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.InvoiceInfoItemList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.JournalEntryInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.LongTermAssetInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.PayOutNaturalPersonInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.PersonInfoItemList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.ProductionCalculationItemList.datasource" />
@@ -1617,11 +1654,14 @@
     <None Include="My Project\DataSources\ApskaitaObjects.Administration.LevelDataList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Administration.User.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Administration.UserList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.ComplexOperationAmortization.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAsset.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetComplexDocument.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetComplexDocumentInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetCustomGroupList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetOperation.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationAmortization.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationBackground.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Documents.AccumulativeCosts.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Documents.AdvanceReport.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Documents.BankOperation.datasource" />
