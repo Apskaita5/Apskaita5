@@ -11217,6 +11217,26 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Visos ilgalaikio turto įsigijimo savikainos padidinimui reikalingos sąskaitos yra tvarkomos susietoje operacijoje, sąskaitos eilutėje nurodyta sąnaudų sąskaita nebus naudojama..
+        '''</summary>
+        Friend ReadOnly Property Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_AccountCostsInvalid() As String
+            Get
+                Return ResourceManager.GetString("Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_AccountCost"& _ 
+                        "sInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Visos ilgalaikio turto įsigijimo savikainos padidinimui reikalingos sąskaitos yra tvarkomos susietoje operacijoje, sąskaitos eilutėje nurodyta pajamų sąskaita nebus naudojama..
+        '''</summary>
+        Friend ReadOnly Property Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_AccountIncomeInvalid() As String
+            Get
+                Return ResourceManager.GetString("Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_AccountInco"& _ 
+                        "meInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Išrašyta sąskaita: {0}.
         '''</summary>
         Friend ReadOnly Property Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_ContentInvoiceMade() As String

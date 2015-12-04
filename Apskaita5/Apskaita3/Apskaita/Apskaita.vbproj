@@ -689,6 +689,12 @@
     <Compile Include="Workers\F_LabourContractUpdate.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Workers\F_NewSheet.Designer.vb">
+      <DependentUpon>F_NewSheet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Workers\F_NewSheet.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Workers\F_PayOutNaturalPerson.Designer.vb">
       <DependentUpon>F_PayOutNaturalPerson.vb</DependentUpon>
     </Compile>
@@ -1321,6 +1327,9 @@
     <EmbeddedResource Include="Workers\F_LabourContractUpdate.resx">
       <SubType>Designer</SubType>
       <DependentUpon>F_LabourContractUpdate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Workers\F_NewSheet.resx">
+      <DependentUpon>F_NewSheet.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Workers\F_PayOutNaturalPerson.resx">
       <SubType>Designer</SubType>

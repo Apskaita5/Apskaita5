@@ -305,11 +305,13 @@ Namespace Documents.InvoiceAdapters
         ''' properties should set by the corresponding attached operation property and vice versa 
         ''' (to enforce equality).
         ''' </summary>
-        ''' <remarks>Returns FALSE for a long term asset acquisition value increase.</remarks>
+        ''' <remarks>Returns TRUE for a long term asset acquisition value increase.
+        ''' Actualy all the accounts needed are managed by the incampsulated operation.
+        ''' The custom handling is only necessary to render the account non compulsary.</remarks>
         Public ReadOnly Property HandlesAccount() As Boolean Implements IInvoiceAdapter.HandlesAccount
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return False
+                Return True
             End Get
         End Property
 
@@ -319,7 +321,9 @@ Namespace Documents.InvoiceAdapters
         ''' or the <see cref="InvoiceReceivedItem.AccountCosts">InvoiceReceivedItem.AccountCosts</see>
         ''' properties if the <see cref="HandlesAccount">HandlesAccount</see> is set to TRUE.
         ''' </summary>
-        ''' <remarks>Returns 0, sets nothing.</remarks>
+        ''' <remarks>Returns 0, sets nothing.
+        ''' Actualy all the accounts needed are managed by the incampsulated operation.
+        ''' The custom handling is only necessary to render the account non compulsary.</remarks>
         Public Property Account() As Long Implements IInvoiceAdapter.Account
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -731,14 +735,18 @@ Namespace Documents.InvoiceAdapters
         ''' <param name="invoiceItem"></param>
         ''' <param name="e"></param>
         ''' <remarks>Only used if <see cref="HandlesAccount">HandlesAccount</see> is set to TRUE.
-        ''' Overrides validation of a invoice item. Full validation needs to be performed.
-        ''' An asset acquisition value increase operation does not handle account 
-        ''' and cannot replace account validation, throws an exception if invoked.</remarks>
+        ''' Overrides validation of a invoice item. Full validation needs to be performed.</remarks>
         Public Function ValidateAccount(ByVal invoiceItem As InvoiceMadeItem, ByVal e As Csla.Validation.RuleArgs) As Boolean Implements IInvoiceAdapter.ValidateAccount
 
-            Throw New InvalidOperationException(String.Format( _
-                My.Resources.Documents_InvoiceAdapters_IInvoiceAdapter_InvalidAccountValidationOperation, _
-                My.Resources.Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_TypeName))
+            If invoiceItem.AccountIncome > 0 Then
+
+                e.Description = My.Resources.Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_AccountIncomeInvalid
+                e.Severity = RuleSeverity.Warning
+                Return False
+
+            End If
+
+            Return True
 
         End Function
 
@@ -749,14 +757,18 @@ Namespace Documents.InvoiceAdapters
         ''' <param name="invoiceItem"></param>
         ''' <param name="e"></param>
         ''' <remarks>Only used if <see cref="HandlesAccount">HandlesAccount</see> is set to TRUE.
-        ''' Overrides validation of a invoice item. Full validation needs to be performed.
-        ''' An asset acquisition value increase operation does not handle account 
-        ''' and cannot replace account validation, throws an exception if invoked.</remarks>
+        ''' Overrides validation of a invoice item. Full validation needs to be performed.</remarks>
         Public Function ValidateAccount(ByVal invoiceItem As InvoiceReceivedItem, ByVal e As Csla.Validation.RuleArgs) As Boolean Implements IInvoiceAdapter.ValidateAccount
 
-            Throw New InvalidOperationException(String.Format( _
-                My.Resources.Documents_InvoiceAdapters_IInvoiceAdapter_InvalidAccountValidationOperation, _
-                My.Resources.Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_TypeName))
+            If invoiceItem.AccountCosts > 0 Then
+
+                e.Description = My.Resources.Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_AccountCostsInvalid
+                e.Severity = RuleSeverity.Warning
+                Return False
+
+            End If
+
+            Return True
 
         End Function
 
@@ -1058,7 +1070,7 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Invokes <see cref="LongTermAssetOperation.GetTotalBookEntryListForTransfer">LongTermAssetOperation.GetTotalBookEntryListForTransfer</see>
         ''' method on encapsulated long term asset acquisition value increase operation and returns the result.</remarks>
         Friend Function GetBookEntryList(ByVal invoiceItem As InvoiceMadeItem) As BookEntryInternalList Implements IInvoiceAdapter.GetBookEntryList
-            Return _AssetOperation.GetTotalBookEntryListForTransfer(-invoiceItem.GetTotalSumForInvoiceAdapter)
+            Return _AssetOperation.GetTotalBookEntryListForAcquisitionValueChange()
         End Function
 
         ''' <summary>
@@ -1068,7 +1080,7 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Invokes <see cref="LongTermAssetOperation.GetTotalBookEntryListForTransfer">LongTermAssetOperation.GetTotalBookEntryListForTransfer</see>
         ''' method on encapsulated long term asset acquisition value increase operation and returns the result.</remarks>
         Friend Function GetBookEntryList(ByVal invoiceItem As InvoiceReceivedItem) As BookEntryInternalList Implements IInvoiceAdapter.GetBookEntryList
-            Return _AssetOperation.GetTotalBookEntryListForTransfer(invoiceItem.GetTotalSumForInvoiceAdapter)
+            Return _AssetOperation.GetTotalBookEntryListForAcquisitionValueChange()
         End Function
 
         ''' <summary>

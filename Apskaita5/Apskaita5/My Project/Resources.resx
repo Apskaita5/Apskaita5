@@ -8664,4 +8664,10 @@
   <data name="Assets_OperationPersistenceObject_IdNull" xml:space="preserve">
     <value>Klaida. Nenurodyta operacijos ID.</value>
   </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_AccountCostsInvalid" xml:space="preserve">
+    <value>Visos ilgalaikio turto įsigijimo savikainos padidinimui reikalingos sąskaitos yra tvarkomos susietoje operacijoje, sąskaitos eilutėje nurodyta sąnaudų sąskaita nebus naudojama.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_AccountIncomeInvalid" xml:space="preserve">
+    <value>Visos ilgalaikio turto įsigijimo savikainos padidinimui reikalingos sąskaitos yra tvarkomos susietoje operacijoje, sąskaitos eilutėje nurodyta pajamų sąskaita nebus naudojama.</value>
+  </data>
 </root>
