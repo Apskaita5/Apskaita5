@@ -2,14 +2,14 @@
 
     ''' <summary>
     ''' Represents a complex document that contains a collection of long term asset 
-    ''' amortization (depreciation) operations.
+    ''' discard operations.
     ''' </summary>
     ''' <remarks>Does not have a dedicated database table. Operation values
     ''' are derived from the encapsulated JournalEntry and child items.
     ''' Child operation values are stored in the database table turtas_op.</remarks>
     <Serializable()> _
-    Public Class ComplexOperationAmortization
-        Inherits BusinessBase(Of ComplexOperationAmortization)
+    Public Class ComplexOperationDiscard
+        Inherits BusinessBase(Of ComplexOperationDiscard)
         Implements IIsDirtyEnough
 
 #Region " Business Methods "
@@ -22,12 +22,12 @@
         Private _Content As String = ""
         Private _DocumentNumber As String = ""
         Private _JournalEntryID As Integer = -1
-        Private _TotalValueChange As Double = 0
-        Private WithEvents _Items As OperationAmortizationList
+        Private _TotalDiscardCosts As Double = 0
+        Private WithEvents _Items As OperationDiscardList
 
         <NonSerialized()> _
         <NotUndoable()> _
-        Private _ItemsSorted As SortedBindingList(Of OperationAmortization) = Nothing
+        Private _ItemsSorted As SortedBindingList(Of OperationDiscard) = Nothing
 
 
         ''' <summary>
@@ -69,7 +69,7 @@
         ''' that contains business restraints on updating the document.
         ''' </summary>
         ''' <remarks>A <see cref="ComplexChronologicValidator">ComplexChronologicValidator</see> 
-        ''' is used to validate a long term assets amortization complex document 
+        ''' is used to validate a long term assets discard complex document 
         ''' chronological business rules.</remarks>
         Public ReadOnly Property ChronologyValidator() As ComplexChronologicValidator
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -145,7 +145,7 @@
 
         ''' <summary>
         ''' Gets an <see cref="General.JournalEntry.ID">ID of the journal entry</see> 
-        ''' that is encapsulated by the long term asset complex amortization operation.
+        ''' that is encapsulated by the long term asset complex discard operation.
         ''' </summary>
         ''' <remarks>A journal entry is encapsulated by the operation.
         ''' Value is stored in the database field turtas_op.JE_ID.
@@ -158,23 +158,23 @@
         End Property
 
         ''' <summary>
-        ''' Gets the total long term asset value change.
+        ''' Gets the total long term asset discard costs.
         ''' </summary>
         ''' <remarks>Value is calculated.</remarks>
         <DoubleField(ValueRequiredLevel.Mandatory, False, 2)> _
-        Public ReadOnly Property TotalValueChange() As Double
+        Public ReadOnly Property TotalDiscardCosts() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_TotalValueChange)
+                Return CRound(_TotalDiscardCosts)
             End Get
         End Property
 
         ''' <summary>
-        ''' Gets a collection of long term asset amortization operations 
-        ''' within the complex amortization operation document.
+        ''' Gets a collection of long term asset discard operations 
+        ''' within the complex discard operation document.
         ''' </summary>
         ''' <remarks></remarks>
-        Public ReadOnly Property Items() As OperationAmortizationList
+        Public ReadOnly Property Items() As OperationDiscardList
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _Items
@@ -182,15 +182,15 @@
         End Property
 
         ''' <summary>
-        ''' Gets a sortable view of the collection of long term asset amortization operations 
-        ''' within the complex amortization operation document.
+        ''' Gets a sortable view of the collection of long term asset discard operations 
+        ''' within the complex discard operation document.
         ''' </summary>
         ''' <remarks>Used to implement autosort in a datagridview.</remarks>
-        Public ReadOnly Property ItemsSorted() As SortedBindingList(Of OperationAmortization)
+        Public ReadOnly Property ItemsSorted() As SortedBindingList(Of OperationDiscard)
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 If _ItemsSorted Is Nothing Then
-                    _ItemsSorted = New SortedBindingList(Of OperationAmortization)(_Items)
+                    _ItemsSorted = New SortedBindingList(Of OperationDiscard)(_Items)
                 End If
                 Return _ItemsSorted
             End Get
@@ -218,91 +218,24 @@
             Implements IIsDirtyEnough.IsDirtyEnough
             Get
                 If Not IsNew Then Return IsDirty
-                Return (Not String.IsNullOrEmpty(_DocumentNumber.Trim) _
-                    OrElse Not String.IsNullOrEmpty(_Content.Trim) _
+                Return (Not StringIsNullOrEmpty(_DocumentNumber) _
+                    OrElse Not StringIsNullOrEmpty(_Content) _
                     OrElse _Items.Count > 0)
             End Get
         End Property
 
 
-
-        ''' <summary>
-        ''' Sets the operations properties with the amortization calculation data provided.
-        ''' </summary>
-        ''' <param name="calculationList">A collection of amortization calculation data.</param>
-        ''' <param name="warnings">Out parameter, returns non critical exceptions
-        ''' that occured during the data import. Returns an empty string if no exception encountered.</param>
-        ''' <remarks></remarks>
-        Public Sub SetCalculations(ByVal calculationList As LongTermAssetAmortizationCalculationList, _
-            ByRef warnings As String)
-
-            If Not _ChronologyValidator.FinancialDataCanChange Then
-                Throw New Exception(String.Format( _
-                    My.Resources.Assets_ComplexOperationAmortization_CannotChangeFinancialData, _
-                    vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
-            End If
-
-            _Items.SetCalculations(calculationList, warnings)
-
-        End Sub
-
-        ''' <summary>
-        ''' Sets the operations properties with the amortization calculation data provided.
-        ''' </summary>
-        ''' <param name="calculation">An amortization calculation data for an asset.</param>
-        ''' <remarks></remarks>
-        Public Sub SetCalculations(ByVal calculation As LongTermAssetAmortizationCalculation)
-
-            If Not _ChronologyValidator.FinancialDataCanChange Then
-                Throw New Exception(String.Format( _
-                    My.Resources.Assets_ComplexOperationAmortization_CannotChangeFinancialData, _
-                    vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
-            End If
-
-            _Items.SetCalculations(calculation)
-
-        End Sub
-
-        ''' <summary>
-        ''' Gets amortization calculations for the document.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Public Function GetCalculations() As LongTermAssetAmortizationCalculationList
-
-            If _Items.Count < 1 Then
-                Throw New Exception(My.Resources.Assets_ComplexOperationAmortization_DocumentEmpty)
-            End If
-
-            If Not _ChronologyValidator.FinancialDataCanChange Then
-                Throw New Exception(String.Format( _
-                    My.Resources.Assets_ComplexOperationAmortization_CannotChangeFinancialData, _
-                    vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
-            End If
-
-            Dim resultAssetID As New List(Of Integer)
-            Dim resultOperationID As New List(Of Integer)
-
-            For Each item As OperationAmortization In _Items
-                resultAssetID.Add(item.AssetID)
-                resultOperationID.Add(item.ID)
-            Next
-
-            Return LongTermAssetAmortizationCalculationList.GetList( _
-                resultAssetID.ToArray(), resultOperationID.ToArray(), _Date)
-
-        End Function
-
         ''' <summary>
         ''' Adds items in the list to the current collection.
         ''' </summary>
         ''' <param name="list"></param>
-        ''' <remarks>Invoke <see cref="OperationAmortizationList.GetOperationAmortizationList">OperationAmortizationList.GetOperationAmortizationList</see>
+        ''' <remarks>Invoke <see cref="OperationDiscardList.GetOperationDiscardList">OperationDiscardList.GetOperationDiscardList</see>
         ''' to get a list of new operations by asset ID's.</remarks>
-        Public Sub AddRange(ByVal list As OperationAmortizationList)
+        Public Sub AddRange(ByVal list As OperationDiscardList)
 
             If Not _ChronologyValidator.FinancialDataCanChange Then
                 Throw New Exception(String.Format( _
-                    My.Resources.Assets_ComplexOperationAmortization_CannotChangeFinancialDataFull, _
+                    My.Resources.Assets_ComplexOperationDiscard_CannotChangeFinancialDataFull, _
                     vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
             End If
 
@@ -310,7 +243,7 @@
 
             _Items.AddRange(list)
 
-            For Each i As OperationAmortization In list
+            For Each i As OperationDiscard In list
                 _ChronologyValidator.MergeNewValidationItem(i.ChronologyValidator)
             Next
 
@@ -346,7 +279,7 @@
         End Function
 
 
-        Public Overrides Function Save() As ComplexOperationAmortization
+        Public Overrides Function Save() As ComplexOperationDiscard
 
             Me.ValidationRules.CheckRules()
             If Not Me.IsValid Then
@@ -362,8 +295,8 @@
         Private Sub Items_Changed(ByVal sender As Object, _
             ByVal e As System.ComponentModel.ListChangedEventArgs) Handles _Items.ListChanged
 
-            _TotalValueChange = _Items.GetTotalCosts()
-            PropertyHasChanged("TotalValueChange")
+            _TotalDiscardCosts = _Items.GetTotalCosts()
+            PropertyHasChanged("TotalDiscardCosts")
 
             If e.ListChangedType = ComponentModel.ListChangedType.ItemAdded Then
 
@@ -388,7 +321,7 @@
         ''' Helper method. Takes care of child lists loosing their handlers.
         ''' </summary>
         Protected Overrides Function GetClone() As Object
-            Dim result As ComplexOperationAmortization = DirectCast(MyBase.GetClone(), ComplexOperationAmortization)
+            Dim result As ComplexOperationDiscard = DirectCast(MyBase.GetClone(), ComplexOperationDiscard)
             result.RestoreChildListsHandles()
             Return result
         End Function
@@ -420,7 +353,7 @@
         End Function
 
         Public Overrides Function ToString() As String
-            Return String.Format(My.Resources.Assets_ComplexOperationAmortization_ToString, _
+            Return String.Format(My.Resources.Assets_ComplexOperationDiscard_ToString, _
                 _Date.ToString("yyyy-MM-dd"), _DocumentNumber, _ID.ToString())
         End Function
 
@@ -472,40 +405,40 @@
 #Region " Factory Methods "
 
         ''' <summary>
-        ''' Gets a new ComplexOperationAmortization instance.
+        ''' Gets a new ComplexOperationDiscard instance.
         ''' </summary>
         ''' <remarks></remarks>
-        Public Shared Function NewComplexOperationAmortization() As ComplexOperationAmortization
-            Dim result As New ComplexOperationAmortization
+        Public Shared Function NewComplexOperationDiscard() As ComplexOperationDiscard
+            Dim result As New ComplexOperationDiscard
             result.Create()
             Return result
         End Function
 
 
         ''' <summary>
-        ''' Gets an existing ComplexOperationAmortization instance from a database.
+        ''' Gets an existing ComplexOperationDiscard instance from a database.
         ''' </summary>
-        ''' <param name="id">An <see cref="ComplexOperationAmortization.ID">ID of the operation</see> 
-        ''' or an <see cref="OperationAmortization.JournalEntryID">ID the journal entry</see>  
+        ''' <param name="id">An <see cref="ComplexOperationDiscard.ID">ID of the operation</see> 
+        ''' or an <see cref="ComplexOperationDiscard.JournalEntryID">ID the journal entry</see>  
         ''' that is encapsulated by the operation.</param>
         ''' <param name="nFetchByJournalEntryID">Whether the <paramref name="id">id</paramref>
-        ''' param is an <see cref="ComplexOperationAmortization.JournalEntryID">ID the journal entry</see> 
+        ''' param is an <see cref="ComplexOperationDiscard.JournalEntryID">ID the journal entry</see> 
         ''' that is encapsulated by the operation.</param>
         ''' <remarks></remarks>
-        Public Shared Function GetComplexOperationAmortization(ByVal id As Integer, _
-            ByVal nFetchByJournalEntryID As Boolean) As ComplexOperationAmortization
-            Return DataPortal.Fetch(Of ComplexOperationAmortization) _
+        Public Shared Function GetComplexOperationDiscard(ByVal id As Integer, _
+            ByVal nFetchByJournalEntryID As Boolean) As ComplexOperationDiscard
+            Return DataPortal.Fetch(Of ComplexOperationDiscard) _
                 (New Criteria(id, nFetchByJournalEntryID))
         End Function
 
 
         ''' <summary>
-        ''' Deletes an existing ComplexOperationAmortization instance from a database.
+        ''' Deletes an existing ComplexOperationDiscard instance from a database.
         ''' </summary>
-        ''' <param name="id">An <see cref="ComplexOperationAmortization.ID">ID of the operation</see> 
+        ''' <param name="id">An <see cref="ComplexOperationDiscard.ID">ID of the operation</see> 
         ''' to delete.</param>
         ''' <remarks></remarks>
-        Public Shared Sub DeleteComplexOperationAmortization(ByVal id As Integer)
+        Public Shared Sub DeleteComplexOperationDiscard(ByVal id As Integer)
             DataPortal.Delete(New Criteria(id))
         End Sub
 
@@ -547,13 +480,13 @@
 
             Dim baseValidator As SimpleChronologicValidator = _
                 SimpleChronologicValidator.NewSimpleChronologicValidator( _
-                My.Resources.Assets_ComplexOperationAmortization_TypeName, Nothing)
+                My.Resources.Assets_ComplexOperationDiscard_TypeName, Nothing)
 
             _ChronologyValidator = ComplexChronologicValidator.NewComplexChronologicValidator( _
-                My.Resources.Assets_ComplexOperationAmortization_TypeName, _
+                My.Resources.Assets_ComplexOperationDiscard_TypeName, _
                 baseValidator, Nothing, Nothing)
 
-            _Items = OperationAmortizationList.NewOperationAmortizationList()
+            _Items = OperationDiscardList.NewOperationDiscardList()
 
             ValidationRules.CheckRules()
 
@@ -578,14 +511,14 @@
         Private Sub Fetch(ByVal operationID As Integer)
 
             If Not operationID > 0 Then
-                Throw New Exception(My.Resources.Assets_ComplexOperationAmortization_OperationIDNull)
+                Throw New Exception(My.Resources.Assets_ComplexOperationDiscard_OperationIDNull)
             End If
 
             Dim list As List(Of OperationPersistenceObject) = OperationPersistenceObject. _
-                GetOperationPersistenceObjectList(operationID, LtaOperationType.Amortization)
+                GetOperationPersistenceObjectList(operationID, LtaOperationType.Discard)
 
             If list.Count < 1 Then Throw New Exception(String.Format( _
-                My.Resources.Common_ObjectNotFound, My.Resources.Assets_ComplexOperationAmortization_TypeName, _
+                My.Resources.Common_ObjectNotFound, My.Resources.Assets_ComplexOperationDiscard_TypeName, _
                 operationID.ToString()))
 
             _ID = operationID
@@ -596,11 +529,11 @@
 
             Dim baseValidator As SimpleChronologicValidator = SimpleChronologicValidator. _
                 GetSimpleChronologicValidator(_JournalEntryID, _Date, _
-                My.Resources.Assets_ComplexOperationAmortization_TypeName, Nothing)
+                My.Resources.Assets_ComplexOperationDiscard_TypeName, Nothing)
 
             Using generalData As DataTable = OperationBackground.GetDataSourceGeneral(operationID)
                 Using deltaData As DataTable = OperationBackground.GetDataSourceDelta(operationID)
-                    _Items = OperationAmortizationList.GetOperationAmortizationList( _
+                    _Items = OperationDiscardList.GetOperationDiscardList( _
                         list, generalData, deltaData, baseValidator)
                 End Using
             End Using
@@ -608,10 +541,10 @@
             _InsertDate = _Items.GetInsertDate
             _UpdateDate = _Items.GetUpdateDate
 
-            _TotalValueChange = _Items.GetTotalCosts()
+            _TotalDiscardCosts = _Items.GetTotalCosts()
 
             _ChronologyValidator = ComplexChronologicValidator.GetComplexChronologicValidator( _
-                _JournalEntryID, _Date, My.Resources.Assets_ComplexOperationAmortization_TypeName, _
+                _JournalEntryID, _Date, My.Resources.Assets_ComplexOperationDiscard_TypeName, _
                 baseValidator, Nothing, _Items.GetChronologyValidators())
 
             MarkOld()
@@ -644,7 +577,7 @@
         Private Sub CheckIfCanSave()
 
             If _Items.Count < 1 Then
-                Throw New Exception(My.Resources.Assets_ComplexOperationAmortization_DocumentEmpty)
+                Throw New Exception(My.Resources.Assets_ComplexOperationDiscard_DocumentEmpty)
             End If
 
             _Items.SetParentDate(_Date) ' just in case
@@ -655,10 +588,10 @@
 
                 Dim baseValidator As SimpleChronologicValidator = _
                     SimpleChronologicValidator.NewSimpleChronologicValidator( _
-                    My.Resources.Assets_ComplexOperationAmortization_TypeName, Nothing)
+                    My.Resources.Assets_ComplexOperationDiscard_TypeName, Nothing)
 
                 _ChronologyValidator = ComplexChronologicValidator.NewComplexChronologicValidator( _
-                    My.Resources.Assets_ComplexOperationAmortization_TypeName, _
+                    My.Resources.Assets_ComplexOperationDiscard_TypeName, _
                     baseValidator, Nothing, _Items.GetChronologyValidators())
 
             Else
@@ -666,11 +599,11 @@
                 Dim baseValidator As SimpleChronologicValidator = _
                     SimpleChronologicValidator.GetSimpleChronologicValidator( _
                     _JournalEntryID, _ChronologyValidator.CurrentOperationDate, _
-                    My.Resources.Assets_ComplexOperationAmortization_TypeName, Nothing)
+                    My.Resources.Assets_ComplexOperationDiscard_TypeName, Nothing)
 
                 _ChronologyValidator = ComplexChronologicValidator.GetComplexChronologicValidator( _
                     _JournalEntryID, _ChronologyValidator.CurrentOperationDate, _
-                    My.Resources.Assets_ComplexOperationAmortization_TypeName, _
+                    My.Resources.Assets_ComplexOperationDiscard_TypeName, _
                     baseValidator, Nothing, _Items.GetChronologyValidators())
 
             End If
@@ -727,10 +660,10 @@
             Dim result As General.JournalEntry = Nothing
 
             If IsNew Then
-                result = General.JournalEntry.NewJournalEntryChild(DocumentType.Amortization)
+                result = General.JournalEntry.NewJournalEntryChild(DocumentType.LongTermAssetDiscard)
             Else
                 result = General.JournalEntry.GetJournalEntryChild(_JournalEntryID, _
-                    DocumentType.Amortization)
+                    DocumentType.LongTermAssetDiscard)
             End If
 
             result.Date = _Date.Date
@@ -758,28 +691,28 @@
             If Not CanDeleteObject() Then Throw New System.Security.SecurityException( _
                 My.Resources.Common_SecurityUpdateDenied)
 
-            Dim operationToDelete As New ComplexOperationAmortization
+            Dim operationToDelete As New ComplexOperationDiscard
 
             operationToDelete.DataPortal_Fetch(criteria)
 
             operationToDelete.CheckIfCanDelete()
 
             operationToDelete.DoDelete()
-            
+
         End Sub
 
         Private Sub CheckIfCanDelete()
 
             If Not _ChronologyValidator.FinancialDataCanChange Then
                 Throw New Exception(String.Format( _
-                    My.Resources.Assets_ComplexOperationAmortization_InvalidDelete, _
+                    My.Resources.Assets_ComplexOperationDiscard_InvalidDelete, _
                     vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
             End If
 
             _Items.CheckIfCanDelete(_ChronologyValidator)
 
             IndirectRelationInfoList.CheckIfJournalEntryCanBeDeleted( _
-                _JournalEntryID, DocumentType.Amortization)
+                _JournalEntryID, DocumentType.LongTermAssetDiscard)
 
         End Sub
 

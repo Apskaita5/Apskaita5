@@ -1,15 +1,17 @@
-﻿Namespace Assets
+﻿Imports Csla.Validation
+
+Namespace Assets
 
     ''' <summary>
     ''' Represents a complex document that contains a collection of long term asset 
-    ''' amortization (depreciation) operations.
+    ''' balance value change (reevaluation) operations.
     ''' </summary>
     ''' <remarks>Does not have a dedicated database table. Operation values
     ''' are derived from the encapsulated JournalEntry and child items.
     ''' Child operation values are stored in the database table turtas_op.</remarks>
     <Serializable()> _
-    Public Class ComplexOperationAmortization
-        Inherits BusinessBase(Of ComplexOperationAmortization)
+    Public Class ComplexOperationValueChange
+        Inherits BusinessBase(Of ComplexOperationValueChange)
         Implements IIsDirtyEnough
 
 #Region " Business Methods "
@@ -21,13 +23,20 @@
         Private _Date As Date = Today.Date
         Private _Content As String = ""
         Private _DocumentNumber As String = ""
-        Private _JournalEntryID As Integer = -1
-        Private _TotalValueChange As Double = 0
-        Private WithEvents _Items As OperationAmortizationList
+        Private _JournalEntryID As Integer = 0
+        Private _JournalEntryDocumentNumber As String = ""
+        Private _JournalEntryDate As Date = Today
+        Private _JournalEntryContent As String = ""
+        Private _JournalEntryPersonID As Integer = 0
+        Private _JournalEntryPerson As String = ""
+        Private _JournalEntryAmount As Double = 0
+        Private _JournalEntryBookEntries As String = ""
+        Private _JournalEntryDocumentType As DocumentType = DocumentType.None
+        Private WithEvents _Items As OperationValueChangeList
 
         <NonSerialized()> _
         <NotUndoable()> _
-        Private _ItemsSorted As SortedBindingList(Of OperationAmortization) = Nothing
+        Private _ItemsSorted As SortedBindingList(Of OperationValueChange) = Nothing
 
 
         ''' <summary>
@@ -69,7 +78,7 @@
         ''' that contains business restraints on updating the document.
         ''' </summary>
         ''' <remarks>A <see cref="ComplexChronologicValidator">ComplexChronologicValidator</see> 
-        ''' is used to validate a long term assets amortization complex document 
+        ''' is used to validate a long term assets reevaluation complex document 
         ''' chronological business rules.</remarks>
         Public ReadOnly Property ChronologyValidator() As ComplexChronologicValidator
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -122,32 +131,25 @@
         End Property
 
         ''' <summary>
-        ''' Gets or sets a number of the long term asset complex operation document.
+        ''' Gets a number of the long term asset operation document
+        ''' that should be the same as the document number of the associated journal entry.
         ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.ActNumber.
-        ''' (same for all the child operations)</remarks>
+        ''' <remarks>Value is not stored, assigned by the associated journal entry.
+        ''' Corresponds to <see cref="general.JournalEntry.DocNumber">JournalEntry.DocNumber</see>.</remarks>
         <StringField(ValueRequiredLevel.Mandatory, 30)> _
-        Public Property DocumentNumber() As String
+        Public ReadOnly Property DocumentNumber() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _DocumentNumber
             End Get
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Set(ByVal value As String)
-                CanWriteProperty(True)
-                If value Is Nothing Then value = ""
-                If _DocumentNumber.Trim <> value.Trim Then
-                    _DocumentNumber = value.Trim
-                    PropertyHasChanged()
-                End If
-            End Set
         End Property
 
         ''' <summary>
         ''' Gets an <see cref="General.JournalEntry.ID">ID of the journal entry</see> 
-        ''' that is encapsulated by the long term asset complex amortization operation.
+        ''' that is attached to the long term asset complex balance value change 
+        ''' (reevaluation) operation.
         ''' </summary>
-        ''' <remarks>A journal entry is encapsulated by the operation.
+        ''' <remarks>A journal entry is attached to the operation.
         ''' Value is stored in the database field turtas_op.JE_ID.
         ''' (same for all the child operations)</remarks>
         Public ReadOnly Property JournalEntryID() As Integer
@@ -158,23 +160,103 @@
         End Property
 
         ''' <summary>
-        ''' Gets the total long term asset value change.
+        ''' Gets a document number of the journal entry that is attached to the operation.
         ''' </summary>
-        ''' <remarks>Value is calculated.</remarks>
-        <DoubleField(ValueRequiredLevel.Mandatory, False, 2)> _
-        Public ReadOnly Property TotalValueChange() As Double
+        ''' <remarks>Corresponds to <see cref="general.JournalEntry.DocNumber">JournalEntry.DocNumber</see>.</remarks>
+        Public ReadOnly Property JournalEntryDocumentNumber() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_TotalValueChange)
+                Return _JournalEntryDocumentNumber.Trim
             End Get
         End Property
 
         ''' <summary>
-        ''' Gets a collection of long term asset amortization operations 
-        ''' within the complex amortization operation document.
+        ''' Gets a date of the journal entry that is attached to the operation.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="general.JournalEntry.Date">JournalEntry.Date</see>.</remarks>
+        Public ReadOnly Property JournalEntryDate() As Date
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _JournalEntryDate
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a content of the journal entry that is attached to the operation.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="general.JournalEntry.Content">JournalEntry.Content</see>.</remarks>
+        Public ReadOnly Property JournalEntryContent() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _JournalEntryContent.Trim
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets an ID of the person in the journal entry that is attached to the operation.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="general.JournalEntry.Person">JournalEntry.Person</see>.</remarks>
+        Public ReadOnly Property JournalEntryPersonID() As Integer
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _JournalEntryPersonID
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a name of the person in the journal entry that is attached to the operation.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="general.JournalEntry.Person">JournalEntry.Person</see>.</remarks>
+        Public ReadOnly Property JournalEntryPerson() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _JournalEntryPerson.Trim
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a total book entries' amount of the journal entry that is attached to the operation.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="general.JournalEntry.DebetSum">JournalEntry.DebetSum</see>.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
+        Public ReadOnly Property JournalEntryAmount() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_JournalEntryAmount)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a comma separated list of book entries in the journal entry 
+        ''' that is attached to the operation.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="general.JournalEntry.DebetList">JournalEntry.DebetList</see>
+        ''' and <see cref="general.JournalEntry.CreditList">JournalEntry.CreditList</see>.</remarks>
+        Public ReadOnly Property JournalEntryBookEntries() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _JournalEntryBookEntries.Trim
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a human readable (localized) type of the document that owns the journal entry 
+        ''' that is attached to the operation.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="general.JournalEntry.DocType">JournalEntry.DocType</see>.</remarks>
+        Public ReadOnly Property JournalEntryDocumentType() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return ConvertEnumHumanReadable(_JournalEntryDocumentType)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a collection of long term asset balance value change (reevaluation) operations 
+        ''' within the complex reevaluation operation document.
         ''' </summary>
         ''' <remarks></remarks>
-        Public ReadOnly Property Items() As OperationAmortizationList
+        Public ReadOnly Property Items() As OperationValueChangeList
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _Items
@@ -182,15 +264,15 @@
         End Property
 
         ''' <summary>
-        ''' Gets a sortable view of the collection of long term asset amortization operations 
-        ''' within the complex amortization operation document.
+        ''' Gets a sortable view of the collection of long term asset balance 
+        ''' value change (reevaluation) operations within the complex reevaluation document.
         ''' </summary>
         ''' <remarks>Used to implement autosort in a datagridview.</remarks>
-        Public ReadOnly Property ItemsSorted() As SortedBindingList(Of OperationAmortization)
+        Public ReadOnly Property ItemsSorted() As SortedBindingList(Of OperationValueChange)
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 If _ItemsSorted Is Nothing Then
-                    _ItemsSorted = New SortedBindingList(Of OperationAmortization)(_Items)
+                    _ItemsSorted = New SortedBindingList(Of OperationValueChange)(_Items)
                 End If
                 Return _ItemsSorted
             End Get
@@ -218,91 +300,25 @@
             Implements IIsDirtyEnough.IsDirtyEnough
             Get
                 If Not IsNew Then Return IsDirty
-                Return (Not String.IsNullOrEmpty(_DocumentNumber.Trim) _
-                    OrElse Not String.IsNullOrEmpty(_Content.Trim) _
-                    OrElse _Items.Count > 0)
+                Return (Not StringIsNullOrEmpty(_Content) _
+                    OrElse _Items.Count > 0 OrElse _JournalEntryID > 0)
             End Get
         End Property
 
 
 
-        ''' <summary>
-        ''' Sets the operations properties with the amortization calculation data provided.
-        ''' </summary>
-        ''' <param name="calculationList">A collection of amortization calculation data.</param>
-        ''' <param name="warnings">Out parameter, returns non critical exceptions
-        ''' that occured during the data import. Returns an empty string if no exception encountered.</param>
-        ''' <remarks></remarks>
-        Public Sub SetCalculations(ByVal calculationList As LongTermAssetAmortizationCalculationList, _
-            ByRef warnings As String)
-
-            If Not _ChronologyValidator.FinancialDataCanChange Then
-                Throw New Exception(String.Format( _
-                    My.Resources.Assets_ComplexOperationAmortization_CannotChangeFinancialData, _
-                    vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
-            End If
-
-            _Items.SetCalculations(calculationList, warnings)
-
-        End Sub
-
-        ''' <summary>
-        ''' Sets the operations properties with the amortization calculation data provided.
-        ''' </summary>
-        ''' <param name="calculation">An amortization calculation data for an asset.</param>
-        ''' <remarks></remarks>
-        Public Sub SetCalculations(ByVal calculation As LongTermAssetAmortizationCalculation)
-
-            If Not _ChronologyValidator.FinancialDataCanChange Then
-                Throw New Exception(String.Format( _
-                    My.Resources.Assets_ComplexOperationAmortization_CannotChangeFinancialData, _
-                    vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
-            End If
-
-            _Items.SetCalculations(calculation)
-
-        End Sub
-
-        ''' <summary>
-        ''' Gets amortization calculations for the document.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Public Function GetCalculations() As LongTermAssetAmortizationCalculationList
-
-            If _Items.Count < 1 Then
-                Throw New Exception(My.Resources.Assets_ComplexOperationAmortization_DocumentEmpty)
-            End If
-
-            If Not _ChronologyValidator.FinancialDataCanChange Then
-                Throw New Exception(String.Format( _
-                    My.Resources.Assets_ComplexOperationAmortization_CannotChangeFinancialData, _
-                    vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
-            End If
-
-            Dim resultAssetID As New List(Of Integer)
-            Dim resultOperationID As New List(Of Integer)
-
-            For Each item As OperationAmortization In _Items
-                resultAssetID.Add(item.AssetID)
-                resultOperationID.Add(item.ID)
-            Next
-
-            Return LongTermAssetAmortizationCalculationList.GetList( _
-                resultAssetID.ToArray(), resultOperationID.ToArray(), _Date)
-
-        End Function
 
         ''' <summary>
         ''' Adds items in the list to the current collection.
         ''' </summary>
         ''' <param name="list"></param>
-        ''' <remarks>Invoke <see cref="OperationAmortizationList.GetOperationAmortizationList">OperationAmortizationList.GetOperationAmortizationList</see>
+        ''' <remarks>Invoke <see cref="OperationValueChangeList.GetOperationValueChangeList">OperationValueChangeList.GetOperationValueChangeList</see>
         ''' to get a list of new operations by asset ID's.</remarks>
-        Public Sub AddRange(ByVal list As OperationAmortizationList)
+        Public Sub AddRange(ByVal list As OperationValueChangeList)
 
             If Not _ChronologyValidator.FinancialDataCanChange Then
                 Throw New Exception(String.Format( _
-                    My.Resources.Assets_ComplexOperationAmortization_CannotChangeFinancialDataFull, _
+                    My.Resources.Assets_ComplexOperationValueChange_CannotChangeFinancialDataFull, _
                     vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
             End If
 
@@ -310,7 +326,7 @@
 
             _Items.AddRange(list)
 
-            For Each i As OperationAmortization In list
+            For Each i As OperationValueChange In list
                 _ChronologyValidator.MergeNewValidationItem(i.ChronologyValidator)
             Next
 
@@ -346,7 +362,86 @@
         End Function
 
 
-        Public Overrides Function Save() As ComplexOperationAmortization
+        ''' <summary>
+        ''' Attaches a journal entry to the operation.
+        ''' </summary>
+        ''' <param name="entry">A journal entry info.</param>
+        ''' <remarks>The operation does not handle journal entry. It should be
+        ''' handled by other (parent) object or by a user manualy.</remarks>
+        Public Sub LoadAssociatedJournalEntry(ByVal entry As ActiveReports.JournalEntryInfo)
+
+            If entry Is Nothing OrElse Not entry.Id > 0 Then Exit Sub
+
+            If Not Array.IndexOf(OperationValueChange.ParentJournalEntryTypes, entry.DocType) < 0 Then
+                Throw New Exception(String.Format(My.Resources.Assets_OperationValueChange_CannotAttachParentType, _
+                    entry.DocTypeHumanReadable))
+            ElseIf Array.IndexOf(OperationValueChange.AllowedJournalEntryTypes, entry.DocType) < 0 Then
+                Throw New Exception(String.Format(My.Resources.Assets_OperationValueChange_InvalidJournalEntryType, _
+                    entry.DocTypeHumanReadable))
+            End If
+
+            _JournalEntryID = entry.Id
+            _JournalEntryDate = entry.Date
+            _JournalEntryDocumentNumber = entry.DocNumber
+            _JournalEntryContent = entry.Content
+            _JournalEntryBookEntries = entry.BookEntries
+            _JournalEntryPersonID = entry.PersonID
+            _JournalEntryPerson = entry.Person
+            _JournalEntryDocumentType = entry.DocType
+            _JournalEntryAmount = entry.Ammount
+
+            _DocumentNumber = entry.DocNumber
+
+            PropertyHasChanged("JournalEntryID")
+            PropertyHasChanged("JournalEntryDate")
+            PropertyHasChanged("JournalEntryContent")
+            PropertyHasChanged("JournalEntryDocumentNumber")
+            PropertyHasChanged("JournalEntryBookEntries")
+            PropertyHasChanged("JournalEntryPersonID")
+            PropertyHasChanged("JournalEntryPersonName")
+            PropertyHasChanged("JournalEntryDocumentType")
+            PropertyHasChanged("JournalEntryAmount")
+            PropertyHasChanged("DocumentNumber")
+
+        End Sub
+
+        ''' <summary>
+        ''' Gets a new <see cref="General.JournalEntry">journal entry</see>
+        ''' that contains all the book entries requered for balance value change by the
+        ''' long term asset states.
+        ''' </summary>
+        ''' <remarks>Could be used as a helper method when registering balance change operations.</remarks>
+        Public Function NewJournalEntry() As General.JournalEntry
+
+            Dim result As General.JournalEntry = General.JournalEntry.NewJournalEntry()
+
+            result.Date = _Date.Date
+            result.Person = Nothing
+            result.Content = _Content
+            result.DocNumber = _DocumentNumber
+
+            Dim commonBookEntryList As BookEntryInternalList = _Items.GetTotalBookEntryList()
+
+            If commonBookEntryList.GetTotalSum(BookEntryType.Debetas) _
+                > commonBookEntryList.GetTotalSum(BookEntryType.Kreditas) Then
+                commonBookEntryList.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Kreditas, _
+                    0, commonBookEntryList.GetTotalSum(BookEntryType.Debetas) _
+                    - commonBookEntryList.GetTotalSum(BookEntryType.Kreditas), Nothing))
+            Else
+                commonBookEntryList.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Debetas, _
+                    0, commonBookEntryList.GetTotalSum(BookEntryType.Kreditas) _
+                    - commonBookEntryList.GetTotalSum(BookEntryType.Debetas), Nothing))
+            End If
+
+            result.DebetList.LoadBookEntryListFromInternalList(commonBookEntryList, False, False)
+            result.CreditList.LoadBookEntryListFromInternalList(commonBookEntryList, False, False)
+
+            Return result
+
+        End Function
+
+
+        Public Overrides Function Save() As ComplexOperationValueChange
 
             Me.ValidationRules.CheckRules()
             If Not Me.IsValid Then
@@ -362,8 +457,7 @@
         Private Sub Items_Changed(ByVal sender As Object, _
             ByVal e As System.ComponentModel.ListChangedEventArgs) Handles _Items.ListChanged
 
-            _TotalValueChange = _Items.GetTotalCosts()
-            PropertyHasChanged("TotalValueChange")
+
 
             If e.ListChangedType = ComponentModel.ListChangedType.ItemAdded Then
 
@@ -388,7 +482,7 @@
         ''' Helper method. Takes care of child lists loosing their handlers.
         ''' </summary>
         Protected Overrides Function GetClone() As Object
-            Dim result As ComplexOperationAmortization = DirectCast(MyBase.GetClone(), ComplexOperationAmortization)
+            Dim result As ComplexOperationValueChange = DirectCast(MyBase.GetClone(), ComplexOperationValueChange)
             result.RestoreChildListsHandles()
             Return result
         End Function
@@ -404,7 +498,7 @@
         End Sub
 
         ''' <summary>
-        ''' Helper method. Takes care of ReportItems loosing its handler. See GetClone method.
+        ''' Helper method. Takes care of Items loosing its handler. See GetClone method.
         ''' </summary>
         Friend Sub RestoreChildListsHandles()
             Try
@@ -420,7 +514,7 @@
         End Function
 
         Public Overrides Function ToString() As String
-            Return String.Format(My.Resources.Assets_ComplexOperationAmortization_ToString, _
+            Return String.Format(My.Resources.Assets_ComplexOperationValueChange_ToString, _
                 _Date.ToString("yyyy-MM-dd"), _DocumentNumber, _ID.ToString())
         End Function
 
@@ -430,18 +524,64 @@
 
         Protected Overrides Sub AddBusinessRules()
 
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
-                New Csla.Validation.RuleArgs("TotalValueChange"))
             ValidationRules.AddRule(AddressOf CommonValidation.StringFieldValidation, _
                 New Csla.Validation.RuleArgs("Content"))
-            ValidationRules.AddRule(AddressOf CommonValidation.StringFieldValidation, _
-                New Csla.Validation.RuleArgs("DocumentNumber"))
-            ValidationRules.AddRule(AddressOf CommonValidation.ChronologyValidation, _
-                New CommonValidation.ChronologyRuleArgs("Date", "ChronologyValidator"))
 
+            ValidationRules.AddRule(AddressOf DateValidation, _
+                New CommonValidation.ChronologyRuleArgs("Date", "ChronologyValidator"))
+            ValidationRules.AddRule(AddressOf JournalEntryIDValidation, _
+                New Csla.Validation.RuleArgs("JournalEntryID"))
+
+            ValidationRules.AddDependantProperty("JournalEntryDate", "Date", False)
             ValidationRules.AddDependantProperty("ChronologyValidator", "Date", False)
 
         End Sub
+
+
+        ''' <summary>
+        ''' Rule ensuring that the operation date is valid.
+        ''' </summary>
+        ''' <param name="target">Object containing the data to validate</param>
+        ''' <param name="e">Arguments parameter specifying the name of the string
+        ''' property to validate</param>
+        ''' <returns><see langword="false" /> if the rule is broken</returns>
+        <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:ValidateArgumentsOfPublicMethods")> _
+        Private Shared Function DateValidation(ByVal target As Object, _
+            ByVal e As Validation.RuleArgs) As Boolean
+
+            Dim valObj As ComplexOperationValueChange = _
+                DirectCast(target, ComplexOperationValueChange)
+
+            If valObj._JournalEntryID > 0 AndAlso valObj._Date.Date <> valObj._JournalEntryDate.Date Then
+                e.Description = My.Resources.Assets_OperationValueChange_DateInvalid
+                e.Severity = RuleSeverity.Error
+                Return False
+            End If
+
+            Return CommonValidation.ChronologyValidation(target, e)
+
+        End Function
+
+        ''' <summary>
+        ''' Rule ensuring that a journal entry is attached.
+        ''' </summary>
+        ''' <param name="target">Object containing the data to validate</param>
+        ''' <param name="e">Arguments parameter specifying the name of the string
+        ''' property to validate</param>
+        ''' <returns><see langword="false" /> if the rule is broken</returns>
+        <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:ValidateArgumentsOfPublicMethods")> _
+        Private Shared Function JournalEntryIDValidation(ByVal target As Object, _
+          ByVal e As Validation.RuleArgs) As Boolean
+
+            If Not DirectCast(target, ComplexOperationValueChange)._JournalEntryID > 0 Then
+                e.Description = My.Resources.Assets_OperationValueChange_JournalEntryNull
+                e.Severity = RuleSeverity.Error
+                Return False
+            End If
+
+            Return True
+
+        End Function
 
 #End Region
 
@@ -472,40 +612,40 @@
 #Region " Factory Methods "
 
         ''' <summary>
-        ''' Gets a new ComplexOperationAmortization instance.
+        ''' Gets a new ComplexOperationValueChange instance.
         ''' </summary>
         ''' <remarks></remarks>
-        Public Shared Function NewComplexOperationAmortization() As ComplexOperationAmortization
-            Dim result As New ComplexOperationAmortization
+        Public Shared Function NewComplexOperationValueChange() As ComplexOperationValueChange
+            Dim result As New ComplexOperationValueChange
             result.Create()
             Return result
         End Function
 
 
         ''' <summary>
-        ''' Gets an existing ComplexOperationAmortization instance from a database.
+        ''' Gets an existing ComplexOperationValueChange instance from a database.
         ''' </summary>
-        ''' <param name="id">An <see cref="ComplexOperationAmortization.ID">ID of the operation</see> 
-        ''' or an <see cref="OperationAmortization.JournalEntryID">ID the journal entry</see>  
+        ''' <param name="id">An <see cref="ComplexOperationValueChange.ID">ID of the operation</see> 
+        ''' or an <see cref="ComplexOperationValueChange.JournalEntryID">ID the journal entry</see>  
         ''' that is encapsulated by the operation.</param>
         ''' <param name="nFetchByJournalEntryID">Whether the <paramref name="id">id</paramref>
-        ''' param is an <see cref="ComplexOperationAmortization.JournalEntryID">ID the journal entry</see> 
+        ''' param is an <see cref="ComplexOperationValueChange.JournalEntryID">ID the journal entry</see> 
         ''' that is encapsulated by the operation.</param>
         ''' <remarks></remarks>
-        Public Shared Function GetComplexOperationAmortization(ByVal id As Integer, _
-            ByVal nFetchByJournalEntryID As Boolean) As ComplexOperationAmortization
-            Return DataPortal.Fetch(Of ComplexOperationAmortization) _
+        Public Shared Function GetComplexOperationValueChange(ByVal id As Integer, _
+            ByVal nFetchByJournalEntryID As Boolean) As ComplexOperationValueChange
+            Return DataPortal.Fetch(Of ComplexOperationValueChange) _
                 (New Criteria(id, nFetchByJournalEntryID))
         End Function
 
 
         ''' <summary>
-        ''' Deletes an existing ComplexOperationAmortization instance from a database.
+        ''' Deletes an existing ComplexOperationValueChange instance from a database.
         ''' </summary>
-        ''' <param name="id">An <see cref="ComplexOperationAmortization.ID">ID of the operation</see> 
+        ''' <param name="id">An <see cref="ComplexOperationValueChange.ID">ID of the operation</see> 
         ''' to delete.</param>
         ''' <remarks></remarks>
-        Public Shared Sub DeleteComplexOperationAmortization(ByVal id As Integer)
+        Public Shared Sub DeleteComplexOperationValueChange(ByVal id As Integer)
             DataPortal.Delete(New Criteria(id))
         End Sub
 
@@ -547,13 +687,13 @@
 
             Dim baseValidator As SimpleChronologicValidator = _
                 SimpleChronologicValidator.NewSimpleChronologicValidator( _
-                My.Resources.Assets_ComplexOperationAmortization_TypeName, Nothing)
+                My.Resources.Assets_ComplexOperationValueChange_TypeName, Nothing)
 
             _ChronologyValidator = ComplexChronologicValidator.NewComplexChronologicValidator( _
-                My.Resources.Assets_ComplexOperationAmortization_TypeName, _
+                My.Resources.Assets_ComplexOperationValueChange_TypeName, _
                 baseValidator, Nothing, Nothing)
 
-            _Items = OperationAmortizationList.NewOperationAmortizationList()
+            _Items = OperationValueChangeList.NewOperationValueChangeList()
 
             ValidationRules.CheckRules()
 
@@ -578,29 +718,29 @@
         Private Sub Fetch(ByVal operationID As Integer)
 
             If Not operationID > 0 Then
-                Throw New Exception(My.Resources.Assets_ComplexOperationAmortization_OperationIDNull)
+                Throw New Exception(My.Resources.Assets_ComplexOperationValueChange_OperationIDNull)
             End If
 
             Dim list As List(Of OperationPersistenceObject) = OperationPersistenceObject. _
-                GetOperationPersistenceObjectList(operationID, LtaOperationType.Amortization)
+                GetOperationPersistenceObjectList(operationID, LtaOperationType.ValueChange)
 
             If list.Count < 1 Then Throw New Exception(String.Format( _
-                My.Resources.Common_ObjectNotFound, My.Resources.Assets_ComplexOperationAmortization_TypeName, _
+                My.Resources.Common_ObjectNotFound, My.Resources.Assets_ComplexOperationValueChange_TypeName, _
                 operationID.ToString()))
 
             _ID = operationID
             _Date = list(0).OperationDate
             _Content = list(0).Content
-            _DocumentNumber = list(0).ActNumber
+            _DocumentNumber = list(0).JournalEntryDocumentNumber
             _JournalEntryID = list(0).JournalEntryID
 
             Dim baseValidator As SimpleChronologicValidator = SimpleChronologicValidator. _
                 GetSimpleChronologicValidator(_JournalEntryID, _Date, _
-                My.Resources.Assets_ComplexOperationAmortization_TypeName, Nothing)
+                My.Resources.Assets_ComplexOperationValueChange_TypeName, Nothing)
 
             Using generalData As DataTable = OperationBackground.GetDataSourceGeneral(operationID)
                 Using deltaData As DataTable = OperationBackground.GetDataSourceDelta(operationID)
-                    _Items = OperationAmortizationList.GetOperationAmortizationList( _
+                    _Items = OperationValueChangeList.GetOperationValueChangeList( _
                         list, generalData, deltaData, baseValidator)
                 End Using
             End Using
@@ -608,10 +748,8 @@
             _InsertDate = _Items.GetInsertDate
             _UpdateDate = _Items.GetUpdateDate
 
-            _TotalValueChange = _Items.GetTotalCosts()
-
             _ChronologyValidator = ComplexChronologicValidator.GetComplexChronologicValidator( _
-                _JournalEntryID, _Date, My.Resources.Assets_ComplexOperationAmortization_TypeName, _
+                _JournalEntryID, _Date, My.Resources.Assets_ComplexOperationValueChange_TypeName, _
                 baseValidator, Nothing, _Items.GetChronologyValidators())
 
             MarkOld()
@@ -644,7 +782,7 @@
         Private Sub CheckIfCanSave()
 
             If _Items.Count < 1 Then
-                Throw New Exception(My.Resources.Assets_ComplexOperationAmortization_DocumentEmpty)
+                Throw New Exception(My.Resources.Assets_ComplexOperationValueChange_DocumentEmpty)
             End If
 
             _Items.SetParentDate(_Date) ' just in case
@@ -655,10 +793,10 @@
 
                 Dim baseValidator As SimpleChronologicValidator = _
                     SimpleChronologicValidator.NewSimpleChronologicValidator( _
-                    My.Resources.Assets_ComplexOperationAmortization_TypeName, Nothing)
+                    My.Resources.Assets_ComplexOperationValueChange_TypeName, Nothing)
 
                 _ChronologyValidator = ComplexChronologicValidator.NewComplexChronologicValidator( _
-                    My.Resources.Assets_ComplexOperationAmortization_TypeName, _
+                    My.Resources.Assets_ComplexOperationValueChange_TypeName, _
                     baseValidator, Nothing, _Items.GetChronologyValidators())
 
             Else
@@ -666,11 +804,11 @@
                 Dim baseValidator As SimpleChronologicValidator = _
                     SimpleChronologicValidator.GetSimpleChronologicValidator( _
                     _JournalEntryID, _ChronologyValidator.CurrentOperationDate, _
-                    My.Resources.Assets_ComplexOperationAmortization_TypeName, Nothing)
+                    My.Resources.Assets_ComplexOperationValueChange_TypeName, Nothing)
 
                 _ChronologyValidator = ComplexChronologicValidator.GetComplexChronologicValidator( _
                     _JournalEntryID, _ChronologyValidator.CurrentOperationDate, _
-                    My.Resources.Assets_ComplexOperationAmortization_TypeName, _
+                    My.Resources.Assets_ComplexOperationValueChange_TypeName, _
                     baseValidator, Nothing, _Items.GetChronologyValidators())
 
             End If
@@ -689,17 +827,9 @@
                 _ID = OperationPersistenceObject.GetNewComplexOperationID()
             End If
 
-            Dim entry As General.JournalEntry = GetJournalEntry()
-
             Using transaction As New SqlTransaction
 
                 Try
-
-                    entry = entry.SaveChild()
-
-                    If IsNew Then
-                        _JournalEntryID = entry.ID
-                    End If
 
                     _Items.Update(Me)
 
@@ -722,64 +852,30 @@
         End Sub
 
 
-        Private Function GetJournalEntry() As General.JournalEntry
-
-            Dim result As General.JournalEntry = Nothing
-
-            If IsNew Then
-                result = General.JournalEntry.NewJournalEntryChild(DocumentType.Amortization)
-            Else
-                result = General.JournalEntry.GetJournalEntryChild(_JournalEntryID, _
-                    DocumentType.Amortization)
-            End If
-
-            result.Date = _Date.Date
-            result.Person = Nothing
-            result.Content = _Content
-            result.DocNumber = _DocumentNumber
-
-            Dim commonBookEntryList As BookEntryInternalList = _Items.GetTotalBookEntryList()
-            commonBookEntryList.Aggregate()
-            result.DebetList.LoadBookEntryListFromInternalList(commonBookEntryList, False, False)
-            result.CreditList.LoadBookEntryListFromInternalList(commonBookEntryList, False, False)
-
-            If Not result.IsValid Then
-                Throw New Exception(String.Format(My.Resources.Common_FailedToCreateJournalEntry, _
-                    vbCrLf, result.ToString, vbCrLf, result.GetAllBrokenRules))
-            End If
-
-            Return result
-
-        End Function
-
-
         Private Overloads Sub DataPortal_Delete(ByVal criteria As Criteria)
 
             If Not CanDeleteObject() Then Throw New System.Security.SecurityException( _
                 My.Resources.Common_SecurityUpdateDenied)
 
-            Dim operationToDelete As New ComplexOperationAmortization
+            Dim operationToDelete As New ComplexOperationValueChange
 
             operationToDelete.DataPortal_Fetch(criteria)
 
             operationToDelete.CheckIfCanDelete()
 
             operationToDelete.DoDelete()
-            
+
         End Sub
 
         Private Sub CheckIfCanDelete()
 
             If Not _ChronologyValidator.FinancialDataCanChange Then
                 Throw New Exception(String.Format( _
-                    My.Resources.Assets_ComplexOperationAmortization_InvalidDelete, _
+                    My.Resources.Assets_ComplexOperationValueChange_InvalidDelete, _
                     vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
             End If
 
             _Items.CheckIfCanDelete(_ChronologyValidator)
-
-            IndirectRelationInfoList.CheckIfJournalEntryCanBeDeleted( _
-                _JournalEntryID, DocumentType.Amortization)
 
         End Sub
 
@@ -788,8 +884,6 @@
             Using transaction As New SqlTransaction
 
                 Try
-
-                    General.JournalEntry.DeleteJournalEntryChild(_JournalEntryID)
 
                     _Items.DeleteChildren()
 

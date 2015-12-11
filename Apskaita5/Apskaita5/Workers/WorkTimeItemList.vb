@@ -124,7 +124,8 @@ Namespace Workers
         Private Sub Fetch(ByVal parent As WorkTimeSheet)
 
             Dim myComm As New SQLCommand("FetchWorkTimeItemList")
-            myComm.AddParam("?DT", New Date(parent.Year, parent.Month, 1).Date)
+            myComm.AddParam("?DT", New Date(parent.Year, parent.Month, _
+                Date.DaysInMonth(parent.Year, parent.Month)).Date)
             myComm.AddParam("?PD", parent.ID)
 
             Using myData As DataTable = myComm.Fetch

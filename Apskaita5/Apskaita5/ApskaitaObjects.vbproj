@@ -155,6 +155,12 @@
     <Compile Include="ActiveReports\WorkTimeSheetInfoList.vb" />
     <Compile Include="Assets\AcquisitionChronologicValidator.vb" />
     <Compile Include="Assets\ComplexOperationAmortization.vb" />
+    <Compile Include="Assets\ComplexOperationDiscard.vb" />
+    <Compile Include="Assets\ComplexOperationOperationalStatusChange.vb" />
+    <Compile Include="Assets\ComplexOperationValueChange.vb" />
+    <Compile Include="Assets\OperationAccountChange.vb" />
+    <Compile Include="Assets\OperationAcquisitionValueIncrease.vb" />
+    <Compile Include="Assets\OperationAmortizationPeriodChange.vb" />
     <Compile Include="Assets\OperationChronologicValidator2.vb" />
     <Compile Include="Assets\LongTermAsset.vb" />
     <Compile Include="Assets\LongTermAssetAmortizationCalculation.vb" />
@@ -173,7 +179,14 @@
     <Compile Include="Assets\OperationChronologicValidatorItem.vb" />
     <Compile Include="Assets\OperationDelta.vb" />
     <Compile Include="Assets\OperationDeltaList.vb" />
+    <Compile Include="Assets\OperationDiscard.vb" />
+    <Compile Include="Assets\OperationDiscardList.vb" />
+    <Compile Include="Assets\OperationOperationalStatusChange.vb" />
+    <Compile Include="Assets\OperationOperationalStatusChangeList.vb" />
     <Compile Include="Assets\OperationPersistenceObject.vb" />
+    <Compile Include="Assets\OperationTransfer.vb" />
+    <Compile Include="Assets\OperationValueChange.vb" />
+    <Compile Include="Assets\OperationValueChangeList.vb" />
     <Compile Include="CommonObjects\AccountFieldAttribute.vb" />
     <Compile Include="CommonObjects\BookEntryType.vb" />
     <Compile Include="CommonObjects\BusinessObjectList.vb" />

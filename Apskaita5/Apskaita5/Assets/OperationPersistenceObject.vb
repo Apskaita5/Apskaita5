@@ -28,6 +28,7 @@
         Private _JournalEntryDate As Date = Today
         Private _JournalEntryContent As String = ""
         Private _JournalEntryPersonID As Integer = 0
+        Private _JournalEntryPerson As String = ""
         Private _JournalEntryPersonName As String = ""
         Private _JournalEntryPersonCode As String = ""
         Private _JournalEntryAmount As Double = 0
@@ -208,6 +209,18 @@
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _JournalEntryPersonID
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a formated name and code of the person in the journal entry 
+        ''' that is attached to or encapsulated by the long term asset operation.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="general.JournalEntry.Person">JournalEntry.Person</see>.</remarks>
+        Public ReadOnly Property JournalEntryPerson() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _JournalEntryPerson.Trim
             End Get
         End Property
 
@@ -834,10 +847,11 @@
 
                 Fetch(myData.Rows(0))
 
-                If expectedType <> _OperationType Then Throw New Exception(String.Format( _
-                    My.Resources.Assets_OperationPersistenceObject_UnexpectedType, _ID.ToString(), _
-                    EnumValueAttribute.ConvertLocalizedName(expectedType), _
-                    EnumValueAttribute.ConvertLocalizedName(_OperationType)))
+                If Not OperationTypesMatch(expectedType, _OperationType) Then
+                    Throw New Exception(String.Format(My.Resources.Assets_OperationPersistenceObject_UnexpectedType, _
+                        _ID.ToString(), EnumValueAttribute.ConvertLocalizedName(expectedType), _
+                        EnumValueAttribute.ConvertLocalizedName(_OperationType)))
+                End If
 
             End Using
 
@@ -875,16 +889,31 @@
             _AmortizationCalculatedForMonths = CIntSafe(dr.Item(26), 0)
             _InsertDate = CTimeStampSafe(dr.Item(27))
             _UpdateDate = CTimeStampSafe(dr.Item(28))
-            _JournalEntryID = CIntSafe(dr.Item(30), 0)
-            _JournalEntryDocumentNumber = CStrSafe(dr.Item(31)).Trim
-            _JournalEntryDate = CDateSafe(dr.Item(32), Today)
-            _JournalEntryContent = CStrSafe(dr.Item(33)).Trim
-            _JournalEntryDocumentType = ConvertEnumDatabaseStringCode(Of DocumentType)(CStrSafe(dr.Item(34)))
-            _JournalEntryPersonID = CIntSafe(dr.Item(35), 0)
-            _JournalEntryPersonName = CStrSafe(dr.Item(36)).Trim
-            _JournalEntryPersonCode = CStrSafe(dr.Item(37)).Trim
-            _JournalEntryBookEntries = CStrSafe(dr.Item(38)).Trim
-            _JournalEntryAmount = CDblSafe(dr.Item(39), 2, 0)
+            If _OperationType = LtaOperationType.UsingStart OrElse _
+                _OperationType = LtaOperationType.UsingEnd Then
+                If CIntSafe(dr.Item(29), 0) Mod 2 > 0 Then
+                    _OperationType = LtaOperationType.UsingStart
+                Else
+                    _OperationType = LtaOperationType.UsingEnd
+                End If
+            End If
+            _JournalEntryID = CIntSafe(dr.Item(31), 0)
+            _JournalEntryDocumentNumber = CStrSafe(dr.Item(32)).Trim
+            _JournalEntryDate = CDateSafe(dr.Item(33), Today)
+            _JournalEntryContent = CStrSafe(dr.Item(34)).Trim
+            _JournalEntryDocumentType = ConvertEnumDatabaseStringCode(Of DocumentType)(CStrSafe(dr.Item(35)))
+            _JournalEntryPersonID = CIntSafe(dr.Item(36), 0)
+            _JournalEntryPersonName = CStrSafe(dr.Item(37)).Trim
+            _JournalEntryPersonCode = CStrSafe(dr.Item(38)).Trim
+            _JournalEntryBookEntries = CStrSafe(dr.Item(39)).Trim
+            _JournalEntryAmount = CDblSafe(dr.Item(40), 2, 0)
+
+            If _JournalEntryPersonID > 0 Then
+                _JournalEntryPerson = String.Format("{0} ({1})", _JournalEntryPersonName, _
+                    _JournalEntryPersonCode)
+            Else
+                _JournalEntryPerson = ""
+            End If
 
         End Sub
 
@@ -1042,6 +1071,24 @@
             End If
 
         End Sub
+
+        Private Shared Function OperationTypesMatch(ByVal type1 As LtaOperationType, _
+            ByVal type2 As LtaOperationType) As Boolean
+
+            If (type1 = LtaOperationType.UsingStart _
+                OrElse type1 = LtaOperationType.UsingEnd) AndAlso _
+                (type2 = LtaOperationType.UsingStart _
+                OrElse type2 = LtaOperationType.UsingEnd) Then
+
+                Return True
+
+            Else
+
+                Return type1 = type2
+
+            End If
+
+        End Function
 
 #End Region
 

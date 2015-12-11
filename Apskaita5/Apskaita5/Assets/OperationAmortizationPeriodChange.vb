@@ -3,13 +3,13 @@
 Namespace Assets
 
     ''' <summary>
-    ''' Represents a long term asset amortization (depreciation) operation.
+    ''' Represents a long term asset amortization (depreciation) period change operation.
     ''' </summary>
     ''' <remarks>Values are stored in the database table turtas_op.
     ''' Operation data is persisted by the <see cref="OperationPersistenceObject">OperationPersistenceObject</see>.</remarks>
     <Serializable()> _
-    Public Class OperationAmortization
-        Inherits BusinessBase(Of OperationAmortization)
+    Public Class OperationAmortizationPeriodChange
+        Inherits BusinessBase(Of OperationAmortizationPeriodChange)
         Implements IGetErrorForListItem, IIsDirtyEnough
 
 #Region " Business Methods "
@@ -25,15 +25,8 @@ Namespace Assets
         Private _ComplexActID As Integer = 0
         Private _Date As Date = Today.Date
         Private _Content As String = ""
-        Private _AccountCosts As Long = 0
         Private _DocumentNumber As String = ""
-        Private _JournalEntryID As Integer = -1
-        Private _UnitValueChange As Double = 0
-        Private _TotalValueChange As Double = 0
-        Private _RevaluedPortionUnitValueChange As Double = 0
-        Private _RevaluedPortionTotalValueChange As Double = 0
-        Private _AmortizationCalculations As String = ""
-        Private _AmortizationCalculatedForMonths As Integer = 0
+        Private _NewPeriod As Integer = 0
 
 
         ''' <summary>
@@ -48,13 +41,13 @@ Namespace Assets
         End Property
 
         ''' <summary>
-        ''' Gets a type of the long term asset operation, i.e. <see cref="LtaOperationType.Amortization">LtaOperationType.Amortization</see>.
+        ''' Gets a type of the long term asset operation, i.e. <see cref="LtaOperationType.AmortizationPeriod">LtaOperationType.AmortizationPeriod</see>.
         ''' </summary>
         ''' <remarks></remarks>
         Public ReadOnly Property [Type]() As LtaOperationType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return LtaOperationType.Amortization
+                Return LtaOperationType.AmortizationPeriod
             End Get
         End Property
 
@@ -84,7 +77,7 @@ Namespace Assets
         ''' Gets <see cref="IChronologicValidator">IChronologicValidator</see> object that contains business restraints on updating the operation.
         ''' </summary>
         ''' <remarks>A <see cref="OperationChronologicValidator">OperationChronologicValidator</see> 
-        ''' is used to validate a long term asset amortization operation chronological business rules.</remarks>
+        ''' is used to validate a long term asset amortization period change operation chronological business rules.</remarks>
         Public ReadOnly Property ChronologyValidator() As OperationChronologicValidator2
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -94,7 +87,7 @@ Namespace Assets
 
         ''' <summary>
         ''' Gets background information for the operation. 
-        ''' Describes the long term asset operation state before and after 
+        ''' Describes the long term asset state before and after 
         ''' the operation takes place.
         ''' </summary>
         ''' <remarks></remarks>
@@ -195,21 +188,6 @@ Namespace Assets
             End Get
         End Property
 
-        ''' <summary>
-        ''' A <see cref="LongTermAsset.LiquidationUnitValue">liquidation value of the long term asset per unit</see>.
-        ''' </summary>
-        ''' <remarks>12 BAS para 57.
-        ''' A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
-        Public ReadOnly Property AssetLiquidationValue() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.AssetLiquidationValue
-            End Get
-        End Property
-
 #End Region
 
 #Region " Current State "
@@ -301,21 +279,6 @@ Namespace Assets
         End Property
 
         ''' <summary>
-        ''' A current balance for the <see cref="CurrentAssetAcquiredAccount">CurrentAssetAcquiredAccount</see> per unit.
-        ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.
-        ''' A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
-        Public ReadOnly Property CurrentAcquisitionAccountValuePerUnit() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.CurrentAcquisitionAccountValuePerUnit
-            End Get
-        End Property
-
-        ''' <summary>
         ''' A current balance for the <see cref="CurrentAssetContraryAccount">CurrentAssetContraryAccount</see>.
         ''' </summary>
         ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
@@ -327,21 +290,6 @@ Namespace Assets
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _Background.CurrentAmortizationAccountValue
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' A current balance for the <see cref="CurrentAssetContraryAccount">CurrentAssetContraryAccount</see> per unit.
-        ''' </summary>
-        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
-        ''' A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
-        Public ReadOnly Property CurrentAmortizationAccountValuePerUnit() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.CurrentAmortizationAccountValuePerUnit
             End Get
         End Property
 
@@ -361,21 +309,6 @@ Namespace Assets
         End Property
 
         ''' <summary>
-        ''' A current balance for the <see cref="CurrentAssetValueDecreaseAccount">CurrentAssetValueDecreaseAccount</see> per unit.
-        ''' </summary>
-        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
-        ''' A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
-        Public ReadOnly Property CurrentValueDecreaseAccountValuePerUnit() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.CurrentValueDecreaseAccountValuePerUnit
-            End Get
-        End Property
-
-        ''' <summary>
         ''' A current balance for the <see cref="CurrentAssetValueIncreaseAccount">CurrentAssetValueIncreaseAccount</see>.
         ''' </summary>
         ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.
@@ -391,21 +324,6 @@ Namespace Assets
         End Property
 
         ''' <summary>
-        ''' A current balance for the <see cref="CurrentAssetValueIncreaseAccount">CurrentAssetValueIncreaseAccount</see> per unit.
-        ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.
-        ''' A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
-        Public ReadOnly Property CurrentValueIncreaseAccountValuePerUnit() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.CurrentValueIncreaseAccountValuePerUnit
-            End Get
-        End Property
-
-        ''' <summary>
         ''' A current balance for the <see cref="CurrentAssetValueIncreaseAmortizationAccount">CurrentAssetValueIncreaseAmortizationAccount</see>.
         ''' </summary>
         ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
@@ -417,21 +335,6 @@ Namespace Assets
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _Background.CurrentValueIncreaseAmortizationAccountValue
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' A current balance for the <see cref="CurrentAssetValueIncreaseAmortizationAccount">CurrentAssetValueIncreaseAmortizationAccount</see> per unit.
-        ''' </summary>
-        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
-        ''' A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
-        Public ReadOnly Property CurrentValueIncreaseAmortizationAccountValuePerUnit() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.CurrentValueIncreaseAmortizationAccountValuePerUnit
             End Get
         End Property
 
@@ -550,216 +453,6 @@ Namespace Assets
 
 #End Region
 
-#Region " State After The Operation "
-
-        ''' <summary>
-        ''' A balance for the <see cref="CurrentAssetAcquiredAccount">CurrentAssetAcquiredAccount</see> after the operation.
-        ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.
-        ''' A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
-        Public ReadOnly Property AfterOperationAcquisitionAccountValue() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.AfterOperationAcquisitionAccountValue
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' A balance for the <see cref="CurrentAssetAcquiredAccount">CurrentAssetAcquiredAccount</see> per unit after the operation.
-        ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.
-        ''' A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDUNITASSET)> _
-        Public ReadOnly Property AfterOperationAcquisitionAccountValuePerUnit() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.AfterOperationAcquisitionAccountValuePerUnit
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' A balance for the <see cref="CurrentAssetContraryAccount">CurrentAssetContraryAccount</see> after the operation.
-        ''' </summary>
-        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
-        ''' A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, True, 2, True, Double.MinValue, 0, True)> _
-        Public ReadOnly Property AfterOperationAmortizationAccountValue() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.AfterOperationAmortizationAccountValue
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' A balance for the <see cref="CurrentAssetContraryAccount">CurrentAssetContraryAccount</see> per unit after the operation.
-        ''' </summary>
-        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
-        ''' A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET, True, Double.MinValue, 0, True)> _
-        Public ReadOnly Property AfterOperationAmortizationAccountValuePerUnit() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.AfterOperationAmortizationAccountValuePerUnit
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' A balance for the <see cref="CurrentAssetValueDecreaseAccount">CurrentAssetValueDecreaseAccount</see> after the operation.
-        ''' </summary>
-        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
-        ''' A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, True, 2, True, Double.MinValue, 0, True)> _
-        Public ReadOnly Property AfterOperationValueDecreaseAccountValue() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.AfterOperationValueDecreaseAccountValue
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' A balance for the <see cref="CurrentAssetValueDecreaseAccount">CurrentAssetValueDecreaseAccount</see> per unit after the operation.
-        ''' </summary>
-        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
-        ''' A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET, True, Double.MinValue, 0, True)> _
-        Public ReadOnly Property AfterOperationValueDecreaseAccountValuePerUnit() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.AfterOperationValueDecreaseAccountValuePerUnit
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' A balance for the <see cref="CurrentAssetValueIncreaseAccount">CurrentAssetValueIncreaseAccount</see> after the operation.
-        ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.
-        ''' A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
-        Public ReadOnly Property AfterOperationValueIncreaseAccountValue() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.AfterOperationValueIncreaseAccountValue
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' A balance for the <see cref="CurrentAssetValueIncreaseAccount">CurrentAssetValueIncreaseAccount</see> per unit after the operation.
-        ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.
-        ''' A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDUNITASSET)> _
-        Public ReadOnly Property AfterOperationValueIncreaseAccountValuePerUnit() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.AfterOperationValueIncreaseAccountValuePerUnit
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' A balance for the <see cref="CurrentAssetValueIncreaseAmortizationAccount">CurrentAssetValueIncreaseAmortizationAccount</see> after the operation.
-        ''' </summary>
-        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
-        ''' A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, True, 2, True, Double.MinValue, 0, True)> _
-        Public ReadOnly Property AfterOperationValueIncreaseAmortizationAccountValue() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.AfterOperationValueIncreaseAmortizationAccountValue
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' A balance for the <see cref="CurrentAssetValueIncreaseAmortizationAccount">CurrentAssetValueIncreaseAmortizationAccount</see> per unit after the operation.
-        ''' </summary>
-        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
-        ''' A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET, True, Double.MinValue, 0, True)> _
-        Public ReadOnly Property AfterOperationValueIncreaseAmortizationAccountValuePerUnit() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.AfterOperationValueIncreaseAmortizationAccountValuePerUnit
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' A total value of the long term asset after the operation.
-        ''' </summary>
-        ''' <remarks>A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
-        Public ReadOnly Property AfterOperationAssetValue() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.AfterOperationAssetValue
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' A unit value of the long term asset after the operation.
-        ''' </summary>
-        ''' <remarks>A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDUNITASSET)> _
-        Public ReadOnly Property AfterOperationAssetValuePerUnit() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.AfterOperationAssetValuePerUnit
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' A total value of the revalued portion of the long term asset after the operation.
-        ''' </summary>
-        ''' <remarks>A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
-        Public ReadOnly Property AfterOperationAssetValueRevaluedPortion() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.AfterOperationAssetValueRevaluedPortion
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' A unit value of the revalued portion of the long term asset after the operation.
-        ''' </summary>
-        ''' <remarks>A proxy to the <see cref="Background">Background</see>
-        ''' to be used when databinding to a datagridview, because
-        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDUNITASSET)> _
-        Public ReadOnly Property AfterOperationAssetValueRevaluedPortionPerUnit() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Background.AfterOperationAssetValueRevaluedPortionPerUnit
-            End Get
-        End Property
-
-#End Region
-
         ''' <summary>
         ''' Gets or sets a date of the long term asset operation.
         ''' </summary>
@@ -800,28 +493,6 @@ Namespace Assets
         End Property
 
         ''' <summary>
-        ''' Gets or sets an <see cref="General.Account.ID">account</see> 
-        ''' for the long term asset amortization (depreciation) costs.
-        ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.AccountCorresponding.</remarks>
-        <AccountField(ValueRequiredLevel.Mandatory, False, 3, 6)> _
-        Public Property AccountCosts() As Long
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _AccountCosts
-            End Get
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Set(ByVal value As Long)
-                CanWriteProperty(True)
-                If AccountCostsIsReadOnly Then Exit Property
-                If _AccountCosts <> value Then
-                    _AccountCosts = value
-                    PropertyHasChanged()
-                End If
-            End Set
-        End Property
-
-        ''' <summary>
         ''' Gets or sets a number of the long term asset operation document.
         ''' </summary>
         ''' <remarks>Value is stored in the database field turtas_op.ActNumber.</remarks>
@@ -844,162 +515,25 @@ Namespace Assets
         End Property
 
         ''' <summary>
-        ''' Gets an <see cref="General.JournalEntry.ID">ID of the journal entry</see> 
-        ''' that is encapsulated by the long term asset amortization operation.
+        ''' Gets or sets a changed long term asset amortization period in years.
         ''' </summary>
-        ''' <remarks>A journal entry is encapsulated by the operation.
-        ''' Value is stored in the database field turtas_op.JE_ID.</remarks>
-        Public ReadOnly Property JournalEntryID() As Integer
+        ''' <remarks>Value is stored in the database field turtas_op.NewAmortizationPeriod.</remarks>
+        <IntegerField(ValueRequiredLevel.Mandatory, False, True, 1, 99, True)> _
+        Public Property NewPeriod() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return _JournalEntryID
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' Gets or sets the long term asset unit value change.
-        ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.UnitValueChange.</remarks>
-        <DoubleField(ValueRequiredLevel.Mandatory, False, ROUNDUNITASSET)> _
-        Public Property UnitValueChange() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return CRound(_UnitValueChange, ROUNDUNITASSET)
-            End Get
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Set(ByVal value As Double)
-                CanWriteProperty(True)
-                If UnitValueChangeIsReadOnly Then Exit Property
-                If CRound(_UnitValueChange, ROUNDUNITASSET) <> CRound(value, ROUNDUNITASSET) Then
-
-                    _UnitValueChange = CRound(value, ROUNDUNITASSET)
-                    PropertyHasChanged()
-
-                    Recalculate(True)
-
-                End If
-            End Set
-        End Property
-
-        ''' <summary>
-        ''' Gets or sets the total long term asset value change.
-        ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.TotalValueChange.</remarks>
-        <DoubleField(ValueRequiredLevel.Mandatory, False, 2)> _
-        Public Property TotalValueChange() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return CRound(_TotalValueChange)
-            End Get
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Set(ByVal value As Double)
-                CanWriteProperty(True)
-                If TotalValueChangeIsReadOnly Then Exit Property
-                If CRound(_TotalValueChange) <> CRound(value) Then
-
-                    _TotalValueChange = CRound(value)
-                    PropertyHasChanged()
-
-                    Recalculate(True)
-
-                End If
-            End Set
-        End Property
-
-        ''' <summary>
-        ''' Gets or sets the long term asset asset revalued portion unit value change.
-        ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.RevaluedPortionUnitValueChange.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDUNITASSET)> _
-        Public Property RevaluedPortionUnitValueChange() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return CRound(_RevaluedPortionUnitValueChange, ROUNDUNITASSET)
-            End Get
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Set(ByVal value As Double)
-                CanWriteProperty(True)
-                If RevaluedPortionUnitValueChangeIsReadOnly Then Exit Property
-                If CRound(_RevaluedPortionUnitValueChange, ROUNDUNITASSET) <> CRound(value, ROUNDUNITASSET) Then
-
-                    _RevaluedPortionUnitValueChange = CRound(value, ROUNDUNITASSET)
-
-                    PropertyHasChanged()
-                    Recalculate(True)
-
-                End If
-            End Set
-        End Property
-
-        ''' <summary>
-        ''' Gets or sets the long term asset asset revalued portion total value change.
-        ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.RevaluedPortionTotalValueChange.</remarks>
-        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
-        Public Property RevaluedPortionTotalValueChange() As Double
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _RevaluedPortionTotalValueChange
-            End Get
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Set(ByVal value As Double)
-                CanWriteProperty(True)
-                If RevaluedPortionTotalValueChangeIsReadOnly Then Exit Property
-                If CRound(_RevaluedPortionTotalValueChange) <> CRound(value) Then
-
-                    _RevaluedPortionTotalValueChange = CRound(value)
-
-                    PropertyHasChanged()
-
-                    Recalculate(True)
-
-                End If
-            End Set
-        End Property
-
-        ''' <summary>
-        ''' Gets or sets a (human readable) description of the amortization calculation.
-        ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.AmortizationCalculations.</remarks>
-        <StringField(ValueRequiredLevel.Recommended, 255)> _
-        Public Property AmortizationCalculations() As String
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _AmortizationCalculations
-            End Get
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Set(ByVal value As String)
-                CanWriteProperty(True)
-                If AmortizationCalculationsIsReadOnly Then Exit Property
-                If _AmortizationCalculations.Trim <> value.Trim Then
-                    _AmortizationCalculations = value.Trim
-                    PropertyHasChanged()
-                End If
-            End Set
-        End Property
-
-        ''' <summary>
-        ''' Gets or sets a number of months that the amortization calculation is made for 
-        ''' by the long term asset operation.
-        ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.AmortizationCalculatedForMonths.</remarks>
-        <IntegerField(ValueRequiredLevel.Mandatory, False)> _
-        Public Property AmortizationCalculatedForMonths() As Integer
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _AmortizationCalculatedForMonths
+                Return _NewPeriod
             End Get
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Set(ByVal value As Integer)
                 CanWriteProperty(True)
-                If AmortizationCalculatedForMonthsIsReadOnly Then Exit Property
-                If _AmortizationCalculatedForMonths <> value Then
-                    _AmortizationCalculatedForMonths = value
+                If NewPeriodIsReadOnly Then Exit Property
+                If _NewPeriod <> value Then
+                    _NewPeriod = value
                     PropertyHasChanged()
                 End If
             End Set
         End Property
-
 
         ''' <summary>
         ''' Whether the <see cref="Date">Date</see> property is readonly.
@@ -1024,19 +558,6 @@ Namespace Assets
         End Property
 
         ''' <summary>
-        ''' Whether the <see cref="AccountCosts">AccountCosts</see> property is readonly.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Public ReadOnly Property AccountCostsIsReadOnly() As Boolean
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return ((Not IsChild AndAlso _IsComplexAct) OrElse _
-                    Not _ChronologyValidator.FinancialDataCanChange OrElse _
-                    Not _ChronologyValidator.ParentFinancialDataCanChange)
-            End Get
-        End Property
-
-        ''' <summary>
         ''' Whether the <see cref="DocumentNumber">DocumentNumber</see> property is readonly.
         ''' </summary>
         ''' <remarks></remarks>
@@ -1048,76 +569,15 @@ Namespace Assets
         End Property
 
         ''' <summary>
-        ''' Whether the <see cref="UnitValueChange">UnitValueChange</see> property is readonly.
+        ''' Whether the <see cref="NewPeriod">NewPeriod</see> property is readonly.
         ''' </summary>
         ''' <remarks></remarks>
-        Public ReadOnly Property UnitValueChangeIsReadOnly() As Boolean
+        Public ReadOnly Property NewPeriodIsReadOnly() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return ((Not IsChild AndAlso _IsComplexAct) OrElse _
-                    Not _ChronologyValidator.FinancialDataCanChange OrElse _
-                    Not _ChronologyValidator.ParentFinancialDataCanChange)
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' Whether the <see cref="TotalValueChange">TotalValueChange</see> property is readonly.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Public ReadOnly Property TotalValueChangeIsReadOnly() As Boolean
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return ((Not IsChild AndAlso _IsComplexAct) OrElse _
-                    Not _ChronologyValidator.FinancialDataCanChange OrElse _
-                    Not _ChronologyValidator.ParentFinancialDataCanChange)
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' Whether the <see cref="RevaluedPortionUnitValueChange">RevaluedPortionUnitValueChange</see> property is readonly.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Public ReadOnly Property RevaluedPortionUnitValueChangeIsReadOnly() As Boolean
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return ((Not IsChild AndAlso _IsComplexAct) OrElse _
-                    Not _ChronologyValidator.FinancialDataCanChange OrElse _
-                    Not _ChronologyValidator.ParentFinancialDataCanChange)
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' Whether the <see cref="RevaluedPortionTotalValueChange">RevaluedPortionTotalValueChange</see> property is readonly.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Public ReadOnly Property RevaluedPortionTotalValueChangeIsReadOnly() As Boolean
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return ((Not IsChild AndAlso _IsComplexAct) OrElse _
-                    Not _ChronologyValidator.FinancialDataCanChange OrElse _
-                    Not _ChronologyValidator.ParentFinancialDataCanChange)
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' Whether the <see cref="AmortizationCalculations">AmortizationCalculations</see> property is readonly.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Public ReadOnly Property AmortizationCalculationsIsReadOnly() As Boolean
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return (Not IsChild AndAlso _IsComplexAct)
-            End Get
-        End Property
-
-        ''' <summary>
-        ''' Whether the <see cref="AmortizationCalculatedForMonths">AmortizationCalculatedForMonths</see> property is readonly.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Public ReadOnly Property AmortizationCalculatedForMonthsIsReadOnly() As Boolean
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return (Not IsChild AndAlso _IsComplexAct)
+                Return Not _ChronologyValidator.FinancialDataCanChange OrElse _
+                    Not _ChronologyValidator.ParentFinancialDataCanChange OrElse _
+                    (Not IsChild AndAlso _IsComplexAct)
             End Get
         End Property
 
@@ -1137,15 +597,9 @@ Namespace Assets
             Implements IIsDirtyEnough.IsDirtyEnough
             Get
                 If Not IsNew Then Return IsDirty
-                Return (Not StringIsNullOrEmpty(_DocumentNumber) _
-                    OrElse Not StringIsNullOrEmpty(_Content) _
-                    OrElse _AccountCosts > 0 _
-                    OrElse UnitValueChange > 0 _
-                    OrElse TotalValueChange > 0 _
-                    OrElse RevaluedPortionUnitValueChange > 0 _
-                    OrElse RevaluedPortionTotalValueChange > 0 _
-                    OrElse AmortizationCalculatedForMonths > 0 _
-                    OrElse Not StringIsNullOrEmpty(_AmortizationCalculations))
+                Return (Not StringIsNullOrEmpty(_Content) _
+                    OrElse Not StringIsNullOrEmpty(_DocumentNumber) _
+                    OrElse _NewPeriod > 0)
             End Get
         End Property
 
@@ -1191,15 +645,10 @@ Namespace Assets
                 If IsChild Then
                     PropertyHasChanged("CurrentAssetAmount")
                     PropertyHasChanged("CurrentAcquisitionAccountValue")
-                    PropertyHasChanged("CurrentAcquisitionAccountValuePerUnit")
                     PropertyHasChanged("CurrentAmortizationAccountValue")
-                    PropertyHasChanged("CurrentAmortizationAccountValuePerUnit")
                     PropertyHasChanged("CurrentValueDecreaseAccountValue")
-                    PropertyHasChanged("CurrentValueDecreaseAccountValuePerUnit")
                     PropertyHasChanged("CurrentValueIncreaseAccountValue")
-                    PropertyHasChanged("CurrentValueIncreaseAccountValuePerUnit")
                     PropertyHasChanged("CurrentValueIncreaseAmortizationAccountValue")
-                    PropertyHasChanged("CurrentValueIncreaseAmortizationAccountValuePerUnit")
                     PropertyHasChanged("CurrentAssetValue")
                     PropertyHasChanged("CurrentAssetValuePerUnit")
                     PropertyHasChanged("CurrentAssetValueRevaluedPortion")
@@ -1212,108 +661,12 @@ Namespace Assets
                     PropertyHasChanged("CurrentUsageStatus")
                     PropertyHasChanged("CurrentAmortizationPeriod")
                     PropertyHasChanged("CurrentUsageTermMonths")
-                    PropertyHasChanged("AfterOperationAcquisitionAccountValue")
-                    PropertyHasChanged("AfterOperationAcquisitionAccountValuePerUnit")
-                    PropertyHasChanged("AfterOperationValueDecreaseAccountValue")
-                    PropertyHasChanged("AfterOperationValueDecreaseAccountValuePerUnit")
-                    PropertyHasChanged("AfterOperationValueIncreaseAccountValue")
-                    PropertyHasChanged("AfterOperationValueIncreaseAccountValuePerUnit")
-                    PropertyHasChanged("AfterOperationAssetValue")
-                    PropertyHasChanged("AfterOperationAssetValuePerUnit")
-                    PropertyHasChanged("AfterOperationAssetValueRevaluedPortion")
-                    PropertyHasChanged("AfterOperationAssetValueRevaluedPortionPerUnit")
+                    PropertyHasChanged("CurrentAccount")
+                    PropertyHasChanged("CurrentAccountBalance")
+
                 End If
 
-                Recalculate(True)
-
             End If
-
-        End Sub
-
-        ''' <summary>
-        ''' Updates properties with the <see cref="LongTermAssetAmortizationCalculation">LongTermAssetAmortizationCalculation</see> data.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Public Sub SetAmortizationCalculation(ByVal calculation As LongTermAssetAmortizationCalculation)
-
-            If calculation.AssetID <> _Background.AssetID Then
-                Throw New Exception(String.Format( _
-                    My.Resources.Assets_OperationAmortization_InvalidCalculationAsset, _
-                    calculation.AssetID.ToString(), _Background.AssetID.ToString()))
-            ElseIf calculation.DateTo.Date <> _Date.Date Then
-                Throw New Exception(String.Format( _
-                    My.Resources.Assets_OperationAmortization_InvalidCalculationDate, _
-                    _Background.AssetName, calculation.DateTo.ToString("yyyy-MM-dd"), _
-                    _Date.ToString("yyyy-MM-dd")))
-            ElseIf Not _ChronologyValidator.FinancialDataCanChange Then
-                Throw New Exception(String.Format( _
-                    My.Resources.Assets_OperationAmortization_CannotChangeFinancialData, _
-                    _Background.AssetName, vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
-            ElseIf Not _ChronologyValidator.ParentFinancialDataCanChange Then
-                Throw New Exception(String.Format( _
-                    My.Resources.Assets_OperationAmortization_CannotChangeFinancialData, _
-                    _Background.AssetName, vbCrLf, _ChronologyValidator.ParentFinancialDataCanChangeExplanation))
-            End If
-
-            _UnitValueChange = -calculation.AmortizationValuePerUnit
-            _TotalValueChange = -calculation.AmortizationValue
-            _RevaluedPortionTotalValueChange = -calculation.AmortizationValueRevaluedPortion
-            _RevaluedPortionUnitValueChange = -calculation.AmortizationValuePerUnitRevaluedPortion
-            _AmortizationCalculatedForMonths = calculation.AmortizationCalculatedForMonths
-            _AmortizationCalculations = calculation.CalculationDescription
-
-            PropertyHasChanged("UnitValueChange")
-            PropertyHasChanged("TotalValueChange")
-            PropertyHasChanged("RevaluedPortionTotalValueChange")
-            PropertyHasChanged("RevaluedPortionUnitValueChange")
-            PropertyHasChanged("AmortizationCalculatedForMonths")
-            PropertyHasChanged("AmortizationCalculations")
-
-            Recalculate(True)
-
-        End Sub
-
-
-        Private Sub Recalculate(ByVal raisePropertyChanged As Boolean)
-
-            SetBackgroundValues(False)
-
-            _Background.CalculateAfterOperationProperties()
-
-            If raisePropertyChanged Then
-                PropertyHasChanged("Background")
-                ' proxy properties
-                If IsChild Then
-                    PropertyHasChanged("AfterOperationAmortizationAccountValue")
-                    PropertyHasChanged("AfterOperationAmortizationAccountValuePerUnit")
-                    PropertyHasChanged("AfterOperationValueIncreaseAmortizationAccountValue")
-                    PropertyHasChanged("AfterOperationValueIncreaseAmortizationAccountValuePerUnit")
-                    PropertyHasChanged("AfterOperationAssetValue")
-                    PropertyHasChanged("AfterOperationAssetValuePerUnit")
-                    PropertyHasChanged("AfterOperationAssetValueRevaluedPortion")
-                    PropertyHasChanged("AfterOperationAssetValueRevaluedPortionPerUnit")
-                End If
-            End If
-
-        End Sub
-
-        Private Sub SetBackgroundValues(ByVal initialize As Boolean)
-
-            _Background.DisableCalculations = True
-
-            _Background.ChangeAmortizationAccountValue = CRound(_TotalValueChange _
-                - _RevaluedPortionTotalValueChange, 2)
-            _Background.ChangeAmortizationAccountValuePerUnit = CRound(_UnitValueChange _
-                - _RevaluedPortionUnitValueChange, 2)
-
-            _Background.ChangeValueIncreaseAmortizationAccountValue = _
-                _RevaluedPortionTotalValueChange
-            _Background.ChangeValueIncreaseAmortizationAccountValuePerUnit = _
-                _RevaluedPortionUnitValueChange
-
-            If initialize Then _Background.InitializeOldData(_Date)
-
-            _Background.DisableCalculations = False
 
         End Sub
 
@@ -1360,7 +713,7 @@ Namespace Assets
         End Function
 
 
-        Public Overrides Function Save() As OperationAmortization
+        Public Overrides Function Save() As OperationAmortizationPeriodChange
 
             Me.ValidationRules.CheckRules()
             If Not Me.IsValid Then
@@ -1379,10 +732,10 @@ Namespace Assets
 
         Public Overrides Function ToString() As String
             If IsChild Then
-                Return String.Format(My.Resources.Assets_OperationAmortization_ToStringChild, _
+                Return String.Format(My.Resources.Assets_OperationAmortizationPeriodChange_ToStringChild, _
                 _Background.AssetName, _ID.ToString())
             Else
-                Return String.Format(My.Resources.Assets_OperationAmortization_ToString, _
+                Return String.Format(My.Resources.Assets_OperationAmortizationPeriodChange_ToString, _
                     _Date.ToString("yyyy-MM-dd"), _Background.AssetName, _DocumentNumber, _
                     _ID.ToString())
             End If
@@ -1394,30 +747,18 @@ Namespace Assets
 
         Protected Overrides Sub AddBusinessRules()
 
-            ValidationRules.AddRule(AddressOf CommonValidation.AccountFieldValidation, _
-                New Csla.Validation.RuleArgs("AccountCosts"))
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
-                New Csla.Validation.RuleArgs("TotalValueChange"))
-            ValidationRules.AddRule(AddressOf CommonValidation.IntegerFieldValidation, _
-                New Csla.Validation.RuleArgs("AmortizationCalculatedForMonths"))
-            ValidationRules.AddRule(AddressOf CommonValidation.StringFieldValidation, _
-                New Csla.Validation.RuleArgs("AmortizationCalculations"))
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
-                "UnitValueChange")
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
-                "RevaluedPortionUnitValueChange")
-            ValidationRules.AddRule(AddressOf CommonValidation.ChronologyValidation, _
-                New CommonValidation.ChronologyRuleArgs("Date", "ChronologyValidator"))
-
             ValidationRules.AddRule(AddressOf ChildStringPropertyValidation, _
                 New Csla.Validation.RuleArgs("Content"))
             ValidationRules.AddRule(AddressOf ChildStringPropertyValidation, _
                 New Csla.Validation.RuleArgs("DocumentNumber"))
-            
-            ValidationRules.AddRule(AddressOf RevaluedPortionTotalValueValidation, _
-                "RevaluedPortionTotalValueChange")
 
-            ValidationRules.AddDependantProperty("Background", "RevaluedPortionTotalValueChange", False)
+            ValidationRules.AddRule(AddressOf DateValidation, _
+                New CommonValidation.ChronologyRuleArgs("Date", "ChronologyValidator"))
+            ValidationRules.AddRule(AddressOf NewPeriodValidation, _
+                New Csla.Validation.RuleArgs("NewPeriod"))
+
+            ValidationRules.AddDependantProperty("ChronologyValidator", "Date", False)
+            ValidationRules.AddDependantProperty("Background", "NewPeriod", False)
 
         End Sub
 
@@ -1433,7 +774,7 @@ Namespace Assets
         Private Shared Function ChildStringPropertyValidation(ByVal target As Object, _
           ByVal e As Validation.RuleArgs) As Boolean
 
-            If DirectCast(target, OperationAmortization).IsChild Then
+            If DirectCast(target, OperationAmortizationPeriodChange).IsChild Then
                 Return True
             Else
                 Return CommonValidation.StringFieldValidation(target, e)
@@ -1442,37 +783,52 @@ Namespace Assets
         End Function
 
         ''' <summary>
-        ''' Rule ensuring that the revalued portion total value is provided when necessary.
+        ''' Rule ensuring that the new amortization period is valid.
         ''' </summary>
         ''' <param name="target">Object containing the data to validate</param>
         ''' <param name="e">Arguments parameter specifying the name of the string
         ''' property to validate</param>
         ''' <returns><see langword="false" /> if the rule is broken</returns>
         <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:ValidateArgumentsOfPublicMethods")> _
-        Private Shared Function RevaluedPortionTotalValueValidation(ByVal target As Object, _
+        Private Shared Function NewPeriodValidation(ByVal target As Object, _
             ByVal e As Validation.RuleArgs) As Boolean
 
-            If Not CommonValidation.DoubleFieldValidation(target, e) Then Return False
+            If Not CommonValidation.IntegerFieldValidation(target, e) Then Return False
 
-            Dim valObj As OperationAmortization = DirectCast(target, OperationAmortization)
+            Dim valObj As OperationAmortizationPeriodChange = _
+                DirectCast(target, OperationAmortizationPeriodChange)
 
-            If valObj._Background.CurrentAssetValueRevaluedPortion > 0 _
-                AndAlso Not valObj._RevaluedPortionTotalValueChange > 0 Then
-
-                e.Description = My.Resources.Assets_OperationAmortization_RevaluedPortionNull
-                e.Severity = Csla.Validation.RuleSeverity.Error
+            If (valObj._NewPeriod * 12) - valObj._Background.CurrentUsageTermMonths < 0 Then
+                e.Description = My.Resources.Assets_OperationAmortizationPeriodChange_InvalidPeriod
+                e.Severity = RuleSeverity.Error
                 Return False
-
-            ElseIf Not valObj._Background.CurrentAssetValueRevaluedPortion > 0 _
-                AndAlso valObj._RevaluedPortionTotalValueChange > 0 Then
-
-                e.Description = My.Resources.Assets_OperationAmortization_RevaluedPortionDoesNotExist
-                e.Severity = Csla.Validation.RuleSeverity.Error
-                Return False
-
             End If
 
             Return True
+
+        End Function
+
+        ''' <summary>
+        ''' Rule ensuring that the operation date is valid.
+        ''' </summary>
+        ''' <param name="target">Object containing the data to validate</param>
+        ''' <param name="e">Arguments parameter specifying the name of the string
+        ''' property to validate</param>
+        ''' <returns><see langword="false" /> if the rule is broken</returns>
+        <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:ValidateArgumentsOfPublicMethods")> _
+        Private Shared Function DateValidation(ByVal target As Object, _
+          ByVal e As Validation.RuleArgs) As Boolean
+
+            Dim valObj As OperationAmortizationPeriodChange = _
+                DirectCast(target, OperationAmortizationPeriodChange)
+
+            If valObj._Background.CurrentAssetAmount < 1 Then
+                e.Description = My.Resources.Assets_OperationAmortizationPeriodChange_CurrentAmountNull
+                e.Severity = RuleSeverity.Error
+                Return False
+            End If
+
+            Return CommonValidation.ChronologyValidation(target, e)
 
         End Function
 
@@ -1505,62 +861,56 @@ Namespace Assets
 #Region " Factory Methods "
 
         ''' <summary>
-        ''' Gets a new OperationAmortization instance as a parent (standalone) document.
+        ''' Gets a new OperationAmortizationPeriodChange instance as a parent (standalone) document.
         ''' </summary>
         ''' <param name="assetId">An ID of the asset that the operation operates on.</param>
         ''' <remarks></remarks>
-        Public Shared Function NewOperationAmortization(ByVal assetId As Integer) As OperationAmortization
-            Return DataPortal.Create(Of OperationAmortization)(New Criteria(assetId))
+        Public Shared Function NewOperationAmortizationPeriodChange(ByVal assetId As Integer) As OperationAmortizationPeriodChange
+            Return DataPortal.Create(Of OperationAmortizationPeriodChange) _
+                (New Criteria(assetId))
         End Function
 
         ''' <summary>
-        ''' Gets a new OperationAmortization instance as a child of some parent document.
+        ''' Gets a new OperationAmortizationPeriodChange instance as a child of some parent document.
         ''' </summary>
         ''' <param name="assetId">An ID of the asset that the operation operates on.</param>
         ''' <param name="parentValidator">A parent document's IChronologyValidator.</param>
         ''' <param name="parentIsComplexAct">Whether the parent document is a complex 
-        ''' long term asset operation (mass discard etc.).</param>
+        ''' long term asset operation.</param>
         ''' <remarks></remarks>
-        Friend Shared Function NewOperationAmortizationChild(ByVal assetId As Integer, _
+        Friend Shared Function NewOperationAmortizationPeriodChangeChild(ByVal assetId As Integer, _
             ByVal parentValidator As IChronologicValidator, _
-            ByVal parentIsComplexAct As Boolean) As OperationAmortization
-            Return New OperationAmortization(assetId, parentValidator, parentIsComplexAct)
+            ByVal parentIsComplexAct As Boolean) As OperationAmortizationPeriodChange
+            Return New OperationAmortizationPeriodChange(assetId, parentValidator, parentIsComplexAct)
         End Function
 
 
         ''' <summary>
-        ''' Gets an existing OperationAmortization instance from a database 
+        ''' Gets an existing OperationAmortizationPeriodChange instance from a database 
         ''' as a parent (standalone) document.
         ''' </summary>
-        ''' <param name="id">An <see cref="OperationAmortization.ID">ID of the operation</see> 
-        ''' or an <see cref="OperationAmortization.JournalEntryID">ID the journal entry</see>  
-        ''' that is encapsulated by the operation.</param>
-        ''' <param name="nFetchByJournalEntryID">Whether the <paramref name="id">id</paramref>
-        ''' param is an <see cref="OperationAmortization.JournalEntryID">ID the journal entry</see> 
-        ''' that is encapsulated by the operation.</param>
+        ''' <param name="id">An <see cref="OperationAmortizationPeriodChange.ID">ID of the operation</see>.</param>
         ''' <remarks></remarks>
-        Public Shared Function GetOperationAmortization(ByVal id As Integer, _
-            ByVal nFetchByJournalEntryID As Boolean) As OperationAmortization
-            Return DataPortal.Fetch(Of OperationAmortization) _
-                (New Criteria(id, nFetchByJournalEntryID))
+        Public Shared Function GetOperationAmortizationPeriodChange(ByVal id As Integer) As OperationAmortizationPeriodChange
+            Return DataPortal.Fetch(Of OperationAmortizationPeriodChange)(New Criteria(id))
         End Function
 
         ''' <summary>
-        ''' Gets an existing OperationAmortization instance from a database 
+        ''' Gets an existing OperationAmortizationPeriodChange instance from a database 
         ''' as a child of some parent document.
         ''' </summary>
-        ''' <param name="operationID">An <see cref="OperationAmortization.ID">ID of the operation</see>
+        ''' <param name="operationID">An <see cref="OperationAmortizationPeriodChange.ID">ID of the operation</see>
         ''' to fetch.</param>
         ''' <param name="parentValidator">A parent document's IChronologyValidator.</param>
         ''' <remarks>An overload for the parent documents that do not support bulk 
         ''' background and chronology data loading.</remarks>
-        Friend Shared Function GetOperationAmortizationChild(ByVal operationID As Integer, _
-            ByVal parentValidator As IChronologicValidator) As OperationAmortization
-            Return New OperationAmortization(operationID, parentValidator)
+        Friend Shared Function GetOperationAmortizationPeriodChangeChild(ByVal operationID As Integer, _
+            ByVal parentValidator As IChronologicValidator) As OperationAmortizationPeriodChange
+            Return New OperationAmortizationPeriodChange(operationID, parentValidator)
         End Function
 
         ''' <summary>
-        ''' Gets an existing OperationAmortization instance from a database 
+        ''' Gets an existing OperationAmortizationPeriodChange instance from a database 
         ''' as a child of some parent document.
         ''' </summary>
         ''' <param name="persistence">An <see cref="OperationPersistenceObject">OperationPersistenceObject</see> 
@@ -1571,32 +921,32 @@ Namespace Assets
         ''' <param name="deltaData">An asset delta data datasource for the <see cref="OperationBackground">OperationBackground</see>.
         ''' (could be null, if the parent document does not support bulk background data fetch)</param>
         ''' <remarks></remarks>
-        Friend Shared Function GetOperationAmortizationChild( _
+        Friend Shared Function GetOperationAmortizationPeriodChangeChild( _
             ByVal persistence As OperationPersistenceObject, _
             ByVal parentValidator As IChronologicValidator, _
-            ByVal generalData As DataTable, ByVal deltaData As DataTable) As OperationAmortization
-            Return New OperationAmortization(persistence, parentValidator, generalData, deltaData)
+            ByVal generalData As DataTable, ByVal deltaData As DataTable) As OperationAmortizationPeriodChange
+            Return New OperationAmortizationPeriodChange(persistence, parentValidator, generalData, deltaData)
         End Function
 
 
         ''' <summary>
-        ''' Deletes an existing OperationAmortization instance from a database.
+        ''' Deletes an existing OperationAmortizationPeriodChange instance from a database.
         ''' </summary>
-        ''' <param name="id">An <see cref="OperationAmortization.ID">ID of the operation</see> 
+        ''' <param name="id">An <see cref="OperationAmortizationPeriodChange.ID">ID of the operation</see> 
         ''' to delete.</param>
         ''' <remarks></remarks>
-        Public Shared Sub DeleteOperationAmortization(ByVal id As Integer)
+        Public Shared Sub DeleteOperationAmortizationPeriodChange(ByVal id As Integer)
             DataPortal.Delete(New Criteria(id))
         End Sub
 
         ''' <summary>
-        ''' Deletes an existing OperationAmortization child instance from a database.
+        ''' Deletes an existing OperationAmortizationPeriodChange child instance from a database.
         ''' </summary>
         ''' <remarks>Does a delete operation on server side. Doesn't check for critical rules 
         ''' (fetch or programatical error within transaction crashes program).
         ''' Critical rules checking method <see cref="CheckIfCanDeleteChild">CheckIfCanDeleteChild</see> 
         ''' needs to be invoked before starting a transaction.</remarks>
-        Friend Sub DeleteOperationAmortizationChild()
+        Friend Sub DeleteOperationAmortizationPeriodChangeChild()
             DoDelete(_ID)
         End Sub
 
@@ -1605,8 +955,7 @@ Namespace Assets
             ' require use of factory methods
         End Sub
 
-        Private Sub New(ByVal assetId As Integer, _
-            ByVal parentValidator As IChronologicValidator, _
+        Private Sub New(ByVal assetId As Integer, ByVal parentValidator As IChronologicValidator, _
             ByVal parentIsComplexAct As Boolean)
             MarkAsChild()
             Create(assetId, parentValidator, parentIsComplexAct)
@@ -1632,24 +981,13 @@ Namespace Assets
         <Serializable()> _
         Private Class Criteria
             Private mId As Integer
-            Private _FetchByJournalEntryID As Boolean
             Public ReadOnly Property Id() As Integer
                 Get
                     Return mId
                 End Get
             End Property
-            Public ReadOnly Property FetchByJournalEntryID() As Boolean
-                Get
-                    Return _FetchByJournalEntryID
-                End Get
-            End Property
             Public Sub New(ByVal id As Integer)
                 mId = id
-                _FetchByJournalEntryID = False
-            End Sub
-            Public Sub New(ByVal id As Integer, ByVal nFetchByJournalEntryID As Boolean)
-                mId = id
-                _FetchByJournalEntryID = nFetchByJournalEntryID
             End Sub
         End Class
 
@@ -1660,8 +998,7 @@ Namespace Assets
             Create(criteria.Id, Nothing, False)
         End Sub
 
-        Private Sub Create(ByVal nAssetId As Integer, _
-            ByVal parentValidator As IChronologicValidator, _
+        Private Sub Create(ByVal nAssetId As Integer, ByVal parentValidator As IChronologicValidator, _
             ByVal parentIsComplexAct As Boolean)
 
             _IsComplexAct = parentIsComplexAct
@@ -1669,7 +1006,7 @@ Namespace Assets
             _Background = OperationBackground.NewOperationBackgroundChild(nAssetId)
 
             _ChronologyValidator = OperationChronologicValidator2.NewOperationChronologicValidator( _
-                _Background, LtaOperationType.Amortization, parentValidator)
+                _Background, LtaOperationType.AmortizationPeriod, parentValidator)
 
             ValidationRules.CheckRules()
 
@@ -1681,13 +1018,7 @@ Namespace Assets
             If Not CanGetObject() Then Throw New System.Security.SecurityException( _
                 My.Resources.Common_SecuritySelectDenied)
 
-            Dim operationID As Integer = criteria.Id
-
-            If criteria.FetchByJournalEntryID Then
-                operationID = OperationPersistenceObject.GetOperationIdByJournalEntry(criteria.Id)
-            End If
-
-            Fetch(operationID, Nothing)
+            Fetch(criteria.Id, Nothing)
 
         End Sub
 
@@ -1695,7 +1026,7 @@ Namespace Assets
 
             Dim persistence As OperationPersistenceObject = _
                 OperationPersistenceObject.GetOperationPersistenceObject( _
-                operationID, LtaOperationType.Amortization)
+                operationID, LtaOperationType.AmortizationPeriod)
 
             Fetch(persistence, parentValidator, Nothing, Nothing)
 
@@ -1707,27 +1038,22 @@ Namespace Assets
 
             _ID = persistence.ID
             _Date = persistence.OperationDate
-            _JournalEntryID = persistence.JournalEntryID
             _IsComplexAct = persistence.IsComplexAct
             _Content = persistence.Content
-            _AccountCosts = persistence.AccountCorresponding
             _DocumentNumber = persistence.ActNumber
-            _UnitValueChange = persistence.UnitValueChange
-            _TotalValueChange = persistence.TotalValueChange
-            _AmortizationCalculations = persistence.AmortizationCalculations
-            _RevaluedPortionUnitValueChange = persistence.RevaluedPortionUnitValueChange
-            _RevaluedPortionTotalValueChange = persistence.RevaluedPortionTotalValueChange
-            _AmortizationCalculatedForMonths = persistence.AmortizationCalculatedForMonths
+            _NewPeriod = persistence.NewAmortizationPeriod
             _InsertDate = persistence.InsertDate
             _UpdateDate = persistence.UpdateDate
 
             _Background = OperationBackground.GetOperationBackgroundChild( _
                 persistence.AssetID, _ID, _Date, generalData, deltaData)
 
-            SetBackgroundValues(True)
+            _Background.DisableCalculations = True
+            _Background.InitializeOldData(_Date)
+            _Background.DisableCalculations = False
 
             _ChronologyValidator = OperationChronologicValidator2.GetOperationChronologicValidator( _
-                _Background, LtaOperationType.Amortization, _ID, _Date, parentValidator)
+                _Background, LtaOperationType.AmortizationPeriod, _ID, _Date, parentValidator)
 
             MarkOld()
 
@@ -1748,14 +1074,9 @@ Namespace Assets
                     GetAllBrokenRules()))
             End If
 
-            Dim entry As General.JournalEntry = GetJournalEntry()
-
             Using transaction As New SqlTransaction
 
                 Try
-
-                    entry = entry.SaveChild()
-                    _JournalEntryID = entry.ID
 
                     DoSave(False)
 
@@ -1786,13 +1107,9 @@ Namespace Assets
                     GetAllBrokenRules()))
             End If
 
-            Dim entry As General.JournalEntry = GetJournalEntry()
-
             Using transaction As New SqlTransaction
 
                 Try
-
-                    entry = entry.SaveChild()
 
                     DoSave(False)
 
@@ -1816,7 +1133,6 @@ Namespace Assets
         ''' </summary>
         ''' <param name="parentComplexActID">A parent document complex document ID
         ''' (only relevant if <see cref="IsComplexAct">IsComplexAct</see> is TRUE).</param>
-        ''' <param name="parentJournalEntryID">A parent document encapsulated journal entry ID.</param>
         ''' <param name="financialDataReadOnly">Whether the parent document 
         ''' allows to change the child operation financial data.</param>
         ''' <remarks>Does a save operation on server side. Doesn't check for critical rules 
@@ -1824,13 +1140,11 @@ Namespace Assets
         ''' Critical rules checking method <see cref="CheckIfCanSaveChild">CheckIfCanSaveChild</see> 
         ''' needs to be invoked before starting a transaction.</remarks>
         Friend Sub SaveChild(ByVal parentComplexActID As Integer, _
-            ByVal parentJournalEntryID As Integer, _
             ByVal financialDataReadOnly As Boolean)
 
             If Not IsNew AndAlso Not IsDirty Then Exit Sub
 
             If IsNew Then
-                _JournalEntryID = parentJournalEntryID
                 _ComplexActID = parentComplexActID
             End If
 
@@ -1856,87 +1170,26 @@ Namespace Assets
         End Sub
 
 
-        Private Function GetJournalEntry() As General.JournalEntry
-
-            Dim result As General.JournalEntry = Nothing
-
-            If IsNew Then
-                result = General.JournalEntry.NewJournalEntryChild(DocumentType.Amortization)
-            Else
-                result = General.JournalEntry.GetJournalEntryChild(_JournalEntryID, _
-                    DocumentType.Amortization)
-            End If
-
-            result.Date = _Date.Date
-            result.Person = Nothing
-            result.Content = _Content
-            result.DocNumber = _DocumentNumber
-
-            Dim commonBookEntryList As BookEntryInternalList = GetTotalBookEntryList()
-
-            result.DebetList.LoadBookEntryListFromInternalList(commonBookEntryList, False, False)
-            result.CreditList.LoadBookEntryListFromInternalList(commonBookEntryList, False, False)
-
-            If Not result.IsValid Then
-                Throw New Exception(String.Format(My.Resources.Common_FailedToCreateJournalEntry, _
-                    vbCrLf, result.ToString, vbCrLf, result.GetAllBrokenRules))
-            End If
-
-            Return result
-
-        End Function
-
-        Friend Function GetTotalBookEntryList() As BookEntryInternalList
-
-            Dim result As BookEntryInternalList = _
-                BookEntryInternalList.NewBookEntryInternalList(BookEntryType.Debetas)
-
-            result.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Debetas, _
-                _AccountCosts, CRound(_TotalValueChange, 2), Nothing))
-            result.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Kreditas, _
-                _Background.CurrentAssetContraryAccount, CRound(_TotalValueChange _
-                - _RevaluedPortionTotalValueChange, 2), Nothing))
-
-
-            If CRound(_RevaluedPortionTotalValueChange) > 0 Then
-
-                result.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Kreditas, _
-                    _Background.CurrentAssetValueIncreaseAmortizationAccount, _
-                    CRound(_RevaluedPortionTotalValueChange, 2), Nothing))
-
-            End If
-
-            Return result
-
-        End Function
-
         Private Function GetPersistenceObject() As OperationPersistenceObject
 
             Dim result As OperationPersistenceObject
 
             If IsNew Then
                 result = OperationPersistenceObject.NewOperationPersistenceObject( _
-                    LtaOperationType.Amortization, _Background.AssetID)
-                result.JournalEntryID = _JournalEntryID
+                    LtaOperationType.AmortizationPeriod, _Background.AssetID)
                 result.IsComplexAct = _IsComplexAct
                 result.ComplexActID = _ComplexActID
             Else
                 result = OperationPersistenceObject.GetOperationPersistenceObject( _
-                    _ID, LtaOperationType.Amortization)
+                    _ID, LtaOperationType.AmortizationPeriod)
                 If result.UpdateDate <> _UpdateDate Then Throw New Exception( _
                     My.Resources.Common_UpdateDateHasChanged)
             End If
 
             result.OperationDate = _Date
             result.Content = _Content
-            result.AccountCorresponding = _AccountCosts
             result.ActNumber = _DocumentNumber
-            result.UnitValueChange = _UnitValueChange
-            result.TotalValueChange = _TotalValueChange
-            result.AmortizationCalculations = _AmortizationCalculations
-            result.RevaluedPortionUnitValueChange = _RevaluedPortionUnitValueChange
-            result.RevaluedPortionTotalValueChange = _RevaluedPortionTotalValueChange
-            result.AmortizationCalculatedForMonths = _AmortizationCalculatedForMonths
+            result.NewAmortizationPeriod = _NewPeriod
 
             Return result
 
@@ -1948,27 +1201,22 @@ Namespace Assets
             If Not CanDeleteObject() Then Throw New System.Security.SecurityException( _
                 My.Resources.Common_SecurityUpdateDenied)
 
-            Dim operationToDelete As New OperationAmortization
+            Dim operationToDelete As New OperationAmortizationPeriodChange
             operationToDelete.Fetch(criteria.Id, Nothing)
 
             If operationToDelete.IsComplexAct Then
-                Throw New Exception(My.Resources.Assets_OperationAmortization_InvalidDeleteChild)
+                Throw New Exception(My.Resources.Assets_OperationAmortizationPeriodChange_InvalidDeleteComplexDocumentChild)
             End If
 
             If Not operationToDelete.ChronologyValidator.FinancialDataCanChange Then
-                Throw New Exception(String.Format(My.Resources.Assets_OperationAmortization_InvalidDelete, _
+                Throw New Exception(String.Format(My.Resources.Assets_OperationAmortizationPeriodChange_InvalidDelete, _
                     operationToDelete.AssetName, vbCrLf, _
                     operationToDelete.ChronologyValidator.FinancialDataCanChangeExplanation))
             End If
 
-            IndirectRelationInfoList.CheckIfJournalEntryCanBeDeleted( _
-                operationToDelete.JournalEntryID, DocumentType.Amortization)
-
             Using transaction As New SqlTransaction
 
                 Try
-
-                    General.JournalEntry.DeleteJournalEntryChild(operationToDelete.JournalEntryID)
 
                     DoDelete(criteria.Id)
 
@@ -2001,11 +1249,11 @@ Namespace Assets
             If IsNew Then Exit Sub
 
             _ChronologyValidator = OperationChronologicValidator2.GetOperationChronologicValidator( _
-                _Background, LtaOperationType.Amortization, _
+                _Background, LtaOperationType.AmortizationPeriod, _
                 _ID, _ChronologyValidator.CurrentOperationDate, parentValidator)
 
             If Not _ChronologyValidator.FinancialDataCanChange Then
-                Throw New Exception(String.Format(My.Resources.Assets_OperationAmortization_InvalidDelete, _
+                Throw New Exception(String.Format(My.Resources.Assets_OperationAmortizationPeriodChange_InvalidDelete, _
                     _Background.AssetName, vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
             End If
 
@@ -2033,15 +1281,13 @@ Namespace Assets
             If IsNew Then
                 _Background = OperationBackground.NewOperationBackgroundChild(_Background.AssetID)
                 _ChronologyValidator = OperationChronologicValidator2.NewOperationChronologicValidator( _
-                    _Background, LtaOperationType.Amortization, parentValidator)
+                    _Background, LtaOperationType.AmortizationPeriod, parentValidator)
             Else
                 _Background = OperationBackground.GetOperationBackgroundChild( _
                     _Background.AssetID, _ID, _Date)
                 _ChronologyValidator = OperationChronologicValidator2.GetOperationChronologicValidator( _
-                    _Background, LtaOperationType.Amortization, _ID, _Date, parentValidator)
+                    _Background, LtaOperationType.AmortizationPeriod, _ID, _Date, parentValidator)
             End If
-
-            SetBackgroundValues(True)
 
             ValidationRules.CheckRules()
 

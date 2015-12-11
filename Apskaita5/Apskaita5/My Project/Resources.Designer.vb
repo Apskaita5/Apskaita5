@@ -6408,6 +6408,204 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Koreguoti dokumento finansinius duomenis neleidžiama:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationDiscard_CannotChangeFinancialData() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationDiscard_CannotChangeFinancialData", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Koreguoti dokumento finansinius duomenis, įskaitant eilučių pridėjimą ar ištrynimą, neleidžiama:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationDiscard_CannotChangeFinancialDataFull() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationDiscard_CannotChangeFinancialDataFull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Dokumente nėra nė vienos eilutės..
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationDiscard_DocumentEmpty() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationDiscard_DocumentEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Dokumento pašalinti neleidžiama:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationDiscard_InvalidDelete() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationDiscard_InvalidDelete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas kompleksinės ilgalaikio turto nurašymo operacijos ID..
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationDiscard_OperationIDNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationDiscard_OperationIDNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kompleksinis ilgalaikio turto nurašymo dokumentas.
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationDiscard_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationDiscard_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} kompleksinis ilgalaikio turto nurašymo aktas Nr. {1} (ID={2}).
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationDiscard_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationDiscard_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Koreguoti dokumento finansinius duomenis neleidžiama:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationOperationalStatusChange_CannotChangeFinancialData() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationOperationalStatusChange_CannotChangeFinancialData", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Koreguoti dokumento finansinius duomenis, įskaitant eilučių pridėjimą ar ištrynimą, neleidžiama:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationOperationalStatusChange_CannotChangeFinancialDataFull() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationOperationalStatusChange_CannotChangeFinancialDataFull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Dokumente nėra nė vienos eilutės..
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationOperationalStatusChange_DocumentEmpty() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationOperationalStatusChange_DocumentEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Dokumento pašalinti neleidžiama:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationOperationalStatusChange_InvalidDelete() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationOperationalStatusChange_InvalidDelete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Naujų eilučių tipas neatitinka dokumento tipo (į perdavimo į eksploataciją aktą bandoma pridėti išėmimo iš eksploatacijos eilutes arba priešingai)..
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationOperationalStatusChange_NewItemsListTypeInvalid() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationOperationalStatusChange_NewItemsListTypeInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas kompleksinės ilgalaikio turto eksploatacijos operacijos ID..
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationOperationalStatusChange_OperationIDNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationOperationalStatusChange_OperationIDNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kompleksinis ilgalaikio turto eksploatacijos dokumentas.
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationOperationalStatusChange_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationOperationalStatusChange_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} kompleksinis ilgalaikio turto eksploatacijos aktas Nr. {1} (ID={2}).
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationOperationalStatusChange_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationOperationalStatusChange_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Koreguoti dokumento finansinius duomenis neleidžiama:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationValueChange_CannotChangeFinancialData() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationValueChange_CannotChangeFinancialData", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Koreguoti dokumento finansinius duomenis, įskaitant eilučių pridėjimą ar ištrynimą, neleidžiama:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationValueChange_CannotChangeFinancialDataFull() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationValueChange_CannotChangeFinancialDataFull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Dokumente nėra nė vienos eilutės..
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationValueChange_DocumentEmpty() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationValueChange_DocumentEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Dokumento pašalinti neleidžiama:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationValueChange_InvalidDelete() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationValueChange_InvalidDelete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas kompleksinės ilgalaikio turto pervertinimo operacijos ID..
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationValueChange_OperationIDNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationValueChange_OperationIDNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kompleksinis ilgalaikio turto pervertinimo dokumentas.
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationValueChange_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationValueChange_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} kompleksinis ilgalaikio turto pervertinimo aktas Nr. {1} (ID={2}).
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationValueChange_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationValueChange_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to įsigijimo savik. nusidėvėjimo sąsk..
         '''</summary>
         Friend ReadOnly Property Assets_LongTermAsset_AccountAccumulatedAmortization() As String
@@ -7382,6 +7580,177 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto &apos;{0}&apos; balansinės vertės pakeitimo (perkainojimo) operacijos finansinių duomenų keisti neleidžiama:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAccountChange_CannotChangeFinancialData() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAccountChange_CannotChangeFinancialData", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pasirinktai datai ilgalaikio turto kiekis lygus nuliui..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAccountChange_CurrentAmountNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAccountChange_CurrentAmountNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto &quot;{0}&quot; apskaitos sąskaitos pakeitimo operacijos pašalinti neleidžiama:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAccountChange_InvalidDelete() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAccountChange_InvalidDelete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ši IT operacija buvo registruota formuojant kompleksinį dokumentą (aktą). Ji gali būti pašalinta tik redaguojant šį kompleksinį dokumentą (aktą)..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAccountChange_InvalidDeleteComplexDocumentChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAccountChange_InvalidDeleteComplexDocumentChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} ilgalaikio turto &quot;{1}&quot; apskaitos sąskaitos pakeitimo pažyma Nr. {2} (ID={3}).
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAccountChange_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAccountChange_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto &quot;{0}&quot; apskaitos sąskaitos pakeitimo operacija (ID={1}).
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAccountChange_ToStringChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAccountChange_ToStringChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto apskaitos sąskaitos pakeitimo operacija.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAccountChange_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAccountChange_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto perleidimas pagal dokumentą, kurio tipas yra &quot;{0}&quot;, gali būti registruojamos tik atitinkamame dokumente..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAcquisitionValueIncrease_CannotAttachParentType() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAcquisitionValueIncrease_CannotAttachParentType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto &apos;{0}&apos; perleidimo operacijos finansinių duomenų keisti neleidžiama:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAcquisitionValueIncrease_CannotChangeFinancialData() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAcquisitionValueIncrease_CannotChangeFinancialData", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pasirinktai datai ilgalaikio turto kiekis lygus nuliui..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAcquisitionValueIncrease_CurrentAmountNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAcquisitionValueIncrease_CurrentAmountNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Operacijos data privalo sutapti su susietos bendrojo žurnalo operacijos (dokumento) data..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAcquisitionValueIncrease_DateInvalid() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAcquisitionValueIncrease_DateInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto &quot;{0}&quot; perleidimo operacijos pašalinti neleidžiama:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAcquisitionValueIncrease_InvalidDelete() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAcquisitionValueIncrease_InvalidDelete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ši IT operacija buvo registruota dokumente, kurio tipas yra {0}. Ji gali būti pašalinta tik redaguojant atitinkamą dokumentą..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAcquisitionValueIncrease_InvalidDeleteChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAcquisitionValueIncrease_InvalidDeleteChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ši IT operacija buvo registruota formuojant kompleksinį dokumentą (aktą). Ji gali būti pašalinta tik redaguojant šį kompleksinį dokumentą (aktą)..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAcquisitionValueIncrease_InvalidDeleteComplexDocumentChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAcquisitionValueIncrease_InvalidDeleteComplexDocumentChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Dokumentas, kurio tipas yra &quot;{0}&quot;, negali būti pagrindu perleisti ilgalaikį turtą..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAcquisitionValueIncrease_InvalidJournalEntryType() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAcquisitionValueIncrease_InvalidJournalEntryType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodyta susieta bendrojo žurnalo operacija..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAcquisitionValueIncrease_JournalEntryNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAcquisitionValueIncrease_JournalEntryNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} ilgalaikio turto &quot;{1}&quot; perleidimo aktas Nr. {2} (ID={3}).
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAcquisitionValueIncrease_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAcquisitionValueIncrease_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto &quot;{0}&quot; perleidimas (ID={1}).
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAcquisitionValueIncrease_ToStringChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAcquisitionValueIncrease_ToStringChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto perleidimo operacija.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAcquisitionValueIncrease_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAcquisitionValueIncrease_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Klaida. Ilgalaikio turto &apos;{0}&apos; amortizacijos operacijos finansinių duomenų keisti neleidžiama:{1}{2}.
         '''</summary>
         Friend ReadOnly Property Assets_OperationAmortization_CannotChangeFinancialData() As String
@@ -7526,6 +7895,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Visos ar dalis naujų ilgalaikio turto eilučių jau yra dokumente:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAmortizationList_NewItemsListInvalid() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAmortizationList_NewItemsListInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodyta nė viena nauja turto eilutė, kurią reikėtų pridėti į dokumentą..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAmortizationList_NewItemsListNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAmortizationList_NewItemsListNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to kompleksinės ilgalaikio turto amortizacijos dokumento operacijos.
         '''</summary>
         Friend ReadOnly Property Assets_OperationAmortizationList_ToString() As String
@@ -7540,6 +7927,78 @@ Namespace My.Resources
         Friend ReadOnly Property Assets_OperationAmortizationList_TypeName() As String
             Get
                 Return ResourceManager.GetString("Assets_OperationAmortizationList_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto &apos;{0}&apos; amortizacijos laikotarpio pakeitimo operacijos duomenų keisti neleidžiama:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAmortizationPeriodChange_CannotChangeFinancialData() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAmortizationPeriodChange_CannotChangeFinancialData", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pasirinktai datai ilgalaikio turto kiekis lygus nuliui..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAmortizationPeriodChange_CurrentAmountNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAmortizationPeriodChange_CurrentAmountNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto &quot;{0}&quot; amortizacijos laikotarpio pakeitimo operacijos pašalinti neleidžiama:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAmortizationPeriodChange_InvalidDelete() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAmortizationPeriodChange_InvalidDelete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ši IT operacija buvo registruota formuojant kompleksinį dokumentą (aktą). Ji gali būti pašalinta tik redaguojant šį kompleksinį dokumentą (aktą)..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAmortizationPeriodChange_InvalidDeleteComplexDocumentChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAmortizationPeriodChange_InvalidDeleteComplexDocumentChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Amortizacijos periodas negali būti trumpesnis, nei jau buvusios eksploatacijos laikas..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAmortizationPeriodChange_InvalidPeriod() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAmortizationPeriodChange_InvalidPeriod", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} ilgalaikio turto &quot;{1}&quot; amortizacijos laikotarpio pakeitimo pažyma Nr. {2} (ID={3}).
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAmortizationPeriodChange_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAmortizationPeriodChange_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto &quot;{0}&quot; amortizacijos laikotarpio pakeitimo operacija (ID={1}).
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAmortizationPeriodChange_ToStringChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAmortizationPeriodChange_ToStringChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto amortizacijos laikotarpio pakeitimo operacija.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationAmortizationPeriodChange_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationAmortizationPeriodChange_TypeName", resourceCulture)
             End Get
         End Property
         
@@ -8301,6 +8760,231 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto &apos;{0}&apos; nurašymo operacijos finansinių duomenų keisti neleidžiama:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationDiscard_CannotChangeFinancialData() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationDiscard_CannotChangeFinancialData", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto &quot;{0}&quot; nurašymo operacijos pašalinti neleidžiama:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationDiscard_InvalidDelete() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationDiscard_InvalidDelete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ši IT operacija buvo registruota formuojant kompleksinį dokumentą (aktą). Ji gali būti pašalinta tik redaguojant šį kompleksinį dokumentą (aktą)..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationDiscard_InvalidDeleteChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationDiscard_InvalidDeleteChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} ilgalaikio turto &quot;{1}&quot; nurašymo aktas Nr. {2} (ID={3}).
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationDiscard_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationDiscard_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto &quot;{0}&quot; nurašymas (ID={1}).
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationDiscard_ToStringChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationDiscard_ToStringChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto nurašymo operacija.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationDiscard_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationDiscard_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas nė vienas ilgalaikio turto ID..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationDiscardList_AssetIDsNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationDiscardList_AssetIDsNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Visos ar dalis naujų ilgalaikio turto eilučių jau yra dokumente:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationDiscardList_NewItemsListInvalid() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationDiscardList_NewItemsListInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodyta nė viena nauja turto eilutė, kurią reikėtų pridėti į dokumentą..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationDiscardList_NewItemsListNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationDiscardList_NewItemsListNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kompleksinės ilgalaikio turto nurašymo dokumento operacijos.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationDiscardList_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationDiscardList_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kompleksinės ilgalaikio turto nurašymo dokumento operacijos.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationDiscardList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationDiscardList_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pasirinktai datai turtas ir taip nėra eksploatuojamas..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationOperationalStatusChange_AssetAlreadyNotOperational() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationOperationalStatusChange_AssetAlreadyNotOperational", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pasirinktai datai turtas jau yra eksploatuojamas..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationOperationalStatusChange_AssetAlreadyOperational() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationOperationalStatusChange_AssetAlreadyOperational", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto &apos;{0}&apos; eksploatacijos operacijos duomenų keisti neleidžiama:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationOperationalStatusChange_CannotChangeFinancialData() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationOperationalStatusChange_CannotChangeFinancialData", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pasirinktai datai ilgalaikio turto kiekis lygus nuliui..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationOperationalStatusChange_CurrentAmountNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationOperationalStatusChange_CurrentAmountNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto &quot;{0}&quot; eksploatacijos operacijos pašalinti neleidžiama:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationOperationalStatusChange_InvalidDelete() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationOperationalStatusChange_InvalidDelete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ši IT operacija buvo registruota formuojant kompleksinį dokumentą (aktą). Ji gali būti pašalinta tik redaguojant šį kompleksinį dokumentą (aktą)..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationOperationalStatusChange_InvalidDeleteComplexDocumentChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationOperationalStatusChange_InvalidDeleteComplexDocumentChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} ilgalaikio turto &quot;{1}&quot; eksploatacijos aktas Nr. {2} (ID={3}).
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationOperationalStatusChange_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationOperationalStatusChange_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto &quot;{0}&quot;eksploatacijos operacija (ID={1}).
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationOperationalStatusChange_ToStringChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationOperationalStatusChange_ToStringChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto eksploatacijos operacija.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationOperationalStatusChange_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationOperationalStatusChange_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas nė vienas ilgalaikio turto ID..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationOperationalStatusChangeList_AssetIDsNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationOperationalStatusChangeList_AssetIDsNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Visos ar dalis naujų ilgalaikio turto eilučių jau yra dokumente:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationOperationalStatusChangeList_NewItemsListInvalid() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationOperationalStatusChangeList_NewItemsListInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodyta nė viena nauja turto eilutė, kurią reikėtų pridėti į dokumentą..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationOperationalStatusChangeList_NewItemsListNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationOperationalStatusChangeList_NewItemsListNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kompleksinės ilgalaikio turto eksploatacijos operacijos.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationOperationalStatusChangeList_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationOperationalStatusChangeList_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kompleksinės ilgalaikio turto eksploatacijos operacijos.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationOperationalStatusChangeList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationOperationalStatusChangeList_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Klaida. Nenurodyta operacijos ID..
         '''</summary>
         Friend ReadOnly Property Assets_OperationPersistenceObject_IdNull() As String
@@ -8351,6 +9035,258 @@ Namespace My.Resources
         Friend ReadOnly Property Assets_OperationPersistenceObject_UnexpectedType() As String
             Get
                 Return ResourceManager.GetString("Assets_OperationPersistenceObject_UnexpectedType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto perleidimas pagal dokumentą, kurio tipas yra &quot;{0}&quot;, gali būti registruojamos tik atitinkamame dokumente..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationTransfer_CannotAttachParentType() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationTransfer_CannotAttachParentType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto &apos;{0}&apos; perleidimo operacijos finansinių duomenų keisti neleidžiama:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationTransfer_CannotChangeFinancialData() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationTransfer_CannotChangeFinancialData", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Operacijos data privalo sutapti su susietos bendrojo žurnalo operacijos (dokumento) data..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationTransfer_DateInvalid() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationTransfer_DateInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto &quot;{0}&quot; perleidimo operacijos pašalinti neleidžiama:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationTransfer_InvalidDelete() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationTransfer_InvalidDelete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ši IT operacija buvo registruota dokumente, kurio tipas yra {0}. Ji gali būti pašalinta tik redaguojant atitinkamą dokumentą..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationTransfer_InvalidDeleteChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationTransfer_InvalidDeleteChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ši IT operacija buvo registruota formuojant kompleksinį dokumentą (aktą). Ji gali būti pašalinta tik redaguojant šį kompleksinį dokumentą (aktą)..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationTransfer_InvalidDeleteComplexDocumentChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationTransfer_InvalidDeleteComplexDocumentChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Dokumentas, kurio tipas yra &quot;{0}&quot;, negali būti pagrindu perleisti ilgalaikį turtą..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationTransfer_InvalidJournalEntryType() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationTransfer_InvalidJournalEntryType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodyta susieta bendrojo žurnalo operacija..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationTransfer_JournalEntryNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationTransfer_JournalEntryNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} ilgalaikio turto &quot;{1}&quot; perleidimo aktas Nr. {2} (ID={3}).
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationTransfer_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationTransfer_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto &quot;{0}&quot; perleidimas (ID={1}).
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationTransfer_ToStringChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationTransfer_ToStringChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto perleidimo operacija.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationTransfer_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationTransfer_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto balansinės vertės pakeitimas (perkainojimas) pagal dokumentą, kurio tipas yra &quot;{0}&quot;, gali būti registruojamos tik atitinkamame dokumente..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChange_CannotAttachParentType() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChange_CannotAttachParentType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto &apos;{0}&apos; balansinės vertės pakeitimo (perkainojimo) operacijos finansinių duomenų keisti neleidžiama:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChange_CannotChangeFinancialData() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChange_CannotChangeFinancialData", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pasirinktai datai ilgalaikio turto kiekis lygus nuliui..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChange_CurrentAmountNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChange_CurrentAmountNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Operacijos data privalo sutapti su susietos bendrojo žurnalo operacijos (dokumento) data..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChange_DateInvalid() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChange_DateInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ilgalaikio turto &quot;{0}&quot; balansinės vertės pakeitimo (perkainojimo) operacijos pašalinti neleidžiama:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChange_InvalidDelete() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChange_InvalidDelete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ši IT operacija buvo registruota dokumente, kurio tipas yra {0}. Ji gali būti pašalinta tik redaguojant atitinkamą dokumentą..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChange_InvalidDeleteChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChange_InvalidDeleteChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Ši IT operacija buvo registruota formuojant kompleksinį dokumentą (aktą). Ji gali būti pašalinta tik redaguojant šį kompleksinį dokumentą (aktą)..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChange_InvalidDeleteComplexDocumentChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChange_InvalidDeleteComplexDocumentChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Dokumentas, kurio tipas yra &quot;{0}&quot;, negali būti pagrindu pakeisti ilgalaikio turto balansinę vertę (perkainoti turtą)..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChange_InvalidJournalEntryType() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChange_InvalidJournalEntryType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodyta susieta bendrojo žurnalo operacija..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChange_JournalEntryNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChange_JournalEntryNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} ilgalaikio turto &quot;{1}&quot; perkainojimo aktas Nr. {2} (ID={3}).
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChange_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChange_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto &quot;{0}&quot; perkainojimas (ID={1}).
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChange_ToStringChild() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChange_ToStringChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ilgalaikio turto perkainojimo operacija.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChange_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChange_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas nė vienas ilgalaikio turto ID..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChangeList_AssetIDsNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChangeList_AssetIDsNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Visos ar dalis naujų ilgalaikio turto eilučių jau yra dokumente:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChangeList_NewItemsListInvalid() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChangeList_NewItemsListInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodyta nė viena nauja turto eilutė, kurią reikėtų pridėti į dokumentą..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChangeList_NewItemsListNull() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChangeList_NewItemsListNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kompleksinės ilgalaikio turto pervertinimo dokumento operacijos.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChangeList_ToString() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChangeList_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kompleksinės ilgalaikio turto pervertinimo dokumento operacijos.
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationValueChangeList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationValueChangeList_TypeName", resourceCulture)
             End Get
         End Property
         
@@ -20301,15 +21237,6 @@ Namespace My.Resources
         Friend ReadOnly Property HelperLists_WorkTimeClassInfo_WithoutWorkHours() As String
             Get
                 Return ResourceManager.GetString("HelperLists_WorkTimeClassInfo_WithoutWorkHours", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to .
-        '''</summary>
-        Friend ReadOnly Property My_Resources_Assets_OperationPersistenceObject_TypeName() As String
-            Get
-                Return ResourceManager.GetString("My.Resources.Assets_OperationPersistenceObject_TypeName", resourceCulture)
             End Get
         End Property
         
