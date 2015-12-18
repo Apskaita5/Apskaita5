@@ -66,6 +66,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml">
       <Private>True</Private>
     </Reference>
@@ -158,6 +159,8 @@
     <Compile Include="Assets\ComplexOperationDiscard.vb" />
     <Compile Include="Assets\ComplexOperationOperationalStatusChange.vb" />
     <Compile Include="Assets\ComplexOperationValueChange.vb" />
+    <Compile Include="Assets\LongTermAssetList.vb" />
+    <Compile Include="Assets\LongTermAssetsTransferOfBalance.vb" />
     <Compile Include="Assets\OperationAccountChange.vb" />
     <Compile Include="Assets\OperationAcquisitionValueIncrease.vb" />
     <Compile Include="Assets\OperationAmortizationPeriodChange.vb" />
@@ -166,8 +169,8 @@
     <Compile Include="Assets\LongTermAssetAmortizationCalculation.vb" />
     <Compile Include="Assets\LongTermAssetAmortizationCalculationList.vb" />
     <Compile Include="Assets\LongTermAssetComplexDocument.vb" />
-    <Compile Include="Assets\LongTermAssetComplexDocumentInfo.vb" />
-    <Compile Include="Assets\LongTermAssetComplexDocumentInfoList.vb" />
+    <Compile Include="ActiveReports\LongTermAssetComplexDocumentInfo.vb" />
+    <Compile Include="ActiveReports\LongTermAssetComplexDocumentInfoList.vb" />
     <Compile Include="Assets\LongTermAssetCustomGroup.vb" />
     <Compile Include="Assets\LtaAccountChangeType.vb" />
     <Compile Include="Assets\LtaOperationType.vb" />
@@ -181,6 +184,7 @@
     <Compile Include="Assets\OperationDeltaList.vb" />
     <Compile Include="Assets\OperationDiscard.vb" />
     <Compile Include="Assets\OperationDiscardList.vb" />
+    <Compile Include="Assets\OperationInfo.vb" />
     <Compile Include="Assets\OperationOperationalStatusChange.vb" />
     <Compile Include="Assets\OperationOperationalStatusChangeList.vb" />
     <Compile Include="Assets\OperationPersistenceObject.vb" />
@@ -205,6 +209,12 @@
     <Compile Include="Documents\AccumulativeCostsChronologicValidator.vb" />
     <Compile Include="Documents\AccumulativeCostsItem.vb" />
     <Compile Include="Documents\AccumulativeCostsItemList.vb" />
+    <Compile Include="Documents\BankDataExchangeProviders\BankAccountStatementItem.vb" />
+    <Compile Include="Documents\BankDataExchangeProviders\IBankAccountStatement.vb" />
+    <Compile Include="Documents\BankDataExchangeProviders\ISO20022v052BankAccountStatement.vb" />
+    <Compile Include="Documents\BankDataExchangeProviders\ISO20022v053BankAccountStatement.vb" />
+    <Compile Include="Documents\BankDataExchangeProviders\LitasEsisBankAccountStatement.vb" />
+    <Compile Include="Documents\BankDataExchangeProviders\ProprietaryBankAccountStatement.vb" />
     <Compile Include="Documents\InvoiceAdapters\AssetAcquisitionInvoiceAdapter.vb" />
     <Compile Include="Documents\InvoiceAdapters\AssetAcquisitionValueIncreaseInvoiceAdapter.vb" />
     <Compile Include="Documents\InvoiceAdapters\AssetSaleInvoiceAdapter.vb" />

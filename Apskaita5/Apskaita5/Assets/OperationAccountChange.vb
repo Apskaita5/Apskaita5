@@ -65,6 +65,18 @@ Namespace Assets
         End Property
 
         ''' <summary>
+        ''' Gets a type of the long term asset account that is changed by the operation
+        ''' as a human readable (localized) string.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property AccountTypeHumanReadable() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return EnumValueAttribute.ConvertLocalizedName(_AccountType)
+            End Get
+        End Property
+
+        ''' <summary>
         ''' Gets the date and time when the operation was inserted into the database.
         ''' </summary>
         ''' <remarks>Value is stored in the database field turtas_op.InsertDate.</remarks>

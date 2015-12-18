@@ -59,6 +59,19 @@ Namespace Assets
         End Property
 
         ''' <summary>
+        ''' Gets a type of the long term asset operation as a human readable (localized) string, 
+        ''' i.e. <see cref="LtaOperationType.UsingStart">LtaOperationType.UsingStart</see>
+        ''' or <see cref="LtaOperationType.UsingEnd">LtaOperationType.UsingEnd</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property TypeHumanReadable() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return EnumValueAttribute.ConvertLocalizedName(Me.Type)
+            End Get
+        End Property
+
+        ''' <summary>
         ''' Gets the date and time when the operation was inserted into the database.
         ''' </summary>
         ''' <remarks>Value is stored in the database field turtas_op.InsertDate.</remarks>

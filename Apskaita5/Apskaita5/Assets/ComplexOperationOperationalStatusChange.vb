@@ -92,6 +92,23 @@ Namespace Assets
         End Property
 
         ''' <summary>
+        ''' Gets a type of the long term asset operation as a human readable (localized) string, 
+        ''' i.e. <see cref="LtaOperationType.UsingStart">LtaOperationType.UsingStart</see>
+        ''' or <see cref="LtaOperationType.UsingEnd">LtaOperationType.UsingEnd</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property TypeHumanReadable() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                If _BeginOperationalPeriod Then
+                    Return My.Resources.Assets_LtaOperationType_UsingStart
+                Else
+                    Return My.Resources.Assets_LtaOperationType_UsingEnd
+                End If
+            End Get
+        End Property
+
+        ''' <summary>
         ''' Gets or sets a date of the long term asset complex operation.
         ''' </summary>
         ''' <remarks>Value is stored in the database field turtas_op.OperationDate

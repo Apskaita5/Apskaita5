@@ -278,6 +278,17 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Whether the attached journal entry could not be changed.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property AssociatedJournalEntryIsReadOnly() As Boolean
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return (Not _ChronologyValidator.FinancialDataCanChange)
+            End Get
+        End Property
+
 
         Public Overrides ReadOnly Property IsValid() As Boolean
             Get

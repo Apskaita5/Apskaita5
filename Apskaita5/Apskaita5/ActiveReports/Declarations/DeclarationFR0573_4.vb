@@ -11,6 +11,8 @@
         Implements IDeclaration
 
         Private Const DECLARATION_NAME As String = "FR0573 v.4"
+        Private Const FILENAMEMXFDFR0573_4 As String = "\MXFD\FR0573(4).mxfd"
+        Private Const FILENAMEFFDATAFR0573_4 As String = "\FFData\FR0573(4).ffdata"
 
 
         ''' <summary>

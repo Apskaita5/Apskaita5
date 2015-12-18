@@ -12,6 +12,8 @@
         Implements IInvoiceRegisterDeclaration
 
         Private Const DECLARATION_NAME As String = "FR0672 v.2"
+        Private Const FILENAMEMXFDFR0672_2 As String = "\MXFD\FR0672(2).mxfd"
+        Private Const FILENAMEFFDATAFR0672_2 As String = "\FFData\FR0672(2).ffdata"
 
         ''' <summary>
         ''' Gets a name of the invoice register declaration.

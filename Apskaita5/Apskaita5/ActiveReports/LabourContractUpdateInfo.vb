@@ -262,7 +262,7 @@ Namespace ActiveReports
             If Not IsDBNull(dr.Item(15)) Then
                 _WageType = EnumValueAttribute.ConvertDatabaseCharID(Of Workers.WageType) _
                     (CStrSafe(dr.Item(15)).Trim)
-                _WageTypeHumanReadable = ConvertEnumHumanReadable(_WageType)
+                _WageTypeHumanReadable = EnumValueAttribute.ConvertLocalizedName(_WageType)
             End If
             If Not IsDBNull(dr.Item(16)) Then _WorkLoad = DblParser(CDblSafe(dr.Item(16), ROUNDWORKLOAD, 0), ROUNDWORKLOAD)
             _Position = CStrSafe(dr.Item(17)).Trim

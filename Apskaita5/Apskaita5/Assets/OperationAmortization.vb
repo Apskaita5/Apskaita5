@@ -550,6 +550,126 @@ Namespace Assets
 
 #End Region
 
+#Region " State Delta "
+
+        ''' <summary>
+        ''' A change of balance for the <see cref="CurrentAssetContraryAccount">CurrentAssetContraryAccount</see> made by the operation.
+        ''' </summary>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
+        ''' A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
+        Public ReadOnly Property ChangeAmortizationAccountValue() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeAmortizationAccountValue)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of balance for the <see cref="CurrentAssetContraryAccount">CurrentAssetContraryAccount</see> per unit made by the operation.
+        ''' </summary>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
+        ''' A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
+        Public ReadOnly Property ChangeAmortizationAccountValuePerUnit() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeAmortizationAccountValuePerUnit, ROUNDUNITASSET)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of balance for the <see cref="CurrentAssetValueIncreaseAmortizationAccount">CurrentAssetValueIncreaseAmortizationAccount</see> made by the operation.
+        ''' </summary>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
+        ''' A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
+        Public ReadOnly Property ChangeValueIncreaseAmortizationAccountValue() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeValueIncreaseAmortizationAccountValue)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of balance for the <see cref="CurrentAssetValueIncreaseAmortizationAccount">CurrentAssetValueIncreaseAmortizationAccount</see> per unit made by the operation.
+        ''' </summary>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
+        ''' A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
+        Public ReadOnly Property ChangeValueIncreaseAmortizationAccountValuePerUnit() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeValueIncreaseAmortizationAccountValuePerUnit, ROUNDUNITASSET)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of the total value of the long term asset made by the operation.
+        ''' </summary>
+        ''' <remarks>A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
+        Public ReadOnly Property ChangeAssetValue() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeAssetValue)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of the unit value of the long term asset made by the operation.
+        ''' </summary>
+        ''' <remarks>A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
+        Public ReadOnly Property ChangeAssetUnitValue() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeAssetUnitValue, ROUNDUNITASSET)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of the unit value of the revalued portion of the long term asset.
+        ''' </summary>
+        ''' <remarks>A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
+        Public ReadOnly Property ChangeAssetRevaluedPortionValue() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeAssetRevaluedPortionValue)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of the total value of the revalued portion of the long term asset.
+        ''' </summary>
+        ''' <remarks>A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
+        Public ReadOnly Property ChangeAssetRevaluedPortionUnitValue() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeAssetRevaluedPortionUnitValue, ROUNDUNITASSET)
+            End Get
+        End Property
+
+#End Region
+
 #Region " State After The Operation "
 
         ''' <summary>
@@ -1284,6 +1404,14 @@ Namespace Assets
                 PropertyHasChanged("Background")
                 ' proxy properties
                 If IsChild Then
+                    PropertyHasChanged("ChangeAmortizationAccountValue")
+                    PropertyHasChanged("ChangeAmortizationAccountValuePerUnit")
+                    PropertyHasChanged("ChangeValueIncreaseAmortizationAccountValue")
+                    PropertyHasChanged("ChangeValueIncreaseAmortizationAccountValuePerUnit")
+                    PropertyHasChanged("ChangeAssetValue")
+                    PropertyHasChanged("ChangeAssetUnitValue")
+                    PropertyHasChanged("ChangeAssetRevaluedPortionValue")
+                    PropertyHasChanged("ChangeAssetRevaluedPortionUnitValue")
                     PropertyHasChanged("AfterOperationAmortizationAccountValue")
                     PropertyHasChanged("AfterOperationAmortizationAccountValuePerUnit")
                     PropertyHasChanged("AfterOperationValueIncreaseAmortizationAccountValue")

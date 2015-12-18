@@ -11,6 +11,8 @@
         Implements IDeclaration
 
         Private Const DECLARATION_NAME As String = "SAM v.1 autor."
+        Private Const FILENAMEFFDATASAMAUT01 As String = "\FFData\SAM-v01.ffdata"
+        Private Const FILENAMEMXFDSAMAUT01 As String = "\MXFD\SAM-v01.mxfd"
 
 
         ''' <summary>
@@ -329,7 +331,7 @@
 
             ' delete 3SD appendix
             Dim myDoc As New Xml.XmlDocument
-            myDoc.Load(AppPath() & FILENAMEFFDATASAM01)
+            myDoc.Load(AppPath() & FILENAMEFFDATASAMAUT01)
             myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).RemoveChild( _
                 myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).ChildNodes(2))
             myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0).ChildNodes(0).RemoveChild( _
@@ -347,7 +349,7 @@
 
             formDataSet.Tables(0).Rows(0).Item(3) = currentUser.Name
             formDataSet.Tables(0).Rows(0).Item(4) = GetDateInFFDataFormat(Today)
-            formDataSet.Tables(1).Rows(0).Item(2) = AppPath() & FILENAMEMXFDSAM01
+            formDataSet.Tables(1).Rows(0).Item(2) = AppPath() & FILENAMEMXFDSAMAUT01
 
             Dim specificDataRow As DataRow = dds.Tables("Specific").Rows(0)
             For i = 1 To formDataSet.Tables(8).Rows.Count

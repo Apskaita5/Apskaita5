@@ -1023,7 +1023,7 @@ Namespace Documents.InvoiceAdapters
             If Not CanGetObject() Then Throw New System.Security.SecurityException( _
                 My.Resources.Common_SecuritySelectDenied)
 
-            _Asset = LongTermAsset.GetNewLongTermAssetChild(parentChronologyValidator)
+            _Asset = LongTermAsset.NewLongTermAssetChild(parentChronologyValidator)
             _IsForInvoiceMade = forInvoiceMade
 
         End Sub

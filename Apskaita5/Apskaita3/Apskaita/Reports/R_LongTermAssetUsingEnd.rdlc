@@ -1683,7 +1683,7 @@
                       </Style>
                       <ZIndex>4</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!Column47.Value</Value>
+                      <Value>=Fields!Column22.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -1719,7 +1719,7 @@
                       </Style>
                       <ZIndex>2</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!Column17.Value</Value>
+                      <Value>=Fields!Column23.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -1737,7 +1737,7 @@
                       </Style>
                       <ZIndex>1</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!Column14.Value</Value>
+                      <Value>=Fields!Column27.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -1754,7 +1754,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                       <CanGrow>true</CanGrow>
-                      <Value>=Fields!Column10.Value</Value>
+                      <Value>=Fields!Column6.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -2433,7 +2433,7 @@
         <ZIndex>2</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>0.63492cm</Height>
-        <Value>=First(Fields!Column1.Value, "ReportData_TableGeneral") &amp; " Nr. " &amp; First(Fields!Column3.Value, "ReportData_TableGeneral")</Value>
+        <Value>=First(Fields!Column6.Value, "ReportData_TableGeneral") &amp; " Nr. " &amp; First(Fields!Column8.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
       <Textbox Name="textbox1">
         <rd:DefaultName>textbox1</rd:DefaultName>

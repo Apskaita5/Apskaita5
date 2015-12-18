@@ -51,6 +51,7 @@ Partial Class BackgroundInfoPanel
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
         Me.AfterOperationAssetAmountTextBox = New System.Windows.Forms.TextBox
+        Me.OperationBackgroundBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CurrentAssetValueRevaluedPortionPerUnitAccTextBox = New AccControls.AccTextBox
         Me.CurrentAssetValueRevaluedPortionAccTextBox = New AccControls.AccTextBox
         Me.CurrentAssetAmountTextBox = New System.Windows.Forms.TextBox
@@ -108,7 +109,7 @@ Partial Class BackgroundInfoPanel
         Me.AssetMeasureUnitTextBox = New System.Windows.Forms.TextBox
         Me.CurrentAssetAcquiredAccountTextBox = New System.Windows.Forms.TextBox
         Me.CurrentUsageStatusCheckBox = New System.Windows.Forms.CheckBox
-        Me.OperationBackgroundBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         AssetNameLabel = New System.Windows.Forms.Label
         AssetMeasureUnitLabel = New System.Windows.Forms.Label
         AssetLiquidationValueLabel = New System.Windows.Forms.Label
@@ -136,8 +137,9 @@ Partial Class BackgroundInfoPanel
         CurrentUsageTermMonthsLabel = New System.Windows.Forms.Label
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.OperationBackgroundBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'AssetNameLabel
@@ -199,7 +201,7 @@ Partial Class BackgroundInfoPanel
         Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Label1.Location = New System.Drawing.Point(150, 0)
         Label1.Name = "Label1"
-        Label1.Size = New System.Drawing.Size(83, 15)
+        Label1.Size = New System.Drawing.Size(80, 15)
         Label1.TabIndex = 10
         Label1.Text = "Vnt. Vertė pr.:"
         Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -209,9 +211,9 @@ Partial Class BackgroundInfoPanel
         Label2.AutoSize = True
         Label2.Dock = System.Windows.Forms.DockStyle.Fill
         Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label2.Location = New System.Drawing.Point(259, 0)
+        Label2.Location = New System.Drawing.Point(256, 0)
         Label2.Name = "Label2"
-        Label2.Size = New System.Drawing.Size(83, 15)
+        Label2.Size = New System.Drawing.Size(80, 15)
         Label2.TabIndex = 10
         Label2.Text = "Vertė pr.:"
         Label2.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -221,9 +223,9 @@ Partial Class BackgroundInfoPanel
         Label3.AutoSize = True
         Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label3.Location = New System.Drawing.Point(368, 0)
+        Label3.Location = New System.Drawing.Point(362, 0)
         Label3.Name = "Label3"
-        Label3.Size = New System.Drawing.Size(83, 15)
+        Label3.Size = New System.Drawing.Size(80, 15)
         Label3.TabIndex = 10
         Label3.Text = "Pokytis Vnt.:"
         Label3.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -233,9 +235,9 @@ Partial Class BackgroundInfoPanel
         Label4.AutoSize = True
         Label4.Dock = System.Windows.Forms.DockStyle.Fill
         Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label4.Location = New System.Drawing.Point(477, 0)
+        Label4.Location = New System.Drawing.Point(468, 0)
         Label4.Name = "Label4"
-        Label4.Size = New System.Drawing.Size(83, 15)
+        Label4.Size = New System.Drawing.Size(80, 15)
         Label4.TabIndex = 10
         Label4.Text = "Pokytis Viso:"
         Label4.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -375,9 +377,9 @@ Partial Class BackgroundInfoPanel
         Label10.AutoSize = True
         Label10.Dock = System.Windows.Forms.DockStyle.Fill
         Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label10.Location = New System.Drawing.Point(586, 0)
+        Label10.Location = New System.Drawing.Point(574, 0)
         Label10.Name = "Label10"
-        Label10.Size = New System.Drawing.Size(83, 15)
+        Label10.Size = New System.Drawing.Size(80, 15)
         Label10.TabIndex = 11
         Label10.Text = "Vnt. Vertė pb.:"
         Label10.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -387,9 +389,9 @@ Partial Class BackgroundInfoPanel
         Label11.AutoSize = True
         Label11.Dock = System.Windows.Forms.DockStyle.Fill
         Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label11.Location = New System.Drawing.Point(695, 0)
+        Label11.Location = New System.Drawing.Point(680, 0)
         Label11.Name = "Label11"
-        Label11.Size = New System.Drawing.Size(83, 15)
+        Label11.Size = New System.Drawing.Size(80, 15)
         Label11.TabIndex = 12
         Label11.Text = "Vertė pb.:"
         Label11.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -485,7 +487,7 @@ Partial Class BackgroundInfoPanel
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.AfterOperationAssetAmountTextBox, 11, 8)
         Me.TableLayoutPanel2.Controls.Add(Me.CurrentAssetValueRevaluedPortionPerUnitAccTextBox, 1, 7)
         Me.TableLayoutPanel2.Controls.Add(Me.CurrentAssetValueRevaluedPortionAccTextBox, 3, 7)
@@ -565,12 +567,16 @@ Partial Class BackgroundInfoPanel
         'AfterOperationAssetAmountTextBox
         '
         Me.AfterOperationAssetAmountTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationBackgroundBindingSource, "AfterOperationAssetAmount", True))
-        Me.AfterOperationAssetAmountTextBox.Location = New System.Drawing.Point(695, 193)
+        Me.AfterOperationAssetAmountTextBox.Location = New System.Drawing.Point(680, 193)
         Me.AfterOperationAssetAmountTextBox.Name = "AfterOperationAssetAmountTextBox"
         Me.AfterOperationAssetAmountTextBox.ReadOnly = True
-        Me.AfterOperationAssetAmountTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.AfterOperationAssetAmountTextBox.Size = New System.Drawing.Size(80, 20)
         Me.AfterOperationAssetAmountTextBox.TabIndex = 3
         Me.AfterOperationAssetAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'OperationBackgroundBindingSource
+        '
+        Me.OperationBackgroundBindingSource.DataSource = GetType(ApskaitaObjects.Assets.OperationBackground)
         '
         'CurrentAssetValueRevaluedPortionPerUnitAccTextBox
         '
@@ -581,47 +587,47 @@ Partial Class BackgroundInfoPanel
         Me.CurrentAssetValueRevaluedPortionPerUnitAccTextBox.Location = New System.Drawing.Point(150, 168)
         Me.CurrentAssetValueRevaluedPortionPerUnitAccTextBox.Name = "CurrentAssetValueRevaluedPortionPerUnitAccTextBox"
         Me.CurrentAssetValueRevaluedPortionPerUnitAccTextBox.ReadOnly = True
-        Me.CurrentAssetValueRevaluedPortionPerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.CurrentAssetValueRevaluedPortionPerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.CurrentAssetValueRevaluedPortionPerUnitAccTextBox.TabIndex = 5
         Me.CurrentAssetValueRevaluedPortionPerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'CurrentAssetValueRevaluedPortionAccTextBox
         '
         Me.CurrentAssetValueRevaluedPortionAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "CurrentAssetValueRevaluedPortion", True))
-        Me.CurrentAssetValueRevaluedPortionAccTextBox.Location = New System.Drawing.Point(259, 168)
+        Me.CurrentAssetValueRevaluedPortionAccTextBox.Location = New System.Drawing.Point(256, 168)
         Me.CurrentAssetValueRevaluedPortionAccTextBox.Name = "CurrentAssetValueRevaluedPortionAccTextBox"
         Me.CurrentAssetValueRevaluedPortionAccTextBox.ReadOnly = True
-        Me.CurrentAssetValueRevaluedPortionAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.CurrentAssetValueRevaluedPortionAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.CurrentAssetValueRevaluedPortionAccTextBox.TabIndex = 3
         Me.CurrentAssetValueRevaluedPortionAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'CurrentAssetAmountTextBox
         '
         Me.CurrentAssetAmountTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationBackgroundBindingSource, "CurrentAssetAmount", True))
-        Me.CurrentAssetAmountTextBox.Location = New System.Drawing.Point(259, 193)
+        Me.CurrentAssetAmountTextBox.Location = New System.Drawing.Point(256, 193)
         Me.CurrentAssetAmountTextBox.Name = "CurrentAssetAmountTextBox"
         Me.CurrentAssetAmountTextBox.ReadOnly = True
-        Me.CurrentAssetAmountTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.CurrentAssetAmountTextBox.Size = New System.Drawing.Size(80, 20)
         Me.CurrentAssetAmountTextBox.TabIndex = 3
         Me.CurrentAssetAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'ChangeAssetAmountTextBox
         '
         Me.ChangeAssetAmountTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationBackgroundBindingSource, "ChangeAssetAmount", True))
-        Me.ChangeAssetAmountTextBox.Location = New System.Drawing.Point(477, 193)
+        Me.ChangeAssetAmountTextBox.Location = New System.Drawing.Point(468, 193)
         Me.ChangeAssetAmountTextBox.Name = "ChangeAssetAmountTextBox"
         Me.ChangeAssetAmountTextBox.ReadOnly = True
-        Me.ChangeAssetAmountTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.ChangeAssetAmountTextBox.Size = New System.Drawing.Size(80, 20)
         Me.ChangeAssetAmountTextBox.TabIndex = 3
         Me.ChangeAssetAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'ChangeAssetRevaluedPortionValueAccTextBox
         '
         Me.ChangeAssetRevaluedPortionValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "ChangeAssetRevaluedPortionValue", True))
-        Me.ChangeAssetRevaluedPortionValueAccTextBox.Location = New System.Drawing.Point(477, 168)
+        Me.ChangeAssetRevaluedPortionValueAccTextBox.Location = New System.Drawing.Point(468, 168)
         Me.ChangeAssetRevaluedPortionValueAccTextBox.Name = "ChangeAssetRevaluedPortionValueAccTextBox"
         Me.ChangeAssetRevaluedPortionValueAccTextBox.ReadOnly = True
-        Me.ChangeAssetRevaluedPortionValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.ChangeAssetRevaluedPortionValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.ChangeAssetRevaluedPortionValueAccTextBox.TabIndex = 5
         Me.ChangeAssetRevaluedPortionValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -631,10 +637,10 @@ Partial Class BackgroundInfoPanel
         Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.DecimalLength = 4
         Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.Location = New System.Drawing.Point(586, 168)
+        Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.Location = New System.Drawing.Point(574, 168)
         Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.Name = "AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox"
         Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.ReadOnly = True
-        Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.TabIndex = 9
         Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -644,30 +650,30 @@ Partial Class BackgroundInfoPanel
         Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.DecimalLength = 4
         Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.Location = New System.Drawing.Point(368, 168)
+        Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.Location = New System.Drawing.Point(362, 168)
         Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.Name = "ChangeAssetRevaluedPortionUnitValueAccTextBox"
         Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.ReadOnly = True
-        Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.TabIndex = 3
         Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'AfterOperationAssetValueRevaluedPortionAccTextBox
         '
         Me.AfterOperationAssetValueRevaluedPortionAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "AfterOperationAssetValueRevaluedPortion", True))
-        Me.AfterOperationAssetValueRevaluedPortionAccTextBox.Location = New System.Drawing.Point(695, 168)
+        Me.AfterOperationAssetValueRevaluedPortionAccTextBox.Location = New System.Drawing.Point(680, 168)
         Me.AfterOperationAssetValueRevaluedPortionAccTextBox.Name = "AfterOperationAssetValueRevaluedPortionAccTextBox"
         Me.AfterOperationAssetValueRevaluedPortionAccTextBox.ReadOnly = True
-        Me.AfterOperationAssetValueRevaluedPortionAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.AfterOperationAssetValueRevaluedPortionAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.AfterOperationAssetValueRevaluedPortionAccTextBox.TabIndex = 7
         Me.AfterOperationAssetValueRevaluedPortionAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'ChangeAssetValueAccTextBox
         '
         Me.ChangeAssetValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "ChangeAssetValue", True))
-        Me.ChangeAssetValueAccTextBox.Location = New System.Drawing.Point(477, 143)
+        Me.ChangeAssetValueAccTextBox.Location = New System.Drawing.Point(468, 143)
         Me.ChangeAssetValueAccTextBox.Name = "ChangeAssetValueAccTextBox"
         Me.ChangeAssetValueAccTextBox.ReadOnly = True
-        Me.ChangeAssetValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.ChangeAssetValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.ChangeAssetValueAccTextBox.TabIndex = 9
         Me.ChangeAssetValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -677,10 +683,10 @@ Partial Class BackgroundInfoPanel
         Me.AfterOperationAssetValuePerUnitAccTextBox.DecimalLength = 4
         Me.AfterOperationAssetValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AfterOperationAssetValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.AfterOperationAssetValuePerUnitAccTextBox.Location = New System.Drawing.Point(586, 143)
+        Me.AfterOperationAssetValuePerUnitAccTextBox.Location = New System.Drawing.Point(574, 143)
         Me.AfterOperationAssetValuePerUnitAccTextBox.Name = "AfterOperationAssetValuePerUnitAccTextBox"
         Me.AfterOperationAssetValuePerUnitAccTextBox.ReadOnly = True
-        Me.AfterOperationAssetValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.AfterOperationAssetValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.AfterOperationAssetValuePerUnitAccTextBox.TabIndex = 5
         Me.AfterOperationAssetValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -693,7 +699,7 @@ Partial Class BackgroundInfoPanel
         Me.CurrentValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(150, 118)
         Me.CurrentValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Name = "CurrentValueIncreaseAmortizationAccountValuePerUnitAccTextBox"
         Me.CurrentValueIncreaseAmortizationAccountValuePerUnitAccTextBox.ReadOnly = True
-        Me.CurrentValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.CurrentValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.CurrentValueIncreaseAmortizationAccountValuePerUnitAccTextBox.TabIndex = 5
         Me.CurrentValueIncreaseAmortizationAccountValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -706,17 +712,17 @@ Partial Class BackgroundInfoPanel
         Me.CurrentValueIncreaseAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(150, 93)
         Me.CurrentValueIncreaseAccountValuePerUnitAccTextBox.Name = "CurrentValueIncreaseAccountValuePerUnitAccTextBox"
         Me.CurrentValueIncreaseAccountValuePerUnitAccTextBox.ReadOnly = True
-        Me.CurrentValueIncreaseAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.CurrentValueIncreaseAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.CurrentValueIncreaseAccountValuePerUnitAccTextBox.TabIndex = 17
         Me.CurrentValueIncreaseAccountValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'AfterOperationAssetValueAccTextBox
         '
         Me.AfterOperationAssetValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "AfterOperationAssetValue", True))
-        Me.AfterOperationAssetValueAccTextBox.Location = New System.Drawing.Point(695, 143)
+        Me.AfterOperationAssetValueAccTextBox.Location = New System.Drawing.Point(680, 143)
         Me.AfterOperationAssetValueAccTextBox.Name = "AfterOperationAssetValueAccTextBox"
         Me.AfterOperationAssetValueAccTextBox.ReadOnly = True
-        Me.AfterOperationAssetValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.AfterOperationAssetValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.AfterOperationAssetValueAccTextBox.TabIndex = 3
         Me.AfterOperationAssetValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -726,10 +732,10 @@ Partial Class BackgroundInfoPanel
         Me.ChangeAssetUnitValueAccTextBox.DecimalLength = 4
         Me.ChangeAssetUnitValueAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ChangeAssetUnitValueAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.ChangeAssetUnitValueAccTextBox.Location = New System.Drawing.Point(368, 143)
+        Me.ChangeAssetUnitValueAccTextBox.Location = New System.Drawing.Point(362, 143)
         Me.ChangeAssetUnitValueAccTextBox.Name = "ChangeAssetUnitValueAccTextBox"
         Me.ChangeAssetUnitValueAccTextBox.ReadOnly = True
-        Me.ChangeAssetUnitValueAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.ChangeAssetUnitValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.ChangeAssetUnitValueAccTextBox.TabIndex = 7
         Me.ChangeAssetUnitValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -739,20 +745,20 @@ Partial Class BackgroundInfoPanel
         Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(586, 118)
+        Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(574, 118)
         Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Name = "AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox"
         Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.ReadOnly = True
-        Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.TabIndex = 5
         Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'CurrentValueIncreaseAmortizationAccountValueAccTextBox
         '
         Me.CurrentValueIncreaseAmortizationAccountValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "CurrentValueIncreaseAmortizationAccountValue", True))
-        Me.CurrentValueIncreaseAmortizationAccountValueAccTextBox.Location = New System.Drawing.Point(259, 118)
+        Me.CurrentValueIncreaseAmortizationAccountValueAccTextBox.Location = New System.Drawing.Point(256, 118)
         Me.CurrentValueIncreaseAmortizationAccountValueAccTextBox.Name = "CurrentValueIncreaseAmortizationAccountValueAccTextBox"
         Me.CurrentValueIncreaseAmortizationAccountValueAccTextBox.ReadOnly = True
-        Me.CurrentValueIncreaseAmortizationAccountValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.CurrentValueIncreaseAmortizationAccountValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.CurrentValueIncreaseAmortizationAccountValueAccTextBox.TabIndex = 3
         Me.CurrentValueIncreaseAmortizationAccountValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -765,7 +771,7 @@ Partial Class BackgroundInfoPanel
         Me.CurrentAssetValuePerUnitAccTextBox.Location = New System.Drawing.Point(150, 143)
         Me.CurrentAssetValuePerUnitAccTextBox.Name = "CurrentAssetValuePerUnitAccTextBox"
         Me.CurrentAssetValuePerUnitAccTextBox.ReadOnly = True
-        Me.CurrentAssetValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.CurrentAssetValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.CurrentAssetValuePerUnitAccTextBox.TabIndex = 5
         Me.CurrentAssetValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -775,30 +781,30 @@ Partial Class BackgroundInfoPanel
         Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(586, 43)
+        Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(574, 43)
         Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.Name = "AfterOperationAmortizationAccountValuePerUnitAccTextBox"
         Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.ReadOnly = True
-        Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.TabIndex = 9
         Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'CurrentAssetValueAccTextBox
         '
         Me.CurrentAssetValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "CurrentAssetValue", True))
-        Me.CurrentAssetValueAccTextBox.Location = New System.Drawing.Point(259, 143)
+        Me.CurrentAssetValueAccTextBox.Location = New System.Drawing.Point(256, 143)
         Me.CurrentAssetValueAccTextBox.Name = "CurrentAssetValueAccTextBox"
         Me.CurrentAssetValueAccTextBox.ReadOnly = True
-        Me.CurrentAssetValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.CurrentAssetValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.CurrentAssetValueAccTextBox.TabIndex = 3
         Me.CurrentAssetValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'CurrentValueIncreaseAccountValueAccTextBox
         '
         Me.CurrentValueIncreaseAccountValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "CurrentValueIncreaseAccountValue", True))
-        Me.CurrentValueIncreaseAccountValueAccTextBox.Location = New System.Drawing.Point(259, 93)
+        Me.CurrentValueIncreaseAccountValueAccTextBox.Location = New System.Drawing.Point(256, 93)
         Me.CurrentValueIncreaseAccountValueAccTextBox.Name = "CurrentValueIncreaseAccountValueAccTextBox"
         Me.CurrentValueIncreaseAccountValueAccTextBox.ReadOnly = True
-        Me.CurrentValueIncreaseAccountValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.CurrentValueIncreaseAccountValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.CurrentValueIncreaseAccountValueAccTextBox.TabIndex = 15
         Me.CurrentValueIncreaseAccountValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -811,7 +817,7 @@ Partial Class BackgroundInfoPanel
         Me.CurrentAmortizationAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(150, 43)
         Me.CurrentAmortizationAccountValuePerUnitAccTextBox.Name = "CurrentAmortizationAccountValuePerUnitAccTextBox"
         Me.CurrentAmortizationAccountValuePerUnitAccTextBox.ReadOnly = True
-        Me.CurrentAmortizationAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.CurrentAmortizationAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.CurrentAmortizationAccountValuePerUnitAccTextBox.TabIndex = 9
         Me.CurrentAmortizationAccountValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -821,30 +827,30 @@ Partial Class BackgroundInfoPanel
         Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(586, 93)
+        Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(574, 93)
         Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.Name = "AfterOperationValueIncreaseAccountValuePerUnitAccTextBox"
         Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.ReadOnly = True
-        Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.TabIndex = 17
         Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'AfterOperationValueIncreaseAmortizationAccountValueAccTextBox
         '
         Me.AfterOperationValueIncreaseAmortizationAccountValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "AfterOperationValueIncreaseAmortizationAccountValue", True))
-        Me.AfterOperationValueIncreaseAmortizationAccountValueAccTextBox.Location = New System.Drawing.Point(695, 118)
+        Me.AfterOperationValueIncreaseAmortizationAccountValueAccTextBox.Location = New System.Drawing.Point(680, 118)
         Me.AfterOperationValueIncreaseAmortizationAccountValueAccTextBox.Name = "AfterOperationValueIncreaseAmortizationAccountValueAccTextBox"
         Me.AfterOperationValueIncreaseAmortizationAccountValueAccTextBox.ReadOnly = True
-        Me.AfterOperationValueIncreaseAmortizationAccountValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.AfterOperationValueIncreaseAmortizationAccountValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.AfterOperationValueIncreaseAmortizationAccountValueAccTextBox.TabIndex = 3
         Me.AfterOperationValueIncreaseAmortizationAccountValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'CurrentAmortizationAccountValueAccTextBox
         '
         Me.CurrentAmortizationAccountValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "CurrentAmortizationAccountValue", True))
-        Me.CurrentAmortizationAccountValueAccTextBox.Location = New System.Drawing.Point(259, 43)
+        Me.CurrentAmortizationAccountValueAccTextBox.Location = New System.Drawing.Point(256, 43)
         Me.CurrentAmortizationAccountValueAccTextBox.Name = "CurrentAmortizationAccountValueAccTextBox"
         Me.CurrentAmortizationAccountValueAccTextBox.ReadOnly = True
-        Me.CurrentAmortizationAccountValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.CurrentAmortizationAccountValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.CurrentAmortizationAccountValueAccTextBox.TabIndex = 7
         Me.CurrentAmortizationAccountValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -857,17 +863,17 @@ Partial Class BackgroundInfoPanel
         Me.CurrentValueDecreaseAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(150, 68)
         Me.CurrentValueDecreaseAccountValuePerUnitAccTextBox.Name = "CurrentValueDecreaseAccountValuePerUnitAccTextBox"
         Me.CurrentValueDecreaseAccountValuePerUnitAccTextBox.ReadOnly = True
-        Me.CurrentValueDecreaseAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.CurrentValueDecreaseAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.CurrentValueDecreaseAccountValuePerUnitAccTextBox.TabIndex = 13
         Me.CurrentValueDecreaseAccountValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'AfterOperationValueIncreaseAccountValueAccTextBox
         '
         Me.AfterOperationValueIncreaseAccountValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "AfterOperationValueIncreaseAccountValue", True))
-        Me.AfterOperationValueIncreaseAccountValueAccTextBox.Location = New System.Drawing.Point(695, 93)
+        Me.AfterOperationValueIncreaseAccountValueAccTextBox.Location = New System.Drawing.Point(680, 93)
         Me.AfterOperationValueIncreaseAccountValueAccTextBox.Name = "AfterOperationValueIncreaseAccountValueAccTextBox"
         Me.AfterOperationValueIncreaseAccountValueAccTextBox.ReadOnly = True
-        Me.AfterOperationValueIncreaseAccountValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.AfterOperationValueIncreaseAccountValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.AfterOperationValueIncreaseAccountValueAccTextBox.TabIndex = 15
         Me.AfterOperationValueIncreaseAccountValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -880,37 +886,37 @@ Partial Class BackgroundInfoPanel
         Me.CurrentAcquisitionAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(150, 18)
         Me.CurrentAcquisitionAccountValuePerUnitAccTextBox.Name = "CurrentAcquisitionAccountValuePerUnitAccTextBox"
         Me.CurrentAcquisitionAccountValuePerUnitAccTextBox.ReadOnly = True
-        Me.CurrentAcquisitionAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.CurrentAcquisitionAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.CurrentAcquisitionAccountValuePerUnitAccTextBox.TabIndex = 5
         Me.CurrentAcquisitionAccountValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'AfterOperationAmortizationAccountValueAccTextBox
         '
         Me.AfterOperationAmortizationAccountValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "AfterOperationAmortizationAccountValue", True))
-        Me.AfterOperationAmortizationAccountValueAccTextBox.Location = New System.Drawing.Point(695, 43)
+        Me.AfterOperationAmortizationAccountValueAccTextBox.Location = New System.Drawing.Point(680, 43)
         Me.AfterOperationAmortizationAccountValueAccTextBox.Name = "AfterOperationAmortizationAccountValueAccTextBox"
         Me.AfterOperationAmortizationAccountValueAccTextBox.ReadOnly = True
-        Me.AfterOperationAmortizationAccountValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.AfterOperationAmortizationAccountValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.AfterOperationAmortizationAccountValueAccTextBox.TabIndex = 7
         Me.AfterOperationAmortizationAccountValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'CurrentValueDecreaseAccountValueAccTextBox
         '
         Me.CurrentValueDecreaseAccountValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "CurrentValueDecreaseAccountValue", True))
-        Me.CurrentValueDecreaseAccountValueAccTextBox.Location = New System.Drawing.Point(259, 68)
+        Me.CurrentValueDecreaseAccountValueAccTextBox.Location = New System.Drawing.Point(256, 68)
         Me.CurrentValueDecreaseAccountValueAccTextBox.Name = "CurrentValueDecreaseAccountValueAccTextBox"
         Me.CurrentValueDecreaseAccountValueAccTextBox.ReadOnly = True
-        Me.CurrentValueDecreaseAccountValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.CurrentValueDecreaseAccountValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.CurrentValueDecreaseAccountValueAccTextBox.TabIndex = 11
         Me.CurrentValueDecreaseAccountValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'CurrentAcquisitionAccountValueAccTextBox
         '
         Me.CurrentAcquisitionAccountValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "CurrentAcquisitionAccountValue", True))
-        Me.CurrentAcquisitionAccountValueAccTextBox.Location = New System.Drawing.Point(259, 18)
+        Me.CurrentAcquisitionAccountValueAccTextBox.Location = New System.Drawing.Point(256, 18)
         Me.CurrentAcquisitionAccountValueAccTextBox.Name = "CurrentAcquisitionAccountValueAccTextBox"
         Me.CurrentAcquisitionAccountValueAccTextBox.ReadOnly = True
-        Me.CurrentAcquisitionAccountValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.CurrentAcquisitionAccountValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.CurrentAcquisitionAccountValueAccTextBox.TabIndex = 3
         Me.CurrentAcquisitionAccountValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -920,20 +926,20 @@ Partial Class BackgroundInfoPanel
         Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(586, 68)
+        Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(574, 68)
         Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.Name = "AfterOperationValueDecreaseAccountValuePerUnitAccTextBox"
         Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.ReadOnly = True
-        Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.TabIndex = 13
         Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'AfterOperationValueDecreaseAccountValueAccTextBox
         '
         Me.AfterOperationValueDecreaseAccountValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "AfterOperationValueDecreaseAccountValue", True))
-        Me.AfterOperationValueDecreaseAccountValueAccTextBox.Location = New System.Drawing.Point(695, 68)
+        Me.AfterOperationValueDecreaseAccountValueAccTextBox.Location = New System.Drawing.Point(680, 68)
         Me.AfterOperationValueDecreaseAccountValueAccTextBox.Name = "AfterOperationValueDecreaseAccountValueAccTextBox"
         Me.AfterOperationValueDecreaseAccountValueAccTextBox.ReadOnly = True
-        Me.AfterOperationValueDecreaseAccountValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.AfterOperationValueDecreaseAccountValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.AfterOperationValueDecreaseAccountValueAccTextBox.TabIndex = 11
         Me.AfterOperationValueDecreaseAccountValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -943,10 +949,10 @@ Partial Class BackgroundInfoPanel
         Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(586, 18)
+        Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(574, 18)
         Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.Name = "AfterOperationAcquisitionAccountValuePerUnitAccTextBox"
         Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.ReadOnly = True
-        Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.TabIndex = 5
         Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -956,10 +962,10 @@ Partial Class BackgroundInfoPanel
         Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(368, 118)
+        Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(362, 118)
         Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Name = "ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox"
         Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.ReadOnly = True
-        Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.TabIndex = 5
         Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -969,50 +975,50 @@ Partial Class BackgroundInfoPanel
         Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(368, 93)
+        Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(362, 93)
         Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.Name = "ChangeValueIncreaseAccountValuePerUnitAccTextBox"
         Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.ReadOnly = True
-        Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.TabIndex = 17
         Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'AfterOperationAcquisitionAccountValueAccTextBox
         '
         Me.AfterOperationAcquisitionAccountValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "AfterOperationAcquisitionAccountValue", True))
-        Me.AfterOperationAcquisitionAccountValueAccTextBox.Location = New System.Drawing.Point(695, 18)
+        Me.AfterOperationAcquisitionAccountValueAccTextBox.Location = New System.Drawing.Point(680, 18)
         Me.AfterOperationAcquisitionAccountValueAccTextBox.Name = "AfterOperationAcquisitionAccountValueAccTextBox"
         Me.AfterOperationAcquisitionAccountValueAccTextBox.ReadOnly = True
-        Me.AfterOperationAcquisitionAccountValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.AfterOperationAcquisitionAccountValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.AfterOperationAcquisitionAccountValueAccTextBox.TabIndex = 3
         Me.AfterOperationAcquisitionAccountValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'ChangeValueIncreaseAmortizationAccountValueAccTextBox
         '
         Me.ChangeValueIncreaseAmortizationAccountValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "ChangeValueIncreaseAmortizationAccountValue", True))
-        Me.ChangeValueIncreaseAmortizationAccountValueAccTextBox.Location = New System.Drawing.Point(477, 118)
+        Me.ChangeValueIncreaseAmortizationAccountValueAccTextBox.Location = New System.Drawing.Point(468, 118)
         Me.ChangeValueIncreaseAmortizationAccountValueAccTextBox.Name = "ChangeValueIncreaseAmortizationAccountValueAccTextBox"
         Me.ChangeValueIncreaseAmortizationAccountValueAccTextBox.ReadOnly = True
-        Me.ChangeValueIncreaseAmortizationAccountValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.ChangeValueIncreaseAmortizationAccountValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.ChangeValueIncreaseAmortizationAccountValueAccTextBox.TabIndex = 3
         Me.ChangeValueIncreaseAmortizationAccountValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'ChangeValueIncreaseAccountValueAccTextBox
         '
         Me.ChangeValueIncreaseAccountValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "ChangeValueIncreaseAccountValue", True))
-        Me.ChangeValueIncreaseAccountValueAccTextBox.Location = New System.Drawing.Point(477, 93)
+        Me.ChangeValueIncreaseAccountValueAccTextBox.Location = New System.Drawing.Point(468, 93)
         Me.ChangeValueIncreaseAccountValueAccTextBox.Name = "ChangeValueIncreaseAccountValueAccTextBox"
         Me.ChangeValueIncreaseAccountValueAccTextBox.ReadOnly = True
-        Me.ChangeValueIncreaseAccountValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.ChangeValueIncreaseAccountValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.ChangeValueIncreaseAccountValueAccTextBox.TabIndex = 15
         Me.ChangeValueIncreaseAccountValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'ChangeValueDecreaseAccountValueAccTextBox
         '
         Me.ChangeValueDecreaseAccountValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "ChangeValueDecreaseAccountValue", True))
-        Me.ChangeValueDecreaseAccountValueAccTextBox.Location = New System.Drawing.Point(477, 68)
+        Me.ChangeValueDecreaseAccountValueAccTextBox.Location = New System.Drawing.Point(468, 68)
         Me.ChangeValueDecreaseAccountValueAccTextBox.Name = "ChangeValueDecreaseAccountValueAccTextBox"
         Me.ChangeValueDecreaseAccountValueAccTextBox.ReadOnly = True
-        Me.ChangeValueDecreaseAccountValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.ChangeValueDecreaseAccountValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.ChangeValueDecreaseAccountValueAccTextBox.TabIndex = 11
         Me.ChangeValueDecreaseAccountValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -1022,30 +1028,30 @@ Partial Class BackgroundInfoPanel
         Me.ChangeAmortizationAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.ChangeAmortizationAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ChangeAmortizationAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.ChangeAmortizationAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(368, 43)
+        Me.ChangeAmortizationAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(362, 43)
         Me.ChangeAmortizationAccountValuePerUnitAccTextBox.Name = "ChangeAmortizationAccountValuePerUnitAccTextBox"
         Me.ChangeAmortizationAccountValuePerUnitAccTextBox.ReadOnly = True
-        Me.ChangeAmortizationAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.ChangeAmortizationAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.ChangeAmortizationAccountValuePerUnitAccTextBox.TabIndex = 9
         Me.ChangeAmortizationAccountValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'ChangeAmortizationAccountValueAccTextBox
         '
         Me.ChangeAmortizationAccountValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "ChangeAmortizationAccountValue", True))
-        Me.ChangeAmortizationAccountValueAccTextBox.Location = New System.Drawing.Point(477, 43)
+        Me.ChangeAmortizationAccountValueAccTextBox.Location = New System.Drawing.Point(468, 43)
         Me.ChangeAmortizationAccountValueAccTextBox.Name = "ChangeAmortizationAccountValueAccTextBox"
         Me.ChangeAmortizationAccountValueAccTextBox.ReadOnly = True
-        Me.ChangeAmortizationAccountValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.ChangeAmortizationAccountValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.ChangeAmortizationAccountValueAccTextBox.TabIndex = 7
         Me.ChangeAmortizationAccountValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'ChangeAcquisitionAccountValueAccTextBox
         '
         Me.ChangeAcquisitionAccountValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "ChangeAcquisitionAccountValue", True))
-        Me.ChangeAcquisitionAccountValueAccTextBox.Location = New System.Drawing.Point(477, 18)
+        Me.ChangeAcquisitionAccountValueAccTextBox.Location = New System.Drawing.Point(468, 18)
         Me.ChangeAcquisitionAccountValueAccTextBox.Name = "ChangeAcquisitionAccountValueAccTextBox"
         Me.ChangeAcquisitionAccountValueAccTextBox.ReadOnly = True
-        Me.ChangeAcquisitionAccountValueAccTextBox.Size = New System.Drawing.Size(82, 20)
+        Me.ChangeAcquisitionAccountValueAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.ChangeAcquisitionAccountValueAccTextBox.TabIndex = 3
         Me.ChangeAcquisitionAccountValueAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -1055,10 +1061,10 @@ Partial Class BackgroundInfoPanel
         Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(368, 18)
+        Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(362, 18)
         Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.Name = "ChangeAcquisitionAccountValuePerUnitAccTextBox"
         Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.ReadOnly = True
-        Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.TabIndex = 5
         Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -1068,10 +1074,10 @@ Partial Class BackgroundInfoPanel
         Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(368, 68)
+        Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(362, 68)
         Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.Name = "ChangeValueDecreaseAccountValuePerUnitAccTextBox"
         Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.ReadOnly = True
-        Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(83, 20)
+        Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.Size = New System.Drawing.Size(80, 20)
         Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.TabIndex = 13
         Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -1087,7 +1093,7 @@ Partial Class BackgroundInfoPanel
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.CurrentUsageTermMonthsTextBox, 4, 4)
         Me.TableLayoutPanel1.Controls.Add(CurrentUsageTermMonthsLabel, 3, 4)
         Me.TableLayoutPanel1.Controls.Add(Me.CurrentAmortizationPeriodTextBox, 1, 4)
@@ -1258,9 +1264,11 @@ Partial Class BackgroundInfoPanel
         Me.CurrentUsageStatusCheckBox.Text = "Eksploatuojama"
         Me.CurrentUsageStatusCheckBox.UseVisualStyleBackColor = True
         '
-        'OperationBackgroundBindingSource
+        'ErrorProvider1
         '
-        Me.OperationBackgroundBindingSource.DataSource = GetType(ApskaitaObjects.Assets.OperationBackground)
+        Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
+        Me.ErrorProvider1.ContainerControl = Me
+        Me.ErrorProvider1.DataSource = Me.OperationBackgroundBindingSource
         '
         'BackgroundInfoPanel
         '
@@ -1274,16 +1282,17 @@ Partial Class BackgroundInfoPanel
         Me.Panel1.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
+        CType(Me.OperationBackgroundBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
-        CType(Me.OperationBackgroundBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents AssetDateAcquiredDateTimePicker As System.Windows.Forms.DateTimePicker
-    Friend WithEvents OperationBackgroundBindingSource As System.Windows.Forms.BindingSource
+    Private WithEvents OperationBackgroundBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents CurrentUsageStatusCheckBox As System.Windows.Forms.CheckBox
     Friend WithEvents AssetLiquidationValueAccTextBox As AccControls.AccTextBox
     Friend WithEvents AssetMeasureUnitTextBox As System.Windows.Forms.TextBox
@@ -1341,5 +1350,6 @@ Partial Class BackgroundInfoPanel
     Friend WithEvents ChangeAssetAmountTextBox As System.Windows.Forms.TextBox
     Friend WithEvents CurrentUsageTermMonthsTextBox As System.Windows.Forms.TextBox
     Friend WithEvents CurrentAmortizationPeriodTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
 
 End Class

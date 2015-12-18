@@ -784,7 +784,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchLongTermAssetOperationInfoListParent</Key>
-    <Statement>SELECT t.Turtas, t.Vnt, t.Grupe, t.CustomGroupID, g.Name, t.InvNr, t.Isigijimo_dok, b.Op_data, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, t.Saskaita, t.AccountAmortization, t.AccountValueDecrease, t.AccountValueIncrease, t.AccountRevaluedPortionAmmortization, t.Likutine, t.DefaultAmortPeriod, t.Vnt_kaina, t.Kiekis, t.TotalValue, t.AcquisitionRevaluedPortionUnitValue, t.AcquisitionRevaluedPortionTotalValue, t.S_Amort, t.AccumulatedAmortizationPerUnit, t.AccumulatedAmortizationRevaluedPortionTotal, t.AccumulatedAmortizationRevaluedPortionPerUnit, t.ContinuedUsage, t.WasUsedMonths, t.InsertDate, t.UpdateDate FROM turtas t LEFT JOIN bz b ON b.Op_ID=t.Isigijimo_dok LEFT JOIN longtermassetcustomgroups g ON g.ID=t.CustomGroupID WHERE t.ID=?AD ;</Statement>
+    <Statement>SELECT t.Turtas, t.Vnt, t.Grupe, t.CustomGroupID, g.Name, t.InvNr, t.Isigijimo_dok, b.Op_data, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, t.Saskaita, t.AccountAmortization, t.AccountValueDecrease, t.AccountValueIncrease, t.AccountRevaluedPortionAmmortization, t.Likutine, t.DefaultAmortPeriod, t.Vnt_kaina, t.Kiekis, t.TotalValue, t.AcquisitionRevaluedPortionUnitValue, t.AcquisitionRevaluedPortionTotalValue, t.S_Amort, t.AccumulatedAmortizationPerUnit, t.AccumulatedAmortizationRevaluedPortionTotal, t.AccumulatedAmortizationRevaluedPortionPerUnit, t.ContinuedUsage, t.WasUsedMonths, t.InsertDate, t.UpdateDate, t.ID FROM turtas t LEFT JOIN bz b ON b.Op_ID=t.Isigijimo_dok LEFT JOIN longtermassetcustomgroups g ON g.ID=t.CustomGroupID WHERE t.ID=?AD ;</Statement>
     <Objects>Assets.LongTermAssetOperationInfoListParent, Assets.LongTermAsset</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3421,5 +3421,15 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
     <Key>FetchAssetOperationPersistenceObjectList</Key>
     <Statement>SELECT o.ID, o.T_ID, o.OperationType, o.AccountOperationType, o.OperationDate, o.IsComplexAct, o.Content, o.AccountCorresponding, o.ActNumber, o.UnitValueChange, o.AmmountChange, o.TotalValueChange, o.NewAmortizationPeriod, o.AmortizationCalculations, o.RevaluedPortionUnitValueChange, o.RevaluedPortionTotalValueChange, o.AcquisitionAccountChange, o.AcquisitionAccountChangePerUnit, o.AmortizationAccountChange, o.AmortizationAccountChangePerUnit, o.ValueDecreaseAccountChange, o.ValueDecreaseAccountChangePerUnit, o.ValueIncreaseAccountChange, o.ValueIncreaseAccountChangePerUnit, o.ValueIncreaseAmmortizationAccountChange, o.ValueIncreaseAmmortizationAccountChangePerUnit, o.AmortizationCalculatedForMonths, o.InsertDate, o.UpdateDate, IFNULL((SELECT COUNT(q.ID) FROM turtas_op q WHERE q.ID&lt;&gt;o.ID AND q.T_ID=o.T_ID AND q.OperationType='nau' AND q.OperationDate &lt; o.OperationDate), 0) + IFNULL((SELECT w.ContinuedUsage FROM turtas w WHERE w.ID=o.T_ID), 0) AS PreviousUsageCount, o.JE_ID, b.Op_ID, b.Op_Dok, b.Op_data, b.Op_turinys, b.Op_dok_rusis, p.ID, p.Pavad, p.Kodas, b.Op_korespond, (SELECT CROUND(IFNULL(SUM(d.Op_suma), 0) / 2, 2) FROM bzdata d WHERE d.Op_ID_BZ=b.Op_ID) AS SumBookEntries FROM turtas_op o LEFT JOIN bz b ON b.Op_ID=o.JE_ID LEFT JOIN asmenys p ON p.ID=b.Op_analitika WHERE o.IsComplexAct=?OD GROUP BY o.ID;</Statement>
     <Objects>Assets.OperationPersistenceObject</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchLongTermAssetList</Key>
+    <Statement>SELECT t.Turtas, t.Vnt, t.Grupe, t.CustomGroupID, g.Name, t.InvNr, t.Isigijimo_dok, b.Op_data, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, t.Saskaita, t.AccountAmortization, t.AccountValueDecrease, t.AccountValueIncrease, t.AccountRevaluedPortionAmmortization, t.Likutine, t.DefaultAmortPeriod, t.Vnt_kaina, t.Kiekis, t.TotalValue, t.AcquisitionRevaluedPortionUnitValue, t.AcquisitionRevaluedPortionTotalValue, t.S_Amort, t.AccumulatedAmortizationPerUnit, t.AccumulatedAmortizationRevaluedPortionTotal, t.AccumulatedAmortizationRevaluedPortionPerUnit, t.ContinuedUsage, t.WasUsedMonths, t.InsertDate, t.UpdateDate, t.ID FROM turtas t LEFT JOIN bz b ON b.Op_ID=t.Isigijimo_dok LEFT JOIN longtermassetcustomgroups g ON g.ID=t.CustomGroupID WHERE b.Op_dok_rusis='lik';</Statement>
+    <Objects>Assets.LongTermAssetList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchTransferOfBalanceData</Key>
+    <Statement>SELECT b.Op_ID, b.Op_data FROM bz b WHERE b.Op_dok_rusis='lik';</Statement>
+    <Objects>Assets.LongTermAssetsTransferOfBalance</Objects>
   </MySQL_Statement>
 </NewDataSet>

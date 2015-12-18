@@ -247,6 +247,24 @@
     <Compile Include="Assets\F_ComplexOperationAmortization.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Assets\F_ComplexOperationDiscard.Designer.vb">
+      <DependentUpon>F_ComplexOperationDiscard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\F_ComplexOperationDiscard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assets\F_ComplexOperationOperationalStatusChange.Designer.vb">
+      <DependentUpon>F_ComplexOperationOperationalStatusChange.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\F_ComplexOperationOperationalStatusChange.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assets\F_ComplexOperationValueChange.Designer.vb">
+      <DependentUpon>F_ComplexOperationValueChange.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\F_ComplexOperationValueChange.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Assets\F_LongTermAssetComplexDocument.Designer.vb">
       <DependentUpon>F_LongTermAssetComplexDocument.vb</DependentUpon>
     </Compile>
@@ -259,10 +277,58 @@
     <Compile Include="Assets\F_LongTermAssetComplexDocumentInfoList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Assets\F_LongTermAssetsTransferOfBalance.Designer.vb">
+      <DependentUpon>F_LongTermAssetsTransferOfBalance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\F_LongTermAssetsTransferOfBalance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assets\F_OperationAccountChange.Designer.vb">
+      <DependentUpon>F_OperationAccountChange.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\F_OperationAccountChange.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assets\F_OperationAcquisitionValueIncrease.Designer.vb">
+      <DependentUpon>F_OperationAcquisitionValueIncrease.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\F_OperationAcquisitionValueIncrease.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Assets\F_OperationAmortization.Designer.vb">
       <DependentUpon>F_OperationAmortization.vb</DependentUpon>
     </Compile>
     <Compile Include="Assets\F_OperationAmortization.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assets\F_OperationAmortizationPeriodChange.Designer.vb">
+      <DependentUpon>F_OperationAmortizationPeriodChange.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\F_OperationAmortizationPeriodChange.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assets\F_OperationDiscard.Designer.vb">
+      <DependentUpon>F_OperationDiscard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\F_OperationDiscard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assets\F_OperationOperationalStatusChange.Designer.vb">
+      <DependentUpon>F_OperationOperationalStatusChange.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\F_OperationOperationalStatusChange.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assets\F_OperationTransfer.Designer.vb">
+      <DependentUpon>F_OperationTransfer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\F_OperationTransfer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assets\F_OperationValueChange.Designer.vb">
+      <DependentUpon>F_OperationValueChange.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\F_OperationValueChange.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Constants.vb" />
@@ -935,6 +1001,15 @@
     <EmbeddedResource Include="Assets\F_ComplexOperationAmortization.resx">
       <DependentUpon>F_ComplexOperationAmortization.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Assets\F_ComplexOperationDiscard.resx">
+      <DependentUpon>F_ComplexOperationDiscard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\F_ComplexOperationOperationalStatusChange.resx">
+      <DependentUpon>F_ComplexOperationOperationalStatusChange.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\F_ComplexOperationValueChange.resx">
+      <DependentUpon>F_ComplexOperationValueChange.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assets\F_LongTermAssetComplexDocument.resx">
       <SubType>Designer</SubType>
       <DependentUpon>F_LongTermAssetComplexDocument.vb</DependentUpon>
@@ -943,8 +1018,32 @@
       <SubType>Designer</SubType>
       <DependentUpon>F_LongTermAssetComplexDocumentInfoList.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Assets\F_LongTermAssetsTransferOfBalance.resx">
+      <DependentUpon>F_LongTermAssetsTransferOfBalance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\F_OperationAccountChange.resx">
+      <DependentUpon>F_OperationAccountChange.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\F_OperationAcquisitionValueIncrease.resx">
+      <DependentUpon>F_OperationAcquisitionValueIncrease.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assets\F_OperationAmortization.resx">
       <DependentUpon>F_OperationAmortization.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\F_OperationAmortizationPeriodChange.resx">
+      <DependentUpon>F_OperationAmortizationPeriodChange.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\F_OperationDiscard.resx">
+      <DependentUpon>F_OperationDiscard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\F_OperationOperationalStatusChange.resx">
+      <DependentUpon>F_OperationOperationalStatusChange.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\F_OperationTransfer.resx">
+      <DependentUpon>F_OperationTransfer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\F_OperationValueChange.resx">
+      <DependentUpon>F_OperationValueChange.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Documents\F_AccumulativeCosts.resx">
       <SubType>Designer</SubType>
@@ -1664,13 +1763,23 @@
     <None Include="My Project\DataSources\ApskaitaObjects.Administration.User.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Administration.UserList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.ComplexOperationAmortization.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.ComplexOperationDiscard.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.ComplexOperationOperationalStatusChange.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.ComplexOperationValueChange.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAsset.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetComplexDocument.datasource" />
-    <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetComplexDocumentInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetCustomGroupList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetOperation.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetsTransferOfBalance.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationAccountChange.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationAcquisitionValueIncrease.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationAmortization.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationAmortizationPeriodChange.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationBackground.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationDiscard.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationOperationalStatusChange.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationTransfer.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationValueChange.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Documents.AccumulativeCosts.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Documents.AdvanceReport.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Documents.BankOperation.datasource" />

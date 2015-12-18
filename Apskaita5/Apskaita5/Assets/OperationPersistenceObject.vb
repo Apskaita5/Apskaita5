@@ -758,10 +758,12 @@
         ''' </summary>
         ''' <param name="operationID">An ID of the operation to get.</param>
         ''' <param name="expectedType">An operation type that the parent long term asset operation expects to get.</param>
+        ''' <param name="throwOnTypeMismatch">Whether to throw an exception if the operation type is not of expectedType.</param>
         ''' <remarks></remarks>
         Friend Shared Function GetOperationPersistenceObject(ByVal operationID As Integer, _
-            ByVal expectedType As LtaOperationType) As OperationPersistenceObject
-            Return New OperationPersistenceObject(operationID, expectedType)
+            ByVal expectedType As LtaOperationType, _
+            Optional ByVal throwOnTypeMismatch As Boolean = True) As OperationPersistenceObject
+            Return New OperationPersistenceObject(operationID, expectedType, throwOnTypeMismatch)
         End Function
 
         ''' <summary>
@@ -770,9 +772,11 @@
         ''' </summary>
         ''' <param name="complexOperationID">An ID of the complex operation.</param>
         ''' <param name="expectedType">An operation type that the parent long term asset operation expects to get.</param>
+        ''' <param name="throwOnTypeMismatch">Whether to throw an exception if the operation type is not of expectedType.</param>
         ''' <remarks></remarks>
         Friend Shared Function GetOperationPersistenceObjectList(ByVal complexOperationID As Integer, _
-            ByVal expectedType As LtaOperationType) As List(Of OperationPersistenceObject)
+            ByVal expectedType As LtaOperationType, _
+            Optional ByVal throwOnTypeMismatch As Boolean = True) As List(Of OperationPersistenceObject)
 
             If Not complexOperationID > 0 Then
                 Throw New Exception(My.Resources.Assets_OperationPersistenceObject_IdNull)
@@ -793,10 +797,12 @@
                     result.Add(New OperationPersistenceObject(dr))
                 Next
 
-                If expectedType <> result(0).OperationType Then Throw New Exception(String.Format( _
-                    My.Resources.Assets_OperationPersistenceObject_UnexpectedType, complexOperationID.ToString(), _
-                    EnumValueAttribute.ConvertLocalizedName(expectedType), _
-                    EnumValueAttribute.ConvertLocalizedName(result(0).OperationType)))
+                If throwOnTypeMismatch AndAlso expectedType <> result(0).OperationType Then
+                    Throw New Exception(String.Format( _
+                        My.Resources.Assets_OperationPersistenceObject_UnexpectedType, complexOperationID.ToString(), _
+                        EnumValueAttribute.ConvertLocalizedName(expectedType), _
+                        EnumValueAttribute.ConvertLocalizedName(result(0).OperationType)))
+                End If
 
             End Using
 
@@ -813,8 +819,9 @@
             Create(newOperationType, parentAssetID)
         End Sub
 
-        Private Sub New(ByVal operationID As Integer, ByVal expectedType As LtaOperationType)
-            Fetch(operationID, expectedType)
+        Private Sub New(ByVal operationID As Integer, ByVal expectedType As LtaOperationType, _
+            ByVal throwOnTypeMismatch As Boolean)
+            Fetch(operationID, expectedType, throwOnTypeMismatch)
         End Sub
 
         Private Sub New(ByVal dr As DataRow)
@@ -830,7 +837,8 @@
             _AssetID = parentAssetID
         End Sub
 
-        Private Sub Fetch(ByVal operationID As Integer, ByVal expectedType As LtaOperationType)
+        Private Sub Fetch(ByVal operationID As Integer, ByVal expectedType As LtaOperationType, _
+            ByVal throwOnTypeMismatch As Boolean)
 
             If Not operationID > 0 Then
                 Throw New Exception(My.Resources.Assets_OperationPersistenceObject_IdNull)
@@ -847,7 +855,7 @@
 
                 Fetch(myData.Rows(0))
 
-                If Not OperationTypesMatch(expectedType, _OperationType) Then
+                If throwOnTypeMismatch AndAlso Not OperationTypesMatch(expectedType, _OperationType) Then
                     Throw New Exception(String.Format(My.Resources.Assets_OperationPersistenceObject_UnexpectedType, _
                         _ID.ToString(), EnumValueAttribute.ConvertLocalizedName(expectedType), _
                         EnumValueAttribute.ConvertLocalizedName(_OperationType)))
@@ -862,7 +870,9 @@
             _ID = CIntSafe(dr.Item(0), 0)
             _AssetID = CIntSafe(dr.Item(1), 0)
             _OperationType = EnumValueAttribute.ConvertDatabaseCharID(Of LtaOperationType)(CStrSafe(dr.Item(2)))
-            _AccountOperationType = EnumValueAttribute.ConvertDatabaseCharID(Of LtaAccountChangeType)(CStrSafe(dr.Item(3)))
+            If _OperationType = LtaOperationType.AccountChange Then
+                _AccountOperationType = EnumValueAttribute.ConvertDatabaseCharID(Of LtaAccountChangeType)(CStrSafe(dr.Item(3)))
+            End If
             _OperationDate = CDateSafe(dr.Item(4), Today)
             _ComplexActID = CIntSafe(dr.Item(5), 0)
             _IsComplexAct = (_ComplexActID > 0)
@@ -974,6 +984,9 @@
         ''' <remarks></remarks>
         Friend Shared Function GetOperationIdByJournalEntry(ByVal journalEntryID As Integer) As Integer
 
+            If Not journalEntryID > 0 Then Throw New Exception( _
+                My.Resources.Assets_OperationPersistenceObject_JournalEntryIdNull)
+
             Dim myComm As New SQLCommand("FetchLongTermAssetOperationIdByJournalEntryId")
             myComm.AddParam("?JD", journalEntryID)
 
@@ -996,6 +1009,9 @@
         ''' <param name="journalEntryID">A journal entry ID to find a complex operation ID by.</param>
         ''' <remarks></remarks>
         Friend Shared Function GetComplexOperationIdByJournalEntry(ByVal journalEntryID As Integer) As Integer
+
+            If Not journalEntryID > 0 Then Throw New Exception( _
+                My.Resources.Assets_OperationPersistenceObject_JournalEntryIdNull)
 
             Dim myComm As New SQLCommand("FetchLongTermAssetComplexOperationIdByJournalEntryId")
             myComm.AddParam("?JD", journalEntryID)

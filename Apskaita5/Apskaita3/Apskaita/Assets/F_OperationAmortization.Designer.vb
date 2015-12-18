@@ -25,7 +25,6 @@ Partial Class F_OperationAmortization
         Me.components = New System.ComponentModel.Container
         Dim ContentLabel As System.Windows.Forms.Label
         Dim AccountCostsLabel As System.Windows.Forms.Label
-        Dim AmortizationCalculationsLabel As System.Windows.Forms.Label
         Dim DateLabel As System.Windows.Forms.Label
         Dim DocumentNumberLabel As System.Windows.Forms.Label
         Dim IDLabel As System.Windows.Forms.Label
@@ -36,6 +35,7 @@ Partial Class F_OperationAmortization
         Dim UnitValueChangeLabel As System.Windows.Forms.Label
         Dim RevaluedPortionUnitValueChangeLabel As System.Windows.Forms.Label
         Dim AmortizationCalculatedForMonthsLabel As System.Windows.Forms.Label
+        Dim AmortizationCalculationsLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_OperationAmortization))
         Me.Panel2 = New System.Windows.Forms.Panel
         Me.nCancelButton = New System.Windows.Forms.Button
@@ -43,9 +43,10 @@ Partial Class F_OperationAmortization
         Me.nOkButton = New System.Windows.Forms.Button
         Me.LimitationsButton = New System.Windows.Forms.Button
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
+        Me.AmortizationCalculationsTextBox = New System.Windows.Forms.TextBox
+        Me.OperationAmortizationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CalculateAmortizationButton = New System.Windows.Forms.Button
         Me.AmortizationCalculatedForMonthsAccTextBox = New AccControls.AccTextBox
-        Me.OperationAmortizationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ViewJournalEntryButton = New System.Windows.Forms.Button
         Me.RevaluedPortionUnitValueChangeAccTextBox = New AccControls.AccTextBox
         Me.UnitValueChangeAccTextBox = New AccControls.AccTextBox
@@ -58,16 +59,13 @@ Partial Class F_OperationAmortization
         Me.InsertDateTextBox = New System.Windows.Forms.TextBox
         Me.DocumentNumberTextBox = New System.Windows.Forms.TextBox
         Me.TotalValueChangeAccTextBox = New AccControls.AccTextBox
-        Me.AmortizationCalculationsTextBox = New System.Windows.Forms.TextBox
         Me.BackgroundInfoPanel1 = New ApskaitaWUI.BackgroundInfoPanel
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.TabPage1 = New System.Windows.Forms.TabPage
         Me.TabPage2 = New System.Windows.Forms.TabPage
-        Me.TabPage3 = New System.Windows.Forms.TabPage
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         ContentLabel = New System.Windows.Forms.Label
         AccountCostsLabel = New System.Windows.Forms.Label
-        AmortizationCalculationsLabel = New System.Windows.Forms.Label
         DateLabel = New System.Windows.Forms.Label
         DocumentNumberLabel = New System.Windows.Forms.Label
         IDLabel = New System.Windows.Forms.Label
@@ -78,13 +76,13 @@ Partial Class F_OperationAmortization
         UnitValueChangeLabel = New System.Windows.Forms.Label
         RevaluedPortionUnitValueChangeLabel = New System.Windows.Forms.Label
         AmortizationCalculatedForMonthsLabel = New System.Windows.Forms.Label
+        AmortizationCalculationsLabel = New System.Windows.Forms.Label
         Me.Panel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.OperationAmortizationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -113,17 +111,6 @@ Partial Class F_OperationAmortization
         AccountCostsLabel.TabIndex = 6
         AccountCostsLabel.Text = "Sąnaudų Sąsk.:"
         AccountCostsLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'AmortizationCalculationsLabel
-        '
-        AmortizationCalculationsLabel.AutoSize = True
-        AmortizationCalculationsLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        AmortizationCalculationsLabel.Location = New System.Drawing.Point(5, 13)
-        AmortizationCalculationsLabel.Name = "AmortizationCalculationsLabel"
-        AmortizationCalculationsLabel.Size = New System.Drawing.Size(82, 13)
-        AmortizationCalculationsLabel.TabIndex = 8
-        AmortizationCalculationsLabel.Text = "Skaičiavimai:"
-        AmortizationCalculationsLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'DateLabel
         '
@@ -255,6 +242,19 @@ Partial Class F_OperationAmortization
         AmortizationCalculatedForMonthsLabel.Text = "Už mėn.:"
         AmortizationCalculatedForMonthsLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
+        'AmortizationCalculationsLabel
+        '
+        AmortizationCalculationsLabel.AutoSize = True
+        AmortizationCalculationsLabel.Dock = System.Windows.Forms.DockStyle.Fill
+        AmortizationCalculationsLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        AmortizationCalculationsLabel.Location = New System.Drawing.Point(3, 125)
+        AmortizationCalculationsLabel.Name = "AmortizationCalculationsLabel"
+        AmortizationCalculationsLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
+        AmortizationCalculationsLabel.Size = New System.Drawing.Size(139, 226)
+        AmortizationCalculationsLabel.TabIndex = 22
+        AmortizationCalculationsLabel.Text = "Skaičiavimai:"
+        AmortizationCalculationsLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
         'Panel2
         '
         Me.Panel2.AutoSize = True
@@ -267,7 +267,7 @@ Partial Class F_OperationAmortization
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Padding = New System.Windows.Forms.Padding(0, 0, 0, 4)
         Me.Panel2.Size = New System.Drawing.Size(805, 44)
-        Me.Panel2.TabIndex = 2
+        Me.Panel2.TabIndex = 1
         '
         'nCancelButton
         '
@@ -277,7 +277,7 @@ Partial Class F_OperationAmortization
         Me.nCancelButton.Location = New System.Drawing.Point(718, 12)
         Me.nCancelButton.Name = "nCancelButton"
         Me.nCancelButton.Size = New System.Drawing.Size(75, 23)
-        Me.nCancelButton.TabIndex = 2
+        Me.nCancelButton.TabIndex = 3
         Me.nCancelButton.Text = "Atšaukti"
         Me.nCancelButton.UseVisualStyleBackColor = True
         '
@@ -288,7 +288,7 @@ Partial Class F_OperationAmortization
         Me.ApplyButton.Location = New System.Drawing.Point(637, 12)
         Me.ApplyButton.Name = "ApplyButton"
         Me.ApplyButton.Size = New System.Drawing.Size(75, 23)
-        Me.ApplyButton.TabIndex = 1
+        Me.ApplyButton.TabIndex = 2
         Me.ApplyButton.Text = "Taikyti"
         Me.ApplyButton.UseVisualStyleBackColor = True
         '
@@ -299,7 +299,7 @@ Partial Class F_OperationAmortization
         Me.nOkButton.Location = New System.Drawing.Point(556, 12)
         Me.nOkButton.Name = "nOkButton"
         Me.nOkButton.Size = New System.Drawing.Size(75, 23)
-        Me.nOkButton.TabIndex = 0
+        Me.nOkButton.TabIndex = 1
         Me.nOkButton.Text = "OK"
         Me.nOkButton.UseVisualStyleBackColor = True
         '
@@ -309,7 +309,7 @@ Partial Class F_OperationAmortization
         Me.LimitationsButton.Location = New System.Drawing.Point(12, 9)
         Me.LimitationsButton.Name = "LimitationsButton"
         Me.LimitationsButton.Size = New System.Drawing.Size(28, 28)
-        Me.LimitationsButton.TabIndex = 20
+        Me.LimitationsButton.TabIndex = 0
         Me.LimitationsButton.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel1
@@ -324,6 +324,8 @@ Partial Class F_OperationAmortization
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.AmortizationCalculationsTextBox, 1, 5)
+        Me.TableLayoutPanel1.Controls.Add(AmortizationCalculationsLabel, 0, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.CalculateAmortizationButton, 6, 4)
         Me.TableLayoutPanel1.Controls.Add(Me.AmortizationCalculatedForMonthsAccTextBox, 7, 3)
         Me.TableLayoutPanel1.Controls.Add(AmortizationCalculatedForMonthsLabel, 6, 3)
@@ -361,7 +363,24 @@ Partial Class F_OperationAmortization
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(791, 351)
-        Me.TableLayoutPanel1.TabIndex = 4
+        Me.TableLayoutPanel1.TabIndex = 0
+        '
+        'AmortizationCalculationsTextBox
+        '
+        Me.TableLayoutPanel1.SetColumnSpan(Me.AmortizationCalculationsTextBox, 7)
+        Me.AmortizationCalculationsTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationAmortizationBindingSource, "AmortizationCalculations", True))
+        Me.AmortizationCalculationsTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AmortizationCalculationsTextBox.Location = New System.Drawing.Point(148, 128)
+        Me.AmortizationCalculationsTextBox.MaxLength = 1000
+        Me.AmortizationCalculationsTextBox.Multiline = True
+        Me.AmortizationCalculationsTextBox.Name = "AmortizationCalculationsTextBox"
+        Me.AmortizationCalculationsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.AmortizationCalculationsTextBox.Size = New System.Drawing.Size(619, 220)
+        Me.AmortizationCalculationsTextBox.TabIndex = 10
+        '
+        'OperationAmortizationBindingSource
+        '
+        Me.OperationAmortizationBindingSource.DataSource = GetType(ApskaitaObjects.Assets.OperationAmortization)
         '
         'CalculateAmortizationButton
         '
@@ -371,7 +390,7 @@ Partial Class F_OperationAmortization
         Me.CalculateAmortizationButton.Margin = New System.Windows.Forms.Padding(0)
         Me.CalculateAmortizationButton.Name = "CalculateAmortizationButton"
         Me.CalculateAmortizationButton.Size = New System.Drawing.Size(101, 23)
-        Me.CalculateAmortizationButton.TabIndex = 21
+        Me.CalculateAmortizationButton.TabIndex = 9
         Me.CalculateAmortizationButton.Text = "Paskaičiuoti"
         Me.CalculateAmortizationButton.UseVisualStyleBackColor = True
         '
@@ -385,12 +404,8 @@ Partial Class F_OperationAmortization
         Me.AmortizationCalculatedForMonthsAccTextBox.Name = "AmortizationCalculatedForMonthsAccTextBox"
         Me.AmortizationCalculatedForMonthsAccTextBox.NegativeValue = False
         Me.AmortizationCalculatedForMonthsAccTextBox.Size = New System.Drawing.Size(132, 20)
-        Me.AmortizationCalculatedForMonthsAccTextBox.TabIndex = 21
+        Me.AmortizationCalculatedForMonthsAccTextBox.TabIndex = 6
         Me.AmortizationCalculatedForMonthsAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'OperationAmortizationBindingSource
-        '
-        Me.OperationAmortizationBindingSource.DataSource = GetType(ApskaitaObjects.Assets.OperationAmortization)
         '
         'ViewJournalEntryButton
         '
@@ -411,7 +426,7 @@ Partial Class F_OperationAmortization
         Me.RevaluedPortionUnitValueChangeAccTextBox.Location = New System.Drawing.Point(374, 103)
         Me.RevaluedPortionUnitValueChangeAccTextBox.Name = "RevaluedPortionUnitValueChangeAccTextBox"
         Me.RevaluedPortionUnitValueChangeAccTextBox.Size = New System.Drawing.Size(132, 20)
-        Me.RevaluedPortionUnitValueChangeAccTextBox.TabIndex = 6
+        Me.RevaluedPortionUnitValueChangeAccTextBox.TabIndex = 8
         Me.RevaluedPortionUnitValueChangeAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'UnitValueChangeAccTextBox
@@ -433,7 +448,7 @@ Partial Class F_OperationAmortization
         Me.RevaluedPortionTotalValueChangeAccTextBox.Location = New System.Drawing.Point(148, 103)
         Me.RevaluedPortionTotalValueChangeAccTextBox.Name = "RevaluedPortionTotalValueChangeAccTextBox"
         Me.RevaluedPortionTotalValueChangeAccTextBox.Size = New System.Drawing.Size(132, 20)
-        Me.RevaluedPortionTotalValueChangeAccTextBox.TabIndex = 11
+        Me.RevaluedPortionTotalValueChangeAccTextBox.TabIndex = 7
         Me.RevaluedPortionTotalValueChangeAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'UpdateDateTextBox
@@ -456,7 +471,7 @@ Partial Class F_OperationAmortization
         Me.ContentTextBox.MaxLength = 255
         Me.ContentTextBox.Name = "ContentTextBox"
         Me.ContentTextBox.Size = New System.Drawing.Size(619, 20)
-        Me.ContentTextBox.TabIndex = 6
+        Me.ContentTextBox.TabIndex = 3
         '
         'AccountCostsAccGridComboBox
         '
@@ -469,7 +484,7 @@ Partial Class F_OperationAmortization
         Me.AccountCostsAccGridComboBox.Location = New System.Drawing.Point(635, 28)
         Me.AccountCostsAccGridComboBox.Name = "AccountCostsAccGridComboBox"
         Me.AccountCostsAccGridComboBox.Size = New System.Drawing.Size(132, 21)
-        Me.AccountCostsAccGridComboBox.TabIndex = 7
+        Me.AccountCostsAccGridComboBox.TabIndex = 2
         '
         'DateDateTimePicker
         '
@@ -479,7 +494,7 @@ Partial Class F_OperationAmortization
         Me.DateDateTimePicker.Location = New System.Drawing.Point(148, 28)
         Me.DateDateTimePicker.Name = "DateDateTimePicker"
         Me.DateDateTimePicker.Size = New System.Drawing.Size(132, 20)
-        Me.DateDateTimePicker.TabIndex = 10
+        Me.DateDateTimePicker.TabIndex = 0
         '
         'IDTextBox
         '
@@ -511,7 +526,7 @@ Partial Class F_OperationAmortization
         Me.DocumentNumberTextBox.MaxLength = 30
         Me.DocumentNumberTextBox.Name = "DocumentNumberTextBox"
         Me.DocumentNumberTextBox.Size = New System.Drawing.Size(132, 20)
-        Me.DocumentNumberTextBox.TabIndex = 12
+        Me.DocumentNumberTextBox.TabIndex = 1
         Me.DocumentNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'TotalValueChangeAccTextBox
@@ -522,22 +537,8 @@ Partial Class F_OperationAmortization
         Me.TotalValueChangeAccTextBox.Location = New System.Drawing.Point(148, 78)
         Me.TotalValueChangeAccTextBox.Name = "TotalValueChangeAccTextBox"
         Me.TotalValueChangeAccTextBox.Size = New System.Drawing.Size(132, 20)
-        Me.TotalValueChangeAccTextBox.TabIndex = 10
+        Me.TotalValueChangeAccTextBox.TabIndex = 4
         Me.TotalValueChangeAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'AmortizationCalculationsTextBox
-        '
-        Me.AmortizationCalculationsTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AmortizationCalculationsTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationAmortizationBindingSource, "AmortizationCalculations", True))
-        Me.AmortizationCalculationsTextBox.Location = New System.Drawing.Point(93, 10)
-        Me.AmortizationCalculationsTextBox.MaxLength = 1000
-        Me.AmortizationCalculationsTextBox.Multiline = True
-        Me.AmortizationCalculationsTextBox.Name = "AmortizationCalculationsTextBox"
-        Me.AmortizationCalculationsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.AmortizationCalculationsTextBox.Size = New System.Drawing.Size(675, 328)
-        Me.AmortizationCalculationsTextBox.TabIndex = 9
         '
         'BackgroundInfoPanel1
         '
@@ -552,13 +553,12 @@ Partial Class F_OperationAmortization
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(805, 383)
-        Me.TabControl1.TabIndex = 5
+        Me.TabControl1.TabIndex = 0
         '
         'TabPage1
         '
@@ -581,17 +581,6 @@ Partial Class F_OperationAmortization
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Turto duomenys"
         Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'TabPage3
-        '
-        Me.TabPage3.Controls.Add(AmortizationCalculationsLabel)
-        Me.TabPage3.Controls.Add(Me.AmortizationCalculationsTextBox)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(797, 357)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Paskaičiavimo aprašymas"
-        Me.TabPage3.UseVisualStyleBackColor = True
         '
         'ErrorProvider1
         '
@@ -617,8 +606,6 @@ Partial Class F_OperationAmortization
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
-        Me.TabPage3.ResumeLayout(False)
-        Me.TabPage3.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -650,6 +637,5 @@ Partial Class F_OperationAmortization
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents ErrorProvider1 As System.Windows.Forms.ErrorProvider
 End Class

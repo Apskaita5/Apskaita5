@@ -66,6 +66,14 @@ Partial Class F_ComplexOperationAmortization
         Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle37 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle38 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle39 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle40 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle41 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle42 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle43 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle44 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_ComplexOperationAmortization))
         Me.Panel2 = New System.Windows.Forms.Panel
         Me.nCancelButton = New System.Windows.Forms.Button
@@ -87,6 +95,7 @@ Partial Class F_ComplexOperationAmortization
         Me.DateDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.ItemsSortedBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ItemsDataGridView = New System.Windows.Forms.DataGridView
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -124,6 +133,14 @@ Partial Class F_ComplexOperationAmortization
         Me.AmortizationCalculationsDataGridViewColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.AccountCostsDataGridViewColumn = New AccControls.DataGridViewAccGridComboBoxColumn
         Me.AmortizationCalculatedForMonthsDataGridViewColumn = New AccControls.DataGridViewAccTextBoxColumn
+        Me.ChangeAmortizationAccountValueDataGridViewColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ChangeAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ChangeValueIncreaseAmortizationAccountValueChangeAmortizationAccountValueDataGridViewColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ChangeValueIncreaseAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ChangeAssetValueDataGridViewColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ChangeAssetUnitValueDataGridViewColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ChangeAssetRevaluedPortionValueDataGridViewColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ChangeAssetRevaluedPortionUnitValueDataGridViewColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn36 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn37 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn38 = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -138,7 +155,6 @@ Partial Class F_ComplexOperationAmortization
         Me.DataGridViewTextBoxColumn47 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn48 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn49 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         IDLabel = New System.Windows.Forms.Label
         InsertDateLabel = New System.Windows.Forms.Label
         UpdateDateLabel = New System.Windows.Forms.Label
@@ -258,7 +274,7 @@ Partial Class F_ComplexOperationAmortization
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Padding = New System.Windows.Forms.Padding(0, 0, 0, 4)
         Me.Panel2.Size = New System.Drawing.Size(804, 44)
-        Me.Panel2.TabIndex = 3
+        Me.Panel2.TabIndex = 2
         '
         'nCancelButton
         '
@@ -268,7 +284,7 @@ Partial Class F_ComplexOperationAmortization
         Me.nCancelButton.Location = New System.Drawing.Point(717, 12)
         Me.nCancelButton.Name = "nCancelButton"
         Me.nCancelButton.Size = New System.Drawing.Size(75, 23)
-        Me.nCancelButton.TabIndex = 2
+        Me.nCancelButton.TabIndex = 3
         Me.nCancelButton.Text = "Atšaukti"
         Me.nCancelButton.UseVisualStyleBackColor = True
         '
@@ -279,7 +295,7 @@ Partial Class F_ComplexOperationAmortization
         Me.ApplyButton.Location = New System.Drawing.Point(636, 12)
         Me.ApplyButton.Name = "ApplyButton"
         Me.ApplyButton.Size = New System.Drawing.Size(75, 23)
-        Me.ApplyButton.TabIndex = 1
+        Me.ApplyButton.TabIndex = 2
         Me.ApplyButton.Text = "Taikyti"
         Me.ApplyButton.UseVisualStyleBackColor = True
         '
@@ -290,7 +306,7 @@ Partial Class F_ComplexOperationAmortization
         Me.nOkButton.Location = New System.Drawing.Point(555, 12)
         Me.nOkButton.Name = "nOkButton"
         Me.nOkButton.Size = New System.Drawing.Size(75, 23)
-        Me.nOkButton.TabIndex = 0
+        Me.nOkButton.TabIndex = 1
         Me.nOkButton.Text = "OK"
         Me.nOkButton.UseVisualStyleBackColor = True
         '
@@ -300,7 +316,7 @@ Partial Class F_ComplexOperationAmortization
         Me.LimitationsButton.Location = New System.Drawing.Point(12, 9)
         Me.LimitationsButton.Name = "LimitationsButton"
         Me.LimitationsButton.Size = New System.Drawing.Size(28, 28)
-        Me.LimitationsButton.TabIndex = 20
+        Me.LimitationsButton.TabIndex = 0
         Me.LimitationsButton.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel1
@@ -340,7 +356,7 @@ Partial Class F_ComplexOperationAmortization
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(804, 110)
-        Me.TableLayoutPanel1.TabIndex = 4
+        Me.TableLayoutPanel1.TabIndex = 0
         '
         'ViewJournalEntryButton
         '
@@ -350,7 +366,7 @@ Partial Class F_ComplexOperationAmortization
         Me.ViewJournalEntryButton.Margin = New System.Windows.Forms.Padding(0)
         Me.ViewJournalEntryButton.Name = "ViewJournalEntryButton"
         Me.ViewJournalEntryButton.Size = New System.Drawing.Size(24, 24)
-        Me.ViewJournalEntryButton.TabIndex = 20
+        Me.ViewJournalEntryButton.TabIndex = 4
         Me.ViewJournalEntryButton.UseVisualStyleBackColor = True
         '
         'Panel1
@@ -363,7 +379,7 @@ Partial Class F_ComplexOperationAmortization
         Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(804, 32)
-        Me.Panel1.TabIndex = 7
+        Me.Panel1.TabIndex = 3
         '
         'AddItemsButton
         '
@@ -373,7 +389,7 @@ Partial Class F_ComplexOperationAmortization
         Me.AddItemsButton.Location = New System.Drawing.Point(636, 3)
         Me.AddItemsButton.Name = "AddItemsButton"
         Me.AddItemsButton.Size = New System.Drawing.Size(53, 23)
-        Me.AddItemsButton.TabIndex = 5
+        Me.AddItemsButton.TabIndex = 0
         Me.AddItemsButton.Text = "Pridėti"
         Me.AddItemsButton.UseVisualStyleBackColor = True
         '
@@ -385,7 +401,7 @@ Partial Class F_ComplexOperationAmortization
         Me.GetCalculationsButton.Location = New System.Drawing.Point(706, 3)
         Me.GetCalculationsButton.Name = "GetCalculationsButton"
         Me.GetCalculationsButton.Size = New System.Drawing.Size(86, 23)
-        Me.GetCalculationsButton.TabIndex = 6
+        Me.GetCalculationsButton.TabIndex = 1
         Me.GetCalculationsButton.Text = "Paskaičiuoti"
         Me.GetCalculationsButton.UseVisualStyleBackColor = True
         '
@@ -398,7 +414,7 @@ Partial Class F_ComplexOperationAmortization
         Me.ContentTextBox.MaxLength = 255
         Me.ContentTextBox.Name = "ContentTextBox"
         Me.ContentTextBox.Size = New System.Drawing.Size(699, 20)
-        Me.ContentTextBox.TabIndex = 14
+        Me.ContentTextBox.TabIndex = 2
         '
         'ComplexOperationAmortizationBindingSource
         '
@@ -414,6 +430,7 @@ Partial Class F_ComplexOperationAmortization
         Me.TotalValueChangeAccTextBox.ReadOnly = True
         Me.TotalValueChangeAccTextBox.Size = New System.Drawing.Size(168, 20)
         Me.TotalValueChangeAccTextBox.TabIndex = 15
+        Me.TotalValueChangeAccTextBox.TabStop = False
         Me.TotalValueChangeAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'IDTextBox
@@ -425,6 +442,7 @@ Partial Class F_ComplexOperationAmortization
         Me.IDTextBox.ReadOnly = True
         Me.IDTextBox.Size = New System.Drawing.Size(168, 20)
         Me.IDTextBox.TabIndex = 6
+        Me.IDTextBox.TabStop = False
         Me.IDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'InsertDateTextBox
@@ -436,6 +454,7 @@ Partial Class F_ComplexOperationAmortization
         Me.InsertDateTextBox.ReadOnly = True
         Me.InsertDateTextBox.Size = New System.Drawing.Size(168, 20)
         Me.InsertDateTextBox.TabIndex = 7
+        Me.InsertDateTextBox.TabStop = False
         Me.InsertDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'DocumentNumberTextBox
@@ -446,7 +465,7 @@ Partial Class F_ComplexOperationAmortization
         Me.DocumentNumberTextBox.MaxLength = 30
         Me.DocumentNumberTextBox.Name = "DocumentNumberTextBox"
         Me.DocumentNumberTextBox.Size = New System.Drawing.Size(168, 20)
-        Me.DocumentNumberTextBox.TabIndex = 12
+        Me.DocumentNumberTextBox.TabIndex = 1
         Me.DocumentNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'UpdateDateTextBox
@@ -458,6 +477,7 @@ Partial Class F_ComplexOperationAmortization
         Me.UpdateDateTextBox.ReadOnly = True
         Me.UpdateDateTextBox.Size = New System.Drawing.Size(168, 20)
         Me.UpdateDateTextBox.TabIndex = 8
+        Me.UpdateDateTextBox.TabStop = False
         Me.UpdateDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'DateDateTimePicker
@@ -468,7 +488,7 @@ Partial Class F_ComplexOperationAmortization
         Me.DateDateTimePicker.Location = New System.Drawing.Point(80, 29)
         Me.DateDateTimePicker.Name = "DateDateTimePicker"
         Me.DateDateTimePicker.Size = New System.Drawing.Size(168, 20)
-        Me.DateDateTimePicker.TabIndex = 10
+        Me.DateDateTimePicker.TabIndex = 0
         '
         'ItemsSortedBindingSource
         '
@@ -490,14 +510,20 @@ Partial Class F_ComplexOperationAmortization
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.ItemsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.ItemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ItemsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn35, Me.DataGridViewCheckBoxColumn2, Me.DataGridViewTextBoxColumn34, Me.DataGridViewTextBoxColumn29, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27, Me.DataGridViewTextBoxColumn28, Me.DataGridViewTextBoxColumn30, Me.DataGridViewTextBoxColumn31, Me.DataGridViewTextBoxColumn32, Me.DataGridViewTextBoxColumn33, Me.TotalValueChangeDataGridViewColumn, Me.UnitValueChangeDataGridViewColumn, Me.RevaluedPortionTotalValueChangeDataGridViewColumn, Me.RevaluedPortionUnitValueChangeDataGridViewColumn, Me.AmortizationCalculationsDataGridViewColumn, Me.AccountCostsDataGridViewColumn, Me.AmortizationCalculatedForMonthsDataGridViewColumn, Me.DataGridViewTextBoxColumn36, Me.DataGridViewTextBoxColumn37, Me.DataGridViewTextBoxColumn38, Me.DataGridViewTextBoxColumn39, Me.DataGridViewTextBoxColumn40, Me.DataGridViewTextBoxColumn41, Me.DataGridViewTextBoxColumn42, Me.DataGridViewTextBoxColumn43, Me.DataGridViewTextBoxColumn44, Me.DataGridViewTextBoxColumn45, Me.DataGridViewTextBoxColumn46, Me.DataGridViewTextBoxColumn47, Me.DataGridViewTextBoxColumn48, Me.DataGridViewTextBoxColumn49})
+        Me.ItemsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn35, Me.DataGridViewCheckBoxColumn2, Me.DataGridViewTextBoxColumn34, Me.DataGridViewTextBoxColumn29, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27, Me.DataGridViewTextBoxColumn28, Me.DataGridViewTextBoxColumn30, Me.DataGridViewTextBoxColumn31, Me.DataGridViewTextBoxColumn32, Me.DataGridViewTextBoxColumn33, Me.TotalValueChangeDataGridViewColumn, Me.UnitValueChangeDataGridViewColumn, Me.RevaluedPortionTotalValueChangeDataGridViewColumn, Me.RevaluedPortionUnitValueChangeDataGridViewColumn, Me.AmortizationCalculationsDataGridViewColumn, Me.AccountCostsDataGridViewColumn, Me.AmortizationCalculatedForMonthsDataGridViewColumn, Me.ChangeAmortizationAccountValueDataGridViewColumn, Me.ChangeAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn, Me.ChangeValueIncreaseAmortizationAccountValueChangeAmortizationAccountValueDataGridViewColumn, Me.ChangeValueIncreaseAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn, Me.ChangeAssetValueDataGridViewColumn, Me.ChangeAssetUnitValueDataGridViewColumn, Me.ChangeAssetRevaluedPortionValueDataGridViewColumn, Me.ChangeAssetRevaluedPortionUnitValueDataGridViewColumn, Me.DataGridViewTextBoxColumn36, Me.DataGridViewTextBoxColumn37, Me.DataGridViewTextBoxColumn38, Me.DataGridViewTextBoxColumn39, Me.DataGridViewTextBoxColumn40, Me.DataGridViewTextBoxColumn41, Me.DataGridViewTextBoxColumn42, Me.DataGridViewTextBoxColumn43, Me.DataGridViewTextBoxColumn44, Me.DataGridViewTextBoxColumn45, Me.DataGridViewTextBoxColumn46, Me.DataGridViewTextBoxColumn47, Me.DataGridViewTextBoxColumn48, Me.DataGridViewTextBoxColumn49})
         Me.ItemsDataGridView.DataSource = Me.ItemsSortedBindingSource
         Me.ItemsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ItemsDataGridView.Location = New System.Drawing.Point(0, 110)
         Me.ItemsDataGridView.Name = "ItemsDataGridView"
         Me.ItemsDataGridView.RowHeadersWidth = 20
         Me.ItemsDataGridView.Size = New System.Drawing.Size(804, 215)
-        Me.ItemsDataGridView.TabIndex = 4
+        Me.ItemsDataGridView.TabIndex = 1
+        '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
+        Me.ErrorProvider1.ContainerControl = Me
+        Me.ErrorProvider1.DataSource = Me.ComplexOperationAmortizationBindingSource
         '
         'DataGridViewTextBoxColumn1
         '
@@ -824,11 +850,88 @@ Partial Class F_ComplexOperationAmortization
         Me.AmortizationCalculatedForMonthsDataGridViewColumn.Name = "AmortizationCalculatedForMonthsDataGridViewColumn"
         Me.AmortizationCalculatedForMonthsDataGridViewColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
+        'ChangeAmortizationAccountValueDataGridViewColumn
+        '
+        Me.ChangeAmortizationAccountValueDataGridViewColumn.DataPropertyName = "ChangeAmortizationAccountValue"
+        DataGridViewCellStyle23.Format = "##,0.00"
+        Me.ChangeAmortizationAccountValueDataGridViewColumn.DefaultCellStyle = DataGridViewCellStyle23
+        Me.ChangeAmortizationAccountValueDataGridViewColumn.HeaderText = "Savik. Amort. Pokytis Viso"
+        Me.ChangeAmortizationAccountValueDataGridViewColumn.Name = "ChangeAmortizationAccountValueDataGridViewColumn"
+        Me.ChangeAmortizationAccountValueDataGridViewColumn.ReadOnly = True
+        Me.ChangeAmortizationAccountValueDataGridViewColumn.ToolTipText = "įsigijimo savikainos amortizacijos pokytis iš viso"
+        '
+        'ChangeAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn
+        '
+        Me.ChangeAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn.DataPropertyName = "ChangeAmortizationAccountValuePerUnit"
+        DataGridViewCellStyle24.Format = "##,0.0000"
+        Me.ChangeAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn.DefaultCellStyle = DataGridViewCellStyle24
+        Me.ChangeAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn.HeaderText = "Savik. Amort. Pokytis Vnt."
+        Me.ChangeAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn.Name = "ChangeAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewCo" & _
+            "lumn"
+        Me.ChangeAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn.ReadOnly = True
+        Me.ChangeAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn.ToolTipText = "įsigijimo savikainos amortizacijos pokytis turto vienetui"
+        '
+        'ChangeValueIncreaseAmortizationAccountValueChangeAmortizationAccountValueDataGridViewColumn
+        '
+        Me.ChangeValueIncreaseAmortizationAccountValueChangeAmortizationAccountValueDataGridViewColumn.DataPropertyName = "ChangeValueIncreaseAmortizationAccountValue"
+        DataGridViewCellStyle25.Format = "##,0.00"
+        Me.ChangeValueIncreaseAmortizationAccountValueChangeAmortizationAccountValueDataGridViewColumn.DefaultCellStyle = DataGridViewCellStyle25
+        Me.ChangeValueIncreaseAmortizationAccountValueChangeAmortizationAccountValueDataGridViewColumn.HeaderText = "Perkainojimo Amort. Pokytis Viso"
+        Me.ChangeValueIncreaseAmortizationAccountValueChangeAmortizationAccountValueDataGridViewColumn.Name = "ChangeValueIncreaseAmortizationAccountValueChangeAmortizationAccountValueDataGrid" & _
+            "ViewColumn"
+        Me.ChangeValueIncreaseAmortizationAccountValueChangeAmortizationAccountValueDataGridViewColumn.ReadOnly = True
+        '
+        'ChangeValueIncreaseAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn
+        '
+        Me.ChangeValueIncreaseAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn.DataPropertyName = "ChangeValueIncreaseAmortizationAccountValuePerUnit"
+        DataGridViewCellStyle26.Format = "##,0.0000"
+        Me.ChangeValueIncreaseAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn.DefaultCellStyle = DataGridViewCellStyle26
+        Me.ChangeValueIncreaseAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn.HeaderText = "Perkainojimo Amort. Pokytis Vnt."
+        Me.ChangeValueIncreaseAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn.Name = "ChangeValueIncreaseAmortizationAccountValuePerUnitChangeAmortizationAccountValueD" & _
+            "ataGridViewColumn"
+        Me.ChangeValueIncreaseAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn.ReadOnly = True
+        '
+        'ChangeAssetValueDataGridViewColumn
+        '
+        Me.ChangeAssetValueDataGridViewColumn.DataPropertyName = "ChangeAssetValue"
+        DataGridViewCellStyle27.Format = "##,0.00"
+        Me.ChangeAssetValueDataGridViewColumn.DefaultCellStyle = DataGridViewCellStyle27
+        Me.ChangeAssetValueDataGridViewColumn.HeaderText = "Balansinės Vertės Pokytis Viso"
+        Me.ChangeAssetValueDataGridViewColumn.Name = "ChangeAssetValueDataGridViewColumn"
+        Me.ChangeAssetValueDataGridViewColumn.ReadOnly = True
+        '
+        'ChangeAssetUnitValueDataGridViewColumn
+        '
+        Me.ChangeAssetUnitValueDataGridViewColumn.DataPropertyName = "ChangeAssetUnitValue"
+        DataGridViewCellStyle28.Format = "##,0.0000"
+        Me.ChangeAssetUnitValueDataGridViewColumn.DefaultCellStyle = DataGridViewCellStyle28
+        Me.ChangeAssetUnitValueDataGridViewColumn.HeaderText = "Balansinės Vertės Pokytis Vnt."
+        Me.ChangeAssetUnitValueDataGridViewColumn.Name = "ChangeAssetUnitValueDataGridViewColumn"
+        Me.ChangeAssetUnitValueDataGridViewColumn.ReadOnly = True
+        '
+        'ChangeAssetRevaluedPortionValueDataGridViewColumn
+        '
+        Me.ChangeAssetRevaluedPortionValueDataGridViewColumn.DataPropertyName = "ChangeAssetRevaluedPortionValue"
+        DataGridViewCellStyle29.Format = "##,0.00"
+        Me.ChangeAssetRevaluedPortionValueDataGridViewColumn.DefaultCellStyle = DataGridViewCellStyle29
+        Me.ChangeAssetRevaluedPortionValueDataGridViewColumn.HeaderText = "Perkainotos Dalies Pokytis Viso"
+        Me.ChangeAssetRevaluedPortionValueDataGridViewColumn.Name = "ChangeAssetRevaluedPortionValueDataGridViewColumn"
+        Me.ChangeAssetRevaluedPortionValueDataGridViewColumn.ReadOnly = True
+        '
+        'ChangeAssetRevaluedPortionUnitValueDataGridViewColumn
+        '
+        Me.ChangeAssetRevaluedPortionUnitValueDataGridViewColumn.DataPropertyName = "ChangeAssetRevaluedPortionUnitValue"
+        DataGridViewCellStyle30.Format = "##,0.0000"
+        Me.ChangeAssetRevaluedPortionUnitValueDataGridViewColumn.DefaultCellStyle = DataGridViewCellStyle30
+        Me.ChangeAssetRevaluedPortionUnitValueDataGridViewColumn.HeaderText = "Perkainotos Dalies Pokytis Vnt."
+        Me.ChangeAssetRevaluedPortionUnitValueDataGridViewColumn.Name = "ChangeAssetRevaluedPortionUnitValueDataGridViewColumn"
+        Me.ChangeAssetRevaluedPortionUnitValueDataGridViewColumn.ReadOnly = True
+        '
         'DataGridViewTextBoxColumn36
         '
         Me.DataGridViewTextBoxColumn36.DataPropertyName = "AfterOperationAcquisitionAccountValue"
-        DataGridViewCellStyle23.Format = "##,0.00"
-        Me.DataGridViewTextBoxColumn36.DefaultCellStyle = DataGridViewCellStyle23
+        DataGridViewCellStyle31.Format = "##,0.00"
+        Me.DataGridViewTextBoxColumn36.DefaultCellStyle = DataGridViewCellStyle31
         Me.DataGridViewTextBoxColumn36.HeaderText = "Įsig. Savik. Viso pb."
         Me.DataGridViewTextBoxColumn36.Name = "DataGridViewTextBoxColumn36"
         Me.DataGridViewTextBoxColumn36.ReadOnly = True
@@ -837,8 +940,8 @@ Partial Class F_ComplexOperationAmortization
         'DataGridViewTextBoxColumn37
         '
         Me.DataGridViewTextBoxColumn37.DataPropertyName = "AfterOperationAcquisitionAccountValuePerUnit"
-        DataGridViewCellStyle24.Format = "##,0.0000"
-        Me.DataGridViewTextBoxColumn37.DefaultCellStyle = DataGridViewCellStyle24
+        DataGridViewCellStyle32.Format = "##,0.0000"
+        Me.DataGridViewTextBoxColumn37.DefaultCellStyle = DataGridViewCellStyle32
         Me.DataGridViewTextBoxColumn37.HeaderText = "Įsig. Savik. Vnt. pb."
         Me.DataGridViewTextBoxColumn37.Name = "DataGridViewTextBoxColumn37"
         Me.DataGridViewTextBoxColumn37.ReadOnly = True
@@ -847,8 +950,8 @@ Partial Class F_ComplexOperationAmortization
         'DataGridViewTextBoxColumn38
         '
         Me.DataGridViewTextBoxColumn38.DataPropertyName = "AfterOperationAmortizationAccountValue"
-        DataGridViewCellStyle25.Format = "##,0.00"
-        Me.DataGridViewTextBoxColumn38.DefaultCellStyle = DataGridViewCellStyle25
+        DataGridViewCellStyle33.Format = "##,0.00"
+        Me.DataGridViewTextBoxColumn38.DefaultCellStyle = DataGridViewCellStyle33
         Me.DataGridViewTextBoxColumn38.HeaderText = "Savik. Amortizacija Viso pb."
         Me.DataGridViewTextBoxColumn38.Name = "DataGridViewTextBoxColumn38"
         Me.DataGridViewTextBoxColumn38.ReadOnly = True
@@ -856,8 +959,8 @@ Partial Class F_ComplexOperationAmortization
         'DataGridViewTextBoxColumn39
         '
         Me.DataGridViewTextBoxColumn39.DataPropertyName = "AfterOperationAmortizationAccountValuePerUnit"
-        DataGridViewCellStyle26.Format = "##,0.0000"
-        Me.DataGridViewTextBoxColumn39.DefaultCellStyle = DataGridViewCellStyle26
+        DataGridViewCellStyle34.Format = "##,0.0000"
+        Me.DataGridViewTextBoxColumn39.DefaultCellStyle = DataGridViewCellStyle34
         Me.DataGridViewTextBoxColumn39.HeaderText = "Savik. Amortizacija Vnt. pb."
         Me.DataGridViewTextBoxColumn39.Name = "DataGridViewTextBoxColumn39"
         Me.DataGridViewTextBoxColumn39.ReadOnly = True
@@ -865,8 +968,8 @@ Partial Class F_ComplexOperationAmortization
         'DataGridViewTextBoxColumn40
         '
         Me.DataGridViewTextBoxColumn40.DataPropertyName = "AfterOperationValueDecreaseAccountValue"
-        DataGridViewCellStyle27.Format = "##,0.00"
-        Me.DataGridViewTextBoxColumn40.DefaultCellStyle = DataGridViewCellStyle27
+        DataGridViewCellStyle35.Format = "##,0.00"
+        Me.DataGridViewTextBoxColumn40.DefaultCellStyle = DataGridViewCellStyle35
         Me.DataGridViewTextBoxColumn40.HeaderText = "Vertės Sumaž. Viso pb."
         Me.DataGridViewTextBoxColumn40.Name = "DataGridViewTextBoxColumn40"
         Me.DataGridViewTextBoxColumn40.ReadOnly = True
@@ -875,8 +978,8 @@ Partial Class F_ComplexOperationAmortization
         'DataGridViewTextBoxColumn41
         '
         Me.DataGridViewTextBoxColumn41.DataPropertyName = "AfterOperationValueDecreaseAccountValuePerUnit"
-        DataGridViewCellStyle28.Format = "##,0.0000"
-        Me.DataGridViewTextBoxColumn41.DefaultCellStyle = DataGridViewCellStyle28
+        DataGridViewCellStyle36.Format = "##,0.0000"
+        Me.DataGridViewTextBoxColumn41.DefaultCellStyle = DataGridViewCellStyle36
         Me.DataGridViewTextBoxColumn41.HeaderText = "Vertės Sumaž. Vnt. pb."
         Me.DataGridViewTextBoxColumn41.Name = "DataGridViewTextBoxColumn41"
         Me.DataGridViewTextBoxColumn41.ReadOnly = True
@@ -885,8 +988,8 @@ Partial Class F_ComplexOperationAmortization
         'DataGridViewTextBoxColumn42
         '
         Me.DataGridViewTextBoxColumn42.DataPropertyName = "AfterOperationValueIncreaseAccountValue"
-        DataGridViewCellStyle29.Format = "##,0.00"
-        Me.DataGridViewTextBoxColumn42.DefaultCellStyle = DataGridViewCellStyle29
+        DataGridViewCellStyle37.Format = "##,0.00"
+        Me.DataGridViewTextBoxColumn42.DefaultCellStyle = DataGridViewCellStyle37
         Me.DataGridViewTextBoxColumn42.HeaderText = "Perkainojimas Viso pb."
         Me.DataGridViewTextBoxColumn42.Name = "DataGridViewTextBoxColumn42"
         Me.DataGridViewTextBoxColumn42.ReadOnly = True
@@ -895,8 +998,8 @@ Partial Class F_ComplexOperationAmortization
         'DataGridViewTextBoxColumn43
         '
         Me.DataGridViewTextBoxColumn43.DataPropertyName = "AfterOperationValueIncreaseAccountValuePerUnit"
-        DataGridViewCellStyle30.Format = "##,0.0000"
-        Me.DataGridViewTextBoxColumn43.DefaultCellStyle = DataGridViewCellStyle30
+        DataGridViewCellStyle38.Format = "##,0.0000"
+        Me.DataGridViewTextBoxColumn43.DefaultCellStyle = DataGridViewCellStyle38
         Me.DataGridViewTextBoxColumn43.HeaderText = "Perkainojimas Vnt. pb."
         Me.DataGridViewTextBoxColumn43.Name = "DataGridViewTextBoxColumn43"
         Me.DataGridViewTextBoxColumn43.ReadOnly = True
@@ -905,8 +1008,8 @@ Partial Class F_ComplexOperationAmortization
         'DataGridViewTextBoxColumn44
         '
         Me.DataGridViewTextBoxColumn44.DataPropertyName = "AfterOperationValueIncreaseAmortizationAccountValue"
-        DataGridViewCellStyle31.Format = "##,0.00"
-        Me.DataGridViewTextBoxColumn44.DefaultCellStyle = DataGridViewCellStyle31
+        DataGridViewCellStyle39.Format = "##,0.00"
+        Me.DataGridViewTextBoxColumn44.DefaultCellStyle = DataGridViewCellStyle39
         Me.DataGridViewTextBoxColumn44.HeaderText = "Perkainojimo Amort. Viso pb."
         Me.DataGridViewTextBoxColumn44.Name = "DataGridViewTextBoxColumn44"
         Me.DataGridViewTextBoxColumn44.ReadOnly = True
@@ -914,8 +1017,8 @@ Partial Class F_ComplexOperationAmortization
         'DataGridViewTextBoxColumn45
         '
         Me.DataGridViewTextBoxColumn45.DataPropertyName = "AfterOperationValueIncreaseAmortizationAccountValuePerUnit"
-        DataGridViewCellStyle32.Format = "##,0.0000"
-        Me.DataGridViewTextBoxColumn45.DefaultCellStyle = DataGridViewCellStyle32
+        DataGridViewCellStyle40.Format = "##,0.0000"
+        Me.DataGridViewTextBoxColumn45.DefaultCellStyle = DataGridViewCellStyle40
         Me.DataGridViewTextBoxColumn45.HeaderText = "Perkainojimo Amort. Vnt. pb."
         Me.DataGridViewTextBoxColumn45.Name = "DataGridViewTextBoxColumn45"
         Me.DataGridViewTextBoxColumn45.ReadOnly = True
@@ -923,8 +1026,8 @@ Partial Class F_ComplexOperationAmortization
         'DataGridViewTextBoxColumn46
         '
         Me.DataGridViewTextBoxColumn46.DataPropertyName = "AfterOperationAssetValue"
-        DataGridViewCellStyle33.Format = "##,0.00"
-        Me.DataGridViewTextBoxColumn46.DefaultCellStyle = DataGridViewCellStyle33
+        DataGridViewCellStyle41.Format = "##,0.00"
+        Me.DataGridViewTextBoxColumn46.DefaultCellStyle = DataGridViewCellStyle41
         Me.DataGridViewTextBoxColumn46.HeaderText = "Balansinė Vertė Viso pb."
         Me.DataGridViewTextBoxColumn46.Name = "DataGridViewTextBoxColumn46"
         Me.DataGridViewTextBoxColumn46.ReadOnly = True
@@ -932,8 +1035,8 @@ Partial Class F_ComplexOperationAmortization
         'DataGridViewTextBoxColumn47
         '
         Me.DataGridViewTextBoxColumn47.DataPropertyName = "AfterOperationAssetValuePerUnit"
-        DataGridViewCellStyle34.Format = "##,0.0000"
-        Me.DataGridViewTextBoxColumn47.DefaultCellStyle = DataGridViewCellStyle34
+        DataGridViewCellStyle42.Format = "##,0.0000"
+        Me.DataGridViewTextBoxColumn47.DefaultCellStyle = DataGridViewCellStyle42
         Me.DataGridViewTextBoxColumn47.HeaderText = "Balansinė Vertė Vnt. pb."
         Me.DataGridViewTextBoxColumn47.Name = "DataGridViewTextBoxColumn47"
         Me.DataGridViewTextBoxColumn47.ReadOnly = True
@@ -941,8 +1044,8 @@ Partial Class F_ComplexOperationAmortization
         'DataGridViewTextBoxColumn48
         '
         Me.DataGridViewTextBoxColumn48.DataPropertyName = "AfterOperationAssetValueRevaluedPortion"
-        DataGridViewCellStyle35.Format = "##,0.00"
-        Me.DataGridViewTextBoxColumn48.DefaultCellStyle = DataGridViewCellStyle35
+        DataGridViewCellStyle43.Format = "##,0.00"
+        Me.DataGridViewTextBoxColumn48.DefaultCellStyle = DataGridViewCellStyle43
         Me.DataGridViewTextBoxColumn48.HeaderText = "Perkainota Dalis Viso pb."
         Me.DataGridViewTextBoxColumn48.Name = "DataGridViewTextBoxColumn48"
         Me.DataGridViewTextBoxColumn48.ReadOnly = True
@@ -950,17 +1053,11 @@ Partial Class F_ComplexOperationAmortization
         'DataGridViewTextBoxColumn49
         '
         Me.DataGridViewTextBoxColumn49.DataPropertyName = "AfterOperationAssetValueRevaluedPortionPerUnit"
-        DataGridViewCellStyle36.Format = "##,0.0000"
-        Me.DataGridViewTextBoxColumn49.DefaultCellStyle = DataGridViewCellStyle36
+        DataGridViewCellStyle44.Format = "##,0.0000"
+        Me.DataGridViewTextBoxColumn49.DefaultCellStyle = DataGridViewCellStyle44
         Me.DataGridViewTextBoxColumn49.HeaderText = "Perkainota Dalis Vnt. pb."
         Me.DataGridViewTextBoxColumn49.Name = "DataGridViewTextBoxColumn49"
         Me.DataGridViewTextBoxColumn49.ReadOnly = True
-        '
-        'ErrorProvider1
-        '
-        Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
-        Me.ErrorProvider1.ContainerControl = Me
-        Me.ErrorProvider1.DataSource = Me.ComplexOperationAmortizationBindingSource
         '
         'F_ComplexOperationAmortization
         '
@@ -1045,6 +1142,14 @@ Partial Class F_ComplexOperationAmortization
     Friend WithEvents AmortizationCalculationsDataGridViewColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents AccountCostsDataGridViewColumn As AccControls.DataGridViewAccGridComboBoxColumn
     Friend WithEvents AmortizationCalculatedForMonthsDataGridViewColumn As AccControls.DataGridViewAccTextBoxColumn
+    Friend WithEvents ChangeAmortizationAccountValueDataGridViewColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ChangeAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ChangeValueIncreaseAmortizationAccountValueChangeAmortizationAccountValueDataGridViewColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ChangeValueIncreaseAmortizationAccountValuePerUnitChangeAmortizationAccountValueDataGridViewColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ChangeAssetValueDataGridViewColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ChangeAssetUnitValueDataGridViewColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ChangeAssetRevaluedPortionValueDataGridViewColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ChangeAssetRevaluedPortionUnitValueDataGridViewColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn36 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn37 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn38 As System.Windows.Forms.DataGridViewTextBoxColumn

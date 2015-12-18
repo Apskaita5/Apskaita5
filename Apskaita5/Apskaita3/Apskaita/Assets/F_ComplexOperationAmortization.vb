@@ -104,6 +104,8 @@ Public Class F_ComplexOperationAmortization
 
         ComplexOperationAmortizationBindingSource.DataSource = Obj
 
+        AddDGVColumnSelector(ItemsDataGridView)
+
         ConfigureButtons()
 
         SetDataGridViewLayOut(ItemsDataGridView)

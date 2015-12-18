@@ -158,10 +158,10 @@ Namespace HelperLists
                 _TypeHumanReadable = String.Format("{0}: {1}", _TypeHumanReadable, _
                     ConvertEnumHumanReadable(_GoodsOperationType))
             ElseIf _Type = IndirectRelationType.LongTermAssetsOperation Then
-                _AssetOperationType = ConvertEnumDatabaseStringCode(Of Assets.LtaOperationType) _
+                _AssetOperationType = EnumValueAttribute.ConvertDatabaseCharID(Of Assets.LtaOperationType) _
                     (CStrSafe(dr.Item(5)))
                 _TypeHumanReadable = String.Format("{0}: {1}", _TypeHumanReadable, _
-                    ConvertEnumHumanReadable(_AssetOperationType))
+                    EnumValueAttribute.ConvertLocalizedName(_AssetOperationType))
             End If
 
         End Sub

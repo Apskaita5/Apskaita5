@@ -570,6 +570,126 @@ Namespace Assets
 
 #End Region
 
+#Region " State Delta "
+
+        ''' <summary>
+        ''' A change of balance for the <see cref="CurrentAssetValueDecreaseAccount">CurrentAssetValueDecreaseAccount</see> made by the operation.
+        ''' </summary>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
+        ''' A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
+        Public ReadOnly Property ChangeValueDecreaseAccountValue() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeValueDecreaseAccountValue)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of balance for the <see cref="CurrentAssetValueDecreaseAccount">CurrentAssetValueDecreaseAccount</see> per unit made by the operation.
+        ''' </summary>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
+        ''' A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
+        Public ReadOnly Property ChangeValueDecreaseAccountValuePerUnit() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeValueDecreaseAccountValuePerUnit, ROUNDUNITASSET)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of balance for the <see cref="CurrentAssetValueIncreaseAccount">CurrentAssetValueIncreaseAccount</see> made by the operation.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.
+        ''' A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
+        Public ReadOnly Property ChangeValueIncreaseAccountValue() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeValueIncreaseAccountValue)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of balance for the <see cref="CurrentAssetValueIncreaseAccount">CurrentAssetValueIncreaseAccount</see> per unit made by the operation.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.
+        ''' A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
+        Public ReadOnly Property ChangeValueIncreaseAccountValuePerUnit() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeValueIncreaseAccountValuePerUnit, ROUNDUNITASSET)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of the total value of the long term asset made by the operation.
+        ''' </summary>
+        ''' <remarks>A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
+        Public ReadOnly Property ChangeAssetValue() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeAssetValue)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of the unit value of the long term asset made by the operation.
+        ''' </summary>
+        ''' <remarks>A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
+        Public ReadOnly Property ChangeAssetUnitValue() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeAssetUnitValue, ROUNDUNITASSET)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of the unit value of the revalued portion of the long term asset.
+        ''' </summary>
+        ''' <remarks>A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
+        Public ReadOnly Property ChangeAssetRevaluedPortionValue() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeAssetRevaluedPortionValue)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of the total value of the revalued portion of the long term asset.
+        ''' </summary>
+        ''' <remarks>A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
+        Public ReadOnly Property ChangeAssetRevaluedPortionUnitValue() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeAssetRevaluedPortionUnitValue, ROUNDUNITASSET)
+            End Get
+        End Property
+
+#End Region
+
 #Region " State After The Operation "
 
         ''' <summary>
@@ -895,7 +1015,7 @@ Namespace Assets
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Set(ByVal value As Double)
                 CanWriteProperty(True)
-                If ValueIncreaseIsReadOnly Then Exit Property
+                If ValueChangeTotalIsReadOnly Then Exit Property
                 If CRound(_ValueChangeTotal, 2) <> CRound(value, 2) Then
                     _ValueChangeTotal = CRound(value, 2)
                     PropertyHasChanged()
@@ -942,10 +1062,10 @@ Namespace Assets
         End Property
 
         ''' <summary>
-        ''' Whether the <see cref="ValueIncrease">ValueIncrease</see> property is readonly.
+        ''' Whether the <see cref="ValueChangeTotal">ValueChangeTotal</see> property is readonly.
         ''' </summary>
         ''' <remarks></remarks>
-        Public ReadOnly Property ValueIncreaseIsReadOnly() As Boolean
+        Public ReadOnly Property ValueChangeTotalIsReadOnly() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 If Not _ChronologyValidator.FinancialDataCanChange OrElse _
@@ -1072,6 +1192,14 @@ Namespace Assets
                 PropertyHasChanged("ValueChangePerUnit")
                 ' proxy properties
                 If IsChild Then
+                    PropertyHasChanged("ChangeValueDecreaseAccountValue")
+                    PropertyHasChanged("ChangeValueDecreaseAccountValuePerUnit")
+                    PropertyHasChanged("ChangeValueIncreaseAccountValue")
+                    PropertyHasChanged("ChangeValueIncreaseAccountValuePerUnit")
+                    PropertyHasChanged("ChangeAssetValue")
+                    PropertyHasChanged("ChangeAssetUnitValue")
+                    PropertyHasChanged("ChangeAssetRevaluedPortionValue")
+                    PropertyHasChanged("ChangeAssetRevaluedPortionUnitValue")
                     PropertyHasChanged("AfterOperationValueDecreaseAccountValue")
                     PropertyHasChanged("AfterOperationValueDecreaseAccountValuePerUnit")
                     PropertyHasChanged("AfterOperationValueIncreaseAccountValue")
@@ -1090,6 +1218,11 @@ Namespace Assets
         Private Sub SetBackgroundValues(ByVal initialize As Boolean)
 
             If _Background.CurrentAssetAmount < 1 AndAlso Not initialize Then Exit Sub
+
+            If Not initialize Then
+                _ValueChangePerUnit = CRound(_ValueChangeTotal _
+                    / _Background.CurrentAssetAmount, ROUNDUNITASSET)
+            End If
 
             _Background.DisableCalculations = True
 

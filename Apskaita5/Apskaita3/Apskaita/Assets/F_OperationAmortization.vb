@@ -105,9 +105,8 @@ Public Class F_OperationAmortization
             Exit Sub
         End Try
 
-        BackgroundInfoPanel1.BindingSource.DataSource = OperationAmortizationBindingSource
-        BackgroundInfoPanel1.BindingSource.DataMember = "Background"
         OperationAmortizationBindingSource.DataSource = Obj
+        BackgroundInfoPanel1.GetBindingSource.DataSource = Obj.Background
 
         ConfigureButtons()
 
@@ -256,17 +255,25 @@ Public Class F_OperationAmortization
 
         If Not YesOrNo(Question) Then Return False
 
-        Using bm As New BindingsManager(OperationAmortizationBindingSource, _
-            BackgroundInfoPanel1.BindingSource, Nothing, True, False)
 
-            Try
-                Obj = LoadObject(Of OperationAmortization)(Obj, "Save", False)
-            Catch ex As Exception
-                ShowError(ex)
-                Return False
-            End Try
 
-            bm.SetNewDataSource(Obj)
+        Using cm As New BindingsManager(BackgroundInfoPanel1.GetBindingSource, _
+            Nothing, Nothing, True, False)
+
+            Using bm As New BindingsManager(OperationAmortizationBindingSource, _
+                Nothing, Nothing, True, False)
+
+                Try
+                    Obj = LoadObject(Of OperationAmortization)(Obj, "Save", False)
+                Catch ex As Exception
+                    ShowError(ex)
+                    Return False
+                End Try
+
+                bm.SetNewDataSource(Obj)
+                cm.SetNewDataSource(Obj.Background)
+
+            End Using
 
         End Using
 
@@ -279,7 +286,7 @@ Public Class F_OperationAmortization
     Private Sub CancelObj()
         If Obj Is Nothing OrElse Obj.IsNew OrElse Not Obj.IsDirty Then Exit Sub
         Using bm As New BindingsManager(OperationAmortizationBindingSource, _
-            BackgroundInfoPanel1.BindingSource, Nothing, True, True)
+            BackgroundInfoPanel1.GetBindingSource, Nothing, True, True)
         End Using
     End Sub
 

@@ -150,6 +150,18 @@ Namespace Assets
             End Get
         End Property
 
+        ''' <summary>
+        ''' Whether the operation is a child of some other document,
+        ''' i.e. should not be saved as a standalone operation.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Overloads ReadOnly Property IsChild() As Boolean
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return MyBase.IsChild
+            End Get
+        End Property
+
 #Region " General Asset Data "
 
         ''' <summary>
@@ -568,6 +580,68 @@ Namespace Assets
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _Background.CurrentUsageStatus
+            End Get
+        End Property
+
+#End Region
+
+#Region " State Delta "
+
+        ''' <summary>
+        ''' A change of balance for the <see cref="CurrentAssetAcquiredAccount">CurrentAssetAcquiredAccount</see> made by the operation.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.
+        ''' A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
+        Public ReadOnly Property ChangeAcquisitionAccountValue() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeAcquisitionAccountValue)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of balance for the <see cref="CurrentAssetAcquiredAccount">CurrentAssetAcquiredAccount</see> per unit made by the operation.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.
+        ''' A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
+        Public ReadOnly Property ChangeAcquisitionAccountValuePerUnit() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeAcquisitionAccountValuePerUnit, ROUNDUNITASSET)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of the total value of the long term asset made by the operation.
+        ''' </summary>
+        ''' <remarks>A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
+        Public ReadOnly Property ChangeAssetValue() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeAssetValue)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' A change of the unit value of the long term asset made by the operation.
+        ''' </summary>
+        ''' <remarks>A proxy to the <see cref="Background">Background</see>
+        ''' to be used when databinding to a datagridview, because
+        ''' datagridview does not support binding to the incapsulated object properties.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
+        Public ReadOnly Property ChangeAssetUnitValue() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_Background.ChangeAssetUnitValue, ROUNDUNITASSET)
             End Get
         End Property
 
@@ -1013,6 +1087,10 @@ Namespace Assets
                 PropertyHasChanged("ValueIncreasePerUnit")
                 ' proxy properties
                 If IsChild Then
+                    PropertyHasChanged("ChangeAcquisitionAccountValue")
+                    PropertyHasChanged("ChangeAcquisitionAccountValuePerUnit")
+                    PropertyHasChanged("ChangeAssetValue")
+                    PropertyHasChanged("ChangeAssetUnitValue")
                     PropertyHasChanged("AfterOperationAcquisitionAccountValue")
                     PropertyHasChanged("AfterOperationAcquisitionAccountValuePerUnit")
                     PropertyHasChanged("AfterOperationAssetValue")
