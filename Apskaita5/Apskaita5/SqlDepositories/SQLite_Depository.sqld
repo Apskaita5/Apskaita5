@@ -37,17 +37,17 @@
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>GetAccountList</Key>
-    <Statement>SELECT s.Saskaitosnr, s.Saskaita, f.Name FROM saskaitupl s LEFT JOIN FinancialStatementsStructure f ON UPPER(TRIM(f.Name)) = UPPER(TRIM(s.Rusis)) ORDER BY CAST(s.Saskaitosnr AS CHAR);</Statement>
+    <Statement>SELECT s.Saskaitosnr, s.Saskaita, f.ID, f.Name FROM saskaitupl s LEFT JOIN FinancialStatementsStructure f ON f.ID = s.fs_id ORDER BY CAST(s.Saskaitosnr AS CHAR);</Statement>
     <Objects>HelperLists.AccountInfoList, General.AccountList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>InsertAccount</Key>
-    <Statement>INSERT INTO saskaitupl(Saskaitosnr, Saskaita, Rusis) VALUES($SN, $SP, $RS);</Statement>
+    <Statement>INSERT INTO saskaitupl(Saskaitosnr, Saskaita, Rusis, fs_id) VALUES($SN, $SP, '', $FD);</Statement>
     <Objects>General.Account</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>UpdateAccount</Key>
-    <Statement>UPDATE saskaitupl SET Saskaitosnr=$SN, Saskaita=$SP, Rusis=$RS WHERE Saskaitosnr=$TN ;</Statement>
+    <Statement>UPDATE saskaitupl SET Saskaitosnr=$SN, Saskaita=$SP, fs_id=$FD WHERE Saskaitosnr=$TN ;</Statement>
     <Objects>General.Account</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -1679,18 +1679,13 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
     <Objects>General.ConsolidatedReportItem</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
-    <Key>UpdateConsolidatedReportAccounts</Key>
-    <Statement>UPDATE SaskaituPl SET Rusis=$AA WHERE UPPER(TRIM(Rusis))=UPPER(TRIM($AB));</Statement>
-    <Objects>General.ConsolidatedReportItem</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
     <Key>DeleteConsolidatedReportItem</Key>
     <Statement>DELETE FROM FinancialStatementsStructure WHERE FinancialStatementsStructure.ID=$AA ;</Statement>
     <Objects>General.ConsolidatedReportItem</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchConsolidatedReport</Key>
-    <Statement>SELECT node.ID, node.Name, (COUNT(parent.name) - 1) AS depth, node.StatementType, node.IsCredit, (SELECT COUNT(*) FROM SaskaituPl s WHERE UPPER(TRIM(s.Rusis)) = UPPER(TRIM(node.Name))) FROM FinancialStatementsStructure AS node, FinancialStatementsStructure AS parent WHERE node.lft BETWEEN parent.lft AND parent.rgt GROUP BY node.ID ORDER BY node.lft;</Statement>
+    <Statement>SELECT node.ID, node.Name, (COUNT(parent.name) - 1) AS depth, node.StatementType, node.IsCredit, (SELECT COUNT(*) FROM SaskaituPl s WHERE UPPER(TRIM(s.Rusis)) = UPPER(TRIM(node.Name))), node.Lft, node.Rgt FROM FinancialStatementsStructure AS node, FinancialStatementsStructure AS parent WHERE node.lft BETWEEN parent.lft AND parent.rgt GROUP BY node.ID ORDER BY node.lft;</Statement>
     <Objects>General.ConsolidatedReport</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -1700,22 +1695,22 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>UpdateAllConsolidatedReportAccounts</Key>
-    <Statement>UPDATE SaskaituPl SET Rusis='';</Statement>
+    <Statement>UPDATE SaskaituPl SET fs_id=0;</Statement>
     <Objects>General.ConsolidatedReport</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchAssignableCRItemList</Key>
-    <Statement>SELECT Name FROM FinancialStatementsStructure WHERE Rgt = lft + 1 ORDER BY Lft;</Statement>
+    <Statement>SELECT ID, Name FROM FinancialStatementsStructure WHERE Rgt = lft + 1 ORDER BY Lft;</Statement>
     <Objects>HelperLists.AssignableCRItemList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchAccountTurnoverInfoList</Key>
-    <Statement>SELECT s.SaskaitosNr, s.Saskaita, f.Name, f.StatementType, k.DebitFirstPeriodStart, k.CreditFirstPeriodStart, k.DebitFirstPeriodTurnover, k.CreditFirstPeriodTurnover, k.DebitFirstPeriodTurnoverClosing, k.CreditFirstPeriodTurnoverClosing, k.DebitSecondPeriodTurnover, k.CreditSecondPeriodTurnover, k.DebitSecondPeriodTurnoverClosing, k.CreditSecondPeriodTurnoverClosing FROM saskaitupl s LEFT JOIN financialstatementsstructure f ON UPPER(TRIM(f.Name)) = UPPER(TRIM(s.Rusis)) LEFT JOIN (SELECT d.Op_saskaita AS LedgerAccount, CROUND(SUM(CASE WHEN b.Op_Data&lt;$DF AND d.Op_tipas='Debetas' THEN d.Op_suma ELSE 0 END), 2) AS DebitFirstPeriodStart, CROUND(SUM(CASE WHEN b.Op_Data&lt;$DF AND d.Op_tipas='Kreditas' THEN d.Op_suma ELSE 0 END), 2) AS CreditFirstPeriodStart, CROUND(SUM(CASE WHEN b.Op_Data&gt;=$DF AND b.Op_Data&lt;$DT AND d.Op_tipas='Debetas' THEN d.Op_suma ELSE 0 END), 2) AS DebitFirstPeriodTurnover, CROUND(SUM(CASE WHEN b.Op_Data&gt;=$DF AND b.Op_Data&lt;$DT AND d.Op_tipas='Kreditas' THEN d.Op_suma ELSE 0 END), 2) AS CreditFirstPeriodTurnover, CROUND(SUM(CASE WHEN b.Op_Data&gt;=$DF AND b.Op_Data&lt;$DT AND d.Op_tipas='Debetas' AND b.Op_dok_rusis='uz' THEN d.Op_suma ELSE 0 END), 2) AS DebitFirstPeriodTurnoverClosing, CROUND(SUM(CASE WHEN b.Op_Data&gt;=$DF AND b.Op_Data&lt;$DT AND d.Op_tipas='Kreditas' AND b.Op_dok_rusis='uz' THEN d.Op_suma ELSE 0 END), 2) AS CreditFirstPeriodTurnoverClosing, CROUND(SUM(CASE WHEN b.Op_Data&gt;=$DT AND d.Op_tipas='Debetas' THEN d.Op_suma ELSE 0 END), 2) AS DebitSecondPeriodTurnover, CROUND(SUM(CASE WHEN b.Op_Data&gt;=$DT AND d.Op_tipas='Kreditas' THEN d.Op_suma ELSE 0 END), 2) AS CreditSecondPeriodTurnover, CROUND(SUM(CASE WHEN b.Op_Data&gt;=$DT AND d.Op_tipas='Debetas' AND b.Op_dok_rusis='uz' THEN d.Op_suma ELSE 0 END), 2) AS DebitSecondPeriodTurnoverClosing, CROUND(SUM(CASE WHEN b.Op_Data&gt;=$DT AND d.Op_tipas='Kreditas' AND b.Op_dok_rusis='uz' THEN d.Op_suma ELSE 0 END), 2) AS CreditSecondPeriodTurnoverClosing FROM bzdata d LEFT JOIN bz b ON b.Op_ID=d.Op_ID_BZ WHERE b.Op_Data&lt;=$DE GROUP BY d.Op_saskaita) AS k ON k.LedgerAccount=s.SaskaitosNr GROUP BY s.SaskaitosNr ORDER BY CAST(s.SaskaitosNr AS CHAR);</Statement>
+    <Statement>SELECT s.SaskaitosNr, s.Saskaita, f.Name, f.StatementType, k.DebitFirstPeriodStart, k.CreditFirstPeriodStart, k.DebitFirstPeriodTurnover, k.CreditFirstPeriodTurnover, k.DebitFirstPeriodTurnoverClosing, k.CreditFirstPeriodTurnoverClosing, k.DebitSecondPeriodTurnover, k.CreditSecondPeriodTurnover, k.DebitSecondPeriodTurnoverClosing, k.CreditSecondPeriodTurnoverClosing FROM saskaitupl s LEFT JOIN financialstatementsstructure f ON f.ID = s.fs_id LEFT JOIN (SELECT d.Op_saskaita AS LedgerAccount, CROUND(SUM(CASE WHEN b.Op_Data&lt;$DF AND d.Op_tipas='Debetas' THEN d.Op_suma ELSE 0 END), 2) AS DebitFirstPeriodStart, CROUND(SUM(CASE WHEN b.Op_Data&lt;$DF AND d.Op_tipas='Kreditas' THEN d.Op_suma ELSE 0 END), 2) AS CreditFirstPeriodStart, CROUND(SUM(CASE WHEN b.Op_Data&gt;=$DF AND b.Op_Data&lt;$DT AND d.Op_tipas='Debetas' THEN d.Op_suma ELSE 0 END), 2) AS DebitFirstPeriodTurnover, CROUND(SUM(CASE WHEN b.Op_Data&gt;=$DF AND b.Op_Data&lt;$DT AND d.Op_tipas='Kreditas' THEN d.Op_suma ELSE 0 END), 2) AS CreditFirstPeriodTurnover, CROUND(SUM(CASE WHEN b.Op_Data&gt;=$DF AND b.Op_Data&lt;$DT AND d.Op_tipas='Debetas' AND b.Op_dok_rusis='uz' THEN d.Op_suma ELSE 0 END), 2) AS DebitFirstPeriodTurnoverClosing, CROUND(SUM(CASE WHEN b.Op_Data&gt;=$DF AND b.Op_Data&lt;$DT AND d.Op_tipas='Kreditas' AND b.Op_dok_rusis='uz' THEN d.Op_suma ELSE 0 END), 2) AS CreditFirstPeriodTurnoverClosing, CROUND(SUM(CASE WHEN b.Op_Data&gt;=$DT AND d.Op_tipas='Debetas' THEN d.Op_suma ELSE 0 END), 2) AS DebitSecondPeriodTurnover, CROUND(SUM(CASE WHEN b.Op_Data&gt;=$DT AND d.Op_tipas='Kreditas' THEN d.Op_suma ELSE 0 END), 2) AS CreditSecondPeriodTurnover, CROUND(SUM(CASE WHEN b.Op_Data&gt;=$DT AND d.Op_tipas='Debetas' AND b.Op_dok_rusis='uz' THEN d.Op_suma ELSE 0 END), 2) AS DebitSecondPeriodTurnoverClosing, CROUND(SUM(CASE WHEN b.Op_Data&gt;=$DT AND d.Op_tipas='Kreditas' AND b.Op_dok_rusis='uz' THEN d.Op_suma ELSE 0 END), 2) AS CreditSecondPeriodTurnoverClosing FROM bzdata d LEFT JOIN bz b ON b.Op_ID=d.Op_ID_BZ WHERE b.Op_Data&lt;=$DE GROUP BY d.Op_saskaita) AS k ON k.LedgerAccount=s.SaskaitosNr GROUP BY s.SaskaitosNr ORDER BY CAST(s.SaskaitosNr AS CHAR);</Statement>
     <Objects>ActiveReports.FinancialStatementsInfo</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchFinancialStatementsBalance</Key>
-    <Statement>SELECT f.RowType, f.RowID, f.RowName, f.Lft, f.Rgt, f.IsCredit, f.Depth, f.RelatedAccounts, CROUND(SUM(CASE WHEN b.Op_data&lt;$DF THEN CROUND(CASE WHEN (d.Op_tipas='Debetas' AND f.IsCredit=0) OR (d.Op_tipas='Kreditas' AND f.IsCredit=1) THEN d.Op_suma ELSE -d.Op_suma END, 2) ELSE 0 END), 2) AS BalanceStart, CROUND(SUM(CASE WHEN b.Op_data&lt;=$DT THEN CROUND(CASE WHEN (d.Op_tipas='Debetas' AND f.IsCredit=0) OR (d.Op_tipas='Kreditas' AND f.IsCredit=1) THEN d.Op_suma ELSE -d.Op_suma END, 2) ELSE 0 END), 2) AS BalanceEnd FROM (SELECT node.StatementType AS RowType, node.ID AS RowID, node.Name AS RowName, node.Lft AS Lft, node.Rgt AS Rgt, node.IsCredit AS IsCredit, CASE WHEN node.IsCredit&gt;0 THEN 'Kreditas' ELSE 'Debetas' END AS RowSumType, (COUNT(parent.name) - 1) AS Depth, (SELECT GROUP_CONCAT(CAST(s.SaskaitosNr AS CHAR), ', ') FROM saskaitupl s WHERE UPPER(TRIM(s.Rusis)) = UPPER(TRIM(node.Name))) AS RelatedAccounts FROM FinancialStatementsStructure AS node, FinancialStatementsStructure AS parent WHERE node.lft BETWEEN parent.lft AND parent.rgt GROUP BY node.ID ORDER BY node.lft) AS f LEFT JOIN FinancialStatementsStructure g ON g.Lft &gt;= f.Lft AND g.Rgt &lt;= f.Rgt LEFT JOIN saskaitupl s ON UPPER(TRIM(s.Rusis))=UPPER(TRIM(g.Name)) LEFT JOIN bzdata d ON d.Op_saskaita = s.SaskaitosNr LEFT JOIN bz b ON b.Op_ID=d.Op_ID_BZ GROUP BY f.RowID ORDER BY f.Lft;</Statement>
+    <Statement>SELECT f.RowType, f.RowID, f.RowName, f.Lft, f.Rgt, f.IsCredit, f.Depth, f.RelatedAccounts, CROUND(SUM(CASE WHEN b.Op_data&lt;$DF THEN CROUND(CASE WHEN (d.Op_tipas='Debetas' AND f.IsCredit=0) OR (d.Op_tipas='Kreditas' AND f.IsCredit=1) THEN d.Op_suma ELSE -d.Op_suma END, 2) ELSE 0 END), 2) AS BalanceStart, CROUND(SUM(CASE WHEN b.Op_data&lt;=$DT THEN CROUND(CASE WHEN (d.Op_tipas='Debetas' AND f.IsCredit=0) OR (d.Op_tipas='Kreditas' AND f.IsCredit=1) THEN d.Op_suma ELSE -d.Op_suma END, 2) ELSE 0 END), 2) AS BalanceEnd FROM (SELECT node.StatementType AS RowType, node.ID AS RowID, node.Name AS RowName, node.Lft AS Lft, node.Rgt AS Rgt, node.IsCredit AS IsCredit, CASE WHEN node.IsCredit&gt;0 THEN 'Kreditas' ELSE 'Debetas' END AS RowSumType, (COUNT(parent.name) - 1) AS Depth, (SELECT GROUP_CONCAT(CAST(s.SaskaitosNr AS CHAR), ', ') FROM saskaitupl s WHERE s.fs_id = node.ID) AS RelatedAccounts FROM FinancialStatementsStructure AS node, FinancialStatementsStructure AS parent WHERE node.lft BETWEEN parent.lft AND parent.rgt GROUP BY node.ID ORDER BY node.lft) AS f LEFT JOIN FinancialStatementsStructure g ON g.Lft &gt;= f.Lft AND g.Rgt &lt;= f.Rgt LEFT JOIN saskaitupl s ON s.fs_ID = g.ID LEFT JOIN bzdata d ON d.Op_saskaita = s.SaskaitosNr LEFT JOIN bz b ON b.Op_ID=d.Op_ID_BZ GROUP BY f.RowID ORDER BY f.Lft;</Statement>
     <Objects>ActiveReports.FinancialStatementsInfo</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -2200,8 +2195,8 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchTaxRateListInUse</Key>
-    <Statement>SELECT DISTINCT 'PVM', PVMTarifas FROM Apyskaitos UNION SELECT DISTINCT 'GPM', Tar FROM d_kitos UNION SELECT DISTINCT 'PSDP', TarPSDE FROM d_kitos UNION SELECT DISTINCT 'PSDI', TarPSDW FROM d_kitos UNION SELECT DISTINCT 'SODRAP', TarSDE FROM d_kitos UNION SELECT DISTINCT 'SODRAI', TarSDW FROM d_kitos UNION SELECT DISTINCT 'GPM', GPM FROM du_ziniarastis UNION SELECT DISTINCT 'PSDP', PSDE FROM du_ziniarastis UNION SELECT DISTINCT 'PSDI', PSDW FROM du_ziniarastis UNION SELECT DISTINCT 'SODRAP', SD_v FROM du_ziniarastis UNION SELECT DISTINCT 'SODRAI', SD_d FROM du_ziniarastis UNION SELECT DISTINCT 'PVM', PVM FROM paslaugos UNION SELECT DISTINCT 'PVM', Tar FROM sfd UNION SELECT DISTINCT 'PVM', Tarif FROM sfg UNION SELECT 'PVM', RateValue FROM CompanyRates WHERE Code=6;</Statement>
-    <Objects>Settings.TaxRateList</Objects>
+    <Statement>SELECT DISTINCT 'PVM', PVMTarifas FROM Apyskaitos UNION SELECT DISTINCT 'GPM', Tar FROM d_kitos UNION SELECT DISTINCT 'PSDP', TarPSDE FROM d_kitos UNION SELECT DISTINCT 'PSDI', TarPSDW FROM d_kitos UNION SELECT DISTINCT 'SODRAP', TarSDE FROM d_kitos UNION SELECT DISTINCT 'SODRAI', TarSDW FROM d_kitos UNION SELECT DISTINCT 'GPM', GPM FROM du_ziniarastis UNION SELECT DISTINCT 'PSDP', PSDE FROM du_ziniarastis UNION SELECT DISTINCT 'PSDI', PSDW FROM du_ziniarastis UNION SELECT DISTINCT 'SODRAP', SD_v FROM du_ziniarastis UNION SELECT DISTINCT 'SODRAI', SD_d FROM du_ziniarastis UNION SELECT DISTINCT 'PVM', PVM FROM paslaugos UNION SELECT DISTINCT 'PVM', Tar FROM sfd UNION SELECT DISTINCT 'PVM', Tarif FROM sfg UNION SELECT 'PVM', RateValue FROM CompanyRates WHERE Code=6 UNION SELECT DISTINCT 'PVM', DefaultVatRateSales FROM goods UNION SELECT DISTINCT 'PVM', DefaultVatRatePurchase FROM goods;</Statement>
+    <Objects>HelperLists.TaxRateInfoList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchPersonInfoItemList</Key>

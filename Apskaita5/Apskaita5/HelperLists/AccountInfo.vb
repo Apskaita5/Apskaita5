@@ -151,7 +151,7 @@ Namespace HelperLists
 
             _ID = CLongSafe(dr.Item(0), 0)
             _Name = CStrSafe(dr.Item(1)).Trim
-            _AssociatedReportItem = CStrSafe(dr.Item(2)).Trim
+            _AssociatedReportItem = CStrSafe(dr.Item(3)).Trim
             _Class = General.Account.GetAccountClass(_ID)
 
         End Sub

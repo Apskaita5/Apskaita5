@@ -4,12 +4,11 @@ Imports Csla.Validation
 Namespace Documents.InvoiceAdapters
 
     ''' <summary>
-    ''' Represents an invoice item adapter for <see cref="Assets.LongTermAssetOperation">
+    ''' Represents an invoice item adapter for <see cref="Assets.OperationAcquisitionValueIncrease">
     ''' long term asset acquisition value increase</see>.
     ''' </summary>
-    ''' <remarks>An adapter between a <see cref="LongTermAssetOperation">LongTermAssetOperation</see> 
-    ''' of type <see cref="LtaOperationType.AcquisitionValueIncrease">LtaOperationType.AcquisitionValueIncrease</see> and
-    ''' and <see cref="InvoiceMadeItem">InvoiceMadeItem</see>
+    ''' <remarks>An adapter between an <see cref="OperationAcquisitionValueIncrease">OperationAcquisitionValueIncrease</see> 
+    ''' and an <see cref="InvoiceMadeItem">InvoiceMadeItem</see>
     ''' or an <see cref="InvoiceReceivedItem">InvoiceReceivedItem</see>.
     ''' Can be added to an invoice by invoking <see cref="InvoiceMade.AttachNewObject">InvoiceMade.AttachNewObject</see>
     ''' or <see cref="InvoiceReceived.AttachNewObject">InvoiceReceived.AttachNewObject</see> methods.</remarks>
@@ -21,7 +20,7 @@ Namespace Documents.InvoiceAdapters
 #Region " Business Methods "
 
         Private ReadOnly _Guid As Guid = Guid.NewGuid
-        Private WithEvents _AssetOperation As LongTermAssetOperation = Nothing
+        Private WithEvents _AssetOperation As OperationAcquisitionValueIncrease = Nothing
         Private _IsForInvoiceMade As Boolean
 
 
@@ -39,7 +38,7 @@ Namespace Documents.InvoiceAdapters
         ''' <summary>
         ''' Gets an ID of the attached operation.
         ''' </summary>
-        ''' <remarks>Corresponds to <see cref="LongTermAssetOperation.ID">LongTermAssetOperation.ID</see>.</remarks>
+        ''' <remarks>Corresponds to <see cref="OperationAcquisitionValueIncrease.ID">OperationAcquisitionValueIncrease.ID</see>.</remarks>
         Public ReadOnly Property Id() As Integer Implements IInvoiceAdapter.Id
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -50,7 +49,7 @@ Namespace Documents.InvoiceAdapters
         ''' <summary>
         ''' Gets an ID of the object that the attached operation acts on.
         ''' </summary>
-        ''' <remarks>Corresponds to <see cref="LongTermAssetOperation.AssetID">LongTermAssetOperation.AssetID</see>.</remarks>
+        ''' <remarks>Corresponds to <see cref="OperationAcquisitionValueIncrease.AssetID">OperationAcquisitionValueIncrease.AssetID</see>.</remarks>
         Public ReadOnly Property ObjectId() As Integer Implements IInvoiceAdapter.ObjectId
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -72,7 +71,7 @@ Namespace Documents.InvoiceAdapters
         ''' <summary>
         ''' Gets an underlying attached operation.
         ''' </summary>
-        ''' <remarks>Returns an incapsulated <see cref="LongTermAssetOperation">LongTermAssetOperation</see> instance.</remarks>
+        ''' <remarks>Returns an incapsulated <see cref="OperationAcquisitionValueIncrease">OperationAcquisitionValueIncrease</see> instance.</remarks>
         Public ReadOnly Property ValueObject() As Object Implements IInvoiceAdapter.ValueObject
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -83,19 +82,19 @@ Namespace Documents.InvoiceAdapters
         ''' <summary>
         ''' Gets a type of the underlying attached operation.
         ''' </summary>
-        ''' <remarks>Returns <see cref="LongTermAssetOperation">LongTermAssetOperation</see>.</remarks>
+        ''' <remarks>Returns <see cref="OperationAcquisitionValueIncrease">OperationAcquisitionValueIncrease</see>.</remarks>
         Public ReadOnly Property ValueObjectType() As System.Type Implements IInvoiceAdapter.ValueObjectType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return GetType(LongTermAssetOperation)
+                Return GetType(OperationAcquisitionValueIncrease)
             End Get
         End Property
 
         ''' <summary>
         ''' Gets an underlying asset operation.
         ''' </summary>
-        ''' <remarks>Returns an incapsulated <see cref="LongTermAssetOperation">LongTermAssetOperation</see> instance.</remarks>
-        Public ReadOnly Property AssetOperation() As LongTermAssetOperation
+        ''' <remarks>Returns an incapsulated <see cref="OperationAcquisitionValueIncrease">OperationAcquisitionValueIncrease</see> instance.</remarks>
+        Public ReadOnly Property AssetOperation() As OperationAcquisitionValueIncrease
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _AssetOperation
@@ -105,7 +104,7 @@ Namespace Documents.InvoiceAdapters
         ''' <summary>
         ''' Gets an <see cref="IChronologicValidator">IChronologicValidator</see> object that contains business restraints on updating the operation.
         ''' </summary>
-        ''' <remarks>Returns <see cref="LongTermAssetOperation.ChronologyValidator">LongTermAssetOperation.ChronologyValidator</see>.</remarks>
+        ''' <remarks>Returns <see cref="OperationAcquisitionValueIncrease.ChronologyValidator">OperationAcquisitionValueIncrease.ChronologyValidator</see>.</remarks>
         Public ReadOnly Property ChronologyValidator() As IChronologicValidator Implements IInvoiceAdapter.ChronologyValidator
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -116,7 +115,7 @@ Namespace Documents.InvoiceAdapters
         ''' <summary>
         ''' Whether the underlying attached operation has any <see cref="csla.Validation.RuleSeverity.[Error]">errors</see>.
         ''' </summary>
-        ''' <remarks>Returns <see cref="LongTermAssetOperation.IsValid">LongTermAssetOperation.IsValid</see>.</remarks>
+        ''' <remarks>Returns <see cref="OperationAcquisitionValueIncrease.IsValid">OperationAcquisitionValueIncrease.IsValid</see>.</remarks>
         Public ReadOnly Property ValueObjectHasErrors() As Boolean Implements IInvoiceAdapter.ValueObjectHasErrors
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -127,11 +126,11 @@ Namespace Documents.InvoiceAdapters
         ''' <summary>
         ''' Whether the underlying attached operation has any <see cref="csla.Validation.RuleSeverity.Warning">warnings</see>.
         ''' </summary>
-        ''' <remarks>Returns whether <see cref="LongTermAssetOperation.BrokenRulesCollection">LongTermAssetOperation.BrokenRulesCollection.WarningCount>0</see>.</remarks>
+        ''' <remarks>Returns <see cref="OperationAcquisitionValueIncrease.HasWarnings">OperationAcquisitionValueIncrease.HasWarnings</see>.</remarks>
         Public ReadOnly Property ValueObjectHasWarnings() As Boolean Implements IInvoiceAdapter.ValueObjectHasWarnings
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return _AssetOperation.BrokenRulesCollection.WarningCount > 0
+                Return _AssetOperation.HasWarnings
             End Get
         End Property
 
@@ -177,11 +176,11 @@ Namespace Documents.InvoiceAdapters
         ''' (only to replace empty value, not to enforce equality).
         ''' </summary>
         ''' <remarks>Not to be used for regionalization.
-        ''' Returns TRUE for long term asset acquisition value increase.</remarks>
+        ''' Returns FALSE for long term asset acquisition value increase.</remarks>
         Public ReadOnly Property HandlesNameInvoice() As Boolean Implements IInvoiceAdapter.HandlesNameInvoice
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return True
+                Return False
             End Get
         End Property
 
@@ -191,19 +190,15 @@ Namespace Documents.InvoiceAdapters
         ''' or the <see cref="InvoiceReceivedItem.NameInvoice">InvoiceReceivedItem.NameInvoice</see>
         ''' properties if the <see cref="HandlesNameInvoice">HandlesNameInvoice</see> is set to TRUE.
         ''' </summary>
-        ''' <remarks>Not to be used for regionalization.
-        ''' Returns <see cref="LongTermAssetOperation.Content">LongTermAssetOperation.Content</see>.
-        ''' Only sets the value if the current value is null or empty.</remarks>
+        ''' <remarks>Returns an empty string, sets nothing.</remarks>
         Public Property NameInvoice() As String Implements IInvoiceAdapter.NameInvoice
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return _AssetOperation.Content
+                Return ""
             End Get
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Set(ByVal value As String)
-                If String.IsNullOrEmpty(_AssetOperation.Content) AndAlso Not String.IsNullOrEmpty(value) Then
-                    _AssetOperation.Content = value
-                End If
+                
             End Set
         End Property
 
@@ -410,11 +405,11 @@ Namespace Documents.InvoiceAdapters
         ''' or the <see cref="InvoiceReceivedItem.SumLTL">InvoiceReceivedItem.SumLTL</see>
         ''' properties if the <see cref="HandlesSum">HandlesSum</see> is set to TRUE.
         ''' </summary>
-        ''' <remarks>Returns <see cref="LongTermAssetOperation.TotalValueChange">>LongTermAssetOperation.TotalValueChange</see>.</remarks>
+        ''' <remarks>Returns <see cref="OperationAcquisitionValueIncrease.ValueIncrease">OperationAcquisitionValueIncrease.ValueIncrease</see>.</remarks>
         Public ReadOnly Property Sum() As Double Implements IInvoiceAdapter.Sum
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return _AssetOperation.TotalValueChange
+                Return _AssetOperation.ValueIncrease
             End Get
         End Property
 
@@ -535,17 +530,17 @@ Namespace Documents.InvoiceAdapters
         ''' <summary>
         ''' Gets all the <see cref="csla.Validation.RuleSeverity.[Error]">errors</see> within the attached operation.
         ''' </summary>
-        ''' <remarks>Returns <see cref="LongTermAssetOperation.BrokenRulesCollection">LongTermAssetOperation.BrokenRulesCollection.ToString</see>.</remarks>
+        ''' <remarks>Returns <see cref="OperationAcquisitionValueIncrease.GetErrorString">OperationAcquisitionValueIncrease.GetErrorString</see>.</remarks>
         Public Function GetAllErrors() As String Implements IInvoiceAdapter.GetAllErrors
-            Return _AssetOperation.BrokenRulesCollection.ToString(RuleSeverity.Error)
+            Return _AssetOperation.GetErrorString()
         End Function
 
         ''' <summary>
         ''' Gets all the <see cref="csla.Validation.RuleSeverity.Warning">warnings</see> within the attached operation.
         ''' </summary>
-        ''' <remarks>Returns <see cref="LongTermAssetOperation.BrokenRulesCollection">LongTermAssetOperation.BrokenRulesCollection.ToString</see>.</remarks>
+        ''' <remarks>Returns <see cref="OperationAcquisitionValueIncrease.GetWarningString">OperationAcquisitionValueIncrease.GetWarningString</see>.</remarks>
         Public Function GetAllWarnings() As String Implements IInvoiceAdapter.GetAllWarnings
-            Return _AssetOperation.BrokenRulesCollection.ToString(RuleSeverity.Warning)
+            Return _AssetOperation.GetWarningString()
         End Function
 
 
@@ -553,10 +548,10 @@ Namespace Documents.InvoiceAdapters
         ''' Sets the attached operation date to invoice date.
         ''' </summary>
         ''' <param name="newInvoiceDate"></param>
-        ''' <remarks>Invokes <see cref="LongTermAssetOperation.SetDate">LongTermAssetOperation.SetDate</see>
+        ''' <remarks>Invokes <see cref="OperationAcquisitionValueIncrease.SetParentDate">OperationAcquisitionValueIncrease.SetParentDate</see>
         ''' method on encapsulated long term asset operation object.</remarks>
         Public Sub SetInvoiceDate(ByVal newInvoiceDate As Date) Implements IInvoiceAdapter.SetInvoiceDate
-            _AssetOperation.SetDate(newInvoiceDate)
+            _AssetOperation.SetParentDate(newInvoiceDate)
         End Sub
 
         ''' <summary>
@@ -569,20 +564,7 @@ Namespace Documents.InvoiceAdapters
 
             If Not _AssetOperation.ChronologyValidator.FinancialDataCanChange Then Exit Sub
 
-            Dim value As Double = -parentInvoiceItem.GetTotalSumForInvoiceAdapter()
-
-            If _AssetOperation.CurrentAssetAmmount > 0 Then
-
-                _AssetOperation.UnitValueChange = CRound(value / _
-                    _AssetOperation.CurrentAssetAmmount, ROUNDUNITASSET)
-
-            Else
-
-                _AssetOperation.UnitValueChange = 0
-
-            End If
-
-            _AssetOperation.TotalValueChange = value
+            _AssetOperation.ValueIncrease = -parentInvoiceItem.GetTotalSumForInvoiceAdapter()
 
         End Sub
 
@@ -596,20 +578,7 @@ Namespace Documents.InvoiceAdapters
 
             If Not _AssetOperation.ChronologyValidator.FinancialDataCanChange Then Exit Sub
 
-            Dim value As Double = parentInvoiceItem.GetTotalSumForInvoiceAdapter()
-
-            If _AssetOperation.CurrentAssetAmmount > 0 Then
-
-                _AssetOperation.UnitValueChange = CRound(value / _
-                    _AssetOperation.CurrentAssetAmmount, ROUNDUNITASSET)
-
-            Else
-
-                _AssetOperation.UnitValueChange = 0
-
-            End If
-
-            _AssetOperation.TotalValueChange = value
+            _AssetOperation.ValueIncrease = parentInvoiceItem.GetTotalSumForInvoiceAdapter()
 
         End Sub
 
@@ -817,10 +786,10 @@ Namespace Documents.InvoiceAdapters
                 Return False
 
             ElseIf invoiceItem.SumLTL < 0 AndAlso Not invoiceItem.IncludeVatInObject _
-                AndAlso -invoiceItem.GetTotalSumForInvoiceAdapter() <> _AssetOperation.TotalValueChange Then
+                AndAlso -invoiceItem.GetTotalSumForInvoiceAdapter() <> _AssetOperation.ValueIncrease Then
 
                 e.Description = String.Format(My.Resources.Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_SumMismatch, _
-                    DblParser(-invoiceItem.GetTotalSumForInvoiceAdapter, 2), DblParser(_AssetOperation.TotalValueChange, 2))
+                    DblParser(-invoiceItem.GetTotalSumForInvoiceAdapter, 2), DblParser(_AssetOperation.ValueIncrease, 2))
                 e.Severity = RuleSeverity.Error
                 Return False
 
@@ -846,10 +815,10 @@ Namespace Documents.InvoiceAdapters
                 Return False
 
             ElseIf invoiceItem.SumLTL > 0 AndAlso Not invoiceItem.IncludeVatInObject _
-                AndAlso invoiceItem.GetTotalSumForInvoiceAdapter <> _AssetOperation.TotalValueChange Then
+                AndAlso invoiceItem.GetTotalSumForInvoiceAdapter <> _AssetOperation.ValueIncrease Then
 
                 e.Description = String.Format(My.Resources.Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_SumMismatch, _
-                    DblParser(invoiceItem.GetTotalSumForInvoiceAdapter, 2), DblParser(_AssetOperation.TotalValueChange, 2))
+                    DblParser(invoiceItem.GetTotalSumForInvoiceAdapter, 2), DblParser(_AssetOperation.ValueIncrease, 2))
                 e.Severity = RuleSeverity.Error
                 Return False
 
@@ -875,10 +844,10 @@ Namespace Documents.InvoiceAdapters
                 Return False
 
             ElseIf invoiceItem.SumTotalLTL < 0 AndAlso invoiceItem.IncludeVatInObject _
-                AndAlso -invoiceItem.GetTotalSumForInvoiceAdapter <> _AssetOperation.TotalValueChange Then
+                AndAlso -invoiceItem.GetTotalSumForInvoiceAdapter <> _AssetOperation.ValueIncrease Then
 
                 e.Description = String.Format(My.Resources.Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_SumTotalMismatch, _
-                    DblParser(-invoiceItem.GetTotalSumForInvoiceAdapter, 2), DblParser(_AssetOperation.TotalValueChange, 2))
+                    DblParser(-invoiceItem.GetTotalSumForInvoiceAdapter, 2), DblParser(_AssetOperation.ValueIncrease, 2))
                 e.Severity = RuleSeverity.Error
                 Return False
 
@@ -904,10 +873,10 @@ Namespace Documents.InvoiceAdapters
                 Return False
 
             ElseIf invoiceItem.SumTotalLTL > 0 AndAlso invoiceItem.IncludeVatInObject _
-                AndAlso invoiceItem.GetTotalSumForInvoiceAdapter <> _AssetOperation.TotalValueChange Then
+                AndAlso invoiceItem.GetTotalSumForInvoiceAdapter <> _AssetOperation.ValueIncrease Then
 
                 e.Description = String.Format(My.Resources.Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_SumTotalMismatch, _
-                    DblParser(invoiceItem.GetTotalSumForInvoiceAdapter, 2), DblParser(_AssetOperation.TotalValueChange, 2))
+                    DblParser(invoiceItem.GetTotalSumForInvoiceAdapter, 2), DblParser(_AssetOperation.ValueIncrease, 2))
                 e.Severity = RuleSeverity.Error
                 Return False
 
@@ -1013,8 +982,8 @@ Namespace Documents.InvoiceAdapters
             If Not CanGetObject() Then Throw New System.Security.SecurityException( _
                 My.Resources.Common_SecuritySelectDenied)
 
-            _AssetOperation = LongTermAssetOperation.NewLongTermAssetOperationChild( _
-                criteria.ID, LtaOperationType.AcquisitionValueIncrease, criteria.ParentChronologyValidator)
+            _AssetOperation = OperationAcquisitionValueIncrease.NewOperationAcquisitionValueIncreaseChild( _
+                criteria.ID, criteria.ParentChronologyValidator, False)
 
             _IsForInvoiceMade = criteria.IsForInvoiceMade
 
@@ -1024,7 +993,7 @@ Namespace Documents.InvoiceAdapters
         Private Sub Fetch(ByVal attachedObjectId As Integer, _
             ByVal parentChronologyValidator As IChronologicValidator, ByVal forInvoiceMade As Boolean)
 
-            _AssetOperation = LongTermAssetOperation.GetLongTermAssetOperationChild( _
+            _AssetOperation = OperationAcquisitionValueIncrease.GetOperationAcquisitionValueIncreaseChild( _
                 attachedObjectId, parentChronologyValidator)
 
             _IsForInvoiceMade = forInvoiceMade
@@ -1039,7 +1008,7 @@ Namespace Documents.InvoiceAdapters
         ''' </summary>
         ''' <remarks>Inserts or updates the long term asset acquisition value increase operation data.</remarks>
         Friend Sub Update(ByVal parentInvoice As InvoiceMade) Implements IInvoiceAdapter.Update
-            _AssetOperation.SaveServerSide(parentInvoice.ID, Not parentInvoice.ChronologyValidator.FinancialDataCanChange)
+            _AssetOperation.SaveChild(0, parentInvoice.ID, Not parentInvoice.ChronologyValidator.FinancialDataCanChange)
             MarkOld()
         End Sub
 
@@ -1048,7 +1017,7 @@ Namespace Documents.InvoiceAdapters
         ''' </summary>
         ''' <remarks>Inserts or updates the long term asset acquisition value increase operation data.</remarks>
         Friend Sub Update(ByVal parentInvoice As InvoiceReceived) Implements IInvoiceAdapter.Update
-            _AssetOperation.SaveServerSide(parentInvoice.ID, Not parentInvoice.ChronologyValidator.FinancialDataCanChange)
+            _AssetOperation.SaveChild(0, parentInvoice.ID, Not parentInvoice.ChronologyValidator.FinancialDataCanChange)
             MarkOld()
         End Sub
 
@@ -1058,7 +1027,7 @@ Namespace Documents.InvoiceAdapters
         ''' </summary>
         ''' <remarks>Deletes long term asset acquisition value increase operation data from a database.</remarks>
         Friend Sub DeleteSelf() Implements IInvoiceAdapter.DeleteSelf
-            LongTermAssetOperation.DeleteLongTermAssetOperationChild(_AssetOperation.ID)
+            _AssetOperation.DeleteOperationAcquisitionValueIncreaseChild()
             MarkNew()
         End Sub
 
@@ -1067,20 +1036,20 @@ Namespace Documents.InvoiceAdapters
         ''' Gets a book entries required by the service.
         ''' </summary>
         ''' <param name="invoiceItem"></param>
-        ''' <remarks>Invokes <see cref="LongTermAssetOperation.GetTotalBookEntryListForTransfer">LongTermAssetOperation.GetTotalBookEntryListForTransfer</see>
+        ''' <remarks>Invokes <see cref="OperationAcquisitionValueIncrease.GetTotalBookEntryList">LongTermAssetOperation.GetTotalBookEntryList</see>
         ''' method on encapsulated long term asset acquisition value increase operation and returns the result.</remarks>
         Friend Function GetBookEntryList(ByVal invoiceItem As InvoiceMadeItem) As BookEntryInternalList Implements IInvoiceAdapter.GetBookEntryList
-            Return _AssetOperation.GetTotalBookEntryListForAcquisitionValueChange()
+            Return _AssetOperation.GetTotalBookEntryList()
         End Function
 
         ''' <summary>
         ''' Gets a book entries required by the service.
         ''' </summary>
         ''' <param name="invoiceItem"></param>
-        ''' <remarks>Invokes <see cref="LongTermAssetOperation.GetTotalBookEntryListForTransfer">LongTermAssetOperation.GetTotalBookEntryListForTransfer</see>
+        ''' <remarks>Invokes <see cref="OperationAcquisitionValueIncrease.GetTotalBookEntryList">OperationAcquisitionValueIncrease.GetTotalBookEntryList</see>
         ''' method on encapsulated long term asset acquisition value increase operation and returns the result.</remarks>
         Friend Function GetBookEntryList(ByVal invoiceItem As InvoiceReceivedItem) As BookEntryInternalList Implements IInvoiceAdapter.GetBookEntryList
-            Return _AssetOperation.GetTotalBookEntryListForAcquisitionValueChange()
+            Return _AssetOperation.GetTotalBookEntryList()
         End Function
 
         ''' <summary>
@@ -1088,7 +1057,7 @@ Namespace Documents.InvoiceAdapters
         ''' Throws an exception if not.
         ''' </summary>
         ''' <param name="parentChronologyValidator"></param>
-        ''' <remarks>Invokes <see cref="LongTermAssetOperation.CheckIfCanDeleteChild">LongTermAssetOperation.CheckIfCanDeleteChild</see>
+        ''' <remarks>Invokes <see cref="OperationAcquisitionValueIncrease.CheckIfCanDeleteChild">OperationAcquisitionValueIncrease.CheckIfCanDeleteChild</see>
         ''' method on encapsulated long term asset acquisition value increase operation.</remarks>
         Friend Sub CheckIfCanDelete(ByVal parentChronologyValidator As IChronologicValidator) Implements IInvoiceAdapter.CheckIfCanDelete
             _AssetOperation.CheckIfCanDeleteChild(parentChronologyValidator)
@@ -1099,10 +1068,10 @@ Namespace Documents.InvoiceAdapters
         ''' Throws an exception if not.
         ''' </summary>
         ''' <param name="parentChronologyValidator"></param>
-        ''' <remarks>Invokes <see cref="LongTermAssetOperation.CheckAllRulesChild">LongTermAssetOperation.CheckAllRulesChild</see>
+        ''' <remarks>Invokes <see cref="OperationAcquisitionValueIncrease.CheckIfCanSaveChild">OperationAcquisitionValueIncrease.CheckIfCanSaveChild</see>
         ''' method on encapsulated long term asset acquisition value increase operation.</remarks>
         Friend Sub CheckIfCanUpdate(ByVal parentChronologyValidator As IChronologicValidator) Implements IInvoiceAdapter.CheckIfCanUpdate
-            _AssetOperation.CheckAllRulesChild(parentChronologyValidator)
+            _AssetOperation.CheckIfCanSaveChild(parentChronologyValidator)
         End Sub
 
         ''' <summary>
@@ -1113,8 +1082,9 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Is invoked on each invoice item adapter before other validation 
         ''' and actual update is performed.</remarks>
         Public Sub SetParentData(ByVal parentInvoice As InvoiceMade) Implements IInvoiceAdapter.SetParentData
-            _AssetOperation.Content = String.Format(My.Resources.Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_ContentInvoiceMade, _
-                parentInvoice.Content)
+            _AssetOperation.SetParentProperties(parentInvoice.Serial & parentInvoice.FullNumber, _
+                String.Format(My.Resources.Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_ContentInvoiceMade, _
+                parentInvoice.Content))
         End Sub
 
         ''' <summary>
@@ -1125,8 +1095,9 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Is invoked on each invoice item adapter before other validation 
         ''' and actual update is performed.</remarks>
         Public Sub SetParentData(ByVal parentInvoice As InvoiceReceived) Implements IInvoiceAdapter.SetParentData
-            _AssetOperation.Content = String.Format(My.Resources.Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_ContentInvoiceReceived, _
-                parentInvoice.Content)
+            _AssetOperation.SetParentProperties(parentInvoice.Number, String.Format( _
+                My.Resources.Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_ContentInvoiceMade, _
+                parentInvoice.Content))
         End Sub
 
 #End Region

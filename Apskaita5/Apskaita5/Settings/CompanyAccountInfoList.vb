@@ -24,6 +24,13 @@ Namespace Settings
             Return 0
         End Function
 
+        Friend Function GetAccountInfo(ByVal id As Long) As CompanyAccountInfo
+            For Each i As CompanyAccountInfo In Me
+                If i.Value = id Then Return i
+            Next
+            Return Nothing
+        End Function
+
 #End Region
 
 #Region " Factory Methods "

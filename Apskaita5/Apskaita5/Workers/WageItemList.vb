@@ -246,7 +246,7 @@ Namespace Workers
 
         Friend Shared Function NewWageItemList(ByVal myData As DataTable, _
             ByVal nWageRates As CompanyWageRates, ByVal nYear As Integer, _
-            ByVal nMonth As Integer, ByVal nWorkTime As WorkTime) As WageItemList
+            ByVal nMonth As Integer, ByVal nWorkTime As DefaultWorkTimeInfo) As WageItemList
             Return New WageItemList(myData, nWageRates, nYear, nMonth, nWorkTime)
         End Function
 
@@ -267,7 +267,7 @@ Namespace Workers
 
 
         Private Sub New(ByVal myData As DataTable, ByVal nWageRates As CompanyWageRates, _
-            ByVal nYear As Integer, ByVal nMonth As Integer, ByVal nWorkTime As WorkTime)
+            ByVal nYear As Integer, ByVal nMonth As Integer, ByVal nWorkTime As DefaultWorkTimeInfo)
 
             ' require use of factory methods
 
@@ -300,7 +300,7 @@ Namespace Workers
 #Region " Data Access "
 
         Private Sub Create(ByVal myData As DataTable, ByVal nWageRates As CompanyWageRates, _
-            ByVal nYear As Integer, ByVal nMonth As Integer, ByVal nWorkTime As WorkTime)
+            ByVal nYear As Integer, ByVal nMonth As Integer, ByVal nWorkTime As DefaultWorkTimeInfo)
 
             RaiseListChangedEvents = False
 

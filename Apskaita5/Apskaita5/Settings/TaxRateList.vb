@@ -1,56 +1,50 @@
+Imports ApskaitaObjects.Settings.XmlProxies
+
 Namespace Settings
 
+    ''' <summary>
+    ''' Represents a collection of tax rates that could be used in business objects.
+    ''' </summary>
+    ''' <remarks>Exists a single instance accross all of the databases.
+    ''' Should only be used as a child of <see cref="CommonSettings">CommonSettings</see>
+    ''' Persisted using xml proxies as a part of <see cref="CommonSettings">CommonSettings</see>.</remarks>
     <Serializable()> _
     Public Class TaxRateList
         Inherits BusinessListBase(Of TaxRateList, TaxRate)
-        Implements ICustomXmlSerialized
 
 #Region " Business Methods "
 
-        ''' <summary>
-        ''' Gets a list of possible tax tokens.
-        ''' </summary>
-        Public Shared Function GetAllTaxTokens(Optional ByVal AddEmptyToken As Boolean = True) As List(Of String)
-            Return GetEnumValuesHumanReadableList(GetType(TaxTarifType), AddEmptyToken)
-        End Function
-
         Protected Overrides Function AddNewCore() As Object
-            Dim NewItem As TaxRate = TaxRate.NewTaxRate(True)
-            Me.Add(NewItem)
-            Return NewItem
+            Dim newItem As TaxRate = TaxRate.NewTaxRate()
+            Me.Add(newItem)
+            Return newItem
         End Function
 
-        Friend Sub ForceCheckRules()
-            For Each t As TaxRate In Me
-                t.ForceCheckRules()
-            Next
-        End Sub
-
-        Friend Function GetAllBrokenRules() As String
-            If IsValid Then Return ""
-
-            Dim result As String = ""
-
-            For Each gitem As TaxRate In Me
-                If Not gitem.IsValid Then
-                    If String.IsNullOrEmpty(result.Trim) Then
-                        result = gitem.BrokenRulesCollection.ToString
-                    Else
-                        result = result & vbCrLf & gitem.BrokenRulesCollection.ToString
-                    End If
-                End If
-            Next
-
+        Public Function GetAllBrokenRules() As String
+            Dim result As String = GetAllBrokenRulesForList(Me)
             Return result
+        End Function
+
+        Public Function GetAllWarnings() As String
+            Dim result As String = GetAllWarningsForList(Me)
+            Return result
+        End Function
+
+        Public Function HasWarnings() As Boolean
+            For Each h As TaxRate In Me
+                If h.HasWarnings Then Return True
+            Next
+            Return False
         End Function
 
 #End Region
 
 #Region " Factory Methods "
 
-        Friend Shared Function NewTaxRateList() As TaxRateList
-            Return New TaxRateList()
+        Friend Shared Function GetTaxRateList(ByVal proxyList As List(Of TaxRateProxy)) As TaxRateList
+            Return New TaxRateList(proxyList)
         End Function
+
 
         Private Sub New()
             Me.AllowEdit = True
@@ -59,74 +53,47 @@ Namespace Settings
             MarkAsChild()
         End Sub
 
+        Private Sub New(ByVal proxyList As List(Of TaxRateProxy))
+            Me.AllowEdit = True
+            Me.AllowNew = True
+            Me.AllowRemove = True
+            MarkAsChild()
+            Fetch(proxyList)
+        End Sub
+
 #End Region
 
 #Region " Data Access "
 
-        Friend Sub FetchTaxesInUse()
-
-            If Not GetCurrentIdentity.IsAuthenticatedWithDB Then Exit Sub
-
-            Dim myComm As New SQLCommand("FetchTaxRateListInUse")
-
-            Using myData As DataTable = myComm.Fetch
-
-                RaiseListChangedEvents = False
-
-                For Each dr As DataRow In myData.Rows
-                    If Not ListContainsDataRow(dr) Then Me.Add(TaxRate.NewTaxRate(dr))
-                Next
-
-                RaiseListChangedEvents = True
-
-            End Using
-
-
-        End Sub
-
-        Private Function ListContainsDataRow(ByVal dr As DataRow) As Boolean
-            For Each i As TaxRate In Me
-                If i.EqualsDataRow(dr) Then Return True
-            Next
-            Return False
-        End Function
-
-
-        Private Sub DeSerialize(ByVal node As System.Xml.XmlNode) _
-            Implements ICustomXmlSerialized.DeSerialize
+        Private Sub Fetch(ByVal proxyList As List(Of TaxRateProxy))
 
             RaiseListChangedEvents = False
 
-            For Each n As System.Xml.XmlNode In CustomXmlSerialization.GetCollectionNode(node)
-                Dim newItem As TaxRate = TaxRate.NewTaxRate(False)
-                CustomXmlSerialization.SetValues(newItem, n)
-                Add(newItem)
+            For Each proxy As TaxRateProxy In proxyList
+                Add(TaxRate.GetTaxRate(proxy))
             Next
 
             RaiseListChangedEvents = True
 
         End Sub
 
-        Public Function IsSerializedCollection() As Boolean _
-            Implements ICustomXmlSerialized.IsSerializedCollection
-            Return True
-        End Function
+        Friend Function GetProxyList(ByVal markItemsOld As Boolean) As List(Of TaxRateProxy)
 
-        Private Sub Serialize(ByRef node As System.Xml.XmlNode) _
-            Implements ICustomXmlSerialized.Serialize
+            Dim result As New List(Of TaxRateProxy)
 
             RaiseListChangedEvents = False
 
-            Dim CollectionNode As Xml.XmlNode = CustomXmlSerialization.GetCollectionNode(node)
-            For Each tr As TaxRate In Me
-                CustomXmlSerialization.AddChildNode(CollectionNode, "TaxRateItem", tr)
-            Next
+            If markItemsOld Then DeletedList.Clear()
 
-            DeletedList.Clear()
+            For Each n As TaxRate In Me
+                result.Add(n.GetProxy(markItemsOld))
+            Next
 
             RaiseListChangedEvents = True
 
-        End Sub
+            Return result
+
+        End Function
 
 #End Region
 

@@ -27,12 +27,12 @@ Public Class BindingSourceItem
     End Property
 
 
-    Public Sub New(ByVal CachedItemBaseType As Type, ByVal nFilterCriteria As Object())
+    Public Sub New(ByVal cachedItemBaseType As Type, ByVal nFilterCriteria As Object())
 
-        Dim DataSource As Object = GetDataSource(CachedItemBaseType, nFilterCriteria)
+        Dim dataSource As Object = GetDataSource(cachedItemBaseType, nFilterCriteria)
 
         _BindingSourceInstance = New BindingSource
-        _BindingSourceInstance.DataSource = DataSource
+        _BindingSourceInstance.DataSource = dataSource
 
         _BaseType = CachedItemBaseType
         _FilterCriteria = nFilterCriteria
@@ -41,12 +41,12 @@ Public Class BindingSourceItem
 
     Public Sub UpdateDataSource()
 
-        Dim DataSource As Object = GetDataSource(_BaseType, _FilterCriteria)
+        Dim dataSource As Object = GetDataSource(_BaseType, _FilterCriteria)
 
-        Dim CurrentObject As Object = Nothing
+        Dim currentObject As Object = Nothing
         If Not _BindingSourceInstance.Current Is Nothing Then
             Try
-                CurrentObject = _BindingSourceInstance.Current.Clone
+                currentObject = Clone(_BindingSourceInstance.Current)
             Catch ex As Exception
             End Try
         End If
@@ -54,12 +54,12 @@ Public Class BindingSourceItem
         _BindingSourceInstance.SuspendBinding()
 
         _BindingSourceInstance.DataSource = Nothing
-        _BindingSourceInstance.DataSource = DataSource
+        _BindingSourceInstance.DataSource = dataSource
 
         _BindingSourceInstance.ResumeBinding()
 
-        If Not CurrentObject Is Nothing AndAlso Not _BindingSourceInstance.IndexOf(CurrentObject) < 0 Then
-            _BindingSourceInstance.Position = _BindingSourceInstance.IndexOf(CurrentObject)
+        If Not currentObject Is Nothing AndAlso Not _BindingSourceInstance.IndexOf(currentObject) < 0 Then
+            _BindingSourceInstance.Position = _BindingSourceInstance.IndexOf(currentObject)
         Else
             _BindingSourceInstance.Position = -1
         End If
@@ -114,10 +114,27 @@ Public Class BindingSourceItem
 
             result = AssignableCRItemList.GetCachedFilteredList(True)
 
-        ElseIf CachedItemBaseType Is GetType(Settings.CommonSettings) Then
+        ElseIf CachedItemBaseType Is GetType(HelperLists.CodeInfoList) Then
 
-            result = Settings.CommonSettings.GetCachedFilteredList( _
-                DirectCast(nFilterCriteria(0), TaxTarifType), _
+            result = CodeInfoList.GetCachedFilteredList( _
+                DirectCast(nFilterCriteria(0), ApskaitaObjects.Settings.CodeType), _
+                DirectCast(nFilterCriteria(1), Boolean), _
+                DirectCast(nFilterCriteria(2), Boolean))
+
+        ElseIf CachedItemBaseType Is GetType(HelperLists.DefaultWorkTimeInfoList) Then
+
+            result = DefaultWorkTimeInfoList.GetList
+
+        ElseIf CachedItemBaseType Is GetType(HelperLists.NameInfoList) Then
+
+            result = NameInfoList.GetList.GetStringList( _
+                DirectCast(nFilterCriteria(0), ApskaitaObjects.Settings.NameType), _
+                DirectCast(nFilterCriteria(1), Boolean))
+
+        ElseIf CachedItemBaseType Is GetType(HelperLists.TaxRateInfoList) Then
+
+            result = TaxRateInfoList.GetList.GetRateList( _
+                DirectCast(nFilterCriteria(0), TaxRateType), _
                 DirectCast(nFilterCriteria(1), Boolean))
 
         ElseIf CachedItemBaseType Is GetType(LongTermAssetCustomGroupInfoList) Then
@@ -193,16 +210,16 @@ Public Class BindingSourceItem
 
     End Function
 
-    Private Function GetSubArray(ByVal BaseArray As Object(), ByVal StartIndex As Integer) As Object()
+    Private Function GetSubArray(ByVal baseArray As Object(), ByVal startIndex As Integer) As Object()
 
-        If BaseArray Is Nothing OrElse BaseArray.Length < 1 OrElse BaseArray.Length < StartIndex + 2 _
+        If baseArray Is Nothing OrElse baseArray.Length < 1 OrElse baseArray.Length < StartIndex + 2 _
             Then Return Nothing
 
-        Dim result(BaseArray.Length - StartIndex - 1) As Object
+        Dim result(baseArray.Length - StartIndex - 1) As Object
 
         Dim j As Integer = 1
-        For i As Integer = StartIndex + 1 To BaseArray.Length
-            result(j - 1) = BaseArray(i - 1)
+        For i As Integer = StartIndex + 1 To baseArray.Length
+            result(j - 1) = baseArray(i - 1)
             j += 1
         Next
 
@@ -210,16 +227,16 @@ Public Class BindingSourceItem
 
     End Function
 
-    Private Function GetSubArray(Of T)(ByVal BaseArray As Object(), ByVal StartIndex As Integer) As T()
+    Private Function GetSubArray(Of T)(ByVal baseArray As Object(), ByVal startIndex As Integer) As T()
 
-        If BaseArray Is Nothing OrElse BaseArray.Length < 1 OrElse BaseArray.Length < StartIndex + 2 _
+        If baseArray Is Nothing OrElse baseArray.Length < 1 OrElse baseArray.Length < StartIndex + 2 _
             Then Return Nothing
 
-        Dim result(BaseArray.Length - StartIndex - 1) As T
+        Dim result(baseArray.Length - StartIndex - 1) As T
 
         Dim j As Integer = 1
-        For i As Integer = StartIndex + 1 To BaseArray.Length
-            result(j - 1) = DirectCast(BaseArray(i - 1), T)
+        For i As Integer = StartIndex + 1 To baseArray.Length
+            result(j - 1) = DirectCast(baseArray(i - 1), T)
             j += 1
         Next
 

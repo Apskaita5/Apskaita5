@@ -168,7 +168,6 @@
     <Compile Include="Assets\LongTermAsset.vb" />
     <Compile Include="Assets\LongTermAssetAmortizationCalculation.vb" />
     <Compile Include="Assets\LongTermAssetAmortizationCalculationList.vb" />
-    <Compile Include="Assets\LongTermAssetComplexDocument.vb" />
     <Compile Include="ActiveReports\LongTermAssetComplexDocumentInfo.vb" />
     <Compile Include="ActiveReports\LongTermAssetComplexDocumentInfoList.vb" />
     <Compile Include="Assets\LongTermAssetCustomGroup.vb" />
@@ -282,9 +281,16 @@
     <Compile Include="Goods\ProductionComponentType.vb" />
     <Compile Include="Goods\ProductionCostItem.vb" />
     <Compile Include="Goods\ProductionCostItemList.vb" />
+    <Compile Include="HelperLists\AssignableCRItem.vb" />
+    <Compile Include="HelperLists\CodeInfo.vb" />
+    <Compile Include="HelperLists\CodeInfoList.vb" />
+    <Compile Include="HelperLists\DefaultWorkTimeInfo.vb" />
+    <Compile Include="HelperLists\DefaultWorkTimeInfoList.vb" />
     <Compile Include="HelperLists\GoodsInfo.vb" />
     <Compile Include="HelperLists\GoodsInfoList.vb" />
     <Compile Include="HelperLists\IValueObjectIsEmpty.vb" />
+    <Compile Include="HelperLists\NameInfo.vb" />
+    <Compile Include="HelperLists\NameInfoList.vb" />
     <Compile Include="HelperLists\ProductionCalculationInfo.vb" />
     <Compile Include="HelperLists\ProductionCalculationInfoList.vb" />
     <Compile Include="HelperLists\RegionalContentEntry.vb" />
@@ -292,6 +298,8 @@
     <Compile Include="HelperLists\RegionalInfoDictionary.vb" />
     <Compile Include="HelperLists\RegionalPriceEntry.vb" />
     <Compile Include="HelperLists\RegionalPriceEntryList.vb" />
+    <Compile Include="HelperLists\TaxRateInfo.vb" />
+    <Compile Include="HelperLists\TaxRateInfoList.vb" />
     <Compile Include="OperationChronologyType.vb" />
     <Compile Include="Goods\Warehouse.vb" />
     <Compile Include="Goods\WarehouseList.vb" />
@@ -310,7 +318,6 @@
     <Compile Include="Documents\CashAccountType.vb" />
     <Compile Include="Documents\BankOperation.vb" />
     <Compile Include="Documents\CommandDocumentIdByExternalId.vb" />
-    <Compile Include="Documents\InvoiceAttachedObject.vb" />
     <Compile Include="Documents\InvoiceAdapters\InvoiceAdapterType.vb" />
     <Compile Include="Documents\InvoiceType.vb" />
     <Compile Include="Documents\IRegionalDataObject.vb" />
@@ -346,8 +353,6 @@
     <Compile Include="ActiveReports\LongTermAssetInfo.vb" />
     <Compile Include="ActiveReports\LongTermAssetInfoList.vb" />
     <Compile Include="Assets\LongTermAssetOperation.vb" />
-    <Compile Include="Assets\LongTermAssetOperationChild.vb" />
-    <Compile Include="Assets\LongTermAssetOperationChildList.vb" />
     <Compile Include="ActiveReports\LongTermAssetOperationInfo.vb" />
     <Compile Include="ActiveReports\LongTermAssetOperationInfoList.vb" />
     <Compile Include="ActiveReports\LongTermAssetOperationInfoListParent.vb" />
@@ -379,6 +384,8 @@
     <Compile Include="HelperLists\WarehouseInfoList.vb" />
     <Compile Include="HelperLists\WorkTimeClassInfo.vb" />
     <Compile Include="HelperLists\WorkTimeClassInfoList.vb" />
+    <Compile Include="Settings\Code.vb" />
+    <Compile Include="Settings\CodeList.vb" />
     <Compile Include="Settings\CodeType.vb" />
     <Compile Include="Settings\CommandLastDocumentNumber.vb" />
     <Compile Include="Settings\CompanyAccountInfo.vb" />
@@ -395,6 +402,8 @@
     <Compile Include="HelperLists\PersonGroupInfoList.vb" />
     <Compile Include="HelperLists\PersonInfoList.vb" />
     <Compile Include="General\TemplateBookEntry.vb" />
+    <Compile Include="Settings\DefaultWorkTime.vb" />
+    <Compile Include="Settings\DefaultWorkTimeList.vb" />
     <Compile Include="Settings\DocumentSerial.vb" />
     <Compile Include="Settings\DocumentSerialList.vb" />
     <Compile Include="General\JournalEntry.vb" />
@@ -413,9 +422,12 @@
     <Compile Include="General\PersonObjects\PersonGroupAssignment.vb" />
     <Compile Include="General\PersonObjects\PersonGroupAssignmentList.vb" />
     <Compile Include="General\PersonObjects\PersonGroupList.vb" />
-    <Compile Include="General\SetupTypicalAccountsCommand.vb" />
     <Compile Include="Settings\DocumentSerialType.vb" />
+    <Compile Include="Settings\Name.vb" />
+    <Compile Include="Settings\NameList.vb" />
     <Compile Include="Settings\NameType.vb" />
+    <Compile Include="Settings\PublicHoliday.vb" />
+    <Compile Include="Settings\PublicHolidayList.vb" />
     <Compile Include="Settings\TaxRate.vb" />
     <Compile Include="Settings\TaxRateList.vb" />
     <Compile Include="General\TemplateBookEntryList.vb" />
@@ -448,15 +460,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="HelperLists\NameValueItem.vb" />
-    <Compile Include="HelperLists\NameValueItemList.vb" />
-    <Compile Include="HelperLists\SettingListType.vb" />
-    <Compile Include="CommonObjects\TaxTarifType.vb" />
-    <Compile Include="Settings\XmlProxies\Code.vb" />
-    <Compile Include="Settings\XmlProxies\ConventionalAccount.vb" />
-    <Compile Include="Settings\XmlProxies\LongTermAssetGroup.vb" />
-    <Compile Include="Settings\XmlProxies\Name.vb" />
-    <Compile Include="Settings\XmlProxies\TaxRate.vb" />
+    <Compile Include="CommonObjects\TaxRateType.vb" />
+    <Compile Include="Settings\XmlProxies\CodeProxy.vb" />
+    <Compile Include="Settings\XmlProxies\CommonSettingsProxy.vb" />
+    <Compile Include="Settings\XmlProxies\DefaultWorkTimeProxy.vb" />
+    <Compile Include="Settings\XmlProxies\NameProxy.vb" />
+    <Compile Include="Settings\XmlProxies\PublicHolidayProxy.vb" />
+    <Compile Include="Settings\XmlProxies\TaxRateProxy.vb" />
     <Compile Include="Utilities.vb" />
     <Compile Include="Workers\BonusType.vb" />
     <Compile Include="ActiveReports\BonusVDUInfo.vb" />
@@ -497,7 +507,6 @@
     <Compile Include="ActiveReports\WageSheetInfoList.vb" />
     <Compile Include="ActiveReports\WorkersVDUInfo.vb" />
     <Compile Include="ActiveReports\WorkersVDUInfoList.vb" />
-    <Compile Include="Workers\WorkTime.vb" />
     <Compile Include="Workers\WorkTimeClass.vb" />
     <Compile Include="Workers\WorkTimeClassList.vb" />
     <Compile Include="Workers\WorkTimeItem.vb" />
@@ -523,9 +532,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <Content Include="WorkTime.dat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="SqlDepositories\MySQL_Depository.sqld">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -543,17 +549,11 @@
     <Content Include="Info\KnownBugz.txt" />
     <Content Include="Info\SQLServerTypeUnsafeObjects.txt" />
     <Content Include="Info\MissingSettings.txt" />
-    <Content Include="CommonSettings.xmls">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="CommonCodes.dat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="FinancialStatements_Short.str">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Info\TestUpgradeSuccess.txt" />
-    <Content Include="PublicHolidays.dat">
+    <Content Include="CommonSettings.xmls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="web.config" />

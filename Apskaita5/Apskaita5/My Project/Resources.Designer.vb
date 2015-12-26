@@ -22305,6 +22305,33 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nurodytas failas yra tuščias..
+        '''</summary>
+        Friend ReadOnly Property General_AccountList_FileContentNull() As String
+            Get
+                Return ResourceManager.GetString("General_AccountList_FileContentNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Failas &quot;{0}&quot; neegzistuoja..
+        '''</summary>
+        Friend ReadOnly Property General_AccountList_FileNotFound() As String
+            Get
+                Return ResourceManager.GetString("General_AccountList_FileNotFound", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas failas..
+        '''</summary>
+        Friend ReadOnly Property General_AccountList_FilePathNull() As String
+            Get
+                Return ResourceManager.GetString("General_AccountList_FilePathNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Klaida. Neįvesta nė viena sąskaita..
         '''</summary>
         Friend ReadOnly Property General_AccountList_IsEmpty() As String
@@ -23151,6 +23178,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Išsaugota finansinių ataskaitų rinkinio struktūra neatitinka reikalavimų bazinei struktūrai..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_InvalidBaseStructureInXmlData() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_InvalidBaseStructureInXmlData", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Klaida. Pasirinktame faile nėra saugomi finansinės atskaitomybės struktūros duomenys..
         '''</summary>
         Friend ReadOnly Property General_ConsolidatedReport_InvalidXmlContent() As String
@@ -23160,11 +23196,74 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Eilutė, kurios GUID={0}, nerasta..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_ItemNotFound() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_ItemNotFound", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to finansinių ataskaitų rinkinio struktūra.
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_ToString() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to finansinių ataskaitų rinkinio struktūra.
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_TypeName() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to TURTAS.
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReportItem_BalanceAssetsStatementRootName() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReportItem_BalanceAssetsStatementRootName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to NUOSAVYBĖ IR ĮSIPAREIGOJIMAI.
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReportItem_BalanceCapitalStatementRootName() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReportItem_BalanceCapitalStatementRootName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Balanso ataskaita.
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReportItem_BalanceStatementRootName() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReportItem_BalanceStatementRootName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Klaida. Bazinių struktūrinių vienetų redaguoti neleidžiama..
         '''</summary>
         Friend ReadOnly Property General_ConsolidatedReportItem_CannotChangeBaseItem() As String
             Get
                 Return ResourceManager.GetString("General_ConsolidatedReportItem_CannotChangeBaseItem", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Finansinių ataskaitų rinkinys (finansinė atskaitomybė).
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReportItem_FinancialStatementsRootName() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReportItem_FinancialStatementsRootName", resourceCulture)
             End Get
         End Property
         
@@ -23183,6 +23282,24 @@ Namespace My.Resources
         Friend ReadOnly Property General_ConsolidatedReportItem_ID() As String
             Get
                 Return ResourceManager.GetString("General_ConsolidatedReportItem_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to GRYNASIS PELNAS (NUOSTOLIAI).
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReportItem_IncomeStatementFirstItemRootName() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReportItem_IncomeStatementFirstItemRootName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pelno (nuostolio) ataskaita.
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReportItem_IncomeStatementRootName() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReportItem_IncomeStatementRootName", resourceCulture)
             End Get
         End Property
         
@@ -23223,11 +23340,38 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to &quot;{0}: {1}{2}&quot;.
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReportItem_ToString() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReportItem_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to tipas.
         '''</summary>
         Friend ReadOnly Property General_ConsolidatedReportItem_Type() As String
             Get
                 Return ResourceManager.GetString("General_ConsolidatedReportItem_Type", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to finansinių ataskaitų rinkinio eilutė.
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReportItem_TypeName() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReportItem_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Valid range of collection is 0 to {0}. Indexes provided were {1} and {2}..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReportItemList_InvalidSwapOperation() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReportItemList_InvalidSwapOperation", resourceCulture)
             End Get
         End Property
         
@@ -24987,6 +25131,42 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_AssignableCRItem_ID() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_AssignableCRItem_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to eilutės pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_AssignableCRItem_Name() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_AssignableCRItem_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_AssignableCRItem_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_AssignableCRItem_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to balanso/pelno (nuostolio) ataskaitos eilutė.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_AssignableCRItem_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_AssignableCRItem_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to apskaitos sąsk..
         '''</summary>
         Friend ReadOnly Property HelperLists_CashAccountInfo_Account() As String
@@ -25131,6 +25311,78 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to kodas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_CodeInfo_Code() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_CodeInfo_Code", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nebenaudojamas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_CodeInfo_IsObsolete() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_CodeInfo_IsObsolete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pavadinimas (aprašymas).
+        '''</summary>
+        Friend ReadOnly Property HelperLists_CodeInfo_Name() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_CodeInfo_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_CodeInfo_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_CodeInfo_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to tipas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_CodeInfo_Type() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_CodeInfo_Type", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įvairūs kodai.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_CodeInfo_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_CodeInfo_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nežinomos paskirties kodas..
+        '''</summary>
+        Friend ReadOnly Property HelperLists_CodeInfo_UnknownCodeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_CodeInfo_UnknownCodeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to darbo užmokesčio kodas GPM deklaracijoje.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_CodeInfoList_CodeWageGPM() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_CodeInfoList_CodeWageGPM", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to adresas.
         '''</summary>
         Friend ReadOnly Property HelperLists_CompanyRegionalInfo_Address() As String
@@ -25262,6 +25514,105 @@ Namespace My.Resources
         Friend ReadOnly Property HelperLists_CompanyRegionalInfo_MeasureUnitInvoiceMade() As String
             Get
                 Return ResourceManager.GetString("HelperLists_CompanyRegionalInfo_MeasureUnitInvoiceMade", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Mėnuo turi būti tarp 1 ir 12, o yra {0}..
+        '''</summary>
+        Friend ReadOnly Property HelperLists_DefaultWorkTimeInfo_InvalidMonth() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_DefaultWorkTimeInfo_InvalidMonth", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Metai turi būti tarp 1972 ir 2100, o yra {0}..
+        '''</summary>
+        Friend ReadOnly Property HelperLists_DefaultWorkTimeInfo_InvalidYear() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_DefaultWorkTimeInfo_InvalidYear", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to mėnuo.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_DefaultWorkTimeInfo_Month() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_DefaultWorkTimeInfo_Month", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} m. {1} mėn. darbo laiko normos: 5 d.d. savaitei - {2} d.d., {3} d.v.; 6 d.d. savaitei - {4} d.d., {5} d.v..
+        '''</summary>
+        Friend ReadOnly Property HelperLists_DefaultWorkTimeInfo_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_DefaultWorkTimeInfo_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to darbo laiko mėnesio normos.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_DefaultWorkTimeInfo_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_DefaultWorkTimeInfo_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to d.d. penkių d.d. savaitei.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_DefaultWorkTimeInfo_WorkDaysFor5WorkDayWeek() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_DefaultWorkTimeInfo_WorkDaysFor5WorkDayWeek", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to d.d. šešių d.d. savaitei.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_DefaultWorkTimeInfo_WorkDaysFor6WorkDayWeek() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_DefaultWorkTimeInfo_WorkDaysFor6WorkDayWeek", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to d.v. penkių d.d. savaitei.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_DefaultWorkTimeInfo_WorkHoursFor5WorkDayWeek() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_DefaultWorkTimeInfo_WorkHoursFor5WorkDayWeek", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to d.v. šešių d.d. savaitei.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_DefaultWorkTimeInfo_WorkHoursFor6WorkDayWeek() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_DefaultWorkTimeInfo_WorkHoursFor6WorkDayWeek", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to metai.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_DefaultWorkTimeInfo_Year() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_DefaultWorkTimeInfo_Year", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. nurodyti metai, mėnuo ir diena ({0}-{1}-{2}) neatitinka jokios realios datos..
+        '''</summary>
+        Friend ReadOnly Property HelperLists_DefaultWorkTimeInfoList_InvalidDate() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_DefaultWorkTimeInfoList_InvalidDate", resourceCulture)
             End Get
         End Property
         
@@ -25694,6 +26045,51 @@ Namespace My.Resources
         Friend ReadOnly Property HelperLists_LongTermAssetCustomGroupInfo_Name() As String
             Get
                 Return ResourceManager.GetString("HelperLists_LongTermAssetCustomGroupInfo_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nebenaudojamas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_NameInfo_IsObsolete() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_NameInfo_IsObsolete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_NameInfo_Name() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_NameInfo_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_NameInfo_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_NameInfo_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to tipas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_NameInfo_Type() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_NameInfo_Type", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įvairūs pavadinimai.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_NameInfo_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_NameInfo_TypeName", resourceCulture)
             End Get
         End Property
         
@@ -26301,6 +26697,51 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to nebenaudojama.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_TaxRateInfo_IsObsolete() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_TaxRateInfo_IsObsolete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to tarifas %.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_TaxRateInfo_Rate() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_TaxRateInfo_Rate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} = {1} %.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_TaxRateInfo_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_TaxRateInfo_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to tipas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_TaxRateInfo_Type() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_TaxRateInfo_Type", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to mokesčių tarifas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_TaxRateInfo_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_TaxRateInfo_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to turinys.
         '''</summary>
         Friend ReadOnly Property HelperLists_TemplateJournalEntryInfo_Content() As String
@@ -26508,6 +26949,114 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to kodas.
+        '''</summary>
+        Friend ReadOnly Property Settings_Code_Code() As String
+            Get
+                Return ResourceManager.GetString("Settings_Code_Code", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nebenaudojamas.
+        '''</summary>
+        Friend ReadOnly Property Settings_Code_IsObsolete() As String
+            Get
+                Return ResourceManager.GetString("Settings_Code_IsObsolete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pavadinimas (aprašymas).
+        '''</summary>
+        Friend ReadOnly Property Settings_Code_Name() As String
+            Get
+                Return ResourceManager.GetString("Settings_Code_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}: {1} = {2}.
+        '''</summary>
+        Friend ReadOnly Property Settings_Code_ToString() As String
+            Get
+                Return ResourceManager.GetString("Settings_Code_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to tipas.
+        '''</summary>
+        Friend ReadOnly Property Settings_Code_Type() As String
+            Get
+                Return ResourceManager.GetString("Settings_Code_Type", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to tipas.
+        '''</summary>
+        Friend ReadOnly Property Settings_Code_TypeHumanReadable() As String
+            Get
+                Return ResourceManager.GetString("Settings_Code_TypeHumanReadable", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įvairūs kodai.
+        '''</summary>
+        Friend ReadOnly Property Settings_Code_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Settings_Code_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pajamų kodas GPM deklaracijoje.
+        '''</summary>
+        Friend ReadOnly Property Settings_CodeType_GpmDeclaration() As String
+            Get
+                Return ResourceManager.GetString("Settings_CodeType_GpmDeclaration", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pajamų kodas SODRA deklaracijoje.
+        '''</summary>
+        Friend ReadOnly Property Settings_CodeType_SodraDeclaration() As String
+            Get
+                Return ResourceManager.GetString("Settings_CodeType_SodraDeclaration", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to savivaldybės kodas VMI deklaracijose.
+        '''</summary>
+        Friend ReadOnly Property Settings_CodeType_VmiMunicipality() As String
+            Get
+                Return ResourceManager.GetString("Settings_CodeType_VmiMunicipality", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kodai.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_Codes() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_Codes", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kodai.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_CodesSorted() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_CodesSorted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to darbo užmokesčio kodas GPM deklaracijoje.
         '''</summary>
         Friend ReadOnly Property Settings_CommonSettings_CodeWageGPM() As String
@@ -26517,11 +27066,146 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to darbo laiko normos.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_DefaultWorkTimes() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_DefaultWorkTimes", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to darbo laiko normos.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_DefaultWorkTimesSorted() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_DefaultWorkTimesSorted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Sugadinti aplinkos nustatymai: {0}. Būtina iš naujo įkelti aplinkos nustatymų failą &quot;{1}&quot;..
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_FailedToDeserializeSettingsFile() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_FailedToDeserializeSettingsFile", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Sugadinti aplinkos nustatymai: priežastis nežinoma. Būtina iš naujo įkelti aplinkos nustatymų failą &quot;{0}&quot;..
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_FailedToDeserializeSettingsFileUnknownReason() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_FailedToDeserializeSettingsFileUnknownReason", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko nuskaityti duomenų iš aplinkos nustatymų failo &quot;{0}&quot;:{1}.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_FailedToReadSettingsFile() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_FailedToReadSettingsFile", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko išsaugoti aplinkos nustatymų duomenų faile &quot;{0}&quot;: {1}.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_FailedToWriteSettingsFile() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_FailedToWriteSettingsFile", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Application settings local access method is not set. Use AttachLocalSettingsMethods to initialize methods..
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_LocalAccessMethodNull() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_LocalAccessMethodNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Application settings modify method is not set. Use AttachLocalSettingsMethods to initialize methods..
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_LocalModifyMethodNull() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_LocalModifyMethodNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pavadinimai.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_Names() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_Names", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pavadinimai.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_NamesSorted() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_NamesSorted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to šventinės dienos.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_PublicHolidays() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_PublicHolidays", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to šventinės dienos.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_PublicHolidaysSorted() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_PublicHolidaysSorted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to mokesčių tarifai.
         '''</summary>
         Friend ReadOnly Property Settings_CommonSettings_TaxRates() As String
             Get
                 Return ResourceManager.GetString("Settings_CommonSettings_TaxRates", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to mokesčių tarifai.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_TaxRatesSorted() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_TaxRatesSorted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendri aplinkos nustatymai.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_ToString() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendri aplinkos nustatymai.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommonSettings_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommonSettings_TypeName", resourceCulture)
             End Get
         End Property
         
@@ -26976,6 +27660,78 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to mėnuo.
+        '''</summary>
+        Friend ReadOnly Property Settings_DefaultWorkTime_Month() As String
+            Get
+                Return ResourceManager.GetString("Settings_DefaultWorkTime_Month", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} m. {1} mėn. darbo laiko normos: 5 d.d. savaitei - {2} d.d., {3} d.v.; 6 d.d. savaitei - {4} d.d., {5} d.v..
+        '''</summary>
+        Friend ReadOnly Property Settings_DefaultWorkTime_ToString() As String
+            Get
+                Return ResourceManager.GetString("Settings_DefaultWorkTime_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to darbo laiko mėnesio normos.
+        '''</summary>
+        Friend ReadOnly Property Settings_DefaultWorkTime_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Settings_DefaultWorkTime_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to d.d. penkių d.d. savaitei.
+        '''</summary>
+        Friend ReadOnly Property Settings_DefaultWorkTime_WorkDaysFor5WorkDayWeek() As String
+            Get
+                Return ResourceManager.GetString("Settings_DefaultWorkTime_WorkDaysFor5WorkDayWeek", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to d.d. šešių d.d. savaitei.
+        '''</summary>
+        Friend ReadOnly Property Settings_DefaultWorkTime_WorkDaysFor6WorkDayWeek() As String
+            Get
+                Return ResourceManager.GetString("Settings_DefaultWorkTime_WorkDaysFor6WorkDayWeek", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to d.v. penkių d.d. savaitei.
+        '''</summary>
+        Friend ReadOnly Property Settings_DefaultWorkTime_WorkHoursFor5WorkDayWeek() As String
+            Get
+                Return ResourceManager.GetString("Settings_DefaultWorkTime_WorkHoursFor5WorkDayWeek", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to d.v. šešių d.d. savaitei.
+        '''</summary>
+        Friend ReadOnly Property Settings_DefaultWorkTime_WorkHoursFor6WorkDayWeek() As String
+            Get
+                Return ResourceManager.GetString("Settings_DefaultWorkTime_WorkHoursFor6WorkDayWeek", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to metai.
+        '''</summary>
+        Friend ReadOnly Property Settings_DefaultWorkTime_Year() As String
+            Get
+                Return ResourceManager.GetString("Settings_DefaultWorkTime_Year", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to dok. tipas.
         '''</summary>
         Friend ReadOnly Property Settings_DocumentSerial_DocumentType() As String
@@ -27102,6 +27858,105 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to nebenaudojamas.
+        '''</summary>
+        Friend ReadOnly Property Settings_Name_IsObsolete() As String
+            Get
+                Return ResourceManager.GetString("Settings_Name_IsObsolete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property Settings_Name_Name() As String
+            Get
+                Return ResourceManager.GetString("Settings_Name_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}: {1}.
+        '''</summary>
+        Friend ReadOnly Property Settings_Name_ToString() As String
+            Get
+                Return ResourceManager.GetString("Settings_Name_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to tipas.
+        '''</summary>
+        Friend ReadOnly Property Settings_Name_Type() As String
+            Get
+                Return ResourceManager.GetString("Settings_Name_Type", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to tipas.
+        '''</summary>
+        Friend ReadOnly Property Settings_Name_TypeHumanReadable() As String
+            Get
+                Return ResourceManager.GetString("Settings_Name_TypeHumanReadable", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įvairūs pavadinimai.
+        '''</summary>
+        Friend ReadOnly Property Settings_Name_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Settings_Name_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to IT grupė pgl. įstatymą.
+        '''</summary>
+        Friend ReadOnly Property Settings_NameType_LongTermAssetLegalGroup() As String
+            Get
+                Return ResourceManager.GetString("Settings_NameType_LongTermAssetLegalGroup", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to SODROS skyrius.
+        '''</summary>
+        Friend ReadOnly Property Settings_NameType_SodraBranch() As String
+            Get
+                Return ResourceManager.GetString("Settings_NameType_SodraBranch", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to šventinės dienos data.
+        '''</summary>
+        Friend ReadOnly Property Settings_PublicHoliday_PublicHolidayDate() As String
+            Get
+                Return ResourceManager.GetString("Settings_PublicHoliday_PublicHolidayDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}.
+        '''</summary>
+        Friend ReadOnly Property Settings_PublicHoliday_ToString() As String
+            Get
+                Return ResourceManager.GetString("Settings_PublicHoliday_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to šventinės dienos data.
+        '''</summary>
+        Friend ReadOnly Property Settings_PublicHoliday_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Settings_PublicHoliday_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to nebenaudojama.
         '''</summary>
         Friend ReadOnly Property Settings_TaxRate_IsObsolete() As String
@@ -27134,6 +27989,24 @@ Namespace My.Resources
         Friend ReadOnly Property Settings_TaxRate_TaxTypeHumanReadable() As String
             Get
                 Return ResourceManager.GetString("Settings_TaxRate_TaxTypeHumanReadable", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} = {1} %.
+        '''</summary>
+        Friend ReadOnly Property Settings_TaxRate_ToString() As String
+            Get
+                Return ResourceManager.GetString("Settings_TaxRate_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to mokesčių tarifas.
+        '''</summary>
+        Friend ReadOnly Property Settings_TaxRate_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Settings_TaxRate_TypeName", resourceCulture)
             End Get
         End Property
         
@@ -27179,6 +28052,60 @@ Namespace My.Resources
         Friend ReadOnly Property SimpleChronologicValidator_OperationName() As String
             Get
                 Return ResourceManager.GetString("SimpleChronologicValidator_OperationName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to GPM.
+        '''</summary>
+        Friend ReadOnly Property TaxRateType_GPM() As String
+            Get
+                Return ResourceManager.GetString("TaxRateType_GPM", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PSD priskaičiuojama.
+        '''</summary>
+        Friend ReadOnly Property TaxRateType_PSDForCompany() As String
+            Get
+                Return ResourceManager.GetString("TaxRateType_PSDForCompany", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PSD išskaičiuojama.
+        '''</summary>
+        Friend ReadOnly Property TaxRateType_PSDForPerson() As String
+            Get
+                Return ResourceManager.GetString("TaxRateType_PSDForPerson", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to SODRA priskaičiuojama.
+        '''</summary>
+        Friend ReadOnly Property TaxRateType_SodraForCompany() As String
+            Get
+                Return ResourceManager.GetString("TaxRateType_SodraForCompany", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to SODRA išskaičiuojama.
+        '''</summary>
+        Friend ReadOnly Property TaxRateType_SodraForPerson() As String
+            Get
+                Return ResourceManager.GetString("TaxRateType_SodraForPerson", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM.
+        '''</summary>
+        Friend ReadOnly Property TaxRateType_Vat() As String
+            Get
+                Return ResourceManager.GetString("TaxRateType_Vat", resourceCulture)
             End Get
         End Property
         

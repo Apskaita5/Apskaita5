@@ -125,8 +125,7 @@
                     Dim smI As Double = 0
                     Dim trIs As Double = 0
                     Dim trPri As Double = 0
-                    Dim sc As HelperLists.NameValueItemList = _
-                        HelperLists.NameValueItemList.GetNameValueItemList(HelperLists.SettingListType.SodraCodeList)
+                    Dim codes As CodeInfoList = CodeInfoList.GetListChild()
                     Dim i As Integer = 0
 
                     For Each dr As DataRow In myData.Rows
@@ -146,10 +145,12 @@
                         dd.Rows(i).Item(7) = GetLimitedLengthString(dr.Item(5).ToString.Trim, 68)
 
                         If Not IsDBNull(dr.Item(6)) AndAlso Not String.IsNullOrEmpty(dr.Item(6).ToString.Trim) Then
-                            Dim sci As NameValueItem = sc.GetItemByValue(dr.Item(6).ToString.Trim)
+                            Dim sci As CodeInfo = codes.GetItemByCode( _
+                                ApskaitaObjects.Settings.CodeType.SodraDeclaration, _
+                                CIntSafe(dr.Item(6), 0))
                             If sci Is Nothing Then Throw New Exception(String.Format( _
                                 My.Resources.ActiveReports_Declarations_DeclarationSD13_1_UnknownReasonCode, CStrSafe(dr.Item(6))))
-                            dd.Rows(i).Item(8) = sci.Value
+                            dd.Rows(i).Item(8) = sci.Code
                             dd.Rows(i).Item(9) = sci.Name
                         Else
                             dd.Rows(i).Item(8) = ""

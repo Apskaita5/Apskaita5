@@ -1711,8 +1711,7 @@ Namespace Assets
                 BookEntryInternalList.NewBookEntryInternalList(BookEntryType.Debetas)
 
             result.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Debetas, _
-                _Background.CurrentAssetAcquiredAccount, _
-                _Background.ChangeAcquisitionAccountValue, Nothing))
+                _Background.CurrentAssetAcquiredAccount, _ValueIncrease, Nothing))
 
             Return result
 
@@ -1737,9 +1736,9 @@ Namespace Assets
             result.OperationDate = _Date
             result.Content = _Content
             result.JournalEntryID = _JournalEntryID
-            result.AcquisitionAccountChange = _Background.ChangeAcquisitionAccountValue
-            result.TotalValueChange = _Background.ChangeAssetValue
-            result.UnitValueChange = _Background.ChangeAssetUnitValue
+            result.AcquisitionAccountChange = _ValueIncrease
+            result.TotalValueChange = _ValueIncrease
+            result.UnitValueChange = _ValueIncreasePerUnit
 
             Return result
 

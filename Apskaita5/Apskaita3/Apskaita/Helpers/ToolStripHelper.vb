@@ -11,7 +11,6 @@
 
     Private WithEvents _grid As DataGridView
     Private WithEvents _contextMenuStrip As ContextMenuStrip
-    Private _handledItems As New List(Of ToolStripMenuItem)
     Private _handledbuttons As New Dictionary(Of String, KeyValuePair(Of String, DelegateContainer(Of T)))
     Private _AddCancelButton As Boolean = True
     Private _DialogText As String = ""
@@ -35,7 +34,6 @@
         AddHandler _grid.CellMouseClick, AddressOf Grid_CellMouseClick
         AddHandler _grid.CellDoubleClick, AddressOf Grid_CellDoubleClick
         AddHandler _grid.Disposed, AddressOf Grid_Disposing
-        AddHandler _contextMenuStrip.ItemClicked, AddressOf MenuItem_Click
         AddHandler _contextMenuStrip.Disposed, AddressOf MenuStrip_Disposing
 
     End Sub
@@ -51,6 +49,7 @@
         If delegateHandler Is Nothing Then Throw New ArgumentNullException("delegateHandler")
 
         menuItem.Tag = delegateHandler
+        AddHandler menuItem.Click, AddressOf MenuItem_Click
 
     End Sub
 
@@ -94,21 +93,21 @@
 
     End Sub
 
-    Private Sub MenuItem_Click(ByVal sender As Object, ByVal e As System.Windows.Forms.ToolStripItemClickedEventArgs)
+    Private Sub MenuItem_Click(ByVal sender As Object, ByVal e As System.EventArgs)
 
-        If e.ClickedItem Is Nothing OrElse e.ClickedItem.Tag Is Nothing _
-            OrElse Not TypeOf e.ClickedItem.Tag Is DelegateContainer(Of T) Then Exit Sub
+        If _contextMenuStrip Is Nothing OrElse _contextMenuStrip.Tag Is Nothing _
+            OrElse Not TypeOf _contextMenuStrip.Tag Is T Then Exit Sub
 
-        Dim currentMenuStrip As ContextMenuStrip = Nothing
+        Dim clickedItem As ToolStripMenuItem = Nothing
         Try
-            currentMenuStrip = DirectCast(sender, ContextMenuStrip)
+            clickedItem = DirectCast(sender, ToolStripMenuItem)
         Catch ex As Exception
         End Try
-        If currentMenuStrip Is Nothing OrElse currentMenuStrip.Tag Is Nothing _
-            OrElse Not TypeOf currentMenuStrip.Tag Is T Then Exit Sub
+        If clickedItem Is Nothing OrElse clickedItem.Tag Is Nothing _
+            OrElse Not TypeOf clickedItem.Tag Is DelegateContainer(Of T) Then Exit Sub
 
-        DirectCast(e.ClickedItem.Tag, DelegateContainer(Of T)).Invoke( _
-            DirectCast(currentMenuStrip.Tag, T))
+        DirectCast(clickedItem.Tag, DelegateContainer(Of T)).Invoke( _
+            DirectCast(_contextMenuStrip.Tag, T))
 
     End Sub
 
@@ -259,10 +258,9 @@
 
                 If Not _contextMenuStrip Is Nothing AndAlso Not _contextMenuStrip.Disposing Then
 
-                    Try
-                        RemoveHandler _contextMenuStrip.ItemClicked, AddressOf MenuItem_Click
-                    Catch ex As Exception
-                    End Try
+                    For Each item As ToolStripMenuItem In _contextMenuStrip.Items
+                        RemoveToolStripMenuItemHandler(item)
+                    Next
                     Try
                         RemoveHandler _contextMenuStrip.Disposed, AddressOf MenuStrip_Disposing
                     Catch ex As Exception
@@ -293,6 +291,23 @@
             ' TODO: set large fields to null.
         End If
         Me.disposedValue = True
+    End Sub
+
+    Private Sub RemoveToolStripMenuItemHandler(ByVal item As ToolStripMenuItem)
+
+        If item Is Nothing Then Exit Sub
+
+        Try
+            RemoveHandler item.Click, AddressOf MenuItem_Click
+        Catch ex As Exception
+        End Try
+
+        For Each subItem As ToolStripMenuItem In item.DropDownItems
+            RemoveToolStripMenuItemHandler(subItem)
+        Next
+
+        item.Dispose()
+
     End Sub
 
     ' This code added by Visual Basic to correctly implement the disposable pattern.

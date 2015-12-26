@@ -1,6 +1,10 @@
 Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Formatters.Binary
 Imports System.IO
+Imports System.Text
+Imports System.Xml
+Imports System.Xml.Serialization
+
 
 Public Module CommonMethods
 
@@ -196,6 +200,46 @@ Public Module CommonMethods
 
     End Function
 
+    ''' <summary>
+    ''' Serializes object to an xml string.
+    ''' </summary>
+    ''' <typeparam name="T">Type of the object to serialize.</typeparam>
+    ''' <param name="obj">The object to serialize.</param>
+    ''' <remarks></remarks>
+    Public Function ToXmlString(Of T)(ByVal obj As T) As String
+
+        Dim serializer As New XmlSerializer(GetType(T))
+        Dim settings As New XmlWriterSettings
+
+        settings.Indent = True
+        settings.IndentChars = " "
+        settings.Encoding = Encoding.Unicode
+
+        Using ms As New IO.MemoryStream
+            Using writer As XmlWriter = XmlWriter.Create(ms, settings)
+                serializer.Serialize(writer, Obj)
+                Return Encoding.Unicode.GetString(ms.ToArray())
+            End Using
+        End Using
+
+    End Function
+
+    ''' <summary>
+    ''' Deserializes object from an xml string.
+    ''' </summary>
+    ''' <typeparam name="T">Type of the object to deserialize.</typeparam>
+    ''' <param name="xmlString">An xml string containing serialized object data.</param>
+    ''' <remarks></remarks>
+    Public Function FromXmlString(Of T)(ByVal xmlString As String) As T
+
+        Dim serializer As New XmlSerializer(GetType(T))
+
+        Using ms As New IO.MemoryStream(Encoding.Unicode.GetBytes(xmlString))
+            Return DirectCast(serializer.Deserialize(ms), T)
+        End Using
+
+    End Function
+
 #Region " String manipulation methods "
 
     ''' <summary>
@@ -347,7 +391,7 @@ Public Module CommonMethods
             Throw New ArgumentNullException("Parameter delimiter cannot be null in method Utilities.GetField.")
         End If
 
-        If value Is Nothing OrElse String.IsNullOrEmpty(value.Trim) Then
+        If StringIsNullOrEmpty(value) Then
             Return ""
         End If
 

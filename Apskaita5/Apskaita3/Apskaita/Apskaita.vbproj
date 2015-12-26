@@ -265,12 +265,6 @@
     <Compile Include="Assets\F_ComplexOperationValueChange.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Assets\F_LongTermAssetComplexDocument.Designer.vb">
-      <DependentUpon>F_LongTermAssetComplexDocument.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_LongTermAssetComplexDocument.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Assets\F_LongTermAssetComplexDocumentInfoList.Designer.vb">
       <DependentUpon>F_LongTermAssetComplexDocumentInfoList.vb</DependentUpon>
     </Compile>
@@ -707,12 +701,6 @@
     <Compile Include="Assets\F_LongTermAssetInfoList.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Assets\F_LongTermAssetOperation.Designer.vb">
-      <DependentUpon>F_LongTermAssetOperation.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_LongTermAssetOperation.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Assets\F_LongTermAssetOperationInfoListParent.Designer.vb">
       <DependentUpon>F_LongTermAssetOperationInfoListParent.vb</DependentUpon>
     </Compile>
@@ -1009,10 +997,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\F_ComplexOperationValueChange.resx">
       <DependentUpon>F_ComplexOperationValueChange.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_LongTermAssetComplexDocument.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_LongTermAssetComplexDocument.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\F_LongTermAssetComplexDocumentInfoList.resx">
       <SubType>Designer</SubType>
@@ -1400,10 +1384,6 @@
     <EmbeddedResource Include="Assets\F_LongTermAssetInfoList.resx">
       <SubType>Designer</SubType>
       <DependentUpon>F_LongTermAssetInfoList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_LongTermAssetOperation.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_LongTermAssetOperation.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Assets\F_LongTermAssetOperationInfoListParent.resx">
       <SubType>Designer</SubType>

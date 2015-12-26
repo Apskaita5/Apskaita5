@@ -1840,11 +1840,11 @@ Namespace Assets
             _Content = persistence.Content
             _AccountCosts = persistence.AccountCorresponding
             _DocumentNumber = persistence.ActNumber
-            _UnitValueChange = persistence.UnitValueChange
-            _TotalValueChange = persistence.TotalValueChange
+            _UnitValueChange = -persistence.UnitValueChange
+            _TotalValueChange = -persistence.TotalValueChange
             _AmortizationCalculations = persistence.AmortizationCalculations
-            _RevaluedPortionUnitValueChange = persistence.RevaluedPortionUnitValueChange
-            _RevaluedPortionTotalValueChange = persistence.RevaluedPortionTotalValueChange
+            _RevaluedPortionUnitValueChange = -persistence.RevaluedPortionUnitValueChange
+            _RevaluedPortionTotalValueChange = -persistence.RevaluedPortionTotalValueChange
             _AmortizationCalculatedForMonths = persistence.AmortizationCalculatedForMonths
             _InsertDate = persistence.InsertDate
             _UpdateDate = persistence.UpdateDate
@@ -2059,12 +2059,16 @@ Namespace Assets
             result.Content = _Content
             result.AccountCorresponding = _AccountCosts
             result.ActNumber = _DocumentNumber
-            result.UnitValueChange = _UnitValueChange
-            result.TotalValueChange = _TotalValueChange
+            result.UnitValueChange = -_UnitValueChange
+            result.TotalValueChange = -_TotalValueChange
             result.AmortizationCalculations = _AmortizationCalculations
-            result.RevaluedPortionUnitValueChange = _RevaluedPortionUnitValueChange
-            result.RevaluedPortionTotalValueChange = _RevaluedPortionTotalValueChange
+            result.RevaluedPortionUnitValueChange = -_RevaluedPortionUnitValueChange
+            result.RevaluedPortionTotalValueChange = -_RevaluedPortionTotalValueChange
             result.AmortizationCalculatedForMonths = _AmortizationCalculatedForMonths
+            result.AmortizationAccountChange = _Background.ChangeAmortizationAccountValue
+            result.AmortizationAccountChangePerUnit = _Background.ChangeAmortizationAccountValuePerUnit
+            result.ValueIncreaseAmmortizationAccountChange = _RevaluedPortionTotalValueChange
+            result.ValueIncreaseAmmortizationAccountChangePerUnit = _RevaluedPortionUnitValueChange
 
             Return result
 

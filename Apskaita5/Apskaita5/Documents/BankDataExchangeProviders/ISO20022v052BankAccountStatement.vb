@@ -259,21 +259,13 @@
 
         Protected Overridable Sub LoadDataFromStringInt(ByVal source As String)
 
-            Dim dirtyDocumentTag As String = "<Document xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns:xsi=""urn:iso:std:iso:20022:tech:xsd:camt.052.001.02"">"
-            Dim dirtyDocumentTagAlt As String = "<Document xmlns=""urn:iso:std:iso:20022:tech:xsd:camt.052.001.02"">"
-            Dim cleanDocumentTag As String = "<Document>"
-
-            If source.Contains(dirtyDocumentTag) Then
-                source = source.Replace(dirtyDocumentTag, cleanDocumentTag)
-            ElseIf source.Contains(dirtyDocumentTagAlt) Then
-                source = source.Replace(dirtyDocumentTagAlt, cleanDocumentTag)
-            Else
+            If Not source.ToLower.Contains("urn:iso:std:iso:20022:tech:xsd:camt.052.001.02") Then
                 ' minimum implemented version, no downgrade options available
                 Throw New Exception(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormat)
             End If
 
             Dim document As System.Xml.XmlDocument = New System.Xml.XmlDocument()
-            document.LoadXml(source)
+            document.LoadXml(StripNamespaces(source))
 
             _AccountCurrency = GetISO20022ValueAsString(document, _
                 "/Document/BkToCstmrAcctRpt/Rpt/Acct/Ccy", True).Trim.ToUpper()
@@ -471,7 +463,7 @@
                 End If
             End Try
 
-            Return ""
+            Return BookEntryType.Debetas
 
         End Function
 
@@ -515,6 +507,19 @@
 
             Return ""
 
+        End Function
+
+        Protected Shared Function StripNamespaces(ByVal source As String) As String
+            If Not source.ToLower.Contains("<document") Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "<Document>"))
+            End If
+            Dim result As String = source
+            result = result.Substring(result.ToLower.IndexOf("<document", System.StringComparison.Ordinal))
+            If Not result.Contains(">") Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "<Document>"))
+            End If
+            result = result.Substring(0, result.IndexOf(">", System.StringComparison.Ordinal) + 1)
+            Return source.Replace(result, "<Document>")
         End Function
 
     End Class

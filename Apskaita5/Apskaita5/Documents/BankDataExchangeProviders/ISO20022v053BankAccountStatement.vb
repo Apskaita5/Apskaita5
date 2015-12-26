@@ -1,4 +1,7 @@
-﻿Namespace Documents.BankDataExchangeProviders
+﻿
+Imports System.Text.RegularExpressions
+
+Namespace Documents.BankDataExchangeProviders
 
     ''' <summary>
     ''' Represents a converter object that converts ISO20022 standard v. camt.053
@@ -12,22 +15,14 @@
 
         Protected Overrides Sub LoadDataFromStringInt(ByVal source As String)
 
-            Dim dirtyDocumentTag As String = "<Document xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns=""urn:iso:std:iso:20022:tech:xsd:camt.053.001.02"">"
-            Dim dirtyDocumentTagAlt As String = "<Document xmlns=""urn:iso:std:iso:20022:tech:xsd:camt.053.001.02"">"
-            Dim cleanDocumentTag As String = "<Document>"
-
-            If source.Contains(dirtyDocumentTag) Then
-                source = source.Replace(dirtyDocumentTag, cleanDocumentTag)
-            ElseIf source.Contains(dirtyDocumentTagAlt) Then
-                source = source.Replace(dirtyDocumentTagAlt, cleanDocumentTag)
-            Else
+            If Not source.ToLower.Contains("urn:iso:std:iso:20022:tech:xsd:camt.053.001.02") Then
                 ' if not the current version then downgrade to previous version
                 MyBase.LoadDataFromStringInt(source)
                 Exit Sub
             End If
 
             Dim document As System.Xml.XmlDocument = New System.Xml.XmlDocument()
-            document.LoadXml(source)
+            document.LoadXml(StripNamespaces(source))
 
             _AccountCurrency = GetISO20022ValueAsString(document, _
                 "/Document/BkToCstmrStmt/Stmt/Acct/Ccy", True).Trim.ToUpper()
@@ -80,8 +75,22 @@
             result.DocumentNumber = GetISO20022ValueAsString(document, _
                 "/Ntry/NtryDtls/TxDtls/Refs/EndToEndId", False).Trim
             If result.DocumentNumber.Trim.ToUpper() = "NOTPROVIDED" Then result.DocumentNumber = ""
+            If String.IsNullOrEmpty(result.DocumentNumber) Then
+                result.DocumentNumber = GetISO20022ValueAsString(document, _
+                "/Ntry/NtryDtls/TxDtls/Refs/InstrId", False).Trim
+                If result.DocumentNumber.Trim.ToUpper() = "NOTPROVIDED" Then result.DocumentNumber = ""
+                If String.IsNullOrEmpty(result.DocumentNumber) Then
+                    result.DocumentNumber = GetISO20022ValueAsString(document, _
+                        "/Ntry/NtryDtls/TxDtls/Refs/<PmtInfId", False).Trim
+                    If result.DocumentNumber.Trim.ToUpper() = "NOTPROVIDED" Then result.DocumentNumber = ""
+                End If
+            End If
             result.UniqueCode = GetISO20022ValueAsString( _
-                document, "/Ntry/NtryDtls/TxDtls/Refs/AcctSvcrRef", True)
+                document, "/Ntry/NtryDtls/TxDtls/Refs/AcctSvcrRef", False)
+            If StringIsNullOrEmpty(result.UniqueCode) Then
+                result.UniqueCode = GetISO20022ValueAsString( _
+                    document, "/Ntry/NtryDtls/TxDtls/Refs/TxId", True)
+            End If
             result.Date = GetISO20022ValueAsDate(document, "/Ntry/BookgDt/Dt", True)
             result.Inflow = (GetISO20022ValueAsEntryType(document, "/Ntry/CdtDbtInd", True) _
                 = BookEntryType.Kreditas)

@@ -1866,19 +1866,19 @@ Namespace Assets
 
             result.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Kreditas, _
                 _Background.CurrentAssetAcquiredAccount, _
-                _Background.ChangeAcquisitionAccountValue, Nothing))
+                -_Background.ChangeAcquisitionAccountValue, Nothing))
             result.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Debetas, _
                 _Background.CurrentAssetContraryAccount, _
-                _Background.ChangeAmortizationAccountValue, Nothing))
+                -_Background.ChangeAmortizationAccountValue, Nothing))
             result.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Debetas, _
                 _Background.CurrentAssetValueDecreaseAccount, _
-                _Background.ChangeValueDecreaseAccountValue, Nothing))
+                -_Background.ChangeValueDecreaseAccountValue, Nothing))
             result.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Kreditas, _
                 _Background.CurrentAssetValueIncreaseAccount, _
-                _Background.ChangeValueIncreaseAccountValue, Nothing))
+                -_Background.ChangeValueIncreaseAccountValue, Nothing))
             result.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Debetas, _
                 _Background.CurrentAssetValueIncreaseAmortizationAccount, _
-                _Background.ChangeValueIncreaseAmortizationAccountValue, Nothing))
+                -_Background.ChangeValueIncreaseAmortizationAccountValue, Nothing))
 
             result.Aggregate()
 

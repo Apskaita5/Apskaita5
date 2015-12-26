@@ -106,8 +106,11 @@ Namespace Workers
         ''' <remarks></remarks>
         Friend Shared Function NewDayWorkTimeList(ByVal cYear As Integer, ByVal cMonth As Integer, _
             ByVal workLoad As Double, ByVal contractDate As Date, ByVal contractTerminationDate As Date, _
-            ByVal restDayInfo As WorkTimeClassInfo, ByVal publicHolydaysInfo As WorkTimeClassInfo) As DayWorkTimeList
-            Return New DayWorkTimeList(cYear, cMonth, workLoad, contractDate, contractTerminationDate, restDayInfo, publicHolydaysInfo)
+            ByVal restDayInfo As WorkTimeClassInfo, _
+            ByVal publicHolydaysInfo As WorkTimeClassInfo, _
+            ByVal cWorkTimeList As DefaultWorkTimeInfoList) As DayWorkTimeList
+            Return New DayWorkTimeList(cYear, cMonth, workLoad, contractDate, _
+                contractTerminationDate, restDayInfo, publicHolydaysInfo, cWorkTimeList)
         End Function
 
         ''' <summary>
@@ -119,8 +122,9 @@ Namespace Workers
         ''' <param name="month">Month of the DayWorkTimeList.</param>
         ''' <remarks></remarks>
         Friend Shared Function GetDayWorkTimeList(ByVal myData As DataTable, _
-            ByVal parent As WorkTimeItem, ByVal year As Integer, ByVal month As Integer) As DayWorkTimeList
-            Return New DayWorkTimeList(myData, parent, year, month)
+            ByVal parent As WorkTimeItem, ByVal year As Integer, _
+            ByVal month As Integer, ByVal cWorkTimeList As DefaultWorkTimeInfoList) As DayWorkTimeList
+            Return New DayWorkTimeList(myData, parent, year, month, cWorkTimeList)
         End Function
 
 
@@ -134,23 +138,27 @@ Namespace Workers
 
         Private Sub New(ByVal cYear As Integer, ByVal cMonth As Integer, ByVal workLoad As Double, _
             ByVal contractDate As Date, ByVal contractTerminationDate As Date, _
-            ByVal restDayInfo As WorkTimeClassInfo, ByVal publicHolydaysInfo As WorkTimeClassInfo)
+            ByVal restDayInfo As WorkTimeClassInfo, _
+            ByVal publicHolydaysInfo As WorkTimeClassInfo, _
+            ByVal cWorkTimeList As DefaultWorkTimeInfoList)
             ' require use of factory methods
             MarkAsChild()
             Me.AllowEdit = True
             Me.AllowNew = False
             Me.AllowRemove = False
-            Create(cYear, cMonth, workLoad, contractDate, contractTerminationDate, restDayInfo, publicHolydaysInfo)
+            Create(cYear, cMonth, workLoad, contractDate, contractTerminationDate, _
+                restDayInfo, publicHolydaysInfo, cWorkTimeList)
         End Sub
 
         Private Sub New(ByVal myData As DataTable, ByVal parent As WorkTimeItem, _
-            ByVal year As Integer, ByVal month As Integer)
+            ByVal year As Integer, ByVal month As Integer, _
+            ByVal cWorkTimeList As DefaultWorkTimeInfoList)
             ' require use of factory methods
             MarkAsChild()
             Me.AllowEdit = True
             Me.AllowNew = False
             Me.AllowRemove = False
-            Fetch(myData, parent, year, month)
+            Fetch(myData, parent, year, month, cWorkTimeList)
         End Sub
 
 #End Region
@@ -159,7 +167,9 @@ Namespace Workers
 
         Private Sub Create(ByVal cYear As Integer, ByVal cMonth As Integer, ByVal workLoad As Double, _
             ByVal contractDate As Date, ByVal contractTerminationDate As Date, _
-            ByVal restDayInfo As WorkTimeClassInfo, ByVal publicHolydaysInfo As WorkTimeClassInfo)
+            ByVal restDayInfo As WorkTimeClassInfo, _
+            ByVal publicHolydaysInfo As WorkTimeClassInfo, _
+            ByVal cWorkTimeList As DefaultWorkTimeInfoList)
 
             RaiseListChangedEvents = False
 
@@ -171,7 +181,7 @@ Namespace Workers
                 hasContract = (contractDate.Date < currentDate.Date AndAlso _
                     contractTerminationDate.Date >= currentDate.Date)
                 Me.Add(DayWorkTime.NewDayWorkTime(i, cYear, cMonth, workLoad, hasContract, _
-                    restDayInfo, publicHolydaysInfo))
+                    restDayInfo, publicHolydaysInfo, cWorkTimeList))
             Next
 
             RaiseListChangedEvents = True
@@ -179,7 +189,8 @@ Namespace Workers
         End Sub
 
         Private Sub Fetch(ByVal myData As DataTable, ByVal parent As WorkTimeItem, _
-            ByVal year As Integer, ByVal month As Integer)
+            ByVal year As Integer, ByVal month As Integer, _
+            ByVal cWorkTimeList As DefaultWorkTimeInfoList)
 
             RaiseListChangedEvents = False
 
@@ -198,7 +209,7 @@ Namespace Workers
                 If mustHaveList.Contains(i.DayNumber) Then mustHaveList.Remove(i.DayNumber)
             Next
             For Each i As Integer In mustHaveList
-                Add(DayWorkTime.NewDayWorkTime(i, year, month, 0, True, Nothing, Nothing))
+                Add(DayWorkTime.NewDayWorkTime(i, year, month, 0, True, Nothing, Nothing, cWorkTimeList))
             Next
 
             RaiseListChangedEvents = True

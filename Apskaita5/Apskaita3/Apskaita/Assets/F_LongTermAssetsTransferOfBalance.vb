@@ -288,11 +288,8 @@ Public Class F_LongTermAssetsTransferOfBalance
             LoadAccountInfoListToGridCombo(AccountValueDecreaseDataGridViewColumn, True, 1, 2)
             LoadAccountInfoListToGridCombo(AccountValueIncreaseDataGridViewColumn, True, 1, 2)
             LoadAccountInfoListToGridCombo(AccountRevaluedPortionAmmortizationDataGridViewColumn, True, 1, 2)
-
-            Dim ML As NameValueItemList = NameValueItemList.GetNameValueItemList(SettingListType.AssetGroupList)
-            LegalGroupDataGridViewColumn.DataSource = ML
-            LegalGroupDataGridViewColumn.DisplayMember = "Name"
-            LegalGroupDataGridViewColumn.ValueMember = "Name"
+            LoadNameInfoListToCombo(LegalGroupDataGridViewColumn, _
+                ApskaitaObjects.Settings.NameType.LongTermAssetLegalGroup, True)
 
             CustomGroupInfoDataGridViewColumn.DataSource = _
                 LongTermAssetCustomGroupInfoList.GetList()

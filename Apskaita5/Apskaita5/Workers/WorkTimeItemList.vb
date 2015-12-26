@@ -108,11 +108,12 @@ Namespace Workers
 
                 RaiseListChangedEvents = False
 
-                Dim cWorkTime As WorkTime = WorkTime.GetWorktime(parent.Year, parent.Month)
+                Dim wtl As DefaultWorkTimeInfoList = DefaultWorkTimeInfoList.GetListChild()
+                Dim wt As DefaultWorkTimeInfo = wtl.GetDefaultWorkTimeInfo(parent.Year, parent.Month)
 
                 For Each dr As DataRow In myData.Rows
                     Add(WorkTimeItem.NewWorkTimeItem(dr, parent.Year, parent.Month, _
-                        restDayInfo, publicHolydaysInfo, cWorkTime))
+                        restDayInfo, publicHolydaysInfo, wt, wtl))
                 Next
 
                 RaiseListChangedEvents = True
@@ -137,9 +138,11 @@ Namespace Workers
 
                     RaiseListChangedEvents = False
 
+                    Dim wtl As DefaultWorkTimeInfoList = DefaultWorkTimeInfoList.GetListChild()
+
                     For Each dr As DataRow In myData.Rows
                         Add(WorkTimeItem.GetWorkTimeItem(dr, dayWorkTimeDataTable, _
-                            parent.Year, parent.Month))
+                            parent.Year, parent.Month, wtl))
                     Next
 
                     RaiseListChangedEvents = True

@@ -122,7 +122,7 @@
 
             Dim gpmCode As String = ""
             Try
-                gpmCode = ApskaitaObjects.Settings.CommonSettings.GetListChild.CodeWageGPM
+                gpmCode = ApskaitaObjects.Settings.CommonSettings.GetCurrentProxy().CodeWageGPM
             Catch ex As Exception
             End Try
 

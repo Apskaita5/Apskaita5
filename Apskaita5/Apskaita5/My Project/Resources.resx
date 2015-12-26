@@ -10728,4 +10728,313 @@
   <data name="Assets_OperationValueChange_ValueChangeTotalIsReadOnly" xml:space="preserve">
     <value>vertės pokyčio keisti neleidžiama</value>
   </data>
+  <data name="Settings_CodeType_GpmDeclaration" xml:space="preserve">
+    <value>pajamų kodas GPM deklaracijoje</value>
+  </data>
+  <data name="Settings_CodeType_SodraDeclaration" xml:space="preserve">
+    <value>pajamų kodas SODRA deklaracijoje</value>
+  </data>
+  <data name="Settings_CodeType_VmiMunicipality" xml:space="preserve">
+    <value>savivaldybės kodas VMI deklaracijose</value>
+  </data>
+  <data name="Settings_NameType_LongTermAssetLegalGroup" xml:space="preserve">
+    <value>IT grupė pgl. įstatymą</value>
+  </data>
+  <data name="Settings_NameType_SodraBranch" xml:space="preserve">
+    <value>SODROS skyrius</value>
+  </data>
+  <data name="TaxRateType_GPM" xml:space="preserve">
+    <value>GPM</value>
+  </data>
+  <data name="TaxRateType_PSDForCompany" xml:space="preserve">
+    <value>PSD priskaičiuojama</value>
+  </data>
+  <data name="TaxRateType_PSDForPerson" xml:space="preserve">
+    <value>PSD išskaičiuojama</value>
+  </data>
+  <data name="TaxRateType_SodraForCompany" xml:space="preserve">
+    <value>SODRA priskaičiuojama</value>
+  </data>
+  <data name="TaxRateType_SodraForPerson" xml:space="preserve">
+    <value>SODRA išskaičiuojama</value>
+  </data>
+  <data name="TaxRateType_Vat" xml:space="preserve">
+    <value>PVM</value>
+  </data>
+  <data name="HelperLists_CodeInfo_Code" xml:space="preserve">
+    <value>kodas</value>
+  </data>
+  <data name="HelperLists_CodeInfo_IsObsolete" xml:space="preserve">
+    <value>nebenaudojamas</value>
+  </data>
+  <data name="HelperLists_CodeInfo_Name" xml:space="preserve">
+    <value>pavadinimas (aprašymas)</value>
+  </data>
+  <data name="HelperLists_CodeInfo_ToString" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="HelperLists_CodeInfo_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="HelperLists_CodeInfo_TypeName" xml:space="preserve">
+    <value>įvairūs kodai</value>
+  </data>
+  <data name="HelperLists_CodeInfo_UnknownCodeName" xml:space="preserve">
+    <value>Nežinomos paskirties kodas.</value>
+  </data>
+  <data name="HelperLists_DefaultWorkTimeInfoList_InvalidDate" xml:space="preserve">
+    <value>Klaida. nurodyti metai, mėnuo ir diena ({0}-{1}-{2}) neatitinka jokios realios datos.</value>
+  </data>
+  <data name="HelperLists_DefaultWorkTimeInfo_InvalidMonth" xml:space="preserve">
+    <value>Klaida. Mėnuo turi būti tarp 1 ir 12, o yra {0}.</value>
+  </data>
+  <data name="HelperLists_DefaultWorkTimeInfo_InvalidYear" xml:space="preserve">
+    <value>Klaida. Metai turi būti tarp 1972 ir 2100, o yra {0}.</value>
+  </data>
+  <data name="HelperLists_DefaultWorkTimeInfo_Month" xml:space="preserve">
+    <value>mėnuo</value>
+  </data>
+  <data name="HelperLists_DefaultWorkTimeInfo_ToString" xml:space="preserve">
+    <value>{0} m. {1} mėn. darbo laiko normos: 5 d.d. savaitei - {2} d.d., {3} d.v.; 6 d.d. savaitei - {4} d.d., {5} d.v.</value>
+  </data>
+  <data name="HelperLists_DefaultWorkTimeInfo_TypeName" xml:space="preserve">
+    <value>darbo laiko mėnesio normos</value>
+  </data>
+  <data name="HelperLists_DefaultWorkTimeInfo_WorkDaysFor5WorkDayWeek" xml:space="preserve">
+    <value>d.d. penkių d.d. savaitei</value>
+  </data>
+  <data name="HelperLists_DefaultWorkTimeInfo_WorkDaysFor6WorkDayWeek" xml:space="preserve">
+    <value>d.d. šešių d.d. savaitei</value>
+  </data>
+  <data name="HelperLists_DefaultWorkTimeInfo_WorkHoursFor5WorkDayWeek" xml:space="preserve">
+    <value>d.v. penkių d.d. savaitei</value>
+  </data>
+  <data name="HelperLists_DefaultWorkTimeInfo_WorkHoursFor6WorkDayWeek" xml:space="preserve">
+    <value>d.v. šešių d.d. savaitei</value>
+  </data>
+  <data name="HelperLists_DefaultWorkTimeInfo_Year" xml:space="preserve">
+    <value>metai</value>
+  </data>
+  <data name="HelperLists_NameInfo_IsObsolete" xml:space="preserve">
+    <value>nebenaudojamas</value>
+  </data>
+  <data name="HelperLists_NameInfo_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="HelperLists_NameInfo_ToString" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="HelperLists_NameInfo_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="HelperLists_NameInfo_TypeName" xml:space="preserve">
+    <value>įvairūs pavadinimai</value>
+  </data>
+  <data name="HelperLists_TaxRateInfo_IsObsolete" xml:space="preserve">
+    <value>nebenaudojama</value>
+  </data>
+  <data name="HelperLists_TaxRateInfo_Rate" xml:space="preserve">
+    <value>tarifas %</value>
+  </data>
+  <data name="HelperLists_TaxRateInfo_ToString" xml:space="preserve">
+    <value>{0} = {1} %</value>
+  </data>
+  <data name="HelperLists_TaxRateInfo_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="HelperLists_TaxRateInfo_TypeName" xml:space="preserve">
+    <value>mokesčių tarifas</value>
+  </data>
+  <data name="Settings_Code_Code" xml:space="preserve">
+    <value>kodas</value>
+  </data>
+  <data name="Settings_Code_IsObsolete" xml:space="preserve">
+    <value>nebenaudojamas</value>
+  </data>
+  <data name="Settings_Code_Name" xml:space="preserve">
+    <value>pavadinimas (aprašymas)</value>
+  </data>
+  <data name="Settings_Code_ToString" xml:space="preserve">
+    <value>{0}: {1} = {2}</value>
+  </data>
+  <data name="Settings_Code_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Settings_Code_TypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Settings_Code_TypeName" xml:space="preserve">
+    <value>įvairūs kodai</value>
+  </data>
+  <data name="Settings_DefaultWorkTime_Month" xml:space="preserve">
+    <value>mėnuo</value>
+  </data>
+  <data name="Settings_DefaultWorkTime_ToString" xml:space="preserve">
+    <value>{0} m. {1} mėn. darbo laiko normos: 5 d.d. savaitei - {2} d.d., {3} d.v.; 6 d.d. savaitei - {4} d.d., {5} d.v.</value>
+  </data>
+  <data name="Settings_DefaultWorkTime_TypeName" xml:space="preserve">
+    <value>darbo laiko mėnesio normos</value>
+  </data>
+  <data name="Settings_DefaultWorkTime_WorkDaysFor5WorkDayWeek" xml:space="preserve">
+    <value>d.d. penkių d.d. savaitei</value>
+  </data>
+  <data name="Settings_DefaultWorkTime_WorkDaysFor6WorkDayWeek" xml:space="preserve">
+    <value>d.d. šešių d.d. savaitei</value>
+  </data>
+  <data name="Settings_DefaultWorkTime_WorkHoursFor5WorkDayWeek" xml:space="preserve">
+    <value>d.v. penkių d.d. savaitei</value>
+  </data>
+  <data name="Settings_DefaultWorkTime_WorkHoursFor6WorkDayWeek" xml:space="preserve">
+    <value>d.v. šešių d.d. savaitei</value>
+  </data>
+  <data name="Settings_DefaultWorkTime_Year" xml:space="preserve">
+    <value>metai</value>
+  </data>
+  <data name="Settings_Name_IsObsolete" xml:space="preserve">
+    <value>nebenaudojamas</value>
+  </data>
+  <data name="Settings_Name_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="Settings_Name_ToString" xml:space="preserve">
+    <value>{0}: {1}</value>
+  </data>
+  <data name="Settings_Name_Type" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Settings_Name_TypeHumanReadable" xml:space="preserve">
+    <value>tipas</value>
+  </data>
+  <data name="Settings_Name_TypeName" xml:space="preserve">
+    <value>įvairūs pavadinimai</value>
+  </data>
+  <data name="Settings_PublicHoliday_PublicHolidayDate" xml:space="preserve">
+    <value>šventinės dienos data</value>
+  </data>
+  <data name="Settings_PublicHoliday_ToString" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="Settings_PublicHoliday_TypeName" xml:space="preserve">
+    <value>šventinės dienos data</value>
+  </data>
+  <data name="Settings_TaxRate_ToString" xml:space="preserve">
+    <value>{0} = {1} %</value>
+  </data>
+  <data name="Settings_TaxRate_TypeName" xml:space="preserve">
+    <value>mokesčių tarifas</value>
+  </data>
+  <data name="Settings_CommonSettings_FailedToDeserializeSettingsFile" xml:space="preserve">
+    <value>Klaida. Sugadinti aplinkos nustatymai: {0}. Būtina iš naujo įkelti aplinkos nustatymų failą "{1}".</value>
+  </data>
+  <data name="Settings_CommonSettings_FailedToDeserializeSettingsFileUnknownReason" xml:space="preserve">
+    <value>Klaida. Sugadinti aplinkos nustatymai: priežastis nežinoma. Būtina iš naujo įkelti aplinkos nustatymų failą "{0}".</value>
+  </data>
+  <data name="Settings_CommonSettings_FailedToReadSettingsFile" xml:space="preserve">
+    <value>Klaida. Nepavyko nuskaityti duomenų iš aplinkos nustatymų failo "{0}":{1}</value>
+  </data>
+  <data name="Settings_CommonSettings_FailedToWriteSettingsFile" xml:space="preserve">
+    <value>Klaida. Nepavyko išsaugoti aplinkos nustatymų duomenų faile "{0}": {1}</value>
+  </data>
+  <data name="Settings_CommonSettings_LocalAccessMethodNull" xml:space="preserve">
+    <value>Application settings local access method is not set. Use AttachLocalSettingsMethods to initialize methods.</value>
+  </data>
+  <data name="Settings_CommonSettings_LocalModifyMethodNull" xml:space="preserve">
+    <value>Application settings modify method is not set. Use AttachLocalSettingsMethods to initialize methods.</value>
+  </data>
+  <data name="Settings_CommonSettings_ToString" xml:space="preserve">
+    <value>bendri aplinkos nustatymai</value>
+  </data>
+  <data name="Settings_CommonSettings_TypeName" xml:space="preserve">
+    <value>bendri aplinkos nustatymai</value>
+  </data>
+  <data name="HelperLists_CodeInfoList_CodeWageGPM" xml:space="preserve">
+    <value>darbo užmokesčio kodas GPM deklaracijoje</value>
+  </data>
+  <data name="Settings_CommonSettings_Codes" xml:space="preserve">
+    <value>kodai</value>
+  </data>
+  <data name="Settings_CommonSettings_CodesSorted" xml:space="preserve">
+    <value>kodai</value>
+  </data>
+  <data name="Settings_CommonSettings_DefaultWorkTimes" xml:space="preserve">
+    <value>darbo laiko normos</value>
+  </data>
+  <data name="Settings_CommonSettings_DefaultWorkTimesSorted" xml:space="preserve">
+    <value>darbo laiko normos</value>
+  </data>
+  <data name="Settings_CommonSettings_Names" xml:space="preserve">
+    <value>pavadinimai</value>
+  </data>
+  <data name="Settings_CommonSettings_NamesSorted" xml:space="preserve">
+    <value>pavadinimai</value>
+  </data>
+  <data name="Settings_CommonSettings_PublicHolidays" xml:space="preserve">
+    <value>šventinės dienos</value>
+  </data>
+  <data name="Settings_CommonSettings_PublicHolidaysSorted" xml:space="preserve">
+    <value>šventinės dienos</value>
+  </data>
+  <data name="Settings_CommonSettings_TaxRatesSorted" xml:space="preserve">
+    <value>mokesčių tarifai</value>
+  </data>
+  <data name="General_ConsolidatedReport_ToString" xml:space="preserve">
+    <value>finansinių ataskaitų rinkinio struktūra</value>
+  </data>
+  <data name="General_ConsolidatedReport_TypeName" xml:space="preserve">
+    <value>finansinių ataskaitų rinkinio struktūra</value>
+  </data>
+  <data name="General_ConsolidatedReportItemList_InvalidSwapOperation" xml:space="preserve">
+    <value>Valid range of collection is 0 to {0}. Indexes provided were {1} and {2}.</value>
+  </data>
+  <data name="General_ConsolidatedReport_ItemNotFound" xml:space="preserve">
+    <value>Eilutė, kurios GUID={0}, nerasta.</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_BalanceAssetsStatementRootName" xml:space="preserve">
+    <value>TURTAS</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_BalanceCapitalStatementRootName" xml:space="preserve">
+    <value>NUOSAVYBĖ IR ĮSIPAREIGOJIMAI</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_BalanceStatementRootName" xml:space="preserve">
+    <value>Balanso ataskaita</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_FinancialStatementsRootName" xml:space="preserve">
+    <value>Finansinių ataskaitų rinkinys (finansinė atskaitomybė)</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_IncomeStatementFirstItemRootName" xml:space="preserve">
+    <value>GRYNASIS PELNAS (NUOSTOLIAI)</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_IncomeStatementRootName" xml:space="preserve">
+    <value>Pelno (nuostolio) ataskaita</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_ToString" xml:space="preserve">
+    <value>"{0}: {1}{2}"</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_TypeName" xml:space="preserve">
+    <value>finansinių ataskaitų rinkinio eilutė</value>
+  </data>
+  <data name="General_ConsolidatedReport_InvalidBaseStructureInXmlData" xml:space="preserve">
+    <value>Klaida. Išsaugota finansinių ataskaitų rinkinio struktūra neatitinka reikalavimų bazinei struktūrai.</value>
+  </data>
+  <data name="General_AccountList_FileContentNull" xml:space="preserve">
+    <value>Klaida. Nurodytas failas yra tuščias.</value>
+  </data>
+  <data name="General_AccountList_FileNotFound" xml:space="preserve">
+    <value>Klaida. Failas "{0}" neegzistuoja.</value>
+  </data>
+  <data name="General_AccountList_FilePathNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas failas.</value>
+  </data>
+  <data name="HelperLists_AssignableCRItem_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HelperLists_AssignableCRItem_Name" xml:space="preserve">
+    <value>eilutės pavadinimas</value>
+  </data>
+  <data name="HelperLists_AssignableCRItem_ToString" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="HelperLists_AssignableCRItem_TypeName" xml:space="preserve">
+    <value>balanso/pelno (nuostolio) ataskaitos eilutė</value>
+  </data>
 </root>

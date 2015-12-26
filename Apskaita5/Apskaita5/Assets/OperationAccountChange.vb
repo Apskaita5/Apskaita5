@@ -1139,7 +1139,11 @@ Namespace Assets
             _JournalEntryID = persistence.JournalEntryID
             _IsComplexAct = persistence.IsComplexAct
             _Content = persistence.Content
-            _DocumentNumber = persistence.JournalEntryDocumentNumber
+            _DocumentNumber = persistence.ActNumber
+            ' for backward compartability
+            If StringIsNullOrEmpty(_DocumentNumber) Then
+                _DocumentNumber = persistence.JournalEntryDocumentNumber
+            End If
             _JournalEntryID = persistence.JournalEntryID
             _NewAccount = persistence.AccountCorresponding
             _InsertDate = persistence.InsertDate
@@ -1369,6 +1373,7 @@ Namespace Assets
             result.Content = _Content
             result.JournalEntryID = _JournalEntryID
             result.AccountCorresponding = _NewAccount
+            result.ActNumber = _DocumentNumber
 
             Return result
 

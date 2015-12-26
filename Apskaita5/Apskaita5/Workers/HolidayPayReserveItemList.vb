@@ -86,7 +86,8 @@
 
             RaiseListChangedEvents = False
 
-            Dim wt As WorkTime = WorkTime.GetWorktime(nDate.Year, nDate.Month)
+            Dim wtl As DefaultWorkTimeInfoList = DefaultWorkTimeInfoList.GetListChild()
+            Dim wt As DefaultWorkTimeInfo = wtl.GetDefaultWorkTimeInfo(nDate.Year, nDate.Month)
 
             Dim myComm As New SQLCommand("CreateHolidayPayReserveItemList")
             myComm.AddParam("?DT", nDate.Date)
@@ -106,7 +107,8 @@
 
             RaiseListChangedEvents = False
 
-            Dim wt As WorkTime = WorkTime.GetWorktime(nDate.Year, nDate.Month)
+            Dim wtl As DefaultWorkTimeInfoList = DefaultWorkTimeInfoList.GetListChild()
+            Dim wt As DefaultWorkTimeInfo = wtl.GetDefaultWorkTimeInfo(nDate.Year, nDate.Month)
 
             Dim myComm As New SQLCommand("FetchHolidayPayReserveItemList")
             myComm.AddParam("?DT", nDate.Date)
