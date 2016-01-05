@@ -229,7 +229,7 @@ Public Class F_ComplexOperationValueChange
         Try
 
             Dim newList As OperationValueChangeList = LoadObject(Of OperationValueChangeList) _
-                (Nothing, "NewOperationDiscardList", True, ids)
+                (Nothing, "NewOperationValueChangeList", True, ids, Obj.ChronologyValidator.BaseValidator)
             Obj.AddRange(newList)
         Catch ex As Exception
             ShowError(ex)

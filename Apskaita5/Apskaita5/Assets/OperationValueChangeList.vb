@@ -173,10 +173,15 @@
         ''' created for asset ID's specified. Use <see cref="ComplexOperationValueChange.AddRange">ComplexOperationValueChange.AddRange</see> 
         ''' method to add them to a complex reevaluation document.
         ''' </summary>
-        ''' <param name="assetIDs"></param>
+        ''' <param name="assetIDs"><see cref="LongTermAsset.ID">an array of long term asset ID's
+        ''' that the operation list should be fetched for</see></param>
+        ''' <param name="parentValidator">a chronologic validator of a parent document
+        ''' that the operation list should be fetched for</param>
         ''' <remarks></remarks>
-        Public Shared Function NewOperationValueChangeList(ByVal assetIDs As Integer()) As OperationValueChangeList
-            Return DataPortal.Fetch(Of OperationValueChangeList)(New Criteria(assetIDs))
+        Public Shared Function NewOperationValueChangeList(ByVal assetIDs As Integer(), _
+            ByVal parentValidator As IChronologicValidator) As OperationValueChangeList
+            Return DataPortal.Fetch(Of OperationValueChangeList) _
+                (New Criteria(assetIDs, parentValidator))
         End Function
 
         ''' <summary>
@@ -234,13 +239,20 @@
         <Serializable()> _
         Private Class Criteria
             Private _IDs As Integer()
+            Private _ParentValidator As IChronologicValidator
             Public ReadOnly Property IDs() As Integer()
                 Get
                     Return _IDs
                 End Get
             End Property
-            Public Sub New(ByVal nIDs As Integer())
+            Public ReadOnly Property ParentValidator() As IChronologicValidator
+                Get
+                    Return _ParentValidator
+                End Get
+            End Property
+            Public Sub New(ByVal nIDs As Integer(), ByVal nParentValidator As IChronologicValidator)
                 _IDs = nIDs
+                _ParentValidator = nParentValidator
             End Sub
         End Class
 
@@ -259,7 +271,8 @@
             RaiseListChangedEvents = False
 
             For Each assetID As Integer In criteria.IDs
-                MyBase.Add(OperationValueChange.NewOperationValueChange(assetID))
+                MyBase.Add(OperationValueChange.NewOperationValueChangeChild(assetID, _
+                    criteria.ParentValidator, True))
             Next
 
             RaiseListChangedEvents = True

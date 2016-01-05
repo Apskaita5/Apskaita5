@@ -202,6 +202,13 @@ Public Class F_LongTermAssetsTransferOfBalance
 
     End Sub
 
+    Private Sub ItemsDataGridView_DataError(ByVal sender As Object, _
+        ByVal e As System.Windows.Forms.DataGridViewDataErrorEventArgs) _
+        Handles ItemsDataGridView.DataError
+        e.Cancel = True
+        e.ThrowException = False
+    End Sub
+
     Private Sub ItemsDataGridView_UserDeletingRow(ByVal sender As Object, _
         ByVal e As System.Windows.Forms.DataGridViewRowCancelEventArgs) _
         Handles ItemsDataGridView.UserDeletingRow
@@ -290,9 +297,7 @@ Public Class F_LongTermAssetsTransferOfBalance
             LoadAccountInfoListToGridCombo(AccountRevaluedPortionAmmortizationDataGridViewColumn, True, 1, 2)
             LoadNameInfoListToCombo(LegalGroupDataGridViewColumn, _
                 ApskaitaObjects.Settings.NameType.LongTermAssetLegalGroup, True)
-
-            CustomGroupInfoDataGridViewColumn.DataSource = _
-                LongTermAssetCustomGroupInfoList.GetList()
+            LoadLongTermAssetCustomGroupInfoToGridCombo(CustomGroupInfoDataGridViewColumn, True)
 
         Catch ex As Exception
             ShowError(ex)

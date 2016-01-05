@@ -50,6 +50,12 @@
         End Sub
 
         Friend Sub SetCommonAccountCosts(ByVal accountCosts As Long)
+            For Each i As OperationDiscard In Me
+                If Not i.ChronologyValidator.FinancialDataCanChange Then
+                    Throw New Exception(String.Format(My.Resources.Assets_OperationDiscard_CannotChangeFinancialData, _
+                        i.ToString(), vbCrLf, i.ChronologyValidator.FinancialDataCanChangeExplanation))
+                End If
+            Next
             Me.RaiseListChangedEvents = False
             For Each i As OperationDiscard In Me
                 i.AccountCosts = accountCosts
@@ -69,7 +75,7 @@
         Friend Function GetTotalCosts() As Double
             Dim result As Double = 0
             For Each i As OperationDiscard In Me
-                result = CRound(result + i.Background.ChangeAssetValue)
+                result = CRound(result - i.Background.ChangeAssetValue)
             Next
             Return result
         End Function
@@ -190,10 +196,15 @@
         ''' asset ID's specified. Use <see cref="ComplexOperationDiscard.AddRange">ComplexOperationDiscard.AddRange</see> 
         ''' method to add them to a complex discard document.
         ''' </summary>
-        ''' <param name="assetIDs"></param>
+        ''' <param name="assetIDs"><see cref="LongTermAsset.ID">an array of long term asset ID's
+        ''' that the operation list should be fetched for</see></param>
+        ''' <param name="parentValidator">a chronologic validator of a parent document
+        ''' that the operation list should be fetched for</param>
         ''' <remarks></remarks>
-        Public Shared Function NewOperationDiscardList(ByVal assetIDs As Integer()) As OperationDiscardList
-            Return DataPortal.Fetch(Of OperationDiscardList)(New Criteria(assetIDs))
+        Public Shared Function NewOperationDiscardList(ByVal assetIDs As Integer(), _
+            ByVal parentValidator As IChronologicValidator) As OperationDiscardList
+            Return DataPortal.Fetch(Of OperationDiscardList) _
+                (New Criteria(assetIDs, parentValidator))
         End Function
 
         ''' <summary>
@@ -251,13 +262,20 @@
         <Serializable()> _
         Private Class Criteria
             Private _IDs As Integer()
+            Private _ParentValidator As IChronologicValidator
             Public ReadOnly Property IDs() As Integer()
                 Get
                     Return _IDs
                 End Get
             End Property
-            Public Sub New(ByVal nIDs As Integer())
+            Public ReadOnly Property ParentValidator() As IChronologicValidator
+                Get
+                    Return _ParentValidator
+                End Get
+            End Property
+            Public Sub New(ByVal nIDs As Integer(), ByVal nParentValidator As IChronologicValidator)
                 _IDs = nIDs
+                _ParentValidator = nParentValidator
             End Sub
         End Class
 
@@ -276,7 +294,8 @@
             RaiseListChangedEvents = False
 
             For Each assetID As Integer In criteria.IDs
-                MyBase.Add(OperationDiscard.NewOperationDiscard(assetID))
+                MyBase.Add(OperationDiscard.NewOperationDiscardChild(assetID, _
+                    criteria.ParentValidator, True))
             Next
 
             RaiseListChangedEvents = True

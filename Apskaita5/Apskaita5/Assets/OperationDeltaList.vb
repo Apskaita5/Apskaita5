@@ -12,7 +12,7 @@
 
 #Region " Business Methods "
 
-        Public Function GetDateMax(ByVal operationTypes As LtaOperationType()) As Date
+        Friend Function GetDateMax(ByVal operationTypes As LtaOperationType()) As Date
 
             Dim result As Date = Date.MinValue
 
@@ -35,7 +35,7 @@
 
         End Function
 
-        Public Function GetDateMin(ByVal operationTypes As LtaOperationType()) As Date
+        Friend Function GetDateMin(ByVal operationTypes As LtaOperationType()) As Date
 
             Dim result As Date = Date.MaxValue
 
@@ -58,23 +58,23 @@
 
         End Function
 
-        Public Function GetDateLastBefore(ByVal operationDate As Date, _
-            ByVal operationTypes As LtaOperationType()) As Date
+        Friend Function GetDateLastBefore(ByVal operationDate As Date, _
+            ByVal operationID As Integer, ByVal operationTypes As LtaOperationType()) As Date
 
             Dim result As Date = Date.MinValue
 
             If operationTypes Is Nothing OrElse operationTypes.Length < 1 Then
 
                 For Each i As OperationDelta In Me
-                    If i.Date.Date <= operationDate.Date AndAlso _
-                        i.Date.Date > result.Date Then result = i.Date
+                    If IsPrecedingOperation(i.Date, i.ID, operationDate, operationID) _
+                        AndAlso i.Date.Date > result.Date Then result = i.Date
                 Next
 
             Else
 
                 For Each i As OperationDelta In Me
-                    If i.Date.Date <= operationDate.Date AndAlso _
-                        Not Array.IndexOf(operationTypes, i.OperationType) < 0 _
+                    If IsPrecedingOperation(i.Date, i.ID, operationDate, operationID) _
+                        AndAlso Not Array.IndexOf(operationTypes, i.OperationType) < 0 _
                         AndAlso i.Date.Date > result.Date Then result = i.Date
                 Next
 
@@ -84,29 +84,41 @@
 
         End Function
 
-        Public Function GetDateFirstAfter(ByVal operationDate As Date, _
-            ByVal operationTypes As LtaOperationType()) As Date
+        Friend Function GetDateFirstAfter(ByVal operationDate As Date, _
+            ByVal operationID As Integer, ByVal operationTypes As LtaOperationType()) As Date
 
             Dim result As Date = Date.MaxValue
 
             If operationTypes Is Nothing OrElse operationTypes.Length < 1 Then
 
                 For Each i As OperationDelta In Me
-                    If i.Date.Date > operationDate.Date AndAlso _
-                        i.Date.Date < result.Date Then result = i.Date
+                    If Not IsPrecedingOperation(i.Date, i.ID, operationDate, operationID) _
+                        AndAlso i.Date.Date < result.Date Then result = i.Date
                 Next
 
             Else
 
                 For Each i As OperationDelta In Me
-                    If i.Date.Date > operationDate.Date AndAlso _
-                        Not Array.IndexOf(operationTypes, i.OperationType) < 0 _
+                    If Not IsPrecedingOperation(i.Date, i.ID, operationDate, operationID) _
+                        AndAlso Not Array.IndexOf(operationTypes, i.OperationType) < 0 _
                         AndAlso i.Date.Date < result.Date Then result = i.Date
                 Next
 
             End If
 
             Return result
+
+        End Function
+
+        Friend Shared Function IsPrecedingOperation(ByVal operationDate As Date, _
+            ByVal operationID As Integer, ByVal baseDate As Date, ByVal baseID As Integer) As Boolean
+
+            If operationDate.Date < baseDate.Date Then Return True
+
+            If operationDate.Date = baseDate.Date AndAlso (Not baseID > 0 _
+                OrElse operationID < baseID) Then Return True
+
+            Return False
 
         End Function
 

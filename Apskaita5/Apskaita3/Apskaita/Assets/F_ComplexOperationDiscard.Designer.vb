@@ -86,7 +86,6 @@ Partial Class F_ComplexOperationDiscard
         Me.InsertDateTextBox = New System.Windows.Forms.TextBox
         Me.ItemsSortedBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ItemsDataGridView = New System.Windows.Forms.DataGridView
-        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -136,6 +135,7 @@ Partial Class F_ComplexOperationDiscard
         Me.DataGridViewTextBoxColumn43 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn44 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn45 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         ContentLabel = New System.Windows.Forms.Label
         DateLabel = New System.Windows.Forms.Label
         DocumentNumberLabel = New System.Windows.Forms.Label
@@ -531,12 +531,6 @@ Partial Class F_ComplexOperationDiscard
         Me.ItemsDataGridView.RowHeadersWidth = 20
         Me.ItemsDataGridView.Size = New System.Drawing.Size(782, 209)
         Me.ItemsDataGridView.TabIndex = 1
-        '
-        'ErrorProvider1
-        '
-        Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
-        Me.ErrorProvider1.ContainerControl = Me
-        Me.ErrorProvider1.DataSource = Me.ComplexOperationDiscardBindingSource
         '
         'DataGridViewTextBoxColumn1
         '
@@ -957,6 +951,12 @@ Partial Class F_ComplexOperationDiscard
         Me.DataGridViewTextBoxColumn45.HeaderText = "Perkainota Dalis Vnt. pb."
         Me.DataGridViewTextBoxColumn45.Name = "DataGridViewTextBoxColumn45"
         Me.DataGridViewTextBoxColumn45.ReadOnly = True
+        '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
+        Me.ErrorProvider1.ContainerControl = Me
+        Me.ErrorProvider1.DataSource = Me.ComplexOperationDiscardBindingSource
         '
         'F_ComplexOperationDiscard
         '

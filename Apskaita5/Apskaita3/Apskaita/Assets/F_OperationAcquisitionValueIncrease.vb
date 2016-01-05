@@ -74,7 +74,7 @@ Public Class F_OperationAcquisitionValueIncrease
         ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
 
         If Not Obj Is Nothing AndAlso TypeOf Obj Is IIsDirtyEnough AndAlso _
-            DirectCast(Obj, IIsDirtyEnough).IsDirtyEnough Then
+            Not Obj.IsChild AndAlso DirectCast(Obj, IIsDirtyEnough).IsDirtyEnough Then
             Dim answ As String = Ask("Išsaugoti duomenis?", New ButtonStructure("Taip"), _
                 New ButtonStructure("Ne"), New ButtonStructure("Atšaukti"))
             If answ <> "Taip" AndAlso answ <> "Ne" Then

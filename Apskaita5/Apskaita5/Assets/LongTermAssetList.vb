@@ -170,6 +170,8 @@
                         i.SaveChild(parent.ID, Not parent.ChronologyValidator.FinancialDataCanChange)
                     Next
 
+                    transaction.Commit()
+
                 Catch ex As Exception
                     transaction.SetNonSqlException(ex)
                     Throw

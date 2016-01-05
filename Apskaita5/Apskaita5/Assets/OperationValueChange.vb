@@ -32,7 +32,7 @@ Namespace Assets
             = New DocumentType() {}
 
         Private _Background As OperationBackground = Nothing
-        Private _ChronologyValidator As OperationChronologicValidator2 = Nothing
+        Private _ChronologyValidator As OperationChronologicValidator = Nothing
 
         Private ReadOnly _Guid As Guid = Guid.NewGuid
         Private _ID As Integer = -1
@@ -105,7 +105,7 @@ Namespace Assets
         ''' </summary>
         ''' <remarks>A <see cref="OperationChronologicValidator">OperationChronologicValidator</see> 
         ''' is used to validate a long term asset balance value change operation chronological business rules.</remarks>
-        Public ReadOnly Property ChronologyValidator() As OperationChronologicValidator2
+        Public ReadOnly Property ChronologyValidator() As OperationChronologicValidator
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _ChronologyValidator
@@ -1183,7 +1183,48 @@ Namespace Assets
 
         Private Sub Recalculate(ByVal raisePropertyChanged As Boolean)
 
-            SetBackgroundValues(False)
+            If _Background.CurrentAssetAmount < 1 Then
+                _ValueChangePerUnit = 0
+            Else
+                _ValueChangePerUnit = CRound(_ValueChangeTotal _
+                    / _Background.CurrentAssetAmount, ROUNDUNITASSET)
+            End If
+
+            _Background.DisableCalculations = True
+
+            If CRound(_Background.CurrentValueIncreaseAccountValue _
+                - _Background.CurrentValueIncreaseAmortizationAccountValue _
+                - _Background.CurrentValueDecreaseAccountValue + _ValueChangeTotal) >= 0 Then
+
+                _Background.ChangeValueIncreaseAccountValue = _
+                    CRound(_ValueChangeTotal - _Background.CurrentValueDecreaseAccountValue, 2)
+                _Background.ChangeValueIncreaseAccountValuePerUnit = _
+                    CRound(_ValueChangePerUnit - _Background.CurrentValueDecreaseAccountValuePerUnit, ROUNDUNITASSET)
+
+                _Background.ChangeValueDecreaseAccountValue = _
+                    -_Background.CurrentValueDecreaseAccountValue
+                _Background.ChangeValueDecreaseAccountValuePerUnit = _
+                    -_Background.CurrentValueDecreaseAccountValuePerUnit
+
+            Else
+
+                _Background.ChangeValueDecreaseAccountValue = _
+                    CRound(-_ValueChangeTotal - _Background.CurrentValueIncreaseAccountValue _
+                    + _Background.CurrentValueIncreaseAmortizationAccountValue, 2)
+                _Background.ChangeValueDecreaseAccountValuePerUnit = _
+                    CRound(-_ValueChangePerUnit - _Background.CurrentValueIncreaseAccountValuePerUnit _
+                    + _Background.CurrentValueIncreaseAmortizationAccountValuePerUnit, ROUNDUNITASSET)
+
+                _Background.ChangeValueIncreaseAccountValue = _
+                    -CRound(_Background.CurrentValueIncreaseAccountValue _
+                    - _Background.CurrentValueIncreaseAmortizationAccountValue, 2)
+                _Background.ChangeValueIncreaseAccountValuePerUnit = _
+                    -CRound(_Background.CurrentValueIncreaseAccountValuePerUnit _
+                    - _Background.CurrentValueIncreaseAmortizationAccountValuePerUnit, ROUNDUNITASSET)
+
+            End If
+
+            _Background.DisableCalculations = False
 
             _Background.CalculateAfterOperationProperties()
 
@@ -1215,57 +1256,6 @@ Namespace Assets
 
         End Sub
 
-        Private Sub SetBackgroundValues(ByVal initialize As Boolean)
-
-            If _Background.CurrentAssetAmount < 1 AndAlso Not initialize Then Exit Sub
-
-            If Not initialize Then
-                _ValueChangePerUnit = CRound(_ValueChangeTotal _
-                    / _Background.CurrentAssetAmount, ROUNDUNITASSET)
-            End If
-
-            _Background.DisableCalculations = True
-
-
-            If CRound(_Background.CurrentValueIncreaseAccountValue _
-                - _Background.CurrentValueIncreaseAmortizationAccountValue _
-                - _Background.CurrentValueDecreaseAccountValue + _ValueChangeTotal) >= 0 Then
-
-                _Background.ChangeValueIncreaseAccountValue = _
-                    CRound(_ValueChangeTotal - _Background.CurrentValueDecreaseAccountValue, 2)
-                _Background.ChangeValueIncreaseAccountValuePerUnit = _
-                    CRound(_ValueChangePerUnit - _Background.CurrentValueDecreaseAccountValuePerUnit, ROUNDUNITASSET)
-
-                _Background.ChangeValueDecreaseAccountValue = _
-                    -_Background.CurrentValueDecreaseAccountValue
-                _Background.ChangeValueDecreaseAccountValuePerUnit = _
-                    -_Background.CurrentValueDecreaseAccountValuePerUnit
-
-            Else
-
-                _Background.ChangeValueDecreaseAccountValue = _
-                    CRound(-_ValueChangeTotal - _Background.CurrentValueIncreaseAccountValue _
-                    + _Background.CurrentValueIncreaseAmortizationAccountValue, 2)
-                _Background.ChangeValueDecreaseAccountValuePerUnit = _
-                    CRound(-_ValueChangePerUnit - _Background.CurrentValueIncreaseAccountValuePerUnit _
-                    + _Background.CurrentValueIncreaseAmortizationAccountValuePerUnit, ROUNDUNITASSET)
-
-                _Background.ChangeValueIncreaseAccountValue = _
-                    CRound(_Background.CurrentValueIncreaseAccountValue _
-                    - _Background.CurrentValueIncreaseAmortizationAccountValue, 2)
-                _Background.ChangeValueIncreaseAccountValuePerUnit = _
-                    CRound(_Background.CurrentValueIncreaseAccountValuePerUnit _
-                    - _Background.CurrentValueIncreaseAmortizationAccountValuePerUnit, ROUNDUNITASSET)
-
-            End If
-
-
-            If initialize Then _Background.InitializeOldData(_Date)
-
-            _Background.DisableCalculations = False
-
-        End Sub
-
 
         Public Function GetAllBrokenRules() As String
             Dim result As String = ""
@@ -1278,7 +1268,7 @@ Namespace Assets
 
         Public Function GetAllWarnings() As String
             Dim result As String = ""
-            If Not MyBase.BrokenRulesCollection.WarningCount > 0 Then
+            If MyBase.BrokenRulesCollection.WarningCount > 0 Then
                 result = AddWithNewLine(result, _
                     Me.BrokenRulesCollection.ToString(Validation.RuleSeverity.Warning), False)
             End If
@@ -1303,7 +1293,7 @@ Namespace Assets
 
         Public Function GetWarningString() As String _
             Implements IGetErrorForListItem.GetWarningString
-            If BrokenRulesCollection.WarningCount < 1 Then Return ""
+            If Not HasWarnings() Then Return ""
             Return String.Format(My.Resources.Common_WarningInItem, Me.ToString, _
                 vbCrLf, Me.GetAllWarnings())
         End Function
@@ -1701,7 +1691,7 @@ Namespace Assets
 
             _Background = OperationBackground.NewOperationBackgroundChild(nAssetId)
 
-            _ChronologyValidator = OperationChronologicValidator2.NewOperationChronologicValidator( _
+            _ChronologyValidator = OperationChronologicValidator.NewOperationChronologicValidator( _
                 _Background, LtaOperationType.ValueChange, parentValidator)
 
             ValidationRules.CheckRules()
@@ -1758,12 +1748,9 @@ Namespace Assets
             _InsertDate = persistence.InsertDate
             _UpdateDate = persistence.UpdateDate
 
-            _Background = OperationBackground.GetOperationBackgroundChild( _
-                persistence.AssetID, _ID, _Date, generalData, deltaData)
+            _Background = OperationBackground.GetOperationBackgroundChild(persistence, generalData, deltaData)
 
-            SetBackgroundValues(True)
-
-            _ChronologyValidator = OperationChronologicValidator2.GetOperationChronologicValidator( _
+            _ChronologyValidator = OperationChronologicValidator.GetOperationChronologicValidator( _
                 _Background, LtaOperationType.ValueChange, _ID, _Date, parentValidator)
 
             MarkOld()
@@ -1878,6 +1865,9 @@ Namespace Assets
                 _InsertDate = persistence.InsertDate
             End If
             _UpdateDate = persistence.UpdateDate
+
+            _Background.MarkOld(_ID)
+            _ChronologyValidator.MarkOld(_ID, _Date)
 
             MarkOld()
 
@@ -2001,7 +1991,7 @@ Namespace Assets
 
             If IsNew Then Exit Sub
 
-            _ChronologyValidator = OperationChronologicValidator2.GetOperationChronologicValidator( _
+            _ChronologyValidator = OperationChronologicValidator.GetOperationChronologicValidator( _
                 _Background, LtaOperationType.ValueChange, _
                 _ID, _ChronologyValidator.CurrentOperationDate, parentValidator)
 
@@ -2031,18 +2021,16 @@ Namespace Assets
 
         Private Sub ReloadBackgroundAndChronology(ByVal parentValidator As IChronologicValidator)
 
+            _Background = OperationBackground.GetOperationBackgroundChild(_Background)
+
             If IsNew Then
-                _Background = OperationBackground.NewOperationBackgroundChild(_Background.AssetID)
-                _ChronologyValidator = OperationChronologicValidator2.NewOperationChronologicValidator( _
+                _ChronologyValidator = OperationChronologicValidator.NewOperationChronologicValidator( _
                     _Background, LtaOperationType.ValueChange, parentValidator)
             Else
-                _Background = OperationBackground.GetOperationBackgroundChild( _
-                    _Background.AssetID, _ID, _Date)
-                _ChronologyValidator = OperationChronologicValidator2.GetOperationChronologicValidator( _
-                    _Background, LtaOperationType.ValueChange, _ID, _Date, parentValidator)
+                _ChronologyValidator = OperationChronologicValidator.GetOperationChronologicValidator( _
+                    _Background, LtaOperationType.ValueChange, _ID, _
+                    _ChronologyValidator.CurrentOperationDate, parentValidator)
             End If
-
-            SetBackgroundValues(True)
 
             ValidationRules.CheckRules()
 

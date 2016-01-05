@@ -7153,10 +7153,10 @@
     <value>perleidimas</value>
   </data>
   <data name="Assets_LtaOperationType_UsingEnd" xml:space="preserve">
-    <value>išvedimas iš eksploatacijos</value>
+    <value>eksploatacijos aktas</value>
   </data>
   <data name="Assets_LtaOperationType_UsingStart" xml:space="preserve">
-    <value>įvedimas į eksploataciją</value>
+    <value>eksploatacijos aktas</value>
   </data>
   <data name="Assets_LtaOperationType_ValueChange" xml:space="preserve">
     <value>pervertinimas</value>
@@ -7357,22 +7357,22 @@
     <value>Kiekis po operacijos negali būti mažesnis už nulį.</value>
   </data>
   <data name="Assets_OperationBackground_BalanceInvalid" xml:space="preserve">
-    <value>Likutis po operacijos negali būti mažesnis už nulį.</value>
+    <value>Laukelyje "{0}" likutis po operacijos negali būti mažesnis už nulį.</value>
   </data>
   <data name="Assets_OperationBackground_NullBalanceRequired" xml:space="preserve">
-    <value>Likutis turi būti lygus nuliui, kai turto kiekio likutis lygus nuliui.</value>
+    <value>Likutis turi būti lygus nuliui, kai turto kiekio likutis lygus nuliui. (laukelis "{0}")</value>
   </data>
   <data name="Assets_OperationBackground_RevaluedPortionAmortizationInvalid" xml:space="preserve">
     <value>Pervertintos dalies amortizacija negali būti didesnė už pervertintos dalies vertę.</value>
   </data>
   <data name="Assets_OperationBackground_UnitValueChangeInvalid" xml:space="preserve">
-    <value>Vieneto vertės pokytis negalimas, kai turto likutis lygus nuliui.</value>
+    <value>Vieneto vertės pokytis negalimas, kai turto likutis lygus nuliui (laukelis "{0}").</value>
   </data>
   <data name="Assets_OperationBackground_UnitValueInvalid" xml:space="preserve">
-    <value>Vieneto vertės pokytis kart kiekis negali skirtis nuo bendro vertės pokyčio daugiau kaip {0}.</value>
+    <value>Vieneto vertės pokytis kart kiekis negali skirtis nuo bendro vertės pokyčio daugiau kaip {0} (laukelis {1}).</value>
   </data>
   <data name="Assets_OperationBackground_UnitValueInvalidForSingleUnit" xml:space="preserve">
-    <value>Vieneto vertės pokytis turi būti lygus bendram vertės pokyčiui, kai kiekis lygus vienetui.</value>
+    <value>Laukelyje "{0}" vieneto vertės pokytis turi būti lygus bendram vertės pokyčiui, kai kiekis lygus vienetui.</value>
   </data>
   <data name="Assets_OperationChronologicDescriptor_TypeNotImplemented" xml:space="preserve">
     <value>Klaida. Neimplementuoti chronologiniai apribojimai ilgalaikio turto operacijos tipui {0}.</value>
@@ -11036,5 +11036,59 @@
   </data>
   <data name="HelperLists_AssignableCRItem_TypeName" xml:space="preserve">
     <value>balanso/pelno (nuostolio) ataskaitos eilutė</value>
+  </data>
+  <data name="General_CompanyBinaryDataType_InvoiceForm" xml:space="preserve">
+    <value>įmonės sąskaitos faktūros forma (rdlc)</value>
+  </data>
+  <data name="General_CompanyBinaryDataType_Logo" xml:space="preserve">
+    <value>įmonės logo</value>
+  </data>
+  <data name="Assets_OperationOperationalStatusChange_UsingEnd" xml:space="preserve">
+    <value>išvedimas iš eksploatacijos</value>
+  </data>
+  <data name="Assets_OperationOperationalStatusChange_UsingStart" xml:space="preserve">
+    <value>įvedimas į eksploataciją</value>
+  </data>
+  <data name="ActiveReports_LongTermAssetOperationInfoListParent_CurrentAcquisitionAccountValue" xml:space="preserve">
+    <value>einamasis įsig. savik. sąsk. balansas</value>
+  </data>
+  <data name="ActiveReports_LongTermAssetOperationInfoListParent_CurrentAcquisitionAccountValuePerUnit" xml:space="preserve">
+    <value>einamasis įsig. savik. sąsk. balansas turto vienetui</value>
+  </data>
+  <data name="ActiveReports_LongTermAssetOperationInfoListParent_CurrentAmortizationAccountValue" xml:space="preserve">
+    <value>einamasis įsig. savik. amort. sąsk. balansas</value>
+  </data>
+  <data name="ActiveReports_LongTermAssetOperationInfoListParent_CurrentAmortizationAccountValuePerUnit" xml:space="preserve">
+    <value>einamasis įsig. savik. amort. sąsk. balansas turto vienetui</value>
+  </data>
+  <data name="ActiveReports_LongTermAssetOperationInfoListParent_CurrentAmount" xml:space="preserve">
+    <value>einamasis kiekis</value>
+  </data>
+  <data name="ActiveReports_LongTermAssetOperationInfoListParent_CurrentValue" xml:space="preserve">
+    <value>einamoji balansinė vertė</value>
+  </data>
+  <data name="ActiveReports_LongTermAssetOperationInfoListParent_CurrentValueDecreaseAccountValue" xml:space="preserve">
+    <value>einamasis vertės sumažėjimo sąsk. balansas</value>
+  </data>
+  <data name="ActiveReports_LongTermAssetOperationInfoListParent_CurrentValueDecreaseAccountValuePerUnit" xml:space="preserve">
+    <value>einamasis vertės sumažėjimo sąsk. balansas turto vienetui</value>
+  </data>
+  <data name="ActiveReports_LongTermAssetOperationInfoListParent_CurrentValueIncreaseAccountValue" xml:space="preserve">
+    <value>einamasis perkainojimo sąsk. balansas</value>
+  </data>
+  <data name="ActiveReports_LongTermAssetOperationInfoListParent_CurrentValueIncreaseAccountValuePerUnit" xml:space="preserve">
+    <value>einamasis perkainojimo sąsk. balansas turto vienetui</value>
+  </data>
+  <data name="ActiveReports_LongTermAssetOperationInfoListParent_CurrentValueIncreaseAmmortizationAccountValue" xml:space="preserve">
+    <value>einamasis perkainojimo amort. sąsk. balansas</value>
+  </data>
+  <data name="ActiveReports_LongTermAssetOperationInfoListParent_CurrentValueIncreaseAmmortizationAccountValuePerUnit" xml:space="preserve">
+    <value>einamasis perkainojimo amort. sąsk. balansas turto vienetui</value>
+  </data>
+  <data name="ActiveReports_LongTermAssetOperationInfoListParent_CurrentValuePerUnit" xml:space="preserve">
+    <value>einamoji balansinė vertė turto vienetui</value>
+  </data>
+  <data name="Assets_LongTermAsset_DefaultMeasureUnit" xml:space="preserve">
+    <value>vnt.</value>
   </data>
 </root>

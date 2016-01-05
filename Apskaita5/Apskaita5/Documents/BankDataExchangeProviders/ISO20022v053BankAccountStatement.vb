@@ -91,7 +91,10 @@ Namespace Documents.BankDataExchangeProviders
                 result.UniqueCode = GetISO20022ValueAsString( _
                     document, "/Ntry/NtryDtls/TxDtls/Refs/TxId", True)
             End If
-            result.Date = GetISO20022ValueAsDate(document, "/Ntry/BookgDt/Dt", True)
+            result.Date = GetISO20022ValueAsDate(document, "/Ntry/BookgDt/Dt", False)
+            If result.Date = Date.MinValue Then
+                result.Date = GetISO20022ValueAsDate(document, "/Ntry/BookgDt/DtTm", True)
+            End If
             result.Inflow = (GetISO20022ValueAsEntryType(document, "/Ntry/CdtDbtInd", True) _
                 = BookEntryType.Kreditas)
 

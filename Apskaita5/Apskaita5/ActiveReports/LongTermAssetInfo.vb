@@ -310,9 +310,10 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' A balance for the <see cref="AccountAcquisition">AccountAcquisition</see> at the aqcuisition date.
+        ''' A balance for the <see cref="AccountAcquisition">AccountAcquisition</see> at the acquisition date.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit (invalid) balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property AcquisitionAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -321,9 +322,9 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' A balance for the <see cref="AccountAcquisition">AccountAcquisition</see> per asset unit at the aqcuisition date.
+        ''' A balance for the <see cref="AccountAcquisition">AccountAcquisition</see> per asset unit at the acquisition date.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property AcquisitionAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -333,9 +334,9 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' A balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> at the aqcuisition date.
+        ''' A balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> at the acquisition date.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property AmortizationAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -345,9 +346,9 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' A balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> per unit at the aqcuisition date.
+        ''' A balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> per unit at the acquisition date.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property AmortizationAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -357,9 +358,9 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' A balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> at the aqcuisition date.
+        ''' A balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> at the acquisition date.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ValueDecreaseAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -369,9 +370,9 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' A balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> per unit made at the aqcuisition date.
+        ''' A balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> per unit made at the acquisition date.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ValueDecreaseAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -381,9 +382,9 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' A balance for the <see cref="AccountValueIncrease">AccountValueIncrease</see> at the aqcuisition date.
+        ''' A balance for the <see cref="AccountValueIncrease">AccountValueIncrease</see> at the acquisition date.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ValueIncreaseAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -393,9 +394,9 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' A balance for the <see cref="AccountValueIncrease">AccountValueIncrease</see> per unit at the aqcuisition date.
+        ''' A balance for the <see cref="AccountValueIncrease">AccountValueIncrease</see> per unit at the acquisition date.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ValueIncreaseAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -405,9 +406,9 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' A balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> at the aqcuisition date.
+        ''' A balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> at the acquisition date.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ValueIncreaseAmmortizationAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -417,9 +418,9 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' A balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> per unit made at the aqcuisition date.
+        ''' A balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> per unit made at the acquisition date.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ValueIncreaseAmmortizationAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -429,7 +430,7 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' A total value of the long term asset at the aqcuisition date.
+        ''' A total value of the long term asset at the acquisition date.
         ''' </summary>
         ''' <remarks></remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
@@ -441,7 +442,7 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' A unit value of the long term asset at the aqcuisition date.
+        ''' A unit value of the long term asset at the acquisition date.
         ''' </summary>
         ''' <remarks></remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
@@ -453,7 +454,7 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' An amount of the long term asset at the aqcuisition date.
+        ''' An amount of the long term asset at the acquisition date.
         ''' </summary>
         ''' <remarks></remarks>
         Public ReadOnly Property Ammount() As Integer
@@ -464,7 +465,7 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' A total value of the revalued portion of the long term asset at the aqcuisition date.
+        ''' A total value of the revalued portion of the long term asset at the acquisition date.
         ''' </summary>
         ''' <remarks></remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
@@ -476,7 +477,7 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' A unit value of the revalued portion of the long term asset at the aqcuisition date.
+        ''' A unit value of the revalued portion of the long term asset at the acquisition date.
         ''' </summary>
         ''' <remarks></remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
@@ -490,7 +491,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountAcquisition">AccountAcquisition</see> at the beginning of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property BeforeAcquisitionAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -502,7 +503,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountAcquisition">AccountAcquisition</see> per unit at the beginning of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property BeforeAcquisitionAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -514,7 +515,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> at the beginning of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property BeforeAmortizationAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -526,7 +527,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> per unit at the beginning of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property BeforeAmortizationAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -538,7 +539,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> at the beginning of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property BeforeValueDecreaseAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -550,7 +551,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> per unit at the beginning of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property BeforeValueDecreaseAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -562,7 +563,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountValueIncrease">AccountValueIncrease</see> at the beginning of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property BeforeValueIncreaseAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -574,7 +575,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountValueIncrease">AccountValueIncrease</see> per unit at the beginning of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property BeforeValueIncreaseAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -586,7 +587,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> at the beginning of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property BeforeValueIncreaseAmmortizationAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -598,7 +599,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> per unit at the beginning of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property BeforeValueIncreaseAmmortizationAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -669,7 +670,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A change of balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> during the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ChangeAmortizationAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -681,7 +682,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A change of balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> per unit during the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ChangeAmortizationAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -693,7 +694,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A change of balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> during the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ChangeValueDecreaseAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -705,7 +706,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A change of balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> per unit during the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ChangeValueDecreaseAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -741,7 +742,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A change of balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> during the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property ChangeValueIncreaseAmmortizationAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -753,7 +754,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A change of balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> per unit during the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents denbit balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property ChangeValueIncreaseAmmortizationAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -871,7 +872,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountAcquisition">AccountAcquisition</see> at the end of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property AfterAcquisitionAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -883,7 +884,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountAcquisition">AccountAcquisition</see> per unit at the end of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property AfterAcquisitionAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -895,7 +896,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> at the end of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property AfterAmortizationAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -907,7 +908,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountAccumulatedAmortization">AccountAccumulatedAmortization</see> per unit at the end of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property AfterAmortizationAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -919,7 +920,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> at the end of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property AfterValueDecreaseAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -931,7 +932,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountValueDecrease">AccountValueDecrease</see> per unit at the end of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property AfterValueDecreaseAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -943,7 +944,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountValueIncrease">AccountValueIncrease</see> at the end of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property AfterValueIncreaseAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -955,7 +956,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountValueIncrease">AccountValueIncrease</see> per unit at the end of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property AfterValueIncreaseAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -967,7 +968,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> at the end of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property AfterValueIncreaseAmmortizationAccountValue() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -979,7 +980,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' A balance for the <see cref="AccountRevaluedPortionAmmortization">AccountRevaluedPortionAmmortization</see> per unit at the end of the report period.
         ''' </summary>
-        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit (invalid) balance.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, ROUNDUNITASSET)> _
         Public ReadOnly Property AfterValueIncreaseAmmortizationAccountValuePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _

@@ -161,12 +161,18 @@
         ''' created for asset ID's specified. Use <see cref="ComplexOperationOperationalStatusChange.AddRange">ComplexOperationOperationalStatusChange.AddRange</see> 
         ''' method to add them to a complex assets operational status change document.
         ''' </summary>
-        ''' <param name="assetIDs"></param>
+        ''' <param name="assetIDs"><see cref="LongTermAsset.ID">an array of long term asset ID's
+        ''' that the operation list should be fetched for</see></param>
+        ''' <param name="beginOperationalPeriod">Whether the operations set long term assets 
+        ''' status as operational. If false, the operations set the status as not operational.</param>
+        ''' <param name="parentValidator">a chronologic validator of a parent document
+        ''' that the operation list should be fetched for</param>
         ''' <remarks></remarks>
         Public Shared Function NewOperationOperationalStatusChangeList( _
-            ByVal assetIDs As Integer(), ByVal beginOperationalPeriod As Boolean) As OperationOperationalStatusChangeList
+            ByVal assetIDs As Integer(), ByVal beginOperationalPeriod As Boolean, _
+            ByVal parentValidator As IChronologicValidator) As OperationOperationalStatusChangeList
             Return DataPortal.Fetch(Of OperationOperationalStatusChangeList) _
-                (New Criteria(assetIDs, beginOperationalPeriod))
+                (New Criteria(assetIDs, beginOperationalPeriod, parentValidator))
         End Function
 
         ''' <summary>
@@ -224,10 +230,16 @@
         <Serializable()> _
         Private Class Criteria
             Private _IDs As Integer()
+            Private _ParentValidator As IChronologicValidator
             Private _BeginOperationalPeriod As Boolean
             Public ReadOnly Property IDs() As Integer()
                 Get
                     Return _IDs
+                End Get
+            End Property
+            Public ReadOnly Property ParentValidator() As IChronologicValidator
+                Get
+                    Return _ParentValidator
                 End Get
             End Property
             Public ReadOnly Property BeginOperationalPeriod() As Boolean
@@ -235,8 +247,10 @@
                     Return _BeginOperationalPeriod
                 End Get
             End Property
-            Public Sub New(ByVal nIDs As Integer(), ByVal nBeginOperationalPeriod As Boolean)
+            Public Sub New(ByVal nIDs As Integer(), ByVal nBeginOperationalPeriod As Boolean, _
+                ByVal nParentValidator As IChronologicValidator)
                 _IDs = nIDs
+                _ParentValidator = nParentValidator
                 _BeginOperationalPeriod = nBeginOperationalPeriod
             End Sub
         End Class
@@ -256,8 +270,8 @@
             RaiseListChangedEvents = False
 
             For Each assetID As Integer In criteria.IDs
-                MyBase.Add(OperationOperationalStatusChange.NewOperationOperationalStatusChange( _
-                    assetID, criteria.BeginOperationalPeriod))
+                MyBase.Add(OperationOperationalStatusChange.NewOperationOperationalStatusChangeChild( _
+                    assetID, criteria.BeginOperationalPeriod, criteria.ParentValidator, True))
             Next
 
             RaiseListChangedEvents = True
@@ -271,8 +285,10 @@
 
             RaiseListChangedEvents = False
 
-            _FinancialDataCanChange = parentValidator.FinancialDataCanChange
-            _FinancialDataCanChangeExplanation = parentValidator.FinancialDataCanChangeExplanation
+            If Not parentValidator Is Nothing Then
+                _FinancialDataCanChange = parentValidator.FinancialDataCanChange
+                _FinancialDataCanChangeExplanation = parentValidator.FinancialDataCanChangeExplanation
+            End If
             _ParentDate = persistanceList(0).OperationDate
 
             For Each p As OperationPersistenceObject In persistanceList

@@ -69,7 +69,7 @@ Partial Class F_LongTermAssetsTransferOfBalance
         Me.MeasureUnitDataGridViewColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.InventoryNumberDataGridViewColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.LegalGroupDataGridViewColumn = New System.Windows.Forms.DataGridViewComboBoxColumn
-        Me.CustomGroupInfoDataGridViewColumn = New AccControls.DataGridViewAccComboBoxColumn
+        Me.CustomGroupInfoDataGridViewColumn = New AccControls.DataGridViewAccGridComboBoxColumn
         Me.DefaultAmortizationPeriodDataGridViewColumn = New AccControls.DataGridViewNumericUpDownColumn
         Me.ContinuedUsageDataGridViewColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn
         Me.AmortizationCalculatedForMonthsDataGridViewColumn = New AccControls.DataGridViewNumericUpDownColumn
@@ -436,15 +436,16 @@ Partial Class F_LongTermAssetsTransferOfBalance
         '
         'CustomGroupInfoDataGridViewColumn
         '
+        Me.CustomGroupInfoDataGridViewColumn.CloseOnSingleClick = True
+        Me.CustomGroupInfoDataGridViewColumn.ComboDataGridView = Nothing
         Me.CustomGroupInfoDataGridViewColumn.DataPropertyName = "CustomGroupInfo"
-        Me.CustomGroupInfoDataGridViewColumn.DataSource = Nothing
-        Me.CustomGroupInfoDataGridViewColumn.DropDownWidth = 0
-        Me.CustomGroupInfoDataGridViewColumn.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.CustomGroupInfoDataGridViewColumn.EmptyValueString = ""
+        Me.CustomGroupInfoDataGridViewColumn.FilterPropertyName = ""
         Me.CustomGroupInfoDataGridViewColumn.HeaderText = "Grupė"
-        Me.CustomGroupInfoDataGridViewColumn.MaxDropDownItems = 9
+        Me.CustomGroupInfoDataGridViewColumn.InstantBinding = True
         Me.CustomGroupInfoDataGridViewColumn.Name = "CustomGroupInfoDataGridViewColumn"
         Me.CustomGroupInfoDataGridViewColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CustomGroupInfoDataGridViewColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.CustomGroupInfoDataGridViewColumn.ValueMember = ""
         '
         'DefaultAmortizationPeriodDataGridViewColumn
         '
@@ -828,7 +829,7 @@ Partial Class F_LongTermAssetsTransferOfBalance
     Friend WithEvents MeasureUnitDataGridViewColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents InventoryNumberDataGridViewColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents LegalGroupDataGridViewColumn As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents CustomGroupInfoDataGridViewColumn As AccControls.DataGridViewAccComboBoxColumn
+    Friend WithEvents CustomGroupInfoDataGridViewColumn As AccControls.DataGridViewAccGridComboBoxColumn
     Friend WithEvents DefaultAmortizationPeriodDataGridViewColumn As AccControls.DataGridViewNumericUpDownColumn
     Friend WithEvents ContinuedUsageDataGridViewColumn As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents AmortizationCalculatedForMonthsDataGridViewColumn As AccControls.DataGridViewNumericUpDownColumn

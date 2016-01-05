@@ -37,17 +37,17 @@
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>GetAccountList</Key>
-    <Statement>SELECT s.Saskaitosnr, s.Saskaita, f.ID, f.Name FROM saskaitupl s LEFT JOIN FinancialStatementsStructure f ON f.ID = s.fs_id ORDER BY CAST(s.Saskaitosnr AS CHAR);</Statement>
+    <Statement>SELECT s.Saskaitosnr, s.Saskaita, s.Rusis, f.ID, f.Name FROM saskaitupl s LEFT JOIN FinancialStatementsStructure f ON f.ID = s.fs_id ORDER BY CAST(s.Saskaitosnr AS CHAR);</Statement>
     <Objects>HelperLists.AccountInfoList, General.AccountList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>InsertAccount</Key>
-    <Statement>INSERT INTO saskaitupl(Saskaitosnr, Saskaita, Rusis, fs_id) VALUES($SN, $SP, '', $FD);</Statement>
+    <Statement>INSERT INTO saskaitupl(Saskaitosnr, Saskaita, Rusis, fs_id) VALUES($SN, $SP, $CM, $FD);</Statement>
     <Objects>General.Account</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>UpdateAccount</Key>
-    <Statement>UPDATE saskaitupl SET Saskaitosnr=$SN, Saskaita=$SP, fs_id=$FD WHERE Saskaitosnr=$TN ;</Statement>
+    <Statement>UPDATE saskaitupl SET Saskaitosnr=$SN, Saskaita=$SP, fs_id=$FD, Rusis=$CM WHERE Saskaitosnr=$TN ;</Statement>
     <Objects>General.Account</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -779,69 +779,14 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
     <Objects>Assets.LongTermAsset</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
-    <Key>InsertLongTermAssetOperation</Key>
-    <Statement>INSERT INTO turtas_op(T_ID, OperationType, AccountOperationType, OperationDate, JE_ID, IsComplexAct, Content, AccountCorresponding, ActNumber, UnitValueChange, AmmountChange, TotalValueChange, NewAmortizationPeriod, AmortizationCalculations, RevaluedPortionUnitValueChange, RevaluedPortionTotalValueChange, AcquisitionAccountChange, AcquisitionAccountChangePerUnit, AmortizationAccountChange, AmortizationAccountChangePerUnit, ValueDecreaseAccountChange, ValueDecreaseAccountChangePerUnit, ValueIncreaseAccountChange, ValueIncreaseAccountChangePerUnit, ValueIncreaseAmmortizationAccountChange, ValueIncreaseAmmortizationAccountChangePerUnit, AmortizationCalculatedForMonths, InsertDate, UpdateDate) VALUES($TD, $OT, $AT, $DT, $JD, $CA, $CN, $AC, $NM, $UV, $AM, $TV, $AP, $CL, $RU, $RT, $DA, $DB, $DC, $DE, $DF, $DG, $DH, $DI, $DJ, $DK, $UT, $UD, $UD);</Statement>
-    <Objects>Assets.LongTermAssetOperation, Assets.LongTermAssetOperationChild</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>UpdateLongTermAssetOperation</Key>
-    <Statement>UPDATE turtas_op SET OperationDate=$DT, JE_ID=$JD, Content=$CN, AccountCorresponding=$AC, ActNumber=$NM, UnitValueChange=$UV, AmmountChange=$AM, TotalValueChange=$TV, NewAmortizationPeriod=$AP, AmortizationCalculations=$CL, RevaluedPortionUnitValueChange=$RU, RevaluedPortionTotalValueChange=$RT, AcquisitionAccountChange=$DA, AcquisitionAccountChangePerUnit=$DB, AmortizationAccountChange=$DC, AmortizationAccountChangePerUnit=$DE, ValueDecreaseAccountChange=$DF, ValueDecreaseAccountChangePerUnit=$DG, ValueIncreaseAccountChange=$DH, ValueIncreaseAccountChangePerUnit=$DI, ValueIncreaseAmmortizationAccountChange=$DJ, ValueIncreaseAmmortizationAccountChangePerUnit=$DK, AmortizationCalculatedForMonths=$UT, UpdateDate=$UD WHERE ID=$OD ;</Statement>
-    <Objects>Assets.LongTermAssetOperation, Assets.LongTermAssetOperationChild</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>FetchLongTermAssetAccumulatedAmortization</Key>
-    <Statement>SELECT SUM(-t.TotalValueChange), SUM(-t.RevaluedPortionTotalValueChange) FROM turtas_op t WHERE t.T_ID=$AD AND t.OperationType='amo';</Statement>
-    <Objects>Assets.LongTermAssetOperation</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>FetchLongTermAssetAccumulatedAmortizationForRevaluedPortion</Key>
-    <Statement>SELECT SUM(-t.RevaluedPortionTotalValueChange) FROM turtas_op t WHERE t.T_ID=$AD AND t.OperationType='amo';</Statement>
-    <Objects>Assets.LongTermAssetOperation</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>FetchLongTermAssetOperationBackgroundInfo1</Key>
-    <Statement>SELECT t.Turtas, t.Vnt, t.Saskaita, (SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='aqs' AND d.ID&lt;&gt;$CD ORDER BY d.OperationDate DESC LIMIT 1) AS AccountAcquisitionChanged, t.AccountAmortization, (SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='amr' AND d.ID&lt;&gt;$CD ORDER BY d.OperationDate DESC LIMIT 1) AS AccountAmmortizationChanged, t.AccountValueDecrease, (SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='vld' AND d.ID&lt;&gt;$CD ORDER BY d.OperationDate DESC LIMIT 1) AS AccountValueDecreaseChanged, t.AccountValueIncrease, (SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='vli' AND d.ID&lt;&gt;$CD ORDER BY d.OperationDate DESC LIMIT 1) AS AccountValueIncreaseChanged, t.AccountRevaluedPortionAmmortization, (SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='vam' AND d.ID&lt;&gt;$CD ORDER BY d.OperationDate DESC LIMIT 1) AS AccountRevaluedPortionAmmortizationChanged, b.Op_data, t.Isigijimo_dok, t.Likutine, t.DefaultAmortPeriod, t.ContinuedUsage, (SELECT d.OperationDate FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='amo' AND d.ID&lt;&gt;$CD ORDER BY d.OperationDate DESC LIMIT 1) AS LastAmortizationDate, (SELECT d.OperationDate FROM turtas_op d WHERE d.T_ID=t.ID AND (d.OperationType='nur' OR d.OperationType='per') AND d.ID&lt;&gt;$CD ORDER BY d.OperationDate DESC LIMIT 1) AS LastTransferDiscardDate, (SELECT d.OperationDate FROM turtas_op d WHERE d.T_ID=t.ID AND (d.OperationType='avd' OR d.OperationType='avi') AND d.ID&lt;&gt;$CD ORDER BY d.OperationDate DESC LIMIT 1) AS LastValueChangeDate, (SELECT d.OperationDate FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.ID&lt;&gt;$CD ORDER BY d.OperationDate DESC LIMIT 1) AS LastAccountChangeDate, t.Kiekis, t.Vnt_kaina, t.TotalValue, t.AcquisitionRevaluedPortionUnitValue, t.AcquisitionRevaluedPortionTotalValue, t.AccumulatedAmortizationPerUnit, t.S_Amort, t.AccumulatedAmortizationRevaluedPortionPerUnit, t.AccumulatedAmortizationRevaluedPortionTotal, (SELECT d.NewAmortizationPeriod FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='alk' AND d.ID&lt;&gt;$CD ORDER BY d.OperationDate DESC LIMIT 1) AS AmmortizationPeriodChanged, t.WasUsedMonths FROM turtas t, bz b WHERE t.ID=$AD AND b.Op_ID=t.Isigijimo_dok;</Statement>
-    <Objects>Assets.LongTermAssetOperation, Assets.LongTermAssetOperationChild</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>FetchLongTermAssetOperationBackgroundInfo2</Key>
-    <Statement>SELECT t.OperationDate FROM turtas_op t WHERE t.T_ID=$AD AND t.OperationType='nau' AND t.OperationDate &lt; $LD ORDER BY t.OperationDate;</Statement>
-    <Objects>Assets.LongTermAssetOperation</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>FetchLongTermAssetOperationBackgroundInfo3</Key>
-    <Statement>SELECT -SUM(t.AmmountChange), SUM(t.UnitValueChange), SUM(t.TotalValueChange), SUM(t.RevaluedPortionUnitValueChange), SUM(t.RevaluedPortionTotalValueChange), SUM(t.AcquisitionAccountChange), SUM(t.AcquisitionAccountChangePerUnit), SUM(t.AmortizationAccountChange), SUM(t.AmortizationAccountChangePerUnit), SUM(t.ValueDecreaseAccountChange), SUM(t.ValueDecreaseAccountChangePerUnit), SUM(t.ValueIncreaseAccountChange), SUM(t.ValueIncreaseAccountChangePerUnit), SUM(t.ValueIncreaseAmmortizationAccountChange), SUM(t.ValueIncreaseAmmortizationAccountChangePerUnit), SUM(t.AmortizationCalculatedForMonths), SUM(CASE WHEN t.OperationType='nau' THEN 1 ELSE 0 END) FROM turtas_op t WHERE t.ID&lt;&gt;$CD AND t.T_ID=$AD GROUP BY t.T_ID;</Statement>
-    <Objects>Assets.LongTermAssetOperation, Assets.LongTermAssetOperationChild</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>FetchLongTermAssetOperation</Key>
-    <Statement>SELECT t.T_ID, t.OperationType, t.AccountOperationType, t.OperationDate, t.JE_ID, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, t.IsComplexAct, t.Content, t.AccountCorresponding, t.ActNumber, t.UnitValueChange, t.AmmountChange, t.TotalValueChange, t.NewAmortizationPeriod, t.AmortizationCalculations, t.RevaluedPortionUnitValueChange, t.RevaluedPortionTotalValueChange, t.AmortizationCalculatedForMonths, t.InsertDate, t.UpdateDate FROM turtas_op t LEFT JOIN bz b ON b.Op_ID=t.JE_ID WHERE t.ID=$OD ;</Statement>
-    <Objects>Assets.LongTermAssetOperation</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>CheckIfCanDeleteLongTermAssetOperation1</Key>
-    <Statement>SELECT t.OperationDate, t.OperationType, d.Turtas, t.T_ID, t.JE_ID, b.Op_dok_rusis, t.IsComplexAct FROM turtas_op t LEFT JOIN bz b ON b.Op_ID=t.JE_ID JOIN turtas d ON d.ID=t.T_ID WHERE t.ID=$CD ;</Statement>
-    <Objects>Assets.LongTermAssetOperation</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>CheckIfCanDeleteLongTermAssetOperation2</Key>
-    <Statement>SELECT t.OperationType FROM turtas_op t WHERE t.OperationDate&gt;$SD AND t.T_ID=$CD GROUP BY t.OperationType;</Statement>
-    <Objects>Assets.LongTermAssetOperation, Assets.LongTermAssetOperationChild</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>DeleteLongTermAssetOperation</Key>
-    <Statement>DELETE FROM turtas_op WHERE turtas_op.ID=$CD ;</Statement>
-    <Objects>Assets.LongTermAssetOperation</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
     <Key>FetchLongTermOperationInfoList</Key>
-    <Statement>SELECT t.ID, t.OperationType, t.AccountOperationType, t.OperationDate, t.JE_ID, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, t.IsComplexAct, t.Content, t.AccountCorresponding, t.ActNumber, t.UnitValueChange, t.AmmountChange, t.TotalValueChange, t.NewAmortizationPeriod, t.AmortizationCalculations, t.RevaluedPortionUnitValueChange, t.RevaluedPortionTotalValueChange, t.AcquisitionAccountChange, t.AcquisitionAccountChangePerUnit, t.AmortizationAccountChange, t.AmortizationAccountChangePerUnit, t.ValueDecreaseAccountChange, t.ValueDecreaseAccountChangePerUnit, t.ValueIncreaseAccountChange, t.ValueIncreaseAccountChangePerUnit, t.ValueIncreaseAmmortizationAccountChange, t.ValueIncreaseAmmortizationAccountChangePerUnit FROM turtas_op t LEFT JOIN bz b ON b.Op_ID=t.JE_ID WHERE t.T_ID=$AD ORDER BY t.OperationDate, t.ID;</Statement>
-    <Objects>Assets.LongTermAssetOperationInfoListParent</Objects>
+    <Statement>SELECT t.ID, t.OperationType, t.AccountOperationType, t.OperationDate, t.JE_ID, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, t.IsComplexAct, t.Content, t.AccountCorresponding, t.DocNo, t.UnitValueChange, t.AmmountChange, t.TotalValueChange, t.NewAmortizationPeriod, t.AmortizationCalculations, t.RevaluedPortionUnitValueChange, t.RevaluedPortionTotalValueChange, t.AcquisitionAccountChange, t.AcquisitionAccountChangePerUnit, t.AmortizationAccountChange, t.AmortizationAccountChangePerUnit, t.ValueDecreaseAccountChange, t.ValueDecreaseAccountChangePerUnit, t.ValueIncreaseAccountChange, t.ValueIncreaseAccountChangePerUnit, t.ValueIncreaseAmmortizationAccountChange, t.ValueIncreaseAmmortizationAccountChangePerUnit FROM turtas_op t LEFT JOIN bz b ON b.Op_ID=t.JE_ID WHERE t.T_ID=$AD ORDER BY t.OperationDate, t.ID;</Statement>
+    <Objects>ActiveReports.LongTermAssetOperationInfoListParent</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchLongTermAssetOperationInfoListParent</Key>
     <Statement>SELECT t.Turtas, t.Vnt, t.Grupe, t.CustomGroupID, g.Name, t.InvNr, t.Isigijimo_dok, b.Op_data, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, t.Saskaita, t.AccountAmortization, t.AccountValueDecrease, t.AccountValueIncrease, t.AccountRevaluedPortionAmmortization, t.Likutine, t.DefaultAmortPeriod, t.Vnt_kaina, t.Kiekis, t.TotalValue, t.AcquisitionRevaluedPortionUnitValue, t.AcquisitionRevaluedPortionTotalValue, t.S_Amort, t.AccumulatedAmortizationPerUnit, t.AccumulatedAmortizationRevaluedPortionTotal, t.AccumulatedAmortizationRevaluedPortionPerUnit, t.ContinuedUsage, t.WasUsedMonths, t.InsertDate, t.UpdateDate, t.ID FROM turtas t LEFT JOIN bz b ON b.Op_ID=t.Isigijimo_dok LEFT JOIN longtermassetcustomgroups g ON g.ID=t.CustomGroupID WHERE t.ID=$AD ;</Statement>
-    <Objects>Assets.LongTermAssetOperationInfoListParent, Assets.LongTermAsset</Objects>
+    <Objects>ActiveReports.LongTermAssetOperationInfoListParent, Assets.LongTermAsset</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchLongTermAssetUpdateLimitingFactors</Key>
@@ -871,7 +816,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   <MySQL_Statement>
     <Key>FetchLongTermAssetCustomGroupInfoList</Key>
     <Statement>SELECT l.ID, l.Name FROM longtermassetcustomgroups l;</Statement>
-    <Objects>Assets.LongTermAssetCustomGroupInfoList</Objects>
+    <Objects>HelperLists.LongTermAssetCustomGroupInfoList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchLongTermAssetCustomGroupList</Key>
@@ -916,37 +861,32 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   <MySQL_Statement>
     <Key>FetchLongTermAssetInfoAcquisitionData1</Key>
     <Statement>SELECT t.ID, t.Turtas, t.Vnt, t.Grupe, g.Name, t.InvNr, t.Isigijimo_dok, b.Op_data, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, t.Saskaita, t.AccountAmortization, t.AccountValueDecrease, t.AccountValueIncrease, t.AccountRevaluedPortionAmmortization, t.Likutine, t.DefaultAmortPeriod, t.Vnt_kaina, t.Kiekis, t.TotalValue, t.AcquisitionRevaluedPortionUnitValue, t.AcquisitionRevaluedPortionTotalValue, t.S_Amort, t.AccumulatedAmortizationPerUnit, t.AccumulatedAmortizationRevaluedPortionTotal, t.AccumulatedAmortizationRevaluedPortionPerUnit, t.ContinuedUsage FROM turtas t LEFT JOIN longtermassetcustomgroups g ON g.ID=t.CustomGroupID INNER JOIN bz b ON b.Op_ID=t.Isigijimo_dok;</Statement>
-    <Objects>Assets.LongTermAssetInfoList</Objects>
+    <Objects>ActiveReports.LongTermAssetInfoList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchLongTermAssetInfoAcquisitionData2</Key>
     <Statement>SELECT t.ID, t.Turtas, t.Vnt, t.Grupe, g.Name, t.InvNr, t.Isigijimo_dok, b.Op_data, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, t.Saskaita, t.AccountAmortization, t.AccountValueDecrease, t.AccountValueIncrease, t.AccountRevaluedPortionAmmortization, t.Likutine, t.DefaultAmortPeriod, t.Vnt_kaina, t.Kiekis, t.TotalValue, t.AcquisitionRevaluedPortionUnitValue, t.AcquisitionRevaluedPortionTotalValue, t.S_Amort, t.AccumulatedAmortizationPerUnit, t.AccumulatedAmortizationRevaluedPortionTotal, t.AccumulatedAmortizationRevaluedPortionPerUnit, t.ContinuedUsage FROM turtas t LEFT JOIN longtermassetcustomgroups g ON g.ID=t.CustomGroupID INNER JOIN bz b ON b.Op_ID=t.Isigijimo_dok WHERE t.CustomGroupID=$GR ;</Statement>
-    <Objects>Assets.LongTermAssetInfoList</Objects>
+    <Objects>ActiveReports.LongTermAssetInfoList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchLongTermAssetInfoStatusData1</Key>
     <Statement>SELECT d.T_ID, SUM(d.AcquisitionAccountChange), SUM(d.AcquisitionAccountChangePerUnit), SUM(d.ValueDecreaseAccountChange), SUM(d.ValueDecreaseAccountChangePerUnit), SUM(d.ValueIncreaseAccountChange) AS RevaluedPortionValue, SUM(d.ValueIncreaseAccountChangePerUnit) AS RevaluedPortionValuePerUnit, SUM(d.AmortizationAccountChange) AS AccumulatedAmortization, SUM(d.AmortizationAccountChangePerUnit) AS AccumulatedAmortizationPerUnit, SUM(d.ValueIncreaseAmmortizationAccountChange) AS AccumulatedAmortizationRevaluedPortion, SUM(d.ValueIncreaseAmmortizationAccountChangePerUnit) AS AccumulatedAmortizationPerUnitRevaluedPortion, SUM(d.AmmountChange) FROM turtas_op d WHERE d.OperationDate&lt;$DF GROUP BY d.T_ID;</Statement>
-    <Objects>Assets.LongTermAssetInfoList</Objects>
+    <Objects>ActiveReports.LongTermAssetInfoList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchLongTermAssetInfoStatusData2</Key>
     <Statement>SELECT d.T_ID, SUM(d.AcquisitionAccountChange), SUM(d.AcquisitionAccountChangePerUnit), SUM(d.ValueDecreaseAccountChange), SUM(d.ValueDecreaseAccountChangePerUnit), SUM(d.ValueIncreaseAccountChange) AS RevaluedPortionValue, SUM(d.ValueIncreaseAccountChangePerUnit) AS RevaluedPortionValuePerUnit, SUM(d.AmortizationAccountChange) AS AccumulatedAmortization, SUM(d.AmortizationAccountChangePerUnit) AS AccumulatedAmortizationPerUnit, SUM(d.ValueIncreaseAmmortizationAccountChange) AS AccumulatedAmortizationRevaluedPortion, SUM(d.ValueIncreaseAmmortizationAccountChangePerUnit) AS AccumulatedAmortizationPerUnitRevaluedPortion, SUM(d.AmmountChange) FROM turtas_op d, turtas t WHERE t.ID=d.T_ID AND t.CustomGroupID=$GR AND d.OperationDate&lt;$DF GROUP BY d.T_ID;</Statement>
-    <Objects>Assets.LongTermAssetInfoList</Objects>
+    <Objects>ActiveReports.LongTermAssetInfoList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchLongTermAssetInfoChangesData1</Key>
     <Statement>SELECT d.T_ID, SUM(d.AcquisitionAccountChange), SUM(d.AcquisitionAccountChangePerUnit), SUM(d.ValueDecreaseAccountChange), SUM(d.ValueDecreaseAccountChangePerUnit), SUM(d.ValueIncreaseAccountChange) AS RevaluedPortionValue, SUM(d.ValueIncreaseAccountChangePerUnit) AS RevaluedPortionValuePerUnit, SUM(d.AmortizationAccountChange) AS AccumulatedAmortization, SUM(d.AmortizationAccountChangePerUnit) AS AccumulatedAmortizationPerUnit, SUM(d.ValueIncreaseAmmortizationAccountChange) AS AccumulatedAmortizationRevaluedPortion, SUM(d.ValueIncreaseAmmortizationAccountChangePerUnit) AS AccumulatedAmortizationPerUnitRevaluedPortion, SUM(d.AmmountChange), SUM(CASE WHEN d.OperationType='per' THEN d.AmmountChange ELSE 0 END), SUM(CASE WHEN d.OperationType='per' THEN - (d.AcquisitionAccountChange - d.ValueDecreaseAccountChange - d.AmortizationAccountChange - d.ValueIncreaseAmmortizationAccountChange + d.ValueIncreaseAccountChange) ELSE 0 END), SUM(CASE WHEN d.OperationType='nur' THEN d.AmmountChange ELSE 0 END), SUM(CASE WHEN d.OperationType='nur' THEN - (d.AcquisitionAccountChange - d.ValueDecreaseAccountChange - d.AmortizationAccountChange - d.ValueIncreaseAmmortizationAccountChange + d.ValueIncreaseAccountChange) ELSE 0 END) FROM turtas_op d WHERE d.OperationDate&gt;=$DF AND d.OperationDate&lt;=$DT GROUP BY d.T_ID;</Statement>
-    <Objects>Assets.LongTermAssetInfoList</Objects>
+    <Objects>ActiveReports.LongTermAssetInfoList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchLongTermAssetInfoChangesData2</Key>
     <Statement>SELECT d.T_ID, SUM(d.AcquisitionAccountChange), SUM(d.AcquisitionAccountChangePerUnit), SUM(d.ValueDecreaseAccountChange), SUM(d.ValueDecreaseAccountChangePerUnit), SUM(d.ValueIncreaseAccountChange) AS RevaluedPortionValue, SUM(d.ValueIncreaseAccountChangePerUnit) AS RevaluedPortionValuePerUnit, SUM(d.AmortizationAccountChange) AS AccumulatedAmortization, SUM(d.AmortizationAccountChangePerUnit) AS AccumulatedAmortizationPerUnit, SUM(d.ValueIncreaseAmmortizationAccountChange) AS AccumulatedAmortizationRevaluedPortion, SUM(d.ValueIncreaseAmmortizationAccountChangePerUnit) AS AccumulatedAmortizationPerUnitRevaluedPortion, SUM(d.AmmountChange), SUM(CASE WHEN d.OperationType='per' THEN d.AmmountChange ELSE 0 END), SUM(CASE WHEN d.OperationType='per' THEN - (d.AcquisitionAccountChange - d.ValueDecreaseAccountChange - d.AmortizationAccountChange - d.ValueIncreaseAmmortizationAccountChange + d.ValueIncreaseAccountChange) ELSE 0 END), SUM(CASE WHEN d.OperationType='nur' THEN d.AmmountChange ELSE 0 END), SUM(CASE WHEN d.OperationType='nur' THEN - (d.AcquisitionAccountChange - d.ValueDecreaseAccountChange - d.AmortizationAccountChange - d.ValueIncreaseAmmortizationAccountChange + d.ValueIncreaseAccountChange) ELSE 0 END) FROM turtas_op d, turtas t WHERE t.ID=d.T_ID AND t.CustomGroupID=$GR AND d.OperationDate&gt;=$DF AND d.OperationDate&lt;=$DT GROUP BY d.T_ID;</Statement>
-    <Objects>Assets.LongTermAssetInfoList</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>FetchLongTermAssetOperationIdByJournalEntryId</Key>
-    <Statement>SELECT t.ID FROM turtas_op t WHERE t.JE_ID=$JD ;</Statement>
-    <Objects>Assets.LongTermAssetOperation</Objects>
+    <Objects>ActiveReports.LongTermAssetInfoList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>UpgradeAssetsTable1</Key>
@@ -979,24 +919,14 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
     <Objects>Administration.CustomDatabaseStructureErrorManager</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
-    <Key>FetchLongTermAssetOperationChildListParent</Key>
-    <Statement>SELECT t.T_ID, t.OperationType, t.AccountOperationType, t.OperationDate, t.JE_ID, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, t.IsComplexAct, t.Content, t.AccountCorresponding, t.ActNumber, t.UnitValueChange, t.AmmountChange, t.TotalValueChange, t.NewAmortizationPeriod, t.AmortizationCalculations, t.RevaluedPortionUnitValueChange, t.RevaluedPortionTotalValueChange, t.AmortizationCalculatedForMonths, t.ID, t.InsertDate, t.UpdateDate FROM turtas_op t LEFT JOIN bz b ON b.Op_ID=t.JE_ID WHERE t.IsComplexAct=$OD ;</Statement>
-    <Objects>Assets.LongTermAssetComplexDocument</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
     <Key>FetchLongTermAssetOperationChildListParentLastNumber</Key>
     <Statement>SELECT MAX(t.IsComplexAct) FROM turtas_op t;</Statement>
-    <Objects>Assets.LongTermAssetComplexDocument</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>FetchLongTermAssetOperationChildListParentChildrenID</Key>
-    <Statement>SELECT t.ID FROM turtas_op t WHERE t.IsComplexAct=$OD ;</Statement>
-    <Objects>Assets.LongTermAssetComplexDocument</Objects>
+    <Objects>Assets.OperationPersistenceObject</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchLongTermAssetComplexDocumentInfoList</Key>
     <Statement>SELECT t.IsComplexAct, t.OperationType, t.OperationDate, t.JE_ID, b.Op_Dok, b.Op_turinys, t.Content, t.AccountCorresponding, t.ActNumber FROM turtas_op t LEFT JOIN bz b ON b.Op_ID=t.JE_ID WHERE t.IsComplexAct&gt;0 AND t.OperationDate&gt;=$DF AND t.OperationDate&lt;=$DT GROUP BY t.IsComplexAct;</Statement>
-    <Objects>Assets.LongTermAssetComplexDocumentInfoList</Objects>
+    <Objects>ActiveReports.LongTermAssetComplexDocumentInfoList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchPersonInfoList</Key>
@@ -2124,11 +2054,6 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
     <Objects>Assets.LongTermAsset</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
-    <Key>CheckIfLongTermAssetOperationUpdateDateChanged</Key>
-    <Statement>SELECT t.UpdateDate FROM turtas_op t WHERE t.ID=$CD ;</Statement>
-    <Objects>Assets.LongTermAssetOperation, Assets.LongTermAssetOperationChild</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
     <Key>FetchIndirectRelationInfoList</Key>
     <Statement>SELECT 0, D.ID, B.Op_data, B.Op_Dok, B.Op_turinys, null FROM d_kitos D LEFT JOIN bz B ON B.Op_ID=D.BZ_ID WHERE D.BZ_ID=$JD UNION SELECT 2, T.ID, B.Op_data, B.Op_Dok, T.Turtas, null FROM turtas T LEFT JOIN bz B ON B.Op_ID=T.Isigijimo_dok LEFT JOIN sfd I ON I.SF_ID=T.Isigijimo_dok AND I.Rusis=4 AND I.P_ID=T.ID LEFT JOIN sfg G ON G.BZ_ID=T.Isigijimo_dok AND G.Rus=4 AND G.P_ID=T.ID WHERE T.Isigijimo_dok=$JD AND I.ID IS NULL AND G.ID IS NULL UNION SELECT 1, T.ID, T.OperationDate, B.Op_Dok, CONCAT(D.Turtas, ' - ', T.Content), CAST(T.OperationType AS CHAR) FROM turtas_op T LEFT JOIN turtas D ON D.ID=T.T_ID LEFT JOIN bz B ON B.Op_ID=T.JE_ID LEFT JOIN sfd I ON I.SF_ID=T.JE_ID AND (I.Rusis=3 OR I.Rusis=6) AND I.P_ID=T.ID LEFT JOIN sfg G ON G.BZ_ID=T.JE_ID AND (G.Rus=3 OR G.Rus=6) AND G.P_ID=T.ID WHERE T.OperationType&lt;&gt;'aac' AND T.OperationType&lt;&gt;'amo' AND T.OperationType&lt;&gt;'nur' AND T.JE_ID=$JD AND I.ID IS NULL AND G.ID IS NULL UNION SELECT 3, T.ID, T.OperationDate, T.DocNo, T.Content, CAST(T.OperationType AS CHAR) FROM goodsoperations T LEFT JOIN goodscomplexoperations C ON C.ID=T.ComplexOperationID LEFT JOIN sfd I ON I.SF_ID=T.JournalEntryID AND I.Rusis IN (1, 5, 7, 8) AND I.P_ID=T.ID LEFT JOIN sfg G ON G.BZ_ID=T.JournalEntryID AND G.Rus IN (1, 5, 7, 8) AND G.P_ID=T.ID WHERE C.OperationType IS NULL AND NOT T.OperationType IN (3, 4, 7, 9, 10, 11, 12) AND T.JournalEntryID=$JD AND I.ID IS NULL AND G.ID IS NULL UNION SELECT 4, A.BZ_ID, B.Op_data, B.Op_Dok, B.Op_turinys, null FROM apyskaitos A LEFT JOIN bz B ON B.Op_ID=A.BZ_ID WHERE A.SG=$JD;</Statement>
     <Objects>HelperLists.IndirectRelationInfoList</Objects>
@@ -2367,26 +2292,6 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
     <Key>FetchOperationChronologicValidator</Key>
     <Statement>SELECT T_ID, OperationType, AccountOperationType, 0, MAX(OperationDate) FROM turtas_op WHERE ID&lt;&gt;$OD GROUP BY T_ID, OperationType, AccountOperationType UNION SELECT T_ID, OperationType, AccountOperationType, 1, MAX(OperationDate) FROM turtas_op WHERE ID&lt;&gt;$OD AND OperationDate&lt;=$DT GROUP BY T_ID, OperationType, AccountOperationType UNION SELECT T_ID, OperationType, AccountOperationType, 2, MIN(OperationDate) FROM turtas_op WHERE ID&lt;&gt;$OD AND OperationDate&gt;=$DT GROUP BY T_ID, OperationType, AccountOperationType UNION SELECT 0, CASE WHEN Op_dok_rusis='uz' THEN '998' ELSE '999' END, '', 1, MAX(Op_data) FROM bz WHERE (Op_dok_rusis='uz' OR Op_dok_rusis='lik') AND Op_data&lt;$DT UNION SELECT 0, CASE WHEN Op_dok_rusis='uz' THEN '998' ELSE '999' END, '', 2, MIN(Op_data) FROM bz WHERE (Op_dok_rusis='uz' OR Op_dok_rusis='lik') AND Op_data&gt;=$DT;</Statement>
     <Objects>Assets.OperationChronologicValidator</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>FetchLongTermAssetOperationBackgroundInfo</Key>
-    <Statement>SELECT t.Turtas, t.Vnt, IFNULL((SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='aqs' AND d.ID&lt;&gt;$OD AND d.OperationDate&lt;=$DT ORDER BY d.OperationDate DESC LIMIT 1), t.Saskaita) AS AccountAcquisition, IFNULL((SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='amr' AND d.ID&lt;&gt;$OD AND d.OperationDate&lt;=$DT ORDER BY d.OperationDate DESC LIMIT 1), t.AccountAmortization) AS AccountAmmortization, IFNULL((SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='vld' AND d.ID&lt;&gt;$OD AND d.OperationDate&lt;=$DT ORDER BY d.OperationDate DESC LIMIT 1), t.AccountValueDecrease) AS AccountValueDecrease, IFNULL((SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='vli' AND d.ID&lt;&gt;$OD AND d.OperationDate&lt;=$DT ORDER BY d.OperationDate DESC LIMIT 1), t.AccountValueIncrease) AS AccountValueIncrease, IFNULL((SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='vam' AND d.ID&lt;&gt;$OD AND d.OperationDate&lt;=$DT ORDER BY d.OperationDate DESC LIMIT 1), t.AccountRevaluedPortionAmmortization) AS AccountRevaluedPortionAmmortization, b.Op_data, t.Isigijimo_dok, t.Likutine, t.ContinuedUsage, t.Kiekis, t.Vnt_kaina, t.TotalValue, t.AcquisitionRevaluedPortionUnitValue, t.AcquisitionRevaluedPortionTotalValue, t.AccumulatedAmortizationPerUnit, t.S_Amort, t.AccumulatedAmortizationRevaluedPortionPerUnit, t.AccumulatedAmortizationRevaluedPortionTotal, IFNULL((SELECT d.NewAmortizationPeriod FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='alk' AND d.ID&lt;&gt;$OD AND d.OperationDate&lt;=$DT ORDER BY d.OperationDate DESC LIMIT 1), t.DefaultAmortPeriod) AS AmmortizationPeriodChanged, t.WasUsedMonths, l.AmmountChange, l.UnitValueChange, l.TotalValueChange, l.RevaluedPortionUnitValueChange, l.RevaluedPortionTotalValueChange, l.AcquisitionAccountChange, l.AcquisitionAccountChangePerUnit, l.AmortizationAccountChange, l.AmortizationAccountChangePerUnit, l.ValueDecreaseAccountChange, l.ValueDecreaseAccountChangePerUnit, l.ValueIncreaseAccountChange, l.ValueIncreaseAccountChangePerUnit, l.ValueIncreaseAmmortizationAccountChange, l.ValueIncreaseAmmortizationAccountChangePerUnit, l.AmortizationCalculatedForMonths, l.UsageStatus FROM turtas t LEFT JOIN bz b ON b.Op_ID=t.Isigijimo_dok LEFT JOIN (SELECT t.T_ID AS T_ID, -SUM(t.AmmountChange) AS AmmountChange, SUM(t.UnitValueChange) AS UnitValueChange, SUM(t.TotalValueChange) AS TotalValueChange, SUM(t.RevaluedPortionUnitValueChange) AS RevaluedPortionUnitValueChange, SUM(t.RevaluedPortionTotalValueChange) AS RevaluedPortionTotalValueChange, SUM(t.AcquisitionAccountChange) AS AcquisitionAccountChange, SUM(t.AcquisitionAccountChangePerUnit) AS AcquisitionAccountChangePerUnit, SUM(t.AmortizationAccountChange) AS AmortizationAccountChange, SUM(t.AmortizationAccountChangePerUnit) AS AmortizationAccountChangePerUnit, SUM(t.ValueDecreaseAccountChange) AS ValueDecreaseAccountChange, SUM(t.ValueDecreaseAccountChangePerUnit) AS ValueDecreaseAccountChangePerUnit, SUM(t.ValueIncreaseAccountChange) AS ValueIncreaseAccountChange, SUM(t.ValueIncreaseAccountChangePerUnit) AS ValueIncreaseAccountChangePerUnit, SUM(t.ValueIncreaseAmmortizationAccountChange) AS ValueIncreaseAmmortizationAccountChange, SUM(t.ValueIncreaseAmmortizationAccountChangePerUnit) AS ValueIncreaseAmmortizationAccountChangePerUnit, SUM(t.AmortizationCalculatedForMonths) AS AmortizationCalculatedForMonths, SUM(CASE WHEN t.OperationType='nau' THEN 1 ELSE 0 END) AS UsageStatus FROM turtas_op t WHERE t.ID&lt;&gt;$OD AND t.T_ID=$TD AND t.OperationDate&lt;=$DT GROUP BY t.T_ID) AS l ON l.T_ID=t.ID WHERE t.ID=$TD ;</Statement>
-    <Objects>Assets.LongTermAssetOperation</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>UpdateLongTermAssetOperationLimited</Key>
-    <Statement>UPDATE turtas_op SET OperationDate=$DT, JE_ID=$JD, Content=$CN, ActNumber=$NM, UpdateDate=$UD WHERE ID=$OD ;</Statement>
-    <Objects>Assets.LongTermAssetOperation, Assets.LongTermAssetOperationChild</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>CreateLongTermAssetComplexDocumentBackground</Key>
-    <Statement>SELECT t.ID, t.Turtas, t.Vnt, IFNULL((SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='aqs' ORDER BY d.OperationDate DESC LIMIT 1), t.Saskaita) AS AccountAcquisition, IFNULL((SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='amr' ORDER BY d.OperationDate DESC LIMIT 1), t.AccountAmortization) AS AccountAmmortization, IFNULL((SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='vld' ORDER BY d.OperationDate DESC LIMIT 1), t.AccountValueDecrease) AS AccountValueDecrease, IFNULL((SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='vli' ORDER BY d.OperationDate DESC LIMIT 1), t.AccountValueIncrease) AS AccountValueIncrease, IFNULL((SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='vam' ORDER BY d.OperationDate DESC LIMIT 1), t.AccountRevaluedPortionAmmortization) AS AccountRevaluedPortionAmmortization, b.Op_data, t.Isigijimo_dok, t.Likutine, t.ContinuedUsage, t.Kiekis, t.Vnt_kaina, t.TotalValue, t.AcquisitionRevaluedPortionUnitValue, t.AcquisitionRevaluedPortionTotalValue, t.AccumulatedAmortizationPerUnit, t.S_Amort, t.AccumulatedAmortizationRevaluedPortionPerUnit, t.AccumulatedAmortizationRevaluedPortionTotal, IFNULL((SELECT d.NewAmortizationPeriod FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='alk' ORDER BY d.OperationDate DESC LIMIT 1), t.DefaultAmortPeriod) AS AmmortizationPeriod, t.WasUsedMonths, l.AmmountChange, l.UnitValueChange, l.TotalValueChange, l.RevaluedPortionUnitValueChange, l.RevaluedPortionTotalValueChange, l.AcquisitionAccountChange, l.AcquisitionAccountChangePerUnit, l.AmortizationAccountChange, l.AmortizationAccountChangePerUnit, l.ValueDecreaseAccountChange, l.ValueDecreaseAccountChangePerUnit, l.ValueIncreaseAccountChange, l.ValueIncreaseAccountChangePerUnit, l.ValueIncreaseAmmortizationAccountChange, l.ValueIncreaseAmmortizationAccountChangePerUnit, l.AmortizationCalculatedForMonths, l.UsageStatus FROM turtas t LEFT JOIN bz b ON b.Op_ID=t.Isigijimo_dok LEFT JOIN (SELECT t.T_ID AS T_ID, -SUM(t.AmmountChange) AS AmmountChange, SUM(t.UnitValueChange) AS UnitValueChange, SUM(t.TotalValueChange) AS TotalValueChange, SUM(t.RevaluedPortionUnitValueChange) AS RevaluedPortionUnitValueChange, SUM(t.RevaluedPortionTotalValueChange) AS RevaluedPortionTotalValueChange, SUM(t.AcquisitionAccountChange) AS AcquisitionAccountChange, SUM(t.AcquisitionAccountChangePerUnit) AS AcquisitionAccountChangePerUnit, SUM(t.AmortizationAccountChange) AS AmortizationAccountChange, SUM(t.AmortizationAccountChangePerUnit) AS AmortizationAccountChangePerUnit, SUM(t.ValueDecreaseAccountChange) AS ValueDecreaseAccountChange, SUM(t.ValueDecreaseAccountChangePerUnit) AS ValueDecreaseAccountChangePerUnit, SUM(t.ValueIncreaseAccountChange) AS ValueIncreaseAccountChange, SUM(t.ValueIncreaseAccountChangePerUnit) AS ValueIncreaseAccountChangePerUnit, SUM(t.ValueIncreaseAmmortizationAccountChange) AS ValueIncreaseAmmortizationAccountChange, SUM(t.ValueIncreaseAmmortizationAccountChangePerUnit) AS ValueIncreaseAmmortizationAccountChangePerUnit, SUM(t.AmortizationCalculatedForMonths) AS AmortizationCalculatedForMonths, SUM(CASE WHEN t.OperationType='nau' THEN 1 ELSE 0 END) AS UsageStatus FROM turtas_op t GROUP BY t.T_ID) AS l ON l.T_ID=t.ID WHERE ($GR&lt;1 OR t.CustomGroupID=$GR) AND (l.AmmountChange IS NULL OR t.Kiekis+l.AmmountChange&gt;0);</Statement>
-    <Objects>Assets.LongTermAssetComplexDocument</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>FetchLongTermAssetComplexDocumentBackground</Key>
-    <Statement>SELECT t.ID, t.Turtas, t.Vnt, IFNULL((SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='aqs' AND d.IsComplexAct&lt;&gt;$OD AND d.OperationDate&lt;=$DT ORDER BY d.OperationDate DESC LIMIT 1), t.Saskaita) AS AccountAcquisition, IFNULL((SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='amr' AND d.IsComplexAct&lt;&gt;$OD AND d.OperationDate&lt;=$DT ORDER BY d.OperationDate DESC LIMIT 1), t.AccountAmortization) AS AccountAmmortization, IFNULL((SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='vld' AND d.IsComplexAct&lt;&gt;$OD AND d.OperationDate&lt;=$DT ORDER BY d.OperationDate DESC LIMIT 1), t.AccountValueDecrease) AS AccountValueDecrease, IFNULL((SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='vli' AND d.IsComplexAct&lt;&gt;$OD AND d.OperationDate&lt;=$DT ORDER BY d.OperationDate DESC LIMIT 1), t.AccountValueIncrease) AS AccountValueIncrease, IFNULL((SELECT d.AccountCorresponding FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='aac' AND d.AccountOperationType='vam' AND d.IsComplexAct&lt;&gt;$OD AND d.OperationDate&lt;=$DT ORDER BY d.OperationDate DESC LIMIT 1), t.AccountRevaluedPortionAmmortization) AS AccountRevaluedPortionAmmortization, b.Op_data, t.Isigijimo_dok, t.Likutine, t.ContinuedUsage, t.Kiekis, t.Vnt_kaina, t.TotalValue, t.AcquisitionRevaluedPortionUnitValue, t.AcquisitionRevaluedPortionTotalValue, t.AccumulatedAmortizationPerUnit, t.S_Amort, t.AccumulatedAmortizationRevaluedPortionPerUnit, t.AccumulatedAmortizationRevaluedPortionTotal, IFNULL((SELECT d.NewAmortizationPeriod FROM turtas_op d WHERE d.T_ID=t.ID AND d.OperationType='alk' AND d.IsComplexAct&lt;&gt;$OD AND d.OperationDate&lt;=$DT ORDER BY d.OperationDate DESC LIMIT 1), t.DefaultAmortPeriod) AS AmmortizationPeriod, t.WasUsedMonths, l.AmmountChange, l.UnitValueChange, l.TotalValueChange, l.RevaluedPortionUnitValueChange, l.RevaluedPortionTotalValueChange, l.AcquisitionAccountChange, l.AcquisitionAccountChangePerUnit, l.AmortizationAccountChange, l.AmortizationAccountChangePerUnit, l.ValueDecreaseAccountChange, l.ValueDecreaseAccountChangePerUnit, l.ValueIncreaseAccountChange, l.ValueIncreaseAccountChangePerUnit, l.ValueIncreaseAmmortizationAccountChange, l.ValueIncreaseAmmortizationAccountChangePerUnit, l.AmortizationCalculatedForMonths, l.UsageStatus FROM turtas t LEFT JOIN bz b ON b.Op_ID=t.Isigijimo_dok LEFT JOIN (SELECT t.T_ID AS T_ID, -SUM(t.AmmountChange) AS AmmountChange, SUM(t.UnitValueChange) AS UnitValueChange, SUM(t.TotalValueChange) AS TotalValueChange, SUM(t.RevaluedPortionUnitValueChange) AS RevaluedPortionUnitValueChange, SUM(t.RevaluedPortionTotalValueChange) AS RevaluedPortionTotalValueChange, SUM(t.AcquisitionAccountChange) AS AcquisitionAccountChange, SUM(t.AcquisitionAccountChangePerUnit) AS AcquisitionAccountChangePerUnit, SUM(t.AmortizationAccountChange) AS AmortizationAccountChange, SUM(t.AmortizationAccountChangePerUnit) AS AmortizationAccountChangePerUnit, SUM(t.ValueDecreaseAccountChange) AS ValueDecreaseAccountChange, SUM(t.ValueDecreaseAccountChangePerUnit) AS ValueDecreaseAccountChangePerUnit, SUM(t.ValueIncreaseAccountChange) AS ValueIncreaseAccountChange, SUM(t.ValueIncreaseAccountChangePerUnit) AS ValueIncreaseAccountChangePerUnit, SUM(t.ValueIncreaseAmmortizationAccountChange) AS ValueIncreaseAmmortizationAccountChange, SUM(t.ValueIncreaseAmmortizationAccountChangePerUnit) AS ValueIncreaseAmmortizationAccountChangePerUnit, SUM(t.AmortizationCalculatedForMonths) AS AmortizationCalculatedForMonths, SUM(CASE WHEN t.OperationType='nau' THEN 1 ELSE 0 END) AS UsageStatus FROM turtas_op t WHERE t.IsComplexAct&lt;&gt;$OD AND t.OperationDate&lt;=$DT GROUP BY t.T_ID) AS l ON l.T_ID=t.ID WHERE t.ID IN (SELECT f.T_ID FROM turtas_op f WHERE f.IsComplexAct=$OD);</Statement>
-    <Objects>Assets.LongTermAssetComplexDocument</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchOperationChronologicValidatorByComplexID</Key>
@@ -3260,12 +3165,12 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>InsertAssetOperationPersistenceObject</Key>
-    <Statement>INSERT INTO turtas_op(OperationDate, JE_ID, IsComplexAct, Content, ActNumber, UnitValueChange, AmmountChange, TotalValueChange, NewAmortizationPeriod, AmortizationCalculations, RevaluedPortionUnitValueChange, RevaluedPortionTotalValueChange, AcquisitionAccountChange, AcquisitionAccountChangePerUnit, AmortizationAccountChange, AmortizationAccountChangePerUnit, ValueDecreaseAccountChange, ValueDecreaseAccountChangePerUnit, ValueIncreaseAccountChange, ValueIncreaseAccountChangePerUnit, ValueIncreaseAmmortizationAccountChange, ValueIncreaseAmmortizationAccountChangePerUnit, AmortizationCalculatedForMonths, T_ID, OperationType, AccountOperationType, AccountCorresponding, InsertDate, UpdateDate) VALUES($AA, $AB, $AC, $AD, $AE, $AF, $AG, $AH, $AI, $AJ, $AK, $AL, $AM, $AN, $AO, $AQ, $AP, $AR, $AT, $AU, $AV, $AZ, $AW, $BA, $BB, $BC, $BD, $BE, $BF);</Statement>
+    <Statement>INSERT INTO turtas_op(OperationDate, JE_ID, IsComplexAct, Content, DocNo, UnitValueChange, AmmountChange, TotalValueChange, NewAmortizationPeriod, AmortizationCalculations, RevaluedPortionUnitValueChange, RevaluedPortionTotalValueChange, AcquisitionAccountChange, AcquisitionAccountChangePerUnit, AmortizationAccountChange, AmortizationAccountChangePerUnit, ValueDecreaseAccountChange, ValueDecreaseAccountChangePerUnit, ValueIncreaseAccountChange, ValueIncreaseAccountChangePerUnit, ValueIncreaseAmmortizationAccountChange, ValueIncreaseAmmortizationAccountChangePerUnit, AmortizationCalculatedForMonths, T_ID, OperationType, AccountOperationType, AccountCorresponding, InsertDate, UpdateDate, ActNumber) VALUES($AA, $AB, $AC, $AD, $AE, $AF, $AG, $AH, $AI, $AJ, $AK, $AL, $AM, $AN, $AO, $AQ, $AP, $AR, $AT, $AU, $AV, $AZ, $AW, $BA, $BB, $BC, $BD, $BE, $BE, 0);</Statement>
     <Objects>Assets.OperationPersistenceObject</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>UpdateAssetOperationPersistenceObject</Key>
-    <Statement>UPDATE turtas_op SET OperationDate=$AA, JE_ID=$AB, Content=$AD, ActNumber=$AE, UnitValueChange=$AF, AmmountChange=$AG, TotalValueChange=$AH, NewAmortizationPeriod=$AI, AmortizationCalculations=$AJ, RevaluedPortionUnitValueChange=$AK, RevaluedPortionTotalValueChange=$AL, AcquisitionAccountChange=$AM, AcquisitionAccountChangePerUnit=$AN, AmortizationAccountChange=$AO, AmortizationAccountChangePerUnit=$AQ, ValueDecreaseAccountChange=$AP, ValueDecreaseAccountChangePerUnit=$AR, ValueIncreaseAccountChange=$AT, ValueIncreaseAccountChangePerUnit=$AU, ValueIncreaseAmmortizationAccountChange=$AV, ValueIncreaseAmmortizationAccountChangePerUnit=$AZ, AmortizationCalculatedForMonths=$AW, AccountOperationType=$BC, AccountCorresponding=$BD, UpdateDate=$BE WHERE ID=$OD ;</Statement>
+    <Statement>UPDATE turtas_op SET OperationDate=$AA, JE_ID=$AB, Content=$AD, DocNo=$AE, UnitValueChange=$AF, AmmountChange=$AG, TotalValueChange=$AH, NewAmortizationPeriod=$AI, AmortizationCalculations=$AJ, RevaluedPortionUnitValueChange=$AK, RevaluedPortionTotalValueChange=$AL, AcquisitionAccountChange=$AM, AcquisitionAccountChangePerUnit=$AN, AmortizationAccountChange=$AO, AmortizationAccountChangePerUnit=$AQ, ValueDecreaseAccountChange=$AP, ValueDecreaseAccountChangePerUnit=$AR, ValueIncreaseAccountChange=$AT, ValueIncreaseAccountChangePerUnit=$AU, ValueIncreaseAmmortizationAccountChange=$AV, ValueIncreaseAmmortizationAccountChangePerUnit=$AZ, AmortizationCalculatedForMonths=$AW, AccountCorresponding=$BD, UpdateDate=$BE WHERE ID=$OD ;</Statement>
     <Objects>Assets.OperationPersistenceObject</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3275,12 +3180,12 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchAssetOperationPersistenceObject</Key>
-    <Statement>SELECT o.ID, o.T_ID, o.OperationType, o.AccountOperationType, o.OperationDate, o.IsComplexAct, o.Content, o.AccountCorresponding, o.ActNumber, o.UnitValueChange, o.AmmountChange, o.TotalValueChange, o.NewAmortizationPeriod, o.AmortizationCalculations, o.RevaluedPortionUnitValueChange, o.RevaluedPortionTotalValueChange, o.AcquisitionAccountChange, o.AcquisitionAccountChangePerUnit, o.AmortizationAccountChange, o.AmortizationAccountChangePerUnit, o.ValueDecreaseAccountChange, o.ValueDecreaseAccountChangePerUnit, o.ValueIncreaseAccountChange, o.ValueIncreaseAccountChangePerUnit, o.ValueIncreaseAmmortizationAccountChange, o.ValueIncreaseAmmortizationAccountChangePerUnit, o.AmortizationCalculatedForMonths, o.InsertDate, o.UpdateDate, o.JE_ID, b.Op_ID, b.Op_Dok, b.Op_data, b.Op_turinys, b.Op_dok_rusis, p.ID, p.Pavad, p.Kodas, b.Op_korespond, (SELECT CROUND(IFNULL(SUM(d.Op_suma), 0) / 2, 2) FROM bzdata d WHERE d.Op_ID_BZ=b.Op_ID) AS SumBookEntries FROM turtas_op o LEFT JOIN bz b ON b.Op_ID=o.JE_ID LEFT JOIN asmenys p ON p.ID=b.Op_analitika WHERE o.ID=$OD GROUP BY o.ID;</Statement>
+    <Statement>SELECT o.ID, o.T_ID, o.OperationType, o.AccountOperationType, o.OperationDate, o.IsComplexAct, o.Content, o.AccountCorresponding, o.DocNo, o.UnitValueChange, o.AmmountChange, o.TotalValueChange, o.NewAmortizationPeriod, o.AmortizationCalculations, o.RevaluedPortionUnitValueChange, o.RevaluedPortionTotalValueChange, o.AcquisitionAccountChange, o.AcquisitionAccountChangePerUnit, o.AmortizationAccountChange, o.AmortizationAccountChangePerUnit, o.ValueDecreaseAccountChange, o.ValueDecreaseAccountChangePerUnit, o.ValueIncreaseAccountChange, o.ValueIncreaseAccountChangePerUnit, o.ValueIncreaseAmmortizationAccountChange, o.ValueIncreaseAmmortizationAccountChangePerUnit, o.AmortizationCalculatedForMonths, o.InsertDate, o.UpdateDate, o.JE_ID, b.Op_ID, b.Op_Dok, b.Op_data, b.Op_turinys, b.Op_dok_rusis, p.ID, p.Pavad, p.Kodas, b.Op_korespond, (SELECT CROUND(IFNULL(SUM(d.Op_suma), 0) / 2, 2) FROM bzdata d WHERE d.Op_ID_BZ=b.Op_ID) AS SumBookEntries FROM turtas_op o LEFT JOIN bz b ON b.Op_ID=o.JE_ID LEFT JOIN asmenys p ON p.ID=b.Op_analitika WHERE o.ID=$OD GROUP BY o.ID;</Statement>
     <Objects>Assets.OperationPersistenceObject</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>UpdateAssetOperationPersistenceObjectGeneral</Key>
-    <Statement>UPDATE turtas_op SET OperationDate=$AA, JE_ID=$AB, Content=$AD, ActNumber=$AE, AmortizationCalculations=$AJ, AmortizationCalculatedForMonths=$AW, UpdateDate=$BE WHERE ID=$OD ;</Statement>
+    <Statement>UPDATE turtas_op SET OperationDate=$AA, JE_ID=$AB, Content=$AD, DocNo=$AE, AmortizationCalculations=$AJ, AmortizationCalculatedForMonths=$AW, UpdateDate=$BE WHERE ID=$OD ;</Statement>
     <Objects>Assets.OperationPersistenceObject</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3337,5 +3242,85 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
     <Key>FetchWorkerWagePayments</Key>
     <Statement>SELECT w.Year, w.Month, CROUND(SUM(w.WagePayed), 2), CROUND(SUM(w.WagePayable), 2) FROM (SELECT 0 AS Year, 0 AS Month, CROUND(IFNULL((SELECT SUM(d.DU_is) FROM du_ziniarastis_d d WHERE (d.AK=$PD OR ($PD&lt;1 AND d.DS_NR=$CN AND UPPER(TRIM(d.DS_Serija))=UPPER(TRIM($CS)))) AND NOT d.Ismoketa IS NULL AND d.Ismoketa &lt; $DF), 0), 2) + CROUND(IFNULL((SELECT SUM(a.Suma) FROM d_avansai_d a WHERE (a.AK=$PD OR ($PD&lt;1 AND a.DS_NR=$CN AND UPPER(TRIM(a.DS_Serija))=UPPER(TRIM($CS)))) AND NOT a.Ismok IS NULL AND a.Ismok &lt; $DF), 0), 2) AS WagePayed, CROUND((SELECT SUM(d.DU_is+d.Avans) FROM du_ziniarastis_d d LEFT JOIN du_ziniarastis c ON c.ID=d.Z_ID WHERE (d.AK=$PD OR ($PD&lt;1 AND d.DS_NR=$CN AND UPPER(TRIM(d.DS_Serija))=UPPER(TRIM($CS)))) AND (c.Metai &lt; $YF OR (c.Metai=$YF AND c.Men &lt; $MF))), 2) AS WagePayable UNION SELECT strftime('%Y', d.Ismoketa) AS Year, strftime('%m', d.Ismoketa) AS Month, d.DU_is AS WagePayed, 0 AS WagePayable FROM du_ziniarastis_d d WHERE (d.AK=$PD OR ($PD&lt;1 AND d.DS_NR=$CN AND UPPER(TRIM(d.DS_Serija))=UPPER(TRIM($CS)))) AND NOT d.Ismoketa IS NULL AND d.Ismoketa &gt;= $DF AND d.Ismoketa &lt;= $DT UNION SELECT strftime('%Y', a.Ismok) AS Year, strftime('%m', a.Ismok) AS Month, a.Suma AS WagePayed, 0 AS WagePayable FROM d_avansai_d a WHERE (a.AK=$PD OR ($PD&lt;1 AND a.DS_NR=$CN AND UPPER(TRIM(a.DS_Serija))=UPPER(TRIM($CS)))) AND NOT a.Ismok IS NULL AND a.Ismok &gt;= $DF AND a.Ismok &lt;= $DT) AS w WHERE NOT w.Year IS NULL GROUP BY w.Year, w.Month ORDER BY w.Year, w.Month;</Statement>
     <Objects>ActiveReports.WorkerWageInfoReport</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchOperationBackgroundGeneral</Key>
+    <Statement>SELECT t.ID, t.Turtas, t.Vnt, t.Saskaita AS AccountAcquisition, t.AccountAmortization AS AccountAmmortization, t.AccountValueDecrease AS AccountValueDecrease, t.AccountValueIncrease AS AccountValueIncrease, t.AccountRevaluedPortionAmmortization AS AccountRevaluedPortionAmmortization, b.Op_data, t.Isigijimo_dok, t.Likutine, t.ContinuedUsage, t.Kiekis, t.Vnt_kaina, t.TotalValue, t.AcquisitionRevaluedPortionUnitValue, t.AcquisitionRevaluedPortionTotalValue, t.AccumulatedAmortizationPerUnit, t.S_Amort, t.AccumulatedAmortizationRevaluedPortionPerUnit, t.AccumulatedAmortizationRevaluedPortionTotal, t.DefaultAmortPeriod AS AmmortizationPeriod, t.WasUsedMonths FROM turtas t LEFT JOIN bz b ON b.Op_ID=t.Isigijimo_dok WHERE t.ID=$AD ;</Statement>
+    <Objects>Assets.OperationBackground</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchOperationBackgroundGeneralComplex</Key>
+    <Statement>SELECT t.ID, t.Turtas, t.Vnt, t.Saskaita AS AccountAcquisition, t.AccountAmortization AS AccountAmmortization, t.AccountValueDecrease AS AccountValueDecrease, t.AccountValueIncrease AS AccountValueIncrease, t.AccountRevaluedPortionAmmortization AS AccountRevaluedPortionAmmortization, b.Op_data, t.Isigijimo_dok, t.Likutine, t.ContinuedUsage, t.Kiekis, t.Vnt_kaina, t.TotalValue, t.AcquisitionRevaluedPortionUnitValue, t.AcquisitionRevaluedPortionTotalValue, t.AccumulatedAmortizationPerUnit, t.S_Amort, t.AccumulatedAmortizationRevaluedPortionPerUnit, t.AccumulatedAmortizationRevaluedPortionTotal, t.DefaultAmortPeriod AS AmmortizationPeriod, t.WasUsedMonths FROM turtas_op d LEFT JOIN turtas t ON t.ID=d.T_ID LEFT JOIN bz b ON b.Op_ID=t.Isigijimo_dok WHERE d.IsComplexAct=$CD ;</Statement>
+    <Objects>Assets.OperationBackground</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchOperationBackgroundDeltas</Key>
+    <Statement>SELECT t.T_ID, t.ID, t.OperationType, t.AccountOperationType, t.OperationDate, t.AccountCorresponding, t.UnitValueChange, t.AmmountChange, t.TotalValueChange, t.NewAmortizationPeriod, t.AmortizationCalculatedForMonths, t.AcquisitionAccountChange, t.AcquisitionAccountChangePerUnit, t.AmortizationAccountChange, t.AmortizationAccountChangePerUnit, t.ValueDecreaseAccountChange, t.ValueDecreaseAccountChangePerUnit, t.ValueIncreaseAccountChange, t.ValueIncreaseAccountChangePerUnit, t.ValueIncreaseAmmortizationAccountChange, t.ValueIncreaseAmmortizationAccountChangePerUnit FROM turtas_op t WHERE t.T_ID=$AD ORDER BY t.OperationDate;</Statement>
+    <Objects>Assets.OperationBackground</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchOperationBackgroundDeltasComplex</Key>
+    <Statement>SELECT t.T_ID, t.ID, t.OperationType, t.AccountOperationType, t.OperationDate, t.AccountCorresponding, t.UnitValueChange, t.AmmountChange, t.TotalValueChange, t.NewAmortizationPeriod, t.AmortizationCalculatedForMonths, t.AcquisitionAccountChange, t.AcquisitionAccountChangePerUnit, t.AmortizationAccountChange, t.AmortizationAccountChangePerUnit, t.ValueDecreaseAccountChange, t.ValueDecreaseAccountChangePerUnit, t.ValueIncreaseAccountChange, t.ValueIncreaseAccountChangePerUnit, t.ValueIncreaseAmmortizationAccountChange, t.ValueIncreaseAmmortizationAccountChangePerUnit FROM turtas_op d LEFT JOIN turtas_op t ON t.T_ID=d.T_ID WHERE d.IsComplexAct=$CD ORDER BY t.T_ID, t.OperationDate;</Statement>
+    <Objects>Assets.OperationBackground</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchLongTermAssetComplexOperationIdByJournalEntryId</Key>
+    <Statement>SELECT t.IsComplexAct FROM turtas_op t WHERE t.JE_ID=$JD LIMIT 1;</Statement>
+    <Objects>Assets.OperationPersistenceObject</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchAssetOperationPersistenceObjectList</Key>
+    <Statement>SELECT o.ID, o.T_ID, o.OperationType, o.AccountOperationType, o.OperationDate, o.IsComplexAct, o.Content, o.AccountCorresponding, o.DocNo, o.UnitValueChange, o.AmmountChange, o.TotalValueChange, o.NewAmortizationPeriod, o.AmortizationCalculations, o.RevaluedPortionUnitValueChange, o.RevaluedPortionTotalValueChange, o.AcquisitionAccountChange, o.AcquisitionAccountChangePerUnit, o.AmortizationAccountChange, o.AmortizationAccountChangePerUnit, o.ValueDecreaseAccountChange, o.ValueDecreaseAccountChangePerUnit, o.ValueIncreaseAccountChange, o.ValueIncreaseAccountChangePerUnit, o.ValueIncreaseAmmortizationAccountChange, o.ValueIncreaseAmmortizationAccountChangePerUnit, o.AmortizationCalculatedForMonths, o.InsertDate, o.UpdateDate, IFNULL((SELECT COUNT(q.ID) FROM turtas_op q WHERE q.ID&lt;&gt;o.ID AND q.T_ID=o.T_ID AND q.OperationType='nau' AND q.OperationDate &lt; o.OperationDate), 0) + IFNULL((SELECT w.ContinuedUsage FROM turtas w WHERE w.ID=o.T_ID), 0) AS PreviousUsageCount, o.JE_ID, b.Op_ID, b.Op_Dok, b.Op_data, b.Op_turinys, b.Op_dok_rusis, p.ID, p.Pavad, p.Kodas, b.Op_korespond, (SELECT CROUND(IFNULL(SUM(d.Op_suma), 0) / 2, 2) FROM bzdata d WHERE d.Op_ID_BZ=b.Op_ID) AS SumBookEntries FROM turtas_op o LEFT JOIN bz b ON b.Op_ID=o.JE_ID LEFT JOIN asmenys p ON p.ID=b.Op_analitika WHERE o.IsComplexAct=$OD GROUP BY o.ID;</Statement>
+    <Objects>Assets.OperationPersistenceObject</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchLongTermAssetList</Key>
+    <Statement>SELECT t.Turtas, t.Vnt, t.Grupe, t.CustomGroupID, g.Name, t.InvNr, t.Isigijimo_dok, b.Op_data, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, t.Saskaita, t.AccountAmortization, t.AccountValueDecrease, t.AccountValueIncrease, t.AccountRevaluedPortionAmmortization, t.Likutine, t.DefaultAmortPeriod, t.Vnt_kaina, t.Kiekis, t.TotalValue, t.AcquisitionRevaluedPortionUnitValue, t.AcquisitionRevaluedPortionTotalValue, t.S_Amort, t.AccumulatedAmortizationPerUnit, t.AccumulatedAmortizationRevaluedPortionTotal, t.AccumulatedAmortizationRevaluedPortionPerUnit, t.ContinuedUsage, t.WasUsedMonths, t.InsertDate, t.UpdateDate, t.ID FROM turtas t LEFT JOIN bz b ON b.Op_ID=t.Isigijimo_dok LEFT JOIN longtermassetcustomgroups g ON g.ID=t.CustomGroupID WHERE b.Op_dok_rusis='lik';</Statement>
+    <Objects>Assets.LongTermAssetList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchTransferOfBalanceData</Key>
+    <Statement>SELECT b.Op_ID, b.Op_data FROM bz b WHERE b.Op_dok_rusis='lik';</Statement>
+    <Objects>Assets.LongTermAssetsTransferOfBalance</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchNameInfoList</Key>
+    <Statement>SELECT DISTINCT 1 AS TypeID, t.Grupe FROM turtas t ORDER BY t.Grupe;</Statement>
+    <Objects>HelperLists.NameInfoList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchCodeInfoList</Key>
+    <Statement>SELECT b.TypeID AS TypeID, b.CodeValue AS CodeValue FROM (SELECT DISTINCT 0 AS TypeID, d.Kodas AS CodeValue FROM d_kitos d) b WHERE NOT CodeValue IS NULL AND CodeValue&gt;0 UNION SELECT c.TypeID AS TypeID, c.CodeValue AS CodeValue FROM (SELECT DISTINCT 1 AS TypeID, d.KodasSD AS CodeValue FROM d_kitos d) AS c WHERE NOT CodeValue IS NULL AND CodeValue&gt;0 ORDER BY TypeID, CodeValue;</Statement>
+    <Objects>HelperLists.CodeInfoList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>UpgradeAccounts1</Key>
+    <Statement>UPDATE saskaitupl SET fs_id=IFNULL((SELECT f.ID FROM financialstatementsstructure f WHERE UPPER(TRIM(f.Name)) = UPPER(TRIM(Rusis)) LIMIT 1), 0);</Statement>
+    <Objects>Administration.CustomDatabaseStructureErrorManager</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>UpgradeAccounts2</Key>
+    <Statement>UPDATE saskaitupl SET Rusis='';</Statement>
+    <Objects>Administration.CustomDatabaseStructureErrorManager</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>RemoveAccountsReferences</Key>
+    <Statement>UPDATE saskaitupl SET fs_id=0 WHERE fs_id=$CD ;</Statement>
+    <Objects>General.ConsolidatedReportItem</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>DefaultAccountsAlreadyExist</Key>
+    <Statement>SELECT COUNT(*) FROM companyaccounts;</Statement>
+    <Objects>General.AccountList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>UpgradeAssetOperationDocNo1</Key>
+    <Statement>UPDATE turtas_op SET DocNo=(CASE WHEN ActNumber&gt;0 THEN ActNumber ELSE '' END);</Statement>
+    <Objects>Administration.CustomDatabaseStructureErrorManager</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>UpgradeAssetOperationDocNo2</Key>
+    <Statement>UPDATE turtas_op SET ActNumber=0;</Statement>
+    <Objects>Administration.CustomDatabaseStructureErrorManager</Objects>
   </MySQL_Statement>
 </NewDataSet>

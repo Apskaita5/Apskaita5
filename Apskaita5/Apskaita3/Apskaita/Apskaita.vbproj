@@ -1728,6 +1728,7 @@
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.InvoiceInfoItemList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.JournalEntryInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.LongTermAssetInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.LongTermAssetOperationInfoListParent.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.PayOutNaturalPersonInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.PersonInfoItemList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.ProductionCalculationItemList.datasource" />

@@ -215,7 +215,7 @@ Namespace HelperLists
         ''' </summary>
         ''' <remarks>Corresponds to <see cref="General.CompanyRegionalData.LogoImage">CompanyRegionalData.LogoImage</see>.
         ''' Values are stored in the database table companyforms 
-        ''' where field FormToken equals <see cref="TokenCompanyLogo">TokenCompanyLogo</see>.</remarks>
+        ''' where field FormToken equals <see cref="General.CompanyBinaryDataType.Logo">CompanyBinaryDataType.Logo</see>.</remarks>
         Public ReadOnly Property LogoImage() As Byte()
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -228,7 +228,7 @@ Namespace HelperLists
         ''' </summary>
         ''' <remarks>Corresponds to <see cref="General.CompanyRegionalData.InvoiceForm">CompanyRegionalData.InvoiceForm</see>.
         ''' Values are stored in the database table companyforms 
-        ''' where field FormToken equals <see cref="TokenInvoiceForm">TokenInvoiceForm</see>.</remarks>
+        ''' where field FormToken equals <see cref="General.CompanyBinaryDataType.InvoiceForm">CompanyBinaryDataType.InvoiceForm</see>.</remarks>
         Public ReadOnly Property InvoiceForm() As Byte()
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get

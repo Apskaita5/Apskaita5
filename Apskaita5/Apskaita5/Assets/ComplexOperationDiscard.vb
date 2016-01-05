@@ -124,7 +124,7 @@
         ''' <summary>
         ''' Gets or sets a number of the long term asset complex operation document.
         ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.ActNumber.
+        ''' <remarks>Value is stored in the database field turtas_op.DocNo.
         ''' (same for all the child operations)</remarks>
         <StringField(ValueRequiredLevel.Mandatory, 30)> _
         Public Property DocumentNumber() As String
@@ -247,6 +247,20 @@
                 _ChronologyValidator.MergeNewValidationItem(i.ChronologyValidator)
             Next
 
+        End Sub
+
+        ''' <summary>
+        ''' Sets all child operations <see cref="OperationDiscard.AccountCosts">AccountCosts</see>
+        ''' property to the same account provided.
+        ''' </summary>
+        ''' <param name="accountCosts">a coomon costs account to set</param>
+        ''' <remarks></remarks>
+        Public Sub SetCommonAccountCosts(ByVal accountCosts As Long)
+            If Not Me._ChronologyValidator.FinancialDataCanChange Then
+                Throw New Exception(String.Format(My.Resources.Assets_ComplexOperationDiscard_CannotChangeFinancialData, _
+                    vbCrLf, Me._ChronologyValidator.FinancialDataCanChangeExplanation))
+            End If
+            _Items.SetCommonAccountCosts(accountCosts)
         End Sub
 
 
@@ -524,7 +538,7 @@
             _ID = operationID
             _Date = list(0).OperationDate
             _Content = list(0).Content
-            _DocumentNumber = list(0).ActNumber
+            _DocumentNumber = list(0).DocumentNumber
             _JournalEntryID = list(0).JournalEntryID
 
             Dim baseValidator As SimpleChronologicValidator = SimpleChronologicValidator. _

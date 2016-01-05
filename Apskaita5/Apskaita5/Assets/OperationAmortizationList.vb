@@ -269,15 +269,6 @@
 
         End Sub
 
-        Protected Overrides Sub InsertItem(ByVal index As Integer, ByVal item As OperationAmortization)
-
-        End Sub
-
-        Public Shadows Sub Insert(ByVal index As Integer, ByVal item As OperationAmortization)
-
-        End Sub
-        
-
 
         Public Function GetAllBrokenRules() As String
             Dim result As String = GetAllBrokenRulesForList(Me)
@@ -306,10 +297,15 @@
         ''' ComplexOperationAmortization.AddRange</see> method to add them 
         ''' to a complex amortization document.
         ''' </summary>
-        ''' <param name="assetIDs"></param>
+        ''' <param name="assetIDs"><see cref="LongTermAsset.ID">an array of long term asset ID's
+        ''' that the operation list should be fetched for</see></param>
+        ''' <param name="parentValidator">a chronologic validator of a parent document
+        ''' that the operation list should be fetched for</param>
         ''' <remarks></remarks>
-        Public Shared Function NewOperationAmortizationList(ByVal assetIDs As Integer()) As OperationAmortizationList
-            Return DataPortal.Fetch(Of OperationAmortizationList)(New Criteria(assetIDs))
+        Public Shared Function NewOperationAmortizationList(ByVal assetIDs As Integer(), _
+            ByVal parentValidator As IChronologicValidator) As OperationAmortizationList
+            Return DataPortal.Fetch(Of OperationAmortizationList) _
+                (New Criteria(assetIDs, parentValidator))
         End Function
 
         ''' <summary>
@@ -367,13 +363,20 @@
         <Serializable()> _
         Private Class Criteria
             Private _IDs As Integer()
+            Private _ParentValidator As IChronologicValidator
             Public ReadOnly Property IDs() As Integer()
                 Get
                     Return _IDs
                 End Get
             End Property
-            Public Sub New(ByVal nIDs As Integer())
+            Public ReadOnly Property ParentValidator() As IChronologicValidator
+                Get
+                    Return _ParentValidator
+                End Get
+            End Property
+            Public Sub New(ByVal nIDs As Integer(), ByVal nParentValidator As IChronologicValidator)
                 _IDs = nIDs
+                _ParentValidator = nParentValidator
             End Sub
         End Class
 
@@ -392,7 +395,8 @@
             RaiseListChangedEvents = False
 
             For Each assetID As Integer In criteria.IDs
-                MyBase.Add(OperationAmortization.NewOperationAmortization(assetID))
+                Add(OperationAmortization.NewOperationAmortizationChild(assetID, _
+                    criteria.ParentValidator, True))
             Next
 
             RaiseListChangedEvents = True

@@ -101,9 +101,9 @@ Namespace Assets
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 If _BeginOperationalPeriod Then
-                    Return My.Resources.Assets_LtaOperationType_UsingStart
+                    Return My.Resources.Assets_OperationOperationalStatusChange_UsingStart
                 Else
-                    Return My.Resources.Assets_LtaOperationType_UsingEnd
+                    Return My.Resources.Assets_OperationOperationalStatusChange_UsingEnd
                 End If
             End Get
         End Property
@@ -154,7 +154,7 @@ Namespace Assets
         ''' <summary>
         ''' Gets or sets a number of the long term asset document.
         ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.ActNumber.</remarks>
+        ''' <remarks>Value is stored in the database field turtas_op.DocNo.</remarks>
         <StringField(ValueRequiredLevel.Mandatory, 30)> _
         Public Property DocumentNumber() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -509,7 +509,7 @@ Namespace Assets
             _ID = operationID
             _Date = list(0).OperationDate
             _Content = list(0).Content
-            _DocumentNumber = list(0).ActNumber
+            _DocumentNumber = list(0).DocumentNumber
 
             Using generalData As DataTable = OperationBackground.GetDataSourceGeneral(operationID)
                 Using deltaData As DataTable = OperationBackground.GetDataSourceDelta(operationID)

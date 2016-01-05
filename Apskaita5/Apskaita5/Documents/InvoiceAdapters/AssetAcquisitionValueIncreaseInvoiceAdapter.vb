@@ -1096,7 +1096,7 @@ Namespace Documents.InvoiceAdapters
         ''' and actual update is performed.</remarks>
         Public Sub SetParentData(ByVal parentInvoice As InvoiceReceived) Implements IInvoiceAdapter.SetParentData
             _AssetOperation.SetParentProperties(parentInvoice.Number, String.Format( _
-                My.Resources.Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_ContentInvoiceMade, _
+                My.Resources.Documents_InvoiceAdapters_AssetAcquisitionValueIncreaseInvoiceAdapter_ContentInvoiceReceived, _
                 parentInvoice.Content))
         End Sub
 

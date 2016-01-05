@@ -164,7 +164,7 @@
     <Compile Include="Assets\OperationAccountChange.vb" />
     <Compile Include="Assets\OperationAcquisitionValueIncrease.vb" />
     <Compile Include="Assets\OperationAmortizationPeriodChange.vb" />
-    <Compile Include="Assets\OperationChronologicValidator2.vb" />
+    <Compile Include="Assets\OperationChronologicValidator.vb" />
     <Compile Include="Assets\LongTermAsset.vb" />
     <Compile Include="Assets\LongTermAssetAmortizationCalculation.vb" />
     <Compile Include="Assets\LongTermAssetAmortizationCalculationList.vb" />
@@ -177,8 +177,6 @@
     <Compile Include="Assets\OperationAmortizationList.vb" />
     <Compile Include="Assets\OperationBackground.vb" />
     <Compile Include="Assets\OperationChronologicDescriptor.vb" />
-    <Compile Include="Assets\OperationChronologicValidator.vb" />
-    <Compile Include="Assets\OperationChronologicValidatorItem.vb" />
     <Compile Include="Assets\OperationDelta.vb" />
     <Compile Include="Assets\OperationDeltaList.vb" />
     <Compile Include="Assets\OperationDiscard.vb" />
@@ -226,6 +224,7 @@
     <Compile Include="Documents\InvoiceAdapters\ServiceInvoiceAdapter.vb" />
     <Compile Include="Documents\InvoiceReceivedNumberUnique.vb" />
     <Compile Include="Documents\RegionalizedObjectType.vb" />
+    <Compile Include="General\CompanyObjects\CompanyBinaryDataType.vb" />
     <Compile Include="General\PersonObjects\ImportedPerson.vb" />
     <Compile Include="General\PersonObjects\ImportedPersonList.vb" />
     <Compile Include="General\TransferOfBalanceChronologicValidator.vb" />
@@ -341,7 +340,7 @@
     <Compile Include="Documents\InvoiceReceivedItemList.vb" />
     <Compile Include="CommonObjects\DocumentType.vb" />
     <Compile Include="General\CompanyObjects\DefaultAccountType.vb" />
-    <Compile Include="General\FinancialStatementType.vb" />
+    <Compile Include="General\FinancialStatementsStructure\FinancialStatementType.vb" />
     <Compile Include="Goods\GoodsAccountingMethod.vb" />
     <Compile Include="Goods\GoodsOperationType.vb" />
     <Compile Include="Goods\GoodsValuationMethod.vb" />
@@ -352,7 +351,6 @@
     <Compile Include="Assets\LongTermAssetCustomGroupList.vb" />
     <Compile Include="ActiveReports\LongTermAssetInfo.vb" />
     <Compile Include="ActiveReports\LongTermAssetInfoList.vb" />
-    <Compile Include="Assets\LongTermAssetOperation.vb" />
     <Compile Include="ActiveReports\LongTermAssetOperationInfo.vb" />
     <Compile Include="ActiveReports\LongTermAssetOperationInfoList.vb" />
     <Compile Include="ActiveReports\LongTermAssetOperationInfoListParent.vb" />
@@ -548,7 +546,6 @@
     <Content Include="Info\HowToAddNewRole.txt" />
     <Content Include="Info\KnownBugz.txt" />
     <Content Include="Info\SQLServerTypeUnsafeObjects.txt" />
-    <Content Include="Info\MissingSettings.txt" />
     <Content Include="FinancialStatements_Short.str">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -563,7 +560,7 @@
     <Content Include="WTClasses.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="tsp.dat">
+    <Content Include="tipinis_saskaitu_planas.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

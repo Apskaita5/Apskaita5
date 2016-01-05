@@ -1086,7 +1086,6 @@ Namespace Documents.InvoiceAdapters
                 saleResultEntry = BookEntryInternal.NewBookEntryInternal(BookEntryType.Kreditas)
                 saleResultEntry.Account = invoiceItem.AccountIncome
                 saleResultEntry.Ammount = CRound(transferSum - creditSum + debitSum)
-                result.Add(saleResultEntry)
 
             End If
 

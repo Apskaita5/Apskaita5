@@ -163,9 +163,30 @@ Public Class F_ComplexOperationDiscard
         Try
 
             Dim newList As OperationDiscardList = LoadObject(Of OperationDiscardList) _
-                (Nothing, "NewOperationDiscardList", True, ids)
+                (Nothing, "NewOperationDiscardList", True, ids, Obj.ChronologyValidator.BaseValidator)
             Obj.AddRange(newList)
 
+        Catch ex As Exception
+            ShowError(ex)
+        End Try
+
+    End Sub
+
+    Private Sub ApplyCommonCostsAccountButton_Click(ByVal sender As System.Object, _
+        ByVal e As System.EventArgs) Handles ApplyCommonCostsAccountButton.Click
+
+        If Obj Is Nothing OrElse Obj.Items.Count < 1 Then Exit Sub
+
+        Dim selectedAccount As Long = 0
+        Try
+            selectedAccount = DirectCast(CostsAccountAccGridComboBox.SelectedValue, Long)
+        Catch ex As Exception
+        End Try
+
+        If Not selectedAccount > 0 Then Exit Sub
+
+        Try
+            Obj.SetCommonAccountCosts(selectedAccount)
         Catch ex As Exception
             ShowError(ex)
         End Try

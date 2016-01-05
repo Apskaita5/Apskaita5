@@ -824,7 +824,7 @@ Partial Class F_ComplexOperationAmortization
         '
         Me.AmortizationCalculationsDataGridViewColumn.DataPropertyName = "AmortizationCalculations"
         Me.AmortizationCalculationsDataGridViewColumn.HeaderText = "Paskaičiavimų Aprašymas"
-        Me.AmortizationCalculationsDataGridViewColumn.MaxInputLength = 255
+        Me.AmortizationCalculationsDataGridViewColumn.MaxInputLength = 5000
         Me.AmortizationCalculationsDataGridViewColumn.Name = "AmortizationCalculationsDataGridViewColumn"
         '
         'AccountCostsDataGridViewColumn

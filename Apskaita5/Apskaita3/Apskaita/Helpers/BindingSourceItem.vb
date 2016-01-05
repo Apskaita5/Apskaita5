@@ -73,7 +73,7 @@ Public Class BindingSourceItem
             DirectCast(obj, BindingSourceItem).BindingSourceInstance Is Me._BindingSourceInstance)
     End Function
 
-    Private Function GetDataSource(ByVal CachedItemBaseType As Type, _
+    Private Function GetDataSource(ByVal cachedItemBaseType As Type, _
         ByRef nFilterCriteria As Object()) As Object
 
         Dim result As Object = Nothing

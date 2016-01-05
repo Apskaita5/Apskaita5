@@ -158,7 +158,7 @@ Public Class F_ComplexOperationOperationalStatusChange
             Dim newList As OperationOperationalStatusChangeList = _
                 LoadObject(Of OperationOperationalStatusChangeList) _
                 (Nothing, "NewOperationOperationalStatusChangeList", _
-                 True, ids, Obj.BeginOperationalPeriod)
+                 True, ids, Obj.BeginOperationalPeriod, Obj.ChronologyValidator.BaseValidator)
             Obj.AddRange(newList)
 
         Catch ex As Exception

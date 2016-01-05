@@ -10,12 +10,6 @@
 
 #Region " Business Methods "
 
-        Private ReadOnly _OperationsWithJournalEntry As LtaOperationType() = New LtaOperationType() _
-            {LtaOperationType.Discard, LtaOperationType.AccountChange, LtaOperationType.AcquisitionValueIncrease, _
-             LtaOperationType.Amortization, LtaOperationType.Transfer, LtaOperationType.ValueChange}
-        Private ReadOnly _OperationsWithAct As LtaOperationType() = New LtaOperationType() _
-            {LtaOperationType.Discard, LtaOperationType.AmortizationPeriod, LtaOperationType.UsingEnd, LtaOperationType.UsingStart}
-
         Private _ID As Integer = 0
         Private _InsertDate As DateTime = Now
         Private _UpdateDate As DateTime = Now
@@ -38,7 +32,7 @@
         Private _ComplexActID As Integer = 0
         Private _Content As String = ""
         Private _AccountCorresponding As Long = 0
-        Private _ActNumber As Integer = 0
+        Private _DocumentNumber As String = ""
         Private _UnitValueChange As Double = 0
         Private _AmmountChange As Integer = 0
         Private _TotalValueChange As Double = 0
@@ -351,18 +345,19 @@
         End Property
 
         ''' <summary>
-        ''' Gets or sets a number of act that is drawn by the long term asset operation.
+        ''' Gets or sets a number of document (act) that is drawn by the long term asset operation.
         ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.ActNumber.</remarks>
-        Public Property ActNumber() As Integer
+        ''' <remarks>Value is stored in the database field turtas_op.DocNo.</remarks>
+        Public Property DocumentNumber() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return _ActNumber
+                Return _DocumentNumber.Trim
             End Get
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Set(ByVal value As Integer)
-                If _ActNumber <> value Then
-                    _ActNumber = value
+            Set(ByVal value As String)
+                If value Is Nothing Then value = ""
+                If _DocumentNumber.Trim <> value.Trim Then
+                    _DocumentNumber = value.Trim
                 End If
             End Set
         End Property
@@ -700,9 +695,9 @@
             Dim result As OperationPersistenceObject = Clone(Of OperationPersistenceObject)(Me)
 
             If result._ID > 0 Then
-                result.Insert()
-            Else
                 result.Update(financialDataCanChange)
+            Else
+                result.Insert()
             End If
 
             Return result
@@ -797,7 +792,8 @@
                     result.Add(New OperationPersistenceObject(dr))
                 Next
 
-                If throwOnTypeMismatch AndAlso expectedType <> result(0).OperationType Then
+                If throwOnTypeMismatch AndAlso Not OperationTypesMatch(expectedType, _
+                    result(0).OperationType) Then
                     Throw New Exception(String.Format( _
                         My.Resources.Assets_OperationPersistenceObject_UnexpectedType, complexOperationID.ToString(), _
                         EnumValueAttribute.ConvertLocalizedName(expectedType), _
@@ -878,7 +874,7 @@
             _IsComplexAct = (_ComplexActID > 0)
             _Content = CStrSafe(dr.Item(6)).Trim
             _AccountCorresponding = CLongSafe(dr.Item(7), 0)
-            _ActNumber = CIntSafe(dr.Item(8), 0)
+            _DocumentNumber = CStrSafe(dr.Item(8))
             _UnitValueChange = CDblSafe(dr.Item(9), ROUNDUNITASSET, 0)
             _AmmountChange = CIntSafe(dr.Item(10), 0)
             _TotalValueChange = CDblSafe(dr.Item(11), 2, 0)
@@ -902,9 +898,9 @@
             If _OperationType = LtaOperationType.UsingStart OrElse _
                 _OperationType = LtaOperationType.UsingEnd Then
                 If CIntSafe(dr.Item(29), 0) Mod 2 > 0 Then
-                    _OperationType = LtaOperationType.UsingStart
-                Else
                     _OperationType = LtaOperationType.UsingEnd
+                Else
+                    _OperationType = LtaOperationType.UsingStart
                 End If
             End If
             _JournalEntryID = CIntSafe(dr.Item(31), 0)
@@ -939,6 +935,11 @@
             End If
             myComm.AddParam("?BA", _AssetID)
             myComm.AddParam("?BB", EnumValueAttribute.ConvertDatabaseCharID(_OperationType))
+            If _OperationType = LtaOperationType.AccountChange Then
+                myComm.AddParam("?BC", EnumValueAttribute.ConvertDatabaseCharID(_AccountOperationType))
+            Else
+                myComm.AddParam("?BC", "")
+            End If
 
             myComm.Execute()
 
@@ -1033,26 +1034,10 @@
 
             myComm.AddParam("?AA", _OperationDate.Date)
             myComm.AddParam("?AD", _Content.Trim)
-
-            If _OperationType = LtaOperationType.Amortization Then
-                myComm.AddParam("?AJ", _AmortizationCalculations.Trim)
-                myComm.AddParam("?AW", _AmortizationCalculatedForMonths)
-            Else
-                myComm.AddParam("?AJ", "")
-                myComm.AddParam("?AW", 0)
-            End If
-
-            If Array.IndexOf(_OperationsWithJournalEntry, _OperationType) < 0 Then
-                myComm.AddParam("?AB", 0)
-            Else
-                myComm.AddParam("?AB", _JournalEntryID)
-            End If
-
-            If Array.IndexOf(_OperationsWithAct, _OperationType) < 0 Then
-                myComm.AddParam("?AE", 0)
-            Else
-                myComm.AddParam("?AE", _ActNumber)
-            End If
+            myComm.AddParam("?AJ", _AmortizationCalculations.Trim)
+            myComm.AddParam("?AW", _AmortizationCalculatedForMonths)
+            myComm.AddParam("?AB", _JournalEntryID)
+            myComm.AddParam("?AE", _DocumentNumber)
 
             _UpdateDate = GetCurrentTimeStamp()
             If Not _ID > 0 Then _InsertDate = _UpdateDate
@@ -1077,14 +1062,8 @@
             myComm.AddParam("?AU", CRound(_ValueIncreaseAccountChangePerUnit, ROUNDUNITASSET))
             myComm.AddParam("?AV", CRound(_ValueIncreaseAmmortizationAccountChange))
             myComm.AddParam("?AZ", CRound(_ValueIncreaseAmmortizationAccountChangePerUnit, ROUNDUNITASSET))
-            myComm.AddParam("?BC", EnumValueAttribute.ConvertDatabaseCharID(_AccountOperationType))
             myComm.AddParam("?BD", _AccountCorresponding)
-
-            If _OperationType = LtaOperationType.AmortizationPeriod Then
-                myComm.AddParam("?AI", _NewAmortizationPeriod)
-            Else
-                myComm.AddParam("?AI", 0)
-            End If
+            myComm.AddParam("?AI", _NewAmortizationPeriod)
 
         End Sub
 

@@ -104,7 +104,7 @@ Partial Class F_OperationAmortization
         AccountCostsLabel.AutoSize = True
         AccountCostsLabel.Dock = System.Windows.Forms.DockStyle.Fill
         AccountCostsLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        AccountCostsLabel.Location = New System.Drawing.Point(532, 25)
+        AccountCostsLabel.Location = New System.Drawing.Point(626, 25)
         AccountCostsLabel.Name = "AccountCostsLabel"
         AccountCostsLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         AccountCostsLabel.Size = New System.Drawing.Size(97, 25)
@@ -130,7 +130,7 @@ Partial Class F_OperationAmortization
         DocumentNumberLabel.AutoSize = True
         DocumentNumberLabel.Dock = System.Windows.Forms.DockStyle.Fill
         DocumentNumberLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DocumentNumberLabel.Location = New System.Drawing.Point(311, 25)
+        DocumentNumberLabel.Location = New System.Drawing.Point(358, 25)
         DocumentNumberLabel.Name = "DocumentNumberLabel"
         DocumentNumberLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         DocumentNumberLabel.Size = New System.Drawing.Size(57, 25)
@@ -156,7 +156,7 @@ Partial Class F_OperationAmortization
         InsertDateLabel.AutoSize = True
         InsertDateLabel.Dock = System.Windows.Forms.DockStyle.Fill
         InsertDateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        InsertDateLabel.Location = New System.Drawing.Point(311, 0)
+        InsertDateLabel.Location = New System.Drawing.Point(358, 0)
         InsertDateLabel.Name = "InsertDateLabel"
         InsertDateLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         InsertDateLabel.Size = New System.Drawing.Size(57, 25)
@@ -169,7 +169,7 @@ Partial Class F_OperationAmortization
         UpdateDateLabel.AutoSize = True
         UpdateDateLabel.Dock = System.Windows.Forms.DockStyle.Fill
         UpdateDateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        UpdateDateLabel.Location = New System.Drawing.Point(532, 0)
+        UpdateDateLabel.Location = New System.Drawing.Point(626, 0)
         UpdateDateLabel.Name = "UpdateDateLabel"
         UpdateDateLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         UpdateDateLabel.Size = New System.Drawing.Size(97, 25)
@@ -208,7 +208,7 @@ Partial Class F_OperationAmortization
         UnitValueChangeLabel.AutoSize = True
         UnitValueChangeLabel.Dock = System.Windows.Forms.DockStyle.Fill
         UnitValueChangeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        UnitValueChangeLabel.Location = New System.Drawing.Point(311, 75)
+        UnitValueChangeLabel.Location = New System.Drawing.Point(358, 75)
         UnitValueChangeLabel.Name = "UnitValueChangeLabel"
         UnitValueChangeLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         UnitValueChangeLabel.Size = New System.Drawing.Size(57, 25)
@@ -221,7 +221,7 @@ Partial Class F_OperationAmortization
         RevaluedPortionUnitValueChangeLabel.AutoSize = True
         RevaluedPortionUnitValueChangeLabel.Dock = System.Windows.Forms.DockStyle.Fill
         RevaluedPortionUnitValueChangeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        RevaluedPortionUnitValueChangeLabel.Location = New System.Drawing.Point(311, 100)
+        RevaluedPortionUnitValueChangeLabel.Location = New System.Drawing.Point(358, 100)
         RevaluedPortionUnitValueChangeLabel.Name = "RevaluedPortionUnitValueChangeLabel"
         RevaluedPortionUnitValueChangeLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         RevaluedPortionUnitValueChangeLabel.Size = New System.Drawing.Size(57, 25)
@@ -234,7 +234,7 @@ Partial Class F_OperationAmortization
         AmortizationCalculatedForMonthsLabel.AutoSize = True
         AmortizationCalculatedForMonthsLabel.Dock = System.Windows.Forms.DockStyle.Fill
         AmortizationCalculatedForMonthsLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        AmortizationCalculatedForMonthsLabel.Location = New System.Drawing.Point(532, 75)
+        AmortizationCalculatedForMonthsLabel.Location = New System.Drawing.Point(626, 75)
         AmortizationCalculatedForMonthsLabel.Name = "AmortizationCalculatedForMonthsLabel"
         AmortizationCalculatedForMonthsLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         AmortizationCalculatedForMonthsLabel.Size = New System.Drawing.Size(97, 25)
@@ -266,7 +266,7 @@ Partial Class F_OperationAmortization
         Me.Panel2.Location = New System.Drawing.Point(0, 383)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Padding = New System.Windows.Forms.Padding(0, 0, 0, 4)
-        Me.Panel2.Size = New System.Drawing.Size(805, 44)
+        Me.Panel2.Size = New System.Drawing.Size(946, 44)
         Me.Panel2.TabIndex = 1
         '
         'nCancelButton
@@ -274,7 +274,7 @@ Partial Class F_OperationAmortization
         Me.nCancelButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.nCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.nCancelButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nCancelButton.Location = New System.Drawing.Point(718, 12)
+        Me.nCancelButton.Location = New System.Drawing.Point(859, 12)
         Me.nCancelButton.Name = "nCancelButton"
         Me.nCancelButton.Size = New System.Drawing.Size(75, 23)
         Me.nCancelButton.TabIndex = 3
@@ -285,7 +285,7 @@ Partial Class F_OperationAmortization
         '
         Me.ApplyButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ApplyButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ApplyButton.Location = New System.Drawing.Point(637, 12)
+        Me.ApplyButton.Location = New System.Drawing.Point(778, 12)
         Me.ApplyButton.Name = "ApplyButton"
         Me.ApplyButton.Size = New System.Drawing.Size(75, 23)
         Me.ApplyButton.TabIndex = 2
@@ -296,7 +296,7 @@ Partial Class F_OperationAmortization
         '
         Me.nOkButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.nOkButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nOkButton.Location = New System.Drawing.Point(556, 12)
+        Me.nOkButton.Location = New System.Drawing.Point(697, 12)
         Me.nOkButton.Name = "nOkButton"
         Me.nOkButton.Size = New System.Drawing.Size(75, 23)
         Me.nOkButton.TabIndex = 1
@@ -362,7 +362,7 @@ Partial Class F_OperationAmortization
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(791, 351)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(932, 351)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'AmortizationCalculationsTextBox
@@ -371,11 +371,11 @@ Partial Class F_OperationAmortization
         Me.AmortizationCalculationsTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationAmortizationBindingSource, "AmortizationCalculations", True))
         Me.AmortizationCalculationsTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AmortizationCalculationsTextBox.Location = New System.Drawing.Point(148, 128)
-        Me.AmortizationCalculationsTextBox.MaxLength = 1000
+        Me.AmortizationCalculationsTextBox.MaxLength = 5000
         Me.AmortizationCalculationsTextBox.Multiline = True
         Me.AmortizationCalculationsTextBox.Name = "AmortizationCalculationsTextBox"
         Me.AmortizationCalculationsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.AmortizationCalculationsTextBox.Size = New System.Drawing.Size(619, 220)
+        Me.AmortizationCalculationsTextBox.Size = New System.Drawing.Size(760, 220)
         Me.AmortizationCalculationsTextBox.TabIndex = 10
         '
         'OperationAmortizationBindingSource
@@ -386,7 +386,7 @@ Partial Class F_OperationAmortization
         '
         Me.CalculateAmortizationButton.Enabled = False
         Me.CalculateAmortizationButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CalculateAmortizationButton.Location = New System.Drawing.Point(529, 100)
+        Me.CalculateAmortizationButton.Location = New System.Drawing.Point(623, 100)
         Me.CalculateAmortizationButton.Margin = New System.Windows.Forms.Padding(0)
         Me.CalculateAmortizationButton.Name = "CalculateAmortizationButton"
         Me.CalculateAmortizationButton.Size = New System.Drawing.Size(101, 23)
@@ -400,10 +400,10 @@ Partial Class F_OperationAmortization
         Me.AmortizationCalculatedForMonthsAccTextBox.DecimalLength = 0
         Me.AmortizationCalculatedForMonthsAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AmortizationCalculatedForMonthsAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.AmortizationCalculatedForMonthsAccTextBox.Location = New System.Drawing.Point(635, 78)
+        Me.AmortizationCalculatedForMonthsAccTextBox.Location = New System.Drawing.Point(729, 78)
         Me.AmortizationCalculatedForMonthsAccTextBox.Name = "AmortizationCalculatedForMonthsAccTextBox"
         Me.AmortizationCalculatedForMonthsAccTextBox.NegativeValue = False
-        Me.AmortizationCalculatedForMonthsAccTextBox.Size = New System.Drawing.Size(132, 20)
+        Me.AmortizationCalculatedForMonthsAccTextBox.Size = New System.Drawing.Size(179, 20)
         Me.AmortizationCalculatedForMonthsAccTextBox.TabIndex = 6
         Me.AmortizationCalculatedForMonthsAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -411,7 +411,7 @@ Partial Class F_OperationAmortization
         '
         Me.ViewJournalEntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ViewJournalEntryButton.Image = Global.ApskaitaWUI.My.Resources.Resources.lektuvelis_16
-        Me.ViewJournalEntryButton.Location = New System.Drawing.Point(284, 0)
+        Me.ViewJournalEntryButton.Location = New System.Drawing.Point(331, 0)
         Me.ViewJournalEntryButton.Margin = New System.Windows.Forms.Padding(0)
         Me.ViewJournalEntryButton.Name = "ViewJournalEntryButton"
         Me.ViewJournalEntryButton.Size = New System.Drawing.Size(24, 24)
@@ -421,22 +421,24 @@ Partial Class F_OperationAmortization
         'RevaluedPortionUnitValueChangeAccTextBox
         '
         Me.RevaluedPortionUnitValueChangeAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationAmortizationBindingSource, "RevaluedPortionUnitValueChange", True))
+        Me.RevaluedPortionUnitValueChangeAccTextBox.DecimalLength = 4
         Me.RevaluedPortionUnitValueChangeAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.RevaluedPortionUnitValueChangeAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.RevaluedPortionUnitValueChangeAccTextBox.Location = New System.Drawing.Point(374, 103)
+        Me.RevaluedPortionUnitValueChangeAccTextBox.Location = New System.Drawing.Point(421, 103)
         Me.RevaluedPortionUnitValueChangeAccTextBox.Name = "RevaluedPortionUnitValueChangeAccTextBox"
-        Me.RevaluedPortionUnitValueChangeAccTextBox.Size = New System.Drawing.Size(132, 20)
+        Me.RevaluedPortionUnitValueChangeAccTextBox.Size = New System.Drawing.Size(179, 20)
         Me.RevaluedPortionUnitValueChangeAccTextBox.TabIndex = 8
         Me.RevaluedPortionUnitValueChangeAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'UnitValueChangeAccTextBox
         '
         Me.UnitValueChangeAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationAmortizationBindingSource, "UnitValueChange", True))
+        Me.UnitValueChangeAccTextBox.DecimalLength = 4
         Me.UnitValueChangeAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.UnitValueChangeAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.UnitValueChangeAccTextBox.Location = New System.Drawing.Point(374, 78)
+        Me.UnitValueChangeAccTextBox.Location = New System.Drawing.Point(421, 78)
         Me.UnitValueChangeAccTextBox.Name = "UnitValueChangeAccTextBox"
-        Me.UnitValueChangeAccTextBox.Size = New System.Drawing.Size(132, 20)
+        Me.UnitValueChangeAccTextBox.Size = New System.Drawing.Size(179, 20)
         Me.UnitValueChangeAccTextBox.TabIndex = 5
         Me.UnitValueChangeAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -447,7 +449,7 @@ Partial Class F_OperationAmortization
         Me.RevaluedPortionTotalValueChangeAccTextBox.KeepBackColorWhenReadOnly = False
         Me.RevaluedPortionTotalValueChangeAccTextBox.Location = New System.Drawing.Point(148, 103)
         Me.RevaluedPortionTotalValueChangeAccTextBox.Name = "RevaluedPortionTotalValueChangeAccTextBox"
-        Me.RevaluedPortionTotalValueChangeAccTextBox.Size = New System.Drawing.Size(132, 20)
+        Me.RevaluedPortionTotalValueChangeAccTextBox.Size = New System.Drawing.Size(179, 20)
         Me.RevaluedPortionTotalValueChangeAccTextBox.TabIndex = 7
         Me.RevaluedPortionTotalValueChangeAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -455,10 +457,10 @@ Partial Class F_OperationAmortization
         '
         Me.UpdateDateTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationAmortizationBindingSource, "UpdateDate", True))
         Me.UpdateDateTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UpdateDateTextBox.Location = New System.Drawing.Point(635, 3)
+        Me.UpdateDateTextBox.Location = New System.Drawing.Point(729, 3)
         Me.UpdateDateTextBox.Name = "UpdateDateTextBox"
         Me.UpdateDateTextBox.ReadOnly = True
-        Me.UpdateDateTextBox.Size = New System.Drawing.Size(132, 20)
+        Me.UpdateDateTextBox.Size = New System.Drawing.Size(179, 20)
         Me.UpdateDateTextBox.TabIndex = 18
         Me.UpdateDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -470,7 +472,7 @@ Partial Class F_OperationAmortization
         Me.ContentTextBox.Location = New System.Drawing.Point(148, 53)
         Me.ContentTextBox.MaxLength = 255
         Me.ContentTextBox.Name = "ContentTextBox"
-        Me.ContentTextBox.Size = New System.Drawing.Size(619, 20)
+        Me.ContentTextBox.Size = New System.Drawing.Size(760, 20)
         Me.ContentTextBox.TabIndex = 3
         '
         'AccountCostsAccGridComboBox
@@ -481,9 +483,9 @@ Partial Class F_OperationAmortization
         Me.AccountCostsAccGridComboBox.FilterPropertyName = ""
         Me.AccountCostsAccGridComboBox.FormattingEnabled = True
         Me.AccountCostsAccGridComboBox.InstantBinding = True
-        Me.AccountCostsAccGridComboBox.Location = New System.Drawing.Point(635, 28)
+        Me.AccountCostsAccGridComboBox.Location = New System.Drawing.Point(729, 28)
         Me.AccountCostsAccGridComboBox.Name = "AccountCostsAccGridComboBox"
-        Me.AccountCostsAccGridComboBox.Size = New System.Drawing.Size(132, 21)
+        Me.AccountCostsAccGridComboBox.Size = New System.Drawing.Size(179, 21)
         Me.AccountCostsAccGridComboBox.TabIndex = 2
         '
         'DateDateTimePicker
@@ -493,7 +495,7 @@ Partial Class F_OperationAmortization
         Me.DateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DateDateTimePicker.Location = New System.Drawing.Point(148, 28)
         Me.DateDateTimePicker.Name = "DateDateTimePicker"
-        Me.DateDateTimePicker.Size = New System.Drawing.Size(132, 20)
+        Me.DateDateTimePicker.Size = New System.Drawing.Size(179, 20)
         Me.DateDateTimePicker.TabIndex = 0
         '
         'IDTextBox
@@ -503,7 +505,7 @@ Partial Class F_OperationAmortization
         Me.IDTextBox.Location = New System.Drawing.Point(148, 3)
         Me.IDTextBox.Name = "IDTextBox"
         Me.IDTextBox.ReadOnly = True
-        Me.IDTextBox.Size = New System.Drawing.Size(132, 20)
+        Me.IDTextBox.Size = New System.Drawing.Size(179, 20)
         Me.IDTextBox.TabIndex = 14
         Me.IDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -511,10 +513,10 @@ Partial Class F_OperationAmortization
         '
         Me.InsertDateTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationAmortizationBindingSource, "InsertDate", True))
         Me.InsertDateTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.InsertDateTextBox.Location = New System.Drawing.Point(374, 3)
+        Me.InsertDateTextBox.Location = New System.Drawing.Point(421, 3)
         Me.InsertDateTextBox.Name = "InsertDateTextBox"
         Me.InsertDateTextBox.ReadOnly = True
-        Me.InsertDateTextBox.Size = New System.Drawing.Size(132, 20)
+        Me.InsertDateTextBox.Size = New System.Drawing.Size(179, 20)
         Me.InsertDateTextBox.TabIndex = 16
         Me.InsertDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -522,10 +524,10 @@ Partial Class F_OperationAmortization
         '
         Me.DocumentNumberTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationAmortizationBindingSource, "DocumentNumber", True))
         Me.DocumentNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DocumentNumberTextBox.Location = New System.Drawing.Point(374, 28)
+        Me.DocumentNumberTextBox.Location = New System.Drawing.Point(421, 28)
         Me.DocumentNumberTextBox.MaxLength = 30
         Me.DocumentNumberTextBox.Name = "DocumentNumberTextBox"
-        Me.DocumentNumberTextBox.Size = New System.Drawing.Size(132, 20)
+        Me.DocumentNumberTextBox.Size = New System.Drawing.Size(179, 20)
         Me.DocumentNumberTextBox.TabIndex = 1
         Me.DocumentNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -536,7 +538,7 @@ Partial Class F_OperationAmortization
         Me.TotalValueChangeAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalValueChangeAccTextBox.Location = New System.Drawing.Point(148, 78)
         Me.TotalValueChangeAccTextBox.Name = "TotalValueChangeAccTextBox"
-        Me.TotalValueChangeAccTextBox.Size = New System.Drawing.Size(132, 20)
+        Me.TotalValueChangeAccTextBox.Size = New System.Drawing.Size(179, 20)
         Me.TotalValueChangeAccTextBox.TabIndex = 4
         Me.TotalValueChangeAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -546,7 +548,7 @@ Partial Class F_OperationAmortization
         Me.BackgroundInfoPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BackgroundInfoPanel1.Location = New System.Drawing.Point(3, 3)
         Me.BackgroundInfoPanel1.Name = "BackgroundInfoPanel1"
-        Me.BackgroundInfoPanel1.Size = New System.Drawing.Size(791, 351)
+        Me.BackgroundInfoPanel1.Size = New System.Drawing.Size(932, 351)
         Me.BackgroundInfoPanel1.TabIndex = 3
         '
         'TabControl1
@@ -557,7 +559,7 @@ Partial Class F_OperationAmortization
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(805, 383)
+        Me.TabControl1.Size = New System.Drawing.Size(946, 383)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -566,7 +568,7 @@ Partial Class F_OperationAmortization
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(797, 357)
+        Me.TabPage1.Size = New System.Drawing.Size(938, 357)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Operacijos Duomenys"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -577,7 +579,7 @@ Partial Class F_OperationAmortization
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(797, 357)
+        Me.TabPage2.Size = New System.Drawing.Size(938, 357)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Turto duomenys"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -592,7 +594,7 @@ Partial Class F_OperationAmortization
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(805, 427)
+        Me.ClientSize = New System.Drawing.Size(946, 427)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Panel2)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

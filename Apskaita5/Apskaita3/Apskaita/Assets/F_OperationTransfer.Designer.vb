@@ -675,6 +675,7 @@ Partial Class F_OperationTransfer
         Me.IsComplexActCheckBox.AutoSize = True
         Me.TableLayoutPanel1.SetColumnSpan(Me.IsComplexActCheckBox, 2)
         Me.IsComplexActCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.OperationTransferBindingSource, "IsComplexAct", True))
+        Me.IsComplexActCheckBox.Enabled = False
         Me.IsComplexActCheckBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IsComplexActCheckBox.Location = New System.Drawing.Point(525, 29)
         Me.IsComplexActCheckBox.Name = "IsComplexActCheckBox"

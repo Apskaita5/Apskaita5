@@ -510,6 +510,9 @@
         End Function
 
         Protected Shared Function StripNamespaces(ByVal source As String) As String
+            If source.ToLower.Contains("<ns2:document") Then
+                source = source.Replace("<ns2:", "<").Replace("</ns2:", "</")
+            End If
             If Not source.ToLower.Contains("<document") Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "<Document>"))
             End If

@@ -197,7 +197,7 @@ Public Class F_ComplexOperationAmortization
         Try
 
             Dim newList As OperationAmortizationList = LoadObject(Of OperationAmortizationList) _
-                (Nothing, "NewOperationAmortizationList", True, ids)
+                (Nothing, "NewOperationAmortizationList", True, ids, Obj.ChronologyValidator.BaseValidator)
             Obj.AddRange(newList)
 
         Catch ex As Exception

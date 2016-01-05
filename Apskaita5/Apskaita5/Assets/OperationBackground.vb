@@ -50,6 +50,7 @@
         Private _InitialUsageStatus As Boolean = False
 
         Private _CurrentDate As Date = Today
+        Private _CurrentOperationID As Integer = 0
 
         Private _CurrentAssetAcquiredAccount As Long = 0
         Private _CurrentAssetContraryAccount As Long = 0
@@ -458,6 +459,17 @@
 #Region " Current State "
 
         ''' <summary>
+        ''' An ID of the asset operation that the background data was fetched for.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property CurrentOperationID() As Integer
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _CurrentOperationID
+            End Get
+        End Property
+
+        ''' <summary>
         ''' A date that the state of the long term asset is calculated.
         ''' </summary>
         ''' <remarks>12 BAS para 12.</remarks>
@@ -758,8 +770,10 @@
                 CanWriteProperty(True)
                 If _ChangeAssetAmount <> value Then
                     _ChangeAssetAmount = value
-                    PropertyHasChanged()
-                    If Not _DisableCalculations Then CalculateAfterOperationProperties(True)
+                    If Not _DisableCalculations Then
+                        PropertyHasChanged()
+                        CalculateAfterOperationPropertiesInt(True)
+                    End If
                 End If
             End Set
         End Property
@@ -779,8 +793,10 @@
                 CanWriteProperty(True)
                 If CRound(_ChangeAcquisitionAccountValue) <> CRound(value) Then
                     _ChangeAcquisitionAccountValue = CRound(value)
-                    PropertyHasChanged()
-                    If Not _DisableCalculations Then CalculateAfterOperationProperties(True)
+                    If Not _DisableCalculations Then
+                        PropertyHasChanged()
+                        CalculateAfterOperationPropertiesInt(True)
+                    End If
                 End If
             End Set
         End Property
@@ -800,8 +816,10 @@
                 CanWriteProperty(True)
                 If CRound(_ChangeAcquisitionAccountValuePerUnit, ROUNDUNITASSET) <> CRound(value, ROUNDUNITASSET) Then
                     _ChangeAcquisitionAccountValuePerUnit = CRound(value, ROUNDUNITASSET)
-                    PropertyHasChanged()
-                    If Not _DisableCalculations Then CalculateAfterOperationProperties(True)
+                    If Not _DisableCalculations Then
+                        PropertyHasChanged()
+                        CalculateAfterOperationPropertiesInt(True)
+                    End If
                 End If
             End Set
         End Property
@@ -821,8 +839,10 @@
                 CanWriteProperty(True)
                 If CRound(_ChangeAmortizationAccountValue) <> CRound(value) Then
                     _ChangeAmortizationAccountValue = CRound(value)
-                    PropertyHasChanged()
-                    If Not _DisableCalculations Then CalculateAfterOperationProperties(True)
+                    If Not _DisableCalculations Then
+                        PropertyHasChanged()
+                        CalculateAfterOperationPropertiesInt(True)
+                    End If
                 End If
             End Set
         End Property
@@ -842,8 +862,10 @@
                 CanWriteProperty(True)
                 If CRound(_ChangeAmortizationAccountValuePerUnit, ROUNDUNITASSET) <> CRound(value, ROUNDUNITASSET) Then
                     _ChangeAmortizationAccountValuePerUnit = CRound(value, ROUNDUNITASSET)
-                    PropertyHasChanged()
-                    If Not _DisableCalculations Then CalculateAfterOperationProperties(True)
+                    If Not _DisableCalculations Then
+                        PropertyHasChanged()
+                        CalculateAfterOperationPropertiesInt(True)
+                    End If
                 End If
             End Set
         End Property
@@ -863,8 +885,10 @@
                 CanWriteProperty(True)
                 If CRound(_ChangeValueDecreaseAccountValue) <> CRound(value) Then
                     _ChangeValueDecreaseAccountValue = CRound(value)
-                    PropertyHasChanged()
-                    If Not _DisableCalculations Then CalculateAfterOperationProperties(True)
+                    If Not _DisableCalculations Then
+                        PropertyHasChanged()
+                        CalculateAfterOperationPropertiesInt(True)
+                    End If
                 End If
             End Set
         End Property
@@ -884,8 +908,10 @@
                 CanWriteProperty(True)
                 If CRound(_ChangeValueDecreaseAccountValuePerUnit, ROUNDUNITASSET) <> CRound(value, ROUNDUNITASSET) Then
                     _ChangeValueDecreaseAccountValuePerUnit = CRound(value, ROUNDUNITASSET)
-                    PropertyHasChanged()
-                    If Not _DisableCalculations Then CalculateAfterOperationProperties(True)
+                    If Not _DisableCalculations Then
+                        PropertyHasChanged()
+                        CalculateAfterOperationPropertiesInt(True)
+                    End If
                 End If
             End Set
         End Property
@@ -905,8 +931,10 @@
                 CanWriteProperty(True)
                 If CRound(_ChangeValueIncreaseAccountValue) <> CRound(value) Then
                     _ChangeValueIncreaseAccountValue = CRound(value)
-                    PropertyHasChanged()
-                    If Not _DisableCalculations Then CalculateAfterOperationProperties(True)
+                    If Not _DisableCalculations Then
+                        PropertyHasChanged()
+                        CalculateAfterOperationPropertiesInt(True)
+                    End If
                 End If
             End Set
         End Property
@@ -926,8 +954,10 @@
                 CanWriteProperty(True)
                 If CRound(_ChangeValueIncreaseAccountValuePerUnit, ROUNDUNITASSET) <> CRound(value, ROUNDUNITASSET) Then
                     _ChangeValueIncreaseAccountValuePerUnit = CRound(value, ROUNDUNITASSET)
-                    PropertyHasChanged()
-                    If Not _DisableCalculations Then CalculateAfterOperationProperties(True)
+                    If Not _DisableCalculations Then
+                        PropertyHasChanged()
+                        CalculateAfterOperationPropertiesInt(True)
+                    End If
                 End If
             End Set
         End Property
@@ -947,8 +977,10 @@
                 CanWriteProperty(True)
                 If CRound(_ChangeValueIncreaseAmortizationAccountValue) <> CRound(value) Then
                     _ChangeValueIncreaseAmortizationAccountValue = CRound(value)
-                    PropertyHasChanged()
-                    If Not _DisableCalculations Then CalculateAfterOperationProperties(True)
+                    If Not _DisableCalculations Then
+                        PropertyHasChanged()
+                        CalculateAfterOperationPropertiesInt(True)
+                    End If
                 End If
             End Set
         End Property
@@ -968,8 +1000,10 @@
                 CanWriteProperty(True)
                 If CRound(_ChangeValueIncreaseAmortizationAccountValuePerUnit, ROUNDUNITASSET) <> CRound(value, ROUNDUNITASSET) Then
                     _ChangeValueIncreaseAmortizationAccountValuePerUnit = CRound(value, ROUNDUNITASSET)
-                    PropertyHasChanged()
-                    If Not _DisableCalculations Then CalculateAfterOperationProperties(True)
+                    If Not _DisableCalculations Then
+                        PropertyHasChanged()
+                        CalculateAfterOperationPropertiesInt(True)
+                    End If
                 End If
             End Set
         End Property
@@ -1226,6 +1260,8 @@
             End Set
         End Property
 
+
+
         ''' <summary>
         ''' Sets a new date of the long term asset current status 
         ''' and forces status recalculation.
@@ -1243,26 +1279,6 @@
         End Sub
 
         ''' <summary>
-        ''' Initializes the long term asset status for an existing operation.
-        ''' </summary>
-        ''' <param name="currentOperationDate"></param>
-        ''' <remarks>Initialization is only required for an old operation data.
-        ''' Initialization should be done by steps:
-        ''' 1. Set <see cref="DisableCalculations">DisableCalculations</see> to TRUE;
-        ''' 2. Set state delta properties ('Change') with the operation data;
-        ''' 3. Invoke <see cref="InitializeOldData">InitializeOldData</see> 
-        ''' with the operation date as param;
-        ''' 4. Set <see cref="DisableCalculations">DisableCalculations</see> to FALSE.</remarks>
-        Friend Sub InitializeOldData(ByVal currentOperationDate As Date)
-
-            _CurrentDate = currentOperationDate
-            CalculateCurrentProperties(False)
-
-            MarkOld()
-
-        End Sub
-
-        ''' <summary>
         ''' Forces recalculation of the long term asset status after the operation.
         ''' </summary>
         ''' <remarks>Used for updating multiple delta ('Change') properties:
@@ -1272,7 +1288,28 @@
         ''' 4. Invoke <see cref="CalculateAfterOperationProperties">CalculateAfterOperationProperties</see> 
         ''' to do the calculations.</remarks>
         Friend Sub CalculateAfterOperationProperties()
-            CalculateAfterOperationProperties(True)
+            CalculateAfterOperationPropertiesInt(True)
+            PropertyHasChanged("ChangeAssetAmount")
+            PropertyHasChanged("ChangeAcquisitionAccountValue")
+            PropertyHasChanged("ChangeAcquisitionAccountValuePerUnit")
+            PropertyHasChanged("ChangeAmortizationAccountValue")
+            PropertyHasChanged("ChangeAmortizationAccountValuePerUnit")
+            PropertyHasChanged("ChangeValueDecreaseAccountValue")
+            PropertyHasChanged("ChangeValueDecreaseAccountValuePerUnit")
+            PropertyHasChanged("ChangeValueIncreaseAccountValue")
+            PropertyHasChanged("ChangeValueIncreaseAccountValuePerUnit")
+            PropertyHasChanged("ChangeValueIncreaseAmortizationAccountValue")
+            PropertyHasChanged("ChangeValueIncreaseAmortizationAccountValuePerUnit")
+        End Sub
+
+        ''' <summary>
+        ''' Marks the OperationBackground instance as old.
+        ''' </summary>
+        ''' <param name="newOperationID">a new ID of the parent asset operation</param>
+        ''' <remarks>Shoukd be invoked after the parent asset operation is saved.</remarks>
+        Friend Overloads Sub MarkOld(ByVal newOperationID As Integer)
+            _CurrentOperationID = newOperationID
+            MarkOld()
         End Sub
 
 
@@ -1300,7 +1337,8 @@
 
             For Each delta As OperationDelta In _DeltaList
 
-                If delta.Date.Date <= _CurrentDate.Date Then
+                If OperationDeltaList.IsPrecedingOperation(delta.Date, delta.ID, _
+                    _CurrentDate, _CurrentOperationID) Then
 
                     If delta.OperationType = LtaOperationType.AccountChange Then
 
@@ -1371,10 +1409,14 @@
 
             _CurrentAssetValue = CRound(_CurrentAcquisitionAccountValue _
                 - _CurrentAmortizationAccountValue _
-                - _CurrentValueDecreaseAccountValue, 2)
+                - _CurrentValueDecreaseAccountValue _
+                + _CurrentValueIncreaseAccountValue _
+                - _CurrentValueIncreaseAmortizationAccountValue, 2)
             _CurrentAssetValuePerUnit = CRound(_CurrentAcquisitionAccountValuePerUnit _
                 - _CurrentAmortizationAccountValuePerUnit _
-                - _CurrentValueDecreaseAccountValuePerUnit, ROUNDUNITASSET)
+                - _CurrentValueDecreaseAccountValuePerUnit _
+                + _CurrentValueIncreaseAccountValuePerUnit _
+                - _CurrentValueIncreaseAmortizationAccountValuePerUnit, ROUNDUNITASSET)
 
             If _CurrentValueDecreaseAccountValue > 0 Then
                 _CurrentAssetValueRevaluedPortion = -CRound(_CurrentValueDecreaseAccountValue)
@@ -1418,11 +1460,11 @@
 
             End If
 
-            CalculateAfterOperationProperties(raisePropertyHasChanged)
+            CalculateAfterOperationPropertiesInt(raisePropertyHasChanged)
 
         End Sub
 
-        Private Sub CalculateAfterOperationProperties(ByVal raisePropertyHasChanged As Boolean)
+        Private Sub CalculateAfterOperationPropertiesInt(ByVal raisePropertyHasChanged As Boolean)
 
             _AfterOperationAssetAmount = _CurrentAssetAmount + _ChangeAssetAmount
 
@@ -1449,16 +1491,20 @@
 
             _AfterOperationAssetValue = CRound(_AfterOperationAcquisitionAccountValue _
                 - _AfterOperationAmortizationAccountValue _
-                - _AfterOperationValueDecreaseAccountValue, 2)
+                - _AfterOperationValueDecreaseAccountValue _
+                + _AfterOperationValueIncreaseAccountValue _
+                - _AfterOperationValueIncreaseAmortizationAccountValue, 2)
             _AfterOperationAssetValuePerUnit = CRound(_AfterOperationAcquisitionAccountValuePerUnit _
                 - _AfterOperationAmortizationAccountValuePerUnit _
-                - _AfterOperationValueDecreaseAccountValuePerUnit, ROUNDUNITASSET)
+                - _AfterOperationValueDecreaseAccountValuePerUnit _
+                + _AfterOperationValueIncreaseAccountValuePerUnit _
+                - _AfterOperationValueIncreaseAmortizationAccountValuePerUnit, ROUNDUNITASSET)
 
             If _AfterOperationValueDecreaseAccountValue > 0 Then
                 _AfterOperationAssetValueRevaluedPortion = -CRound(_AfterOperationValueDecreaseAccountValue)
                 _AfterOperationAssetValueRevaluedPortionPerUnit = _
                     -CRound(_AfterOperationValueDecreaseAccountValuePerUnit, ROUNDUNITASSET)
-            ElseIf _CurrentValueIncreaseAccountValue > 0 Then
+            ElseIf _AfterOperationValueIncreaseAccountValue > 0 Then
                 _AfterOperationAssetValueRevaluedPortion = CRound(_AfterOperationValueIncreaseAccountValue _
                     - _AfterOperationValueIncreaseAmortizationAccountValue)
                 _AfterOperationAssetValueRevaluedPortionPerUnit = CRound(_AfterOperationValueIncreaseAccountValuePerUnit _
@@ -1531,8 +1577,8 @@
         ''' operation types</see> to evaluate. If null, all the operations are evaluated.</param>
         ''' <remarks>Returnes Date.MinValue if no operation match is found.</remarks>
         Public Function GetDateLastBefore(ByVal operationDate As Date, _
-            ByVal operationTypes As LtaOperationType()) As Date
-            Return _DeltaList.GetDateLastBefore(operationDate, operationTypes)
+            ByVal operationID As Integer, ByVal operationTypes As LtaOperationType()) As Date
+            Return _DeltaList.GetDateLastBefore(operationDate, operationID, operationTypes)
         End Function
 
         ''' <summary>
@@ -1544,9 +1590,10 @@
         ''' operation types</see> to evaluate. If null, all the operations are evaluated.</param>
         ''' <remarks>Returnes Date.MaxValue if no operation match is found.</remarks>
         Public Function GetDateFirstAfter(ByVal operationDate As Date, _
-            ByVal operationTypes As LtaOperationType()) As Date
-            Return _DeltaList.GetDateFirstAfter(operationDate, operationTypes)
+            ByVal operationID As Integer, ByVal operationTypes As LtaOperationType()) As Date
+            Return _DeltaList.GetDateFirstAfter(operationDate, operationID, operationTypes)
         End Function
+
 
         Protected Overrides Function GetIdValue() As Object
             Return _AssetID
@@ -1568,9 +1615,9 @@
                 New Csla.Validation.RuleArgs("AfterOperationAcquisitionAccountValue"))
             ValidationRules.AddRule(AddressOf AfterOperationAcquisitionAccountValuePerUnitValidation, _
                 New Csla.Validation.RuleArgs("AfterOperationAcquisitionAccountValuePerUnit"))
-            ValidationRules.AddRule(AddressOf AfterOperationAcquisitionAccountValueValidation, _
+            ValidationRules.AddRule(AddressOf AfterOperationAmortizationAccountValueValidation, _
                 New Csla.Validation.RuleArgs("AfterOperationAmortizationAccountValue"))
-            ValidationRules.AddRule(AddressOf AfterOperationAcquisitionAccountValuePerUnitValidation, _
+            ValidationRules.AddRule(AddressOf AfterOperationAmortizationAccountValuePerUnitValidation, _
                 New Csla.Validation.RuleArgs("AfterOperationAmortizationAccountValuePerUnit"))
             ValidationRules.AddRule(AddressOf AfterOperationValueDecreaseAccountValueValidation, _
                 New Csla.Validation.RuleArgs("AfterOperationValueDecreaseAccountValue"))
@@ -1657,7 +1704,8 @@
             Dim valObj As OperationBackground = DirectCast(target, OperationBackground)
 
             Return BalanceAfterOperationValidation(valObj._AfterOperationAcquisitionAccountValue, _
-                valObj._AfterOperationAssetAmount, e)
+                valObj._AfterOperationAssetAmount, e, _
+                My.Resources.Assets_OperationBackground_AfterOperationAcquisitionAccountValue)
 
         End Function
 
@@ -1675,7 +1723,9 @@
             Dim valObj As OperationBackground = DirectCast(target, OperationBackground)
 
             Return UnitValueValidation(valObj._AfterOperationAcquisitionAccountValuePerUnit, _
-                valObj._AfterOperationAcquisitionAccountValue, valObj._AfterOperationAssetAmount, False, e)
+                valObj._AfterOperationAcquisitionAccountValue, _
+                valObj._AfterOperationAssetAmount, False, e, _
+                My.Resources.Assets_OperationBackground_AfterOperationAcquisitionAccountValuePerUnit)
 
         End Function
 
@@ -1693,7 +1743,8 @@
             Dim valObj As OperationBackground = DirectCast(target, OperationBackground)
 
             Return BalanceAfterOperationValidation(valObj._AfterOperationAmortizationAccountValue, _
-                valObj._AfterOperationAssetAmount, e)
+                valObj._AfterOperationAssetAmount, e, _
+                My.Resources.Assets_OperationBackground_AfterOperationAmortizationAccountValue)
 
         End Function
 
@@ -1711,7 +1762,8 @@
             Dim valObj As OperationBackground = DirectCast(target, OperationBackground)
 
             If Not UnitValueValidation(valObj._AfterOperationAmortizationAccountValuePerUnit, _
-                valObj._AfterOperationAmortizationAccountValue, valObj._AfterOperationAssetAmount, False, e) Then
+                valObj._AfterOperationAmortizationAccountValue, valObj._AfterOperationAssetAmount, _
+                False, e, My.Resources.Assets_OperationBackground_AfterOperationAmortizationAccountValuePerUnit) Then
                 Return False
             End If
 
@@ -1746,12 +1798,14 @@
             Dim valObj As OperationBackground = DirectCast(target, OperationBackground)
 
             If Not BalanceAfterOperationValidation(valObj._AfterOperationValueDecreaseAccountValue, _
-                valObj._AfterOperationAssetAmount, e) Then
+                valObj._AfterOperationAssetAmount, e, _
+                My.Resources.Assets_OperationBackground_AfterOperationValueDecreaseAccountValue) Then
                 Return False
             End If
 
             If CRound(valObj._AfterOperationValueDecreaseAccountValue) > 0.0 AndAlso _
-                CRound(valObj.AfterOperationValueIncreaseAccountValue) > 0.0 Then
+                CRound(valObj.AfterOperationValueIncreaseAccountValue _
+                - valObj.AfterOperationValueIncreaseAmortizationAccountValue) > 0.0 Then
 
                 e.Description = My.Resources.Assets_OperationBackground_CannotIncreaseAndDecreaseSimultaniously
                 e.Severity = Validation.RuleSeverity.Error
@@ -1779,12 +1833,15 @@
             Dim valObj As OperationBackground = DirectCast(target, OperationBackground)
 
             If Not UnitValueValidation(valObj._AfterOperationValueDecreaseAccountValuePerUnit, _
-                valObj._AfterOperationValueDecreaseAccountValue, valObj._AfterOperationAssetAmount, False, e) Then
+                valObj._AfterOperationValueDecreaseAccountValue, _
+                valObj._AfterOperationAssetAmount, False, e, _
+                My.Resources.Assets_OperationBackground_AfterOperationValueDecreaseAccountValuePerUnit) Then
                 Return False
             End If
 
             If CRound(valObj._AfterOperationValueDecreaseAccountValuePerUnit) > 0.0 AndAlso _
-                CRound(valObj.AfterOperationValueIncreaseAccountValuePerUnit) > 0.0 Then
+                CRound(valObj.AfterOperationValueIncreaseAccountValuePerUnit _
+                - valObj.AfterOperationValueIncreaseAmortizationAccountValuePerUnit) > 0.0 Then
 
                 e.Description = My.Resources.Assets_OperationBackground_CannotIncreaseAndDecreaseSimultaniously
                 e.Severity = Validation.RuleSeverity.Error
@@ -1811,12 +1868,14 @@
             Dim valObj As OperationBackground = DirectCast(target, OperationBackground)
 
             If Not BalanceAfterOperationValidation(valObj._AfterOperationValueIncreaseAccountValue, _
-                valObj._AfterOperationAssetAmount, e) Then
+                valObj._AfterOperationAssetAmount, e, _
+                My.Resources.Assets_OperationBackground_AfterOperationValueIncreaseAccountValue) Then
                 Return False
             End If
 
             If CRound(valObj._AfterOperationValueDecreaseAccountValue) > 0.0 AndAlso _
-                CRound(valObj.AfterOperationValueIncreaseAccountValue) > 0.0 Then
+                CRound(valObj.AfterOperationValueIncreaseAccountValue _
+                - valObj.AfterOperationValueIncreaseAmortizationAccountValue) > 0.0 Then
 
                 e.Description = My.Resources.Assets_OperationBackground_CannotIncreaseAndDecreaseSimultaniously
                 e.Severity = Validation.RuleSeverity.Error
@@ -1843,12 +1902,15 @@
             Dim valObj As OperationBackground = DirectCast(target, OperationBackground)
 
             If Not UnitValueValidation(valObj._AfterOperationValueIncreaseAccountValuePerUnit, _
-                valObj._AfterOperationValueIncreaseAccountValue, valObj._AfterOperationAssetAmount, False, e) Then
+                valObj._AfterOperationValueIncreaseAccountValue, _
+                valObj._AfterOperationAssetAmount, False, e, _
+                My.Resources.Assets_OperationBackground_AfterOperationValueIncreaseAccountValuePerUnit) Then
                 Return False
             End If
 
             If CRound(valObj._AfterOperationValueDecreaseAccountValuePerUnit) > 0.0 AndAlso _
-                CRound(valObj.AfterOperationValueIncreaseAccountValuePerUnit) > 0.0 Then
+                CRound(valObj.AfterOperationValueIncreaseAccountValuePerUnit _
+                - valObj.AfterOperationValueIncreaseAmortizationAccountValuePerUnit) > 0.0 Then
 
                 e.Description = My.Resources.Assets_OperationBackground_CannotIncreaseAndDecreaseSimultaniously
                 e.Severity = Validation.RuleSeverity.Error
@@ -1875,7 +1937,8 @@
             Dim valObj As OperationBackground = DirectCast(target, OperationBackground)
 
             If Not BalanceAfterOperationValidation(valObj._AfterOperationValueIncreaseAmortizationAccountValue, _
-                valObj._AfterOperationAssetAmount, e) Then
+                valObj._AfterOperationAssetAmount, e, _
+                My.Resources.Assets_OperationBackground_AfterOperationValueIncreaseAmortizationAccountValue) Then
                 Return False
             End If
 
@@ -1908,7 +1971,8 @@
 
             If Not UnitValueValidation(valObj._AfterOperationValueIncreaseAmortizationAccountValuePerUnit, _
                 valObj._AfterOperationValueIncreaseAmortizationAccountValue, _
-                valObj._AfterOperationAssetAmount, False, e) Then
+                valObj._AfterOperationAssetAmount, False, e, _
+                My.Resources.Assets_OperationBackground_AfterOperationValueIncreaseAmortizationAccountValuePerUnit) Then
                 Return False
             End If
 
@@ -1939,7 +2003,8 @@
             Dim valObj As OperationBackground = DirectCast(target, OperationBackground)
 
             Return UnitValueValidation(valObj._ChangeAcquisitionAccountValuePerUnit, _
-                valObj._ChangeAcquisitionAccountValue, valObj._CurrentAssetAmount, True, e)
+                valObj._ChangeAcquisitionAccountValue, valObj._CurrentAssetAmount, True, e, _
+                My.Resources.Assets_OperationBackground_ChangeAcquisitionAccountValuePerUnit)
 
         End Function
 
@@ -1957,7 +2022,8 @@
             Dim valObj As OperationBackground = DirectCast(target, OperationBackground)
 
             Return UnitValueValidation(valObj._ChangeAmortizationAccountValuePerUnit, _
-                valObj._ChangeAmortizationAccountValue, valObj._CurrentAssetAmount, True, e)
+                valObj._ChangeAmortizationAccountValue, valObj._CurrentAssetAmount, True, e, _
+                My.Resources.Assets_OperationBackground_ChangeAmortizationAccountValuePerUnit)
 
         End Function
 
@@ -1975,7 +2041,8 @@
             Dim valObj As OperationBackground = DirectCast(target, OperationBackground)
 
             Return UnitValueValidation(valObj._ChangeValueDecreaseAccountValuePerUnit, _
-               valObj._ChangeValueDecreaseAccountValue, valObj._CurrentAssetAmount, True, e)
+               valObj._ChangeValueDecreaseAccountValue, valObj._CurrentAssetAmount, True, e, _
+               My.Resources.Assets_OperationBackground_ChangeValueDecreaseAccountValuePerUnit)
 
         End Function
 
@@ -1993,7 +2060,8 @@
             Dim valObj As OperationBackground = DirectCast(target, OperationBackground)
 
             Return UnitValueValidation(valObj._ChangeValueIncreaseAccountValuePerUnit, _
-               valObj._ChangeValueIncreaseAccountValue, valObj._CurrentAssetAmount, True, e)
+               valObj._ChangeValueIncreaseAccountValue, valObj._CurrentAssetAmount, True, e, _
+               My.Resources.Assets_OperationBackground_ChangeValueIncreaseAccountValuePerUnit)
 
         End Function
 
@@ -2011,43 +2079,40 @@
             Dim valObj As OperationBackground = DirectCast(target, OperationBackground)
 
             Return UnitValueValidation(valObj._ChangeValueIncreaseAmortizationAccountValuePerUnit, _
-               valObj._ChangeValueIncreaseAmortizationAccountValue, valObj._CurrentAssetAmount, True, e)
+               valObj._ChangeValueIncreaseAmortizationAccountValue, valObj._CurrentAssetAmount, _
+               True, e, My.Resources.Assets_OperationBackground_ChangeValueIncreaseAmortizationAccountValuePerUnit)
 
         End Function
 
         Private Shared Function UnitValueValidation(ByVal unitValue As Double, _
             ByVal totalValue As Double, ByVal amount As Integer, ByVal isValueChange As Boolean, _
-            ByVal e As Validation.RuleArgs) As Boolean
+            ByVal e As Validation.RuleArgs, ByVal propertyName As String) As Boolean
 
             If Not isValueChange AndAlso CRound(unitValue, ROUNDUNITASSET) < 0.0 Then
 
-                e.Description = My.Resources.Assets_OperationBackground_BalanceInvalid
+                e.Description = String.Format(My.Resources.Assets_OperationBackground_BalanceInvalid, propertyName)
                 e.Severity = Validation.RuleSeverity.Error
                 Return False
 
             End If
 
-            If amount = 1 AndAlso CRound(totalValue, 2) <> CRound(unitValue, 2) Then
+            If amount = 1 AndAlso CRound(unitValue, 2) <> 0 AndAlso CRound(totalValue, 2) <> CRound(unitValue, 2) Then
 
-                e.Description = My.Resources.Assets_OperationBackground_UnitValueInvalidForSingleUnit
+                e.Description = String.Format(My.Resources.Assets_OperationBackground_UnitValueInvalidForSingleUnit, propertyName)
                 e.Severity = Validation.RuleSeverity.Error
                 Return False
 
-            ElseIf amount > 1 AndAlso Math.Abs(CRound(totalValue, 2) _
+            ElseIf amount > 1 AndAlso CRound(unitValue, 2) <> 0 AndAlso Math.Abs(CRound(totalValue, 2) _
                 - CRound(amount * unitValue, 2)) > UnitRoundTolerance Then
 
                 e.Description = String.Format(My.Resources.Assets_OperationBackground_UnitValueInvalid, _
-                    DblParser(UnitRoundTolerance, 2))
+                    DblParser(UnitRoundTolerance, 2), propertyName)
                 e.Severity = Validation.RuleSeverity.Error
                 Return False
 
-            ElseIf amount < 1 AndAlso CRound(unitValue, ROUNDUNITASSET) <> 0.0 Then
+            ElseIf amount < 1 AndAlso isValueChange AndAlso CRound(unitValue, ROUNDUNITASSET) <> 0.0 Then
 
-                If isValueChange Then
-                    e.Description = My.Resources.Assets_OperationBackground_UnitValueChangeInvalid
-                Else
-                    e.Description = My.Resources.Assets_OperationBackground_NullBalanceRequired
-                End If
+                e.Description = String.Format(My.Resources.Assets_OperationBackground_UnitValueChangeInvalid, propertyName)
                 e.Severity = Validation.RuleSeverity.Error
                 Return False
 
@@ -2058,17 +2123,17 @@
         End Function
 
         Private Shared Function BalanceAfterOperationValidation(ByVal balance As Double, _
-            ByVal amount As Integer, ByVal e As Validation.RuleArgs) As Boolean
+            ByVal amount As Integer, ByVal e As Validation.RuleArgs, ByVal propertyName As String) As Boolean
 
             If CRound(balance, 2) < 0 Then
 
-                e.Description = My.Resources.Assets_OperationBackground_BalanceInvalid
+                e.Description = String.Format(My.Resources.Assets_OperationBackground_BalanceInvalid, propertyName)
                 e.Severity = Validation.RuleSeverity.Error
                 Return False
 
             ElseIf amount < 1 AndAlso CRound(balance, 2) > 0 Then
 
-                e.Description = My.Resources.Assets_OperationBackground_NullBalanceRequired
+                e.Description = String.Format(My.Resources.Assets_OperationBackground_NullBalanceRequired, propertyName)
                 e.Severity = Validation.RuleSeverity.Error
                 Return False
 
@@ -2096,47 +2161,37 @@
         ''' <param name="nAssetID">An ID of the asset for which the data should be fetched.</param>
         ''' <remarks></remarks>
         Friend Shared Function NewOperationBackgroundChild(ByVal nAssetID As Integer) As OperationBackground
-            Return New OperationBackground(nAssetID, Nothing, Nothing)
+            Return New OperationBackground(nAssetID)
         End Function
 
         ''' <summary>
         ''' Gets a new OperationBackground instance for an existing long term asset operation.
         ''' </summary>
-        ''' <param name="nAssetId">An ID of the asset for which the data should be fetched.</param>
-        ''' <param name="nOperationID">An ID of the long term asset operation for which the data should be fetched.</param>
-        ''' <param name="nOperationDate">A date of the long term asset operation for which the data should be fetched.</param>
-        ''' <remarks>After the background data is fetched, the following actions should be taken:
-        ''' 1. Set <see cref="DisableCalculations">DisableCalculations</see> to TRUE;
-        ''' 2. Set state delta properties ('Change') with the operation data;
-        ''' 3. Invoke <see cref="InitializeOldData">InitializeOldData</see> 
-        ''' with the operation date as param;
-        ''' 4. Set <see cref="DisableCalculations">DisableCalculations</see> to FALSE.</remarks>
-        Friend Shared Function GetOperationBackgroundChild(ByVal nAssetId As Integer, _
-            ByVal nOperationID As Integer, ByVal nOperationDate As Date) As OperationBackground
-            Return New OperationBackground(nAssetId, nOperationID, nOperationDate, _
-                Nothing, Nothing)
+        ''' <param name="operationData">A persistence object containing parent asset operation data.</param>
+        ''' <remarks></remarks>
+        Friend Shared Function GetOperationBackgroundChild(ByVal operationData As OperationPersistenceObject) As OperationBackground
+            Return New OperationBackground(operationData, Nothing, Nothing)
         End Function
 
         ''' <summary>
         ''' Gets a new OperationBackground instance for an existing long term asset operation.
         ''' </summary>
-        ''' <param name="nAssetId">An ID of the asset for which the data should be fetched.</param>
-        ''' <param name="nOperationID">An ID of the long term asset operation for which the data should be fetched.</param>
-        ''' <param name="nOperationDate">A date of the long term asset operation for which the data should be fetched.</param>
+        ''' <param name="operationData">A persistence object containing parent asset operation data.</param>
         ''' <param name="generalSource">Datatable containing general asset data.</param>
-        ''' <param name="deltaSource">Datatable containing 
-        ''' <see cref="OperationDelta">asset operation delta values</see>.</param>
-        ''' <remarks>After the background data is fetched, the following actions should be taken:
-        ''' 1. Set <see cref="DisableCalculations">DisableCalculations</see> to TRUE;
-        ''' 2. Set state delta properties ('Change') with the operation data;
-        ''' 3. Invoke <see cref="InitializeOldData">InitializeOldData</see> 
-        ''' with the operation date as param;
-        ''' 4. Set <see cref="DisableCalculations">DisableCalculations</see> to FALSE.</remarks>
-        Friend Shared Function GetOperationBackgroundChild(ByVal nAssetId As Integer, _
-            ByVal nOperationID As Integer, ByVal nOperationDate As Date, _
+        ''' <param name="deltaSource">Datatable containing <see cref="OperationDelta">asset operation delta values</see>.</param>
+        ''' <remarks></remarks>
+        Friend Shared Function GetOperationBackgroundChild(ByVal operationData As OperationPersistenceObject, _
             ByVal generalSource As DataTable, ByVal deltaSource As DataTable) As OperationBackground
-            Return New OperationBackground(nAssetId, nOperationID, nOperationDate, _
-                generalSource, deltaSource)
+            Return New OperationBackground(operationData, generalSource, deltaSource)
+        End Function
+
+        ''' <summary>
+        ''' Reloads OperationBackground instance to perform revalidation before save.
+        ''' </summary>
+        ''' <param name="oldBackground">An OperationBackground instance to reload.</param>
+        ''' <remarks></remarks>
+        Friend Shared Function GetOperationBackgroundChild(ByVal oldBackground As OperationBackground) As OperationBackground
+            Return New OperationBackground(oldBackground)
         End Function
 
         ''' <summary>
@@ -2171,39 +2226,92 @@
             MarkAsChild()
         End Sub
 
-        Private Sub New(ByVal nAssetID As Integer, ByVal generalSource As DataTable, _
-            ByVal deltaSource As DataTable)
+        Private Sub New(ByVal nAssetID As Integer)
             MarkAsChild()
-            Create(nAssetID, generalSource, deltaSource)
+            Create(nAssetID)
         End Sub
 
-        Private Sub New(ByVal nAssetId As Integer, ByVal nOperationID As Integer, _
-            ByVal nOperationDate As Date, ByVal generalSource As DataTable, _
+        Private Sub New(ByVal operationData As OperationPersistenceObject, ByVal generalSource As DataTable, _
             ByVal deltaSource As DataTable)
             MarkAsChild()
-            Fetch(nAssetId, nOperationID, nOperationDate, generalSource, deltaSource)
+            Fetch(operationData, generalSource, deltaSource)
+        End Sub
+
+        Private Sub New(ByVal oldBackground As OperationBackground)
+            MarkAsChild()
+            Reload(oldBackground)
         End Sub
 
 #End Region
 
 #Region " Data Access "
 
-        Private Sub Create(ByVal nAssetID As Integer, ByVal generalSource As DataTable, _
-            ByVal deltaSource As DataTable)
-            GetGeneralData(nAssetID, generalSource)
-            _DeltaList = OperationDeltaList.GetList(nAssetID, 0, deltaSource)
+        Private Sub Create(ByVal nAssetID As Integer)
+            GetGeneralData(nAssetID)
+            _DeltaList = OperationDeltaList.GetList(nAssetID, 0, Nothing)
             CalculateCurrentProperties(False)
+            ValidationRules.CheckRules()
         End Sub
 
-        Private Sub Fetch(ByVal nAssetId As Integer, ByVal nOperationID As Integer, _
-            ByVal nOperationDate As Date, ByVal generalSource As DataTable, _
+        Private Sub Fetch(ByVal operationData As OperationPersistenceObject, ByVal generalSource As DataTable, _
             ByVal deltaSource As DataTable)
 
-            GetGeneralData(nAssetId, generalSource)
-            _CurrentDate = nOperationDate
-            _DeltaList = OperationDeltaList.GetList(nAssetId, nOperationID, deltaSource)
+            GetGeneralData(operationData.AssetID, generalSource)
+            _DeltaList = OperationDeltaList.GetList(operationData.AssetID, operationData.ID, deltaSource)
+
+            _CurrentDate = operationData.OperationDate
+            _CurrentOperationID = operationData.ID
+
+            _ChangeAcquisitionAccountValue = operationData.AcquisitionAccountChange
+            _ChangeAcquisitionAccountValuePerUnit = operationData.AcquisitionAccountChangePerUnit
+            _ChangeAmortizationAccountValue = operationData.AmortizationAccountChange
+            _ChangeAmortizationAccountValuePerUnit = operationData.AmortizationAccountChangePerUnit
+            _ChangeAssetAmount = -operationData.AmmountChange
+            _ChangeValueDecreaseAccountValue = operationData.ValueDecreaseAccountChange
+            _ChangeValueDecreaseAccountValuePerUnit = operationData.ValueDecreaseAccountChangePerUnit
+            _ChangeValueIncreaseAccountValue = operationData.ValueIncreaseAccountChange
+            _ChangeValueIncreaseAccountValuePerUnit = operationData.ValueIncreaseAccountChangePerUnit
+            _ChangeValueIncreaseAmortizationAccountValue = operationData.ValueIncreaseAmmortizationAccountChange
+            _ChangeValueIncreaseAmortizationAccountValuePerUnit = operationData.ValueIncreaseAmmortizationAccountChangePerUnit
+
+            CalculateCurrentProperties(False)
 
             MarkOld()
+
+            ValidationRules.CheckRules()
+
+        End Sub
+
+        Private Sub Reload(ByVal oldBackground As OperationBackground)
+
+            GetGeneralData(oldBackground._AssetID)
+            _DeltaList = OperationDeltaList.GetList(oldBackground._AssetID, oldBackground._CurrentOperationID, Nothing)
+
+            _CurrentDate = oldBackground._CurrentDate
+            _CurrentOperationID = oldBackground._CurrentOperationID
+
+            _ChangeAcquisitionAccountValue = oldBackground._ChangeAcquisitionAccountValue
+            _ChangeAcquisitionAccountValuePerUnit = oldBackground._ChangeAcquisitionAccountValuePerUnit
+            _ChangeAmortizationAccountValue = oldBackground._ChangeAmortizationAccountValue
+            _ChangeAmortizationAccountValuePerUnit = oldBackground._ChangeAmortizationAccountValuePerUnit
+            _ChangeAssetAmount = oldBackground._ChangeAssetAmount
+            _ChangeValueDecreaseAccountValue = oldBackground._ChangeValueDecreaseAccountValue
+            _ChangeValueDecreaseAccountValuePerUnit = oldBackground._ChangeValueDecreaseAccountValuePerUnit
+            _ChangeValueIncreaseAccountValue = oldBackground._ChangeValueIncreaseAccountValue
+            _ChangeValueIncreaseAccountValuePerUnit = oldBackground._ChangeValueIncreaseAccountValuePerUnit
+            _ChangeValueIncreaseAmortizationAccountValue = oldBackground._ChangeValueIncreaseAmortizationAccountValue
+            _ChangeValueIncreaseAmortizationAccountValuePerUnit = oldBackground._ChangeValueIncreaseAmortizationAccountValuePerUnit
+
+            CalculateCurrentProperties(False)
+
+            If Not oldBackground.IsNew Then
+                MarkOld()
+                If oldBackground.IsDirty Then
+                    MarkDirty()
+                End If
+            End If
+
+            ValidationRules.CheckRules()
 
         End Sub
 
