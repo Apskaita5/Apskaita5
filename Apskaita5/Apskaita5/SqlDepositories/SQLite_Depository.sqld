@@ -2420,12 +2420,12 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>CheckIfCanDeleteWageSheet</Key>
-    <Statement>SELECT b.Z_Data, COUNT(d.ID) FROM du_ziniarastis b LEFT JOIN du_ziniarastis_d d ON d.Z_ID=b.ID AND NOT d.Ismoketa IS NULL WHERE b.ID=$SD GROUP BY b.ID;</Statement>
+    <Statement>SELECT b.Z_Data FROM du_ziniarastis b WHERE b.ID=$SD ;</Statement>
     <Objects>Workers.SheetChronologicValidator</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>CheckIfCanDeleteImprestSheet</Key>
-    <Statement>SELECT b.Z_Data, COUNT(d.ID) FROM d_avansai b LEFT JOIN d_avansai_d d ON d.Z_ID=b.ID AND NOT d.Ismok IS NULL WHERE b.ID=$SD GROUP BY b.ID;</Statement>
+    <Statement>SELECT b.Z_Data FROM d_avansai b WHERE b.ID=$SD ;</Statement>
     <Objects>Workers.SheetChronologicValidator</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -2510,7 +2510,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchGoodsInfoList</Key>
-    <Statement>SELECT g.ID, g.Name, g.MeasureUnit, g.GoodsBarcode, g.GoodsCode, g.TradeItemType, g.IsObsolete FROM goods g ORDER BY g.Name</Statement>
+    <Statement>SELECT g.ID, g.Name, g.MeasureUnit, g.GoodsBarcode, g.GoodsCode, g.TradeItemType, g.IsObsolete, g.AccountSalesNetCosts, g.GroupID, g.DefaultVatRateSales, g.DefaultVatRatePurchase, g.DefaultAccountingMethod, g.DefaultWarehouseID FROM goods g ORDER BY g.Name</Statement>
     <Objects>HelperLists.GoodsInfoList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -2915,12 +2915,12 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchProductionItemList</Key>
-    <Statement>SELECT d.Tip, d.ID, d.Sask, d.Kiek, d.NormativeUnitCost, g.ID, g.Name, g.MeasureUnit, g.GoodsBarcode, g.GoodsCode, g.TradeItemType, g.IsObsolete FROM kalkuliac_d d LEFT JOIN goods g ON g.ID=d.P_ID WHERE d.K_ID=$CD ;</Statement>
+    <Statement>SELECT d.Tip, d.ID, d.Sask, d.Kiek, d.NormativeUnitCost, g.ID, g.Name, g.MeasureUnit, g.GoodsBarcode, g.GoodsCode, g.TradeItemType, g.IsObsolete, g.AccountSalesNetCosts, g.GroupID, g.DefaultVatRateSales, g.DefaultVatRatePurchase, g.DefaultAccountingMethod, g.DefaultWarehouseID FROM kalkuliac_d d LEFT JOIN goods g ON g.ID=d.P_ID WHERE d.K_ID=$CD ;</Statement>
     <Objects>Goods.ProductionCalculation</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchProductionCalculation</Key>
-    <Statement>SELECT k.ID, k.Vnt_sk, k.K_data, k.IsObsolete, k.Description, k.InsertDate, k.UpdateDate, g.ID, g.Name, g.MeasureUnit, g.GoodsBarcode, g.GoodsCode, g.TradeItemType, g.IsObsolete FROM kalkuliac k LEFT JOIN goods g ON g.ID=k.P_ID WHERE k.ID=$CD ;</Statement>
+    <Statement>SELECT k.ID, k.Vnt_sk, k.K_data, k.IsObsolete, k.Description, k.InsertDate, k.UpdateDate, g.ID, g.Name, g.MeasureUnit, g.GoodsBarcode, g.GoodsCode, g.TradeItemType, g.IsObsolete, g.AccountSalesNetCosts, g.GroupID, g.DefaultVatRateSales, g.DefaultVatRatePurchase, g.DefaultAccountingMethod, g.DefaultWarehouseID FROM kalkuliac k LEFT JOIN goods g ON g.ID=k.P_ID WHERE k.ID=$CD ;</Statement>
     <Objects>Goods.ProductionCalculation</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -2980,7 +2980,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchUsedWarehouses</Key>
-    <Statement>SELECT DISTINCT o.WarehouseID FROM goodsoperations o;</Statement>
+    <Statement>SELECT g.WarehouseID, MAX(g.OperationDate) FROM goodsoperations g WHERE g.WarehouseID &gt; 0 GROUP BY g.WarehouseID;</Statement>
     <Objects>Goods.WarehouseList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3322,5 +3322,15 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
     <Key>UpgradeAssetOperationDocNo2</Key>
     <Statement>UPDATE turtas_op SET ActNumber=0;</Statement>
     <Objects>Administration.CustomDatabaseStructureErrorManager</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>UpdateWarehouseGeneral</Key>
+    <Statement>UPDATE warehouses SET Name=$AA, Location=$AB, Description=$AC, IsObsolete=$AE WHERE ID=$WD ;</Statement>
+    <Objects>Goods.Warehouse</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>CheckIfProductionCalculationUpdateDateChanged</Key>
+    <Statement>SELECT k.UpdateDate FROM kalkuliac k WHERE k.ID=$CD ;</Statement>
+    <Objects>Goods.ProductionCalculation</Objects>
   </MySQL_Statement>
 </NewDataSet>

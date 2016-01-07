@@ -5014,6 +5014,141 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to standartinis gamybos kiekis.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_ProductionCalculationItem_Amount() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_ProductionCalculationItem_Amount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to skirtingų komponentų (žaliavų) kiekis.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_ProductionCalculationItem_ComponentCount() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_ProductionCalculationItem_ComponentCount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gamybos sąnaudų suma standartiniam gamybos kiekiui.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_ProductionCalculationItem_CostsSum() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_ProductionCalculationItem_CostsSum", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kalkuliacijos data.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_ProductionCalculationItem_Date() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_ProductionCalculationItem_Date", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kalkuliacijos aprašymas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_ProductionCalculationItem_Description() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_ProductionCalculationItem_Description", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gaminio (prekės) kodas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_ProductionCalculationItem_GoodsCode() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_ProductionCalculationItem_GoodsCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gaminio (prekės) ID.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_ProductionCalculationItem_GoodsID() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_ProductionCalculationItem_GoodsID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gaminio (prekės) mato vienetas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_ProductionCalculationItem_GoodsMeasureUnit() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_ProductionCalculationItem_GoodsMeasureUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gaminio (prekės) pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_ProductionCalculationItem_GoodsName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_ProductionCalculationItem_GoodsName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_ProductionCalculationItem_ID() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_ProductionCalculationItem_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įtraukta.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_ProductionCalculationItem_InsertDate() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_ProductionCalculationItem_InsertDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nebenaudojama.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_ProductionCalculationItem_IsObsolete() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_ProductionCalculationItem_IsObsolete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} kalkuliacija prekei &quot;{1}&quot;: {2}.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_ProductionCalculationItem_ToString() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_ProductionCalculationItem_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gamybos kalkuliacijų ataskaitos eilutė.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_ProductionCalculationItem_TypeName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_ProductionCalculationItem_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pakeista.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_ProductionCalculationItem_UpdateDate() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_ProductionCalculationItem_UpdateDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to mėnuo.
         '''</summary>
         Friend ReadOnly Property ActiveReports_SodraRateInfo_Month() As String
@@ -25249,11 +25384,785 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to nuolat apskaitomos.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsAccountingMethod_Periodic() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsAccountingMethod_Periodic", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to periodiškai apskaitomos.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsAccountingMethod_Persistent() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsAccountingMethod_Persistent", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to masinis nurašymas.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsComplexOperationType_BulkDiscard() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsComplexOperationType_BulkDiscard", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to masinis nukainojimas.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsComplexOperationType_BulkPriceCut() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsComplexOperationType_BulkPriceCut", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vidinis judėjimas.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsComplexOperationType_InternalTransfer() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsComplexOperationType_InternalTransfer", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to inventorizacija.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsComplexOperationType_Inventorization() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsComplexOperationType_Inventorization", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gamyba.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsComplexOperationType_Production() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsComplexOperationType_Production", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to likučių perkėlimas.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsComplexOperationType_TransferOfBalance() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsComplexOperationType_TransferOfBalance", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsGroup_ID() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsGroup_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekių grupės pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsGroup_Name() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsGroup_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsGroup_ToString() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsGroup_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekių grupė.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsGroup_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsGroup_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Prekių grupės &quot;{0}&quot; pašalinti neleidžiama, nes jai yra priskirtų prekių..
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsGroupList_InvalidDelete() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsGroupList_InvalidDelete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Neįvesta nė viena prekių grupė..
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsGroupList_ListEmpty() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsGroupList_ListEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekių grupės.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsGroupList_ToString() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsGroupList_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekių grupės.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsGroupList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsGroupList_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodyta pardavimų (savikainos nurašymo) sąskaita..
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsItem_AccountSalesNetCostsNull() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsItem_AccountSalesNetCostsNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Su šia prekių rūšimi yra registruota operacijų..
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsItem_InvalidDelete() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsItem_InvalidDelete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Tai pačiai grupei yra priskirta kita prekių rūšis tokiu pat pavadinimu..
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsItem_NameNotUniqueWithinGroup() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsItem_NameNotUniqueWithinGroup", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Neįvesti prekės pavadinimai nė viena kalba..
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsItem_RegionalContentListEmpty() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsItem_RegionalContentListEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Neįvestos prekės kainos nė viena valiuta..
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsItem_RegionalPriceListEmpty() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsItem_RegionalPriceListEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} (ID={1}).
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsItem_ToString() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsItem_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendri prekės duomenys.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsItem_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsItem_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nerasta prekių operacija, atitinkanti prašomą dokumento tipą ({0}). Rastos operacijos neatitinkančios dokumento tipo:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationIdInfo_InvalidOperationType() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationIdInfo_InvalidOperationType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Pagal bendrojo žurnalo operacijos ID={0} nerasta jokia prekių operacija..
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationIdInfo_OperationNotFound() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationIdInfo_OperationNotFound", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}, ID={1}, BŽ ID={2}.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationIdInfo_ToString() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationIdInfo_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekių operacijos identifikacijos duomenys.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationIdInfo_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationIdInfo_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gautų nuolaidų sąsk. pakeitimas.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationType_AccountDiscountsChange() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationType_AccountDiscountsChange", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pirkimų sąsk. pakeitimas.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationType_AccountPurchasesChange() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationType_AccountPurchasesChange", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pardavimo savik. sąsk. pakeitimas.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationType_AccountSalesNetCostsChange() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationType_AccountSalesNetCostsChange", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nukainojimo sąsk. pakeitimas.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationType_AccountValueReductionChange() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationType_AccountValueReductionChange", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įsigijimas.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationType_Acquisition() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationType_Acquisition", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to papildomi kaštai.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationType_ConsignmentAdditionalCosts() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationType_ConsignmentAdditionalCosts", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gauta nuolaida.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationType_ConsignmentDiscount() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationType_ConsignmentDiscount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nurašymas.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationType_Discard() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationType_Discard", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to inventorizacija.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationType_Inventorization() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationType_Inventorization", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nukainojimas.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationType_PriceCut() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationType_PriceCut", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to perleidimas.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationType_Transfer() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationType_Transfer", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to likučių perkėlimas.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationType_TransferOfBalance() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationType_TransferOfBalance", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vertinimo metodo pakeitimas.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationType_ValuationMethodChange() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationType_ValuationMethodChange", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vidurkių.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsValuationMethod_Average() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsValuationMethod_Average", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to FIFO.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsValuationMethod_FIFO() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsValuationMethod_FIFO", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to LIFO.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsValuationMethod_LIFO() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsValuationMethod_LIFO", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Kiekis po inventorizacijos negali būti neigiamas - prekė {0}..
         '''</summary>
         Friend ReadOnly Property Goods_InvalidAmountAfterInventorization() As String
             Get
                 Return ResourceManager.GetString("Goods_InvalidAmountAfterInventorization", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to standartinis gamybos kiekis.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCalculation_Amount() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCalculation_Amount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to komponentai (žaliavos).
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCalculation_ComponentList() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCalculation_ComponentList", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to komponentai (žaliavos).
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCalculation_ComponentListSorted() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCalculation_ComponentListSorted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gamybos sąnaudos.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCalculation_CostList() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCalculation_CostList", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gamybos sąnaudos.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCalculation_CostListSorted() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCalculation_CostListSorted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kalkuliacijos data.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCalculation_Date() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCalculation_Date", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kalkuliacijos aprašymas.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCalculation_Description() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCalculation_Description", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gaminys.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCalculation_Goods() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCalculation_Goods", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCalculation_ID() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCalculation_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įtraukta.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCalculation_InsertDate() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCalculation_InsertDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nebenaudojama.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCalculation_IsObsolete() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCalculation_IsObsolete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Neužpildyta nė viena kalkuliacijos eilutė..
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCalculation_ListsEmpty() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCalculation_ListsEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} gamybos kalkuliacija prekei &quot;{1}&quot;.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCalculation_ToString() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCalculation_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gamybos kalkuliacija.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCalculation_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCalculation_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pakeista.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCalculation_UpdateDate() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCalculation_UpdateDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to komponento (žaliavos) kiekis standartiniam gaminio kiekiui.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionComponentItem_Amount() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionComponentItem_Amount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to komponentas (žaliava).
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionComponentItem_Goods() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionComponentItem_Goods", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionComponentItem_ID() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionComponentItem_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to komponento (žaliavos) vieneto normatyvinė savikaina.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionComponentItem_NormativeUnitCost() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionComponentItem_NormativeUnitCost", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} = {1}.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionComponentItem_ToString() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionComponentItem_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gamybos komponentų (žaliavų) eilutės šablonas.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionComponentItem_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionComponentItem_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to komplektuojančios prekės/žaliavos.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionComponentType_Component() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionComponentType_Component", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gamybos savikainos sąnaudos.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionComponentType_Costs() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionComponentType_Costs", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sąnaudų sąsk..
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCostItem_Account() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCostItem_Account", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sąnaudos standartiniam gaminio kiekiui.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCostItem_Amount() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCostItem_Amount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCostItem_ID() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCostItem_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} = {1}.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCostItem_ToString() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCostItem_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gamybos sąnaudų eilutės šablonas.
+        '''</summary>
+        Friend ReadOnly Property Goods_ProductionCostItem_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Goods_ProductionCostItem_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to yra prekių operacijų.
+        '''</summary>
+        Friend ReadOnly Property Goods_Warehouse_ContainsGoods() As String
+            Get
+                Return ResourceManager.GetString("Goods_Warehouse_ContainsGoods", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sandėlio aprašymas.
+        '''</summary>
+        Friend ReadOnly Property Goods_Warehouse_Description() As String
+            Get
+                Return ResourceManager.GetString("Goods_Warehouse_Description", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property Goods_Warehouse_ID() As String
+            Get
+                Return ResourceManager.GetString("Goods_Warehouse_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nebenaudojamas.
+        '''</summary>
+        Friend ReadOnly Property Goods_Warehouse_IsObsolete() As String
+            Get
+                Return ResourceManager.GetString("Goods_Warehouse_IsObsolete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gamybos (žaliavų) sandėlis.
+        '''</summary>
+        Friend ReadOnly Property Goods_Warehouse_IsProduction() As String
+            Get
+                Return ResourceManager.GetString("Goods_Warehouse_IsProduction", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to paskutinė prekių operacija sandėlyje.
+        '''</summary>
+        Friend ReadOnly Property Goods_Warehouse_LastOperationDate() As String
+            Get
+                Return ResourceManager.GetString("Goods_Warehouse_LastOperationDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sandėlio vieta (adresas).
+        '''</summary>
+        Friend ReadOnly Property Goods_Warehouse_Location() As String
+            Get
+                Return ResourceManager.GetString("Goods_Warehouse_Location", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sandėlio pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property Goods_Warehouse_Name() As String
+            Get
+                Return ResourceManager.GetString("Goods_Warehouse_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekių sandėlis {0}: {1}.
+        '''</summary>
+        Friend ReadOnly Property Goods_Warehouse_ToString() As String
+            Get
+                Return ResourceManager.GetString("Goods_Warehouse_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekių sandėlis.
+        '''</summary>
+        Friend ReadOnly Property Goods_Warehouse_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Goods_Warehouse_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sandėlio apskaitos sąskaita.
+        '''</summary>
+        Friend ReadOnly Property Goods_Warehouse_WarehouseAccount() As String
+            Get
+                Return ResourceManager.GetString("Goods_Warehouse_WarehouseAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Sandėlio &quot;{0}&quot; pašalinti negalima. Jame buvo apskaitomos prekės..
+        '''</summary>
+        Friend ReadOnly Property Goods_WarehouseList_InvalidDelete() As String
+            Get
+                Return ResourceManager.GetString("Goods_WarehouseList_InvalidDelete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Neįvestas nė vienas sandėlis..
+        '''</summary>
+        Friend ReadOnly Property Goods_WarehouseList_ListEmpty() As String
+            Get
+                Return ResourceManager.GetString("Goods_WarehouseList_ListEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekių sandėlių sąrašas.
+        '''</summary>
+        Friend ReadOnly Property Goods_WarehouseList_ToString() As String
+            Get
+                Return ResourceManager.GetString("Goods_WarehouseList_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekių sandėlių sąrašas.
+        '''</summary>
+        Friend ReadOnly Property Goods_WarehouseList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Goods_WarehouseList_TypeName", resourceCulture)
             End Get
         End Property
         
@@ -25843,6 +26752,87 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to prekių grupės informacija.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_GoodsGroupInfo_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_GoodsGroupInfo_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekių grupės informacija.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_GoodsGroupInfo_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_GoodsGroupInfo_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekių grupių informacija.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_GoodsGroupInfoList_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_GoodsGroupInfoList_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekių grupių informacija.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_GoodsGroupInfoList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_GoodsGroupInfoList_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to apskaitos metodas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_GoodsInfo_AccountingMethod() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_GoodsInfo_AccountingMethod", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pardavimo savikainos sąsk..
+        '''</summary>
+        Friend ReadOnly Property HelperLists_GoodsInfo_AccountSalesNetCosts() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_GoodsInfo_AccountSalesNetCosts", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pirkimo PVM tarifas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_GoodsInfo_DefaultVatRatePurchase() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_GoodsInfo_DefaultVatRatePurchase", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pardavimo PVM tarifas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_GoodsInfo_DefaultVatRateSales() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_GoodsInfo_DefaultVatRateSales", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įprastinio sandėlio ID.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_GoodsInfo_DefaultWarehouseID() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_GoodsInfo_DefaultWarehouseID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to barkodas.
         '''</summary>
         Friend ReadOnly Property HelperLists_GoodsInfo_GoodsBarcode() As String
@@ -25857,6 +26847,15 @@ Namespace My.Resources
         Friend ReadOnly Property HelperLists_GoodsInfo_GoodsCode() As String
             Get
                 Return ResourceManager.GetString("HelperLists_GoodsInfo_GoodsCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to grupės ID.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_GoodsInfo_GroupID() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_GoodsInfo_GroupID", resourceCulture)
             End Get
         End Property
         
@@ -25897,11 +26896,38 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to {0}.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_GoodsInfo_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_GoodsInfo_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} ({1}).
+        '''</summary>
+        Friend ReadOnly Property HelperLists_GoodsInfo_ToStringWithCode() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_GoodsInfo_ToStringWithCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to apyvartos tipas.
         '''</summary>
         Friend ReadOnly Property HelperLists_GoodsInfo_TradeItemType() As String
             Get
                 Return ResourceManager.GetString("HelperLists_GoodsInfo_TradeItemType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendri prekės duomenys.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_GoodsInfo_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_GoodsInfo_TypeName", resourceCulture)
             End Get
         End Property
         
@@ -26635,6 +27661,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to {0} kalkuliacija prekei &quot;{1}&quot;: {2}.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_ProductionCalculationInfo_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_ProductionCalculationInfo_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gamybos kalkuliacijos informacija.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_ProductionCalculationInfo_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_ProductionCalculationInfo_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to pavadinimas sąskaitoje.
         '''</summary>
         Friend ReadOnly Property HelperLists_RegionalContentInfo_ContentInvoice() As String
@@ -27018,6 +28062,33 @@ Namespace My.Resources
         Friend ReadOnly Property HelperLists_WarehouseInfo_Name() As String
             Get
                 Return ResourceManager.GetString("HelperLists_WarehouseInfo_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}: {1}.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_WarehouseInfo_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_WarehouseInfo_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}: {1} (gamyba).
+        '''</summary>
+        Friend ReadOnly Property HelperLists_WarehouseInfo_ToStringProduction() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_WarehouseInfo_ToStringProduction", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekių sandėlio informacija.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_WarehouseInfo_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_WarehouseInfo_TypeName", resourceCulture)
             End Get
         End Property
         
@@ -30442,6 +31513,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Po šio žiniaraščio yra registruotas sąskaitų uždarymas..
+        '''</summary>
+        Friend ReadOnly Property Workers_SheetChronologicValidator_InvalidDeleteAfterClosing() As String
+            Get
+                Return ResourceManager.GetString("Workers_SheetChronologicValidator_InvalidDeleteAfterClosing", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Žiniaraščio data negali būti vėlesnė nei sekančio mėnesio po priskaičiavimo paskutinė diena, t.y. {0}..
         '''</summary>
         Friend ReadOnly Property Workers_SheetChronologicValidator_MaxDateDefaultExplanation() As String
@@ -30456,6 +31536,24 @@ Namespace My.Resources
         Friend ReadOnly Property Workers_SheetChronologicValidator_MinDateDefaultExplanation() As String
             Get
                 Return ResourceManager.GetString("Workers_SheetChronologicValidator_MinDateDefaultExplanation", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to chronologiniai apribojimai žiniaraščiui &quot;{0}&quot;.
+        '''</summary>
+        Friend ReadOnly Property Workers_SheetChronologicValidator_ToString() As String
+            Get
+                Return ResourceManager.GetString("Workers_SheetChronologicValidator_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to žiniraščio chronologiniai apribojimai.
+        '''</summary>
+        Friend ReadOnly Property Workers_SheetChronologicValidator_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Workers_SheetChronologicValidator_TypeName", resourceCulture)
             End Get
         End Property
         

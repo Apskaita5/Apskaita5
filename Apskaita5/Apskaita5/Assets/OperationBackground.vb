@@ -2088,31 +2088,39 @@
             ByVal totalValue As Double, ByVal amount As Integer, ByVal isValueChange As Boolean, _
             ByVal e As Validation.RuleArgs, ByVal propertyName As String) As Boolean
 
-            If Not isValueChange AndAlso CRound(unitValue, ROUNDUNITASSET) < 0.0 Then
+            If Not isValueChange Then
 
-                e.Description = String.Format(My.Resources.Assets_OperationBackground_BalanceInvalid, propertyName)
-                e.Severity = Validation.RuleSeverity.Error
-                Return False
+                If CRound(unitValue, ROUNDUNITASSET) < 0.0 Then
+
+                    e.Description = String.Format(My.Resources.Assets_OperationBackground_BalanceInvalid, propertyName)
+                    e.Severity = Validation.RuleSeverity.Error
+                    Return False
+
+                ElseIf amount = 1 AndAlso CRound(totalValue, 2) <> CRound(unitValue, 2) Then
+
+                    e.Description = String.Format(My.Resources.Assets_OperationBackground_UnitValueInvalidForSingleUnit, propertyName)
+                    e.Severity = Validation.RuleSeverity.Error
+                    Return False
+
+                End If
+
+            Else
+
+                If amount < 1 AndAlso CRound(unitValue, ROUNDUNITASSET) <> 0.0 Then
+
+                    e.Description = String.Format(My.Resources.Assets_OperationBackground_UnitValueChangeInvalid, propertyName)
+                    e.Severity = Validation.RuleSeverity.Error
+                    Return False
+
+                End If
 
             End If
 
-            If amount = 1 AndAlso CRound(unitValue, 2) <> 0 AndAlso CRound(totalValue, 2) <> CRound(unitValue, 2) Then
-
-                e.Description = String.Format(My.Resources.Assets_OperationBackground_UnitValueInvalidForSingleUnit, propertyName)
-                e.Severity = Validation.RuleSeverity.Error
-                Return False
-
-            ElseIf amount > 1 AndAlso CRound(unitValue, 2) <> 0 AndAlso Math.Abs(CRound(totalValue, 2) _
+            If amount > 1 AndAlso CRound(unitValue, 2) <> 0 AndAlso Math.Abs(CRound(totalValue, 2) _
                 - CRound(amount * unitValue, 2)) > UnitRoundTolerance Then
 
                 e.Description = String.Format(My.Resources.Assets_OperationBackground_UnitValueInvalid, _
                     DblParser(UnitRoundTolerance, 2), propertyName)
-                e.Severity = Validation.RuleSeverity.Error
-                Return False
-
-            ElseIf amount < 1 AndAlso isValueChange AndAlso CRound(unitValue, ROUNDUNITASSET) <> 0.0 Then
-
-                e.Description = String.Format(My.Resources.Assets_OperationBackground_UnitValueChangeInvalid, propertyName)
                 e.Severity = Validation.RuleSeverity.Error
                 Return False
 

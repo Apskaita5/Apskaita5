@@ -1,5 +1,10 @@
 Namespace ActiveReports
 
+    ''' <summary>
+    ''' Represents a goods production calculation report item. 
+    ''' Contains information about a <see cref="Goods.ProductionCalculation">ProductionCalculation</see>.
+    ''' </summary>
+    ''' <remarks>Values are stored in the database tables kalkuliac and kalkuliac_d.</remarks>
     <Serializable()> _
     Public Class ProductionCalculationItem
         Inherits ReadOnlyBase(Of ProductionCalculationItem)
@@ -21,6 +26,10 @@ Namespace ActiveReports
         Private _CostsSum As Double = 0
 
 
+        ''' <summary>
+        ''' Gets an ID of the production template that is assigned by a database (AUTOINCREMENT).
+        ''' </summary>
+        ''' <remarks>Data is stored in database field kalkuliac.ID.</remarks>
         Public ReadOnly Property ID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -28,13 +37,23 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a standard amount of the goods produced (components and costs 
+        ''' amounts are set for this amount of the goods produced)
+        ''' </summary>
+        ''' <remarks>Data is stored in database field kalkuliac.Vnt_sk.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDAMOUNTGOODS)> _
         Public ReadOnly Property Amount() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_Amount, 6)
+                Return CRound(_Amount, ROUNDAMOUNTGOODS)
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a date of the production template.
+        ''' </summary>
+        ''' <remarks>Data is stored in database field kalkuliac.K_data.</remarks>
         Public ReadOnly Property [Date]() As Date
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -42,6 +61,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Whether the production template is obsolete (no longer in use).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field kalkuliac.IsObsolete.</remarks>
         Public ReadOnly Property IsObsolete() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -49,6 +72,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a description of the production template.
+        ''' </summary>
+        ''' <remarks>Data is stored in database field kalkuliac.Description.</remarks>
         Public ReadOnly Property Description() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -56,6 +83,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets the date and time when the production template was inserted into the database.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field kalkuliac.InsertDate.</remarks>
         Public ReadOnly Property InsertDate() As DateTime
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -63,6 +94,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets the date and time when the production template was last updated.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field kalkuliac.UpdateDate.</remarks>
         Public ReadOnly Property UpdateDate() As DateTime
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -70,6 +105,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an <see cref="Goods.GoodsItem.ID">ID of the goods</see> 
+        ''' that are produced using the production template.
+        ''' </summary>
+        ''' <remarks>Data is stored in database field kalkuliac.P_ID.</remarks>
         Public ReadOnly Property GoodsID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -77,6 +117,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a <see cref="Goods.GoodsItem.Name">name of the goods</see> 
+        ''' that are produced using the production template.
+        ''' </summary>
+        ''' <remarks>Data is stored in database field kalkuliac.P_ID.</remarks>
         Public ReadOnly Property GoodsName() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -84,6 +129,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a <see cref="Goods.GoodsItem.MeasureUnit">measure unit of the goods</see> 
+        ''' that are produced using the production template.
+        ''' </summary>
+        ''' <remarks>Data is stored in database field kalkuliac.P_ID.</remarks>
         Public ReadOnly Property GoodsMeasureUnit() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -91,6 +141,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a <see cref="Goods.GoodsItem.InternalCode">code of the goods</see> 
+        ''' that are produced using the production template.
+        ''' </summary>
+        ''' <remarks>Data is stored in database field kalkuliac.P_ID.</remarks>
         Public ReadOnly Property GoodsCode() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -98,6 +153,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a number of different components in the production template.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property ComponentCount() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -105,6 +164,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a total production costs per <see cref="Amount">standard production 
+        ''' amount</see> in the production template.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property CostsSum() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -119,7 +184,8 @@ Namespace ActiveReports
         End Function
 
         Public Overrides Function ToString() As String
-            Return _Date.ToString("yyyy-MM-dd") & " " & _GoodsName & " -> " & _Description
+            Return String.Format(My.Resources.ActiveReports_ProductionCalculationItem_ToString, _
+                _Date.ToString("yyyy-MM-dd"), _GoodsName, _Description)
         End Function
 
 #End Region
@@ -146,14 +212,12 @@ Namespace ActiveReports
         Private Sub Fetch(ByVal dr As DataRow)
 
             _ID = CIntSafe(dr.item(0), 0)
-            _Amount = CDblSafe(dr.Item(1), 6, 0)
+            _Amount = CDblSafe(dr.Item(1), ROUNDAMOUNTGOODS, 0)
             _Date = CDateSafe(dr.Item(2), Today)
             _IsObsolete = ConvertDbBoolean(CIntSafe(dr.Item(3), 0))
             _Description = CStrSafe(dr.Item(4)).Trim
-            _InsertDate = DateTime.SpecifyKind(CDateTimeSafe(dr.Item(5), Date.UtcNow), _
-                DateTimeKind.Utc).ToLocalTime
-            _UpdateDate = DateTime.SpecifyKind(CDateTimeSafe(dr.Item(6), Date.UtcNow), _
-                DateTimeKind.Utc).ToLocalTime
+            _InsertDate = CTimeStampSafe(dr.Item(5))
+            _UpdateDate = CTimeStampSafe(dr.Item(6))
             _GoodsID = CIntSafe(dr.Item(7), 0)
             _GoodsName = CStrSafe(dr.Item(8)).Trim
             _GoodsMeasureUnit = CStrSafe(dr.Item(9)).Trim

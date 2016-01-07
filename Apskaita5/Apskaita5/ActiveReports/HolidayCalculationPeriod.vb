@@ -80,11 +80,11 @@
         ''' Gets an amount of cumulated holiday days for the calculation period
         ''' </summary>
         ''' <remarks></remarks>
-        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDHOLIDAYDAYS)> _
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDACCUMULATEDHOLIDAY)> _
         Public ReadOnly Property CumulatedHolidayDaysPerPeriod() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_CumulatedHolidayDaysPerPeriod, ROUNDHOLIDAYDAYS)
+                Return CRound(_CumulatedHolidayDaysPerPeriod, ROUNDACCUMULATEDHOLIDAY)
             End Get
         End Property
 
@@ -108,7 +108,7 @@
         Public Overrides Function ToString() As String
             Return String.Format(My.Resources.ActiveReports_HolidayCalculationPeriod_ToString, _
                 _DateBegin.ToString("yyyy-MM-dd"), _DateEnd.ToString("yyyy-MM-dd"), _
-                DblParser(_CumulatedHolidayDaysPerPeriod, ROUNDHOLIDAYDAYS))
+                DblParser(_CumulatedHolidayDaysPerPeriod, ROUNDACCUMULATEDHOLIDAY))
         End Function
 
 #End Region
@@ -182,7 +182,7 @@
         Private Sub Calculate()
             _LengthDays = Convert.ToInt32(DateDiff(DateInterval.Day, _DateBegin, _DateEnd))
             _LengthYears = CRound(_LengthDays / AVERAGEDAYSINYEAR, ROUNDWORKYEARS)
-            _CumulatedHolidayDaysPerPeriod = CRound(_LengthYears * _HolidayRate, ROUNDHOLIDAYDAYS)
+            _CumulatedHolidayDaysPerPeriod = CRound(_LengthYears * _HolidayRate, ROUNDACCUMULATEDHOLIDAY)
         End Sub
 
 #End Region

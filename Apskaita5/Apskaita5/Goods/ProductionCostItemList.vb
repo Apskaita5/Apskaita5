@@ -1,5 +1,11 @@
 Namespace Goods
 
+    ''' <summary>
+    ''' Represents a list of production template (""recipe"") costs items 
+    ''' for a certain production template (calculation).
+    ''' </summary>
+    ''' <remarks>Should only be used as a child of <see cref="ProductionCalculation">ProductionCalculation</see>.
+    ''' Values are stored in the database table kalkuliac_d.</remarks>
     <Serializable()> _
     Public Class ProductionCostItemList
         Inherits BusinessListBase(Of ProductionCostItemList, ProductionCostItem)
@@ -7,28 +13,26 @@ Namespace Goods
 #Region " Business Methods "
 
         Protected Overrides Function AddNewCore() As Object
-            Dim NewItem As ProductionCostItem = ProductionCostItem.NewProductionCostItem
-            Me.Add(NewItem)
-            Return NewItem
+            Dim newItem As ProductionCostItem = ProductionCostItem.NewProductionCostItem
+            Me.Add(newItem)
+            Return newItem
         End Function
 
         Public Function GetAllBrokenRules() As String
             Dim result As String = GetAllBrokenRulesForList(Me)
-
-            'Dim GeneralErrorString As String = ""
-            'SomeGeneralValidationSub(GeneralErrorString)
-            'AddWithNewLine(result, GeneralErrorString, False)
-
             Return result
         End Function
 
         Public Function GetAllWarnings() As String
             Dim result As String = GetAllWarningsForList(Me)
-            'Dim GeneralErrorString As String = ""
-            'SomeGeneralValidationSub(GeneralErrorString)
-            'AddWithNewLine(result, GeneralErrorString, False)
-
             Return result
+        End Function
+
+        Public Function HasWarnings() As Boolean
+            For Each i As ProductionCostItem In Me
+                If i.HasWarnings() Then Return True
+            Next
+            Return False
         End Function
 
 #End Region
@@ -36,13 +40,11 @@ Namespace Goods
 #Region " Factory Methods "
 
         Friend Shared Function NewProductionCostItemList() As ProductionCostItemList
-            Dim result As ProductionCostItemList = New ProductionCostItemList
-            Return result
+            Return New ProductionCostItemList
         End Function
 
         Friend Shared Function GetProductionCostItemList(ByVal myData As DataTable) As ProductionCostItemList
-            Dim result As ProductionCostItemList = New ProductionCostItemList(myData)
-            Return result
+            Return New ProductionCostItemList(myData)
         End Function
 
 

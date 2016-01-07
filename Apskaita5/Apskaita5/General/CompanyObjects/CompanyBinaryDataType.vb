@@ -10,14 +10,14 @@
         ''' A company logo image.
         ''' </summary>
         ''' <remarks>Is stored in JPEG format.</remarks>
-        <EnumValue(0, "INV")> _
+        <EnumValue(0, "LOG")> _
         Logo
 
         ''' <summary>
         ''' A company invoice form (rdlc).
         ''' </summary>
         ''' <remarks>Is stored as binary file stream.</remarks>
-        <EnumValue(1, "LOG")> _
+        <EnumValue(1, "INV")> _
         InvoiceForm
 
     End Enum

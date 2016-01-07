@@ -43,7 +43,7 @@
         Friend Function GetTotalCumulatedHolidayDays() As Double
             Dim result As Double = 0
             For Each i As HolidayCalculationPeriod In Me
-                result = CRound(result + i.CumulatedHolidayDaysPerPeriod, ROUNDHOLIDAYDAYS)
+                result = CRound(result + i.CumulatedHolidayDaysPerPeriod, ROUNDACCUMULATEDHOLIDAY)
             Next
             Return result
         End Function
