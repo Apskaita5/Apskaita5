@@ -84,7 +84,7 @@ Namespace Workers
             Dim result As Double = 0
             For Each i As DayWorkTime In Me
                 If (i.Type Is Nothing OrElse Not i.Type.ID > 0) AndAlso i.Length > 0 Then _
-                    result = CRound(result + i.Length, ROUNDWORKTIME)
+                    result = CRound(result + i.Length, ROUNDWORKHOURS)
             Next
             Return result
         End Function

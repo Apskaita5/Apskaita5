@@ -46,11 +46,11 @@
 
         Public Property WorkHoursFor5WorkDayWeek() As Double
             Get
-                Return CRound(_WorkHoursFor5WorkDayWeek, ROUNDWORKTIME)
+                Return CRound(_WorkHoursFor5WorkDayWeek, ROUNDWORKHOURS)
             End Get
             Set(ByVal value As Double)
-                If CRound(_WorkHoursFor5WorkDayWeek, ROUNDWORKTIME) <> CRound(value, ROUNDWORKTIME) Then
-                    _WorkHoursFor5WorkDayWeek = CRound(value, ROUNDWORKTIME)
+                If CRound(_WorkHoursFor5WorkDayWeek, ROUNDWORKHOURS) <> CRound(value, ROUNDWORKHOURS) Then
+                    _WorkHoursFor5WorkDayWeek = CRound(value, ROUNDWORKHOURS)
                 End If
             End Set
         End Property
@@ -68,11 +68,11 @@
 
         Public Property WorkHoursFor6WorkDayWeek() As Double
             Get
-                Return CRound(_WorkHoursFor6WorkDayWeek, ROUNDWORKTIME)
+                Return CRound(_WorkHoursFor6WorkDayWeek, ROUNDWORKHOURS)
             End Get
             Set(ByVal value As Double)
-                If CRound(_WorkHoursFor6WorkDayWeek, ROUNDWORKTIME) <> CRound(value, ROUNDWORKTIME) Then
-                    _WorkHoursFor6WorkDayWeek = CRound(value, ROUNDWORKTIME)
+                If CRound(_WorkHoursFor6WorkDayWeek, ROUNDWORKHOURS) <> CRound(value, ROUNDWORKHOURS) Then
+                    _WorkHoursFor6WorkDayWeek = CRound(value, ROUNDWORKHOURS)
                 End If
             End Set
         End Property

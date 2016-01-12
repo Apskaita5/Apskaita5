@@ -63,7 +63,7 @@ Namespace HelperLists
         Public ReadOnly Property WorkHoursFor5WorkDayWeek() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_WorkHoursFor5WorkDayWeek, ROUNDWORKTIME)
+                Return CRound(_WorkHoursFor5WorkDayWeek, ROUNDWORKHOURS)
             End Get
         End Property
 
@@ -85,7 +85,7 @@ Namespace HelperLists
         Public ReadOnly Property WorkHoursFor6WorkDayWeek() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_WorkHoursFor6WorkDayWeek, ROUNDWORKTIME)
+                Return CRound(_WorkHoursFor6WorkDayWeek, ROUNDWORKHOURS)
             End Get
         End Property
 
@@ -98,9 +98,9 @@ Namespace HelperLists
         Public Overrides Function ToString() As String
             Return String.Format(My.Resources.HelperLists_DefaultWorkTimeInfo_ToString, _
                 _Year.ToString, _Month.ToString, _WorkDaysFor5WorkDayWeek.ToString, _
-                DblParser(_WorkHoursFor5WorkDayWeek, ROUNDWORKTIME), _
+                DblParser(_WorkHoursFor5WorkDayWeek, ROUNDWORKHOURS), _
                 _WorkDaysFor6WorkDayWeek.ToString, _
-                DblParser(_WorkHoursFor6WorkDayWeek, ROUNDWORKTIME))
+                DblParser(_WorkHoursFor6WorkDayWeek, ROUNDWORKHOURS))
         End Function
 
 #End Region
@@ -170,24 +170,24 @@ Namespace HelperLists
                     If current.DayOfWeek = DayOfWeek.Saturday Then
 
                         _WorkDaysFor6WorkDayWeek += 1
-                        _WorkHoursFor6WorkDayWeek = CRound(_WorkHoursFor6WorkDayWeek + 6.6666, ROUNDWORKTIME)
+                        _WorkHoursFor6WorkDayWeek = CRound(_WorkHoursFor6WorkDayWeek + 6.6666, ROUNDWORKHOURS)
 
                         If Not publicHolidayList Is Nothing AndAlso i <> daysInMonth _
                             AndAlso publicHolidayList.Contains(current.AddDays(1).Date) Then
-                            _WorkHoursFor6WorkDayWeek = CRound(_WorkHoursFor6WorkDayWeek - 1, ROUNDWORKTIME)
+                            _WorkHoursFor6WorkDayWeek = CRound(_WorkHoursFor6WorkDayWeek - 1, ROUNDWORKHOURS)
                         End If
 
                     Else
 
                         _WorkDaysFor6WorkDayWeek += 1
-                        _WorkHoursFor6WorkDayWeek = CRound(_WorkHoursFor6WorkDayWeek + 6.6666, ROUNDWORKTIME)
+                        _WorkHoursFor6WorkDayWeek = CRound(_WorkHoursFor6WorkDayWeek + 6.6666, ROUNDWORKHOURS)
                         _WorkDaysFor5WorkDayWeek += 1
-                        _WorkHoursFor5WorkDayWeek = CRound(_WorkHoursFor5WorkDayWeek + 8.0, ROUNDWORKTIME)
+                        _WorkHoursFor5WorkDayWeek = CRound(_WorkHoursFor5WorkDayWeek + 8.0, ROUNDWORKHOURS)
 
                         If Not publicHolidayList Is Nothing AndAlso i <> daysInMonth _
                             AndAlso publicHolidayList.Contains(current.AddDays(1).Date) Then
-                            _WorkHoursFor6WorkDayWeek = CRound(_WorkHoursFor6WorkDayWeek - 1, ROUNDWORKTIME)
-                            _WorkHoursFor5WorkDayWeek = CRound(_WorkHoursFor5WorkDayWeek - 1, ROUNDWORKTIME)
+                            _WorkHoursFor6WorkDayWeek = CRound(_WorkHoursFor6WorkDayWeek - 1, ROUNDWORKHOURS)
+                            _WorkHoursFor5WorkDayWeek = CRound(_WorkHoursFor5WorkDayWeek - 1, ROUNDWORKHOURS)
                         End If
 
                     End If

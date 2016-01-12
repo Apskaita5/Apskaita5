@@ -89,17 +89,17 @@ Namespace Settings
         ''' Gets or sets a gauge amount of work hours in month as applicable for 5 days work week.
         ''' </summary>
         ''' <remarks></remarks>
-        <DoubleField(ValueRequiredLevel.Mandatory, False, ROUNDWORKTIME, True, 0.01, 744.0, True)> _
+        <DoubleField(ValueRequiredLevel.Mandatory, False, ROUNDWORKHOURS, True, 0.01, 744.0, True)> _
         Public Property WorkHoursFor5WorkDayWeek() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_WorkHoursFor5WorkDayWeek, ROUNDWORKTIME)
+                Return CRound(_WorkHoursFor5WorkDayWeek, ROUNDWORKHOURS)
             End Get
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Set(ByVal value As Double)
                 CanWriteProperty(True)
-                If CRound(_WorkHoursFor5WorkDayWeek, ROUNDWORKTIME) <> CRound(value, ROUNDWORKTIME) Then
-                    _WorkHoursFor5WorkDayWeek = CRound(value, ROUNDWORKTIME)
+                If CRound(_WorkHoursFor5WorkDayWeek, ROUNDWORKHOURS) <> CRound(value, ROUNDWORKHOURS) Then
+                    _WorkHoursFor5WorkDayWeek = CRound(value, ROUNDWORKHOURS)
                     PropertyHasChanged()
                 End If
             End Set
@@ -129,17 +129,17 @@ Namespace Settings
         ''' Gets or sets a gauge amount of work hours in month as applicable for 6 days work week.
         ''' </summary>
         ''' <remarks></remarks>
-        <DoubleField(ValueRequiredLevel.Mandatory, False, ROUNDWORKTIME, True, 0.01, 744.0, True)> _
+        <DoubleField(ValueRequiredLevel.Mandatory, False, ROUNDWORKHOURS, True, 0.01, 744.0, True)> _
         Public Property WorkHoursFor6WorkDayWeek() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_WorkHoursFor6WorkDayWeek, ROUNDWORKTIME)
+                Return CRound(_WorkHoursFor6WorkDayWeek, ROUNDWORKHOURS)
             End Get
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Set(ByVal value As Double)
                 CanWriteProperty(True)
-                If CRound(_WorkHoursFor6WorkDayWeek, ROUNDWORKTIME) <> CRound(value, ROUNDWORKTIME) Then
-                    _WorkHoursFor6WorkDayWeek = CRound(value, ROUNDWORKTIME)
+                If CRound(_WorkHoursFor6WorkDayWeek, ROUNDWORKHOURS) <> CRound(value, ROUNDWORKHOURS) Then
+                    _WorkHoursFor6WorkDayWeek = CRound(value, ROUNDWORKHOURS)
                     PropertyHasChanged()
                 End If
             End Set
@@ -173,9 +173,9 @@ Namespace Settings
         Public Overrides Function ToString() As String
             Return String.Format(My.Resources.Settings_DefaultWorkTime_ToString, _
                 _Year.ToString, _Month.ToString, _WorkDaysFor5WorkDayWeek.ToString, _
-                DblParser(_WorkHoursFor5WorkDayWeek, ROUNDWORKTIME), _
+                DblParser(_WorkHoursFor5WorkDayWeek, ROUNDWORKHOURS), _
                 _WorkDaysFor6WorkDayWeek.ToString, _
-                DblParser(_WorkHoursFor6WorkDayWeek, ROUNDWORKTIME))
+                DblParser(_WorkHoursFor6WorkDayWeek, ROUNDWORKHOURS))
         End Function
 
 #End Region

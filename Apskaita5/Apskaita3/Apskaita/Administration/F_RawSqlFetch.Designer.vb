@@ -68,6 +68,7 @@ Partial Class F_RawSqlFetch
         Me.DatabaseGaugeTreeView.HotTracking = True
         Me.DatabaseGaugeTreeView.Location = New System.Drawing.Point(0, 0)
         Me.DatabaseGaugeTreeView.Name = "DatabaseGaugeTreeView"
+        Me.DatabaseGaugeTreeView.ShowNodeToolTips = True
         Me.DatabaseGaugeTreeView.Size = New System.Drawing.Size(207, 179)
         Me.DatabaseGaugeTreeView.TabIndex = 0
         '

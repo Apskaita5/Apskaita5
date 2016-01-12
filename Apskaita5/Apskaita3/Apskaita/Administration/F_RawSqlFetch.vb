@@ -71,7 +71,7 @@ Public Class F_RawSqlFetch
     Private Sub SqlQueryTextBox_DragDrop(ByVal sender As Object, _
         ByVal e As System.Windows.Forms.DragEventArgs) Handles SqlQueryTextBox.DragDrop
 
-        If Not SqlQueryTextBox.Text Is Nothing AndAlso Not String.IsNullOrEmpty(SqlQueryTextBox.Text.Trim) _
+        If Not String.IsNullOrEmpty(SqlQueryTextBox.Text) _
             AndAlso SqlQueryTextBox.Text.Chars(SqlQueryTextBox.Text.Length - 1) <> " " AndAlso _
             SqlQueryTextBox.Text.Chars(SqlQueryTextBox.Text.Length - 1) <> "," AndAlso _
             SqlQueryTextBox.Text.Chars(SqlQueryTextBox.Text.Length - 1) <> "." Then

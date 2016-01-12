@@ -11457,4 +11457,82 @@
   <data name="HelperLists_ProductionCalculationInfo_TypeName" xml:space="preserve">
     <value>gamybos kalkuliacijos informacija</value>
   </data>
+  <data name="Goods_ComplexOperationPersistenceObject_OperationIdNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas operacijos ID.</value>
+  </data>
+  <data name="Goods_ComplexOperationPersistenceObject_ToString" xml:space="preserve">
+    <value>{0} {1} (ID={2})</value>
+  </data>
+  <data name="Goods_ComplexOperationPersistenceObject_TypeName" xml:space="preserve">
+    <value>kompleksinė operacija su prekėmis</value>
+  </data>
+  <data name="Goods_ComplexOperationPersistenceObject_OperationTypeMismatch" xml:space="preserve">
+    <value>Klaida. Kompleksinės operacijos su prekėmis (ID={0}) tipas yra "{1}", o ne "{2}".</value>
+  </data>
+  <data name="Goods_OperationPersistenceObject_OperationIdNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas operacijos ID.</value>
+  </data>
+  <data name="Goods_OperationPersistenceObject_OperationTypeMismatch" xml:space="preserve">
+    <value>Klaida. Operacijos su prekėmis (ID={0}) tipas yra "{1}", o ne "{2}".</value>
+  </data>
+  <data name="Goods_OperationPersistenceObject_ToString" xml:space="preserve">
+    <value>{0} {1} Nr. {2} (ID={3})</value>
+  </data>
+  <data name="Goods_OperationPersistenceObject_TypeName" xml:space="preserve">
+    <value>prekių operacija</value>
+  </data>
+  <data name="Assets_LongTermAssetAmortizationCalculation_CorrectionForSingleUnit" xml:space="preserve">
+    <value>Koreguojamos amortizacijos vertės turto vienetui, siekiant atitikimo bendrai vertei, kai kiekis lygus 1.{0}Paskaičiuota amortizacija turto vienetui po korekcijos - {1}, paskaičiuota pervertintos dalies amortizacija turto vienetui po korekcijos - {2}.</value>
+  </data>
+  <data name="Goods_ConsignmentPersistenceObject_InvalidAmountToWithdraw" xml:space="preserve">
+    <value>Klaida. Metodui NewConsignmentPersistenceObject turi būti paduodamas didesnis už 0 kiekis.</value>
+  </data>
+  <data name="Goods_ConsignmentPersistenceObject_InvalidParentAcquisitionConsignment" xml:space="preserve">
+    <value>Klaida. Metodui NewConsignmentPersistenceObject turi būti paduodamas Old partijos objektas.</value>
+  </data>
+  <data name="Goods_ConsignmentPersistenceObjectList_InsufficientAmountInWarehouse" xml:space="preserve">
+    <value>Klaida. Nepakanka prekių likučio sandėlyje.</value>
+  </data>
+  <data name="Goods_ConsignmentDiscardPersistenceObject_AmountInvalid" xml:space="preserve">
+    <value>Klaida. Metodui NewConsignmentDiscardPersistenceObject turi būti paduodamas didesnis už 0 kiekis.</value>
+  </data>
+  <data name="Goods_ConsignmentDiscardPersistenceObject_ConsignmentInvalid" xml:space="preserve">
+    <value>Klaida. Metodui NewConsignmentDiscardPersistenceObject turi būti paduodamas Old partijos objektas.</value>
+  </data>
+  <data name="Goods_ConsignmentDiscardPersistenceObject_ToString" xml:space="preserve">
+    <value>partijos ID={0}, kiekis={1}, vertė={2} (nurašymo ID={3})</value>
+  </data>
+  <data name="Goods_ConsignmentDiscardPersistenceObject_TypeName" xml:space="preserve">
+    <value>prekių partijos nurašymas</value>
+  </data>
+  <data name="Goods_ConsignmentPersistenceObject_ToString" xml:space="preserve">
+    <value>prekių ID={0}, kiekis={1}, vnt. vertė={2}, viso vertė={3}, modifikavimas={4} (partijos ID={5})</value>
+  </data>
+  <data name="Goods_ConsignmentPersistenceObject_TypeName" xml:space="preserve">
+    <value>prekių partija</value>
+  </data>
+  <data name="Goods_GoodsCostItem_NotEnoughInStockException" xml:space="preserve">
+    <value>Klaida. Nepakanka prekių likučio sandėlyje.</value>
+  </data>
+  <data name="Goods_GoodsCostItem_GoodsIdNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas prekių ID.</value>
+  </data>
+  <data name="Goods_GoodsCostItem_WarehouseIdNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas sandėlio ID.</value>
+  </data>
+  <data name="Goods_GoodsCostItem_ParamNull" xml:space="preserve">
+    <value>Klaida. Nenurodyti prekių įvertinimo parametrai.</value>
+  </data>
+  <data name="Goods_GoodsCostItem_ToString" xml:space="preserve">
+    <value>{0} prekių ID={1}, sandėlio ID={2}, savikainos paskaičiavimas {3} metodu kiekiui={4}: apskaičiuota vnt. vertė={5}, viso vertė={6}</value>
+  </data>
+  <data name="Goods_GoodsCostItem_TypeName" xml:space="preserve">
+    <value>prekių savikainos paskaičiavimas</value>
+  </data>
+  <data name="Goods_GoodsCostItemList_ParamListNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta nė viena prekė, kuriai reikėtų skaičiuoti savikainą.</value>
+  </data>
+  <data name="Goods_ConsignmentDiscardPersistenceObjectList_NotEnoughInStockEexception" xml:space="preserve">
+    <value>Klaida. Nepakanka prekių "{0}" likučio sandėlyje.</value>
+  </data>
 </root>

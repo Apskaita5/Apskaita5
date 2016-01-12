@@ -490,7 +490,8 @@
         ''' Gets or sets the amount of <see cref="LongTermAsset.AccountAcquisition">asset acquisitinion account</see> 
         ''' change made by the long term asset operation.
         ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.AcquisitionAccountChange.</remarks>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.
+        ''' Value is stored in the database field turtas_op.AcquisitionAccountChange.</remarks>
         Public Property AcquisitionAccountChange() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -508,7 +509,8 @@
         ''' Gets or sets the amount of <see cref="LongTermAsset.AccountAcquisition">asset acquisitinion account</see> 
         ''' change per asset unit made by the long term asset operation.
         ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.AcquisitionAccountChangePerUnit.</remarks>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.
+        ''' Value is stored in the database field turtas_op.AcquisitionAccountChangePerUnit.</remarks>
         Public Property AcquisitionAccountChangePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -526,7 +528,8 @@
         ''' Gets or sets the amount of <see cref="LongTermAsset.AccountAccumulatedAmortization">asset amortization account</see> 
         ''' change made by the long term asset operation.
         ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.AmortizationAccountChange.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
+        ''' Value is stored in the database field turtas_op.AmortizationAccountChange.</remarks>
         Public Property AmortizationAccountChange() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -544,7 +547,8 @@
         ''' Gets or sets the amount of <see cref="LongTermAsset.AccountAccumulatedAmortization">asset amortization account</see> 
         ''' change per asset unit made by the long term asset operation.
         ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.AmortizationAccountChangePerUnit.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
+        ''' Value is stored in the database field turtas_op.AmortizationAccountChangePerUnit.</remarks>
         Public Property AmortizationAccountChangePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -561,7 +565,7 @@
         ''' <summary>
         ''' Gets or sets the amount of <see cref="LongTermAsset.AccountValueDecrease">asset value decrease account</see> 
         ''' change made by the long term asset operation.
-        ''' </summary>
+        ''' </summary>A positive number represents credit balance, a negative number represents debit balance.
         ''' <remarks>Value is stored in the database field turtas_op.ValueDecreaseAccountChange.</remarks>
         Public Property ValueDecreaseAccountChange() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -580,7 +584,8 @@
         ''' Gets or sets the amount of <see cref="LongTermAsset.AccountValueDecrease">asset value decrease account</see> 
         ''' change per asset unit made by the long term asset operation.
         ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.ValueDecreaseAccountChangePerUnit.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
+        ''' Value is stored in the database field turtas_op.ValueDecreaseAccountChangePerUnit.</remarks>
         Public Property ValueDecreaseAccountChangePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -598,7 +603,8 @@
         ''' Gets or sets the amount of <see cref="LongTermAsset.AccountValueIncrease">asset value increase account</see> 
         ''' change made by the long term asset operation.
         ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.ValueIncreaseAccountChange.</remarks>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.
+        ''' Value is stored in the database field turtas_op.ValueIncreaseAccountChange.</remarks>
         Public Property ValueIncreaseAccountChange() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -616,7 +622,8 @@
         ''' Gets or sets the amount of <see cref="LongTermAsset.AccountValueIncrease">asset value increase account</see> 
         ''' change per asset unit made by the long term asset operation.
         ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.ValueIncreaseAccountChangePerUnit.</remarks>
+        ''' <remarks>A positive number represents debit balance, a negative number represents credit balance.
+        ''' Value is stored in the database field turtas_op.ValueIncreaseAccountChangePerUnit.</remarks>
         Public Property ValueIncreaseAccountChangePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -634,7 +641,8 @@
         ''' Gets or sets the amount of <see cref="LongTermAsset.AccountRevaluedPortionAmmortization">
         ''' asset revalued portion amortization account</see> change made by the long term asset operation.
         ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.ValueIncreaseAmmortizationAccountChange.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
+        ''' Value is stored in the database field turtas_op.ValueIncreaseAmmortizationAccountChange.</remarks>
         Public Property ValueIncreaseAmmortizationAccountChange() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -652,7 +660,8 @@
         ''' Gets or sets the amount of <see cref="LongTermAsset.AccountRevaluedPortionAmmortization">
         ''' asset revalued portion amortization account</see> change per asset unit made by the long term asset operation.
         ''' </summary>
-        ''' <remarks>Value is stored in the database field turtas_op.ValueIncreaseAmmortizationAccountChangePerUnit.</remarks>
+        ''' <remarks>A positive number represents credit balance, a negative number represents debit balance.
+        ''' Value is stored in the database field turtas_op.ValueIncreaseAmmortizationAccountChangePerUnit.</remarks>
         Public Property ValueIncreaseAmmortizationAccountChangePerUnit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
