@@ -11535,4 +11535,151 @@
   <data name="Goods_ConsignmentDiscardPersistenceObjectList_NotEnoughInStockEexception" xml:space="preserve">
     <value>Klaida. Nepakanka prekių "{0}" likučio sandėlyje.</value>
   </data>
+  <data name="Goods_GoodsCostParam_ToString" xml:space="preserve">
+    <value>savikainos paskaičiavimo parametrai {0} datai, prekėms ID={1}, sandėliui ID={2}, kiekiui={3}, naudojant metodą {4}</value>
+  </data>
+  <data name="Goods_GoodsCostParam_TypeName" xml:space="preserve">
+    <value>prekių savikainos paskaičiavimo parametrai</value>
+  </data>
+  <data name="Goods_GoodsPriceInWarehouseItem_GoodsIdNull" xml:space="preserve">
+    <value>Klaida. Nenurodytos prekės, kurios reikėtų gauti balansą sandėliuose.</value>
+  </data>
+  <data name="Goods_GoodsPriceInWarehouseItemList_ParamsNull" xml:space="preserve">
+    <value>Klaida. Nenurodytos prekės, kurioms reikėtų gauti balansus sandėliuose.</value>
+  </data>
+  <data name="Goods_GoodsPriceInWarehouseItem_ToString" xml:space="preserve">
+    <value>prekių (ID={0}) balansas sandėlių sąskaitose {1} datai: kiekis={2}; vertė={3}; nukainojimas={4}.</value>
+  </data>
+  <data name="Goods_GoodsPriceInWarehouseItem_TypeName" xml:space="preserve">
+    <value>prekių balansas sandėlių sąskaitose</value>
+  </data>
+  <data name="Goods_GoodsPriceInWarehouseParam_ToString" xml:space="preserve">
+    <value>prekių balanso sandėlių sąskaitose parametras prekei ID={0} (prekių operacijos ID={1})</value>
+  </data>
+  <data name="Goods_GoodsPriceInWarehouseParam_TypeName" xml:space="preserve">
+    <value>prekių balanso sandėlių sąskaitose parametras</value>
+  </data>
+  <data name="Goods_GoodsCostItem_Amount" xml:space="preserve">
+    <value>kiekis</value>
+  </data>
+  <data name="Goods_GoodsCostItem_CalculationDate" xml:space="preserve">
+    <value>įvertinimo data</value>
+  </data>
+  <data name="Goods_GoodsCostItem_GoodsID" xml:space="preserve">
+    <value>prekių ID</value>
+  </data>
+  <data name="Goods_GoodsCostItem_NotEnoughInStock" xml:space="preserve">
+    <value>sandėlyje nepakanka prekių</value>
+  </data>
+  <data name="Goods_GoodsCostItem_TotalCosts" xml:space="preserve">
+    <value>viso savikaina</value>
+  </data>
+  <data name="Goods_GoodsCostItem_UnitCosts" xml:space="preserve">
+    <value>vnt. savikaina</value>
+  </data>
+  <data name="Goods_GoodsCostItem_ValuationMethod" xml:space="preserve">
+    <value>įvertinimo metodas</value>
+  </data>
+  <data name="Goods_GoodsCostItem_WarehouseID" xml:space="preserve">
+    <value>sandėlio ID</value>
+  </data>
+  <data name="Goods_GoodsCostParam_Amount" xml:space="preserve">
+    <value>kiekis</value>
+  </data>
+  <data name="Goods_GoodsCostParam_CalculationDate" xml:space="preserve">
+    <value>įvertinimo data</value>
+  </data>
+  <data name="Goods_GoodsCostParam_ConsignmentParentID" xml:space="preserve">
+    <value>partijų įsigijimo parent operacijos ID</value>
+  </data>
+  <data name="Goods_GoodsCostParam_DiscardParentID" xml:space="preserve">
+    <value>partijų nurašymo parent operacijos ID</value>
+  </data>
+  <data name="Goods_GoodsCostParam_GoodsID" xml:space="preserve">
+    <value>prekių ID</value>
+  </data>
+  <data name="Goods_GoodsCostParam_ValuationMethod" xml:space="preserve">
+    <value>įvertinimo metodas</value>
+  </data>
+  <data name="Goods_GoodsCostParam_WarehouseID" xml:space="preserve">
+    <value>sandėlio ID</value>
+  </data>
+  <data name="Goods_GoodsPriceInWarehouseItem_AmountInWarehouseAccounts" xml:space="preserve">
+    <value>kiekis sandėliuose</value>
+  </data>
+  <data name="Goods_GoodsPriceInWarehouseItem_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Goods_GoodsPriceInWarehouseItem_GoodsID" xml:space="preserve">
+    <value>prekių ID</value>
+  </data>
+  <data name="Goods_GoodsPriceInWarehouseItem_TotalValueCurrentPriceCut" xml:space="preserve">
+    <value>einamasis nukainojimas</value>
+  </data>
+  <data name="Goods_GoodsPriceInWarehouseItem_TotalValueInWarehouseAccounts" xml:space="preserve">
+    <value>viso savikaina sandėliuose</value>
+  </data>
+  <data name="Goods_GoodsSummary_AccountDiscounts" xml:space="preserve">
+    <value>gautų nuolaidų sąsk.</value>
+  </data>
+  <data name="Goods_GoodsSummary_AccountGeneral" xml:space="preserve">
+    <value>sandėlio sąsk.</value>
+  </data>
+  <data name="Goods_GoodsSummary_AccountingMethod" xml:space="preserve">
+    <value>apskaitos metodas</value>
+  </data>
+  <data name="Goods_GoodsSummary_AccountingMethodHumanReadable" xml:space="preserve">
+    <value>apskaitos metodas</value>
+  </data>
+  <data name="Goods_GoodsSummary_AccountPurchases" xml:space="preserve">
+    <value>pirkimų sąsk.</value>
+  </data>
+  <data name="Goods_GoodsSummary_AccountSalesNetCosts" xml:space="preserve">
+    <value>pardavimo savikainos sąsk.</value>
+  </data>
+  <data name="Goods_GoodsSummary_AccountValueReduction" xml:space="preserve">
+    <value>nukainojimo sąsk.</value>
+  </data>
+  <data name="Goods_GoodsSummary_DefaultVatRatePurchase" xml:space="preserve">
+    <value>standartinis pirkimo PVM tarifas</value>
+  </data>
+  <data name="Goods_GoodsSummary_DefaultVatRateSales" xml:space="preserve">
+    <value>standartinis pardavimo PVM tarifas</value>
+  </data>
+  <data name="Goods_GoodsSummary_DefaultWarehouse" xml:space="preserve">
+    <value>įprastinis sandėlis</value>
+  </data>
+  <data name="Goods_GoodsSummary_DefaultWarehouseName" xml:space="preserve">
+    <value>įprastinio sandėlio pavadinimas</value>
+  </data>
+  <data name="Goods_GoodsSummary_GroupName" xml:space="preserve">
+    <value>grupė</value>
+  </data>
+  <data name="Goods_GoodsSummary_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsSummary_MeasureUnit" xml:space="preserve">
+    <value>mato vnt.</value>
+  </data>
+  <data name="Goods_GoodsSummary_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="Goods_GoodsSummary_PricePurchase" xml:space="preserve">
+    <value>standartinė pirkimo kaina</value>
+  </data>
+  <data name="Goods_GoodsSummary_PriceSale" xml:space="preserve">
+    <value>standartinė pardavimo kaina</value>
+  </data>
+  <data name="Goods_GoodsSummary_ToString" xml:space="preserve">
+    <value>bendri prekės "{0}" duomenys operacijai</value>
+  </data>
+  <data name="Goods_GoodsSummary_TypeName" xml:space="preserve">
+    <value>bendri prekės duomenys operacijai</value>
+  </data>
+  <data name="Goods_GoodsSummary_ValuationMethod" xml:space="preserve">
+    <value>vertinimo metodas</value>
+  </data>
+  <data name="Goods_GoodsSummary_ValuationMethodHumanReadable" xml:space="preserve">
+    <value>vertinimo metodas</value>
+  </data>
 </root>

@@ -3240,7 +3240,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchWorkerWagePayments</Key>
-    <Statement>SELECT w.Year, w.Month, CROUND(SUM(w.WagePayed), 2), CROUND(SUM(w.WagePayable), 2) FROM (SELECT 0 AS Year, 0 AS Month, CROUND(IFNULL((SELECT SUM(d.DU_is) FROM du_ziniarastis_d d WHERE (d.AK=$PD OR ($PD&lt;1 AND d.DS_NR=$CN AND UPPER(TRIM(d.DS_Serija))=UPPER(TRIM($CS)))) AND NOT d.Ismoketa IS NULL AND d.Ismoketa &lt; $DF), 0), 2) + CROUND(IFNULL((SELECT SUM(a.Suma) FROM d_avansai_d a WHERE (a.AK=$PD OR ($PD&lt;1 AND a.DS_NR=$CN AND UPPER(TRIM(a.DS_Serija))=UPPER(TRIM($CS)))) AND NOT a.Ismok IS NULL AND a.Ismok &lt; $DF), 0), 2) AS WagePayed, CROUND((SELECT SUM(d.DU_is+d.Avans) FROM du_ziniarastis_d d LEFT JOIN du_ziniarastis c ON c.ID=d.Z_ID WHERE (d.AK=$PD OR ($PD&lt;1 AND d.DS_NR=$CN AND UPPER(TRIM(d.DS_Serija))=UPPER(TRIM($CS)))) AND (c.Metai &lt; $YF OR (c.Metai=$YF AND c.Men &lt; $MF))), 2) AS WagePayable UNION SELECT strftime('%Y', d.Ismoketa) AS Year, strftime('%m', d.Ismoketa) AS Month, d.DU_is AS WagePayed, 0 AS WagePayable FROM du_ziniarastis_d d WHERE (d.AK=$PD OR ($PD&lt;1 AND d.DS_NR=$CN AND UPPER(TRIM(d.DS_Serija))=UPPER(TRIM($CS)))) AND NOT d.Ismoketa IS NULL AND d.Ismoketa &gt;= $DF AND d.Ismoketa &lt;= $DT UNION SELECT strftime('%Y', a.Ismok) AS Year, strftime('%m', a.Ismok) AS Month, a.Suma AS WagePayed, 0 AS WagePayable FROM d_avansai_d a WHERE (a.AK=$PD OR ($PD&lt;1 AND a.DS_NR=$CN AND UPPER(TRIM(a.DS_Serija))=UPPER(TRIM($CS)))) AND NOT a.Ismok IS NULL AND a.Ismok &gt;= $DF AND a.Ismok &lt;= $DT) AS w WHERE NOT w.Year IS NULL GROUP BY w.Year, w.Month ORDER BY w.Year, w.Month;</Statement>
+    <Statement>SELECT w.Year, w.Month, CROUND(SUM(w.WagePayed), 2), CROUND(SUM(w.WagePayable), 2) FROM (SELECT 0 AS Year, 0 AS Month, CROUND(IFNULL((SELECT SUM(d.DU_is) FROM du_ziniarastis_d d WHERE (d.AK=$PD OR ($PD&lt;1 AND d.DS_NR=$CN AND UPPER(TRIM(d.DS_Serija))=UPPER(TRIM($CS)))) AND NOT d.Ismoketa IS NULL AND d.Ismoketa &lt; $DF), 0), 2) + CROUND(IFNULL((SELECT SUM(a.Suma) FROM d_avansai_d a WHERE (a.AK=$PD OR ($PD&lt;1 AND a.DS_NR=$CN AND UPPER(TRIM(a.DS_Serija))=UPPER(TRIM($CS)))) AND NOT a.Ismok IS NULL AND a.Ismok &lt; $DF), 0), 2) AS WagePayed, CROUND((SELECT SUM(d.DU_is+d.Avans) FROM du_ziniarastis_d d LEFT JOIN du_ziniarastis c ON c.ID=d.Z_ID WHERE (d.AK=$PD OR ($PD&lt;1 AND d.DS_NR=$CN AND UPPER(TRIM(d.DS_Serija))=UPPER(TRIM($CS)))) AND (c.Metai &lt; $YF OR (c.Metai=$YF AND c.Men &lt; $MF))), 2) AS WagePayable UNION ALL SELECT strftime('%Y', d.Ismoketa) AS Year, strftime('%m', d.Ismoketa) AS Month, d.DU_is AS WagePayed, 0 AS WagePayable FROM du_ziniarastis_d d WHERE (d.AK=$PD OR ($PD&lt;1 AND d.DS_NR=$CN AND UPPER(TRIM(d.DS_Serija))=UPPER(TRIM($CS)))) AND NOT d.Ismoketa IS NULL AND d.Ismoketa &gt;= $DF AND d.Ismoketa &lt;= $DT UNION ALL SELECT strftime('%Y', a.Ismok) AS Year, strftime('%m', a.Ismok) AS Month, a.Suma AS WagePayed, 0 AS WagePayable FROM d_avansai_d a WHERE (a.AK=$PD OR ($PD&lt;1 AND a.DS_NR=$CN AND UPPER(TRIM(a.DS_Serija))=UPPER(TRIM($CS)))) AND NOT a.Ismok IS NULL AND a.Ismok &gt;= $DF AND a.Ismok &lt;= $DT) AS w WHERE NOT w.Year IS NULL GROUP BY w.Year, w.Month ORDER BY w.Year, w.Month;</Statement>
     <Objects>ActiveReports.WorkerWageInfoReport</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3332,5 +3332,10 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
     <Key>CheckIfProductionCalculationUpdateDateChanged</Key>
     <Statement>SELECT k.UpdateDate FROM kalkuliac k WHERE k.ID=$CD ;</Statement>
     <Objects>Goods.ProductionCalculation</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchLongTermAssetOperationIdByJournalEntryId</Key>
+    <Statement>SELECT t.ID FROM turtas_op t WHERE t.JE_ID=$JD ;</Statement>
+    <Objects>Assets.OperationPersistenceObject</Objects>
   </MySQL_Statement>
 </NewDataSet>
