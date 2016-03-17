@@ -154,6 +154,25 @@ Public Class BookEntryInternalList
         Return result
     End Function
 
+    ''' <summary>
+    ''' Gets a copy of the list with debit entries replaced with credit entries and vice versa.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Friend Function GetInvertedList() As BookEntryInternalList
+
+        Dim result As New BookEntryInternalList
+
+        result._DefaultBookEntryType = Me._DefaultBookEntryType
+
+        For Each entry As BookEntryInternal In Me
+            result.Add(entry.GetInvertedEntry())
+        Next
+
+        Return result
+
+    End Function
+
+
     Private Sub New()
         ' require use of factory methods
         MarkAsChild()

@@ -1,7 +1,8 @@
 ﻿''' <summary>
 ''' Provides a generic interface for accessing business objects validation info.
 ''' </summary>
-''' <remarks></remarks>
+''' <remarks>CSLA framework does not support validation messages aggregation
+''' for child objects. This interface is used to ""fix"" the incomplete functionality.</remarks>
 Public Interface IValidationMessageProvider
 
     ''' <summary>

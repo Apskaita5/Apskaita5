@@ -1,3 +1,5 @@
+Imports ApskaitaObjects.Attributes
+
 ''' <summary>
 ''' Represents <see cref="General.BookEntry">a single ledger transaction</see> type, 
 ''' whether the account is credited or debited.
