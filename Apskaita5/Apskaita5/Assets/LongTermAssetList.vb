@@ -9,8 +9,16 @@
     <Serializable()> _
     Public Class LongTermAssetList
         Inherits BusinessListBase(Of LongTermAssetList, LongTermAsset)
+        Implements IValidationMessageProvider
 
 #Region " Business Methods "
+
+        Public Overrides ReadOnly Property IsValid() As Boolean _
+            Implements IValidationMessageProvider.IsValid
+            Get
+                Return MyBase.IsValid
+            End Get
+        End Property
 
         Friend Function GetChronologyValidators() As IChronologicValidator()
             Dim result As New List(Of IChronologicValidator)
@@ -65,17 +73,20 @@
         End Function
 
 
-        Public Function GetAllBrokenRules() As String
+        Public Function GetAllBrokenRules() As String _
+            Implements IValidationMessageProvider.GetAllBrokenRules
             Dim result As String = GetAllBrokenRulesForList(Me)
             Return result
         End Function
 
-        Public Function GetAllWarnings() As String
+        Public Function GetAllWarnings() As String _
+            Implements IValidationMessageProvider.GetAllWarnings
             Dim result As String = GetAllWarningsForList(Me)
             Return result
         End Function
 
-        Public Function HasWarnings() As Boolean
+        Public Function HasWarnings() As Boolean _
+            Implements IValidationMessageProvider.HasWarnings
             For Each i As LongTermAsset In Me
                 If i.HasWarnings() Then Return True
             Next

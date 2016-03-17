@@ -145,23 +145,23 @@ Namespace HelperLists
 
         Private Sub Fetch(ByVal dr As DataRow)
 
-            _Type = EnumValueAttribute.ConvertDatabaseID(Of IndirectRelationType)(CIntSafe(dr.Item(0), 0))
+            _Type = Utilities.ConvertDatabaseID(Of IndirectRelationType)(CIntSafe(dr.Item(0), 0))
             _ID = CIntSafe(dr.Item(1), 0)
             _Date = CDateSafe(dr.Item(2), Today)
             _DocumentNumber = CStrSafe(dr.Item(3)).Trim
             _Content = CStrSafe(dr.Item(4)).Trim
-            _TypeHumanReadable = EnumValueAttribute.ConvertLocalizedName(_Type)
+            _TypeHumanReadable = Utilities.ConvertLocalizedName(_Type)
 
             If _Type = IndirectRelationType.GoodsOperation Then
-                _GoodsOperationType = ConvertEnumDatabaseCode(Of Goods.GoodsOperationType) _
+                _GoodsOperationType = Utilities.ConvertDatabaseID(Of Goods.GoodsOperationType) _
                     (CIntSafe(dr.Item(5), 1))
                 _TypeHumanReadable = String.Format("{0}: {1}", _TypeHumanReadable, _
-                    ConvertEnumHumanReadable(_GoodsOperationType))
+                    Utilities.ConvertLocalizedName(_GoodsOperationType))
             ElseIf _Type = IndirectRelationType.LongTermAssetsOperation Then
-                _AssetOperationType = EnumValueAttribute.ConvertDatabaseCharID(Of Assets.LtaOperationType) _
+                _AssetOperationType = Utilities.ConvertDatabaseCharID(Of Assets.LtaOperationType) _
                     (CStrSafe(dr.Item(5)))
                 _TypeHumanReadable = String.Format("{0}: {1}", _TypeHumanReadable, _
-                    EnumValueAttribute.ConvertLocalizedName(_AssetOperationType))
+                    Utilities.ConvertLocalizedName(_AssetOperationType))
             End If
 
         End Sub

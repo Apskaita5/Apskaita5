@@ -1,4 +1,5 @@
 ﻿Imports ApskaitaObjects.General
+Imports ApskaitaObjects.Attributes
 
 Namespace Workers
 
@@ -10,7 +11,7 @@ Namespace Workers
     <Serializable()> _
     Public Class HolidayPayReserve
         Inherits BusinessBase(Of HolidayPayReserve)
-        Implements IIsDirtyEnough
+        Implements IIsDirtyEnough, IValidationMessageProvider
 
 #Region " Business Methods "
 
@@ -338,7 +339,8 @@ Namespace Workers
             End Get
         End Property
 
-        Public Overrides ReadOnly Property IsValid() As Boolean
+        Public Overrides ReadOnly Property IsValid() As Boolean _
+            Implements IValidationMessageProvider.IsValid
             Get
                 Return MyBase.IsValid AndAlso _Items.IsValid
             End Get
@@ -408,7 +410,8 @@ Namespace Workers
         End Sub
 
 
-        Public Function GetAllBrokenRules() As String
+        Public Function GetAllBrokenRules() As String _
+            Implements IValidationMessageProvider.GetAllBrokenRules
             Dim result As String = ""
             If Not MyBase.IsValid Then
                 result = AddWithNewLine(result, _
@@ -420,7 +423,8 @@ Namespace Workers
             Return result
         End Function
 
-        Public Function GetAllWarnings() As String
+        Public Function GetAllWarnings() As String _
+            Implements IValidationMessageProvider.GetAllWarnings
             Dim result As String = ""
             If Not MyBase.BrokenRulesCollection.WarningCount > 0 Then
                 result = AddWithNewLine(result, _
@@ -432,7 +436,8 @@ Namespace Workers
             Return result
         End Function
 
-        Public Function HasWarnings() As Boolean
+        Public Function HasWarnings() As Boolean _
+            Implements IValidationMessageProvider.HasWarnings
             Return (MyBase.BrokenRulesCollection.WarningCount > 0 OrElse _Items.HasWarnings)
         End Function
 
@@ -452,24 +457,24 @@ Namespace Workers
 
         Protected Overrides Sub AddBusinessRules()
 
-            ValidationRules.AddRule(AddressOf CommonValidation.StringFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.StringFieldValidation, _
                 New Csla.Validation.RuleArgs("Number"))
-            ValidationRules.AddRule(AddressOf CommonValidation.StringFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.StringFieldValidation, _
                 New Csla.Validation.RuleArgs("Content"))
-            ValidationRules.AddRule(AddressOf CommonValidation.StringFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.StringFieldValidation, _
                 New Csla.Validation.RuleArgs("Comments"))
-            ValidationRules.AddRule(AddressOf CommonValidation.AccountFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.AccountFieldValidation, _
                 New Csla.Validation.RuleArgs("AccountCosts"))
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.DoubleFieldValidation, _
                 New Csla.Validation.RuleArgs("TaxRate"))
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.DoubleFieldValidation, _
                 New Csla.Validation.RuleArgs("TotalSumEvaluatedBeforeTaxes"))
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.DoubleFieldValidation, _
                 New Csla.Validation.RuleArgs("TotalSumEvaluated"))
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.DoubleFieldValidation, _
                 New Csla.Validation.RuleArgs("TotalSumChange"))
-            ValidationRules.AddRule(AddressOf CommonValidation.ChronologyValidation, _
-                New CommonValidation.ChronologyRuleArgs("Date", "ChronologicValidator"))
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.ChronologyValidation, _
+                New CommonValidation.CommonValidation.ChronologyRuleArgs("Date", "ChronologicValidator"))
 
         End Sub
 
@@ -760,7 +765,7 @@ Namespace Workers
                 My.Resources.Common_SecurityUpdateDenied)
 
             IndirectRelationInfoList.CheckIfJournalEntryCanBeDeleted( _
-                DirectCast(criteria, Criteria).Id, DocumentType.ImprestSheet)
+                DirectCast(criteria, Criteria).Id, DocumentType.HolidayReserve)
 
             Using transaction As New SqlTransaction
 

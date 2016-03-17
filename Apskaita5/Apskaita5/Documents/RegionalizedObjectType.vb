@@ -1,4 +1,6 @@
-﻿Namespace Documents
+﻿Imports ApskaitaObjects.Attributes
+
+Namespace Documents
 
     ''' <summary>
     ''' Represents a type of an object that supports regionalization.

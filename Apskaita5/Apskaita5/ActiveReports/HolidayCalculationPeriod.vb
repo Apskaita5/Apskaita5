@@ -1,4 +1,6 @@
-﻿Namespace ActiveReports
+﻿Imports ApskaitaObjects.Attributes
+
+Namespace ActiveReports
 
     ''' <summary>
     ''' Represents a work period which a fixed holiday rate is applied for.
@@ -148,12 +150,12 @@
             _DateEnd = CDateSafe(drEnd.Item(0), Today)
             _HolidayRate = CIntSafe(drStart.Item(1), 0)
             Dim statusChangeType As Workers.WorkerStatusType = _
-                EnumValueAttribute.ConvertDatabaseCharID(Of Workers.WorkerStatusType)(CStrSafe(drStart.Item(2)))
+                Utilities.ConvertDatabaseCharID(Of Workers.WorkerStatusType)(CStrSafe(drStart.Item(2)))
             If statusChangeType = Workers.WorkerStatusType.Employed Then
                 _StatusDescription = My.Resources.ActiveReports_HolidayCalculationPeriod_LabourContractDate
             Else
                 _StatusDescription = CStrSafe(drStart.Item(3))
-                If EnumValueAttribute.ConvertDatabaseCharID(Of Workers.WorkerStatusType) _
+                If Utilities.ConvertDatabaseCharID(Of Workers.WorkerStatusType) _
                     (CStrSafe(drEnd.Item(2))) = Workers.WorkerStatusType.Fired Then
                     _StatusDescription = _StatusDescription & My.Resources.ActiveReports_HolidayCalculationPeriod_LabourContractTerminationDate
                 End If
@@ -168,7 +170,7 @@
             _DateEnd = calculationDate
             _HolidayRate = CIntSafe(dr.Item(1), 0)
             Dim statusChangeType As Workers.WorkerStatusType = _
-                EnumValueAttribute.ConvertDatabaseCharID(Of Workers.WorkerStatusType)(CStrSafe(dr.Item(2)))
+                Utilities.ConvertDatabaseCharID(Of Workers.WorkerStatusType)(CStrSafe(dr.Item(2)))
             If statusChangeType = Workers.WorkerStatusType.Employed Then
                 _StatusDescription = My.Resources.ActiveReports_HolidayCalculationPeriod_LabourContractDate
             Else

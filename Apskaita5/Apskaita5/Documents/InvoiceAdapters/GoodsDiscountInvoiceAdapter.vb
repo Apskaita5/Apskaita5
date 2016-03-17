@@ -568,10 +568,10 @@ Namespace Documents.InvoiceAdapters
         ''' Sets the attached operation date to invoice date.
         ''' </summary>
         ''' <param name="newInvoiceDate"></param>
-        ''' <remarks>Invokes <see cref="GoodsOperationDiscount.SetDate">GoodsOperationDiscount.SetDate</see>
+        ''' <remarks>Invokes <see cref="GoodsOperationDiscount.SetParentDate">GoodsOperationDiscount.SetParentDate</see>
         ''' method on encapsulated goods acquisition operation object.</remarks>
         Public Sub SetInvoiceDate(ByVal newInvoiceDate As Date) Implements IInvoiceAdapter.SetInvoiceDate
-            _GoodsDiscount.SetDate(newInvoiceDate)
+            _GoodsDiscount.SetParentDate(newInvoiceDate)
         End Sub
 
         ''' <summary>
@@ -583,7 +583,7 @@ Namespace Documents.InvoiceAdapters
         Public Sub SetInvoiceFinancialData(ByVal parentInvoiceItem As InvoiceMadeItem) Implements IInvoiceAdapter.SetInvoiceFinancialData
 
             If Not _GoodsDiscount.OperationLimitations.FinancialDataCanChange Then Exit Sub
-            _GoodsDiscount.SetTotalValueChange(parentInvoiceItem.GetTotalSumForInvoiceAdapter)
+            _GoodsDiscount.TotalValueChange = parentInvoiceItem.GetTotalSumForInvoiceAdapter
 
         End Sub
 
@@ -596,7 +596,7 @@ Namespace Documents.InvoiceAdapters
         Public Sub SetInvoiceFinancialData(ByVal parentInvoiceItem As InvoiceReceivedItem) Implements IInvoiceAdapter.SetInvoiceFinancialData
 
             If Not _GoodsDiscount.OperationLimitations.FinancialDataCanChange Then Exit Sub
-            _GoodsDiscount.SetTotalValueChange(-parentInvoiceItem.GetTotalSumForInvoiceAdapter)
+            _GoodsDiscount.TotalValueChange = -parentInvoiceItem.GetTotalSumForInvoiceAdapter
 
         End Sub
 
@@ -991,7 +991,7 @@ Namespace Documents.InvoiceAdapters
                 My.Resources.Common_SecuritySelectDenied)
 
             _GoodsDiscount = GoodsOperationDiscount.NewGoodsOperationDiscountChild( _
-                criteria.ID, criteria.WarehouseID)
+                criteria.ID, criteria.WarehouseID, Nothing)
 
             _IsForInvoiceMade = criteria.IsForInvoiceMade
 
@@ -1001,7 +1001,8 @@ Namespace Documents.InvoiceAdapters
         Private Sub Fetch(ByVal attachedObjectId As Integer, _
             ByVal parentChronologyValidator As IChronologicValidator, ByVal forInvoiceMade As Boolean)
 
-            _GoodsDiscount = GoodsOperationDiscount.GetGoodsOperationDiscountChild(attachedObjectId)
+            _GoodsDiscount = GoodsOperationDiscount.GetGoodsOperationDiscountChild( _
+                attachedObjectId, parentChronologyValidator)
 
             _IsForInvoiceMade = forInvoiceMade
 
@@ -1015,8 +1016,7 @@ Namespace Documents.InvoiceAdapters
         ''' </summary>
         ''' <remarks>Inserts or updates the goods discount operation data.</remarks>
         Friend Sub Update(ByVal parentInvoice As InvoiceMade) Implements IInvoiceAdapter.Update
-            _GoodsDiscount.SaveChild(parentInvoice.ID, parentInvoice.Date, _
-                parentInvoice.Content, parentInvoice.Serial & parentInvoice.FullNumber, _
+            _GoodsDiscount.SaveChild(parentInvoice.ID, 0, _
                 Not parentInvoice.ChronologyValidator.FinancialDataCanChange)
             MarkOld()
         End Sub
@@ -1026,8 +1026,7 @@ Namespace Documents.InvoiceAdapters
         ''' </summary>
         ''' <remarks>Inserts or updates the goods discount operation data.</remarks>
         Friend Sub Update(ByVal parentInvoice As InvoiceReceived) Implements IInvoiceAdapter.Update
-            _GoodsDiscount.SaveChild(parentInvoice.ID, parentInvoice.Date, _
-                parentInvoice.Content, parentInvoice.Number, _
+            _GoodsDiscount.SaveChild(parentInvoice.ID, 0, _
                 Not parentInvoice.ChronologyValidator.FinancialDataCanChange)
             MarkOld()
         End Sub
@@ -1071,7 +1070,7 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Invokes <see cref="GoodsOperationDiscount.CheckIfCanDelete">GoodsOperationDiscount.CheckIfCanDelete</see>
         ''' method on encapsulated goods discount operation.</remarks>
         Friend Sub CheckIfCanDelete(ByVal parentChronologyValidator As IChronologicValidator) Implements IInvoiceAdapter.CheckIfCanDelete
-            _GoodsDiscount.CheckIfCanDelete()
+            _GoodsDiscount.CheckIfCanDelete(parentChronologyValidator)
         End Sub
 
         ''' <summary>
@@ -1082,7 +1081,7 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Invokes <see cref="GoodsOperationDiscount.CheckIfCanUpdate">GoodsOperationDiscount.CheckIfCanUpdate</see>
         ''' method on encapsulated goods discount operation.</remarks>
         Friend Sub CheckIfCanUpdate(ByVal parentChronologyValidator As IChronologicValidator) Implements IInvoiceAdapter.CheckIfCanUpdate
-            _GoodsDiscount.CheckIfCanUpdate()
+            _GoodsDiscount.CheckIfCanUpdate(parentChronologyValidator)
         End Sub
 
         ''' <summary>
@@ -1093,8 +1092,9 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Is invoked on each invoice item adapter before other validation 
         ''' and actual update is performed.</remarks>
         Public Sub SetParentData(ByVal parentInvoice As InvoiceMade) Implements IInvoiceAdapter.SetParentData
-            _GoodsDiscount.Description = String.Format(My.Resources.Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_ContentInvoiceMade, _
-                parentInvoice.Content)
+            _GoodsDiscount.SetParentProperties(parentInvoice.Serial & parentInvoice.FullNumber, _
+                String.Format(My.Resources.Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_ContentInvoiceMade, _
+                parentInvoice.Content))
         End Sub
 
         ''' <summary>
@@ -1105,8 +1105,9 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Is invoked on each invoice item adapter before other validation 
         ''' and actual update is performed.</remarks>
         Public Sub SetParentData(ByVal parentInvoice As InvoiceReceived) Implements IInvoiceAdapter.SetParentData
-            _GoodsDiscount.Description = String.Format(My.Resources.Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_ContentInvoiceReceived, _
-                parentInvoice.Content)
+            _GoodsDiscount.SetParentProperties(parentInvoice.Number, _
+                String.Format(My.Resources.Documents_InvoiceAdapters_GoodsDiscountInvoiceAdapter_ContentInvoiceReceived, _
+                parentInvoice.Content))
         End Sub
 
 #End Region

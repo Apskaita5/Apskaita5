@@ -1,4 +1,5 @@
-﻿Imports Csla.Validation
+﻿Imports ApskaitaObjects.Attributes
+Imports Csla.Validation
 
 Namespace Assets
 
@@ -10,7 +11,7 @@ Namespace Assets
     <Serializable()> _
     Public Class OperationAcquisitionValueIncrease
         Inherits BusinessBase(Of OperationAcquisitionValueIncrease)
-        Implements IGetErrorForListItem, IIsDirtyEnough
+        Implements IGetErrorForListItem, IIsDirtyEnough, IValidationMessageProvider
 
 #Region " Business Methods "
 
@@ -893,7 +894,7 @@ Namespace Assets
         Public ReadOnly Property JournalEntryDocumentType() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return ConvertEnumHumanReadable(_JournalEntryDocumentType)
+                Return Utilities.ConvertLocalizedName(_JournalEntryDocumentType)
             End Get
         End Property
 
@@ -933,14 +934,29 @@ Namespace Assets
 
 
         ''' <summary>
+        ''' Whether the operation is actualy a child of some other document.
+        ''' </summary>
+        ''' <remarks>The <see cref="OperationAcquisitionValueIncrease.IsChild">IsChild</see>
+        ''' property defines the current state of the object, i.e. whether the object was
+        ''' fetched/created as a child). The IsChildOperation property defines a 
+        ''' persistence state of the object, i.e. whether the object was originaly
+        ''' saved as a child object.</remarks>
+        Public ReadOnly Property IsChildOperation() As Boolean
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return (IsChild OrElse _IsComplexAct OrElse _
+                    Not Array.IndexOf(ParentJournalEntryTypes, _JournalEntryDocumentType) < 0)
+            End Get
+        End Property
+
+        ''' <summary>
         ''' Whether the <see cref="Date">Date</see> property is readonly.
         ''' </summary>
         ''' <remarks></remarks>
         Public ReadOnly Property DateIsReadOnly() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return (IsChild OrElse _IsComplexAct OrElse _
-                    Not Array.IndexOf(ParentJournalEntryTypes, _JournalEntryDocumentType) < 0)
+                Return IsChildOperation
             End Get
         End Property
 
@@ -951,8 +967,7 @@ Namespace Assets
         Public ReadOnly Property ContentIsReadOnly() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return (IsChild OrElse _IsComplexAct OrElse _
-                    Not Array.IndexOf(ParentJournalEntryTypes, _JournalEntryDocumentType) < 0)
+                Return IsChildOperation
             End Get
         End Property
 
@@ -977,13 +992,13 @@ Namespace Assets
         Public ReadOnly Property AssociatedJournalEntryIsReadOnly() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return (IsChild OrElse _IsComplexAct OrElse _
-                    Not Array.IndexOf(ParentJournalEntryTypes, _JournalEntryDocumentType) < 0)
+                Return IsChildOperation
             End Get
         End Property
 
 
-        Public Overrides ReadOnly Property IsValid() As Boolean
+        Public Overrides ReadOnly Property IsValid() As Boolean _
+            Implements IValidationMessageProvider.IsValid
             Get
                 Return MyBase.IsValid AndAlso _Background.IsValid
             End Get
@@ -1114,7 +1129,8 @@ Namespace Assets
         End Sub
 
 
-        Public Function GetAllBrokenRules() As String
+        Public Function GetAllBrokenRules() As String _
+            Implements IValidationMessageProvider.GetAllBrokenRules
             Dim result As String = ""
             If Not MyBase.IsValid Then result = AddWithNewLine(result, _
                 Me.BrokenRulesCollection.ToString(Validation.RuleSeverity.Error), False)
@@ -1123,7 +1139,8 @@ Namespace Assets
             Return result
         End Function
 
-        Public Function GetAllWarnings() As String
+        Public Function GetAllWarnings() As String _
+            Implements IValidationMessageProvider.GetAllWarnings
             Dim result As String = ""
             If MyBase.BrokenRulesCollection.WarningCount > 0 Then
                 result = AddWithNewLine(result, _
@@ -1136,7 +1153,8 @@ Namespace Assets
             Return result
         End Function
 
-        Public Function HasWarnings() As Boolean
+        Public Function HasWarnings() As Boolean _
+            Implements IValidationMessageProvider.HasWarnings
             Return (MyBase.BrokenRulesCollection.WarningCount > 0 OrElse _
                 _Background.BrokenRulesCollection.WarningCount > 0)
         End Function
@@ -1236,7 +1254,7 @@ Namespace Assets
 
         Protected Overrides Sub AddBusinessRules()
 
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.DoubleFieldValidation, _
                 "ValueIncrease")
 
             ValidationRules.AddRule(AddressOf ChildStringPropertyValidation, _
@@ -1244,7 +1262,7 @@ Namespace Assets
             ValidationRules.AddRule(AddressOf JournalEntryIDValidation, _
                 New Csla.Validation.RuleArgs("JournalEntryID"))
             ValidationRules.AddRule(AddressOf DateValidation, _
-                New CommonValidation.ChronologyRuleArgs("Date", "ChronologyValidator"))
+                New CommonValidation.CommonValidation.ChronologyRuleArgs("Date", "ChronologyValidator"))
 
             ValidationRules.AddDependantProperty("ChronologyValidator", "Date", False)
             ValidationRules.AddDependantProperty("JournalEntryDate", "Date", False)
@@ -1266,7 +1284,7 @@ Namespace Assets
             If DirectCast(target, OperationAcquisitionValueIncrease).IsChild Then
                 Return True
             Else
-                Return CommonValidation.StringFieldValidation(target, e)
+                Return CommonValidation.CommonValidation.StringFieldValidation(target, e)
             End If
 
         End Function
@@ -1318,7 +1336,7 @@ Namespace Assets
                 Return False
             End If
 
-            Return CommonValidation.ChronologyValidation(target, e)
+            Return CommonValidation.CommonValidation.ChronologyValidation(target, e)
 
         End Function
 

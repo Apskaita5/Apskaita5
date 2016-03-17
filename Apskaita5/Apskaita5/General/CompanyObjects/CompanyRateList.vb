@@ -112,7 +112,7 @@ Namespace General
 
         Private Sub AddRow(ByVal myData As DataTable, ByVal ofType As DefaultRateType)
             For Each dr As DataRow In myData.Rows
-                If EnumValueAttribute.ConvertDatabaseID(Of DefaultRateType)(CIntSafe(dr.Item(1), 0)) = ofType Then
+                If Utilities.ConvertDatabaseID(Of DefaultRateType)(CIntSafe(dr.Item(1), 0)) = ofType Then
                     Add(CompanyRate.GetCompanyRate(dr))
                     Exit Sub
                 End If

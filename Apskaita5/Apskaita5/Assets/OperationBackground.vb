@@ -1,4 +1,6 @@
-﻿Namespace Assets
+﻿Imports ApskaitaObjects.Attributes
+
+Namespace Assets
 
     ''' <summary>
     ''' Represents a helper object that contains information about a long term asset state 

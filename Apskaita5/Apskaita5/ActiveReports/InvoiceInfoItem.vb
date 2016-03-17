@@ -1,4 +1,6 @@
 
+Imports ApskaitaObjects.Attributes
+
 Namespace ActiveReports
 
     ''' <summary>

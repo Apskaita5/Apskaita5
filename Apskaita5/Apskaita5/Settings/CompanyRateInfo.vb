@@ -101,8 +101,8 @@ Namespace Settings
         Private Sub Fetch(ByVal dr As DataRow)
 
             _ID = CIntSafe(dr.Item(0), 0)
-            _Type = EnumValueAttribute.ConvertDatabaseID(Of General.DefaultRateType)(CIntSafe(dr.Item(1), 0))
-            _TypeHumanReadable = EnumValueAttribute.ConvertLocalizedName(_Type)
+            _Type = Utilities.ConvertDatabaseID(Of General.DefaultRateType)(CIntSafe(dr.Item(1), 0))
+            _TypeHumanReadable = Utilities.ConvertLocalizedName(_Type)
             _Value = CDblSafe(dr.Item(2), 2, 0)
 
         End Sub

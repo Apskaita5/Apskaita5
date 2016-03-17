@@ -187,11 +187,11 @@ Namespace HelperLists
             Dim CreditList As New List(Of String)
 
             For Each s As String In Corespondations
-                If s.Trim.ToLower.StartsWith(EnumValueAttribute.ConvertDatabaseCharID(BookEntryType.Debetas).ToLower) Then
-                    DebetList.Add(s.Trim.ToLower.Replace(EnumValueAttribute.ConvertDatabaseCharID( _
+                If s.Trim.ToLower.StartsWith(Utilities.ConvertDatabaseCharID(BookEntryType.Debetas).ToLower) Then
+                    DebetList.Add(s.Trim.ToLower.Replace(Utilities.ConvertDatabaseCharID( _
                         BookEntryType.Debetas).ToLower, ""))
-                ElseIf s.Trim.ToLower.StartsWith(EnumValueAttribute.ConvertDatabaseCharID(BookEntryType.Kreditas).ToLower) Then
-                    CreditList.Add(s.Trim.ToLower.Replace(EnumValueAttribute.ConvertDatabaseCharID( _
+                ElseIf s.Trim.ToLower.StartsWith(Utilities.ConvertDatabaseCharID(BookEntryType.Kreditas).ToLower) Then
+                    CreditList.Add(s.Trim.ToLower.Replace(Utilities.ConvertDatabaseCharID( _
                         BookEntryType.Kreditas).ToLower, ""))
                 End If
             Next

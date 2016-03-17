@@ -1,4 +1,6 @@
 ﻿Imports ApskaitaObjects.Documents
+Imports ApskaitaObjects.Attributes
+
 Namespace ActiveReports
 
     ''' <summary>
@@ -372,9 +374,9 @@ Namespace ActiveReports
 
             _ID = CIntSafe(dr.Item(0), 0)
             _Name = CStrSafe(dr.Item(1)).Trim
-            _TradedTypeInt = EnumValueAttribute.ConvertDatabaseID(Of TradedItemType) _
+            _TradedTypeInt = Utilities.ConvertDatabaseID(Of TradedItemType) _
                 (CIntSafe(dr.Item(2), 0))
-            _TradedType = EnumValueAttribute.ConvertLocalizedName(_TradedTypeInt)
+            _TradedType = Utilities.ConvertLocalizedName(_TradedTypeInt)
             _DefaultRateVatSales = CDblSafe(dr.Item(3), 2, 0)
             _DefaultRateVatPurchase = CDblSafe(dr.Item(4), 2, 0)
             _ServiceCode = CStrSafe(dr.Item(5)).Trim

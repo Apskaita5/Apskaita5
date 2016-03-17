@@ -1,4 +1,6 @@
-﻿Namespace ActiveReports
+﻿Imports ApskaitaObjects.Attributes
+
+Namespace ActiveReports
 
     ''' <summary>
     ''' Represents a type of <see cref="HolidaySpentItem">HolidaySpentItem</see>.

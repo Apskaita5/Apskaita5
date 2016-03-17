@@ -1,4 +1,5 @@
-﻿Imports Csla.Validation
+﻿Imports ApskaitaObjects.Attributes
+Imports Csla.Validation
 
 Namespace Assets
 
@@ -12,7 +13,7 @@ Namespace Assets
     <Serializable()> _
     Public Class ComplexOperationValueChange
         Inherits BusinessBase(Of ComplexOperationValueChange)
-        Implements IIsDirtyEnough
+        Implements IIsDirtyEnough, IValidationMessageProvider
 
 #Region " Business Methods "
 
@@ -247,7 +248,7 @@ Namespace Assets
         Public ReadOnly Property JournalEntryDocumentType() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return ConvertEnumHumanReadable(_JournalEntryDocumentType)
+                Return Utilities.ConvertLocalizedName(_JournalEntryDocumentType)
             End Get
         End Property
 
@@ -290,7 +291,8 @@ Namespace Assets
         End Property
 
 
-        Public Overrides ReadOnly Property IsValid() As Boolean
+        Public Overrides ReadOnly Property IsValid() As Boolean _
+            Implements IValidationMessageProvider.IsValid
             Get
                 Return MyBase.IsValid AndAlso _Items.IsValid
             End Get
@@ -344,7 +346,8 @@ Namespace Assets
         End Sub
 
 
-        Public Function GetAllBrokenRules() As String
+        Public Function GetAllBrokenRules() As String _
+            Implements IValidationMessageProvider.GetAllBrokenRules
             Dim result As String = ""
             If Not MyBase.IsValid Then
                 result = AddWithNewLine(result, _
@@ -356,7 +359,8 @@ Namespace Assets
             Return result
         End Function
 
-        Public Function GetAllWarnings() As String
+        Public Function GetAllWarnings() As String _
+            Implements IValidationMessageProvider.GetAllWarnings
             Dim result As String = ""
             If Not MyBase.BrokenRulesCollection.WarningCount > 0 Then
                 result = AddWithNewLine(result, _
@@ -368,7 +372,8 @@ Namespace Assets
             Return result
         End Function
 
-        Public Function HasWarnings() As Boolean
+        Public Function HasWarnings() As Boolean _
+            Implements IValidationMessageProvider.HasWarnings
             Return (MyBase.BrokenRulesCollection.WarningCount > 0 OrElse _Items.HasWarnings())
         End Function
 
@@ -535,11 +540,11 @@ Namespace Assets
 
         Protected Overrides Sub AddBusinessRules()
 
-            ValidationRules.AddRule(AddressOf CommonValidation.StringFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.StringFieldValidation, _
                 New Csla.Validation.RuleArgs("Content"))
 
             ValidationRules.AddRule(AddressOf DateValidation, _
-                New CommonValidation.ChronologyRuleArgs("Date", "ChronologyValidator"))
+                New CommonValidation.CommonValidation.ChronologyRuleArgs("Date", "ChronologyValidator"))
             ValidationRules.AddRule(AddressOf JournalEntryIDValidation, _
                 New Csla.Validation.RuleArgs("JournalEntryID"))
 
@@ -569,7 +574,7 @@ Namespace Assets
                 Return False
             End If
 
-            Return CommonValidation.ChronologyValidation(target, e)
+            Return CommonValidation.CommonValidation.ChronologyValidation(target, e)
 
         End Function
 

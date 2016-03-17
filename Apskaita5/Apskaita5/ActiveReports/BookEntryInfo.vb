@@ -1,4 +1,6 @@
 Imports ApskaitaObjects.General
+Imports ApskaitaObjects.Attributes
+
 Namespace ActiveReports
 
     ''' <summary>
@@ -233,8 +235,8 @@ Namespace ActiveReports
             _DocNumber = CStrSafe(dr.Item(2))
             _Content = CStrSafe(dr.Item(3))
 
-            _DocType = ConvertEnumDatabaseStringCode(Of DocumentType)(CStrSafe(dr.Item(4)))
-            _DocTypeHumanReadable = ConvertEnumHumanReadable(_DocType)
+            _DocType = Utilities.ConvertDatabaseCharID(Of DocumentType)(CStrSafe(dr.Item(4)))
+            _DocTypeHumanReadable = Utilities.ConvertLocalizedName(_DocType)
 
             If Not CIntSafe(dr.Item(5), 0) > 0 AndAlso Not CIntSafe(dr.Item(11), 0) > 0 Then
                 _PersonID = 0

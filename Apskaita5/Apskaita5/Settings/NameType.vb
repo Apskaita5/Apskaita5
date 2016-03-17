@@ -1,4 +1,6 @@
-﻿Namespace Settings
+﻿Imports ApskaitaObjects.Attributes
+
+Namespace Settings
 
     ''' <summary>
     ''' Represents a type of names (predefined single string values) used in business objects.

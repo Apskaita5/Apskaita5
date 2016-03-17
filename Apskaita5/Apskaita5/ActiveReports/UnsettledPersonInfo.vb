@@ -1,4 +1,6 @@
-﻿Namespace ActiveReports
+﻿Imports ApskaitaObjects.Attributes
+
+Namespace ActiveReports
 
     ''' <summary>
     ''' Represents an item of <see cref="UnsettledPersonInfoList">UnsettledPersonInfoList</see> report.
@@ -126,8 +128,9 @@
             End Get
         End Property
 
+
         ''' <summary>
-        ''' Gets a list of unsettled documents.
+        ''' Gets a list of unsettled documents. 
         ''' </summary>
         ''' <remarks></remarks>
         Public ReadOnly Property Items() As UnsettledDocumentInfoList

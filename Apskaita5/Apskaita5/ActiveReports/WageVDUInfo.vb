@@ -1,4 +1,6 @@
-﻿Namespace ActiveReports
+﻿Imports ApskaitaObjects.Attributes
+
+Namespace ActiveReports
 
     ''' <summary>
     ''' Represents a wage info data item for calculating VDU (average wage).

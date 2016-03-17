@@ -83,7 +83,7 @@ Namespace Documents
         Private Sub Fetch(ByVal parent As IRegionalDataObject)
 
             Dim myComm As New SQLCommand("FetchRegionalContentInfoListByParent")
-            myComm.AddParam("?AA", EnumValueAttribute.ConvertDatabaseID(parent.RegionalObjectType))
+            myComm.AddParam("?AA", Utilities.ConvertDatabaseID(parent.RegionalObjectType))
             myComm.AddParam("?AB", parent.RegionalObjectID)
 
             Using myData As DataTable = myComm.Fetch
@@ -125,7 +125,7 @@ Namespace Documents
 
             Dim myComm As New SQLCommand("DeleteAllItemsInRegionalContents")
             myComm.AddParam("?CD", parentID)
-            myComm.AddParam("?CT", EnumValueAttribute.ConvertDatabaseID(parentType))
+            myComm.AddParam("?CT", Utilities.ConvertDatabaseID(parentType))
             myComm.Execute()
 
         End Sub

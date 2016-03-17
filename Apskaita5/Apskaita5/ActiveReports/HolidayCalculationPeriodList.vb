@@ -91,7 +91,7 @@
 
             Dim lastRow As DataRow = myData.Rows(myData.Rows.Count - 1)
 
-            If EnumValueAttribute.ConvertDatabaseCharID(Of Workers.WorkerStatusType) _
+            If Utilities.ConvertDatabaseCharID(Of Workers.WorkerStatusType) _
                 (CStrSafe(lastRow.Item(2))) <> Workers.WorkerStatusType.Fired Then
 
                 _IsFired = False

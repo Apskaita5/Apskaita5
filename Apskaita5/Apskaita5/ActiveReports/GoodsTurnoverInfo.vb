@@ -1,6 +1,12 @@
 Imports ApskaitaObjects.Goods
 Namespace ActiveReports
 
+    ''' <summary>
+    ''' Represents an item in a <see cref="GoodsTurnoverInfoList">goods turnover report</see>,
+    ''' contains information about aggregated turnover of a specific goods item
+    ''' within the report period subject to the report filter criteria.
+    ''' </summary>
+    ''' <remarks>Should only be used as a child of <see cref="GoodsTurnoverInfoList">GoodsTurnoverInfoList</see>.</remarks>
     <Serializable()> _
     Public Class GoodsTurnoverInfo
         Inherits ReadOnlyBase(Of GoodsTurnoverInfo)
@@ -76,6 +82,10 @@ Namespace ActiveReports
         Private _AccountValueReductionPeriodEnd As Double = 0
 
 
+        ''' <summary>
+        ''' Gets an <see cref="Goods.GoodsItem.ID">ID of the goods</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public ReadOnly Property ID() As Integer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -83,6 +93,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a <see cref="Goods.GoodsItem.Name">name of the goods</see>.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Goods.GoodsItem.Name">GoodsItem.Name</see>.</remarks>
         Public ReadOnly Property Name() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -90,6 +104,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a <see cref="Goods.GoodsItem.MeasureUnit">measure unit of the goods</see>.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Goods.GoodsItem.MeasureUnit">GoodsItem.MeasureUnit</see>.</remarks>
         Public ReadOnly Property MeasureUnit() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -97,6 +115,15 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an <see cref="General.Account.ID">account</see> that is used for
+        ''' the value of goods received (bought) by the <see cref="GoodsAccountingMethod.Periodic">
+        ''' periodic accounting method</see>, not applicable for persistent accounting method,
+        ''' that uses <see cref="Warehouse.WarehouseAccount">warehouse account</see>
+        ''' for the same purpose.
+        ''' </summary>
+        ''' <remarks>See methodology for BAS No 9 ""Stores"" para. 8.
+        ''' Corresponds to <see cref="Goods.GoodsItem.AccountPurchases">GoodsItem.AccountPurchases</see>.</remarks>
         Public ReadOnly Property AccountPurchases() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -104,6 +131,18 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an <see cref="General.Account.ID">account</see> that is used for
+        ''' the value of goods discarded (sold etc.). 
+        ''' If the accounting method is set to<see cref="GoodsAccountingMethod.Periodic">
+        ''' Periodic</see>, this account is fixed and mainly used by an <see cref="GoodsComplexOperationInventorization">
+        ''' inventorization</see> operation (also in some cases by discount and additional costs). 
+        ''' If the accounting method is set to<see cref="GoodsAccountingMethod.Persistent">
+        ''' Persistent</see>, this account is used as a default goods discard costs
+        ''' account by almost every operation, i.e. an operation can override it.
+        ''' </summary>
+        ''' <remarks>See methodology for BAS No 9 ""Stores"" para. 5.2 and 40.
+        ''' Corresponds to <see cref="Goods.GoodsItem.AccountSalesNetCosts">GoodsItem.AccountSalesNetCosts</see>.</remarks>
         Public ReadOnly Property AccountSalesNetCosts() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -111,6 +150,13 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an <see cref="General.Account.ID">account</see> that is used for
+        ''' discounts received by the <see cref="GoodsAccountingMethod.Periodic">
+        ''' periodic accounting method</see>, not applicable for persistent accounting method.
+        ''' </summary>
+        ''' <remarks>See methodology for BAS No 9 ""Stores"" para. 5.2.
+        ''' Corresponds to <see cref="Goods.GoodsItem.AccountDiscounts">GoodsItem.AccountDiscounts</see>.</remarks>
         Public ReadOnly Property AccountDiscounts() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -118,6 +164,13 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an <see cref="General.Account.ID">account</see> that is used for
+        ''' goods value reduction (when goods are revalued to match market prices). 
+        ''' Handling of this account does not depend on the accounting method.
+        ''' </summary>
+        ''' <remarks>See methodology for BAS No 9 ""Stores"" para. 24 - 33.
+        ''' Corresponds to <see cref="Goods.GoodsItem.AccountValueReduction">GoodsItem.AccountValueReduction</see>.</remarks>
         Public ReadOnly Property AccountValueReduction() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -125,6 +178,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a custom goods group that the goods are assigned to.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Goods.GoodsItem.Group">GoodsItem.Group</see>.</remarks>
         Public ReadOnly Property GroupName() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -132,13 +189,19 @@ Namespace ActiveReports
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDUNITINVOICERECEIVED)> _
         Public ReadOnly Property PricePurchase() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_PricePurchase, 6)
+                Return CRound(_PricePurchase, ROUNDUNITINVOICERECEIVED)
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a default VAT rate for the goods beeing purchased.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Goods.GoodsItem.DefaultVatRatePurchase">GoodsItem.DefaultVatRatePurchase</see>.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property DefaultVatRatePurchase() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -146,13 +209,19 @@ Namespace ActiveReports
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDUNITINVOICEMADE)> _
         Public ReadOnly Property PriceSale() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_PriceSale, 6)
+                Return CRound(_PriceSale, ROUNDUNITINVOICEMADE)
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a default VAT rate for the goods beeing sold.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Goods.GoodsItem.DefaultVatRateSales">GoodsItem.DefaultVatRateSales</see>.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property DefaultVatRateSales() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -160,6 +229,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a goods accounting method (periodic/persistent) 
+        ''' as a localized human readable string.
+        ''' </summary>
+        ''' <remarks>Cannot be changed after the first operation with the goods.
+        ''' Corresponds to <see cref="Goods.GoodsItem.AccountingMethod">GoodsItem.AccountingMethod</see>.</remarks>
         Public ReadOnly Property AccountingMethod() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -167,6 +242,16 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a goods valuation method (FIFO, LIFO, average, etc.) 
+        ''' as a localized human readable string.
+        ''' </summary>
+        ''' <remarks>Cannot be changed after the first operation with the goods, 
+        ''' but could be prospectively overriden by a <see cref="GoodsOperationValuationMethod">
+        ''' valuation method change operation</see>.
+        ''' Default value corresponds to <see cref="Goods.GoodsItem.DefaultValuationMethod">GoodsItem.DefaultValuationMethod</see>.
+        ''' Actual value depends on the last <see cref="Goods.GoodsOperationValuationMethod">
+        ''' goods valuation method change operation</see> before the end of the report period.</remarks>
         Public ReadOnly Property ValuationMethod() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -174,6 +259,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets how the goods is used in trade operations (sale, purchase, etc.) 
+        ''' as a localized human readable string.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Goods.GoodsItem.TradedType">GoodsItem.TradedType</see>.</remarks>
         Public ReadOnly Property TradeType() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -181,6 +271,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a custom goods code. (for internal company use or for integration 
+        ''' with external CRM systems)
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Goods.GoodsItem.InternalCode">GoodsItem.InternalCode</see>.</remarks>
         Public ReadOnly Property Code() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -188,6 +283,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a goods barcode.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Goods.GoodsItem.Barcode">GoodsItem.Barcode</see>.</remarks>
         Public ReadOnly Property BarCode() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -195,6 +294,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a default <see cref="Goods.Warehouse.Name">warehouse</see> 
+        ''' that is used to initialize goods operations.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Goods.GoodsItem.DefaultWarehouse">GoodsItem.DefaultWarehouse</see>.</remarks>
         Public ReadOnly Property DefaultWarehouse() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -202,6 +306,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets an <see cref="Goods.Warehouse.WarehouseAccount">account of the 
+        ''' default warehouse</see> that is used to initialize goods operations.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Goods.GoodsItem.DefaultWarehouse">GoodsItem.DefaultWarehouse</see>.</remarks>
         Public ReadOnly Property DefaultWarehouseAccount() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -209,6 +318,10 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets whether the goods are obsolete (no longer in use).
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Goods.GoodsItem.IsObsolete">GoodsItem.IsObsolete</see>.</remarks>
         Public ReadOnly Property IsObsolete() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -216,139 +329,159 @@ Namespace ActiveReports
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDAMOUNTGOODS)> _
         Public ReadOnly Property AmountPeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_AmountPeriodStart, 6)
+                Return CRound(_AmountPeriodStart, ROUNDAMOUNTGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDAMOUNTGOODS)> _
         Public ReadOnly Property AmountInWarehousePeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_AmountInWarehousePeriodStart, 6)
+                Return CRound(_AmountInWarehousePeriodStart, ROUNDAMOUNTGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDAMOUNTGOODS)> _
         Public ReadOnly Property AmountPendingPeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_AmountPendingPeriodStart, 6)
+                Return CRound(_AmountPendingPeriodStart, ROUNDAMOUNTGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDAMOUNTGOODS)> _
         Public ReadOnly Property AmountAcquisitions() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_AmountAcquisitions, 6)
+                Return CRound(_AmountAcquisitions, ROUNDAMOUNTGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDAMOUNTGOODS)> _
         Public ReadOnly Property AmountTransfered() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_AmountTransfered, 6)
+                Return CRound(_AmountTransfered, ROUNDAMOUNTGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDAMOUNTGOODS)> _
         Public ReadOnly Property AmountDiscarded() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_AmountDiscarded, 6)
+                Return CRound(_AmountDiscarded, ROUNDAMOUNTGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDAMOUNTGOODS)> _
         Public ReadOnly Property AmountAcquisitionsInWarehouse() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_AmountAcquisitionsInWarehouse, 6)
+                Return CRound(_AmountAcquisitionsInWarehouse, ROUNDAMOUNTGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDAMOUNTGOODS)> _
         Public ReadOnly Property AmountTransferedInWarehouse() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_AmountTransferedInWarehouse, 6)
+                Return CRound(_AmountTransferedInWarehouse, ROUNDAMOUNTGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDAMOUNTGOODS)> _
         Public ReadOnly Property AmountDiscardedInWarehouse() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_AmountDiscardedInWarehouse, 6)
+                Return CRound(_AmountDiscardedInWarehouse, ROUNDAMOUNTGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDAMOUNTGOODS)> _
         Public ReadOnly Property AmountChangeInventorization() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_AmountChangeInventorization, 6)
+                Return CRound(_AmountChangeInventorization, ROUNDAMOUNTGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDAMOUNTGOODS)> _
         Public ReadOnly Property AmountPeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_AmountPeriodEnd, 6)
+                Return CRound(_AmountPeriodEnd, ROUNDAMOUNTGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDAMOUNTGOODS)> _
         Public ReadOnly Property AmountInWarehousePeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_AmountInWarehousePeriodEnd, 6)
+                Return CRound(_AmountInWarehousePeriodEnd, ROUNDAMOUNTGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDAMOUNTGOODS)> _
         Public ReadOnly Property AmountPendingPeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_AmountPendingPeriodEnd, 6)
+                Return CRound(_AmountPendingPeriodEnd, ROUNDAMOUNTGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDAMOUNTGOODS)> _
         Public ReadOnly Property AmountPurchasesPeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_AmountPurchasesPeriodStart, 6)
+                Return CRound(_AmountPurchasesPeriodStart, ROUNDAMOUNTGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDAMOUNTGOODS)> _
         Public ReadOnly Property AmountPurchasesPeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_AmountPurchasesPeriodEnd, 6)
+                Return CRound(_AmountPurchasesPeriodEnd, ROUNDAMOUNTGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDUNITGOODS)> _
         Public ReadOnly Property UnitValuePeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_UnitValuePeriodStart, 6)
+                Return CRound(_UnitValuePeriodStart, ROUNDUNITGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDUNITGOODS)> _
         Public ReadOnly Property UnitValueInWarehousePeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_UnitValueInWarehousePeriodStart, 6)
+                Return CRound(_UnitValueInWarehousePeriodStart, ROUNDUNITGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDUNITGOODS)> _
         Public ReadOnly Property UnitValuePeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_UnitValuePeriodEnd, 6)
+                Return CRound(_UnitValuePeriodEnd, ROUNDUNITGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, ROUNDUNITGOODS)> _
         Public ReadOnly Property UnitValueInWarehousePeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return CRound(_UnitValueInWarehousePeriodEnd, 6)
+                Return CRound(_UnitValueInWarehousePeriodEnd, ROUNDUNITGOODS)
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property TotalValuePeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -356,6 +489,7 @@ Namespace ActiveReports
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property TotalValueInWarehousePeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -363,6 +497,7 @@ Namespace ActiveReports
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property TotalValuePeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -370,6 +505,7 @@ Namespace ActiveReports
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property TotalValueInWarehousePeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -377,6 +513,7 @@ Namespace ActiveReports
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property TotalAdditionalCosts() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -384,6 +521,7 @@ Namespace ActiveReports
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property TotalDiscounts() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -391,6 +529,7 @@ Namespace ActiveReports
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property TotalAdditionalCostsForDiscardedGoods() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -398,6 +537,7 @@ Namespace ActiveReports
             End Get
         End Property
 
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property TotalDiscountsForDiscardedGoods() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -405,6 +545,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a balance of the <see cref="AccountPurchases">AccountPurchases</see>
+        ''' at the start of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number (invalid) represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountPurchasesPeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -412,6 +558,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a balance of the warehouse account at the start of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number (invalid) represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountWarehousePeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -419,6 +570,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a balance of the <see cref="AccountSalesNetCosts">AccountSalesNetCosts</see>
+        ''' at the start of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number (invalid) represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountSalesNetCostsPeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -426,6 +583,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a balance of the <see cref="AccountDiscounts">AccountDiscounts</see>
+        ''' at the start of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number (invalid) represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountDiscountsPeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -433,6 +596,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a balance of the <see cref="AccountValueReduction">AccountValueReduction</see>
+        ''' at the start of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number (invalid) represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountValueReductionPeriodStart() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -440,6 +609,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a debit turnover of the <see cref="AccountPurchases">AccountPurchases</see>
+        ''' within the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountPurchasesDebit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -447,6 +622,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a credit turnover of the <see cref="AccountPurchases">AccountPurchases</see>
+        ''' within the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountPurchasesCredit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -454,6 +635,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a debit turnover of the warehouse account within the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountWarehouseDebit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -461,6 +647,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a credit turnover of the warehouse account within the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountWarehouseCredit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -468,6 +659,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a debit turnover of the <see cref="AccountSalesNetCosts">AccountSalesNetCosts</see>
+        ''' within the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountSalesNetCostsDebit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -475,6 +672,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a credit turnover of the <see cref="AccountSalesNetCosts">AccountSalesNetCosts</see>
+        ''' within the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountSalesNetCostsCredit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -482,6 +685,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a debit turnover of the <see cref="AccountDiscounts">AccountDiscounts</see>
+        ''' within the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountDiscountsDebit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -489,6 +698,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a credit turnover of the <see cref="AccountDiscounts">AccountDiscounts</see>
+        ''' within the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountDiscountsCredit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -496,6 +711,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a debit turnover of the <see cref="AccountValueReduction">AccountValueReduction</see>
+        ''' within the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountValueReductionDebit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -503,6 +724,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a credit turnover of the <see cref="AccountValueReduction">AccountValueReduction</see>
+        ''' within the report period.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountValueReductionCredit() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -510,6 +737,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a balance of the <see cref="AccountPurchases">AccountPurchases</see>
+        ''' at the end of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number (invalid) represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountPurchasesPeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -517,6 +750,11 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a balance of the warehouse account at the end of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number (invalid) represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountWarehousePeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -524,6 +762,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a balance of the <see cref="AccountSalesNetCosts">AccountSalesNetCosts</see>
+        ''' at the end of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number represents debit balance, a negative number (invalid) represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountSalesNetCostsPeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -531,6 +775,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a balance of the <see cref="AccountDiscounts">AccountDiscounts</see>
+        ''' at the end of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number (invalid) represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountDiscountsPeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -538,6 +788,12 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a balance of the <see cref="AccountValueReduction">AccountValueReduction</see>
+        ''' at the end of the report period.
+        ''' </summary>
+        ''' <remarks>A positive number (invalid) represents debit balance, a negative number represents credit balance.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)> _
         Public ReadOnly Property AccountValueReductionPeriodEnd() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -546,6 +802,10 @@ Namespace ActiveReports
         End Property
 
 
+        ''' <summary>
+        ''' Returns whether the there is any goods turnover within the item.
+        ''' </summary>
+        ''' <remarks></remarks>
         Public Function HasTurnover() As Boolean
 
             Return (CRound(_AmountAcquisitions, ROUNDAMOUNTGOODS) > 0 OrElse CRound(_AmountAcquisitionsInWarehouse, ROUNDAMOUNTGOODS) > 0 OrElse _
@@ -598,35 +858,35 @@ Namespace ActiveReports
             _AccountDiscounts = CLongSafe(dr.Item(5), 0)
             _AccountValueReduction = CLongSafe(dr.Item(6), 0)
             _GroupName = CStrSafe(dr.Item(7)).Trim
-            _PricePurchase = CDblSafe(dr.Item(8), 6, 0)
+            _PricePurchase = CDblSafe(dr.Item(8), ROUNDUNITINVOICERECEIVED, 0)
             _DefaultVatRatePurchase = CDblSafe(dr.Item(9), 2, 0)
-            _PriceSale = CDblSafe(dr.Item(10), 6, 0)
+            _PriceSale = CDblSafe(dr.Item(10), ROUNDUNITINVOICEMADE, 0)
             _DefaultVatRateSales = CDblSafe(dr.Item(11), 2, 0)
-            _AccountingMethod = ConvertEnumHumanReadable(ConvertEnumDatabaseCode(Of GoodsAccountingMethod) _
+            _AccountingMethod = ConvertLocalizedName(ConvertDatabaseID(Of GoodsAccountingMethod) _
                 (CIntSafe(dr.Item(12), 0)))
-            _ValuationMethod = ConvertEnumHumanReadable(ConvertEnumDatabaseCode(Of GoodsValuationMethod) _
+            _ValuationMethod = ConvertLocalizedName(ConvertDatabaseID(Of GoodsValuationMethod) _
                 (CIntSafe(dr.Item(13), 0)))
-            _TradeType = EnumValueAttribute.ConvertLocalizedName(EnumValueAttribute.ConvertDatabaseID(Of Documents.TradedItemType) _
+            _TradeType = ConvertLocalizedName(ConvertDatabaseID(Of Documents.TradedItemType) _
                 (CIntSafe(dr.Item(14), 0)))
             _Code = CStrSafe(dr.Item(15)).Trim
             _BarCode = CStrSafe(dr.Item(16)).Trim
             _DefaultWarehouse = CStrSafe(dr.Item(17)).Trim
             _DefaultWarehouseAccount = CLongSafe(dr.Item(18), 0)
             _IsObsolete = ConvertDbBoolean(CIntSafe(dr.Item(19), 0))
-            _AmountPeriodStart = CDblSafe(dr.Item(20), 6, 0)
-            _AmountInWarehousePeriodStart = CDblSafe(dr.Item(21), 6, 0)
-            _AmountAcquisitions = CDblSafe(dr.Item(22), 6, 0)
-            _AmountTransfered = CDblSafe(dr.Item(23), 6, 0)
-            _AmountDiscarded = CDblSafe(dr.Item(24), 6, 0)
-            _AmountAcquisitionsInWarehouse = CDblSafe(dr.Item(25), 6, 0)
-            _AmountTransferedInWarehouse = CDblSafe(dr.Item(26), 6, 0)
-            _AmountDiscardedInWarehouse = CDblSafe(dr.Item(27), 6, 0)
-            _AmountChangeInventorization = CDblSafe(dr.Item(28), 6, 0)
+            _AmountPeriodStart = CDblSafe(dr.Item(20), ROUNDAMOUNTGOODS, 0)
+            _AmountInWarehousePeriodStart = CDblSafe(dr.Item(21), ROUNDAMOUNTGOODS, 0)
+            _AmountAcquisitions = CDblSafe(dr.Item(22), ROUNDAMOUNTGOODS, 0)
+            _AmountTransfered = CDblSafe(dr.Item(23), ROUNDAMOUNTGOODS, 0)
+            _AmountDiscarded = CDblSafe(dr.Item(24), ROUNDAMOUNTGOODS, 0)
+            _AmountAcquisitionsInWarehouse = CDblSafe(dr.Item(25), ROUNDAMOUNTGOODS, 0)
+            _AmountTransferedInWarehouse = CDblSafe(dr.Item(26), ROUNDAMOUNTGOODS, 0)
+            _AmountDiscardedInWarehouse = CDblSafe(dr.Item(27), ROUNDAMOUNTGOODS, 0)
+            _AmountChangeInventorization = CDblSafe(dr.Item(28), ROUNDAMOUNTGOODS, 0)
             _AmountPeriodEnd = CRound(_AmountPeriodStart + _AmountAcquisitions + _AmountTransfered _
-                + _AmountDiscarded + _AmountChangeInventorization, 6)
-            _AmountInWarehousePeriodEnd = CDblSafe(dr.Item(29), 6, 0)
-            _AmountPurchasesPeriodStart = CDblSafe(dr.Item(30), 6, 0)
-            _AmountPurchasesPeriodEnd = CDblSafe(dr.Item(31), 6, 0)
+                + _AmountDiscarded + _AmountChangeInventorization, ROUNDAMOUNTGOODS)
+            _AmountInWarehousePeriodEnd = CDblSafe(dr.Item(29), ROUNDAMOUNTGOODS, 0)
+            _AmountPurchasesPeriodStart = CDblSafe(dr.Item(30), ROUNDAMOUNTGOODS, 0)
+            _AmountPurchasesPeriodEnd = CDblSafe(dr.Item(31), ROUNDAMOUNTGOODS, 0)
             _TotalAdditionalCosts = CDblSafe(dr.Item(32), 2, 0)
             _TotalDiscounts = CDblSafe(dr.Item(33), 2, 0)
             _TotalAdditionalCostsForDiscardedGoods = CDblSafe(dr.Item(34), 2, 0)
@@ -647,74 +907,79 @@ Namespace ActiveReports
             _AccountValueReductionDebit = CDblSafe(dr.Item(49), 2, 0)
             _AccountValueReductionCredit = -CDblSafe(dr.Item(50), 2, 0)
 
-            _AccountPurchasesPeriodEnd = CRound(_AccountPurchasesPeriodStart + _AccountPurchasesDebit _
-                - _AccountPurchasesCredit)
-            _AccountWarehousePeriodEnd = CRound(_AccountWarehousePeriodStart + _AccountWarehouseDebit _
-                - _AccountWarehouseCredit)
-            _AccountSalesNetCostsPeriodEnd = CRound(_AccountSalesNetCostsPeriodStart + _AccountSalesNetCostsDebit _
-                - _AccountSalesNetCostsCredit)
-            _AccountDiscountsPeriodEnd = CRound(_AccountDiscountsPeriodStart + _AccountDiscountsDebit _
-                - _AccountDiscountsCredit)
-            _AccountValueReductionPeriodEnd = CRound(_AccountValueReductionPeriodStart + _AccountValueReductionDebit _
-                - _AccountValueReductionCredit)
+            _AccountPurchasesPeriodEnd = CRound(_AccountPurchasesPeriodStart _
+                + _AccountPurchasesDebit - _AccountPurchasesCredit)
+            _AccountWarehousePeriodEnd = CRound(_AccountWarehousePeriodStart _
+                + _AccountWarehouseDebit - _AccountWarehouseCredit)
+            _AccountSalesNetCostsPeriodEnd = CRound(_AccountSalesNetCostsPeriodStart _
+                + _AccountSalesNetCostsDebit - _AccountSalesNetCostsCredit)
+            _AccountDiscountsPeriodEnd = CRound(_AccountDiscountsPeriodStart _
+                + _AccountDiscountsDebit - _AccountDiscountsCredit)
+            _AccountValueReductionPeriodEnd = CRound(_AccountValueReductionPeriodStart _
+                + _AccountValueReductionDebit - _AccountValueReductionCredit)
 
             _TotalValueInWarehousePeriodStart = _AccountWarehousePeriodStart
             _TotalValueInWarehousePeriodEnd = _AccountWarehousePeriodEnd
 
-            If CRound(_AmountInWarehousePeriodStart, 6) <> 0 Then
-                _UnitValueInWarehousePeriodStart = CRound(_TotalValueInWarehousePeriodStart / _
-                    _AmountInWarehousePeriodStart, 6)
+            If CRound(_AmountInWarehousePeriodStart, ROUNDAMOUNTGOODS) <> 0 Then
+                _UnitValueInWarehousePeriodStart = CRound(_TotalValueInWarehousePeriodStart _
+                    / _AmountInWarehousePeriodStart, ROUNDUNITGOODS)
             Else
                 _UnitValueInWarehousePeriodStart = 0
             End If
-            If CRound(_AmountInWarehousePeriodEnd, 6) <> 0 Then
-                _UnitValueInWarehousePeriodEnd = CRound(_TotalValueInWarehousePeriodEnd / _
-                    _AmountInWarehousePeriodEnd, 6)
+            If CRound(_AmountInWarehousePeriodEnd, ROUNDAMOUNTGOODS) <> 0 Then
+                _UnitValueInWarehousePeriodEnd = CRound(_TotalValueInWarehousePeriodEnd _
+                    / _AmountInWarehousePeriodEnd, ROUNDUNITGOODS)
             Else
                 _UnitValueInWarehousePeriodEnd = 0
             End If
-            If ConvertEnumDatabaseCode(Of GoodsAccountingMethod) _
-                (CIntSafe(dr.Item(12), 0)) = GoodsAccountingMethod.Periodic Then
+            If ConvertDatabaseID(Of GoodsAccountingMethod)(CIntSafe(dr.Item(12), 0)) _
+                = GoodsAccountingMethod.Periodic Then
 
                 _TotalValuePeriodStart = CRound(_AccountPurchasesPeriodStart _
                     + _AccountDiscountsPeriodStart + _AccountWarehousePeriodStart)
 
-                If CRound(_AmountPurchasesPeriodStart + _AmountInWarehousePeriodStart, 6) <> 0 Then
+                If CRound(_AmountPurchasesPeriodStart + _AmountInWarehousePeriodStart, ROUNDAMOUNTGOODS) <> 0 Then
                     _UnitValuePeriodStart = CRound(_TotalValuePeriodStart _
-                        / (_AmountPurchasesPeriodStart + _AmountInWarehousePeriodStart), 6)
+                        / (_AmountPurchasesPeriodStart + _AmountInWarehousePeriodStart), ROUNDUNITGOODS)
                 Else
                     _UnitValuePeriodStart = 0
                 End If
 
-                _AmountPeriodStart = CRound(_AmountPurchasesPeriodStart + _AmountInWarehousePeriodStart, 6)
+                _AmountPeriodStart = CRound(_AmountPurchasesPeriodStart _
+                    + _AmountInWarehousePeriodStart, ROUNDAMOUNTGOODS)
 
-                _AmountPendingPeriodStart = CRound(_AmountPeriodStart - _AmountInWarehousePeriodStart, 6)
+                _AmountPendingPeriodStart = CRound(_AmountPeriodStart _
+                    - _AmountInWarehousePeriodStart, ROUNDAMOUNTGOODS)
 
                 _TotalValuePeriodEnd = CRound(_AccountPurchasesPeriodEnd _
                     + _AccountDiscountsPeriodEnd + _AccountWarehousePeriodEnd)
 
-                If CRound(_AmountPurchasesPeriodEnd + _AmountInWarehousePeriodEnd, 6) <> 0 Then
+                If CRound(_AmountPurchasesPeriodEnd + _AmountInWarehousePeriodEnd, ROUNDAMOUNTGOODS) <> 0 Then
                     _UnitValuePeriodEnd = CRound(_TotalValuePeriodEnd _
-                        / (_AmountPurchasesPeriodEnd + _AmountInWarehousePeriodEnd), 6)
+                        / (_AmountPurchasesPeriodEnd + _AmountInWarehousePeriodEnd), ROUNDUNITGOODS)
                 Else
                     _UnitValuePeriodEnd = 0
                 End If
 
                 _AmountPeriodEnd = CRound(_AmountPeriodStart + _AmountAcquisitions + _AmountTransfered _
-                    + _AmountDiscarded + _AmountChangeInventorization, 6)
+                    + _AmountDiscarded + _AmountChangeInventorization, ROUNDAMOUNTGOODS)
 
-                _AmountPendingPeriodEnd = CRound(_AmountPeriodEnd - _AmountInWarehousePeriodEnd, 6)
+                _AmountPendingPeriodEnd = CRound(_AmountPeriodEnd _
+                    - _AmountInWarehousePeriodEnd, ROUNDAMOUNTGOODS)
 
             Else
                 _TotalValuePeriodStart = _AccountWarehousePeriodStart
                 _TotalValuePeriodEnd = _AccountWarehousePeriodEnd
-                If CRound(_AmountPeriodStart, 6) <> 0 Then
-                    _UnitValuePeriodStart = CRound(_AccountWarehousePeriodStart / _AmountPeriodStart, 6)
+                If CRound(_AmountPeriodStart, ROUNDAMOUNTGOODS) <> 0 Then
+                    _UnitValuePeriodStart = CRound(_AccountWarehousePeriodStart _
+                        / _AmountPeriodStart, ROUNDUNITGOODS)
                 Else
                     _UnitValuePeriodStart = 0
                 End If
-                If CRound(_AmountPeriodEnd, 6) <> 0 Then
-                    _UnitValuePeriodEnd = CRound(_AccountWarehousePeriodEnd / _AmountPeriodEnd, 6)
+                If CRound(_AmountPeriodEnd, ROUNDAMOUNTGOODS) <> 0 Then
+                    _UnitValuePeriodEnd = CRound(_AccountWarehousePeriodEnd _
+                        / _AmountPeriodEnd, ROUNDUNITGOODS)
                 Else
                     _UnitValuePeriodEnd = 0
                 End If
@@ -722,13 +987,14 @@ Namespace ActiveReports
 
             _TotalValuePeriodStart = CRound(_TotalValuePeriodStart + _AccountValueReductionPeriodStart, 2)
             _TotalValuePeriodEnd = CRound(_TotalValuePeriodEnd + _AccountValueReductionPeriodEnd, 2)
-            If CRound(_AmountPeriodStart, 6) <> 0 Then
-                _UnitValuePeriodStart = CRound(_TotalValuePeriodStart / _AmountPeriodStart, 6)
+            If CRound(_AmountPeriodStart, ROUNDAMOUNTGOODS) <> 0 Then
+                _UnitValuePeriodStart = CRound(_TotalValuePeriodStart _
+                    / _AmountPeriodStart, ROUNDUNITGOODS)
             Else
                 _UnitValuePeriodStart = 0
             End If
-            If CRound(_AmountPeriodEnd, 6) <> 0 Then
-                _UnitValuePeriodEnd = CRound(_TotalValuePeriodEnd / _AmountPeriodEnd, 6)
+            If CRound(_AmountPeriodEnd, ROUNDAMOUNTGOODS) <> 0 Then
+                _UnitValuePeriodEnd = CRound(_TotalValuePeriodEnd / _AmountPeriodEnd, ROUNDUNITGOODS)
             Else
                 _UnitValuePeriodEnd = 0
             End If

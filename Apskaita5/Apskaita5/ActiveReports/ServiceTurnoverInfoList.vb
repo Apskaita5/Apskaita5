@@ -71,7 +71,7 @@ Namespace ActiveReports
         Public ReadOnly Property TradedType() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return EnumValueAttribute.ConvertLocalizedName(_TradedType)
+                Return Utilities.ConvertLocalizedName(_TradedType)
             End Get
         End Property
 

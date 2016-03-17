@@ -1,4 +1,5 @@
 ﻿Imports ApskaitaObjects.Workers
+Imports ApskaitaObjects.Attributes
 
 Namespace ActiveReports
 
@@ -112,8 +113,8 @@ Namespace ActiveReports
 
             _Year = CIntSafe(dr.Item(0), 0)
             _Month = CIntSafe(dr.Item(1), 0)
-            _BonusType = EnumValueAttribute.ConvertDatabaseCharID(Of BonusType)(CStrSafe(dr.Item(2)))
-            _BonusTypeHumanReadable = EnumValueAttribute.ConvertLocalizedName(_BonusType)
+            _BonusType = Utilities.ConvertDatabaseCharID(Of BonusType)(CStrSafe(dr.Item(2)))
+            _BonusTypeHumanReadable = Utilities.ConvertLocalizedName(_BonusType)
             _BonusAmount = CDblSafe(dr.Item(3), 2, 0)
 
         End Sub

@@ -76,15 +76,15 @@
     <Import Include="AccDataAccessLayer" />
     <Import Include="AccDataAccessLayer.DatabaseAccess" />
     <Import Include="ApskaitaObjects" />
+    <Import Include="ApskaitaObjects.Attributes" />
+    <Import Include="ApskaitaObjects.CommonValidation" />
     <Import Include="ApskaitaObjects.HelperLists" />
     <Import Include="Csla" />
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
-    <Import Include="System.Configuration" />
     <Import Include="System.Data" />
-    <Import Include="System.Diagnostics" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActiveReports\AccountTurnoverInfo.vb" />
@@ -188,20 +188,23 @@
     <Compile Include="Assets\OperationTransfer.vb" />
     <Compile Include="Assets\OperationValueChange.vb" />
     <Compile Include="Assets\OperationValueChangeList.vb" />
-    <Compile Include="CommonObjects\AccountFieldAttribute.vb" />
-    <Compile Include="CommonObjects\BookEntryType.vb" />
-    <Compile Include="CommonObjects\BusinessObjectList.vb" />
-    <Compile Include="CommonObjects\ComplexChronologicValidator.vb" />
-    <Compile Include="CommonObjects\DoubleFieldAttribute.vb" />
-    <Compile Include="CommonObjects\EmptyChronologicValidator.vb" />
-    <Compile Include="CommonObjects\EnumValueAttribute.vb" />
-    <Compile Include="CommonObjects\IChronologicValidator.vb" />
-    <Compile Include="CommonObjects\IClientEmailProvider.vb" />
-    <Compile Include="CommonObjects\IntegerFieldAttribute.vb" />
-    <Compile Include="CommonObjects\IValidationMessageProvider.vb" />
-    <Compile Include="CommonObjects\ValueRequiredLevel.vb" />
-    <Compile Include="CommonObjects\SimpleChronologicValidator.vb" />
-    <Compile Include="CommonObjects\StringFieldAttribute.vb" />
+    <Compile Include="Attributes\AccountFieldAttribute.vb" />
+    <Compile Include="BookEntryType.vb" />
+    <Compile Include="BusinessObjectList.vb" />
+    <Compile Include="CommonValidation\ComplexChronologicValidator.vb" />
+    <Compile Include="Attributes\DoubleFieldAttribute.vb" />
+    <Compile Include="CommonValidation\EmptyChronologicValidator.vb" />
+    <Compile Include="Attributes\EnumValueAttribute.vb" />
+    <Compile Include="CommonValidation\IChronologicValidator.vb" />
+    <Compile Include="Documents\InvoiceAdapters\GoodsRedeemFromBuyerInvoiceAdapter.vb" />
+    <Compile Include="Goods\OperationsSimple\GoodsOperationRedeemFromBuyer.vb" />
+    <Compile Include="Goods\OperationsSimple\GoodsOperationRedeemToSupplier.vb" />
+    <Compile Include="IClientEmailProvider.vb" />
+    <Compile Include="Attributes\IntegerFieldAttribute.vb" />
+    <Compile Include="IValidationMessageProvider.vb" />
+    <Compile Include="Attributes\ValueRequiredLevel.vb" />
+    <Compile Include="CommonValidation\SimpleChronologicValidator.vb" />
+    <Compile Include="Attributes\StringFieldAttribute.vb" />
     <Compile Include="Documents\AccumulativeCosts.vb" />
     <Compile Include="Documents\AccumulativeCostsChronologicValidator.vb" />
     <Compile Include="Documents\AccumulativeCostsItem.vb" />
@@ -255,7 +258,6 @@
     <Compile Include="Goods\InfoObjects\GoodsCostItem.vb" />
     <Compile Include="Goods\InfoObjects\GoodsCostItemList.vb" />
     <Compile Include="Goods\InfoObjects\GoodsCostParam.vb" />
-    <Compile Include="Goods\OperationsComplex\GoodsDiscardItem.vb" />
     <Compile Include="Goods\OperationsComplex\GoodsDiscardItemList.vb" />
     <Compile Include="Goods\GoodsGroup.vb" />
     <Compile Include="Goods\GoodsGroupList.vb" />
@@ -265,7 +267,6 @@
     <Compile Include="Goods\OperationsSimple\GoodsOperationDiscount.vb" />
     <Compile Include="Goods\OperationsSimple\GoodsOperationPriceCut.vb" />
     <Compile Include="Goods\OperationsSimple\GoodsOperationTransfer.vb" />
-    <Compile Include="Goods\OperationsComplex\GoodsPriceCutItem.vb" />
     <Compile Include="Goods\OperationsComplex\GoodsPriceCutItemList.vb" />
     <Compile Include="Goods\InfoObjects\GoodsPriceInWarehouseParam.vb" />
     <Compile Include="Goods\InfoObjects\GoodsPriceInWarehouseItem.vb" />
@@ -338,7 +339,7 @@
     <Compile Include="Documents\InvoiceReceived.vb" />
     <Compile Include="Documents\InvoiceReceivedItem.vb" />
     <Compile Include="Documents\InvoiceReceivedItemList.vb" />
-    <Compile Include="CommonObjects\DocumentType.vb" />
+    <Compile Include="DocumentType.vb" />
     <Compile Include="General\CompanyObjects\DefaultAccountType.vb" />
     <Compile Include="General\FinancialStatementsStructure\FinancialStatementType.vb" />
     <Compile Include="Goods\GoodsAccountingMethod.vb" />
@@ -354,10 +355,10 @@
     <Compile Include="ActiveReports\LongTermAssetOperationInfo.vb" />
     <Compile Include="ActiveReports\LongTermAssetOperationInfoList.vb" />
     <Compile Include="ActiveReports\LongTermAssetOperationInfoListParent.vb" />
-    <Compile Include="CommonObjects\BookEntryInternal.vb" />
-    <Compile Include="CommonObjects\BookEntryInternalList.vb" />
+    <Compile Include="BookEntryInternal.vb" />
+    <Compile Include="BookEntryInternalList.vb" />
     <Compile Include="CustomDatabaseStructureErrorManager.vb" />
-    <Compile Include="CommonValidation.vb" />
+    <Compile Include="CommonValidation\CommonValidation.vb" />
     <Compile Include="Constants.vb" />
     <Compile Include="CustomCacheManager.vb" />
     <Compile Include="FormulaSolver.vb" />
@@ -441,8 +442,8 @@
     <Compile Include="Goods\OperationsComplex\GoodsInventorizationItemList.vb" />
     <Compile Include="HelperLists\AccountInfo.vb" />
     <Compile Include="HelperLists\AccountInfoList.vb" />
-    <Compile Include="CommonObjects\IGetErrorForListItem.vb" />
-    <Compile Include="CommonObjects\IIsDirtyEnough.vb" />
+    <Compile Include="IGetErrorForListItem.vb" />
+    <Compile Include="IIsDirtyEnough.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -458,7 +459,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="CommonObjects\TaxRateType.vb" />
+    <Compile Include="Settings\TaxRateType.vb" />
     <Compile Include="Settings\XmlProxies\CodeProxy.vb" />
     <Compile Include="Settings\XmlProxies\CommonSettingsProxy.vb" />
     <Compile Include="Settings\XmlProxies\DefaultWorkTimeProxy.vb" />
@@ -535,6 +536,15 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ActiveReports\ClassDiagrams\ActiveReports.cd" />
+    <None Include="ActiveReports\ClassDiagrams\ActiveReports_Assets.cd" />
+    <None Include="ActiveReports\ClassDiagrams\ActiveReports_Documents.cd" />
+    <None Include="ActiveReports\ClassDiagrams\ActiveReports_General.cd" />
+    <None Include="ActiveReports\ClassDiagrams\ActiveReports_Goods.cd" />
+    <None Include="ActiveReports\ClassDiagrams\ActiveReports_Workers.cd" />
+    <None Include="ActiveReports\ClassDiagrams\ActiveReports_Workers_Declarations.cd" />
+    <None Include="ActiveReports\ClassDiagrams\DebtInfoList.cd" />
+    <None Include="ActiveReports\ClassDiagrams\UnsettledPersonInfoList.cd" />
     <None Include="ApskaitaService.asmx" />
     <Content Include="DbStructure\DatabaseStructureGauge.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

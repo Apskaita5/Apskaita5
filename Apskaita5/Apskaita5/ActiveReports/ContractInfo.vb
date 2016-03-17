@@ -324,10 +324,21 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
+        ''' Gets a list of <see cref="Workers.ContractUpdate">updates (amendments) of the contract</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property UpdatesList() As LabourContractUpdateInfoList
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _UpdatesList
+            End Get
+        End Property
+
+        ''' <summary>
         ''' Gets a sortable list of <see cref="Workers.ContractUpdate">updates (amendments) of the contract</see>.
         ''' </summary>
         ''' <remarks></remarks>
-        Public ReadOnly Property UpdatesList() As Csla.SortedBindingList(Of LabourContractUpdateInfo)
+        Public ReadOnly Property UpdatesListSorted() As Csla.SortedBindingList(Of LabourContractUpdateInfo)
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 If _UpdatesList Is Nothing Then Return Nothing
@@ -387,9 +398,9 @@ Namespace ActiveReports
             If Not IsDBNull(dr.Item(17)) Then _PNPD = DblParser(CDblSafe(dr.Item(17), 2, 0), 2)
             If Not IsDBNull(dr.Item(18)) Then _Wage = DblParser(CDblSafe(dr.Item(18), 2, 0), 2)
             If Not IsDBNull(dr.Item(19)) Then
-                _WageType = EnumValueAttribute.ConvertDatabaseCharID(Of Workers.WageType) _
+                _WageType = Utilities.ConvertDatabaseCharID(Of Workers.WageType) _
                     (CStrSafe(dr.Item(19)).Trim)
-                _WageTypeHumanReadable = EnumValueAttribute.ConvertLocalizedName(_WageType)
+                _WageTypeHumanReadable = Utilities.ConvertLocalizedName(_WageType)
             End If
             If Not IsDBNull(dr.Item(20)) Then _WorkLoad = DblParser(CDblSafe(dr.Item(20), ROUNDWORKLOAD, 0), ROUNDWORKLOAD)
             _Position = CStrSafe(dr.Item(21)).Trim

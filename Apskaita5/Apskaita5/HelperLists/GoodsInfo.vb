@@ -248,13 +248,13 @@ Namespace HelperLists
             _MeasureUnit = CStrSafe(dr.Item(2 + offset)).Trim
             _GoodsBarcode = CStrSafe(dr.Item(3 + offset)).Trim
             _GoodsCode = CStrSafe(dr.Item(4 + offset)).Trim
-            _TradeItemType = EnumValueAttribute.ConvertDatabaseID(Of Documents.TradedItemType)(CIntSafe(dr.Item(5 + offset), 0))
+            _TradeItemType = Utilities.ConvertDatabaseID(Of Documents.TradedItemType)(CIntSafe(dr.Item(5 + offset), 0))
             _IsObsolete = ConvertDbBoolean(CIntSafe(dr.Item(6 + offset), 0))
             _AccountSalesNetCosts = CLongSafe(dr.Item(7 + offset), 0)
             _GroupID = CIntSafe(dr.Item(8 + offset), 0)
             _DefaultVatRateSales = CDblSafe(dr.Item(9 + offset), 2, 0)
             _DefaultVatRatePurchase = CDblSafe(dr.Item(10 + offset), 2, 0)
-            _AccountingMethod = EnumValueAttribute.ConvertDatabaseID(Of GoodsAccountingMethod) _
+            _AccountingMethod = Utilities.ConvertDatabaseID(Of GoodsAccountingMethod) _
                 (CIntSafe(dr.Item(11 + offset), 0))
             _DefaultWarehouseID = CIntSafe(dr.Item(12 + offset), 0)
 

@@ -1,4 +1,6 @@
 
+Imports ApskaitaObjects.Attributes
+
 Namespace Documents.InvoiceAdapters
 
     ''' <summary>
@@ -63,6 +65,13 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks></remarks>
         <EnumValue(8)> _
         GoodsConsignmentAdditionalCosts
+
+        ''' <summary>
+        ''' <see cref="GoodsRedeemFromBuyerInvoiceAdapter">Goods redeem from a buyer</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <EnumValue(9)> _
+        GoodsRedeemFromBuyer
 
     End Enum
 

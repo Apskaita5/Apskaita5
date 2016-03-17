@@ -1,4 +1,6 @@
-﻿Namespace Assets
+﻿Imports ApskaitaObjects.Attributes
+
+Namespace Assets
 
     ''' <summary>
     ''' Represents a complex document that contains a collection of long term asset 
@@ -10,7 +12,7 @@
     <Serializable()> _
     Public Class ComplexOperationDiscard
         Inherits BusinessBase(Of ComplexOperationDiscard)
-        Implements IIsDirtyEnough
+        Implements IIsDirtyEnough, IValidationMessageProvider
 
 #Region " Business Methods "
 
@@ -197,7 +199,8 @@
         End Property
 
 
-        Public Overrides ReadOnly Property IsValid() As Boolean
+        Public Overrides ReadOnly Property IsValid() As Boolean _
+            Implements IValidationMessageProvider.IsValid
             Get
                 Return MyBase.IsValid AndAlso _Items.IsValid
             End Get
@@ -264,7 +267,8 @@
         End Sub
 
 
-        Public Function GetAllBrokenRules() As String
+        Public Function GetAllBrokenRules() As String _
+            Implements IValidationMessageProvider.GetAllBrokenRules
             Dim result As String = ""
             If Not MyBase.IsValid Then
                 result = AddWithNewLine(result, _
@@ -276,7 +280,8 @@
             Return result
         End Function
 
-        Public Function GetAllWarnings() As String
+        Public Function GetAllWarnings() As String _
+            Implements IValidationMessageProvider.GetAllWarnings
             Dim result As String = ""
             If Not MyBase.BrokenRulesCollection.WarningCount > 0 Then
                 result = AddWithNewLine(result, _
@@ -288,7 +293,8 @@
             Return result
         End Function
 
-        Public Function HasWarnings() As Boolean
+        Public Function HasWarnings() As Boolean _
+            Implements IValidationMessageProvider.HasWarnings
             Return (MyBase.BrokenRulesCollection.WarningCount > 0 OrElse _Items.HasWarnings())
         End Function
 
@@ -377,14 +383,14 @@
 
         Protected Overrides Sub AddBusinessRules()
 
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.DoubleFieldValidation, _
                 New Csla.Validation.RuleArgs("TotalValueChange"))
-            ValidationRules.AddRule(AddressOf CommonValidation.StringFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.StringFieldValidation, _
                 New Csla.Validation.RuleArgs("Content"))
-            ValidationRules.AddRule(AddressOf CommonValidation.StringFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.StringFieldValidation, _
                 New Csla.Validation.RuleArgs("DocumentNumber"))
-            ValidationRules.AddRule(AddressOf CommonValidation.ChronologyValidation, _
-                New CommonValidation.ChronologyRuleArgs("Date", "ChronologyValidator"))
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.ChronologyValidation, _
+                New CommonValidation.CommonValidation.ChronologyRuleArgs("Date", "ChronologyValidator"))
 
             ValidationRules.AddDependantProperty("ChronologyValidator", "Date", False)
 

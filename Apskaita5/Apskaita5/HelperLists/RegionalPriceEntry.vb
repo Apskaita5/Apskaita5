@@ -1,4 +1,5 @@
 ﻿Imports ApskaitaObjects.Documents
+Imports ApskaitaObjects.Attributes
 
 Namespace HelperLists
 
@@ -129,7 +130,7 @@ Namespace HelperLists
         Private Sub Fetch(ByVal dr As DataRow)
 
             _ObjectID = CIntSafe(dr.Item(0), 0)
-            _ObjectType = EnumValueAttribute.ConvertDatabaseID(Of RegionalizedObjectType) _
+            _ObjectType = Utilities.ConvertDatabaseID(Of RegionalizedObjectType) _
                 (CIntSafe(dr.Item(1), 0))
             _CurrencyCode = CStrSafe(dr.Item(2)).Trim
             _ValuePerUnitSales = CDblSafe(dr.Item(3), ROUNDUNITINVOICEMADE, 0)

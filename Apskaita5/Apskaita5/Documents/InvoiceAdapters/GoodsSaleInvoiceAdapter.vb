@@ -588,10 +588,10 @@ Namespace Documents.InvoiceAdapters
         ''' Sets the attached operation date to invoice date.
         ''' </summary>
         ''' <param name="newInvoiceDate"></param>
-        ''' <remarks>Invokes <see cref="GoodsOperationTransfer.SetDate">GoodsOperationTransfer.SetDate</see>
+        ''' <remarks>Invokes <see cref="GoodsOperationTransfer.SetParentDate">GoodsOperationTransfer.SetParentDate</see>
         ''' method on encapsulated goods sale operation object.</remarks>
         Public Sub SetInvoiceDate(ByVal newInvoiceDate As Date) Implements IInvoiceAdapter.SetInvoiceDate
-            _GoodsSale.SetDate(newInvoiceDate)
+            _GoodsSale.SetParentDate(newInvoiceDate)
         End Sub
 
         ''' <summary>
@@ -1041,7 +1041,7 @@ Namespace Documents.InvoiceAdapters
                 My.Resources.Common_SecuritySelectDenied)
 
             _GoodsSale = GoodsOperationTransfer.NewGoodsOperationTransferChild( _
-                criteria.ID, criteria.WarehouseID)
+                criteria.ID, criteria.WarehouseID, criteria.ParentChronologyValidator)
 
             _IsForInvoiceMade = criteria.IsForInvoiceMade
 
@@ -1052,7 +1052,7 @@ Namespace Documents.InvoiceAdapters
             ByVal parentChronologyValidator As IChronologicValidator, ByVal forInvoiceMade As Boolean)
 
             _GoodsSale = GoodsOperationTransfer.GetGoodsOperationTransferChild( _
-                attachedObjectId)
+                attachedObjectId, parentChronologyValidator)
 
             _IsForInvoiceMade = forInvoiceMade
 
@@ -1067,17 +1067,7 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Inserts or updates the goods sale operation data.</remarks>
         Friend Sub Update(ByVal parentInvoice As InvoiceMade) Implements IInvoiceAdapter.Update
 
-            If _GoodsSale.OperationLimitations.FinancialDataCanChange _
-                AndAlso parentInvoice.ChronologyValidator.BaseValidator.FinancialDataCanChange Then
-
-                _GoodsSale.GetDiscardList()
-
-            End If
-
-            _GoodsSale.CheckIfCanUpdate(Nothing, True)
-
-            _GoodsSale.SaveChild(parentInvoice.ID, 0, parentInvoice.Content, _
-                parentInvoice.Serial & parentInvoice.FullNumber, True, False, _
+            _GoodsSale.SaveChild(parentInvoice.ID, 0, True, False, _
                 Not parentInvoice.ChronologyValidator.FinancialDataCanChange)
 
             MarkOld()
@@ -1090,17 +1080,7 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Inserts or updates the goods sale operation data.</remarks>
         Friend Sub Update(ByVal parentInvoice As InvoiceReceived) Implements IInvoiceAdapter.Update
 
-            If _GoodsSale.OperationLimitations.FinancialDataCanChange _
-                AndAlso parentInvoice.ChronologyValidator.BaseValidator.FinancialDataCanChange Then
-
-                _GoodsSale.GetDiscardList()
-
-            End If
-
-            _GoodsSale.CheckIfCanUpdate(Nothing, True)
-
-            _GoodsSale.SaveChild(parentInvoice.ID, 0, parentInvoice.Content, _
-                parentInvoice.Number, True, False, _
+            _GoodsSale.SaveChild(parentInvoice.ID, 0, True, False, _
                 Not parentInvoice.ChronologyValidator.FinancialDataCanChange)
 
             MarkOld()
@@ -1125,8 +1105,17 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Invokes <see cref="GoodsOperationTransfer.GetTotalBookEntryList">GoodsOperationDiscount.GetTotalBookEntryList</see>
         ''' method on encapsulated goods sale operation and returns the result.</remarks>
         Friend Function GetBookEntryList(ByVal invoiceItem As InvoiceMadeItem) As BookEntryInternalList Implements IInvoiceAdapter.GetBookEntryList
-            Return _GoodsSale.GetTotalBookEntryList(invoiceItem.AccountIncome, _
-                invoiceItem.GetTotalSumForInvoiceAdapter)
+
+            ' an invoice can contain (and frequently contains) multiple goods sales
+            ' for the same goods in the same warehouses
+            ' see comments for GoodsOperationTransfer.GetTotalBookEntryList method
+            Dim result As BookEntryInternalList = _GoodsSale.GetTotalBookEntryList(False)
+
+            result.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Kreditas, _
+                invoiceItem.AccountIncome, invoiceItem.GetTotalSumForInvoiceAdapter))
+
+            Return result
+
         End Function
 
         ''' <summary>
@@ -1136,7 +1125,17 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Invokes <see cref="GoodsOperationTransfer.GetTotalBookEntryList">GoodsOperationDiscount.GetTotalBookEntryList</see>
         ''' method on encapsulated goods sale operation and returns the result.</remarks>
         Friend Function GetBookEntryList(ByVal invoiceItem As InvoiceReceivedItem) As BookEntryInternalList Implements IInvoiceAdapter.GetBookEntryList
-            Return _GoodsSale.GetTotalBookEntryList(invoiceItem.AccountCosts, -invoiceItem.GetTotalSumForInvoiceAdapter)
+
+            ' an invoice can contain (and frequently contains) multiple goods sales
+            ' for the same goods in the same warehouses
+            ' see comments for GoodsOperationTransfer.GetTotalBookEntryList method
+            Dim result As BookEntryInternalList = _GoodsSale.GetTotalBookEntryList(False)
+
+            result.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Kreditas, _
+                invoiceItem.AccountCosts, -invoiceItem.GetTotalSumForInvoiceAdapter))
+
+            Return result
+
         End Function
 
         ''' <summary>
@@ -1147,7 +1146,7 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Invokes <see cref="GoodsOperationTransfer.CheckIfCanDelete">GoodsOperationTransfer.CheckIfCanDelete</see>
         ''' method on encapsulated goods sale operation.</remarks>
         Friend Sub CheckIfCanDelete(ByVal parentChronologyValidator As IChronologicValidator) Implements IInvoiceAdapter.CheckIfCanDelete
-            _GoodsSale.CheckIfCanDelete(Nothing, True)
+            _GoodsSale.CheckIfCanDelete(Nothing, parentChronologyValidator)
         End Sub
 
         ''' <summary>
@@ -1158,10 +1157,7 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Invokes <see cref="GoodsOperationTransfer.CheckIfCanUpdate">GoodsOperationTransfer.CheckIfCanUpdate</see>
         ''' method on encapsulated goods sale operation.</remarks>
         Friend Sub CheckIfCanUpdate(ByVal parentChronologyValidator As IChronologicValidator) Implements IInvoiceAdapter.CheckIfCanUpdate
-
-            ' To check a discard list should be generated which is only possible
-            ' immediately before update. Therefore check is performed in Update method.
-
+            _GoodsSale.CheckIfCanUpdate(Nothing, parentChronologyValidator)
         End Sub
 
         ''' <summary>
@@ -1172,8 +1168,11 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Is invoked on each invoice item adapter before other validation 
         ''' and actual update is performed.</remarks>
         Public Sub SetParentData(ByVal parentInvoice As InvoiceMade) Implements IInvoiceAdapter.SetParentData
-            _GoodsSale.Description = String.Format(My.Resources.Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_ContentInvoiceMade, _
-                parentInvoice.Content)
+            _GoodsSale.SetParentProperties(parentInvoice.Serial & parentInvoice.FullNumber, _
+                String.Format(My.Resources.Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_ContentInvoiceMade, _
+                parentInvoice.Content))
+            _GoodsSale.SetDescription(String.Format(My.Resources.Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_ContentInvoiceMade, _
+                parentInvoice.Content))
         End Sub
 
         ''' <summary>
@@ -1184,8 +1183,11 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Is invoked on each invoice item adapter before other validation 
         ''' and actual update is performed.</remarks>
         Public Sub SetParentData(ByVal parentInvoice As InvoiceReceived) Implements IInvoiceAdapter.SetParentData
-            _GoodsSale.Description = String.Format(My.Resources.Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_ContentInvoiceReceived, _
-                parentInvoice.Content)
+            _GoodsSale.SetParentProperties(parentInvoice.Number, _
+                String.Format(My.Resources.Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_ContentInvoiceReceived, _
+                parentInvoice.Content))
+            _GoodsSale.SetDescription(String.Format(My.Resources.Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_ContentInvoiceReceived, _
+                parentInvoice.Content))
         End Sub
 
 #End Region

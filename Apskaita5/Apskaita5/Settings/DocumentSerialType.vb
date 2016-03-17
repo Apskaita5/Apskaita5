@@ -1,3 +1,5 @@
+Imports ApskaitaObjects.Attributes
+
 Namespace Settings
 
     ''' <summary>

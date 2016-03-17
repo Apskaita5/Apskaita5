@@ -113,7 +113,7 @@ Namespace General
             RaiseListChangedEvents = False
 
             For Each dr As DataRow In myData.Rows
-                If EnumValueAttribute.ConvertDatabaseCharID(Of BookEntryType)(CStrSafe(dr.Item(1))) = entryType Then _
+                If Utilities.ConvertDatabaseCharID(Of BookEntryType)(CStrSafe(dr.Item(1))) = entryType Then _
                     Add(TemplateBookEntry.GetTemplateBookEntry(dr))
             Next
 

@@ -1,4 +1,6 @@
-﻿Namespace General
+﻿Imports ApskaitaObjects.Attributes
+
+Namespace General
 
     ''' <summary>
     ''' Represents a type of company's binary data (data stored as byte array)  

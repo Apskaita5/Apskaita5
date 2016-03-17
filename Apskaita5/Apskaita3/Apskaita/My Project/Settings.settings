@@ -54,7 +54,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="AllwaysLoginAsLocalUser" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="ShowDefaultMailClientWindow" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -69,9 +69,6 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="FormPropertiesList" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="DataGridViewColumnPropertiesList" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="AllwaysShowWageSettings" Type="System.Boolean" Scope="User">
@@ -117,6 +114,12 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="CheckInvoiceReceivedNumberWithSupplier" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ObjectListViewColumnPropertiesList" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="EditListViewWithDoubleClick" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>

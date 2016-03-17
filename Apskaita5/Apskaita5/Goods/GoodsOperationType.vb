@@ -1,3 +1,5 @@
+Imports ApskaitaObjects.Attributes
+
 Namespace Goods
 
     ''' <summary>
@@ -114,6 +116,20 @@ Namespace Goods
         ''' <remarks></remarks>
         <EnumValue(14)> _
         TransferOfBalance
+
+        ''' <summary>
+        ''' Redeeming goods from a buyer that previously bougth the goods.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <EnumValue(15)> _
+        RedeemFromBuyer
+
+        ''' <summary>
+        ''' Redeeming goods to a supplier that previously sold the goods.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <EnumValue(16)> _
+        RedeemToSupplier
 
     End Enum
 

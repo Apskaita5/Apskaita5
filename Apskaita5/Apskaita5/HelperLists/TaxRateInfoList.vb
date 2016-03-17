@@ -1,5 +1,6 @@
 ﻿Imports System.Security
 Imports ApskaitaObjects.Settings.XmlProxies
+Imports ApskaitaObjects.Settings
 
 Namespace HelperLists
 
@@ -78,7 +79,7 @@ Namespace HelperLists
             ByVal showObsolete As Boolean) As Csla.FilteredBindingList(Of TaxRateInfo)
 
             Dim filterToApply(1) As Object
-            filterToApply(0) = EnumValueAttribute.ConvertDatabaseID(ofType)
+            filterToApply(0) = Utilities.ConvertDatabaseID(ofType)
             filterToApply(1) = ConvertDbBoolean(showObsolete)
 
             Dim result As Csla.FilteredBindingList(Of TaxRateInfo) = _
@@ -141,7 +142,7 @@ Namespace HelperLists
 
             If filterValue Is Nothing OrElse DirectCast(filterValue, Object()).Length < 2 Then Return True
 
-            Dim ofType As TaxRateType = EnumValueAttribute.ConvertDatabaseID(Of TaxRateType) _
+            Dim ofType As TaxRateType = Utilities.ConvertDatabaseID(Of TaxRateType) _
                 (DirectCast(DirectCast(filterValue, Object())(0), Integer))
             Dim showObsolete As Boolean = ConvertDbBoolean( _
                 DirectCast(DirectCast(filterValue, Object())(1), Integer))

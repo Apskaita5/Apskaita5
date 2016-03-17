@@ -180,9 +180,9 @@
             myComm.AddParam("?DT", criteria.AsOfDate)
             myComm.AddParam("?ME", IIf(criteria.MarginOfError < 0, 0, criteria.MarginOfError))
             If criteria.ForBuyers Then
-                myComm.AddParam("?TP", EnumValueAttribute.ConvertDatabaseCharID(BookEntryType.Debetas))
+                myComm.AddParam("?TP", Utilities.ConvertDatabaseCharID(BookEntryType.Debetas))
             Else
-                myComm.AddParam("?TP", EnumValueAttribute.ConvertDatabaseCharID(BookEntryType.Kreditas))
+                myComm.AddParam("?TP", Utilities.ConvertDatabaseCharID(BookEntryType.Kreditas))
             End If
             If criteria.PersonGroup Is Nothing OrElse criteria.PersonGroup.IsEmpty Then
                 myComm.AddParam("?PG", 0)

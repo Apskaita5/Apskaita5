@@ -276,7 +276,7 @@ Namespace HelperLists
             _CurrencyCode = CStrSafe(dr.Item(7 + offset)).Trim
             _EnforceUniqueOperationID = ConvertDbBoolean(CIntSafe(dr.Item(8 + offset), 0))
             _BankFeeLimit = CIntSafe(dr.Item(9 + offset), 0)
-            _Type = EnumValueAttribute.ConvertDatabaseID(Of CashAccountType)(CIntSafe(dr.Item(10 + offset), 0))
+            _Type = Utilities.ConvertDatabaseID(Of CashAccountType)(CIntSafe(dr.Item(10 + offset), 0))
             _IsObsolete = ConvertDbBoolean(CIntSafe(dr.Item(11 + offset), 0))
             _BankFeeCostsAccount = CLongSafe(dr.Item(12 + offset), 0)
             _ManagingPersonID = CIntSafe(dr.Item(13 + offset), 0)

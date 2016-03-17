@@ -10743,22 +10743,22 @@
   <data name="Settings_NameType_SodraBranch" xml:space="preserve">
     <value>SODROS skyrius</value>
   </data>
-  <data name="TaxRateType_GPM" xml:space="preserve">
+  <data name="Settings_TaxRateType_GPM" xml:space="preserve">
     <value>GPM</value>
   </data>
-  <data name="TaxRateType_PSDForCompany" xml:space="preserve">
+  <data name="Settings_TaxRateType_PSDForCompany" xml:space="preserve">
     <value>PSD priskaičiuojama</value>
   </data>
-  <data name="TaxRateType_PSDForPerson" xml:space="preserve">
+  <data name="Settings_TaxRateType_PSDForPerson" xml:space="preserve">
     <value>PSD išskaičiuojama</value>
   </data>
-  <data name="TaxRateType_SodraForCompany" xml:space="preserve">
+  <data name="Settings_TaxRateType_SodraForCompany" xml:space="preserve">
     <value>SODRA priskaičiuojama</value>
   </data>
-  <data name="TaxRateType_SodraForPerson" xml:space="preserve">
+  <data name="Settings_TaxRateType_SodraForPerson" xml:space="preserve">
     <value>SODRA išskaičiuojama</value>
   </data>
-  <data name="TaxRateType_Vat" xml:space="preserve">
+  <data name="Settings_TaxRateType_Vat" xml:space="preserve">
     <value>PVM</value>
   </data>
   <data name="HelperLists_CodeInfo_Code" xml:space="preserve">
@@ -11681,5 +11681,2215 @@
   </data>
   <data name="Goods_GoodsSummary_ValuationMethodHumanReadable" xml:space="preserve">
     <value>vertinimo metodas</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_ToString" xml:space="preserve">
+    <value>{0} {1} Nr. {2} : {3}</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_TypeName" xml:space="preserve">
+    <value>prekių apskaitos sąskaitos pakeitimas</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_NewAccountInvalid" xml:space="preserve">
+    <value>Nauja sąskaita negali sutapti su prieš tai buvusia.</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_TypeInvalid" xml:space="preserve">
+    <value>Klaida. Nurodytas tipas nėra prekių apskaitos sąskaitos pakeitimas ({0}).</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_GoodsIdNull" xml:space="preserve">
+    <value>Klaida. Nenurodytos prekės, kurių sąskaitą reikėtų keisti.</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_TypeInvalidForPersistentMethod" xml:space="preserve">
+    <value>Klaida. Nuolat apskaitomoms prekėms gali būti keičiama tik nukainojimo sąskaita.</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_DeleteInvalid" xml:space="preserve">
+    <value>Klaida. Operacijos duomenų pašalinti neleidžiama:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_InvalidJournalEntryUpdate" xml:space="preserve">
+    <value>Klaida. Operacijos korekcijai reikia įtraukti naują bendrojo žurnalo operaciją, o finansinių duomenų keisti neleidžiama:{0}{1}</value>
+  </data>
+  <data name="DocumentType_AccumulatedCosts" xml:space="preserve">
+    <value>sukauptos sąnaudos (pajamos)</value>
+  </data>
+  <data name="DocumentType_AdvanceReport" xml:space="preserve">
+    <value>avanso apyskaita</value>
+  </data>
+  <data name="DocumentType_Amortization" xml:space="preserve">
+    <value>ilgalaikio turto amortizacija</value>
+  </data>
+  <data name="DocumentType_BankOperation" xml:space="preserve">
+    <value>banko operacija</value>
+  </data>
+  <data name="DocumentType_ClosingEntries" xml:space="preserve">
+    <value>5/6 klasių uždarymas</value>
+  </data>
+  <data name="DocumentType_GoodsAccountChange" xml:space="preserve">
+    <value>atsargų sąsk. pakeitimas</value>
+  </data>
+  <data name="DocumentType_GoodsInternalTransfer" xml:space="preserve">
+    <value>atsargų vidinis judėjimas</value>
+  </data>
+  <data name="DocumentType_GoodsInventorization" xml:space="preserve">
+    <value>atsargų inventorizacija</value>
+  </data>
+  <data name="DocumentType_GoodsProduction" xml:space="preserve">
+    <value>atsargų (prekių) gamyba</value>
+  </data>
+  <data name="DocumentType_GoodsRevalue" xml:space="preserve">
+    <value>atsargų nukainojimas (atstatymas)</value>
+  </data>
+  <data name="DocumentType_GoodsWriteOff" xml:space="preserve">
+    <value>atsargų nurašymas</value>
+  </data>
+  <data name="DocumentType_HolidayReserve" xml:space="preserve">
+    <value>atostogų rezervo pažyma</value>
+  </data>
+  <data name="DocumentType_ImprestSheet" xml:space="preserve">
+    <value>avanso žiniaraštis</value>
+  </data>
+  <data name="DocumentType_InvoiceMade" xml:space="preserve">
+    <value>išrašyta sąskaita faktūra</value>
+  </data>
+  <data name="DocumentType_InvoiceReceived" xml:space="preserve">
+    <value>gauta sąskaita faktūra</value>
+  </data>
+  <data name="DocumentType_LongTermAssetAccountChange" xml:space="preserve">
+    <value>ilgalaikio turto sąsk. pakeitimas</value>
+  </data>
+  <data name="DocumentType_LongTermAssetDiscard" xml:space="preserve">
+    <value>ilgalaikio turto nurašymas</value>
+  </data>
+  <data name="DocumentType_None" xml:space="preserve">
+    <value>nėra</value>
+  </data>
+  <data name="DocumentType_Offset" xml:space="preserve">
+    <value>užskaita</value>
+  </data>
+  <data name="DocumentType_TillIncomeOrder" xml:space="preserve">
+    <value>kasos pajamų orderis</value>
+  </data>
+  <data name="DocumentType_TillSpendingOrder" xml:space="preserve">
+    <value>kasos išlaidų orderis</value>
+  </data>
+  <data name="DocumentType_TransferOfBalance" xml:space="preserve">
+    <value>likučių perkėlimas</value>
+  </data>
+  <data name="DocumentType_WageSheet" xml:space="preserve">
+    <value>darbo užmokesčio žiniaraštis</value>
+  </data>
+  <data name="OperationChronologyType_FirstAfter" xml:space="preserve">
+    <value>Pirma po</value>
+  </data>
+  <data name="OperationChronologyType_LastBefore" xml:space="preserve">
+    <value>Paskutinė prieš</value>
+  </data>
+  <data name="OperationChronologyType_Overall" xml:space="preserve">
+    <value>Iš visų operacijų</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_ToString" xml:space="preserve">
+    <value>{0} prekių savikainos įvertinimo metodo pakeitimas iš {1} į {2}: {3} (ID={4})</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_TypeName" xml:space="preserve">
+    <value>prekių savikainos įvertinimo metodo pakeitimas</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_NewMethodInvalid" xml:space="preserve">
+    <value>Naujas vertinimo metodas negali būti toks pat, kaip ir senas.</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_OperationIdNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas prekių savikainos vertinimo pakeitimo operacijos ID.</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_GoodsIdNull" xml:space="preserve">
+    <value>Klaida. Nenurodytos prekės, kurios reikėtų keisti savikainos vertinimo metodą.</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_InvalidDelete" xml:space="preserve">
+    <value>Klaida. Prekių savikainos įvertinimo metodo pakeitimo operacijos pašalinti neleidžiama:{0}{1}
+</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_CannotChangeFinancialData" xml:space="preserve">
+    <value>Klaida. Finansinių operacijos duomenų keisti neleidžiama:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_GoodsIdMismatch" xml:space="preserve">
+    <value>Klaida. Prekių verčių sandėlyje objekte yra ne šios prekės duomenys.</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_DateMismatch" xml:space="preserve">
+    <value>Klaida. Prekių verčių sandėlyje objekto data yra {0}, o dokumento data - {1}.</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_InvalidChildSave" xml:space="preserve">
+    <value>Klaida. Ši operacija yra sudedamoji kito dokumento dalis ir negali būti keičiama atskirai.</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_InvalidDelete" xml:space="preserve">
+    <value>Klaida. Negalima ištrinti prekių "{0}" nukainojimo operacijos:{1}{2}</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_ToString" xml:space="preserve">
+    <value>prekių "{0}" nukainojimo operacija (ID={1})</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_TypeName" xml:space="preserve">
+    <value>prekių nukainojimo operacija</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_InvalidOperationType" xml:space="preserve">
+    <value>Klaida. Ši operacija yra ne prekių nukainojimo, o {0}.</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_JournalEntryContent" xml:space="preserve">
+    <value>{0} (prekių nukainojimas)</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_PriceCutBelowZero" xml:space="preserve">
+    <value>Nukainojimas negali sumažinti balansinės vertės iki nulio.</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_PriceCutCannotIncreaseValue" xml:space="preserve">
+    <value>Nukainojimas (nukainojimo atstatymas) negali padidinti balansinės vertės daugiau nei savikaina.</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_GoodsIdNull" xml:space="preserve">
+    <value>Klaida. Nenurodytos prekės, kurioms reikėtų sukurti naują nukainojimo operaciją.</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_OperationIdNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta operacijos ID.</value>
+  </data>
+  <data name="Goods_GoodsPriceCutItemList_GoodsValueListEmpty" xml:space="preserve">
+    <value>Klaida. Nenurodytos vertės, kurias būtų galima įkelti.</value>
+  </data>
+  <data name="Goods_GoodsPriceCutItemList_GoodsValueListCountMismatch" xml:space="preserve">
+    <value>Nesutampa eilučių kiekis dokumente ({0}) ir verčių sąraše ({1}).</value>
+  </data>
+  <data name="Goods_GoodsPriceCutItemList_OrphanGoodsValue" xml:space="preserve">
+    <value>Vertės sandėliuose yra paskaičiuotos prekei, kurios ID={0}, o dokumente tokios prekės nėra.</value>
+  </data>
+  <data name="Goods_GoodsPriceCutItemList_RefreshValuesInWarehouseWarning" xml:space="preserve">
+    <value>Pavyko įkelti {0} iš {1} prekių verčių sandėliuose. Įkeliant duomenis kilo šios klaidos:{2}{3}</value>
+  </data>
+  <data name="Goods_GoodsPriceCutItemList_RefreshValuesInWarehouseException" xml:space="preserve">
+    <value>Klaida. Nepavyko įkelti prekių verčių sandėliuose:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsPriceCutItemList_NewPriceCutItemListEmpty" xml:space="preserve">
+    <value>Klaida. Nenurodyta nė viena prekės eilutė, kurią reikėtų pridėti į dokumentą.</value>
+  </data>
+  <data name="Goods_GoodsPriceCutItemList_DuplicateItemsInNewPriceCutItemList" xml:space="preserve">
+    <value>Klaida. Visos ar dalis prekių jau yra dokumente.</value>
+  </data>
+  <data name="Goods_GoodsPriceCutItemList_GoodsIdsNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta nė viena prekė.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationPriceCut_FinancialDataCannotChange" xml:space="preserve">
+    <value>Klaida. Finansiniai operacijos duomenys negali būti keičiami:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationPriceCut_ListEmpty" xml:space="preserve">
+    <value>Klaida. Neįvesta nė viena eilutė.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationPriceCut_InvalidDelete" xml:space="preserve">
+    <value>Klaida. Negalima ištrinti prekių nukainojimo urmu operacijos:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationPriceCut_ToString" xml:space="preserve">
+    <value>{0} kompleksinė prekių nukainojimo operacija Nr. {1}: {2} (ID={3})</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationPriceCut_TypeName" xml:space="preserve">
+    <value>kompleksinė prekių nukainojimo operacija</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_CannotAttachParentType" xml:space="preserve">
+    <value>Klaida. Prekių įsigijimas per dokumentą, kurio tipas yra {0}, gali būti registruojamas tik atitinkamame dokumente.</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_InvalidJournalEntryType" xml:space="preserve">
+    <value>Dokumentas, kurio tipas yra {0}, negali būti pagrindu įsigyti prekes.</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_ToString" xml:space="preserve">
+    <value>prekių "{0}" įsigijimo operacija (ID={1})</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_JournalEntryNull" xml:space="preserve">
+    <value>Nenurodytas susietas bendrojo žurnalo įrašas (dokumentas, pagrindžiantis įsigijimą).</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_JournalEntryDateMismatch" xml:space="preserve">
+    <value>Susieto bendrojo žurnalo įrašo (dokumento, pagrindžiančio įsigijimą) data nesutampa su operacijos data.</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_InvalidDelete" xml:space="preserve">
+    <value>Klaida. Prekių "0" įsigijimo operacijos pašalinti negalima:{1}{2}</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_ConsignmentNotFound" xml:space="preserve">
+    <value>Klaida. Nerastas partijos įrašas prekės "{0}" įsigijimo operacijai.</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_ConsignmentInvalid" xml:space="preserve">
+    <value>Klaida. Yra daugiau ne vienas partijos įrašas prekės "{0}" įsigijimo operacijai. Tikėtina, sugadinta duombazė.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationPriceCut_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationPriceCut_Description" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationPriceCut_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationPriceCut_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationPriceCut_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationPriceCut_Items" xml:space="preserve">
+    <value>nukainojamos prekės</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationPriceCut_ItemsSorted" xml:space="preserve">
+    <value>nukainojamos prekės</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationPriceCut_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationPriceCut_OperationalLimit" xml:space="preserve">
+    <value>chronologiniai apribojimai</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationPriceCut_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_CorrespondationValue" xml:space="preserve">
+    <value>sąskaitos balansas</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_Description" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_GoodsInfo" xml:space="preserve">
+    <value>prekių duomenys</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_NewAccount" xml:space="preserve">
+    <value>nauja sąskaita</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_NewAccountIsReadOnly" xml:space="preserve">
+    <value>naujos sąskaitos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_OperationLimitations" xml:space="preserve">
+    <value>chronologiniai apribojimai</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_PreviousAccount" xml:space="preserve">
+    <value>sąskaita prieš operaciją</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_Type" xml:space="preserve">
+    <value>sąskaitos tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_TypeHumanReadable" xml:space="preserve">
+    <value>sąskaitos tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationAccountChange_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_AcquisitionAccount" xml:space="preserve">
+    <value>įsigijimo sąsk.</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_Ammount" xml:space="preserve">
+    <value>kiekis</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_AmmountIsReadOnly" xml:space="preserve">
+    <value>kiekio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_AssociatedJournalEntryIsReadOnly" xml:space="preserve">
+    <value>susietos bendrojo žurnalo operacijos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_ComplexOperationHumanReadable" xml:space="preserve">
+    <value>kompleks. operac. tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_ComplexOperationID" xml:space="preserve">
+    <value>kompleks. operac. ID</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_ComplexOperationType" xml:space="preserve">
+    <value>kompleks. operac. tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_DateIsReadOnly" xml:space="preserve">
+    <value>datos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_Description" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_DescriptionIsReadOnly" xml:space="preserve">
+    <value>aprašymo keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_GoodsAccountingMethod" xml:space="preserve">
+    <value>apskaitos metodas</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_GoodsInfo" xml:space="preserve">
+    <value>prekių duomenys</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_GoodsMeasureUnit" xml:space="preserve">
+    <value>mato vnt.</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_GoodsName" xml:space="preserve">
+    <value>prekių pavadinimas</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_GoodsValuationMethod" xml:space="preserve">
+    <value>vertinimo metodas</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_JournalEntryContent" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos turinys</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_JournalEntryCorrespondence" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos kontavimai</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_JournalEntryDate" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos data</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_JournalEntryRelatedPerson" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos kontrahentas</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_JournalEntryType" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_JournalEntryTypeHumanReadable" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_OperationLimitations" xml:space="preserve">
+    <value>chronologiniai apribojimai</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_TotalCost" xml:space="preserve">
+    <value>viso vertė</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_TotalCostIsReadOnly" xml:space="preserve">
+    <value>viso vertės keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_TypeName" xml:space="preserve">
+    <value>prekių įsigijimo operacija</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_UnitCost" xml:space="preserve">
+    <value>vnt. vertė</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_UnitCostIsReadOnly" xml:space="preserve">
+    <value>vnt. vertės keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_Warehouse" xml:space="preserve">
+    <value>sandėlis</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_WarehouseIsReadOnly" xml:space="preserve">
+    <value>sandėlio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_AccountPriceCutCosts" xml:space="preserve">
+    <value>nukainojimo sąnaudų sąsk.</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_AccountPriceCutCostsIsReadOnly" xml:space="preserve">
+    <value>nukainojimo sąnaudų sąsk. Keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_AmountInWarehouseAccounts" xml:space="preserve">
+    <value>kiekis sandėlių sąsk.</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_ComplexOperationHumanReadable" xml:space="preserve">
+    <value>kompleks. operac. tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_ComplexOperationID" xml:space="preserve">
+    <value>kompleks. operac. ID</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_ComplexOperationType" xml:space="preserve">
+    <value>kompleks. operac. tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_DateIsReadOnly" xml:space="preserve">
+    <value>datos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_Description" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_DescriptionIsReadOnly" xml:space="preserve">
+    <value>aprašymo keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_DocumentNumberIsReadOnly" xml:space="preserve">
+    <value>dok. Nr. Keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_GoodsAccountingMethod" xml:space="preserve">
+    <value>apskaitos metodas</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_GoodsAccountPriceCut" xml:space="preserve">
+    <value>nukainojimo sąsk.</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_GoodsInfo" xml:space="preserve">
+    <value>prekių duomenys</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_GoodsMeasureUnit" xml:space="preserve">
+    <value>prekių mato vnt.</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_GoodsName" xml:space="preserve">
+    <value>prekių pavadinimas</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_GoodsValuationMethod" xml:space="preserve">
+    <value>vertinimo metodas</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_OperationLimitations" xml:space="preserve">
+    <value>chronologiniai apribojimai</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_TotalValueAfterPriceCut" xml:space="preserve">
+    <value>viso balansinė vertė po operacijos</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_TotalValueCurrentPriceCut" xml:space="preserve">
+    <value>viso nukainojimas prieš operaciją</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_TotalValueInWarehouseAccounts" xml:space="preserve">
+    <value>viso vertė sandėlių sąsk.</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_TotalValuePriceCut" xml:space="preserve">
+    <value>viso nukainojimas</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_TotalValuePriceCutIsReadOnly" xml:space="preserve">
+    <value>nukainojimo sumos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_UnitValueAfterPriceCut" xml:space="preserve">
+    <value>vnt. balansinė vertė po operacijos</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_UnitValueInWarehouseAccounts" xml:space="preserve">
+    <value>vnt. vertė sandėlių sąsk.</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_UnitValuePriceCut" xml:space="preserve">
+    <value>vnt. nukainojimas</value>
+  </data>
+  <data name="Goods_GoodsOperationPriceCut_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_Description" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_GoodsInfo" xml:space="preserve">
+    <value>prekių duomenys</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_NewMethod" xml:space="preserve">
+    <value>naujas vertinimo metodas</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_NewMethodHumanReadable" xml:space="preserve">
+    <value>naujas vertinimo metodas</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_NewMethodIsReadOnly" xml:space="preserve">
+    <value>naujo vertinimo metodo keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_OperationLimitations" xml:space="preserve">
+    <value>chronologiniai apribojimai</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_PreviousMethod" xml:space="preserve">
+    <value>vertinimo metodas prieš operaciją</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_PreviousMethodHumanReadable" xml:space="preserve">
+    <value>vertinimo metodas prieš operaciją</value>
+  </data>
+  <data name="Goods_GoodsOperationValuationMethod_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_InvalidDeleteChild" xml:space="preserve">
+    <value>Klaida. Ši operacija buvo registruota dokumente, kurio tipas {0}. Ji gali būti pašalinta tik redaguojant ar pašalinant šį dokumentą.</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_CannotAttachParentType" xml:space="preserve">
+    <value>Klaida. Prekių įsigijimo savikainos padidinimas per dokumentą, kurio tipas - {0}, gali būti registruojamas tik atitinkamame dokumente.</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_InvalidJournalEntryType" xml:space="preserve">
+    <value>Dokumentas, kurio tipas - {0}, negali būti pagrindu prekių įsigijimo savikainos padidinimui.</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_ToString" xml:space="preserve">
+    <value>prekių {0} įsigijimo savikainos padidinimo operacija (ID={1})</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_TypeName" xml:space="preserve">
+    <value>prekių įsigijimo savikainos padidinimo operacija</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_DateInvalid" xml:space="preserve">
+    <value>Operacijos data negali būti ankstesnė už paskutinės keičiamos partijos datą.</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_JournalEntryNull" xml:space="preserve">
+    <value>Nenurodytas susietas bendrojo žurnalo įrašas (dokumentas, pagrindžiantis prekių įsigijimo savikainos padidinimą).</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_JournalEntryDateInvalid" xml:space="preserve">
+    <value>Susieto bendrojo žurnalo įrašo (dokumento, pagrindžiančio įsigijimą) data nesutampa su operacijos data.</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_InvalidDelete" xml:space="preserve">
+    <value>Klaida. Prekių "{0}" savikainos padidinimo operacijos pašalinti negalima:{1}{2}</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_InvalidDeleteChild" xml:space="preserve">
+    <value>Klaida. Ši operacija buvo registruota dokumente, kurios tipas - {0}. Ją galima pašalinti tik redaguojant ar pašalinant atitinkamą dokumentą.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_CannotAttachParentType" xml:space="preserve">
+    <value>Gauta nuolaida prekėms per dokumentą, kurio tipas - {0}, gali būti registruojama tik atitinkamame dokumente.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_InvalidJournalEntryType" xml:space="preserve">
+    <value>Dokumentas, kurio tipas - {0}, negali būti pagrindu gautai prekių nuolaidai.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_ToString" xml:space="preserve">
+    <value>prekėms "{0}" gauta nuolaida (ID={1})</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_TypeName" xml:space="preserve">
+    <value>prekėms gautos nuolaidos operacija</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_DateInvalid" xml:space="preserve">
+    <value>Operacijos data negali būti ankstesnė už paskutinės keičiamos partijos datą.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_JournalEntryNull" xml:space="preserve">
+    <value>Nenurodytas susietas bendrojo žurnalo įrašas (dokumentas, pagrindžiantis nuolaidą).</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_JournalEntryDateInvalid" xml:space="preserve">
+    <value>Susieto bendrojo žurnalo įrašo (dokumento, pagrindžiančio įsigijimą) data nesutampa su operacijos data.</value>
+  </data>
+  <data name="Goods_GoodsSummary_GoodsIdNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas prekės ID.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_InvalidDelete" xml:space="preserve">
+    <value>Prekėms "{0}" gautos nuolaidos operacijos pašalinti neleidžiama:{1}{2}</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_InvalidDeleteChild" xml:space="preserve">
+    <value>Klaida. Ši operacija buvo registruota dokumente, kurio tipas - {0}. Ją pašalinti galima tik redaguojant ar pašalinant atitinkamą dokumentą.</value>
+  </data>
+  <data name="HelperLists_WarehouseInfoList_WarehouseNotFound" xml:space="preserve">
+    <value>Klaida, sandėlis, kurio ID={0}, nerastas.</value>
+  </data>
+  <data name="HelperLists_WarehouseInfoList_WarehouseIdNull" xml:space="preserve">
+    <value>Nenurodytas sandėlio ID, pasirinkta prekė neturi priskirto įprastinio sandėlio.</value>
+  </data>
+  <data name="Goods_ConsignmentItem_ToString" xml:space="preserve">
+    <value>prekių partijos pagal {0} įsigijimo dokumentą Nr. {1} vertės pakeitimas (ID={2})</value>
+  </data>
+  <data name="Goods_ConsignmentItem_TypeName" xml:space="preserve">
+    <value>prekių partijos vertės pakeitimas</value>
+  </data>
+  <data name="Goods_ConsignmentItem_TotalValueChangeInvalid" xml:space="preserve">
+    <value>Prekių partijos vertė negali būti sumažinta iki nulio (ar iki minuso).</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_InvalidSaveChild" xml:space="preserve">
+    <value>Klaida. Ši operacija buvo registruota dokumente, kurios tipas - {0}. Ją keisti galima tik redaguojant ar pašalinant atitinkamą dokumentą.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_InvalidSaveChild" xml:space="preserve">
+    <value>Klaida. Ši operacija buvo registruota dokumente, kurio tipas - {0}. Ją keisti galima tik redaguojant ar pašalinant atitinkamą dokumentą.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_LoadCostInfoInvalid" xml:space="preserve">
+    <value>Klaida. Šiai prekei taikoma periodinė apskaita. Jos partijų vertės neskaičiuojamos.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_GoodsIdMismatch" xml:space="preserve">
+    <value>Klaida. Nesutampa prekių ID ir prekių partijos vertės ID.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_WarehouseIdMismatch" xml:space="preserve">
+    <value>Klaida. Nesutampa prekių ir prekių partijos sandėliai.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_AmountMismatch" xml:space="preserve">
+    <value>Klaida. Nesutampa nurodytas prekių kiekis ir prekių kiekis, kuriam paskaičiuota vertė.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_ValuationMethodMismatch" xml:space="preserve">
+    <value>Klaida. Nesutampa prekių ir prekių partijos vertinimo metodas.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_CannotChangeFinancialData" xml:space="preserve">
+    <value>Klaida. Operacijos su preke "{0}" finansiniai duomenys negali būti keičiami:{1}{2}</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_ToString" xml:space="preserve">
+    <value>prekių "{0}" nurašymas (ID={1})</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_TypeName" xml:space="preserve">
+    <value>prekių nurašymo operacija</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_InvalidGetJournalEntry" xml:space="preserve">
+    <value>Klaida. Bendrojo žurnalo įrašas negali būti sukurtas prekių nurašymui taikant periodinį apskaitos metodą.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_JournalEntryContent" xml:space="preserve">
+    <value>{0} (prekių nurašymas)</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_InvalidDelete" xml:space="preserve">
+    <value>Klaida. Prekių "{0}" nurašymo operacijos pašalinti negalima:{1}{2}</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_InvalidDeleteChild" xml:space="preserve">
+    <value>Klaida. Ši operacija buvo registruota dokumente, kurios tipas - {0}. Ją galima pašalinti tik redaguojant ar pašalinant atitinkamą dokumentą.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_InvalidSaveChild" xml:space="preserve">
+    <value>Klaida. Ši operacija buvo registruota dokumente, kurios tipas - {0}. Ją keisti galima tik redaguojant ar pašalinant atitinkamą dokumentą.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_InvalidAmountInDiscardList" xml:space="preserve">
+    <value>Klaida. Kiekis negali būti lygus nuliui metode GetDiscardList.</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_ToString" xml:space="preserve">
+    <value>prekių "{0}" perleidimas (ID={1})</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_TypeName" xml:space="preserve">
+    <value>prekių perleidimo operacija</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_CannotAttachParentType" xml:space="preserve">
+    <value>Klaida. Prekių perleidimas per dokumentą, kurio tipas - {0}, gali būti registruojamas tik atitinkamame dokumente.</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_InvalidJournalEntryType" xml:space="preserve">
+    <value>Klaida. Dokumentas, kurio tipas - {0}, negali būti pagrindu perleisti prekes.</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_InvalidSaveChild" xml:space="preserve">
+    <value>Klaida. Ši operacija buvo registruota dokumente, kurio tipas - {0}. Ją keisti galima tik redaguojant ar pašalinant atitinkamą dokumentą.</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_AmountMismatch" xml:space="preserve">
+    <value>Klaida. Nesutampa nurodytas prekių kiekis ir prekių kiekis, kuriam paskaičiuota vertė.</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_CannotChangeFinancialData" xml:space="preserve">
+    <value>Klaida. Operacijos su preke "{0}" finansiniai duomenys negali būti keičiami:{1}{2}</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_GoodsIdMismatch" xml:space="preserve">
+    <value>Klaida. Nesutampa prekių ID ir prekių partijos vertės ID.</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_InvalidAmountInDiscardList" xml:space="preserve">
+    <value>Klaida. Kiekis negali būti lygus nuliui metode GetDiscardList.</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_InvalidDelete" xml:space="preserve">
+    <value>Klaida. Prekių "{0}" perleidimo operacijos pašalinti negalima:{1}{2}</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_InvalidDeleteChild" xml:space="preserve">
+    <value>Klaida. Ši operacija buvo registruota dokumente, kurios tipas - {0}. Ją galima pašalinti tik redaguojant ar pašalinant atitinkamą dokumentą.</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_InvalidSaveChild" xml:space="preserve">
+    <value>Klaida. Ši operacija buvo registruota dokumente, kurios tipas - {0}. Ją keisti galima tik redaguojant ar pašalinant atitinkamą dokumentą.</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_JournalEntryDateMismatch" xml:space="preserve">
+    <value>Susieto bendrojo žurnalo įrašo (dokumento, pagrindžiančio perleidimą) data nesutampa su operacijos data.</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_JournalEntryNull" xml:space="preserve">
+    <value>Nenurodytas susietas bendrojo žurnalo įrašas (dokumentas, pagrindžiantis perleidimą).</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_LoadCostInfoInvalid" xml:space="preserve">
+    <value>Klaida. Šiai prekei taikoma periodinė apskaita. Jos partijų vertės neskaičiuojamos.</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_ValuationMethodMismatch" xml:space="preserve">
+    <value>Klaida. Nesutampa prekių ir prekių partijos vertinimo metodas.</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_WarehouseIdMismatch" xml:space="preserve">
+    <value>Klaida. Nesutampa prekių ir prekių partijos sandėliai.</value>
+  </data>
+  <data name="Goods_GoodsDiscardItemList_CannotChangeCommonFinancialData" xml:space="preserve">
+    <value>Jokie nurašymo akto finansiniai duomenys negali būti keičiami dėl ribojimo eilutei "{0}":{1}{2}</value>
+  </data>
+  <data name="Goods_GoodsDiscardItemList_GoodsCostListEmpty" xml:space="preserve">
+    <value>Klaida. Nenurodyti savikainos duomenys, kuriuos būtų galima įkelti.</value>
+  </data>
+  <data name="Goods_GoodsDiscardItemList_GoodsCostsListCountMismatch" xml:space="preserve">
+    <value>Klaida. Nesutampa eilučių skaičius dokumente ({0}) ir savikainų sąraše ({1}).</value>
+  </data>
+  <data name="Goods_GoodsDiscardItemList_OrphanGoodsCost" xml:space="preserve">
+    <value>Savikaina yra paskaičiuota prekei, kurios ID={0}, o dokumente tokios prekės nėra.</value>
+  </data>
+  <data name="Goods_GoodsDiscardItemList_RefreshCostsWarning" xml:space="preserve">
+    <value>Pavyko įkelti {0} iš {1} prekių savikainos paskaičiavimo eilučių. Įkeliant duomenis kilo šios klaidos:{2}{3}</value>
+  </data>
+  <data name="Goods_GoodsDiscardItemList_RefreshCostsException" xml:space="preserve">
+    <value>Klaida. Nepavyko įkelti prekių savikainos duomenų:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_WarehouseNull" xml:space="preserve">
+    <value>Klaida. Nenustatytas sandėlis.</value>
+  </data>
+  <data name="Goods_GoodsDiscardItemList_NewDiscardItemListEmpty" xml:space="preserve">
+    <value>Klaida. Nenurodyta nė viena prekės eilutė, kurią reikėtų pridėti į dokumentą.</value>
+  </data>
+  <data name="Goods_GoodsDiscardItemList_DuplicateItemsInNewDiscardItemList" xml:space="preserve">
+    <value>Klaida. Visos ar dalis prekių jau yra dokumente:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_CannotChangeFinancialDataChildren" xml:space="preserve">
+    <value>Jokie prekių nurašymo akto finansiniai duomenys negali būti keičiami dėl ribojimų eilutėms:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_CannotChangeFinancialDataParent" xml:space="preserve">
+    <value>Jokie prekių nurašymo akto finansiniai duomenys negali būti keičiami dėl ribojimo visam dokumentui:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_ListEmpty" xml:space="preserve">
+    <value>Klaida. Neįvesta nė viena eilutė.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_ToString" xml:space="preserve">
+    <value>{0} prekių nurašymo aktas Nr. {1} (ID={2})</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_TypeName" xml:space="preserve">
+    <value>prekių nurašymo aktas</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_InvalidDelete" xml:space="preserve">
+    <value>Klaida. Negalima ištrinti prekių nurašymo akto:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_Content" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_Items" xml:space="preserve">
+    <value>nurašomos prekės (eilutės)</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_ItemsSorted" xml:space="preserve">
+    <value>nurašomos prekės (eilutės)</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_OperationalLimit" xml:space="preserve">
+    <value>chronologiniai apribojimai</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_RefreshCostsIsReadOnly" xml:space="preserve">
+    <value>savikainos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_Warehouse" xml:space="preserve">
+    <value>sandėlis</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationDiscard_WarehouseIsReadOnly" xml:space="preserve">
+    <value>sandėlio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsItem_AccountDiscounts" xml:space="preserve">
+    <value>gautų nuolaidų sąsk.</value>
+  </data>
+  <data name="Goods_GoodsItem_AccountingMethod" xml:space="preserve">
+    <value>apskaitos metodas</value>
+  </data>
+  <data name="Goods_GoodsItem_AccountingMethodHumanReadable" xml:space="preserve">
+    <value>apskaitos metodas</value>
+  </data>
+  <data name="Goods_GoodsItem_AccountPurchases" xml:space="preserve">
+    <value>pirkimų sąsk.</value>
+  </data>
+  <data name="Goods_GoodsItem_AccountSalesNetCosts" xml:space="preserve">
+    <value>pardavimo savikainos sąsk.</value>
+  </data>
+  <data name="Goods_GoodsItem_AccountValueReduction" xml:space="preserve">
+    <value>nukainojimo sąsk.</value>
+  </data>
+  <data name="Goods_GoodsItem_Barcode" xml:space="preserve">
+    <value>barkodas</value>
+  </data>
+  <data name="Goods_GoodsItem_DefaultValuationMethod" xml:space="preserve">
+    <value>vertinimo metodas</value>
+  </data>
+  <data name="Goods_GoodsItem_DefaultValuationMethodHumanReadable" xml:space="preserve">
+    <value>vertinimo metodas</value>
+  </data>
+  <data name="Goods_GoodsItem_DefaultVatRatePurchase" xml:space="preserve">
+    <value>pirkimų PVM (%)</value>
+  </data>
+  <data name="Goods_GoodsItem_DefaultVatRateSales" xml:space="preserve">
+    <value>pardavimų PVM (%)</value>
+  </data>
+  <data name="Goods_GoodsItem_DefaultWarehouse" xml:space="preserve">
+    <value>įprastinis sandėlys</value>
+  </data>
+  <data name="Goods_GoodsItem_Group" xml:space="preserve">
+    <value>grupė</value>
+  </data>
+  <data name="Goods_GoodsItem_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsItem_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Goods_GoodsItem_InternalCode" xml:space="preserve">
+    <value>vidinis kodas</value>
+  </data>
+  <data name="Goods_GoodsItem_IsInUse" xml:space="preserve">
+    <value>naudojama</value>
+  </data>
+  <data name="Goods_GoodsItem_IsObsolete" xml:space="preserve">
+    <value>istoriniai duomenys</value>
+  </data>
+  <data name="Goods_GoodsItem_MeasureUnit" xml:space="preserve">
+    <value>mato vnt.</value>
+  </data>
+  <data name="Goods_GoodsItem_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="Goods_GoodsItem_PriceCutsExist" xml:space="preserve">
+    <value>yra nukainojimų</value>
+  </data>
+  <data name="Goods_GoodsItem_RegionalContents" xml:space="preserve">
+    <value>regioniniai pavadinimai</value>
+  </data>
+  <data name="Goods_GoodsItem_RegionalContentsSorted" xml:space="preserve">
+    <value>regioniniai pavadinimai</value>
+  </data>
+  <data name="Goods_GoodsItem_RegionalPrices" xml:space="preserve">
+    <value>regioninės kainos</value>
+  </data>
+  <data name="Goods_GoodsItem_RegionalPricesSorted" xml:space="preserve">
+    <value>regioninės kainos</value>
+  </data>
+  <data name="Goods_GoodsItem_TradedType" xml:space="preserve">
+    <value>prekybos tipas</value>
+  </data>
+  <data name="Goods_GoodsItem_TradedTypeHumanReadable" xml:space="preserve">
+    <value>prekybos tipas</value>
+  </data>
+  <data name="Goods_GoodsItem_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_AccountGoodsGeneral" xml:space="preserve">
+    <value>pirkimų (sandėlio) sąskaita</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_AccountGoodsNetCosts" xml:space="preserve">
+    <value>pardavimų savikainos sąsk.</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_AccountGoodsNetCostsIsReadOnly" xml:space="preserve">
+    <value>pardavimų savikainos sąsk. Keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_AccountPurchasesIsClosed" xml:space="preserve">
+    <value>pirkimų sąsk. uždaryta</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_AccountPurchasesIsClosedIsReadOnly" xml:space="preserve">
+    <value>pirkimų sąsk. uždaryta keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_AssociatedJournalEntryIsReadOnly" xml:space="preserve">
+    <value>susietos bendrojo žurnalo operacijos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_ComplexOperationHumanReadable" xml:space="preserve">
+    <value>kompleks. oper. tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_ComplexOperationID" xml:space="preserve">
+    <value>kompleks. oper. ID</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_ComplexOperationType" xml:space="preserve">
+    <value>kompleks. oper. tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_Consignments" xml:space="preserve">
+    <value>prekių partijos</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_ConsignmentsSorted" xml:space="preserve">
+    <value>prekių partijos</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_DateIsReadOnly" xml:space="preserve">
+    <value>datos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_Description" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_DescriptionIsReadOnly" xml:space="preserve">
+    <value>aprašymo keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_GoodsInfo" xml:space="preserve">
+    <value>prekių duomenys</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_IsChildOperation" xml:space="preserve">
+    <value>operacija yra kito dokumento dalis</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_JournalEntryContent" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos turinys</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_JournalEntryCorrespondence" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos kontavimai</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_JournalEntryDate" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos data</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_JournalEntryDocNo" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos dok. Nr.</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_JournalEntryRelatedPerson" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos kontrahentas</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_JournalEntryType" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_JournalEntryTypeHumanReadable" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_OperationLimitations" xml:space="preserve">
+    <value>chronologiniai apribojimai</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_TotalGoodsValueChange" xml:space="preserve">
+    <value>savikainos padidinimas esamoms prekėms</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_TotalGoodsValueChangeIsReadOnly" xml:space="preserve">
+    <value>savikainos padidinimo esamoms prekėms keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_TotalNetValueChange" xml:space="preserve">
+    <value>savikainos padidinimas parduotoms prekėms</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_TotalValueChange" xml:space="preserve">
+    <value>savikainos padidinimas viso</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_TotalValueChangeIsReadOnly" xml:space="preserve">
+    <value>savikainos padidinimo viso keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Goods_GoodsOperationAdditionalCosts_Warehouse" xml:space="preserve">
+    <value>sandėlys</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_AccountGoodsDiscardCosts" xml:space="preserve">
+    <value>nurašymo sąnaudų sąsk.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_AccountGoodsDiscardCostsIsReadOnly" xml:space="preserve">
+    <value>nurašymo sąnaudų sąsk. Keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_Ammount" xml:space="preserve">
+    <value>nurašomas kiekis</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_AmmountIsReadOnly" xml:space="preserve">
+    <value>kiekio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_ComplexOperationHumanReadable" xml:space="preserve">
+    <value>kompleks. oper. tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_ComplexOperationID" xml:space="preserve">
+    <value>kompleks. oper. ID</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_ComplexOperationType" xml:space="preserve">
+    <value>kompleks. oper. tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_DateIsReadOnly" xml:space="preserve">
+    <value>datos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_Description" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_DescriptionIsReadOnly" xml:space="preserve">
+    <value>aprašymo keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_DocumentNumberIsReadOnly" xml:space="preserve">
+    <value>dok. Nr. keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_GoodsAccountingMethod" xml:space="preserve">
+    <value>apskaitos metodas</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_GoodsInfo" xml:space="preserve">
+    <value>prekių duomenys</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_GoodsMeasureUnit" xml:space="preserve">
+    <value>mato vnt.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_GoodsName" xml:space="preserve">
+    <value>prekių pavadinimas</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_GoodsValuationMethod" xml:space="preserve">
+    <value>vertinimo metodas</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_JournalEntryType" xml:space="preserve">
+    <value>BŽ tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_NormativeTotalValue" xml:space="preserve">
+    <value>normatyvinė savikaina viso</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_NormativeUnitValue" xml:space="preserve">
+    <value>normatyvinė savikaina vnt.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_OperationLimitations" xml:space="preserve">
+    <value>chronologiniai apribojimai</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_TotalCost" xml:space="preserve">
+    <value>viso savikaina</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_UnitCost" xml:space="preserve">
+    <value>vnt. savikaina</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_Warehouse" xml:space="preserve">
+    <value>sandėlis</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_WarehouseIsReadOnly" xml:space="preserve">
+    <value>sandėlio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_AccountGoodsGeneral" xml:space="preserve">
+    <value>pirkimų (sandėlio) sąskaita</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_AccountGoodsNetCosts" xml:space="preserve">
+    <value>pardavimų savikainos sąsk.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_AccountGoodsNetCostsIsReadOnly" xml:space="preserve">
+    <value>pardavimų savikainos sąsk. Keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_AccountPurchasesIsClosed" xml:space="preserve">
+    <value>pirkimų sąsk. uždaryta</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_AccountPurchasesIsClosedIsReadOnly" xml:space="preserve">
+    <value>pirkimų sąsk. uždaryta keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_AssociatedJournalEntryIsReadOnly" xml:space="preserve">
+    <value>susietos bendrojo žurnalo operacijos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_ComplexOperationHumanReadable" xml:space="preserve">
+    <value>kompleks. oper. tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_ComplexOperationID" xml:space="preserve">
+    <value>kompleks. oper. ID</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_ComplexOperationType" xml:space="preserve">
+    <value>kompleks. oper. tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_Consignments" xml:space="preserve">
+    <value>prekių partijos</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_ConsignmentsSorted" xml:space="preserve">
+    <value>prekių partijos</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_DateIsReadOnly" xml:space="preserve">
+    <value>datos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_Description" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_DescriptionIsReadOnly" xml:space="preserve">
+    <value>aprašymo keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_GoodsInfo" xml:space="preserve">
+    <value>prekių duomenys</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_IsChildOperation" xml:space="preserve">
+    <value>operacija yra kito dokumento dalis</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_JournalEntryContent" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos turinys</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_JournalEntryCorrespondence" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos kontavimai</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_JournalEntryDate" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos data</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_JournalEntryDocNo" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos dok. Nr.</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_JournalEntryRelatedPerson" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos kontrahentas</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_JournalEntryType" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_JournalEntryTypeHumanReadable" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_OperationLimitations" xml:space="preserve">
+    <value>chronologiniai apribojimai</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_TotalGoodsValueChange" xml:space="preserve">
+    <value>savikainos padidinimas esamoms prekėms</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_TotalGoodsValueChangeIsReadOnly" xml:space="preserve">
+    <value>savikainos padidinimo esamoms prekėms keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_TotalNetValueChange" xml:space="preserve">
+    <value>savikainos padidinimas parduotoms prekėms</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_TotalValueChange" xml:space="preserve">
+    <value>savikainos padidinimas viso</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_TotalValueChangeIsReadOnly" xml:space="preserve">
+    <value>savikainos padidinimo viso keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscount_Warehouse" xml:space="preserve">
+    <value>sandėlis</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_AccountGoodsCost" xml:space="preserve">
+    <value>savikainos nurašymo sąnaudų sąsk.</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_AccountGoodsCostIsReadOnly" xml:space="preserve">
+    <value>savikainos nurašymo sąnaudų sąsk. keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_AccountGoodsWarehouse" xml:space="preserve">
+    <value>pirkimų (sandėlio) sąsk.</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_Amount" xml:space="preserve">
+    <value>kiekis</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_AmountIsReadOnly" xml:space="preserve">
+    <value>kiekio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_AssociatedJournalEntryIsReadOnly" xml:space="preserve">
+    <value>susietos bendrojo žurnalo operacijos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_ComplexOperationHumanReadable" xml:space="preserve">
+    <value>kompleks. oper. tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_ComplexOperationID" xml:space="preserve">
+    <value>kompleks. oper. ID</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_ComplexOperationType" xml:space="preserve">
+    <value>kompleks. oper. tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_DateIsReadOnly" xml:space="preserve">
+    <value>datos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_Description" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_DescriptionIsReadOnly" xml:space="preserve">
+    <value>aprašymo keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_GoodsInfo" xml:space="preserve">
+    <value>prekių duomenys</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_IsChildOperation" xml:space="preserve">
+    <value>operacija yra kito dokumento dalis</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_JournalEntryContent" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos turinys</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_JournalEntryCorrespondence" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos kontavimai</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_JournalEntryDate" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos data</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_JournalEntryDocNo" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos dok. Nr.</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_JournalEntryRelatedPerson" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos kontrahentas</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_JournalEntryType" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_JournalEntryTypeHumanReadable" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_OperationLimitations" xml:space="preserve">
+    <value>chronologiniai apribojimai</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_TotalCost" xml:space="preserve">
+    <value>viso savikaina</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_UnitCost" xml:space="preserve">
+    <value>vnt. savikaina</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_Warehouse" xml:space="preserve">
+    <value>sandėlis</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_WarehouseIsReadOnly" xml:space="preserve">
+    <value>sandėlio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_CompositionEmpty" xml:space="preserve">
+    <value>Nėra nei žaliavų/detalių, nei gamybos sąnaudų, iš kurių būtų galima būtų formuoti pagamintos produkcijos savikainą.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_CannotChangeFinancialDataAcquisition" xml:space="preserve">
+    <value>Klaida. Žaliavų bendra savikaina negali keistis:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_CannotChangeFinancialDataDiscard" xml:space="preserve">
+    <value>Klaida. Žaliavų savikaina negali keistis:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_CannotChangeFinancialData" xml:space="preserve">
+    <value>Klaida. Operacijos finansiniai duomenys negali keistis:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_ToString" xml:space="preserve">
+    <value>{0} prekių "{1}" gamybos operacija Nr. {2} (ID={3})</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_TypeName" xml:space="preserve">
+    <value>prekių gamybos operacija</value>
+  </data>
+  <data name="Goods_GoodsProductionCostItem_ToString" xml:space="preserve">
+    <value>gamybos sąnaudos {0} sąskaitoje {1} EUR/produkcijos vnt.</value>
+  </data>
+  <data name="Goods_GoodsProductionCostItem_TypeName" xml:space="preserve">
+    <value>gamybos sąnaudų eilutė</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_InvalidDelete" xml:space="preserve">
+    <value>Klaida. Negalima ištrinti prekių gamybos operacijos:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_CannotChangeFinancialData" xml:space="preserve">
+    <value>Klaida. Finansinių žaliavos "{0}" duomenų keisti negalima:{1}{2}</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_ToString" xml:space="preserve">
+    <value>žaliavos {0} sunaudojimas gamyboje</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_TypeName" xml:space="preserve">
+    <value>žaliavos (dalių) sunaudojimas gamyboje</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_AccountContraryNull" xml:space="preserve">
+    <value>Žaliavai/detalei "{0}" nenurodyta kontrarinė normatyvinės savikainos sąskaita.</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_NormativeUnitCostNull" xml:space="preserve">
+    <value>Žaliavai/detalei "{0}" nenurodyta normatyvinė savikaina.</value>
+  </data>
+  <data name="Goods_GoodsComponentItemList_CannotChangeFinancialData" xml:space="preserve">
+    <value>Jokie gamybos akto finansiniai duomenys negali būti keičiami dėl ribojimo eilutei "0":{1}{2}</value>
+  </data>
+  <data name="Goods_GoodsComponentItemList_GoodsCostListEmpty" xml:space="preserve">
+    <value>Klaida. Nenurodyti savikainos duomenys, kuriuos būtų galima įkelti.</value>
+  </data>
+  <data name="Goods_GoodsComponentItemList_GoodsCostsListCountMismatch" xml:space="preserve">
+    <value>Nesutampa eilučių skaičius dokumente ({0}) ir savikainos paskaičiavimuose ({1}).</value>
+  </data>
+  <data name="Goods_GoodsComponentItemList_OrphanGoodsCost" xml:space="preserve">
+    <value>Savikaina yra paskaičiuota žaliavoms (prekėms), kurių ID={0}, o dokumente tokios žaliavos nėra.</value>
+  </data>
+  <data name="Goods_GoodsComponentItemList_RefreshCostsWarning" xml:space="preserve">
+    <value>Pavyko įkelti {0} iš {1} savikainos paskaičiavimo eilučių. Įkeliant duomenis kilo šios klaidos:{2}{3}</value>
+  </data>
+  <data name="Goods_GoodsComponentItemList_RefreshCostsException" xml:space="preserve">
+    <value>Klaida. Nepavyko įkelti žaliavų (prekių) savikainos duomenų:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsComponentItemList_NoPersistentGoodsInList" xml:space="preserve">
+    <value>Klaida. Visos dokumente nurodytos žaliavos yra apskaitomos taikaint periodinės apskaitomos metodą.</value>
+  </data>
+  <data name="Goods_GoodsDiscardItemList_NoPersistentGoodsInList" xml:space="preserve">
+    <value>Klaida. Visos prekės dokumente yra apskaitomos taikant periodinės apskaitos metodą.</value>
+  </data>
+  <data name="Goods_GoodsComponentItemList_NewComponentItemListEmpty" xml:space="preserve">
+    <value>Klaida. Nenurodyta nė viena žaliavų (prekių) eilutė, kurią reikėtų įkelti.</value>
+  </data>
+  <data name="Goods_GoodsComponentItemList_DuplicateItemsInNewComponentItemList" xml:space="preserve">
+    <value>Klaida. Visos ar dalis žaliavų (prekių) jau yra dokumente:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsComponentItemList_AcquisitionMissing" xml:space="preserve">
+    <value>Klaida. Nerastas operacijos pagamintų prekių pajamavimo įrašas.</value>
+  </data>
+  <data name="Goods_GoodsDiscardItemList_GoodsIdsNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta nė viena prekė.</value>
+  </data>
+  <data name="Goods_GoodsComponentItemList_GoodsIdsNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta nė viena prekė.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_WarehouseForComponentsNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas žaliavų sandėlis.</value>
+  </data>
+  <data name="Goods_GoodsOperationAcquisition_TotalCostInvalid" xml:space="preserve">
+    <value>Įsigijimo savikaina viso negali skirtis nuo vnt. įsigijimo savikainos ir kiekio sandaugos daugiau kaip 50 proc. vnt. įsigijimo savikainos.</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItemList_GoodsCostListEmpty" xml:space="preserve">
+    <value>Klaida. Nenurodyta savikainos duomenys, kuriuos būtų galima įkelti.</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItemList_GoodsCostsListCountMismatch" xml:space="preserve">
+    <value>Neusutampa eilučių skaičius dokumente ({0}) ir savikainos paskaičiavimuose ({1}).</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItemList_OrphanGoodsCost" xml:space="preserve">
+    <value>Savikaina yra paskaičiuota prekėms, kurių ID={0}, o dokumente tokių prekių nėra.</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItemList_RefreshCostsWarning" xml:space="preserve">
+    <value>Pavyko įkelti {0} iš {1} savikainos paskaičiavimo eilučių. Įkeliant duomenis kilo šios klaidos:{2}{3}</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItemList_RefreshCostsException" xml:space="preserve">
+    <value>Klaida. Nepavyko įkelti prekių savikainos duomenų:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItemList_NewInternalTransferItemListEmpty" xml:space="preserve">
+    <value>Klaida. Nenurodyta nė viena prekių eilutė, kurią reikėtų įkelti.</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItemList_DuplicateItemsInNewInternalTransferItemList" xml:space="preserve">
+    <value>Klaida. Visos ar dalis prekių jau yra dokumente:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInternalTransfer_WarehouseFromNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas sandėlis, iš kurio perkeliamos prekės.</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_WarehouseFromNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas sandėlis, iš kurio perkeliamos prekės.</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItemList_ChildOperationDataCorrupt" xml:space="preserve">
+    <value>Klaida. Sugadinti duomenys. Vidinio judėjimo kompleksinei operacijai priskirta prekių operacija, kurios tipas {0}.</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItemList_GoodsIdsNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta nė viena prekė.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInternalTransfer_DeleteInvalid" xml:space="preserve">
+    <value>Klaida. Negalima ištrinti prekių vidinio judėjimo operacijos:{0}{1}
+</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInternalTransfer_ItemListEmpty" xml:space="preserve">
+    <value>Klaida. Neįvesta nė viena eilutė.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInternalTransfer_CannotChangeFinancialDataParent" xml:space="preserve">
+    <value>Jokie prekių vidinio judėjimo dokumento finansiniai duomenys negali būti keičiami:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInternalTransfer_ToString" xml:space="preserve">
+    <value>{0} prekių perkėlimo tarp sandėlių aktas Nr. {1} (ID={2})</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInternalTransfer_TypeName" xml:space="preserve">
+    <value>prekių perkėlimo tarp sandėlių aktas</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInternalTransfer_WarehouseToInvalid" xml:space="preserve">
+    <value>Sandėlis, į kurį prekės perduodamos, negali būti tas pats, kaip ir tas, iš kurio paimamos.</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_CannotChangeFinancialData" xml:space="preserve">
+    <value>Klaida. Eilutės "{0}" finansiniai operacijos duomenys negali būti keičiami:{1}{2}</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_ToString" xml:space="preserve">
+    <value>prekių "{0}" perdavimas tarp sandėlių</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_TypeName" xml:space="preserve">
+    <value>prekių perdavimo tarp sandėlių eilutė</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_ToString" xml:space="preserve">
+    <value>prekės "{0}" likučio sandėlyje "{1}" perkėlimas (ID={2})</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_TypeName" xml:space="preserve">
+    <value>prekės likučio sandėlyje perkėlimas</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_AmountInWarehouseInvalid" xml:space="preserve">
+    <value>Kiekis sandėlyje negali būti didesnis už bendrą kiekį.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_TotalValueInWarehouseInvalid" xml:space="preserve">
+    <value>Vertė sandėlyje negali būti didesnė už bendrą vertę.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_AmountWithoutValue" xml:space="preserve">
+    <value>Nenurodyta vertė sandėlyje, o kiekis sandėlyje nurodytas.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_ValueWithoutAmount" xml:space="preserve">
+    <value>Nurodyta vertė sandėlyje, o kiekis sandėlyje nenurodytas.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_PasteColumns" xml:space="preserve">
+    <value>prekės pavadinimas&lt;BR&gt;sandėlio pavadinimas&lt;BR&gt;kiekis&lt;BR&gt;kiekis sandėlyje&lt;BR&gt;vnt. vertė&lt;BR&gt;viso vertė&lt;BR&gt;viso vertė sandėlyje&lt;BR&gt;pardavimų savikainos sąsk. likutis&lt;BR&gt;gautų nuolaidų sąsk. likutis&lt;BR&gt;nukainojimų sąsk. likutis</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_PasteColumnsDescription" xml:space="preserve">
+    <value>Prekės likučio duomenys turi būti išdėstyti {0} stulpelių: {1}.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_GoodsIdNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta prekės ID.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_WarehouseNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas sandėlys.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_ConsignmentNotFound" xml:space="preserve">
+    <value>Klaida. Nerastas partijos įrašas prekės "{0}" likučių perkėlimo operacijai.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_ConsignmentDataCorrupt" xml:space="preserve">
+    <value>Klaida. Yra daugiau ne vienas partijos įrašas prekės "{0}" likučių perkėlimo operacijai. Tikėtina, sugadinta duombazė.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_DeleteInvalid" xml:space="preserve">
+    <value>Klaida. Prekių "{0}" likučių perkėlimo operacijos pašalinti negalima:{1}{2}</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItemList_NewTransferOfBalanceItemListEmpty" xml:space="preserve">
+    <value>Klaida. Nenurodyta nė viena prekių likučių perkėlimo eilutė, kurią būtų galima pridėti į dokumentą.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItemList_ConcurentItem" xml:space="preserve">
+    <value>prekė - {0}; sandėlyje - {1}</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItemList_DuplicateItemsInNewTransferOfBalanceItemList" xml:space="preserve">
+    <value>Klaida. Prekių likučiai visoms ar daliai prekių sandėliuose jau yra dokumente:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItemList_GoodsIdsNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta nė viena prekė.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItemList_WarehouseNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas sandėlis.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItemList_LineWithoutGoodsName" xml:space="preserve">
+    <value>Duomenų eilutė, kurioje nenurodytas prekės pavadinimas: "{0}"</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItemList_LineWithoutWarehouseName" xml:space="preserve">
+    <value>Duomenų eilutė, kurioje nenurodytas sandėlio pavadinimas: "{0}"</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItemList_GoodsUnknown" xml:space="preserve">
+    <value>Nežinoma prekė, kurios pavadinimas "{0}", duomenų eilutė: "{1}"</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItemList_WarehouseUnknown" xml:space="preserve">
+    <value>Nežinomas sandėlis, kurio pavadinimas "{0}", duomenų eilutė: "{1}"</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItemList_DuplicateLine" xml:space="preserve">
+    <value>Sandėlyje "{0}" pasikartoja prekė "{1}" (įtraukta tik pirma eilutė iš esamų).</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItemList_ImportWarningsString" xml:space="preserve">
+    <value>Importuota {0} eilučių iš {1}. Importuojant duomenis kilusios klaidos:{2}{3}</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItemList_SourceNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas importo šaltinis (gautas tuščias tekstas).</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_DefaultContent" xml:space="preserve">
+    <value>Prekių likučių perkėlimas</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_TransferOfBalanceDoesNotExist" xml:space="preserve">
+    <value>Klaida. Apskaitoje nėra registruota likučių perkėlimo operacija.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_TransferOfGoodsBalanceWithoutTransferOfBalance" xml:space="preserve">
+    <value>Klaida. Apskaitoje nėra registruota likučių perkėlimo operacija, bet yra registruota prekių likučių perkėlimo operacija. Siūlytina ištrinti prekių likučių perkėlimo operaciją.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_DeleteInvalid" xml:space="preserve">
+    <value>Klaida. Negalima ištrinti prekių likučių perkėlimo operacijos:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_ListEmpty" xml:space="preserve">
+    <value>Klaida. Neįvesta nė viena eilutė.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_ToString" xml:space="preserve">
+    <value>prekių likučių perkėlimas</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_TypeName" xml:space="preserve">
+    <value>prekių likučių perkėlimas</value>
+  </data>
+  <data name="Goods_GoodsInventorizationItem_ToString" xml:space="preserve">
+    <value>prekių "{0}" inventorizacijos akto eilutė</value>
+  </data>
+  <data name="Goods_GoodsInventorizationItem_TypeName" xml:space="preserve">
+    <value>prekių inventorizacijos akto eilutė</value>
+  </data>
+  <data name="Goods_GoodsInventorizationItem_DeleteInvalid" xml:space="preserve">
+    <value>Klaida. Negalima pašalinti prekių "{0}" inventorizacijos operacijos:{1}{2}</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_ListEmpty" xml:space="preserve">
+    <value>Klaida. Neįvesta nė viena eilutė.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_ToString" xml:space="preserve">
+    <value>{0} prekių (atsargų) inventorizacijos aktas Nr. {1} (ID={2})</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_TypeName" xml:space="preserve">
+    <value>prekių (atsargų) inventorizacijos aktas</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_WarehouseNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas sandėlis.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_InvalidDateForNewOperation" xml:space="preserve">
+    <value>Klaida. Nauja inventorizacija negali būti anksčiau nei paskutinė inventorizacija - {0}.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_DeleteInvalid" xml:space="preserve">
+    <value>Klaida. Negalima ištrinti prekių inventorizacijos operacijos:{0}{1}</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_WarehouseNotFound" xml:space="preserve">
+    <value>Klaida. Sandėlis, kurio ID={0}, nerastas.</value>
+  </data>
+  <data name="ActiveReports_GoodsOperationInfo_ToString" xml:space="preserve">
+    <value>{0} prekių operacija "{1}" Nr. {2} (ID={3})</value>
+  </data>
+  <data name="ActiveReports_GoodsOperationInfo_TypeName" xml:space="preserve">
+    <value>prekių operacijų ataskaitos eilutė</value>
+  </data>
+  <data name="ActiveReports_GoodsOperationInfoListParent_GoodsIdNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta prekių rūšis.</value>
+  </data>
+  <data name="ActiveReports_GoodsOperationInfoListParent_ToString" xml:space="preserve">
+    <value>prekių "{0}" operacijų ataskaita</value>
+  </data>
+  <data name="ActiveReports_GoodsOperationInfoListParent_TypeName" xml:space="preserve">
+    <value>prekių operacijų ataskaita</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItemList_OperationPairNotFound" xml:space="preserve">
+    <value>Klaida. Sugadinti operacijos duomenys, nerasta prekių perleidimo operacija prekei, kurios ID={0}.</value>
+  </data>
+  <data name="Goods_OperationalLimitList_CouldAffectSubsequentPriceCutWarning" xml:space="preserve">
+    <value>Operacijos duomenų pakeitimas gali turėti įtakos vėliau registruotai nukainojimo operacijai.</value>
+  </data>
+  <data name="Goods_OperationalLimitList_LastOperationsInWarehouseDescription" xml:space="preserve">
+    <value>Paskutinės operacijos su preke sandėlyje:{0}{1}</value>
+  </data>
+  <data name="Goods_OperationalLimitList_LastOperationsInWarehouseBeforeTheCurrentOperationDescription" xml:space="preserve">
+    <value>{0}{1}{2}Paskutinės operacijos su preke sandėlyje iki keičiamos operacijos:{3}{4}</value>
+  </data>
+  <data name="Goods_OperationalLimitList_FirstOperationsInWarehouseAfterTheCurrentOperationDescription" xml:space="preserve">
+    <value>{0}{1}{2}Pirmos operacijos su preke sandėlyje po keičiamos operacijos:{3}{4}</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_CannotAttachParentType" xml:space="preserve">
+    <value>Klaida. Prekių susigrąžinimo iš pirkėjo operacija per dokumentą, kurio tipas yra {0}, gali būti registruojama tik atitinkamame dokumente.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_InvalidJournalEntryType" xml:space="preserve">
+    <value>Klaida. Dokumentas, kurio tipas yra {0}, negali būti pagrindu susigrąžinti prekes iš pirkėjo.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_ToString" xml:space="preserve">
+    <value>prekių "{0}" susigrąžinimo iš pirkėjo operacija (ID={1})</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_TotalCostInvalid" xml:space="preserve">
+    <value>Įsigijimo savikaina nuo kiekio ir vnt. kainos sandaugos negali skirtis daugiau nei 50 proc. vnt. kainos.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_JournalEntryNull" xml:space="preserve">
+    <value>Nenurodytas susietas bendrojo žurnalo įrašas (dokumentas, pagrindžiantis prekių susigrąžinimą iš pirkėjo).</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_JournalEntryDateMismatch" xml:space="preserve">
+    <value>Susieto bendrojo žurnalo įrašo (dokumento pagrindžiančio prekių susigrąžinimą iš pirkėjo) data nesutampa su operacijos data.</value>
+  </data>
+  <data name="Goods_GoodsOperationType_RedeemFromBuyer" xml:space="preserve">
+    <value>prekių susigrąžinimas iš pirkėjo</value>
+  </data>
+  <data name="Goods_GoodsOperationType_RedeemToSupplier" xml:space="preserve">
+    <value>prekių grąžinimas tiekėjui</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_InvalidDeleteChild" xml:space="preserve">
+    <value>Klaida. Ši operacija buvo registruota dokumente, kurio tipas yra {0}, ji gali būti pakeista ar pašalinta tik keičiant ar pašalinant šį dokumentą.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_InvalidDelete" xml:space="preserve">
+    <value>Klaida. Prekių "{0}" susigrąžinimo iš pirkėjo operacijos pašalinti neleidžiama:{1}{2}</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_AmountInWarehouseInvalid" xml:space="preserve">
+    <value>Prekių susigrąžinamas į sandėlį (po inventorizacijos) kiekis negali būti didesnis už bendrą susigrąžinamą kiekį.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_ConsignmentNotFound" xml:space="preserve">
+    <value>Klaida. Nerastas partijos įrašas prekės "{0}" susigrąžinimo iš pirkėjo operacijai.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_ConsignmentInvalid" xml:space="preserve">
+    <value>Klaida. Yra daugiau nei vienas partijos įrašas prekės "{0}" susigrąžinimo iš pirkėjo operacijai. Tikėtina, sugadinta duombazė.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemToSupplier_CannotAttachParentType" xml:space="preserve">
+    <value>Klaida. Prekių grąžinimas tiekėjui per dokumentą, kurio tipas yra {0}, gali būti registruojamas tik atitinkamame dokumente.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemToSupplier_InvalidJournalEntryType" xml:space="preserve">
+    <value>Klaida. Dokumentas, kurio tipas yra {0}, negali būti pagrindu grąžinti prekes tiekėjui.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemToSupplier_ToString" xml:space="preserve">
+    <value>prekių "{0}" grąžinimas tiekėjui (ID={1})</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemToSupplier_InvalidSaveChild" xml:space="preserve">
+    <value>Klaida. Ši operacija buvo registruota dokumente, kurio tipas yra {0}, ją galima pašalinti ar keisti tik atitinkamame dokumente.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemToSupplier_InvalidDelete" xml:space="preserve">
+    <value>Klaida. Prekių "{0}" grąžinimo tiekėjui operacijos pašalinti neleidžiama:{1}{2}</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemToSupplier_JournalEntryNull" xml:space="preserve">
+    <value>Nenurodytas susietas bendrojo žurnalo įrašas (dokumentas, pagrindžiantis prekių grąžinimą tiekėjui).</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemToSupplier_JournalEntryDateMismatch" xml:space="preserve">
+    <value>Susieto bendrojo žurnalo įrašo (prekių grąžinimą tiekėjui pagrindžiančio dokumento) data nesutampa su operacijos data.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemToSupplier_CannotChangeFinancialData" xml:space="preserve">
+    <value>Klaida. Operacijos su preke "{0}" finansiniai duomenys negali būti keičiami:{1}{2}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsRedeemFromBuyerInvoiceAdapter_ToString" xml:space="preserve">
+    <value>prekių grąžinimas iš pirkėjo: {0}</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsRedeemFromBuyerInvoiceAdapter_AccountIncomeNull" xml:space="preserve">
+    <value>Nenurodyta prekių grąžinimo pajamų sąskaita.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsRedeemFromBuyerInvoiceAdapter_AmountInvalidMade" xml:space="preserve">
+    <value>Norint išrašoma sąskaita faktūra įforminti prekių grąžinimą iš pirkėjo, reikalinga kreditinė sąskaitos eilutė, t.y. kiekis ir suma turi būti neigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsRedeemFromBuyerInvoiceAdapter_AmountMismatch" xml:space="preserve">
+    <value>Nesutampa grąžinamas kiekis, nurodytas sąskaitos eilutėje ({0}) ir susietoje operacijoje ({1}).</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsRedeemFromBuyerInvoiceAdapter_AmountInvalidReceived" xml:space="preserve">
+    <value>Norint gauta sąskaita faktūra įforminti prekių grąžinimą iš pirkėjo reikalinga debetinė eilutė, t.y. kiekis ir suma privalo būti teigiami.</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_InvoiceAdapterType_GoodsRedeemFromBuyer" xml:space="preserve">
+    <value>prekių grąžinimas iš pirkėjo</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_Content" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_Items" xml:space="preserve">
+    <value>eilutės</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_ItemsSorted" xml:space="preserve">
+    <value>eilutės</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_WarehouseAccount" xml:space="preserve">
+    <value>sandėlio sąsk.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_WarehouseID" xml:space="preserve">
+    <value>sandėlio ID</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationInventorization_WarehouseName" xml:space="preserve">
+    <value>sandėlio pavadinimas</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_AcquisitionAccount" xml:space="preserve">
+    <value>gaminio (prekės) įsigijimo sąsk.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_Amount" xml:space="preserve">
+    <value>gaminio (prekės) kiekis</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_AmountIsReadOnly" xml:space="preserve">
+    <value>gaminių kiekio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_CalculationIsPerUnit" xml:space="preserve">
+    <value>kalkuliacija gaminio vienetams</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_ComponentItems" xml:space="preserve">
+    <value>žaliavos (komponentai)</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_ComponentItemsSorted" xml:space="preserve">
+    <value>žaliavos (komponentai)</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_Content" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_CostsItems" xml:space="preserve">
+    <value>gamybos sąnaudos</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_CostsItemsSorted" xml:space="preserve">
+    <value>gamybos sąnaudos</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_GoodsAccountingMethod" xml:space="preserve">
+    <value>gaminio (prekės) apskaitos metodas</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_GoodsInfo" xml:space="preserve">
+    <value>gaminys (prekė)</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_GoodsMeasureUnit" xml:space="preserve">
+    <value>gaminio (prekės) mato vnt.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_GoodsName" xml:space="preserve">
+    <value>gaminio (prekės) pavadinimas</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_GoodsValuationMethod" xml:space="preserve">
+    <value>gaminio (prekės) vertinimo metodas</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_TotalValue" xml:space="preserve">
+    <value>gaminio (prekės) viso savikaina</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_UnitValue" xml:space="preserve">
+    <value>gaminio (prekės) vnt. savikaina</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_WarehouseForComponents" xml:space="preserve">
+    <value>sandėlis žaliavoms (komponentams)</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_WarehouseForComponentsIsReadOnly" xml:space="preserve">
+    <value>žaliavų sandėlio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_WarehouseForProduction" xml:space="preserve">
+    <value>sandėlis gaminiams</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationProduction_WarehouseForProductionIsReadOnly" xml:space="preserve">
+    <value>gaminių sandėlio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_Content" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_Items" xml:space="preserve">
+    <value>eilutės</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_ItemsSortable" xml:space="preserve">
+    <value>eilutės</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_JournalEntryContent" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos turinys</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_JournalEntryCorrespondence" xml:space="preserve">
+    <value>bendrojo žurnalo kontavimai</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_JournalEntryDate" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos data</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Goods_GoodsComplexOperationTransferOfBalance_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_AccountContrary" xml:space="preserve">
+    <value>normatyvinės savikainos sąsk.</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_AccountContraryIsReadOnly" xml:space="preserve">
+    <value>normatyvinės savikainos sąsk. Keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_Amount" xml:space="preserve">
+    <value>kiekis</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_AmountIsReadOnly" xml:space="preserve">
+    <value>kiekio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_AmountPerProductionUnit" xml:space="preserve">
+    <value>žaliavų (komponentų) kiekis gaminio vienetui</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_AmountPerProductionUnitIsReadOnly" xml:space="preserve">
+    <value>kiekio gaminio vienetui keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_GoodsAccountingMethod" xml:space="preserve">
+    <value>žaliavų (komponentų) apskaitos metodas</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_GoodsInfo" xml:space="preserve">
+    <value>žaliavos (komponentai)</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_GoodsMeasureUnit" xml:space="preserve">
+    <value>žaliavų (komponentų) mato vnt.</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_GoodsName" xml:space="preserve">
+    <value>žaliavų (komponentų) pavadinimas</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_GoodsValuationMethod" xml:space="preserve">
+    <value>žaliavų (komponentų) vertinimo metodas</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_LoadCostInfoIsReadOnly" xml:space="preserve">
+    <value>savikainos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_NormativeUnitCost" xml:space="preserve">
+    <value>normatyvinė vnt. kaina</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_NormativeUnitCostIsReadOnly" xml:space="preserve">
+    <value>normatyvinės vnt. Kainos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_Remarks" xml:space="preserve">
+    <value>pastabos</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_TotalCost" xml:space="preserve">
+    <value>viso savikaina</value>
+  </data>
+  <data name="Goods_GoodsComponentItem_UnitCost" xml:space="preserve">
+    <value>vnt. savikaina</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_AcquisitionID" xml:space="preserve">
+    <value>įsigijimo ID</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_Amount" xml:space="preserve">
+    <value>kiekis</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_AmountIsReadOnly" xml:space="preserve">
+    <value>kiekio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_GoodsAccountingMethod" xml:space="preserve">
+    <value>prekių apskaitos metodas</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_GoodsInfo" xml:space="preserve">
+    <value>prekės</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_GoodsMeasureUnit" xml:space="preserve">
+    <value>prekių mato vnt.</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_GoodsName" xml:space="preserve">
+    <value>prekių pavadinimas</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_GoodsValuationMethod" xml:space="preserve">
+    <value>prekių vertinimo metodas</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_ID" xml:space="preserve">
+    <value>perleidimo ID</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_LoadCostInfoIsReadOnly" xml:space="preserve">
+    <value>savikainos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_Remarks" xml:space="preserve">
+    <value>pastabos</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_TotalCost" xml:space="preserve">
+    <value>viso savikaina</value>
+  </data>
+  <data name="Goods_GoodsInternalTransferItem_UnitCost" xml:space="preserve">
+    <value>vnt. savikaina</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_AcquisitionAccount" xml:space="preserve">
+    <value>sandėlio sąsk.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_Amount" xml:space="preserve">
+    <value>kiekis</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_AmountInPurchases" xml:space="preserve">
+    <value>kiekis įsigijimų sąsk.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_AmountInWarehouse" xml:space="preserve">
+    <value>kiekis sandėlyje</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_AmountInWarehouseIsReadOnly" xml:space="preserve">
+    <value>kiekio sandėlyje keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_AmountIsReadOnly" xml:space="preserve">
+    <value>kiekio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_AssociatedJournalEntryIsReadOnly" xml:space="preserve">
+    <value>susietos bendrojo žurnalo operacijos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_ComplexOperationHumanReadable" xml:space="preserve">
+    <value>kompleksinės operacijos tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_ComplexOperationID" xml:space="preserve">
+    <value>kompleksinės operacijos ID</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_ComplexOperationType" xml:space="preserve">
+    <value>kompleksinės operacijos tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_DateIsReadOnly" xml:space="preserve">
+    <value>datos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_Description" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_DescriptionIsReadOnly" xml:space="preserve">
+    <value>aprašymo keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_GoodsAccountingMethod" xml:space="preserve">
+    <value>prekių apskaitos metodas</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_GoodsInfo" xml:space="preserve">
+    <value>prekės</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_GoodsMeasureUnit" xml:space="preserve">
+    <value>prekių mato vnt.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_GoodsName" xml:space="preserve">
+    <value>prekių pavadinimas</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_GoodsValuationMethod" xml:space="preserve">
+    <value>prekių vertinimo metodas</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_JournalEntryContent" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos turinys</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_JournalEntryCorrespondence" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos kontavimai</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_JournalEntryDate" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos data</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_JournalEntryDocNo" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos dok. Nr.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_JournalEntryRelatedPerson" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos kontrahentas</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_JournalEntryType" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_JournalEntryTypeHumanReadable" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos tipas</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_RedeemCostsAccount" xml:space="preserve">
+    <value>sąnaudų sąsk.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_RedeemCostsAccountIsReadOnly" xml:space="preserve">
+    <value>sąsnaudų sąsk. keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_TotalCost" xml:space="preserve">
+    <value>viso kaina</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_TotalCostIsReadOnly" xml:space="preserve">
+    <value>viso kainos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_TotalValueInPurchases" xml:space="preserve">
+    <value>viso vertė įsigijimų sąsk.</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_TotalValueInWarehouse" xml:space="preserve">
+    <value>viso kaina sandėlyje</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_UnitCost" xml:space="preserve">
+    <value>vnt. kaina</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_UnitCostIsReadOnly" xml:space="preserve">
+    <value>vnt. kainos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_Warehouse" xml:space="preserve">
+    <value>sandėlis</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_WarehouseIsReadOnly" xml:space="preserve">
+    <value>sandėlio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsProductionCostItem_Account" xml:space="preserve">
+    <value>sąnaudų sąsk.</value>
+  </data>
+  <data name="Goods_GoodsProductionCostItem_CostPerProductionUnit" xml:space="preserve">
+    <value>suma gaminio vienetui</value>
+  </data>
+  <data name="Goods_GoodsProductionCostItem_FinancialDataCanChange" xml:space="preserve">
+    <value>finansiniai duomenys gali būti keičiami</value>
+  </data>
+  <data name="Goods_GoodsProductionCostItem_TotalCost" xml:space="preserve">
+    <value>suma viso</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_Ammount" xml:space="preserve">
+    <value>kiekis viso</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_AmmountIsReadOnly" xml:space="preserve">
+    <value>kiekio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_AmountInWarehouse" xml:space="preserve">
+    <value>kiekis sandėlyje</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_AmountInWarehouseIsReadOnly" xml:space="preserve">
+    <value>kiekio sandėlyje keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_Discounts" xml:space="preserve">
+    <value>nuolaidų likutis</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_DiscountsAccount" xml:space="preserve">
+    <value>nuolaidų sąsk.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_DiscountsIsReadOnly" xml:space="preserve">
+    <value>nuolaidų likučio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_GoodsAccountingMethodHumanReadable" xml:space="preserve">
+    <value>prekės apskaitos metodas</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_GoodsInfo" xml:space="preserve">
+    <value>prekė</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_GoodsMeasureUnit" xml:space="preserve">
+    <value>prekės mato vnt.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_GoodsName" xml:space="preserve">
+    <value>prekės pavadinimas</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_GoodsValuationMethodHumanReadable" xml:space="preserve">
+    <value>prekės vertinimo metodas</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_PriceCut" xml:space="preserve">
+    <value>nukainojimo likutis</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_PriceCutCostsAccount" xml:space="preserve">
+    <value>nukainojimo sąsk.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_PriceCutIsReadOnly" xml:space="preserve">
+    <value>nukainojimo likučio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_PurchasesAccount" xml:space="preserve">
+    <value>įsigijimų sąsk.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_Remarks" xml:space="preserve">
+    <value>pastabos</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_SalesNetCosts" xml:space="preserve">
+    <value>pardavimo sąnaudų likutis</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_SalesNetCostsAccount" xml:space="preserve">
+    <value>pardavimo sąnaudų sąsk.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_SalesNetCostsIsReadOnly" xml:space="preserve">
+    <value>pardavimo sąnaudų likučio keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_TotalValue" xml:space="preserve">
+    <value>viso savikaina</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_TotalValueInWarehouse" xml:space="preserve">
+    <value>viso savikaina sandėlyje</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_TotalValueInWarehouseIsReadOnly" xml:space="preserve">
+    <value>viso savikainos sandėlyje keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_TotalValueIsReadOnly" xml:space="preserve">
+    <value>viso savikainos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_UnitCost" xml:space="preserve">
+    <value>vnt. savikaina</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_UnitCostIsReadOnly" xml:space="preserve">
+    <value>vnt. savikainos keisti neleidžiama</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_Warehouse" xml:space="preserve">
+    <value>sandėlis</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_WarehouseAccount" xml:space="preserve">
+    <value>sandėlio sąsk.</value>
+  </data>
+  <data name="Goods_GoodsTransferOfBalanceItem_WarehouseName" xml:space="preserve">
+    <value>sandėlio pavadinimas</value>
+  </data>
+  <data name="Goods_ImportedGoodsItemList_SourceNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas importo šaltinis (gautas tuščias tekstas).</value>
+  </data>
+  <data name="Goods_ImportedGoodsItemList_LineDelimiterNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas eilučių skirtukas.</value>
+  </data>
+  <data name="Goods_ImportedGoodsItemList_ColumnDelimiterNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas stulpelių skirtukas.</value>
+  </data>
+  <data name="Goods_ImportedGoodsItemList_EmptyGroupName" xml:space="preserve">
+    <value>&lt;nepriskirtos&gt;</value>
+  </data>
+  <data name="Goods_ImportedGoodsItemList_GoodsItemAlreadyExists" xml:space="preserve">
+    <value>Prekės, kurių pavadinimas - {0}, priskirtos grupei - {1}, jau yra duomenų bazėje.</value>
+  </data>
+  <data name="Goods_ImportedGoodsItemList_DuplicateGoodsItemInSource" xml:space="preserve">
+    <value>Prekės, kurių pavadinimas - {0}, priskirtos grupei - {1}, pasikartoja importuojamuose duomenyse.</value>
+  </data>
+  <data name="Goods_ImportedGoodsItemList_GoodsNameNull" xml:space="preserve">
+    <value>Importuojamuose duomenyse yra eilutė, kurioje nenurodytas prekės pavadinimas: "{0}".</value>
+  </data>
+  <data name="Goods_ImportedGoodsItemList_ListEmpty" xml:space="preserve">
+    <value>Klaida. Neįkrauta nė viena eilutė.</value>
+  </data>
+  <data name="Goods_ImportedGoodsItemList_ToString" xml:space="preserve">
+    <value>importuojami prekių bendri duomenys</value>
+  </data>
+  <data name="Goods_ImportedGoodsItemList_TypeName" xml:space="preserve">
+    <value>importuojami prekių bendri duomenys</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_AccountDiscounts" xml:space="preserve">
+    <value>gautų nuolaidų sask.</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_AccountPurchases" xml:space="preserve">
+    <value>pirkimų sask.</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_AccountSalesNetCosts" xml:space="preserve">
+    <value>pardavimo savikainos sask.</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_AccountValueReduction" xml:space="preserve">
+    <value>nukainojimo sask.</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_Barcode" xml:space="preserve">
+    <value>barkodas</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_ContentInvoice" xml:space="preserve">
+    <value>pavadinimas sąskaitoje</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_DefaultAccountingMethodHumanReadable" xml:space="preserve">
+    <value>apskaitos metodas</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_DefaultValuationMethodHumanReadable" xml:space="preserve">
+    <value>vertinimo metodas</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_DefaultVatRatePurchase" xml:space="preserve">
+    <value>pirkimu PVM (%)</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_DefaultVatRateSales" xml:space="preserve">
+    <value>pardavimų PVM (%)</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_GroupInfo" xml:space="preserve">
+    <value>grupė</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_InternalCode" xml:space="preserve">
+    <value>vidinis kodas</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_IsObsolete" xml:space="preserve">
+    <value>istoriniai duomenys</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_MeasureUnit" xml:space="preserve">
+    <value>mato vnt.</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_PasteColumns" xml:space="preserve">
+    <value>pavadinimas&lt;BR&gt;mato vienetas&lt;BR&gt;vidinis kodas&lt;BR&gt;barkodas&lt;BR&gt;grupės pavadinimas&lt;BR&gt;pavadinimas sąskaitoje faktūroje&lt;BR&gt;prekybos tipas(0 - perkamos; 1 - parduodamos; 2 - perkamos ir parduodamos)&lt;BR&gt;apskaitos metodas(0 - nuolat; 1 periodiškai)&lt;BR&gt;vertinimo metodas(0 - FIFO; 1 - LIFO; 2 - vidurkių)&lt;BR&gt;pardavimo savikainos sąskaita&lt;BR&gt;pirkimų sąskaita&lt;BR&gt;nuolaidų sąskaita&lt;BR&gt;nukainojimo sąskaita&lt;BR&gt;pardavimo PVM tarifas&lt;BR&gt;pirkimo PVM tarifas&lt;BR&gt;vnt kaina parduodant&lt;BR&gt;vnt kaina perkant&lt;BR&gt;istorinių duomenų žyma(1/0)</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_PasteColumnsDescription" xml:space="preserve">
+    <value>Prekės duomenys privalo būti išdėstyti {0} stulpelių: {1}</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_ToString" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_TypeHumanReadable" xml:space="preserve">
+    <value>prekybos tipas</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_TypeName" xml:space="preserve">
+    <value>importuojami prekės bendri duomenys</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_ValuePerUnitPurchases" xml:space="preserve">
+    <value>vnt. pirkimo kaina</value>
+  </data>
+  <data name="Goods_ImportedGoodsItem_ValuePerUnitSales" xml:space="preserve">
+    <value>vnt. pardavimo kaina</value>
   </data>
 </root>

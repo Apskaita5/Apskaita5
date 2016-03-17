@@ -1,4 +1,6 @@
 ﻿Imports ApskaitaObjects.ActiveReports
+Imports ApskaitaObjects.Attributes
+
 Namespace Workers
 
     ''' <summary>
@@ -619,15 +621,15 @@ Namespace Workers
 
         Protected Overrides Sub AddBusinessRules()
 
-            ValidationRules.AddRule(AddressOf CommonValidation.StringFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.StringFieldValidation, _
                 New Csla.Validation.RuleArgs("Comments"))
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.DoubleFieldValidation, _
                 New Csla.Validation.RuleArgs("ApplicableVDUDaily"))
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.DoubleFieldValidation, _
                 New Csla.Validation.RuleArgs("ApplicableUnusedHolidayDays"))
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.DoubleFieldValidation, _
                 New Csla.Validation.RuleArgs("ApplicableWorkDaysRatio"))
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.DoubleFieldValidation, _
                 New Csla.Validation.RuleArgs("HolidayPayReserveValue"))
 
         End Sub

@@ -1,4 +1,5 @@
-﻿Imports Csla.Validation
+﻿Imports ApskaitaObjects.Attributes
+Imports Csla.Validation
 Imports ApskaitaObjects.Settings.XmlProxies
 Namespace Settings
 
@@ -49,7 +50,7 @@ Namespace Settings
         Public Property TypeHumanReadable() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return EnumValueAttribute.ConvertLocalizedName(_Type)
+                Return Utilities.ConvertLocalizedName(_Type)
             End Get
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Set(ByVal value As String)
@@ -57,7 +58,7 @@ Namespace Settings
                 If value Is Nothing Then value = ""
                 Dim typedValue As NameType = NameType.LongTermAssetLegalGroup
                 Try
-                    typedValue = EnumValueAttribute.ConvertLocalizedName(Of NameType)(value)
+                    typedValue = Utilities.ConvertLocalizedName(Of NameType)(value)
                 Catch ex As Exception
                 End Try
                 If _Type <> typedValue Then
@@ -143,7 +144,7 @@ Namespace Settings
 #Region " Validation Rules "
 
         Protected Overrides Sub AddBusinessRules()
-            ValidationRules.AddRule(AddressOf CommonValidation.StringFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.StringFieldValidation, _
                 New RuleArgs("Name"))
         End Sub
 

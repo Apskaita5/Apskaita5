@@ -103,7 +103,7 @@ Namespace ActiveReports
             IsReadOnly = False
 
             For Each dr As DataRow In myData.Rows
-                If EnumValueAttribute.ConvertDatabaseID(Of General.FinancialStatementItemType) _
+                If Utilities.ConvertDatabaseID(Of General.FinancialStatementItemType) _
                     (CIntSafe(dr.Item(0), 4)) = General.FinancialStatementItemType. _
                     StatementOfFinancialPosition Then Add(BalanceSheetInfo.GetBalanceSheetInfo(dr))
             Next

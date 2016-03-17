@@ -739,7 +739,7 @@
         Public Overrides Function ToString() As String
             Return String.Format(My.Resources.Assets_OperationPersistenceObject_ToString, _
                 _OperationDate.ToString("yyyy-MM-dd"), _
-                EnumValueAttribute.ConvertLocalizedName(_OperationType), _Content)
+                Utilities.ConvertLocalizedName(_OperationType), _Content)
         End Function
 
 #End Region
@@ -805,8 +805,8 @@
                     result(0).OperationType) Then
                     Throw New Exception(String.Format( _
                         My.Resources.Assets_OperationPersistenceObject_UnexpectedType, complexOperationID.ToString(), _
-                        EnumValueAttribute.ConvertLocalizedName(expectedType), _
-                        EnumValueAttribute.ConvertLocalizedName(result(0).OperationType)))
+                        Utilities.ConvertLocalizedName(expectedType), _
+                        Utilities.ConvertLocalizedName(result(0).OperationType)))
                 End If
 
             End Using
@@ -862,8 +862,8 @@
 
                 If throwOnTypeMismatch AndAlso Not OperationTypesMatch(expectedType, _OperationType) Then
                     Throw New Exception(String.Format(My.Resources.Assets_OperationPersistenceObject_UnexpectedType, _
-                        _ID.ToString(), EnumValueAttribute.ConvertLocalizedName(expectedType), _
-                        EnumValueAttribute.ConvertLocalizedName(_OperationType)))
+                        _ID.ToString(), Utilities.ConvertLocalizedName(expectedType), _
+                        Utilities.ConvertLocalizedName(_OperationType)))
                 End If
 
             End Using
@@ -874,9 +874,9 @@
 
             _ID = CIntSafe(dr.Item(0), 0)
             _AssetID = CIntSafe(dr.Item(1), 0)
-            _OperationType = EnumValueAttribute.ConvertDatabaseCharID(Of LtaOperationType)(CStrSafe(dr.Item(2)))
+            _OperationType = Utilities.ConvertDatabaseCharID(Of LtaOperationType)(CStrSafe(dr.Item(2)))
             If _OperationType = LtaOperationType.AccountChange Then
-                _AccountOperationType = EnumValueAttribute.ConvertDatabaseCharID(Of LtaAccountChangeType)(CStrSafe(dr.Item(3)))
+                _AccountOperationType = Utilities.ConvertDatabaseCharID(Of LtaAccountChangeType)(CStrSafe(dr.Item(3)))
             End If
             _OperationDate = CDateSafe(dr.Item(4), Today)
             _ComplexActID = CIntSafe(dr.Item(5), 0)
@@ -916,7 +916,7 @@
             _JournalEntryDocumentNumber = CStrSafe(dr.Item(32)).Trim
             _JournalEntryDate = CDateSafe(dr.Item(33), Today)
             _JournalEntryContent = CStrSafe(dr.Item(34)).Trim
-            _JournalEntryDocumentType = ConvertEnumDatabaseStringCode(Of DocumentType)(CStrSafe(dr.Item(35)))
+            _JournalEntryDocumentType = Utilities.ConvertDatabaseCharID(Of DocumentType)(CStrSafe(dr.Item(35)))
             _JournalEntryPersonID = CIntSafe(dr.Item(36), 0)
             _JournalEntryPersonName = CStrSafe(dr.Item(37)).Trim
             _JournalEntryPersonCode = CStrSafe(dr.Item(38)).Trim
@@ -943,9 +943,9 @@
                 myComm.AddParam("?AC", 0)
             End If
             myComm.AddParam("?BA", _AssetID)
-            myComm.AddParam("?BB", EnumValueAttribute.ConvertDatabaseCharID(_OperationType))
+            myComm.AddParam("?BB", Utilities.ConvertDatabaseCharID(_OperationType))
             If _OperationType = LtaOperationType.AccountChange Then
-                myComm.AddParam("?BC", EnumValueAttribute.ConvertDatabaseCharID(_AccountOperationType))
+                myComm.AddParam("?BC", Utilities.ConvertDatabaseCharID(_AccountOperationType))
             Else
                 myComm.AddParam("?BC", "")
             End If

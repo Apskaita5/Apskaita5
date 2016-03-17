@@ -41,6 +41,9 @@
                 Case InvoiceAdapterType.Service
                     Return ServiceInvoiceAdapter.GetServiceInvoiceAdapter( _
                         operationID, parentValidator, forInvoiceMade)
+                Case InvoiceAdapterType.GoodsRedeemFromBuyer
+                    Return GoodsRedeemFromBuyerInvoiceAdapter.GetGoodsRedeemFromBuyerInvoiceAdapter( _
+                        operationID, parentValidator, forInvoiceMade)
                 Case Else
                     Throw New NotImplementedException(String.Format( _
                         My.Resources.Documents_InvoiceAdapters_InvoiceAdapterFactory_OperationTypeNotImplemented, _

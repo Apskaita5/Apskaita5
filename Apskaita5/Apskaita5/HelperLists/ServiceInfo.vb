@@ -1,3 +1,5 @@
+Imports ApskaitaObjects.Attributes
+
 Namespace HelperLists
 
     ''' <summary>
@@ -13,7 +15,7 @@ Namespace HelperLists
 
         Private _ID As Integer = 0
         Private _Type As Documents.TradedItemType = Documents.TradedItemType.All
-        Private _TypeHumanReadable As String = EnumValueAttribute.ConvertLocalizedName(Documents.TradedItemType.All)
+        Private _TypeHumanReadable As String = Utilities.ConvertLocalizedName(Documents.TradedItemType.All)
         Private _NameShort As String = ""
         Private _Amount As Double = 0
         Private _AccountSales As Long = 0
@@ -274,8 +276,8 @@ Namespace HelperLists
         Private Sub Fetch(ByVal dr As DataRow)
 
             _ID = CIntSafe(dr.Item(0), 0)
-            _Type = EnumValueAttribute.ConvertDatabaseID(Of Documents.TradedItemType)(CIntSafe(dr.Item(1), 0))
-            _TypeHumanReadable = EnumValueAttribute.ConvertLocalizedName(_Type)
+            _Type = Utilities.ConvertDatabaseID(Of Documents.TradedItemType)(CIntSafe(dr.Item(1), 0))
+            _TypeHumanReadable = Utilities.ConvertLocalizedName(_Type)
             _NameShort = CStrSafe(dr.Item(2)).Trim
             _Amount = CDblSafe(dr.Item(3), 4, 0)
             _RateVatSales = CDblSafe(dr.Item(4), 2, 0)

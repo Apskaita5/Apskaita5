@@ -107,9 +107,9 @@ Namespace HelperLists
         Private Sub Fetch(ByVal dr As DataRow)
 
             _ID = CIntSafe(dr.Item(0), 0)
-            _DocumentType = EnumValueAttribute.ConvertDatabaseCharID(Of Settings.DocumentSerialType) _
+            _DocumentType = Utilities.ConvertDatabaseCharID(Of Settings.DocumentSerialType) _
                 (CStrSafe(dr.Item(1)))
-            _DocumentTypeHumanReadable = EnumValueAttribute.ConvertLocalizedName(_DocumentType)
+            _DocumentTypeHumanReadable = Utilities.ConvertLocalizedName(_DocumentType)
             _Serial = CStrSafe(dr.Item(2)).Trim
 
         End Sub

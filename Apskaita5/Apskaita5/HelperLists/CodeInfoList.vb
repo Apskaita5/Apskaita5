@@ -90,7 +90,7 @@ Namespace HelperLists
 
             Dim filterToApply(2) As Object
             filterToApply(0) = ConvertDbBoolean(showEmpty)
-            filterToApply(1) = EnumValueAttribute.ConvertDatabaseID(ofType)
+            filterToApply(1) = Utilities.ConvertDatabaseID(ofType)
             filterToApply(2) = ConvertDbBoolean(showObsolete)
 
             Dim result As Csla.FilteredBindingList(Of CodeInfo) = _
@@ -166,7 +166,7 @@ Namespace HelperLists
 
             Dim showEmpty As Boolean = ConvertDbBoolean( _
                 DirectCast(DirectCast(filterValue, Object())(0), Integer))
-            Dim ofType As CodeType = EnumValueAttribute.ConvertDatabaseID(Of CodeType) _
+            Dim ofType As CodeType = Utilities.ConvertDatabaseID(Of CodeType) _
                 (DirectCast(DirectCast(filterValue, Object())(1), Integer))
             Dim showObsolete As Boolean = ConvertDbBoolean( _
                 DirectCast(DirectCast(filterValue, Object())(2), Integer))

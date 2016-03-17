@@ -1,4 +1,6 @@
-﻿Namespace ActiveReports
+﻿Imports ApskaitaObjects.Attributes
+
+Namespace ActiveReports
 
     ''' <summary>
     ''' Represents info about holiday used by a worker.
@@ -171,8 +173,8 @@
 
         Private Sub Fetch(ByVal dr As DataRow)
 
-            _Type = EnumValueAttribute.ConvertDatabaseID(Of HolidaySpentItemType)(CIntSafe(dr.Item(0), 0))
-            _TypeHumanReadable = EnumValueAttribute.ConvertLocalizedName(_Type)
+            _Type = Utilities.ConvertDatabaseID(Of HolidaySpentItemType)(CIntSafe(dr.Item(0), 0))
+            _TypeHumanReadable = Utilities.ConvertLocalizedName(_Type)
             _Spent = CIntSafe(dr.Item(1), 0)
             _Compensated = CDblSafe(dr.Item(2), ROUNDACCUMULATEDHOLIDAY, 0)
             _Correction = CDblSafe(dr.Item(3), ROUNDACCUMULATEDHOLIDAY, 0)

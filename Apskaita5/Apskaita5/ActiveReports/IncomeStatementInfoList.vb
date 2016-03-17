@@ -77,7 +77,7 @@ Namespace ActiveReports
             IsReadOnly = False
 
             For i As Integer = myData.Rows.Count To 1 Step -1
-                If EnumValueAttribute.ConvertDatabaseID(Of General.FinancialStatementItemType) _
+                If Utilities.ConvertDatabaseID(Of General.FinancialStatementItemType) _
                     (CIntSafe(myData.Rows(i - 1).Item(0), 4)) = General.FinancialStatementItemType. _
                     StatementOfComprehensiveIncome Then Add(IncomeStatementInfo.GetIncomeStatementInfo(myData.Rows(i - 1)))
             Next

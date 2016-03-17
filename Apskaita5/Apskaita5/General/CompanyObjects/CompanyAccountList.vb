@@ -142,7 +142,7 @@ Namespace General
 
         Private Sub AddRow(ByVal myData As DataTable, ByVal ofType As DefaultAccountType)
             For Each dr As DataRow In myData.Rows
-                If EnumValueAttribute.ConvertDatabaseID(Of DefaultAccountType)(CIntSafe(dr.Item(1), 0)) = ofType Then
+                If Utilities.ConvertDatabaseID(Of DefaultAccountType)(CIntSafe(dr.Item(1), 0)) = ofType Then
                     Add(CompanyAccount.GetCompanyAccount(dr))
                     Exit Sub
                 End If

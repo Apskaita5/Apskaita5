@@ -1,3 +1,5 @@
+Imports ApskaitaObjects.Attributes
+
 Namespace ActiveReports
 
     ''' <summary>
@@ -1074,8 +1076,8 @@ Namespace ActiveReports
             _AcquisitionDate = CDateSafe(acquisitionDataRow.Item(7), Today)
             _AcquisitionJournalEntryDocNumber = CStrSafe(acquisitionDataRow.Item(8)).Trim
             _AcquisitionJournalEntryDocContent = CStrSafe(acquisitionDataRow.Item(9)).Trim
-            _AcquisitionJournalEntryDocType = ConvertEnumHumanReadable( _
-                ConvertEnumDatabaseStringCode(Of DocumentType)(CStrSafe(acquisitionDataRow.Item(10))))
+            _AcquisitionJournalEntryDocType = ConvertLocalizedName( _
+                ConvertDatabaseCharID(Of DocumentType)(CStrSafe(acquisitionDataRow.Item(10))))
             _AccountAcquisition = CIntSafe(acquisitionDataRow.Item(11), 0)
             _AccountAccumulatedAmortization = CIntSafe(acquisitionDataRow.Item(12), 0)
             _AccountValueDecrease = CIntSafe(acquisitionDataRow.Item(13), 0)

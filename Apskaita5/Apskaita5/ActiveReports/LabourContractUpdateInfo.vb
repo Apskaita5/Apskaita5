@@ -260,9 +260,9 @@ Namespace ActiveReports
             If Not IsDBNull(dr.Item(13)) Then _PNPD = DblParser(CDblSafe(dr.Item(13), 2, 0), 2)
             If Not IsDBNull(dr.Item(14)) Then _Wage = DblParser(CDblSafe(dr.Item(14), 2, 0), 2)
             If Not IsDBNull(dr.Item(15)) Then
-                _WageType = EnumValueAttribute.ConvertDatabaseCharID(Of Workers.WageType) _
+                _WageType = Utilities.ConvertDatabaseCharID(Of Workers.WageType) _
                     (CStrSafe(dr.Item(15)).Trim)
-                _WageTypeHumanReadable = EnumValueAttribute.ConvertLocalizedName(_WageType)
+                _WageTypeHumanReadable = Utilities.ConvertLocalizedName(_WageType)
             End If
             If Not IsDBNull(dr.Item(16)) Then _WorkLoad = DblParser(CDblSafe(dr.Item(16), ROUNDWORKLOAD, 0), ROUNDWORKLOAD)
             _Position = CStrSafe(dr.Item(17)).Trim

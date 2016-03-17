@@ -1,4 +1,6 @@
-﻿Namespace Assets
+﻿Imports ApskaitaObjects.Attributes
+
+Namespace Assets
 
     ''' <summary>
     ''' Represents a helper object that contains information about a change
@@ -308,11 +310,11 @@
         Private Sub Fetch(ByVal dr As DataRow)
 
             _ID = CIntSafe(dr.Item(1), 0)
-            _OperationType = EnumValueAttribute.ConvertDatabaseCharID(Of LtaOperationType) _
+            _OperationType = Utilities.ConvertDatabaseCharID(Of LtaOperationType) _
                 (CStrSafe(dr.Item(2)))
             If _OperationType = LtaOperationType.AccountChange _
                 AndAlso Not StringIsNullOrEmpty(CStrSafe(dr.Item(3))) Then
-                _AccountChangeType = EnumValueAttribute.ConvertDatabaseCharID(Of LtaAccountChangeType)(CStrSafe(dr.Item(3)))
+                _AccountChangeType = Utilities.ConvertDatabaseCharID(Of LtaAccountChangeType)(CStrSafe(dr.Item(3)))
             End If
             _Date = CDateSafe(dr.Item(4), Today)
             _NewAccount = CLongSafe(dr.Item(5), 0)

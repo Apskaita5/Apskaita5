@@ -74,7 +74,7 @@ Namespace Goods
             RaiseListChangedEvents = False
 
             For Each dr As DataRow In myData.Rows
-                If ConvertEnumDatabaseStringCode(Of ProductionComponentType) _
+                If Utilities.ConvertDatabaseCharID(Of ProductionComponentType) _
                     (CStrSafe(dr.Item(0))) = ProductionComponentType.Costs Then _
                     Add(ProductionCostItem.GetProductionCostItem(dr))
             Next

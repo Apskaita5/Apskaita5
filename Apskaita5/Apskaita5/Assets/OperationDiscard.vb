@@ -1,4 +1,5 @@
-﻿Imports Csla.Validation
+﻿Imports ApskaitaObjects.Attributes
+Imports Csla.Validation
 
 Namespace Assets
 
@@ -10,7 +11,7 @@ Namespace Assets
     <Serializable()> _
     Public Class OperationDiscard
         Inherits BusinessBase(Of OperationDiscard)
-        Implements IGetErrorForListItem, IIsDirtyEnough
+        Implements IGetErrorForListItem, IIsDirtyEnough, IValidationMessageProvider
 
 #Region " Business Methods "
 
@@ -978,7 +979,8 @@ Namespace Assets
         End Property
 
 
-        Public Overrides ReadOnly Property IsValid() As Boolean
+        Public Overrides ReadOnly Property IsValid() As Boolean _
+            Implements IValidationMessageProvider.IsValid
             Get
                 Return MyBase.IsValid AndAlso _Background.IsValid
             End Get
@@ -1026,7 +1028,7 @@ Namespace Assets
         ''' Sets a new operation date as provided by the parent document 
         ''' and recalculates the long term asset state.
         ''' </summary>
-        ''' <param name="parentDate"></param>
+        ''' <param name="parentDate">a new date of the parent document</param>
         ''' <remarks></remarks>
         Friend Sub SetParentDate(ByVal parentDate As Date)
 
@@ -1163,7 +1165,8 @@ Namespace Assets
         End Sub
 
 
-        Public Function GetAllBrokenRules() As String
+        Public Function GetAllBrokenRules() As String _
+            Implements IValidationMessageProvider.GetAllBrokenRules
             Dim result As String = ""
             If Not MyBase.IsValid Then result = AddWithNewLine(result, _
                 Me.BrokenRulesCollection.ToString(Validation.RuleSeverity.Error), False)
@@ -1172,7 +1175,8 @@ Namespace Assets
             Return result
         End Function
 
-        Public Function GetAllWarnings() As String
+        Public Function GetAllWarnings() As String _
+            Implements IValidationMessageProvider.GetAllWarnings
             Dim result As String = ""
             If MyBase.BrokenRulesCollection.WarningCount > 0 Then
                 result = AddWithNewLine(result, _
@@ -1185,7 +1189,8 @@ Namespace Assets
             Return result
         End Function
 
-        Public Function HasWarnings() As Boolean
+        Public Function HasWarnings() As Boolean _
+            Implements IValidationMessageProvider.HasWarnings
             Return (MyBase.BrokenRulesCollection.WarningCount > 0 OrElse _
                 _Background.BrokenRulesCollection.WarningCount > 0)
         End Function
@@ -1239,12 +1244,12 @@ Namespace Assets
 
         Protected Overrides Sub AddBusinessRules()
 
-            ValidationRules.AddRule(AddressOf CommonValidation.AccountFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.AccountFieldValidation, _
                 New Csla.Validation.RuleArgs("AccountCosts"))
-            ValidationRules.AddRule(AddressOf CommonValidation.IntegerFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.IntegerFieldValidation, _
                 "AmountToDiscard")
-            ValidationRules.AddRule(AddressOf CommonValidation.ChronologyValidation, _
-                New CommonValidation.ChronologyRuleArgs("Date", "ChronologyValidator"))
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.ChronologyValidation, _
+                New CommonValidation.CommonValidation.ChronologyRuleArgs("Date", "ChronologyValidator"))
 
             ValidationRules.AddRule(AddressOf ChildStringPropertyValidation, _
                 New Csla.Validation.RuleArgs("Content"))
@@ -1270,7 +1275,7 @@ Namespace Assets
             If DirectCast(target, OperationDiscard).IsChild Then
                 Return True
             Else
-                Return CommonValidation.StringFieldValidation(target, e)
+                Return CommonValidation.CommonValidation.StringFieldValidation(target, e)
             End If
 
         End Function

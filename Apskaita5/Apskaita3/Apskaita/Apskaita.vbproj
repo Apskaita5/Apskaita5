@@ -43,6 +43,7 @@
     <ApplicationVersion>2.0.2.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -73,7 +74,7 @@
     <OutputPath>bin\x86\Debug\</OutputPath>
     <WarningLevel>1</WarningLevel>
     <DocumentationFile>Apskaita5.xml</DocumentationFile>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41998,42004,42026,42105,42106,42107</WarningsAsErrors>
@@ -88,10 +89,6 @@
     <WarningsAsErrors>41998,42004,42026,42105,42106,42107</WarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AccControls, Version=1.0.3298.1423, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\AccControls\AccControls\bin\Release\AccControls.dll</HintPath>
-    </Reference>
     <Reference Include="AccWebCrawler, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\AccWebCrawler\AccWebCrawler\bin\Release\AccWebCrawler.dll</HintPath>
@@ -132,6 +129,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Data">
       <Private>True</Private>
     </Reference>
@@ -147,9 +147,10 @@
   </ItemGroup>
   <ItemGroup>
     <Import Include="AccCommon" />
-    <Import Include="AccControls" />
     <Import Include="AccControls.PublicFunctions" />
+    <Import Include="AccControlsWinForms" />
     <Import Include="AccDataAccessLayer.DatabaseAccess" />
+    <Import Include="AccDataBindingsWinForms" />
     <Import Include="ApskaitaObjects" />
     <Import Include="ApskaitaWUI" />
     <Import Include="Microsoft.VisualBasic" />
@@ -159,6 +160,7 @@
     <Import Include="System.Data" />
     <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
@@ -222,561 +224,12 @@
     <Compile Include="Administration\F_UserProfile.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administration\LocalUserListUserControl.Designer.vb">
-      <DependentUpon>LocalUserListUserControl.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Administration\LocalUserListUserControl.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="Assets\BackgroundInfoPanel.Designer.vb">
-      <DependentUpon>BackgroundInfoPanel.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\BackgroundInfoPanel.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Assets\F_AssetSelectionList.Designer.vb">
-      <DependentUpon>F_AssetSelectionList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_AssetSelectionList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_ComplexOperationAmortization.Designer.vb">
-      <DependentUpon>F_ComplexOperationAmortization.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_ComplexOperationAmortization.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_ComplexOperationDiscard.Designer.vb">
-      <DependentUpon>F_ComplexOperationDiscard.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_ComplexOperationDiscard.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_ComplexOperationOperationalStatusChange.Designer.vb">
-      <DependentUpon>F_ComplexOperationOperationalStatusChange.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_ComplexOperationOperationalStatusChange.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_ComplexOperationValueChange.Designer.vb">
-      <DependentUpon>F_ComplexOperationValueChange.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_ComplexOperationValueChange.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_LongTermAssetComplexDocumentInfoList.Designer.vb">
-      <DependentUpon>F_LongTermAssetComplexDocumentInfoList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_LongTermAssetComplexDocumentInfoList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_LongTermAssetsTransferOfBalance.Designer.vb">
-      <DependentUpon>F_LongTermAssetsTransferOfBalance.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_LongTermAssetsTransferOfBalance.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_OperationAccountChange.Designer.vb">
-      <DependentUpon>F_OperationAccountChange.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_OperationAccountChange.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_OperationAcquisitionValueIncrease.Designer.vb">
-      <DependentUpon>F_OperationAcquisitionValueIncrease.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_OperationAcquisitionValueIncrease.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_OperationAmortization.Designer.vb">
-      <DependentUpon>F_OperationAmortization.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_OperationAmortization.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_OperationAmortizationPeriodChange.Designer.vb">
-      <DependentUpon>F_OperationAmortizationPeriodChange.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_OperationAmortizationPeriodChange.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_OperationDiscard.Designer.vb">
-      <DependentUpon>F_OperationDiscard.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_OperationDiscard.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_OperationOperationalStatusChange.Designer.vb">
-      <DependentUpon>F_OperationOperationalStatusChange.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_OperationOperationalStatusChange.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_OperationTransfer.Designer.vb">
-      <DependentUpon>F_OperationTransfer.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_OperationTransfer.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_OperationValueChange.Designer.vb">
-      <DependentUpon>F_OperationValueChange.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_OperationValueChange.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Constants.vb" />
-    <Compile Include="Documents\F_AccumulativeCosts.Designer.vb">
-      <DependentUpon>F_AccumulativeCosts.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\F_AccumulativeCosts.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Documents\F_AdvanceReport.Designer.vb">
-      <DependentUpon>F_AdvanceReport.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\F_AdvanceReport.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Documents\F_AdvanceReportInfoList.Designer.vb">
-      <DependentUpon>F_AdvanceReportInfoList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\F_AdvanceReportInfoList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Documents\F_AttachedObjectChooser.Designer.vb">
-      <DependentUpon>F_AttachedObjectChooser.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\F_AttachedObjectChooser.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Documents\F_BankOperation.Designer.vb">
-      <DependentUpon>F_BankOperation.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\F_BankOperation.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Documents\F_BankOperationItemList.Designer.vb">
-      <DependentUpon>F_BankOperationItemList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\F_BankOperationItemList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Documents\F_CashAccountList.Designer.vb">
-      <DependentUpon>F_CashAccountList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\F_CashAccountList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Documents\F_CashOperationInfoList.Designer.vb">
-      <DependentUpon>F_CashOperationInfoList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\F_CashOperationInfoList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_ImportedPersonList.Designer.vb">
-      <DependentUpon>F_ImportedPersonList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_ImportedPersonList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_IndirectRelationInfoList.Designer.vb">
-      <DependentUpon>F_IndirectRelationInfoList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_IndirectRelationInfoList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_UnsettledPersonInfoList.Designer.vb">
-      <DependentUpon>F_UnsettledPersonInfoList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_UnsettledPersonInfoList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsComplexOperationDiscard.Designer.vb">
-      <DependentUpon>F_GoodsComplexOperationDiscard.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsComplexOperationDiscard.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsComplexOperationInternalTransfer.Designer.vb">
-      <DependentUpon>F_GoodsComplexOperationInternalTransfer.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsComplexOperationInternalTransfer.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Documents\F_InvoiceMade.Designer.vb">
-      <DependentUpon>F_InvoiceMade.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\F_InvoiceMade.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Documents\F_InvoiceReceived.Designer.vb">
-      <DependentUpon>F_InvoiceReceived.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\F_InvoiceReceived.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_DebtInfoList.Designer.vb">
-      <DependentUpon>F_DebtInfoList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_DebtInfoList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_FinancialStatementsInfo.Designer.vb">
-      <DependentUpon>F_FinancialStatementsInfo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_FinancialStatementsInfo.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsComplexOperationInventorization.Designer.vb">
-      <DependentUpon>F_GoodsComplexOperationInventorization.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsComplexOperationInventorization.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsComplexOperationPriceCut.Designer.vb">
-      <DependentUpon>F_GoodsComplexOperationPriceCut.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsComplexOperationPriceCut.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsComplexOperationProduction.Designer.vb">
-      <DependentUpon>F_GoodsComplexOperationProduction.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsComplexOperationProduction.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsComplexOperationTransferOfBalance.Designer.vb">
-      <DependentUpon>F_GoodsComplexOperationTransferOfBalance.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsComplexOperationTransferOfBalance.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsGroupList.Designer.vb">
-      <DependentUpon>F_GoodsGroupList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsGroupList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsItem.Designer.vb">
-      <DependentUpon>F_GoodsItem.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsItem.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationAccountChange.Designer.vb">
-      <DependentUpon>F_GoodsOperationAccountChange.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationAccountChange.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationAcquisition.Designer.vb">
-      <DependentUpon>F_GoodsOperationAcquisition.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationAcquisition.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationAdditionalCosts.Designer.vb">
-      <DependentUpon>F_GoodsOperationAdditionalCosts.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationAdditionalCosts.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationDiscard.Designer.vb">
-      <DependentUpon>F_GoodsOperationDiscard.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationDiscard.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationDiscount.Designer.vb">
-      <DependentUpon>F_GoodsOperationDiscount.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationDiscount.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationInfoListParent.Designer.vb">
-      <DependentUpon>F_GoodsOperationInfoListParent.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationInfoListParent.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationPriceCut.Designer.vb">
-      <DependentUpon>F_GoodsOperationPriceCut.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationPriceCut.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationTransfer.Designer.vb">
-      <DependentUpon>F_GoodsOperationTransfer.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationTransfer.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationValuationMethod.Designer.vb">
-      <DependentUpon>F_GoodsOperationValuationMethod.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsOperationValuationMethod.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_GoodsTurnoverInfoList.Designer.vb">
-      <DependentUpon>F_GoodsTurnoverInfoList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_GoodsTurnoverInfoList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_ImportedGoodsItemList.Designer.vb">
-      <DependentUpon>F_ImportedGoodsItemList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_ImportedGoodsItemList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_NewGoodsOperationSelector.Designer.vb">
-      <DependentUpon>F_NewGoodsOperationSelector.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_NewGoodsOperationSelector.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_ProductionCalculation.Designer.vb">
-      <DependentUpon>F_ProductionCalculation.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_ProductionCalculation.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_ProductionCalculationItemList.Designer.vb">
-      <DependentUpon>F_ProductionCalculationItemList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_ProductionCalculationItemList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Goods\F_WarehouseList.Designer.vb">
-      <DependentUpon>F_WarehouseList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Goods\F_WarehouseList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Helpers\DelegateContainer.vb" />
-    <Compile Include="Helpers\EditableDataGridViewHelper.vb" />
-    <Compile Include="Helpers\ToolStripHelper.vb" />
-    <Compile Include="Tools\F_CurrencyRateChangeImpactCalculator.Designer.vb">
-      <DependentUpon>F_CurrencyRateChangeImpactCalculator.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Tools\F_CurrencyRateChangeImpactCalculator.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Documents\F_InvoiceInfoList.Designer.vb">
-      <DependentUpon>F_InvoiceInfoList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\F_InvoiceInfoList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Documents\F_Offset.Designer.vb">
-      <DependentUpon>F_Offset.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\F_Offset.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Documents\F_Service.Designer.vb">
-      <DependentUpon>F_Service.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\F_Service.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Documents\F_ServiceInfoList.Designer.vb">
-      <DependentUpon>F_ServiceInfoList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\F_ServiceInfoList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Documents\F_TillIncomeOrder.Designer.vb">
-      <DependentUpon>F_TillIncomeOrder.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\F_TillIncomeOrder.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Documents\F_TillSpendingsOrder.Designer.vb">
-      <DependentUpon>F_TillSpendingsOrder.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Documents\F_TillSpendingsOrder.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_Accounts.Designer.vb">
-      <DependentUpon>F_Accounts.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_Accounts.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_ClosingEntriesCommand.Designer.vb">
-      <DependentUpon>F_ClosingEntriesCommand.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_ClosingEntriesCommand.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_CompanyRegionalData.Designer.vb">
-      <DependentUpon>F_CompanyRegionalData.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_CompanyRegionalData.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administration\F_GeneralSettings.Designer.vb">
-      <DependentUpon>F_GeneralSettings.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Administration\F_GeneralSettings.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_DocumentSerialList.Designer.vb">
-      <DependentUpon>F_DocumentSerialList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_DocumentSerialList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_GeneralLedger.Designer.vb">
-      <DependentUpon>F_GeneralLedger.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_GeneralLedger.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_GeneralLedgerEntry.Designer.vb">
-      <DependentUpon>F_GeneralLedgerEntry.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_GeneralLedgerEntry.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MySplashScreen.Designer.vb">
-      <DependentUpon>MySplashScreen.vb</DependentUpon>
-    </Compile>
-    <Compile Include="MySplashScreen.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_Person.Designer.vb">
-      <DependentUpon>F_Person.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_Person.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_Persons.Designer.vb">
-      <DependentUpon>F_Persons.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_Persons.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_TransferOfBalance.Designer.vb">
-      <DependentUpon>F_TransferOfBalance.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_TransferOfBalance.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Helpers\AsyncMethods\AsyncArguments.vb" />
-    <Compile Include="Helpers\AsyncMethods\AsyncOperation.vb" />
-    <Compile Include="Helpers\AsyncMethods\AsyncResult.vb" />
-    <Compile Include="Helpers\BindingsManager.vb" />
-    <Compile Include="Helpers\BindingSourceItem.vb" />
-    <Compile Include="Helpers\CachedListsLoaders.vb" />
-    <Compile Include="Helpers\Email\F_SendObjToEmail.designer.vb">
-      <DependentUpon>F_SendObjToEmail.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Helpers\Email\F_SendObjToEmail.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Helpers\F_TextFieldEditor.Designer.vb">
-      <DependentUpon>F_TextFieldEditor.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Helpers\F_TextFieldEditor.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_LongTermAsset.Designer.vb">
-      <DependentUpon>F_LongTermAsset.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_LongTermAsset.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_LongTermAssetCustomGroupList.Designer.vb">
-      <DependentUpon>F_LongTermAssetCustomGroupList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_LongTermAssetCustomGroupList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_LongTermAssetInfoList.Designer.vb">
-      <DependentUpon>F_LongTermAssetInfoList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_LongTermAssetInfoList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assets\F_LongTermAssetOperationInfoListParent.Designer.vb">
-      <DependentUpon>F_LongTermAssetOperationInfoListParent.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assets\F_LongTermAssetOperationInfoListParent.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Helpers\AsyncMethods\IAsyncContext.vb" />
-    <Compile Include="Helpers\IObjectEditForm.vb" />
-    <Compile Include="Helpers\ISupportsPrinting.vb" />
-    <Compile Include="Helpers\LocalSettings.vb" />
-    <Compile Include="Helpers\MyCustomSettings.vb" />
-    <Compile Include="Helpers\PrintingMethods.vb" />
-    <Compile Include="Tools\F_ServiceTurnoverInfoList.Designer.vb">
-      <DependentUpon>F_ServiceTurnoverInfoList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Tools\F_ServiceTurnoverInfoList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_HolidayPayReserve.designer.vb">
-      <DependentUpon>F_HolidayPayReserve.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_HolidayPayReserve.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_LabourContract.Designer.vb">
-      <DependentUpon>F_LabourContract.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_LabourContract.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_LabourContractInfoList.Designer.vb">
-      <DependentUpon>F_LabourContractInfoList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_LabourContractInfoList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_LabourContractUpdate.Designer.vb">
-      <DependentUpon>F_LabourContractUpdate.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_LabourContractUpdate.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_NewSheet.Designer.vb">
-      <DependentUpon>F_NewSheet.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_NewSheet.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_PayOutNaturalPerson.Designer.vb">
-      <DependentUpon>F_PayOutNaturalPerson.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_PayOutNaturalPerson.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_PayOutNaturalPersonList.Designer.vb">
-      <DependentUpon>F_PayOutNaturalPersonList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_PayOutNaturalPersonList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_PersonGroups.Designer.vb">
-      <DependentUpon>F_PersonGroups.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_PersonGroups.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_Templates.Designer.vb">
-      <DependentUpon>F_Templates.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_Templates.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_ConsolidatedReportsStructure.Designer.vb">
+    <Compile Include="CommonMethods.vb" />
+    <Compile Include="F_ConsolidatedReportsStructure.Designer.vb">
       <DependentUpon>F_ConsolidatedReportsStructure.vb</DependentUpon>
     </Compile>
-    <Compile Include="General\F_ConsolidatedReportsStructure.vb">
+    <Compile Include="F_ConsolidatedReportsStructure.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
@@ -784,31 +237,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\BOMapper.vb" />
     <Compile Include="Administration\F_DeleteDatabase.Designer.vb">
       <DependentUpon>F_DeleteDatabase.vb</DependentUpon>
     </Compile>
     <Compile Include="Administration\F_DeleteDatabase.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Helpers\AsyncMethods\F_AsyncLoad.Designer.vb">
-      <DependentUpon>F_AsyncLoad.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Helpers\AsyncMethods\F_AsyncLoad.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Helpers\Email\MAPI.vb" />
-    <Compile Include="Helpers\StatusBusy.vb" />
     <Compile Include="Helpai\Apie.Designer.vb">
       <DependentUpon>Apie.vb</DependentUpon>
     </Compile>
     <Compile Include="Helpai\Apie.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_Template.Designer.vb">
-      <DependentUpon>F_Template.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_Template.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Administration\F_NewCompany.Designer.vb">
@@ -817,34 +255,16 @@
     <Compile Include="Administration\F_NewCompany.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="General\F_Company.Designer.vb">
-      <DependentUpon>F_Company.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_Company.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Helpai\Nusidevejimai.Designer.vb">
       <DependentUpon>Nusidevejimai.vb</DependentUpon>
     </Compile>
     <Compile Include="Helpai\Nusidevejimai.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administration\F_SettingsLocal.Designer.vb">
-      <DependentUpon>F_SettingsLocal.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Administration\F_SettingsLocal.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Helpai\PVZ_SP.Designer.vb">
       <DependentUpon>PVZ_SP.vb</DependentUpon>
     </Compile>
     <Compile Include="Helpai\PVZ_SP.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="General\F_AccountTurnoverInfo.Designer.vb">
-      <DependentUpon>F_AccountTurnoverInfo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="General\F_AccountTurnoverInfo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MDIParent1.Designer.vb">
@@ -863,73 +283,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Workers\F_Declarations.Designer.vb">
-      <DependentUpon>F_Declarations.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_Declarations.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_ImprestSheet.Designer.vb">
-      <DependentUpon>F_ImprestSheet.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_ImprestSheet.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_ImprestSheetInfoList.Designer.vb">
-      <DependentUpon>F_ImprestSheetInfoList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_ImprestSheetInfoList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_WageSheet.Designer.vb">
-      <DependentUpon>F_WageSheet.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_WageSheet.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_WageSheetInfoList.Designer.vb">
-      <DependentUpon>F_WageSheetInfoList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_WageSheetInfoList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_WorkerHolidayInfo.Designer.vb">
-      <DependentUpon>F_WorkerHolidayInfo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_WorkerHolidayInfo.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_WorkerInfoCard.Designer.vb">
-      <DependentUpon>F_WorkerInfoCard.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_WorkerInfoCard.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_WorkersVDUInfo.Designer.vb">
-      <DependentUpon>F_WorkersVDUInfo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_WorkersVDUInfo.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_WorkTimeClassList.Designer.vb">
-      <DependentUpon>F_WorkTimeClassList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_WorkTimeClassList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_WorkTimeSheet.Designer.vb">
-      <DependentUpon>F_WorkTimeSheet.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_WorkTimeSheet.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_WorkTimeSheetInfoList.Designer.vb">
-      <DependentUpon>F_WorkTimeSheetInfoList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_WorkTimeSheetInfoList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\WageSheetItem.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Administration\F_BackUp.resx">
@@ -976,211 +329,6 @@
       <DependentUpon>F_UserProfile.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administration\LocalUserListUserControl.resx">
-      <DependentUpon>LocalUserListUserControl.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\BackgroundInfoPanel.resx">
-      <DependentUpon>BackgroundInfoPanel.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_AssetSelectionList.resx">
-      <DependentUpon>F_AssetSelectionList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_ComplexOperationAmortization.resx">
-      <DependentUpon>F_ComplexOperationAmortization.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_ComplexOperationDiscard.resx">
-      <DependentUpon>F_ComplexOperationDiscard.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_ComplexOperationOperationalStatusChange.resx">
-      <DependentUpon>F_ComplexOperationOperationalStatusChange.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_ComplexOperationValueChange.resx">
-      <DependentUpon>F_ComplexOperationValueChange.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_LongTermAssetComplexDocumentInfoList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_LongTermAssetComplexDocumentInfoList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_LongTermAssetsTransferOfBalance.resx">
-      <DependentUpon>F_LongTermAssetsTransferOfBalance.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_OperationAccountChange.resx">
-      <DependentUpon>F_OperationAccountChange.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_OperationAcquisitionValueIncrease.resx">
-      <DependentUpon>F_OperationAcquisitionValueIncrease.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_OperationAmortization.resx">
-      <DependentUpon>F_OperationAmortization.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_OperationAmortizationPeriodChange.resx">
-      <DependentUpon>F_OperationAmortizationPeriodChange.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_OperationDiscard.resx">
-      <DependentUpon>F_OperationDiscard.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_OperationOperationalStatusChange.resx">
-      <DependentUpon>F_OperationOperationalStatusChange.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_OperationTransfer.resx">
-      <DependentUpon>F_OperationTransfer.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_OperationValueChange.resx">
-      <DependentUpon>F_OperationValueChange.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\F_AccumulativeCosts.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_AccumulativeCosts.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\F_AdvanceReport.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_AdvanceReport.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\F_AdvanceReportInfoList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_AdvanceReportInfoList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\F_AttachedObjectChooser.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_AttachedObjectChooser.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\F_BankOperation.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_BankOperation.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\F_BankOperationItemList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_BankOperationItemList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\F_CashAccountList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_CashAccountList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\F_CashOperationInfoList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_CashOperationInfoList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\F_InvoiceMade.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_InvoiceMade.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\F_InvoiceReceived.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_InvoiceReceived.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_DebtInfoList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_DebtInfoList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_FinancialStatementsInfo.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_FinancialStatementsInfo.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_ImportedPersonList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_ImportedPersonList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_IndirectRelationInfoList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_IndirectRelationInfoList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_UnsettledPersonInfoList.resx">
-      <DependentUpon>F_UnsettledPersonInfoList.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsComplexOperationDiscard.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsComplexOperationDiscard.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsComplexOperationInternalTransfer.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsComplexOperationInternalTransfer.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsComplexOperationInventorization.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsComplexOperationInventorization.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsComplexOperationPriceCut.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsComplexOperationPriceCut.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsComplexOperationProduction.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsComplexOperationProduction.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsComplexOperationTransferOfBalance.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsComplexOperationTransferOfBalance.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsGroupList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsGroupList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsItem.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsItem.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsOperationAccountChange.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsOperationAccountChange.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsOperationAcquisition.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsOperationAcquisition.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsOperationAdditionalCosts.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsOperationAdditionalCosts.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsOperationDiscard.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsOperationDiscard.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsOperationDiscount.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsOperationDiscount.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsOperationInfoListParent.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsOperationInfoListParent.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsOperationPriceCut.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsOperationPriceCut.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsOperationTransfer.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsOperationTransfer.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsOperationValuationMethod.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsOperationValuationMethod.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_GoodsTurnoverInfoList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GoodsTurnoverInfoList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_ImportedGoodsItemList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_ImportedGoodsItemList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_NewGoodsOperationSelector.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_NewGoodsOperationSelector.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_ProductionCalculation.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_ProductionCalculation.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_ProductionCalculationItemList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_ProductionCalculationItemList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Goods\F_WarehouseList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_WarehouseList.vb</DependentUpon>
-    </EmbeddedResource>
     <Content Include="Reports\R_GoodsTurnoverInfoList.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -1217,82 +365,6 @@
     <Content Include="Reports\R_WorkerWageInfoReport.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="Tools\F_CurrencyRateChangeImpactCalculator.resx">
-      <DependentUpon>F_CurrencyRateChangeImpactCalculator.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\F_InvoiceInfoList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_InvoiceInfoList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\F_Offset.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_Offset.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\F_Service.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_Service.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\F_ServiceInfoList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_ServiceInfoList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\F_TillIncomeOrder.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_TillIncomeOrder.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Documents\F_TillSpendingsOrder.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_TillSpendingsOrder.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_Accounts.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_Accounts.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_ClosingEntriesCommand.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_ClosingEntriesCommand.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_CompanyRegionalData.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_CompanyRegionalData.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administration\F_GeneralSettings.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GeneralSettings.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_DocumentSerialList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_DocumentSerialList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_GeneralLedger.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GeneralLedger.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_GeneralLedgerEntry.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_GeneralLedgerEntry.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MySplashScreen.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>MySplashScreen.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_Person.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_Person.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_Persons.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_Persons.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_TransferOfBalance.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_TransferOfBalance.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_PersonGroups.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_PersonGroups.vb</DependentUpon>
-    </EmbeddedResource>
     <Content Include="Reports\R_PayOutNaturalPersonList.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -1365,67 +437,6 @@
     <Content Include="Reports\R_WorkTimeSheetInfoList.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="Helpers\Email\F_SendObjToEmail.resx">
-      <DependentUpon>F_SendObjToEmail.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Helpers\F_TextFieldEditor.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_TextFieldEditor.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_LongTermAsset.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_LongTermAsset.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_LongTermAssetCustomGroupList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_LongTermAssetCustomGroupList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_LongTermAssetInfoList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_LongTermAssetInfoList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assets\F_LongTermAssetOperationInfoListParent.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_LongTermAssetOperationInfoListParent.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tools\F_ServiceTurnoverInfoList.resx">
-      <DependentUpon>F_ServiceTurnoverInfoList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_HolidayPayReserve.resx">
-      <DependentUpon>F_HolidayPayReserve.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_LabourContract.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_LabourContract.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_LabourContractInfoList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_LabourContractInfoList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_LabourContractUpdate.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_LabourContractUpdate.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_NewSheet.resx">
-      <DependentUpon>F_NewSheet.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_PayOutNaturalPerson.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_PayOutNaturalPerson.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_PayOutNaturalPersonList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_PayOutNaturalPersonList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_Templates.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_Templates.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_ConsolidatedReportsStructure.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_ConsolidatedReportsStructure.vb</DependentUpon>
-    </EmbeddedResource>
     <Content Include="Reports\R_JournalEntry.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -1483,41 +494,24 @@
     <Content Include="Reports\R_ImprestSheet.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="Helpers\AsyncMethods\F_AsyncLoad.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_AsyncLoad.vb</DependentUpon>
+    <EmbeddedResource Include="F_ConsolidatedReportsStructure.resx">
+      <DependentUpon>F_ConsolidatedReportsStructure.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Helpai\Apie.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Apie.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="General\F_Template.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_Template.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Administration\F_NewCompany.resx">
       <SubType>Designer</SubType>
       <DependentUpon>F_NewCompany.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_Company.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_Company.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Helpai\Nusidevejimai.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Nusidevejimai.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administration\F_SettingsLocal.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_SettingsLocal.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Helpai\PVZ_SP.resx">
       <SubType>Designer</SubType>
       <DependentUpon>PVZ_SP.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="General\F_AccountTurnoverInfo.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_AccountTurnoverInfo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDIParent1.resx">
       <SubType>Designer</SubType>
@@ -1528,50 +522,6 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_Declarations.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_Declarations.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_ImprestSheet.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_ImprestSheet.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_ImprestSheetInfoList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_ImprestSheetInfoList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_WageSheet.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_WageSheet.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_WageSheetInfoList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_WageSheetInfoList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_WorkerHolidayInfo.resx">
-      <DependentUpon>F_WorkerHolidayInfo.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_WorkerInfoCard.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_WorkerInfoCard.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_WorkersVDUInfo.resx">
-      <DependentUpon>F_WorkersVDUInfo.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_WorkTimeClassList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_WorkTimeClassList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_WorkTimeSheet.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_WorkTimeSheet.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_WorkTimeSheetInfoList.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>F_WorkTimeSheetInfoList.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -1748,9 +698,7 @@
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.ComplexOperationOperationalStatusChange.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.ComplexOperationValueChange.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAsset.datasource" />
-    <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetComplexDocument.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetCustomGroupList.datasource" />
-    <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetOperation.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetsTransferOfBalance.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationAccountChange.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationAcquisitionValueIncrease.datasource" />
@@ -1797,12 +745,14 @@
     <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsOperationDiscard.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsOperationDiscount.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsOperationPriceCut.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsOperationRedeemFromBuyer.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsOperationTransfer.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsOperationValuationMethod.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Goods.ImportedGoodsItemList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Goods.ProductionCalculation.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Goods.WarehouseList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.CompanyRegionalInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.GoodsInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.IndirectRelationInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.ServiceInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.TemplateJournalEntryInfoList.datasource" />
@@ -1999,6 +949,14 @@
     <ProjectReference Include="..\..\AccCommon\AccCommon.vbproj">
       <Project>{380B0551-D15D-4072-A72C-406274CCB50E}</Project>
       <Name>AccCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AccControlsWinForms\AccControlsWinForms.vbproj">
+      <Project>{FF0A84CB-84D9-4984-88C1-9035D4A5D7CC}</Project>
+      <Name>AccControlsWinForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AccDataBindingsWinForms\AccDataBindingsWinForms.vbproj">
+      <Project>{4F683A20-E3ED-4A04-9B13-C02AC23397A8}</Project>
+      <Name>AccDataBindingsWinForms</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Apskaita5\ApskaitaObjects.vbproj">
       <Project>{5F12CA52-9B64-42A3-B168-7861C44FD24E}</Project>

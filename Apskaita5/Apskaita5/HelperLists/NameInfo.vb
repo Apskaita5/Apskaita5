@@ -103,7 +103,7 @@ Namespace HelperLists
 
         Private Sub Fetch(ByVal dr As DataRow)
 
-            _Type = EnumValueAttribute.ConvertDatabaseID(Of NameType)(CIntSafe(dr.Item(0), 0))
+            _Type = Utilities.ConvertDatabaseID(Of NameType)(CIntSafe(dr.Item(0), 0))
             _Name = CStrSafe(dr.Item(1)).Trim
             _IsObsolete = True
 

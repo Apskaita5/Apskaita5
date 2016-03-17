@@ -260,7 +260,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
         Public Property AllwaysLoginAsLocalUser() As Boolean
             Get
                 Return CType(Me("AllwaysLoginAsLocalUser"),Boolean)
@@ -326,17 +326,6 @@ Namespace My
             End Get
             Set
                 Me("FormPropertiesList") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property DataGridViewColumnPropertiesList() As Global.System.Collections.Specialized.StringCollection
-            Get
-                Return CType(Me("DataGridViewColumnPropertiesList"),Global.System.Collections.Specialized.StringCollection)
-            End Get
-            Set
-                Me("DataGridViewColumnPropertiesList") = value
             End Set
         End Property
         
@@ -517,6 +506,29 @@ Namespace My
             End Get
             Set
                 Me("CheckInvoiceReceivedNumberWithSupplier") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ObjectListViewColumnPropertiesList() As Global.System.Collections.Specialized.StringCollection
+            Get
+                Return CType(Me("ObjectListViewColumnPropertiesList"),Global.System.Collections.Specialized.StringCollection)
+            End Get
+            Set
+                Me("ObjectListViewColumnPropertiesList") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property EditListViewWithDoubleClick() As Boolean
+            Get
+                Return CType(Me("EditListViewWithDoubleClick"),Boolean)
+            End Get
+            Set
+                Me("EditListViewWithDoubleClick") = value
             End Set
         End Property
     End Class

@@ -1,4 +1,6 @@
-﻿Namespace ActiveReports
+﻿Imports ApskaitaObjects.Attributes
+
+Namespace ActiveReports
 
     ''' <summary>
     ''' Represents an item of <see cref="UnsettledPersonInfoList">UnsettledPersonInfoList</see> report.
@@ -146,8 +148,8 @@
             _ID = CIntSafe(dr.Item(0), 0)
             _Date = CDateSafe(dr.Item(1), Today)
             _DocNo = CStrSafe(dr.Item(2)).Trim
-            _DocType = ConvertEnumDatabaseStringCode(Of DocumentType)(CStrSafe(dr.Item(3)))
-            _DocTypeHumanReadable = ConvertEnumHumanReadable(_DocType)
+            _DocType = Utilities.ConvertDatabaseCharID(Of DocumentType)(CStrSafe(dr.Item(3)))
+            _DocTypeHumanReadable = Utilities.ConvertLocalizedName(_DocType)
             _Content = CStrSafe(dr.Item(4)).Trim
             _SumInDocument = CDblSafe(dr.Item(5), 2, 0)
             _Debt = _SumInDocument

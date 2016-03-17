@@ -1,3 +1,5 @@
+Imports ApskaitaObjects.Attributes
+
 Namespace ActiveReports
 
     ''' <summary>
@@ -171,9 +173,9 @@ Namespace ActiveReports
                 _PersonCodeSODRA = dr.Item(10).ToString
             End If
             If Not StringIsNullOrEmpty(CStrSafe(dr.Item(7))) Then
-                _DocType = ConvertEnumDatabaseStringCode(Of DocumentType)(CStrSafe(dr.Item(7)))
+                _DocType = Utilities.ConvertDatabaseCharID(Of DocumentType)(CStrSafe(dr.Item(7)))
             End If
-            _DocTypeHumanReadable = ConvertEnumHumanReadable(_DocType)
+            _DocTypeHumanReadable = Utilities.ConvertLocalizedName(_DocType)
             _Ammount = CDblSafe(dr.Item(8), 2, 0)
             _BookEntries = CStrSafe(dr.Item(9))
         End Sub

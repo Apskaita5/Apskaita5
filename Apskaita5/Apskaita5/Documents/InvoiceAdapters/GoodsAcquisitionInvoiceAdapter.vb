@@ -595,10 +595,10 @@ Namespace Documents.InvoiceAdapters
         ''' Sets the attached operation date to invoice date.
         ''' </summary>
         ''' <param name="newInvoiceDate"></param>
-        ''' <remarks>Invokes <see cref="GoodsOperationAcquisition.SetDate">GoodsOperationAcquisition.SetDate</see>
+        ''' <remarks>Invokes <see cref="GoodsOperationAcquisition.SetParentDate">GoodsOperationAcquisition.SetParentDate</see>
         ''' method on encapsulated goods acquisition operation object.</remarks>
         Public Sub SetInvoiceDate(ByVal newInvoiceDate As Date) Implements IInvoiceAdapter.SetInvoiceDate
-            _GoodsAcquisition.SetDate(newInvoiceDate)
+            _GoodsAcquisition.SetParentDate(newInvoiceDate)
         End Sub
 
         ''' <summary>
@@ -1082,7 +1082,8 @@ Namespace Documents.InvoiceAdapters
             If Not CanGetObject() Then Throw New System.Security.SecurityException( _
                 My.Resources.Common_SecuritySelectDenied)
 
-            _GoodsAcquisition = GoodsOperationAcquisition.NewGoodsOperationAcquisitionChild(criteria.ID)
+            _GoodsAcquisition = GoodsOperationAcquisition.NewGoodsOperationAcquisitionChild( _
+                criteria.ID, 0, criteria.ParentChronologyValidator)
 
             _IsForInvoiceMade = criteria.IsForInvoiceMade
 
@@ -1092,7 +1093,8 @@ Namespace Documents.InvoiceAdapters
         Private Sub Fetch(ByVal attachedObjectId As Integer, _
             ByVal parentChronologyValidator As IChronologicValidator, ByVal forInvoiceMade As Boolean)
 
-            _GoodsAcquisition = GoodsOperationAcquisition.GetGoodsOperationAcquisitionChild(attachedObjectId)
+            _GoodsAcquisition = GoodsOperationAcquisition.GetGoodsOperationAcquisitionChild( _
+                attachedObjectId, parentChronologyValidator)
             _IsForInvoiceMade = forInvoiceMade
 
             MarkOld()
@@ -1105,8 +1107,7 @@ Namespace Documents.InvoiceAdapters
         ''' </summary>
         ''' <remarks>Inserts or updates the goods acquisition operation data.</remarks>
         Friend Sub Update(ByVal parentInvoice As InvoiceMade) Implements IInvoiceAdapter.Update
-            _GoodsAcquisition.SaveChild(parentInvoice.ID, 0, parentInvoice.Serial _
-                & parentInvoice.FullNumber, parentInvoice.Content, True, _
+            _GoodsAcquisition.SaveChild(parentInvoice.ID, 0, True, _
                 Not parentInvoice.ChronologyValidator.FinancialDataCanChange)
             MarkOld()
         End Sub
@@ -1116,8 +1117,8 @@ Namespace Documents.InvoiceAdapters
         ''' </summary>
         ''' <remarks>Inserts or updates the goods acquisition operation data.</remarks>
         Friend Sub Update(ByVal parentInvoice As InvoiceReceived) Implements IInvoiceAdapter.Update
-            _GoodsAcquisition.SaveChild(parentInvoice.ID, 0, parentInvoice.Number, _
-                parentInvoice.Content, True, Not parentInvoice.ChronologyValidator.FinancialDataCanChange)
+            _GoodsAcquisition.SaveChild(parentInvoice.ID, 0, True, _
+                Not parentInvoice.ChronologyValidator.FinancialDataCanChange)
             MarkOld()
         End Sub
 
@@ -1164,7 +1165,7 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Invokes <see cref="GoodsOperationAcquisition.CheckIfCanDelete">GoodsOperationAcquisition.CheckIfCanDelete</see>
         ''' method on encapsulated goods acquisition operation.</remarks>
         Friend Sub CheckIfCanDelete(ByVal parentChronologyValidator As IChronologicValidator) Implements IInvoiceAdapter.CheckIfCanDelete
-            _GoodsAcquisition.CheckIfCanDelete(Nothing, True)
+            _GoodsAcquisition.CheckIfCanDelete(parentChronologyValidator, Nothing)
         End Sub
 
         ''' <summary>
@@ -1175,14 +1176,7 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Invokes <see cref="GoodsOperationAcquisition.CheckIfCanUpdate">GoodsOperationAcquisition.CheckIfCanUpdate</see>
         ''' method on encapsulated goods acquisition operation.</remarks>
         Friend Sub CheckIfCanUpdate(ByVal parentChronologyValidator As IChronologicValidator) Implements IInvoiceAdapter.CheckIfCanUpdate
-
-            If _GoodsAcquisition.OperationLimitations.FinancialDataCanChange _
-               AndAlso parentChronologyValidator.FinancialDataCanChange Then
-                _GoodsAcquisition.GetConsignment()
-            End If
-
-            _GoodsAcquisition.CheckIfCanUpdate(Nothing, True)
-
+            _GoodsAcquisition.CheckIfCanUpdate(parentChronologyValidator, Nothing)
         End Sub
 
         ''' <summary>
@@ -1193,8 +1187,11 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Is invoked on each invoice item adapter before other validation 
         ''' and actual update is performed.</remarks>
         Public Sub SetParentData(ByVal parentInvoice As InvoiceMade) Implements IInvoiceAdapter.SetParentData
-            _GoodsAcquisition.Description = String.Format(My.Resources.Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_ContentInvoiceMade, _
-                parentInvoice.Content)
+            _GoodsAcquisition.SetParentProperties(parentInvoice.Serial & parentInvoice.FullNumber, _
+                String.Format(My.Resources.Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_ContentInvoiceMade, _
+                parentInvoice.Content))
+            _GoodsAcquisition.SetDescription(String.Format(My.Resources.Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_ContentInvoiceMade, _
+                parentInvoice.Content))
         End Sub
 
         ''' <summary>
@@ -1205,8 +1202,11 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Is invoked on each invoice item adapter before other validation 
         ''' and actual update is performed.</remarks>
         Public Sub SetParentData(ByVal parentInvoice As InvoiceReceived) Implements IInvoiceAdapter.SetParentData
-            _GoodsAcquisition.Description = String.Format(My.Resources.Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_ContentInvoiceReceived, _
-                parentInvoice.Content)
+            _GoodsAcquisition.SetParentProperties(parentInvoice.Number, _
+                String.Format(My.Resources.Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_ContentInvoiceReceived, _
+                parentInvoice.Content))
+            _GoodsAcquisition.SetDescription(String.Format(My.Resources.Documents_InvoiceAdapters_GoodsAcquisitionInvoiceAdapter_ContentInvoiceReceived, _
+                parentInvoice.Content))
         End Sub
 
 #End Region

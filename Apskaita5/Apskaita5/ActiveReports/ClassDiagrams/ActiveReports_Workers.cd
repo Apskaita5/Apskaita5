@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Reports that are associated with the Workers namespace">
+    <Position X="0.5" Y="0.5" Height="0.354" Width="9.694" />
+  </Comment>
+  <Class Name="ApskaitaObjects.ActiveReports.ContractInfoList">
+    <Position X="0.5" Y="1" Width="2.25" />
+    <Members>
+      <Field Name="_AddAllWorkers" Hidden="true" />
+      <Field Name="_AtDate" Hidden="true" />
+      <Field Name="_IsOriginalContractData" Hidden="true" />
+      <Field Name="_OnlyInOperationAtDate" Hidden="true" />
+      <Field Name="_SortedList" Hidden="true" />
+      <Method Name="DataPortal_Fetch" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="ApskaitaObjects.ActiveReports.ContractInfoList.Criteria" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ActiveReports\ContractInfoList.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ABIAIAAACBAABAAAACAAQAAAAAgEEAAAAAgAAAAAAIA=</HashCode>
+      <FileName>ActiveReports\ContractInfoList.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.ImprestSheetInfoList">
+    <Position X="5.25" Y="1" Width="2.25" />
+    <Members>
+      <Field Name="_DateFrom" Hidden="true" />
+      <Field Name="_DateTo" Hidden="true" />
+      <Field Name="_Filter" Hidden="true" />
+      <Field Name="_FilteredList" Hidden="true" />
+      <Field Name="_ShowPayedOut" Hidden="true" />
+      <Field Name="_TotalSum" Hidden="true" />
+      <Field Name="_TotalSumPayedOut" Hidden="true" />
+      <Field Name="_TotalWorkersCount" Hidden="true" />
+      <Method Name="DataPortal_Fetch" Hidden="true" />
+      <Method Name="ImprestSheetInfoFilter" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+      <Method Name="RecalculateSubTotals" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="ApskaitaObjects.ActiveReports.ImprestSheetInfoList.Criteria" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ActiveReports\ImprestSheetInfoList.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gAAAACACAIAIBQgAQAAAwAABABAABBAAAAggAAAGAAg=</HashCode>
+      <FileName>ActiveReports\ImprestSheetInfoList.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.PayOutNaturalPersonInfoList">
+    <Position X="5.25" Y="4.75" Width="2.25" />
+    <Members>
+      <Field Name="_DateFrom" Hidden="true" />
+      <Field Name="_DateTo" Hidden="true" />
+      <Field Name="_SortedList" Hidden="true" />
+      <Method Name="DataPortal_Fetch" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="ApskaitaObjects.ActiveReports.PayOutNaturalPersonInfoList.Criteria" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ActiveReports\PayOutNaturalPersonInfoList.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ABAAAABAAAAABAgAAAAAAAAAAAAAABAAAAggAAAEAIA=</HashCode>
+      <FileName>ActiveReports\PayOutNaturalPersonInfoList.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.WageSheetInfoList">
+    <Position X="7.75" Y="1" Width="2.5" />
+    <Members>
+      <Field Name="_DateFrom" Hidden="true" />
+      <Field Name="_DateTo" Hidden="true" />
+      <Field Name="_Filter" Hidden="true" />
+      <Field Name="_FilteredList" Hidden="true" />
+      <Field Name="_ShowPayedOut" Hidden="true" />
+      <Field Name="_TotalSumAfterDeductions" Hidden="true" />
+      <Field Name="_TotalSumPayedOut" Hidden="true" />
+      <Method Name="DataPortal_Fetch" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+      <Method Name="RecalculateSubTotals" Hidden="true" />
+      <Method Name="WageSheetInfoFilter" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="ApskaitaObjects.ActiveReports.WageSheetInfoList.Criteria" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ActiveReports\WageSheetInfoList.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAABCAACAIAIBQgAAAAAwAAgAAAAABAAAAggACAGAAg=</HashCode>
+      <FileName>ActiveReports\WageSheetInfoList.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.WorkerHolidayInfo">
+    <Position X="0.5" Y="4.75" Width="2.25" />
+    <Members>
+      <Field Name="_CompensationIsGranted" Hidden="true" />
+      <Field Name="_ContractDate" Hidden="true" />
+      <Field Name="_ContractNumber" Hidden="true" />
+      <Field Name="_ContractSerial" Hidden="true" />
+      <Field Name="_ContractTerminationDate" Hidden="true" />
+      <Field Name="_Date" Hidden="true" />
+      <Field Name="_HolidayCalculatedList" Hidden="true" />
+      <Field Name="_HolidayRate" Hidden="true" />
+      <Field Name="_HolidaySpentList" Hidden="true" />
+      <Field Name="_IsForCompensation" Hidden="true" />
+      <Field Name="_PersonCode" Hidden="true" />
+      <Field Name="_PersonCodeSodra" Hidden="true" />
+      <Field Name="_PersonID" Hidden="true" />
+      <Field Name="_PersonName" Hidden="true" />
+      <Field Name="_Position" Hidden="true" />
+      <Field Name="_TotalCumulatedHolidayDays" Hidden="true" />
+      <Field Name="_TotalHolidayDaysCompensated" Hidden="true" />
+      <Field Name="_TotalHolidayDaysCorrection" Hidden="true" />
+      <Field Name="_TotalHolidayDaysGranted" Hidden="true" />
+      <Field Name="_TotalHolidayDaysUsed" Hidden="true" />
+      <Field Name="_TotalUnusedHolidayDays" Hidden="true" />
+      <Field Name="_TotalWorkPeriodInDays" Hidden="true" />
+      <Field Name="_TotalWorkPeriodInYears" Hidden="true" />
+      <Field Name="_WorkLoad" Hidden="true" />
+      <Method Name="AddAuthorizationRules" Hidden="true" />
+      <Method Name="DataPortal_Fetch" Hidden="true" />
+      <Method Name="Fetch" Hidden="true" />
+      <Method Name="FetchDetails" Hidden="true" />
+      <Method Name="GetIdValue" Hidden="true" />
+      <Method Name="GetWorkerHolidayInfoChild" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="ApskaitaObjects.ActiveReports.WorkerHolidayInfo.Criteria" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ActiveReports\WorkerHolidayInfo.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>UAEACABAAGFBhiAkggkKgB0AkQIJEgAVBAsUBASBhAA=</HashCode>
+      <FileName>ActiveReports\WorkerHolidayInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.WorkerWageInfoReport">
+    <Position X="3" Y="4.75" Width="2" />
+    <Members>
+      <Field Name="_ContractNumber" Hidden="true" />
+      <Field Name="_ContractSerial" Hidden="true" />
+      <Field Name="_DateFrom" Hidden="true" />
+      <Field Name="_DateTo" Hidden="true" />
+      <Field Name="_DebtAtEnd" Hidden="true" />
+      <Field Name="_DebtAtTheStart" Hidden="true" />
+      <Field Name="_IsConsolidated" Hidden="true" />
+      <Field Name="_Items" Hidden="true" />
+      <Field Name="_PersonID" Hidden="true" />
+      <Field Name="_PersonInfo" Hidden="true" />
+      <Field Name="_UnusedHolidaysAtEnd" Hidden="true" />
+      <Field Name="_UnusedHolidaysAtStart" Hidden="true" />
+      <Method Name="AddAuthorizationRules" Hidden="true" />
+      <Method Name="DataPortal_Fetch" Hidden="true" />
+      <Method Name="GetIdValue" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="ApskaitaObjects.ActiveReports.WorkerWageInfoReport.Criteria" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ActiveReports\WorkerWageInfoReport.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QAEAAAAEAJAADAgFIAAKAQQBAAABAFAAACggQACEiAg=</HashCode>
+      <FileName>ActiveReports\WorkerWageInfoReport.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.WorkTimeSheetInfoList">
+    <Position X="3" Y="1" Width="2" />
+    <Members>
+      <Field Name="_DateFrom" Hidden="true" />
+      <Field Name="_DateTo" Hidden="true" />
+      <Field Name="_SortedList" Hidden="true" />
+      <Method Name="DataPortal_Fetch" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="ApskaitaObjects.ActiveReports.WorkTimeSheetInfoList.Criteria" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ActiveReports\WorkTimeSheetInfoList.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAABAgAAAAAAAAAAAAAABAAAAggBAAEAIA=</HashCode>
+      <FileName>ActiveReports\WorkTimeSheetInfoList.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.WorkersVDUInfo">
+    <Position X="7.75" Y="4.75" Width="2.5" />
+    <Members>
+      <Field Name="_ApplicableVDUDaily" Hidden="true" />
+      <Field Name="_ApplicableVDUHourly" Hidden="true" />
+      <Field Name="_BonusBase" Hidden="true" />
+      <Field Name="_BonusList" Hidden="true" />
+      <Field Name="_BonusQuarterly" Hidden="true" />
+      <Field Name="_BonusVDUDaily" Hidden="true" />
+      <Field Name="_BonusVDUHourly" Hidden="true" />
+      <Field Name="_BonusYearly" Hidden="true" />
+      <Field Name="_ContractNumber" Hidden="true" />
+      <Field Name="_ContractSerial" Hidden="true" />
+      <Field Name="_ConventionalExtraPay" Hidden="true" />
+      <Field Name="_ConventionalWage" Hidden="true" />
+      <Field Name="_Date" Hidden="true" />
+      <Field Name="_IncludeCurrentMonth" Hidden="true" />
+      <Field Name="_PersonCode" Hidden="true" />
+      <Field Name="_PersonCodeSodra" Hidden="true" />
+      <Field Name="_PersonId" Hidden="true" />
+      <Field Name="_PersonName" Hidden="true" />
+      <Field Name="_Position" Hidden="true" />
+      <Field Name="_StandartDaysForTheCurrentMonth" Hidden="true" />
+      <Field Name="_StandartHoursForTheCurrentMonth" Hidden="true" />
+      <Field Name="_TotalScheduledDays" Hidden="true" />
+      <Field Name="_TotalScheduledHours" Hidden="true" />
+      <Field Name="_TotalWage" Hidden="true" />
+      <Field Name="_TotalWorkDays" Hidden="true" />
+      <Field Name="_TotalWorkHours" Hidden="true" />
+      <Field Name="_WageList" Hidden="true" />
+      <Field Name="_WageType" Hidden="true" />
+      <Field Name="_WageTypeHumanReadable" Hidden="true" />
+      <Field Name="_WageVDUDaily" Hidden="true" />
+      <Field Name="_WageVDUHourly" Hidden="true" />
+      <Field Name="_WorkLoad" Hidden="true" />
+      <Method Name="AddAuthorizationRules" Hidden="true" />
+      <Method Name="Create" Hidden="true" />
+      <Method Name="DataPortal_Fetch" Hidden="true" />
+      <Method Name="Fetch" Hidden="true" />
+      <Method Name="FetchDetails" Hidden="true" />
+      <Method Name="GetIdValue" Hidden="true" />
+      <Method Name="GetWorkersVDUInfoChild" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+      <Method Name="NewWorkersVDUInfo" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="ApskaitaObjects.ActiveReports.WorkersVDUInfo.Criteria" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ActiveReports\WorkersVDUInfo.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>wSMISqCBDQABBCIkAgULgheEwAEhAMCBBQ4ZAgSgsAQ=</HashCode>
+      <FileName>ActiveReports\WorkersVDUInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

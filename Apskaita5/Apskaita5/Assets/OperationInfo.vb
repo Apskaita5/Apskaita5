@@ -176,11 +176,11 @@ Namespace Assets
             If Not _ID > 0 Then Return ""
             If _ComplexOperationID > 0 Then
                 Return String.Format(My.Resources.Assets_OperationInfo_ToStringComplex, _
-                    _Date.ToString("yyyy-MM-dd"), EnumValueAttribute.ConvertLocalizedName( _
+                    _Date.ToString("yyyy-MM-dd"), Utilities.ConvertLocalizedName( _
                     _Type), _ComplexOperationID.ToString())
             Else
                 Return String.Format(My.Resources.Assets_OperationInfo_ToString, _
-                    _Date.ToString("yyyy-MM-dd"), EnumValueAttribute.ConvertLocalizedName( _
+                    _Date.ToString("yyyy-MM-dd"), Utilities.ConvertLocalizedName( _
                     _Type), _ID.ToString())
             End If
         End Function

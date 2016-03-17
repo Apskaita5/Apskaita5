@@ -1,4 +1,5 @@
-﻿Imports Csla.Validation
+﻿Imports ApskaitaObjects.Attributes
+Imports Csla.Validation
 
 Namespace Assets
 
@@ -11,7 +12,7 @@ Namespace Assets
     <Serializable()> _
     Public Class OperationOperationalStatusChange
         Inherits BusinessBase(Of OperationOperationalStatusChange)
-        Implements IGetErrorForListItem, IIsDirtyEnough
+        Implements IGetErrorForListItem, IIsDirtyEnough, IValidationMessageProvider
 
 #Region " Business Methods "
 
@@ -583,7 +584,8 @@ Namespace Assets
         End Property
 
 
-        Public Overrides ReadOnly Property IsValid() As Boolean
+        Public Overrides ReadOnly Property IsValid() As Boolean _
+            Implements IValidationMessageProvider.IsValid
             Get
                 Return MyBase.IsValid AndAlso _Background.IsValid
             End Get
@@ -671,7 +673,8 @@ Namespace Assets
         End Sub
 
 
-        Public Function GetAllBrokenRules() As String
+        Public Function GetAllBrokenRules() As String _
+            Implements IValidationMessageProvider.GetAllBrokenRules
             Dim result As String = ""
             If Not MyBase.IsValid Then result = AddWithNewLine(result, _
                 Me.BrokenRulesCollection.ToString(Validation.RuleSeverity.Error), False)
@@ -680,7 +683,8 @@ Namespace Assets
             Return result
         End Function
 
-        Public Function GetAllWarnings() As String
+        Public Function GetAllWarnings() As String _
+            Implements IValidationMessageProvider.GetAllWarnings
             Dim result As String = ""
             If MyBase.BrokenRulesCollection.WarningCount > 0 Then
                 result = AddWithNewLine(result, _
@@ -693,7 +697,8 @@ Namespace Assets
             Return result
         End Function
 
-        Public Function HasWarnings() As Boolean
+        Public Function HasWarnings() As Boolean _
+            Implements IValidationMessageProvider.HasWarnings
             Return (MyBase.BrokenRulesCollection.WarningCount > 0 OrElse _
                 _Background.BrokenRulesCollection.WarningCount > 0)
         End Function
@@ -753,7 +758,7 @@ Namespace Assets
                 New Csla.Validation.RuleArgs("DocumentNumber"))
 
             ValidationRules.AddRule(AddressOf DateValidation, _
-                New CommonValidation.ChronologyRuleArgs("Date", "ChronologyValidator"))
+                New CommonValidation.CommonValidation.ChronologyRuleArgs("Date", "ChronologyValidator"))
 
             ValidationRules.AddDependantProperty("ChronologyValidator", "Date", False)
 
@@ -774,7 +779,7 @@ Namespace Assets
             If DirectCast(target, OperationOperationalStatusChange).IsChild Then
                 Return True
             Else
-                Return CommonValidation.StringFieldValidation(target, e)
+                Return CommonValidation.CommonValidation.StringFieldValidation(target, e)
             End If
 
         End Function
@@ -807,7 +812,7 @@ Namespace Assets
                 Return False
             End If
 
-            Return CommonValidation.ChronologyValidation(target, e)
+            Return CommonValidation.CommonValidation.ChronologyValidation(target, e)
 
         End Function
 

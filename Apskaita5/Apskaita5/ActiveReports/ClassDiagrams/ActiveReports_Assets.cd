@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Reports that are associated with the Asset namespace">
+    <Position X="0.5" Y="0.5" Height="0.354" Width="8.954" />
+  </Comment>
+  <Class Name="ApskaitaObjects.ActiveReports.LongTermAssetInfoList">
+    <Position X="0.5" Y="1" Width="2.25" />
+    <Members>
+      <Field Name="_CustomAssetGroup" Hidden="true" />
+      <Field Name="_DateFrom" Hidden="true" />
+      <Field Name="_DateTo" Hidden="true" />
+      <Field Name="_SortedList" Hidden="true" />
+      <Method Name="DataPortal_Fetch" Hidden="true" />
+      <Method Name="GetDataRow" Hidden="true" />
+      <Method Name="LongTermAssetInfoFilter" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="ApskaitaObjects.ActiveReports.LongTermAssetInfoList.Criteria" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ActiveReports\LongTermAssetInfoList.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAIhAgAAAAAAAAAAAAAABAAAAqgAAgEAII=</HashCode>
+      <FileName>ActiveReports\LongTermAssetInfoList.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.LongTermAssetOperationInfoListParent">
+    <Position X="3" Y="1" Width="3" />
+    <Members>
+      <Method Name="AddAuthorizationRules" Hidden="true" />
+      <Method Name="DataPortal_Fetch" Hidden="true" />
+      <Method Name="GetIdValue" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="ApskaitaObjects.ActiveReports.LongTermAssetOperationInfoListParent.Criteria" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ActiveReports\LongTermAssetOperationInfoListParent.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ZAIBDQ2A2BQshFFAkAuO4EQAdKGAxAcIASi7kQAdgQY=</HashCode>
+      <FileName>ActiveReports\LongTermAssetOperationInfoListParent.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.LongTermAssetComplexDocumentInfoList">
+    <Position X="6.25" Y="1" Width="3.25" />
+    <Members>
+      <Field Name="_DateFrom" Hidden="true" />
+      <Field Name="_DateTo" Hidden="true" />
+      <Field Name="_SortedList" Hidden="true" />
+      <Method Name="DataPortal_Fetch" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="ApskaitaObjects.ActiveReports.LongTermAssetComplexDocumentInfoList.Criteria" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ActiveReports\LongTermAssetComplexDocumentInfoList.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAABAgAAAAAAAQAAAAAABAAAAggAAAEAIA=</HashCode>
+      <FileName>ActiveReports\LongTermAssetComplexDocumentInfoList.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

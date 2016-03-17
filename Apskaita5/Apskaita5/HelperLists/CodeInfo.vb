@@ -110,7 +110,7 @@ Namespace HelperLists
 
         Private Sub Fetch(ByVal dr As DataRow)
 
-            _Type = EnumValueAttribute.ConvertDatabaseID(Of CodeType)(CIntSafe(dr.Item(0), 0))
+            _Type = Utilities.ConvertDatabaseID(Of CodeType)(CIntSafe(dr.Item(0), 0))
             _Code = CIntSafe(dr.Item(1), 0)
             _Name = My.Resources.HelperLists_CodeInfo_UnknownCodeName
             _IsObsolete = True

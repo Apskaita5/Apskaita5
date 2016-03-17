@@ -570,10 +570,10 @@ Namespace Documents.InvoiceAdapters
         ''' Sets the attached operation date to invoice date.
         ''' </summary>
         ''' <param name="newInvoiceDate"></param>
-        ''' <remarks>Invokes <see cref="GoodsOperationAdditionalCosts.SetDate">GoodsOperationAdditionalCosts.SetDate</see>
+        ''' <remarks>Invokes <see cref="GoodsOperationAdditionalCosts.SetParentDate">GoodsOperationAdditionalCosts.SetParentDate</see>
         ''' method on encapsulated goods acquisition operation object.</remarks>
         Public Sub SetInvoiceDate(ByVal newInvoiceDate As Date) Implements IInvoiceAdapter.SetInvoiceDate
-            _GoodsAddedCosts.SetDate(newInvoiceDate)
+            _GoodsAddedCosts.SetParentDate(newInvoiceDate)
         End Sub
 
         ''' <summary>
@@ -587,7 +587,7 @@ Namespace Documents.InvoiceAdapters
             If Not _GoodsAddedCosts.OperationLimitations.FinancialDataCanChange Then Exit Sub
 
             ' can only add costs to the goods acquisition value by a credit invoice (item)
-            _GoodsAddedCosts.SetTotalValueChange(-parentInvoiceItem.GetTotalSumForInvoiceAdapter)
+            _GoodsAddedCosts.TotalValueChange = -parentInvoiceItem.GetTotalSumForInvoiceAdapter
 
         End Sub
 
@@ -600,7 +600,7 @@ Namespace Documents.InvoiceAdapters
         Public Sub SetInvoiceFinancialData(ByVal parentInvoiceItem As InvoiceReceivedItem) Implements IInvoiceAdapter.SetInvoiceFinancialData
 
             If Not _GoodsAddedCosts.OperationLimitations.FinancialDataCanChange Then Exit Sub
-            _GoodsAddedCosts.SetTotalValueChange(parentInvoiceItem.GetTotalSumForInvoiceAdapter)
+            _GoodsAddedCosts.TotalValueChange = parentInvoiceItem.GetTotalSumForInvoiceAdapter
 
         End Sub
 
@@ -995,7 +995,7 @@ Namespace Documents.InvoiceAdapters
                 My.Resources.Common_SecuritySelectDenied)
 
             _GoodsAddedCosts = GoodsOperationAdditionalCosts.NewGoodsOperationAdditionalCostsChild( _
-                criteria.ID, criteria.WarehouseID)
+                criteria.ID, criteria.WarehouseID, criteria.ParentChronologyValidator)
 
             _IsForInvoiceMade = criteria.IsForInvoiceMade
 
@@ -1006,7 +1006,7 @@ Namespace Documents.InvoiceAdapters
             ByVal parentChronologyValidator As IChronologicValidator, ByVal forInvoiceMade As Boolean)
 
             _GoodsAddedCosts = GoodsOperationAdditionalCosts.GetGoodsOperationAdditionalCostsChild( _
-                attachedObjectId)
+                attachedObjectId, parentChronologyValidator)
 
             _IsForInvoiceMade = forInvoiceMade
 
@@ -1020,8 +1020,7 @@ Namespace Documents.InvoiceAdapters
         ''' </summary>
         ''' <remarks>Inserts or updates the goods added costs operation data.</remarks>
         Friend Sub Update(ByVal parentInvoice As InvoiceMade) Implements IInvoiceAdapter.Update
-            _GoodsAddedCosts.SaveChild(parentInvoice.ID, parentInvoice.Date, _
-                parentInvoice.Content, parentInvoice.Serial & parentInvoice.FullNumber, _
+            _GoodsAddedCosts.SaveChild(parentInvoice.ID, 0, _
                 Not parentInvoice.ChronologyValidator.FinancialDataCanChange)
             MarkOld()
         End Sub
@@ -1031,8 +1030,7 @@ Namespace Documents.InvoiceAdapters
         ''' </summary>
         ''' <remarks>Inserts or updates the goods added costs operation data.</remarks>
         Friend Sub Update(ByVal parentInvoice As InvoiceReceived) Implements IInvoiceAdapter.Update
-            _GoodsAddedCosts.SaveChild(parentInvoice.ID, parentInvoice.Date, _
-                parentInvoice.Content, parentInvoice.Number, _
+            _GoodsAddedCosts.SaveChild(parentInvoice.ID, 0, _
                 Not parentInvoice.ChronologyValidator.FinancialDataCanChange)
             MarkOld()
         End Sub
@@ -1076,7 +1074,7 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Invokes <see cref="GoodsOperationAdditionalCosts.CheckIfCanDelete">GoodsOperationAdditionalCosts.CheckIfCanDelete</see>
         ''' method on encapsulated goods added costs operation.</remarks>
         Friend Sub CheckIfCanDelete(ByVal parentChronologyValidator As IChronologicValidator) Implements IInvoiceAdapter.CheckIfCanDelete
-            _GoodsAddedCosts.CheckIfCanDelete()
+            _GoodsAddedCosts.CheckIfCanDelete(parentChronologyValidator)
         End Sub
 
         ''' <summary>
@@ -1087,7 +1085,7 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Invokes <see cref="GoodsOperationAdditionalCosts.CheckIfCanUpdate">GoodsOperationAdditionalCosts.CheckIfCanUpdate</see>
         ''' method on encapsulated goods added costs operation.</remarks>
         Friend Sub CheckIfCanUpdate(ByVal parentChronologyValidator As IChronologicValidator) Implements IInvoiceAdapter.CheckIfCanUpdate
-            _GoodsAddedCosts.CheckIfCanUpdate()
+            _GoodsAddedCosts.CheckIfCanUpdate(parentChronologyValidator)
         End Sub
 
         ''' <summary>
@@ -1098,8 +1096,9 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Is invoked on each invoice item adapter before other validation 
         ''' and actual update is performed.</remarks>
         Public Sub SetParentData(ByVal parentInvoice As InvoiceMade) Implements IInvoiceAdapter.SetParentData
-            _GoodsAddedCosts.Description = String.Format(My.Resources.Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_ContentInvoiceMade, _
-                parentInvoice.Content)
+            _GoodsAddedCosts.SetParentProperties(parentInvoice.Serial & parentInvoice.FullNumber, _
+                String.Format(My.Resources.Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_ContentInvoiceMade, _
+                parentInvoice.Content))
         End Sub
 
         ''' <summary>
@@ -1110,8 +1109,9 @@ Namespace Documents.InvoiceAdapters
         ''' <remarks>Is invoked on each invoice item adapter before other validation 
         ''' and actual update is performed.</remarks>
         Public Sub SetParentData(ByVal parentInvoice As InvoiceReceived) Implements IInvoiceAdapter.SetParentData
-            _GoodsAddedCosts.Description = String.Format(My.Resources.Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_ContentInvoiceReceived, _
-                parentInvoice.Content)
+            _GoodsAddedCosts.SetParentProperties(parentInvoice.Number, _
+                String.Format(My.Resources.Documents_InvoiceAdapters_GoodsAddedCostsInvoiceAdapter_ContentInvoiceReceived, _
+                parentInvoice.Content))
         End Sub
 
 #End Region

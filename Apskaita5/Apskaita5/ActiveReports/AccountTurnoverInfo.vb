@@ -1,3 +1,5 @@
+Imports ApskaitaObjects.Attributes
+
 Namespace ActiveReports
 
     ''' <summary>
@@ -313,7 +315,7 @@ Namespace ActiveReports
             _ID = CLongSafe(dr.Item(0), 0)
             _Name = CStrSafe(dr.Item(1)).Trim
             _FinancialStatementItem = CStrSafe(dr.Item(2)).Trim
-            _FinancialStatementItemType = EnumValueAttribute.ConvertDatabaseID(Of General.FinancialStatementItemType) _
+            _FinancialStatementItemType = Utilities.ConvertDatabaseID(Of General.FinancialStatementItemType) _
                 (CIntSafe(dr.Item(3), 0))
 
             If CDblSafe(dr.Item(4), 2, 0) > CDblSafe(dr.Item(5), 2, 0) Then

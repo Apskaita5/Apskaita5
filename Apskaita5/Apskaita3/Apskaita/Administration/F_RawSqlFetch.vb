@@ -12,34 +12,33 @@ Public Class F_RawSqlFetch
     Private Sub F_RawSqlFetch_Load(ByVal sender As System.Object, _
         ByVal e As System.EventArgs) Handles MyBase.Load
 
-        Using busy As New StatusBusy
-            Try
+        Try
+            Using busy As New StatusBusy
                 Obj = DatabaseStructure.GetDatabaseStructure()
-            Catch ex As Exception
-                ShowError(ex)
-                DisableAllControls(Me)
-                Exit Sub
-            End Try
+            End Using
+        Catch ex As Exception
+            ShowError(ex)
+            DisableAllControls(Me)
+            Exit Sub
+        End Try
 
-            For Each item As DatabaseTable In Obj.TableList
-                Dim CurrentTableNode As System.Windows.Forms.TreeNode = _
-                    DatabaseGaugeTreeView.Nodes.Add(item.Name)
-                CurrentTableNode.ToolTipText = item.Description
-                For Each fieldItem As DatabaseField In item.FieldList
-                    Dim CurrentFieldNode As System.Windows.Forms.TreeNode = _
-                        CurrentTableNode.Nodes.Add(fieldItem.Name)
-                    CurrentFieldNode.ToolTipText = fieldItem.GetFieldDbDefinition( _
-                        GetSqlGenerator(SqlServerType.MySQL)) & vbCrLf & fieldItem.Description
-                Next
+        For Each item As DatabaseTable In Obj.TableList
+            Dim currentTableNode As System.Windows.Forms.TreeNode = _
+                DatabaseGaugeTreeView.Nodes.Add(item.Name)
+            currentTableNode.ToolTipText = item.Description
+            For Each fieldItem As DatabaseField In item.FieldList
+                Dim currentFieldNode As System.Windows.Forms.TreeNode = _
+                    currentTableNode.Nodes.Add(fieldItem.Name)
+                currentFieldNode.ToolTipText = fieldItem.GetFieldDbDefinition( _
+                    GetSqlGenerator(SqlServerType.MySQL)) & vbCrLf & fieldItem.Description
             Next
+        Next
 
-            For Each item As DatabaseStoredProcedure In Obj.StoredProcedureList
-                Dim CurrentProcedureNode As System.Windows.Forms.TreeNode = _
-                    DatabaseGaugeTreeView.Nodes.Add(item.Name)
-                CurrentProcedureNode.ToolTipText = item.Description
-            Next
-
-        End Using
+        For Each item As DatabaseStoredProcedure In Obj.StoredProcedureList
+            Dim currentProcedureNode As System.Windows.Forms.TreeNode = _
+                DatabaseGaugeTreeView.Nodes.Add(item.Name)
+            currentProcedureNode.ToolTipText = item.Description
+        Next
 
     End Sub
 

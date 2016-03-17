@@ -1,4 +1,5 @@
 ﻿Imports ApskaitaObjects.Settings.XmlProxies
+Imports ApskaitaObjects.Settings
 
 Namespace HelperLists
 
@@ -60,7 +61,7 @@ Namespace HelperLists
 
         Public Overrides Function ToString() As String
             Return String.Format(My.Resources.Settings_TaxRate_ToString, _
-                EnumValueAttribute.ConvertLocalizedName(_Type), DblParser(_Rate, 2))
+                Utilities.ConvertLocalizedName(_Type), DblParser(_Rate, 2))
         End Function
 
 #End Region
@@ -99,7 +100,7 @@ Namespace HelperLists
         End Sub
 
         Private Sub Fetch(ByVal dr As DataRow)
-            _Type = EnumValueAttribute.ConvertDatabaseCharID(Of TaxRateType)(CStrSafe(dr.Item(0)))
+            _Type = Utilities.ConvertDatabaseCharID(Of TaxRateType)(CStrSafe(dr.Item(0)))
             _Rate = CDblSafe(dr.Item(1), 2, 0)
             _IsObsolete = True
         End Sub

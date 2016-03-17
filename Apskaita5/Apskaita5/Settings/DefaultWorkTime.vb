@@ -1,4 +1,5 @@
-﻿Imports Csla.Validation
+﻿Imports ApskaitaObjects.Attributes
+Imports Csla.Validation
 Imports ApskaitaObjects.Settings.XmlProxies
 
 Namespace Settings
@@ -184,17 +185,17 @@ Namespace Settings
 
         Protected Overrides Sub AddBusinessRules()
 
-            ValidationRules.AddRule(AddressOf CommonValidation.IntegerFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.IntegerFieldValidation, _
                 New RuleArgs("Year"))
-            ValidationRules.AddRule(AddressOf CommonValidation.IntegerFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.IntegerFieldValidation, _
                 New RuleArgs("Month"))
-            ValidationRules.AddRule(AddressOf CommonValidation.IntegerFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.IntegerFieldValidation, _
                 New RuleArgs("WorkDaysFor5WorkDayWeek"))
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.DoubleFieldValidation, _
                 New RuleArgs("WorkHoursFor5WorkDayWeek"))
-            ValidationRules.AddRule(AddressOf CommonValidation.IntegerFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.IntegerFieldValidation, _
                 New RuleArgs("WorkDaysFor6WorkDayWeek"))
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.DoubleFieldValidation, _
                 New RuleArgs("WorkHoursFor6WorkDayWeek"))
         End Sub
 

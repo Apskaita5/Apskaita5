@@ -1,4 +1,5 @@
-﻿Imports Csla.Validation
+﻿Imports ApskaitaObjects.Attributes
+Imports Csla.Validation
 
 Namespace ActiveReports
 
@@ -189,6 +190,9 @@ Namespace ActiveReports
         End Property
 
 
+
+
+
         Public Function IsValid() As Boolean
             If _DeclarationType Is Nothing Then Return False
             Return _DeclarationType.IsValid(Me)
@@ -213,7 +217,7 @@ Namespace ActiveReports
         Friend Function TryValidateSodraDepartment(ByRef isWarning As Boolean, ByRef errorMessage As String) As Boolean
 
             Dim e As New Validation.RuleArgs("SodraDepartment")
-            Dim result As Boolean = CommonValidation.StringFieldValidation(Me, e)
+            Dim result As Boolean = CommonValidation.CommonValidation.StringFieldValidation(Me, e)
             errorMessage = e.Description
             isWarning = (e.Severity = RuleSeverity.Warning)
             Return result
@@ -223,7 +227,7 @@ Namespace ActiveReports
         Friend Function TryValidateMunicipalityCode(ByRef isWarning As Boolean, ByRef errorMessage As String) As Boolean
 
             Dim e As New Validation.RuleArgs("MunicipalityCode")
-            Dim result As Boolean = CommonValidation.StringFieldValidation(Me, e)
+            Dim result As Boolean = CommonValidation.CommonValidation.StringFieldValidation(Me, e)
             errorMessage = e.Description
             isWarning = (e.Severity = RuleSeverity.Warning)
             Return result
@@ -233,7 +237,7 @@ Namespace ActiveReports
         Friend Function TryValidateYear(ByRef isWarning As Boolean, ByRef errorMessage As String) As Boolean
 
             Dim e As New Validation.RuleArgs("Year")
-            Dim result As Boolean = CommonValidation.IntegerFieldValidation(Me, e)
+            Dim result As Boolean = CommonValidation.CommonValidation.IntegerFieldValidation(Me, e)
             errorMessage = e.Description
             isWarning = (e.Severity = RuleSeverity.Warning)
             Return result
@@ -243,7 +247,7 @@ Namespace ActiveReports
         Friend Function TryValidateQuarter(ByRef isWarning As Boolean, ByRef errorMessage As String) As Boolean
 
             Dim e As New Validation.RuleArgs("Quarter")
-            Dim result As Boolean = CommonValidation.IntegerFieldValidation(Me, e)
+            Dim result As Boolean = CommonValidation.CommonValidation.IntegerFieldValidation(Me, e)
             errorMessage = e.Description
             isWarning = (e.Severity = RuleSeverity.Warning)
             Return result
@@ -253,7 +257,7 @@ Namespace ActiveReports
         Friend Function TryValidateMonth(ByRef isWarning As Boolean, ByRef errorMessage As String) As Boolean
 
             Dim e As New Validation.RuleArgs("Month")
-            Dim result As Boolean = CommonValidation.IntegerFieldValidation(Me, e)
+            Dim result As Boolean = CommonValidation.CommonValidation.IntegerFieldValidation(Me, e)
             errorMessage = e.Description
             isWarning = (e.Severity = RuleSeverity.Warning)
             Return result
@@ -263,7 +267,7 @@ Namespace ActiveReports
         Friend Function TryValidateSodraAccount(ByRef isWarning As Boolean, ByRef errorMessage As String) As Boolean
 
             Dim e As New Validation.RuleArgs("SodraAccount")
-            Dim result As Boolean = CommonValidation.AccountFieldValidation(Me, e)
+            Dim result As Boolean = CommonValidation.CommonValidation.AccountFieldValidation(Me, e)
             errorMessage = e.Description
             isWarning = (e.Severity = RuleSeverity.Warning)
             Return result
@@ -273,7 +277,7 @@ Namespace ActiveReports
         Friend Function TryValidateSodraAccount2(ByRef isWarning As Boolean, ByRef errorMessage As String) As Boolean
 
             Dim e As New Validation.RuleArgs("SodraAccount2")
-            Dim result As Boolean = CommonValidation.AccountFieldValidation(Me, e)
+            Dim result As Boolean = CommonValidation.CommonValidation.AccountFieldValidation(Me, e)
             errorMessage = e.Description
             isWarning = (e.Severity = RuleSeverity.Warning)
             Return result
@@ -283,7 +287,7 @@ Namespace ActiveReports
         Friend Function TryValidateSodraRate(ByRef isWarning As Boolean, ByRef errorMessage As String) As Boolean
 
             Dim e As New Validation.RuleArgs("SodraRate")
-            Dim result As Boolean = CommonValidation.DoubleFieldValidation(Me, e)
+            Dim result As Boolean = CommonValidation.CommonValidation.DoubleFieldValidation(Me, e)
             errorMessage = e.Description
             isWarning = (e.Severity = RuleSeverity.Warning)
             Return result
