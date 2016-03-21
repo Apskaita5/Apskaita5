@@ -315,11 +315,11 @@ Namespace Documents.InvoiceAdapters
         ''' properties should set by the corresponding attached operation property and vice versa 
         ''' (to enforce equality).
         ''' </summary>
-        ''' <remarks>Returns TRUE for a good redeem from a buyer.</remarks>
+        ''' <remarks>Returns FALSE for a good redeem from a buyer.</remarks>
         Public ReadOnly Property HandlesAccount() As Boolean Implements IInvoiceAdapter.HandlesAccount
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return True
+                Return False
             End Get
         End Property
 
@@ -329,13 +329,12 @@ Namespace Documents.InvoiceAdapters
         ''' or the <see cref="InvoiceReceivedItem.AccountCosts">InvoiceReceivedItem.AccountCosts</see>
         ''' properties if the <see cref="HandlesAccount">HandlesAccount</see> is set to TRUE.
         ''' </summary>
-        ''' <remarks>Returns <see cref="GoodsOperationRedeemFromBuyer.AcquisitionAccount">GoodsOperationRedeemFromBuyer.AcquisitionAccount</see>.
-        ''' Sets nothing because AcquisitionAccount can only be changed by changing warehouse.
+        ''' <remarks>Returns 0, sets nothing.
         ''' </remarks>
         Public Property Account() As Long Implements IInvoiceAdapter.Account
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return _GoodsRedeem.AcquisitionAccount
+                Return 0
             End Get
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Set(ByVal value As Long)
@@ -348,11 +347,11 @@ Namespace Documents.InvoiceAdapters
         ''' or the <see cref="InvoiceReceivedItem.AccountCosts">InvoiceReceivedItem.AccountCosts</see>
         ''' properties should be initialized by the corresponding attached operation property.
         ''' </summary>
-        ''' <remarks>Returns TRUE for a goods redeem from a buyer.</remarks>
+        ''' <remarks>Returns FALSE for a goods redeem from a buyer.</remarks>
         Public ReadOnly Property ProvidesDefaultAccount() As Boolean Implements IInvoiceAdapter.ProvidesDefaultAccount
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return True
+                Return False
             End Get
         End Property
 
@@ -362,11 +361,11 @@ Namespace Documents.InvoiceAdapters
         ''' or the <see cref="InvoiceMadeItem.AccountIncome">InvoiceMadeItem.AccountIncome</see>
         ''' properties if the <see cref="ProvidesDefaultAccount">ProvidesDefaultAccount</see> is set to TRUE.
         ''' </summary>
-        ''' <remarks>Returns <see cref="GoodsOperationRedeemFromBuyer.AcquisitionAccount">GoodsOperationRedeemFromBuyer.AcquisitionAccount</see>.</remarks>
+        ''' <remarks>Returns 0.</remarks>
         Public ReadOnly Property DefaultAccount() As Long Implements IInvoiceAdapter.DefaultAccount
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return _GoodsRedeem.AcquisitionAccount
+                Return 0
             End Get
         End Property
 
@@ -1070,7 +1069,7 @@ Namespace Documents.InvoiceAdapters
             result.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Debetas, _
                 invoiceItem.AccountIncome, -invoiceItem.SumLTL))
 
-            Return _GoodsRedeem.GetTotalBookEntryList()
+            Return result
 
         End Function
 
@@ -1087,7 +1086,7 @@ Namespace Documents.InvoiceAdapters
             result.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Debetas, _
                 invoiceItem.AccountCosts, invoiceItem.SumLTL))
 
-            Return _GoodsRedeem.GetTotalBookEntryList()
+            Return result
 
         End Function
 

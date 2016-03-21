@@ -211,7 +211,6 @@ Public Class CslaActionExtenderReportForm(Of T)
         Try
             params = _GetReportParamsDelegate.Invoke()
         Catch ex As Exception
-            Exit Sub
         End Try
 
         If MyCustomSettings.UseThreadingForDataTransfer Then
@@ -235,10 +234,7 @@ Public Class CslaActionExtenderReportForm(Of T)
                 Exit Sub
             End Try
 
-            If Not result Is Nothing Then
-                _BindingSourceTree.Cancel(result)
-                _DataSource = result
-            End If
+            SetNewDataSource(result)
 
         End If
 
@@ -253,8 +249,7 @@ Public Class CslaActionExtenderReportForm(Of T)
         ElseIf Not _ProgressControl.Result Is Nothing Then
 
             Try
-                _BindingSourceTree.Cancel(DirectCast(_ProgressControl.Result, T))
-                _DataSource = DirectCast(_ProgressControl.Result, T)
+                SetNewDataSource(DirectCast(_ProgressControl.Result, T))
             Catch ex As Exception
                 ShowError(ex)
             End Try
@@ -266,6 +261,16 @@ Public Class CslaActionExtenderReportForm(Of T)
 
         End If
 
+    End Sub
+
+    Private Sub SetNewDataSource(ByVal result As T)
+        If result Is Nothing Then Exit Sub
+        _DataSource = result
+        _BindingSourceTree.Cancel(result)
+        If Not _ManagedStateDataListViews Is Nothing AndAlso _
+            _ManagedStateDataListViews.Length > 0 Then
+            _ManagedStateDataListViews(0).Focus()
+        End If
     End Sub
 
 End Class

@@ -54,7 +54,7 @@ Friend Class F_NewInvoiceAdapterForAssetOperation(Of T)
         End If
 
         'LongTermAssetInfoList.GetLongTermAssetInfoList(Today, Today.AddYears(50), Nothing)
-        _QueryBrowser.InvokeQuery(Of LongTermAssetInfoList)(Nothing, "", _
+        _QueryBrowser.InvokeQuery(Of LongTermAssetInfoList)(Nothing, "GetLongTermAssetInfoList", _
             True, AddressOf OnAssetListFetched, Today, Today.AddYears(50), Nothing)
 
     End Sub

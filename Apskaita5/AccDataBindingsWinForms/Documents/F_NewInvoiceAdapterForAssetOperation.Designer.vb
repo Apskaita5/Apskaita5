@@ -33,7 +33,6 @@ Partial Friend Class F_NewInvoiceAdapterForAssetOperation(Of T)
         Me.LongTermAssetAccGridComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LongTermAssetAccGridComboBox.EmptyValueString = ""
-        Me.LongTermAssetAccGridComboBox.Enabled = False
         Me.LongTermAssetAccGridComboBox.FilterString = ""
         Me.LongTermAssetAccGridComboBox.FormattingEnabled = True
         Me.LongTermAssetAccGridComboBox.InstantBinding = True

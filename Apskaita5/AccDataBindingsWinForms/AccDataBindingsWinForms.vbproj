@@ -45,6 +45,7 @@
     <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
+    <Optimize>true</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DefineTrace>true</DefineTrace>
@@ -1526,6 +1527,8 @@
     <None Include="Resources\Web_Database_icon_32p.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.BankOperationItemList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.CashAccountInfoList.datasource" />
     <None Include="Resources\Web_Database_icon_48p.png" />
   </ItemGroup>
   <ItemGroup>

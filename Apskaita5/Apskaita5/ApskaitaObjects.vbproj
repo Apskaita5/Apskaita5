@@ -143,6 +143,8 @@
     <Compile Include="ActiveReports\PersonInfoItemList.vb" />
     <Compile Include="ActiveReports\ProductionCalculationItem.vb" />
     <Compile Include="ActiveReports\ProductionCalculationItemList.vb" />
+    <Compile Include="ActiveReports\ServiceInfoItem.vb" />
+    <Compile Include="ActiveReports\ServiceInfoItemList.vb" />
     <Compile Include="ActiveReports\ServiceTurnoverInfo.vb" />
     <Compile Include="ActiveReports\ServiceTurnoverInfoList.vb" />
     <Compile Include="ActiveReports\UnsettledDocumentInfo.vb" />

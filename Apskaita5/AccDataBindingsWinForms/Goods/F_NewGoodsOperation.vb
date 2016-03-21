@@ -8,7 +8,7 @@ Public Class F_NewGoodsOperation(Of T)
     Private ReadOnly _TypesThatRequireGoods As Type() = New Type() {GetType(GoodsOperationAcquisition), _
         GetType(GoodsOperationAdditionalCosts), GetType(GoodsOperationDiscard), _
         GetType(GoodsOperationDiscount), GetType(GoodsOperationPriceCut), _
-        GetType(GoodsOperationRedeemFromBuyer), GetType(GoodsOperationTransfer)}
+        GetType(GoodsOperationRedeemFromBuyer), GetType(GoodsOperationTransfer), GetType(GoodsOperationValuationMethod)}
     Private ReadOnly _TypesThatRequireWarehouseFrom As Type() = New Type() { _
         GetType(GoodsComplexOperationDiscard), GetType(GoodsComplexOperationInternalTransfer), _
         GetType(GoodsComplexOperationInventorization), GetType(GoodsOperationAdditionalCosts), _

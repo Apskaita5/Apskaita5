@@ -74,7 +74,7 @@
     <OutputPath>bin\x86\Debug\</OutputPath>
     <WarningLevel>1</WarningLevel>
     <DocumentationFile>Apskaita5.xml</DocumentationFile>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41998,42004,42026,42105,42106,42107</WarningsAsErrors>

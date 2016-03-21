@@ -7294,7 +7294,7 @@
     <value>kompleksinis ilgalaikio turto amortizacijos paskaičiavimo dokumentas</value>
   </data>
   <data name="Assets_ComplexOperationAmortization_TypeName" xml:space="preserve">
-    <value>{0} kompleksinis ilgalaikio turto amortizacijos paskaičiavimas Nr. {1} (ID={2})</value>
+    <value>kompleksinis ilgalaikio turto amortizacijos paskaičiavimas</value>
   </data>
   <data name="Assets_OperationAmortizationList_AssetIDsNull" xml:space="preserve">
     <value>Klaida. Nenurodytas nė vienas ilgalaikio turto ID.</value>
@@ -8698,7 +8698,7 @@
     <value>kompleksinis ilgalaikio turto nurašymo dokumentas</value>
   </data>
   <data name="Assets_ComplexOperationDiscard_TypeName" xml:space="preserve">
-    <value>{0} kompleksinis ilgalaikio turto nurašymo aktas Nr. {1} (ID={2})</value>
+    <value>kompleksinis ilgalaikio turto nurašymo aktas</value>
   </data>
   <data name="Assets_OperationDiscardList_AssetIDsNull" xml:space="preserve">
     <value>Klaida. Nenurodytas nė vienas ilgalaikio turto ID.</value>
@@ -8740,7 +8740,7 @@
     <value>ilgalaikio turto "{0}" perleidimas (ID={1})</value>
   </data>
   <data name="Assets_OperationAcquisitionValueIncrease_TypeName" xml:space="preserve">
-    <value>ilgalaikio turto perleidimo operacija</value>
+    <value>ilgalaikio turto įsig. savikainos padidinimo operacija</value>
   </data>
   <data name="Assets_OperationTransfer_CannotAttachParentType" xml:space="preserve">
     <value>Klaida. Ilgalaikio turto perleidimas pagal dokumentą, kurio tipas yra "{0}", gali būti registruojamos tik atitinkamame dokumente.</value>
@@ -8833,7 +8833,7 @@
     <value>kompleksinis ilgalaikio turto pervertinimo dokumentas</value>
   </data>
   <data name="Assets_ComplexOperationValueChange_TypeName" xml:space="preserve">
-    <value>{0} kompleksinis ilgalaikio turto pervertinimo aktas Nr. {1} (ID={2})</value>
+    <value>kompleksinis ilgalaikio turto pervertinimo aktas</value>
   </data>
   <data name="Assets_OperationAccountChange_CannotChangeFinancialData" xml:space="preserve">
     <value>Klaida. Ilgalaikio turto '{0}' balansinės vertės pakeitimo (perkainojimo) operacijos finansinių duomenų keisti neleidžiama:{1}{2}</value>
@@ -8887,7 +8887,7 @@
     <value>kompleksinis ilgalaikio turto eksploatacijos dokumentas</value>
   </data>
   <data name="Assets_ComplexOperationOperationalStatusChange_TypeName" xml:space="preserve">
-    <value>{0} kompleksinis ilgalaikio turto eksploatacijos aktas Nr. {1} (ID={2})</value>
+    <value>kompleksinis ilgalaikio turto eksploatacijos aktas</value>
   </data>
   <data name="Assets_OperationAmortizationList_NewItemsListInvalid" xml:space="preserve">
     <value>Klaida. Visos ar dalis naujų ilgalaikio turto eilučių jau yra dokumente:{0}{1}</value>
@@ -11278,10 +11278,10 @@
     <value>pakeista</value>
   </data>
   <data name="Goods_GoodsAccountingMethod_Periodic" xml:space="preserve">
-    <value>nuolat apskaitomos</value>
+    <value>periodiškai apskaitomos</value>
   </data>
   <data name="Goods_GoodsAccountingMethod_Persistent" xml:space="preserve">
-    <value>periodiškai apskaitomos</value>
+    <value>nuolat apskaitomos</value>
   </data>
   <data name="Goods_GoodsComplexOperationType_BulkDiscard" xml:space="preserve">
     <value>masinis nurašymas</value>
@@ -13891,5 +13891,17 @@
   </data>
   <data name="Goods_ImportedGoodsItem_ValuePerUnitSales" xml:space="preserve">
     <value>vnt. pardavimo kaina</value>
+  </data>
+  <data name="Goods_GoodsOperationDiscard_NotEnoughInStock" xml:space="preserve">
+    <value>Klaida. Sandėlyje trūksta prekių "{0}".</value>
+  </data>
+  <data name="Goods_GoodsOperationTransfer_NotEnoughInStock" xml:space="preserve">
+    <value>Klaida. Sandėlyje nepakanka prekės "{0}".</value>
+  </data>
+  <data name="Goods_GoodsOperationRedeemFromBuyer_TypeName" xml:space="preserve">
+    <value>prekių susigrąžinimo iš pirkėjo operacija</value>
+  </data>
+  <data name="Documents_InvoiceAdapters_GoodsRedeemFromBuyerInvoiceAdapter_TypeName" xml:space="preserve">
+    <value>prekių susigrąžinimo iš pirkėjo operacijos adapteris</value>
   </data>
 </root>

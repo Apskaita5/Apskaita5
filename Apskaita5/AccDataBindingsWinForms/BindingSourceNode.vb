@@ -188,8 +188,11 @@ Public Class BindingSourceNode
         Catch ex As Exception
         End Try
 
-        _Source.DataSource = Nothing
-        _Source.DataSource = objectToBind
+        If objectToBind Is Nothing OrElse _Source.DataSource Is Nothing _
+            OrElse Not Object.ReferenceEquals(_Source.DataSource, objectToBind) Then
+            _Source.DataSource = Nothing
+            _Source.DataSource = objectToBind
+        End If
 
         SetEvents(True)
         ResetBindings(False)

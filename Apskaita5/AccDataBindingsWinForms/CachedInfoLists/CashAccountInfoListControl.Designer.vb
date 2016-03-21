@@ -20,7 +20,6 @@
         'Do not modify it using the code editor.
         <System.Diagnostics.DebuggerStepThrough()> _
         Private Sub InitializeComponent()
-            Me.OlvColumn1 = New BrightIdeasSoftware.OLVColumn
             Me.OlvColumn2 = New BrightIdeasSoftware.OLVColumn
             Me.OlvColumn3 = New BrightIdeasSoftware.OLVColumn
             Me.OlvColumn4 = New BrightIdeasSoftware.OLVColumn
@@ -33,7 +32,6 @@
             '
             'baseDataListView
             '
-            Me.baseDataListView.AllColumns.Add(Me.OlvColumn1)
             Me.baseDataListView.AllColumns.Add(Me.OlvColumn2)
             Me.baseDataListView.AllColumns.Add(Me.OlvColumn4)
             Me.baseDataListView.AllColumns.Add(Me.OlvColumn3)
@@ -41,16 +39,8 @@
             Me.baseDataListView.AllColumns.Add(Me.OlvColumn5)
             Me.baseDataListView.AllColumns.Add(Me.OlvColumn6)
             Me.baseDataListView.AllColumns.Add(Me.OlvColumn7)
-            Me.baseDataListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumn1, Me.OlvColumn2, Me.OlvColumn4, Me.OlvColumn3, Me.OlvColumn8})
-            Me.baseDataListView.Size = New System.Drawing.Size(529, 355)
-            '
-            'OlvColumn1
-            '
-            Me.OlvColumn1.AspectName = "Type"
-            Me.OlvColumn1.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
-            Me.OlvColumn1.Text = "Sąskaitos Tipas"
-            Me.OlvColumn1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-            Me.OlvColumn1.Width = 92
+            Me.baseDataListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumn2, Me.OlvColumn4, Me.OlvColumn3, Me.OlvColumn8})
+            Me.baseDataListView.Size = New System.Drawing.Size(467, 355)
             '
             'OlvColumn2
             '
@@ -77,7 +67,7 @@
             'OlvColumn5
             '
             Me.OlvColumn5.AspectName = "ID"
-            Me.OlvColumn5.DisplayIndex = 5
+            Me.OlvColumn5.DisplayIndex = 4
             Me.OlvColumn5.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
             Me.OlvColumn5.IsVisible = False
             Me.OlvColumn5.Text = "ID"
@@ -86,7 +76,7 @@
             'OlvColumn6
             '
             Me.OlvColumn6.AspectName = "BankName"
-            Me.OlvColumn6.DisplayIndex = 6
+            Me.OlvColumn6.DisplayIndex = 5
             Me.OlvColumn6.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
             Me.OlvColumn6.IsVisible = False
             Me.OlvColumn6.Text = "Bankas"
@@ -94,7 +84,7 @@
             'OlvColumn7
             '
             Me.OlvColumn7.AspectName = "BankAccountNumber"
-            Me.OlvColumn7.DisplayIndex = 7
+            Me.OlvColumn7.DisplayIndex = 6
             Me.OlvColumn7.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
             Me.OlvColumn7.IsVisible = False
             Me.OlvColumn7.Text = "Banko Sąsk. (IBAN) Nr."
@@ -112,12 +102,11 @@
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.Name = "CashAccountInfoListControl"
-            Me.Size = New System.Drawing.Size(529, 355)
+            Me.Size = New System.Drawing.Size(467, 355)
             CType(Me.baseDataListView, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
 
         End Sub
-        Friend WithEvents OlvColumn1 As BrightIdeasSoftware.OLVColumn
         Friend WithEvents OlvColumn2 As BrightIdeasSoftware.OLVColumn
         Friend WithEvents OlvColumn3 As BrightIdeasSoftware.OLVColumn
         Friend WithEvents OlvColumn4 As BrightIdeasSoftware.OLVColumn

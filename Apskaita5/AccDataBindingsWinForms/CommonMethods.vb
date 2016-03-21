@@ -66,7 +66,7 @@ Public Module CommonMethods
         _BusinessObjectsViews.Add(GetType(ActiveReports.PayOutNaturalPersonInfoList), GetType(F_PayOutNaturalPersonInfoList))
         _BusinessObjectsViews.Add(GetType(ActiveReports.WageSheetInfoList), GetType(F_WageSheetInfoList))
         _BusinessObjectsViews.Add(GetType(ActiveReports.WorkerHolidayInfo), GetType(F_WorkerHolidayInfo))
-        _BusinessObjectsViews.Add(GetType(ActiveReports.WorkerWageInfoList), GetType(F_WorkerWageInfoReport))
+        _BusinessObjectsViews.Add(GetType(ActiveReports.WorkerWageInfoReport), GetType(F_WorkerWageInfoReport))
         _BusinessObjectsViews.Add(GetType(ActiveReports.WorkersVDUInfo), GetType(F_WorkersVDUInfo))
         _BusinessObjectsViews.Add(GetType(ActiveReports.WorkTimeSheetInfoList), GetType(F_WorkTimeSheetInfoList))
         _BusinessObjectsViews.Add(GetType(ActiveReports.AdvanceReportInfoList), GetType(F_AdvanceReportInfoList))
@@ -81,7 +81,7 @@ Public Module CommonMethods
         _BusinessObjectsViews.Add(GetType(ActiveReports.LongTermAssetInfoList), GetType(F_LongTermAssetInfoList))
         _BusinessObjectsViews.Add(GetType(HelperLists.IndirectRelationInfoList), GetType(F_IndirectRelationInfoList))
         _BusinessObjectsViews.Add(GetType(HelperLists.TemplateJournalEntryInfoList), GetType(F_TemplateJournalEntryInfoList))
-        _BusinessObjectsViews.Add(GetType(HelperLists.ServiceInfoList), GetType(F_ServiceInfoList))
+        _BusinessObjectsViews.Add(GetType(ActiveReports.ServiceInfoItemList), GetType(F_ServiceInfoList))
         _BusinessObjectsViews.Add(GetType(ApskaitaObjects.Settings.DocumentSerialList), GetType(F_DocumentSerialList))
         _BusinessObjectsViews.Add(GetType(ApskaitaObjects.Settings.CommonSettings), GetType(F_GeneralSettings))
         _BusinessObjectsViews.Add(GetType(Workers.ImprestSheet), GetType(F_ImprestSheet))
@@ -640,7 +640,7 @@ Public Module CommonMethods
         ElseIf adapterType Is GetType(Documents.InvoiceAdapters.AssetAcquisitionInvoiceAdapter) Then
 
             Return Documents.InvoiceAdapters.AssetAcquisitionInvoiceAdapter.NewAssetAcquisitionInvoiceAdapter( _
-                parentChronologyValidator, forInvoiceReceived)
+                parentChronologyValidator, Not forInvoiceReceived)
 
         ElseIf adapterType Is GetType(Documents.InvoiceAdapters.AssetAcquisitionValueIncreaseInvoiceAdapter) Then
 

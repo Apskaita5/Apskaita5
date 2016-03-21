@@ -91,7 +91,7 @@ Friend Class F_WorkersVDUInfo
         End If
 
         ' ShortLabourContractList.GetList(currentWorker.ID)
-        _QueryManager.InvokeQuery(Of ShortLabourContractList)(Nothing, "", True, _
+        _QueryManager.InvokeQuery(Of ShortLabourContractList)(Nothing, "GetList", True, _
             AddressOf OnContractsFetched, currentWorker.ID)
 
     End Sub

@@ -6859,7 +6859,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {0} kompleksinis ilgalaikio turto amortizacijos paskaičiavimas Nr. {1} (ID={2}).
+        '''  Looks up a localized string similar to kompleksinis ilgalaikio turto amortizacijos paskaičiavimas.
         '''</summary>
         Friend ReadOnly Property Assets_ComplexOperationAmortization_TypeName() As String
             Get
@@ -7012,7 +7012,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {0} kompleksinis ilgalaikio turto nurašymo aktas Nr. {1} (ID={2}).
+        '''  Looks up a localized string similar to kompleksinis ilgalaikio turto nurašymo aktas.
         '''</summary>
         Friend ReadOnly Property Assets_ComplexOperationDiscard_TypeName() As String
             Get
@@ -7165,7 +7165,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {0} kompleksinis ilgalaikio turto eksploatacijos aktas Nr. {1} (ID={2}).
+        '''  Looks up a localized string similar to kompleksinis ilgalaikio turto eksploatacijos aktas.
         '''</summary>
         Friend ReadOnly Property Assets_ComplexOperationOperationalStatusChange_TypeName() As String
             Get
@@ -7390,7 +7390,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {0} kompleksinis ilgalaikio turto pervertinimo aktas Nr. {1} (ID={2}).
+        '''  Looks up a localized string similar to kompleksinis ilgalaikio turto pervertinimo aktas.
         '''</summary>
         Friend ReadOnly Property Assets_ComplexOperationValueChange_TypeName() As String
             Get
@@ -9647,7 +9647,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to ilgalaikio turto perleidimo operacija.
+        '''  Looks up a localized string similar to ilgalaikio turto įsig. savikainos padidinimo operacija.
         '''</summary>
         Friend ReadOnly Property Assets_OperationAcquisitionValueIncrease_TypeName() As String
             Get
@@ -18534,6 +18534,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to prekių susigrąžinimo iš pirkėjo operacijos adapteris.
+        '''</summary>
+        Friend ReadOnly Property Documents_InvoiceAdapters_GoodsRedeemFromBuyerInvoiceAdapter_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Documents_InvoiceAdapters_GoodsRedeemFromBuyerInvoiceAdapter_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Norint išrašoma sąskaita perleisti prekes reikalinga debetinė eilutė, t.y. kiekis ir suma turi būti teigiami..
         '''</summary>
         Friend ReadOnly Property Documents_InvoiceAdapters_GoodsSaleInvoiceAdapter_AmountInvalidMade() As String
@@ -25853,7 +25862,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to nuolat apskaitomos.
+        '''  Looks up a localized string similar to periodiškai apskaitomos.
         '''</summary>
         Friend ReadOnly Property Goods_GoodsAccountingMethod_Periodic() As String
             Get
@@ -25862,7 +25871,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to periodiškai apskaitomos.
+        '''  Looks up a localized string similar to nuolat apskaitomos.
         '''</summary>
         Friend ReadOnly Property Goods_GoodsAccountingMethod_Persistent() As String
             Get
@@ -29536,6 +29545,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Sandėlyje trūksta prekių &quot;{0}&quot;..
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationDiscard_NotEnoughInStock() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationDiscard_NotEnoughInStock", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to chronologiniai apribojimai.
         '''</summary>
         Friend ReadOnly Property Goods_GoodsOperationDiscard_OperationLimitations() As String
@@ -30886,6 +30904,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to prekių susigrąžinimo iš pirkėjo operacija.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationRedeemFromBuyer_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationRedeemFromBuyer_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to vnt. kaina.
         '''</summary>
         Friend ReadOnly Property Goods_GoodsOperationRedeemFromBuyer_UnitCost() As String
@@ -31332,6 +31359,15 @@ Namespace My.Resources
         Friend ReadOnly Property Goods_GoodsOperationTransfer_LoadCostInfoInvalid() As String
             Get
                 Return ResourceManager.GetString("Goods_GoodsOperationTransfer_LoadCostInfoInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Sandėlyje nepakanka prekės &quot;{0}&quot;..
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationTransfer_NotEnoughInStock() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationTransfer_NotEnoughInStock", resourceCulture)
             End Get
         End Property
         

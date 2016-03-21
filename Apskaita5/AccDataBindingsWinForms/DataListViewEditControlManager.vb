@@ -74,7 +74,7 @@ Public Class DataListViewEditControlManager(Of T)
 
         InitializeControlsDictionary()
 
-        If Not listView.CellEditActivation <> ObjectListView.CellEditActivateMode.None Then
+        If listView.CellEditActivation <> ObjectListView.CellEditActivateMode.None Then
             If MyCustomSettings.EditListViewWithDoubleClick Then
                 listView.CellEditActivation = ObjectListView.CellEditActivateMode.DoubleClick
             Else
@@ -114,7 +114,11 @@ Public Class DataListViewEditControlManager(Of T)
             If value Then
                 _CurrentListView.CellEditActivation = ObjectListView.CellEditActivateMode.None
             Else
-                _CurrentListView.CellEditActivation = ObjectListView.CellEditActivateMode.SingleClickAlways
+                If MyCustomSettings.EditListViewWithDoubleClick Then
+                    _CurrentListView.CellEditActivation = ObjectListView.CellEditActivateMode.DoubleClick
+                Else
+                    _CurrentListView.CellEditActivation = ObjectListView.CellEditActivateMode.SingleClickAlways
+                End If
             End If
         End Set
     End Property
@@ -273,14 +277,14 @@ Public Class DataListViewEditControlManager(Of T)
         FilterMenuBuilder.SELECT_ALL_LABEL = "Pasirinkti visus"
         FilterMenuBuilder.CLEAR_ALL_FILTERS_LABEL = "Pašalinti filtrus"
         listView.MenuLabelColumns = "Stulpeliai"
-        listView.MenuLabelGroupBy = "Grupuoti Pagal"
-        listView.MenuLabelLockGroupingOn = "Užrakinti Grupavimą"
+        listView.MenuLabelGroupBy = "Grupuoti pagal {0}"
+        listView.MenuLabelLockGroupingOn = "Užrakinti grupavimą pagal {0}"
         listView.MenuLabelSelectColumns = "Stulpeliai"
-        listView.MenuLabelSortAscending = "Rūšiuoti Didėjančia Tvarka"
-        listView.MenuLabelSortDescending = "Rūšiuoti Mažėjančia Tvarka"
-        listView.MenuLabelTurnOffGroups = "Pašalinti Grupavimą"
-        listView.MenuLabelUnlockGroupingOn = "Atrakinti Grupavimą"
-        listView.MenuLabelUnsort = "Pašalinti rūšiavimą"
+        listView.MenuLabelSortAscending = "Rūšiuoti didėjančia tvarka pagal {0}"
+        listView.MenuLabelSortDescending = "Rūšiuoti mažėjančia tvarka pagal {0}"
+        listView.MenuLabelTurnOffGroups = "Pašalinti grupavimą pagal {0}"
+        listView.MenuLabelUnlockGroupingOn = "Atrakinti grupavimą pagal {0}"
+        listView.MenuLabelUnsort = "Pašalinti rūšiavimą pagal {0}"
 
     End Sub
 
@@ -408,10 +412,10 @@ Public Class DataListViewEditControlManager(Of T)
 
     Private Sub DataListView_CellClick(ByVal sender As Object, ByVal e As CellClickEventArgs)
 
-        If e.ClickCount <> 2 Then Exit Sub
+        If e.ClickCount <> 2 OrElse e.Model Is Nothing Then Exit Sub
 
         If _CurrentListView.CellEditActivation <> ObjectListView.CellEditActivateMode.None _
-            AndAlso e.Column.IsEditable Then Exit Sub
+            AndAlso Not e.Column Is Nothing AndAlso e.Column.IsEditable Then Exit Sub
 
         If _Handledbuttons.Count < 1 Then Exit Sub
 
@@ -1160,22 +1164,20 @@ Public Class DataListViewEditControlManager(Of T)
     Private _ItemsDeleteHandler As ItemsDelete = Nothing
     Private _ItemAddHandler As ItemAdd = Nothing
 
-
     Private Sub DataListView_KeyDown(ByVal sender As Object, _
-            ByVal e As Windows.Forms.KeyEventArgs)
+        ByVal e As Windows.Forms.KeyEventArgs)
 
         If (e.KeyData = Keys.Delete OrElse e.KeyData = Keys.Subtract) _
             AndAlso Not _ItemsDeleteHandler Is Nothing _
             AndAlso Not _CurrentListView.SelectedObjects Is Nothing _
             AndAlso _CurrentListView.SelectedObjects.Count > 0 Then
 
-            If _ItemsDeleteHandler Is Nothing Then Exit Sub
-
             Dim message As String = ""
             For Each obj As Object In _CurrentListView.SelectedObjects
                 If Not CanDeleteItem(DirectCast(obj, T), message) Then
                     MsgBox(message, MsgBoxStyle.Exclamation, "Klaida")
                     e.Handled = True
+                    e.SuppressKeyPress = True
                     Exit Sub
                 End If
             Next
@@ -1189,17 +1191,17 @@ Public Class DataListViewEditControlManager(Of T)
             _ItemsDeleteHandler.Invoke(objectsToDelete.ToArray())
 
             e.Handled = True
+            e.SuppressKeyPress = True
 
         ElseIf (e.KeyData = Keys.Add OrElse e.KeyData = Keys.Insert) _
             AndAlso Not _ItemAddHandler Is Nothing Then
-
-            If _ItemAddHandler Is Nothing Then Exit Sub
 
             If CanAddItem() Then
                 _ItemAddHandler.Invoke()
             End If
 
             e.Handled = True
+            e.SuppressKeyPress = True
 
         End If
 

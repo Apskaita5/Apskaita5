@@ -588,31 +588,46 @@ Public Class CslaActionExtenderEditForm(Of T)
 
         If Not validationProvider Is Nothing Then
 
-            If Not validationProvider.IsValid Then
-                MsgBox(String.Format("Formoje yra klaidų:{0}{1}", vbCrLf, _
-                    validationProvider.GetAllBrokenRules), MsgBoxStyle.Exclamation, "Klaida")
-                _ProceedToNewDataSource = False
-                Exit Sub
-            End If
-
             Dim question As String = ""
-            If validationProvider.HasWarnings() Then
-                question = String.Format("DĖMESIO. Duomenyse gali būti klaidų:{0}{1}{2}", _
-                    vbCrLf, validationProvider.GetAllWarnings, vbCrLf)
-            Else
-                question = ""
-            End If
-            Try
-                If DirectCast(_DataSource, Object).IsNew Then
-                    question = question & "Ar tikrai norite įtraukti naujus duomenis?"
-                Else
-                    question = question & "Ar tikrai norite pakeisti duomenis?"
-                End If
-            Catch ex As Exception
-                question = question & "Ar tikrai norite pakeisti duomenis?"
-            End Try
 
-            If Not YesOrNo(question) Then
+            If Not validationProvider.IsValid Then
+                If DataSourceIsChild() Then
+                    question = String.Format("Formoje yra klaidų:{0}{1}", vbCrLf, _
+                        validationProvider.GetAllBrokenRules)
+                Else
+                    MsgBox(String.Format("Formoje yra klaidų:{0}{1}", vbCrLf, _
+                        validationProvider.GetAllBrokenRules), MsgBoxStyle.Exclamation, "Klaida")
+                    _ProceedToNewDataSource = False
+                    Exit Sub
+                End If
+            End If
+
+            If String.IsNullOrEmpty(question.Trim) Then
+                If validationProvider.HasWarnings() Then
+                    question = String.Format("DĖMESIO. Duomenyse gali būti klaidų:{0}{1}{2}", _
+                        vbCrLf, validationProvider.GetAllWarnings, vbCrLf)
+                Else
+                    question = ""
+                End If
+            End If
+
+            If DataSourceIsChild() Then
+                If Not String.IsNullOrEmpty(question.Trim) Then
+                    question = question & "Ar tikrai norite uždaryti redagavimo formą?"
+                End If
+            Else
+                Try
+                    If DirectCast(_DataSource, Object).IsNew Then
+                        question = question & "Ar tikrai norite įtraukti naujus duomenis?"
+                    Else
+                        question = question & "Ar tikrai norite pakeisti duomenis?"
+                    End If
+                Catch ex As Exception
+                    question = question & "Ar tikrai norite pakeisti duomenis?"
+                End Try
+            End If
+
+            If Not String.IsNullOrEmpty(question.Trim) AndAlso Not YesOrNo(question) Then
                 _ProceedToNewDataSource = False
                 _NewDataSource = Nothing
                 Exit Sub
@@ -627,6 +642,7 @@ Public Class CslaActionExtenderEditForm(Of T)
             _CloseFormAfterSave = True
             _ParentForm.Hide()
             _ParentForm.Close()
+            Exit Sub
 
         End If
 
