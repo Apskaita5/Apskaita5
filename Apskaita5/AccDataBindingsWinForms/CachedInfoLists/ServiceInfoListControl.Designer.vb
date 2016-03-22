@@ -40,7 +40,7 @@
             '
             'OlvColumn1
             '
-            Me.OlvColumn1.AspectName = "Name"
+            Me.OlvColumn1.AspectName = "NameShort"
             Me.OlvColumn1.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
             Me.OlvColumn1.Text = "Pavadinimas"
             Me.OlvColumn1.Width = 212

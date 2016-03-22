@@ -1529,6 +1529,7 @@
   <ItemGroup>
     <None Include="My Project\DataSources\ApskaitaObjects.Documents.BankOperationItemList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.CashAccountInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.ServiceInfoList.datasource" />
     <None Include="Resources\Web_Database_icon_48p.png" />
   </ItemGroup>
   <ItemGroup>

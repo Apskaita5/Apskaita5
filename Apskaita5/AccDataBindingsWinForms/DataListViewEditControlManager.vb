@@ -1198,6 +1198,10 @@ Public Class DataListViewEditControlManager(Of T)
 
             If CanAddItem() Then
                 _ItemAddHandler.Invoke()
+                Try
+                    _CurrentListView.EnsureVisible(_CurrentListView.Items.Count - 1)
+                Catch ex As Exception
+                End Try
             End If
 
             e.Handled = True
