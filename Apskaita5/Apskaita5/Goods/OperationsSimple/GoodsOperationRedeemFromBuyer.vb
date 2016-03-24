@@ -781,7 +781,9 @@ Public Class GoodsOperationRedeemFromBuyer
         ''' </summary>
         ''' <remarks></remarks>
         Public Sub SetTotalCostByUnitCostAndAmmount()
-            TotalCost = CRound(_UnitCost * _Amount)
+            _TotalCost = CRound(_UnitCost * _Amount)
+            PropertyHasChanged("TotalCost")
+            RecalculateValues(True)
         End Sub
 
         Private Sub RecalculateValues(ByVal raisePropertyHasChanged As Boolean)
@@ -790,9 +792,11 @@ Public Class GoodsOperationRedeemFromBuyer
                 _TotalValueInWarehouse = CRound(_AmountInWarehouse * _UnitCost, 2)
                 _TotalValueInPurchases = CRound(_TotalCost - _TotalValueInWarehouse, 2)
             Else
-                _AmountInPurchases = _Amount
+                _AmountInWarehouse = _Amount
+                _AmountInPurchases = 0
                 _TotalValueInWarehouse = _TotalCost
                 _TotalValueInPurchases = 0
+                PropertyHasChanged("AmountInWarehouse")
             End If
             PropertyHasChanged("AmountInPurchases")
             PropertyHasChanged("TotalValueInWarehouse")
@@ -890,19 +894,7 @@ Public Class GoodsOperationRedeemFromBuyer
             If CRound(_Amount, ROUNDAMOUNTGOODS) <> CRound(value, ROUNDAMOUNTGOODS) Then
                 _Amount = CRound(value, ROUNDAMOUNTGOODS)
                 PropertyHasChanged("Amount")
-            End If
-        End Sub
-
-        ''' <summary>
-        ''' Sets the <see cref="UnitCost">UnitCost</see> property without 
-        ''' <see cref="TotalCost">TotalCost</see> recalculation.
-        ''' </summary>
-        ''' <param name="value">a new unit cost value</param>
-        ''' <remarks></remarks>
-        Friend Sub SetUnitCost(ByVal value As Double)
-            If CRound(_UnitCost, ROUNDUNITGOODS) <> CRound(value, ROUNDUNITGOODS) Then
-                _UnitCost = CRound(value, ROUNDUNITGOODS)
-                PropertyHasChanged("UnitCost")
+                SetTotalCostByUnitCostAndAmmount()
             End If
         End Sub
 

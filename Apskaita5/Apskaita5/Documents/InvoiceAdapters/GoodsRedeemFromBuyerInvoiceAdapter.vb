@@ -614,27 +614,10 @@ Namespace Documents.InvoiceAdapters
 
             ' can only redeem goods from a buyer by a credit invoice (item)
             If parentInvoiceItem.Ammount > 0 Then
-                _GoodsRedeem.Amount = 0
+                _GoodsRedeem.SetAmount(0)
             Else
-                _GoodsRedeem.Amount = -parentInvoiceItem.Ammount
+                _GoodsRedeem.SetAmount(-parentInvoiceItem.Ammount)
             End If
-
-            Dim totalValue As Double = -parentInvoiceItem.GetTotalSumForInvoiceAdapter
-            If totalValue < 0 Then
-                totalValue = 0
-            End If
-
-            If _GoodsRedeem.Amount > 0 Then
-
-                _GoodsRedeem.UnitCost = totalValue / _GoodsRedeem.Amount
-
-            Else
-
-                _GoodsRedeem.UnitCost = 0
-
-            End If
-
-            _GoodsRedeem.TotalCost = totalValue
 
         End Sub
 
@@ -650,27 +633,10 @@ Namespace Documents.InvoiceAdapters
 
             ' can only redeem goods from a buyer by a debit invoice (item)
             If parentInvoiceItem.Ammount < 0 Then
-                _GoodsRedeem.Amount = 0
+                _GoodsRedeem.SetAmount(0)
             Else
-                _GoodsRedeem.Amount = parentInvoiceItem.Ammount
+                _GoodsRedeem.SetAmount(parentInvoiceItem.Ammount)
             End If
-
-            Dim totalValue As Double = parentInvoiceItem.GetTotalSumForInvoiceAdapter
-            If totalValue < 0 Then
-                totalValue = 0
-            End If
-
-            If _GoodsRedeem.Amount > 0 Then
-
-                _GoodsRedeem.UnitCost = totalValue / _GoodsRedeem.Amount
-
-            Else
-
-                _GoodsRedeem.UnitCost = 0
-
-            End If
-
-            _GoodsRedeem.TotalCost = totalValue
 
         End Sub
 
