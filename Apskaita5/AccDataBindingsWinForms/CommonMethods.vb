@@ -140,6 +140,7 @@ Public Module CommonMethods
         _BusinessObjectsViews.Add(GetType(Assets.ComplexOperationValueChange), GetType(F_ComplexOperationValueChange))
         _BusinessObjectsViews.Add(GetType(Assets.LongTermAssetsTransferOfBalance), GetType(F_LongTermAssetsTransferOfBalance))
         _BusinessObjectsViews.Add(GetType(AccDataBindingsWinForms.Settings.LocalSettings), GetType(F_SettingsLocal))
+        _BusinessObjectsViews.Add(GetType(InvoiceInfo.ClientInfo), GetType(F_Person))
 
     End Sub
 

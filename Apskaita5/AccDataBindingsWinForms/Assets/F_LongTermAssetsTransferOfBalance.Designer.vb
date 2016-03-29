@@ -330,7 +330,7 @@ Partial Friend Class F_LongTermAssetsTransferOfBalance
         '
         'ItemsSortedBindingSource
         '
-        Me.ItemsSortedBindingSource.DataMember = "ItemsSorted"
+        Me.ItemsSortedBindingSource.DataMember = "Items"
         Me.ItemsSortedBindingSource.DataSource = Me.LongTermAssetsTransferOfBalanceBindingSource
         '
         'ItemsDataListView

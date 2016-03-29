@@ -567,6 +567,14 @@ Namespace ActiveReports
             _JournalEntryCorrespondentions = CStrSafe(dr.Item(28)).Trim
 
             If Not _ComplexOperationID > 0 Then _ComplexType = ""
+            If Not StringIsNullOrEmpty(_JournalEntryDocNo) Then _DocNo = _JournalEntryDocNo
+            If Not StringIsNullOrEmpty(CStrSafe(dr.Item(29))) AndAlso Not StringIsNullOrEmpty(_Content) Then
+                If CStrSafe(dr.Item(29)).Trim.ToLower <> _Content.Trim.ToLower Then
+                    _Content = String.Format("{0} \ {1}", CStrSafe(dr.Item(29)), _Content)
+                End If
+            ElseIf Not StringIsNullOrEmpty(CStrSafe(dr.Item(29))) Then
+                _Content = CStrSafe(dr.Item(29))
+            End If
 
         End Sub
 

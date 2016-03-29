@@ -110,12 +110,12 @@ Partial Friend Class F_WorkersVDUInfo
         Me.OlvColumn5 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn6 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn7 = New BrightIdeasSoftware.OLVColumn
+        Me.WageListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BonusListListDataListView = New BrightIdeasSoftware.DataListView
         Me.OlvColumn8 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn9 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn10 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn11 = New BrightIdeasSoftware.OLVColumn
-        Me.WageListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BonusListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TableLayoutPanel14 = New System.Windows.Forms.TableLayoutPanel
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
@@ -165,8 +165,8 @@ Partial Friend Class F_WorkersVDUInfo
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         CType(Me.WageListDataListView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BonusListListDataListView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.WageListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BonusListListDataListView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BonusListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel14.SuspendLayout()
         Me.SuspendLayout()
@@ -420,7 +420,7 @@ Partial Friend Class F_WorkersVDUInfo
         '
         TotalScheduledHoursLabel.AutoSize = True
         TotalScheduledHoursLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        TotalScheduledHoursLabel.Location = New System.Drawing.Point(175, 5)
+        TotalScheduledHoursLabel.Location = New System.Drawing.Point(174, 5)
         TotalScheduledHoursLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         TotalScheduledHoursLabel.Name = "TotalScheduledHoursLabel"
         TotalScheduledHoursLabel.Size = New System.Drawing.Size(104, 13)
@@ -826,7 +826,7 @@ Partial Friend Class F_WorkersVDUInfo
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334!))
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32.0!))
         Me.TableLayoutPanel10.Controls.Add(Me.TotalScheduledDaysTextBox, 0, 0)
         Me.TableLayoutPanel10.Controls.Add(TotalScheduledHoursLabel, 2, 0)
         Me.TableLayoutPanel10.Controls.Add(Me.TotalScheduledHoursAccTextBox, 3, 0)
@@ -846,7 +846,7 @@ Partial Friend Class F_WorkersVDUInfo
         Me.TotalScheduledDaysTextBox.Location = New System.Drawing.Point(3, 3)
         Me.TotalScheduledDaysTextBox.Name = "TotalScheduledDaysTextBox"
         Me.TotalScheduledDaysTextBox.ReadOnly = True
-        Me.TotalScheduledDaysTextBox.Size = New System.Drawing.Size(146, 20)
+        Me.TotalScheduledDaysTextBox.Size = New System.Drawing.Size(145, 20)
         Me.TotalScheduledDaysTextBox.TabIndex = 20
         Me.TotalScheduledDaysTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -856,7 +856,7 @@ Partial Friend Class F_WorkersVDUInfo
         Me.TotalScheduledHoursAccTextBox.DecimalLength = 4
         Me.TotalScheduledHoursAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TotalScheduledHoursAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.TotalScheduledHoursAccTextBox.Location = New System.Drawing.Point(285, 3)
+        Me.TotalScheduledHoursAccTextBox.Location = New System.Drawing.Point(284, 3)
         Me.TotalScheduledHoursAccTextBox.Name = "TotalScheduledHoursAccTextBox"
         Me.TotalScheduledHoursAccTextBox.ReadOnly = True
         Me.TotalScheduledHoursAccTextBox.Size = New System.Drawing.Size(146, 20)
@@ -1387,6 +1387,11 @@ Partial Friend Class F_WorkersVDUInfo
         Me.OlvColumn7.ToolTipText = ""
         Me.OlvColumn7.Width = 122
         '
+        'WageListBindingSource
+        '
+        Me.WageListBindingSource.DataMember = "WageList"
+        Me.WageListBindingSource.DataSource = Me.WorkersVDUInfoBindingSource
+        '
         'BonusListListDataListView
         '
         Me.BonusListListDataListView.AllColumns.Add(Me.OlvColumn8)
@@ -1476,11 +1481,6 @@ Partial Friend Class F_WorkersVDUInfo
         Me.OlvColumn11.ToolTipText = ""
         Me.OlvColumn11.Width = 100
         '
-        'WageListBindingSource
-        '
-        Me.WageListBindingSource.DataMember = "WageList"
-        Me.WageListBindingSource.DataSource = Me.WorkersVDUInfoBindingSource
-        '
         'BonusListBindingSource
         '
         Me.BonusListBindingSource.DataMember = "BonusList"
@@ -1562,8 +1562,8 @@ Partial Friend Class F_WorkersVDUInfo
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.WageListDataListView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BonusListListDataListView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.WageListBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BonusListListDataListView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BonusListBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel14.ResumeLayout(False)
         Me.TableLayoutPanel14.PerformLayout()

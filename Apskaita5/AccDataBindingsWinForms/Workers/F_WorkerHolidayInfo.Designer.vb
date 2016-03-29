@@ -405,7 +405,7 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.RefreshLabourContractsButton, 7, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.LabourContractComboBox, 8, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.WorkerAccGridComboBox, 4, 0)
@@ -426,7 +426,7 @@ Partial Friend Class F_WorkerHolidayInfo
         '
         Me.RefreshLabourContractsButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RefreshLabourContractsButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.Button_Reload_icon_16p
-        Me.RefreshLabourContractsButton.Location = New System.Drawing.Point(726, 3)
+        Me.RefreshLabourContractsButton.Location = New System.Drawing.Point(725, 3)
         Me.RefreshLabourContractsButton.Margin = New System.Windows.Forms.Padding(0, 3, 0, 0)
         Me.RefreshLabourContractsButton.Name = "RefreshLabourContractsButton"
         Me.RefreshLabourContractsButton.Size = New System.Drawing.Size(24, 22)
@@ -437,7 +437,7 @@ Partial Friend Class F_WorkerHolidayInfo
         '
         Me.LabourContractComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LabourContractComboBox.FormattingEnabled = True
-        Me.LabourContractComboBox.Location = New System.Drawing.Point(753, 3)
+        Me.LabourContractComboBox.Location = New System.Drawing.Point(752, 3)
         Me.LabourContractComboBox.Name = "LabourContractComboBox"
         Me.LabourContractComboBox.Size = New System.Drawing.Size(109, 21)
         Me.LabourContractComboBox.TabIndex = 1
@@ -449,7 +449,7 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.WorkerAccGridComboBox.FilterString = ""
         Me.WorkerAccGridComboBox.FormattingEnabled = True
         Me.WorkerAccGridComboBox.InstantBinding = True
-        Me.WorkerAccGridComboBox.Location = New System.Drawing.Point(325, 3)
+        Me.WorkerAccGridComboBox.Location = New System.Drawing.Point(324, 3)
         Me.WorkerAccGridComboBox.Name = "WorkerAccGridComboBox"
         Me.WorkerAccGridComboBox.Size = New System.Drawing.Size(282, 21)
         Me.WorkerAccGridComboBox.TabIndex = 1
@@ -460,14 +460,14 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.DateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DateDateTimePicker.Location = New System.Drawing.Point(47, 3)
         Me.DateDateTimePicker.Name = "DateDateTimePicker"
-        Me.DateDateTimePicker.Size = New System.Drawing.Size(167, 20)
+        Me.DateDateTimePicker.Size = New System.Drawing.Size(166, 20)
         Me.DateDateTimePicker.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label2.Location = New System.Drawing.Point(633, 5)
+        Me.Label2.Location = New System.Drawing.Point(632, 5)
         Me.Label2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(90, 13)
@@ -489,7 +489,7 @@ Partial Friend Class F_WorkerHolidayInfo
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label1.Location = New System.Drawing.Point(240, 5)
+        Me.Label1.Location = New System.Drawing.Point(239, 5)
         Me.Label1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(79, 13)

@@ -474,7 +474,7 @@ Partial Friend Class F_ComplexOperationDiscard
         '
         'ItemsSortedBindingSource
         '
-        Me.ItemsSortedBindingSource.DataMember = "ItemsSorted"
+        Me.ItemsSortedBindingSource.DataMember = "Items"
         Me.ItemsSortedBindingSource.DataSource = Me.ComplexOperationDiscardBindingSource
         '
         'ItemsDataListView

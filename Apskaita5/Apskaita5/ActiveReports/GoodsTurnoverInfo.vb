@@ -48,6 +48,9 @@ Namespace ActiveReports
         Private _AmountPendingPeriodEnd As Double = 0
         Private _AmountPurchasesPeriodStart As Double = 0
         Private _AmountPurchasesPeriodEnd As Double = 0
+        Private _AmountChange As Double = 0
+        Private _AmountInWarehouseChange As Double = 0
+        Private _AmountInPurchasesChange As Double = 0
         Private _UnitValuePeriodStart As Double = 0
         Private _UnitValueInWarehousePeriodStart As Double = 0
         Private _UnitValuePeriodEnd As Double = 0
@@ -342,6 +345,30 @@ Namespace ActiveReports
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return CRound(_AmountInWarehousePeriodStart, ROUNDAMOUNTGOODS)
+            End Get
+        End Property
+
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDAMOUNTGOODS)> _
+        Public ReadOnly Property AmountChange() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_AmountChange)
+            End Get
+        End Property
+
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDAMOUNTGOODS)> _
+        Public ReadOnly Property AmountInWarehouseChange() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_AmountInWarehouseChange)
+            End Get
+        End Property
+
+        <DoubleField(ValueRequiredLevel.Optional, True, ROUNDAMOUNTGOODS)> _
+        Public ReadOnly Property AmountInPurchasesChange() As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return CRound(_AmountInPurchasesChange)
             End Get
         End Property
 
@@ -875,37 +902,39 @@ Namespace ActiveReports
             _IsObsolete = ConvertDbBoolean(CIntSafe(dr.Item(19), 0))
             _AmountPeriodStart = CDblSafe(dr.Item(20), ROUNDAMOUNTGOODS, 0)
             _AmountInWarehousePeriodStart = CDblSafe(dr.Item(21), ROUNDAMOUNTGOODS, 0)
-            _AmountAcquisitions = CDblSafe(dr.Item(22), ROUNDAMOUNTGOODS, 0)
-            _AmountTransfered = CDblSafe(dr.Item(23), ROUNDAMOUNTGOODS, 0)
-            _AmountDiscarded = CDblSafe(dr.Item(24), ROUNDAMOUNTGOODS, 0)
-            _AmountAcquisitionsInWarehouse = CDblSafe(dr.Item(25), ROUNDAMOUNTGOODS, 0)
-            _AmountTransferedInWarehouse = CDblSafe(dr.Item(26), ROUNDAMOUNTGOODS, 0)
-            _AmountDiscardedInWarehouse = CDblSafe(dr.Item(27), ROUNDAMOUNTGOODS, 0)
-            _AmountChangeInventorization = CDblSafe(dr.Item(28), ROUNDAMOUNTGOODS, 0)
-            _AmountPeriodEnd = CRound(_AmountPeriodStart + _AmountAcquisitions + _AmountTransfered _
-                + _AmountDiscarded + _AmountChangeInventorization, ROUNDAMOUNTGOODS)
-            _AmountInWarehousePeriodEnd = CDblSafe(dr.Item(29), ROUNDAMOUNTGOODS, 0)
-            _AmountPurchasesPeriodStart = CDblSafe(dr.Item(30), ROUNDAMOUNTGOODS, 0)
-            _AmountPurchasesPeriodEnd = CDblSafe(dr.Item(31), ROUNDAMOUNTGOODS, 0)
-            _TotalAdditionalCosts = CDblSafe(dr.Item(32), 2, 0)
-            _TotalDiscounts = CDblSafe(dr.Item(33), 2, 0)
-            _TotalAdditionalCostsForDiscardedGoods = CDblSafe(dr.Item(34), 2, 0)
-            _TotalDiscountsForDiscardedGoods = CDblSafe(dr.Item(35), 2, 0)
-            _AccountPurchasesPeriodStart = CDblSafe(dr.Item(36), 2, 0)
-            _AccountPurchasesDebit = CDblSafe(dr.Item(37), 2, 0)
-            _AccountPurchasesCredit = -CDblSafe(dr.Item(38), 2, 0)
-            _AccountWarehousePeriodStart = CDblSafe(dr.Item(39), 2, 0)
-            _AccountWarehouseDebit = CDblSafe(dr.Item(40), 2, 0)
-            _AccountWarehouseCredit = -CDblSafe(dr.Item(41), 2, 0)
-            _AccountSalesNetCostsPeriodStart = CDblSafe(dr.Item(42), 2, 0)
-            _AccountSalesNetCostsDebit = CDblSafe(dr.Item(43), 2, 0)
-            _AccountSalesNetCostsCredit = -CDblSafe(dr.Item(44), 2, 0)
-            _AccountDiscountsPeriodStart = CDblSafe(dr.Item(45), 2, 0)
-            _AccountDiscountsDebit = CDblSafe(dr.Item(46), 2, 0)
-            _AccountDiscountsCredit = -CDblSafe(dr.Item(47), 2, 0)
-            _AccountValueReductionPeriodStart = CDblSafe(dr.Item(48), 2, 0)
-            _AccountValueReductionDebit = CDblSafe(dr.Item(49), 2, 0)
-            _AccountValueReductionCredit = -CDblSafe(dr.Item(50), 2, 0)
+            _AmountChange = CDblSafe(dr.Item(22), ROUNDAMOUNTGOODS, 0)
+            _AmountInWarehouseChange = CDblSafe(dr.Item(23), ROUNDAMOUNTGOODS, 0)
+            _AmountInPurchasesChange = CDblSafe(dr.Item(24), ROUNDAMOUNTGOODS, 0)
+            _AmountAcquisitions = CDblSafe(dr.Item(25), ROUNDAMOUNTGOODS, 0)
+            _AmountTransfered = CDblSafe(dr.Item(26), ROUNDAMOUNTGOODS, 0)
+            _AmountDiscarded = CDblSafe(dr.Item(27), ROUNDAMOUNTGOODS, 0)
+            _AmountAcquisitionsInWarehouse = CDblSafe(dr.Item(28), ROUNDAMOUNTGOODS, 0)
+            _AmountTransferedInWarehouse = CDblSafe(dr.Item(29), ROUNDAMOUNTGOODS, 0)
+            _AmountDiscardedInWarehouse = CDblSafe(dr.Item(30), ROUNDAMOUNTGOODS, 0)
+            _AmountChangeInventorization = CDblSafe(dr.Item(31), ROUNDAMOUNTGOODS, 0)
+            _AmountPeriodEnd = CRound(_AmountPeriodStart + _AmountChange, ROUNDAMOUNTGOODS)
+            _AmountInWarehousePeriodEnd = CDblSafe(dr.Item(32), ROUNDAMOUNTGOODS, 0)
+            _AmountPurchasesPeriodStart = CDblSafe(dr.Item(33), ROUNDAMOUNTGOODS, 0)
+            _AmountPurchasesPeriodEnd = CDblSafe(dr.Item(34), ROUNDAMOUNTGOODS, 0)
+            _TotalAdditionalCosts = CDblSafe(dr.Item(35), 2, 0)
+            _TotalDiscounts = CDblSafe(dr.Item(36), 2, 0)
+            _TotalAdditionalCostsForDiscardedGoods = CDblSafe(dr.Item(37), 2, 0)
+            _TotalDiscountsForDiscardedGoods = CDblSafe(dr.Item(38), 2, 0)
+            _AccountPurchasesPeriodStart = CDblSafe(dr.Item(39), 2, 0)
+            _AccountPurchasesDebit = CDblSafe(dr.Item(40), 2, 0)
+            _AccountPurchasesCredit = -CDblSafe(dr.Item(41), 2, 0)
+            _AccountWarehousePeriodStart = CDblSafe(dr.Item(42), 2, 0)
+            _AccountWarehouseDebit = CDblSafe(dr.Item(43), 2, 0)
+            _AccountWarehouseCredit = -CDblSafe(dr.Item(44), 2, 0)
+            _AccountSalesNetCostsPeriodStart = CDblSafe(dr.Item(45), 2, 0)
+            _AccountSalesNetCostsDebit = CDblSafe(dr.Item(46), 2, 0)
+            _AccountSalesNetCostsCredit = -CDblSafe(dr.Item(47), 2, 0)
+            _AccountDiscountsPeriodStart = CDblSafe(dr.Item(48), 2, 0)
+            _AccountDiscountsDebit = CDblSafe(dr.Item(49), 2, 0)
+            _AccountDiscountsCredit = -CDblSafe(dr.Item(50), 2, 0)
+            _AccountValueReductionPeriodStart = CDblSafe(dr.Item(51), 2, 0)
+            _AccountValueReductionDebit = CDblSafe(dr.Item(52), 2, 0)
+            _AccountValueReductionCredit = -CDblSafe(dr.Item(53), 2, 0)
 
             _AccountPurchasesPeriodEnd = CRound(_AccountPurchasesPeriodStart _
                 + _AccountPurchasesDebit - _AccountPurchasesCredit)
@@ -933,6 +962,7 @@ Namespace ActiveReports
             Else
                 _UnitValueInWarehousePeriodEnd = 0
             End If
+
             If ConvertDatabaseID(Of GoodsAccountingMethod)(CIntSafe(dr.Item(12), 0)) _
                 = GoodsAccountingMethod.Periodic Then
 
@@ -946,11 +976,7 @@ Namespace ActiveReports
                     _UnitValuePeriodStart = 0
                 End If
 
-                _AmountPeriodStart = CRound(_AmountPurchasesPeriodStart _
-                    + _AmountInWarehousePeriodStart, ROUNDAMOUNTGOODS)
-
-                _AmountPendingPeriodStart = CRound(_AmountPeriodStart _
-                    - _AmountInWarehousePeriodStart, ROUNDAMOUNTGOODS)
+                _AmountPendingPeriodStart = _AmountPurchasesPeriodStart
 
                 _TotalValuePeriodEnd = CRound(_AccountPurchasesPeriodEnd _
                     + _AccountDiscountsPeriodEnd + _AccountWarehousePeriodEnd)
@@ -962,11 +988,8 @@ Namespace ActiveReports
                     _UnitValuePeriodEnd = 0
                 End If
 
-                _AmountPeriodEnd = CRound(_AmountPeriodStart + _AmountAcquisitions + _AmountTransfered _
-                    + _AmountDiscarded + _AmountChangeInventorization, ROUNDAMOUNTGOODS)
-
-                _AmountPendingPeriodEnd = CRound(_AmountPeriodEnd _
-                    - _AmountInWarehousePeriodEnd, ROUNDAMOUNTGOODS)
+                _AmountPendingPeriodEnd = CRound(_AmountPurchasesPeriodStart _
+                    + _AmountInPurchasesChange, ROUNDAMOUNTGOODS)
 
             Else
                 _TotalValuePeriodStart = _AccountWarehousePeriodStart

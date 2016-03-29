@@ -389,7 +389,7 @@ Partial Friend Class F_ComplexOperationOperationalStatusChange
         '
         'ItemsSortedBindingSource
         '
-        Me.ItemsSortedBindingSource.DataMember = "ItemsSorted"
+        Me.ItemsSortedBindingSource.DataMember = "Items"
         Me.ItemsSortedBindingSource.DataSource = Me.ComplexOperationOperationalStatusChangeBindingSource
         '
         'ItemsDataListView
