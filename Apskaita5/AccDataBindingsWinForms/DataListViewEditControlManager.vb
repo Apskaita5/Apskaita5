@@ -286,6 +286,23 @@ Public Class DataListViewEditControlManager(Of T)
         listView.MenuLabelUnlockGroupingOn = "Atrakinti grupavimą pagal {0}"
         listView.MenuLabelUnsort = "Pašalinti rūšiavimą pagal {0}"
 
+        listView.SelectColumnsMenuStaysOpen = True
+        listView.HotTracking = False
+        listView.UseHotControls = False
+
+        If listView.CellEditActivation <> ObjectListView.CellEditActivateMode.None Then
+
+            Dim textOverlay As TextOverlay = listView.EmptyListMsgOverlay
+            textOverlay.Text = "Norėdami pridėti eilutę paspauskite + arba Insert mygtuką."
+            textOverlay.TextColor = Color.Firebrick
+            textOverlay.BackColor = Color.AntiqueWhite
+            textOverlay.BorderColor = Color.DarkRed
+            textOverlay.BorderWidth = 4.0F
+            textOverlay.Font = New Font("Chiller", 36)
+            textOverlay.Rotation = -5
+
+        End If
+
     End Sub
 
 

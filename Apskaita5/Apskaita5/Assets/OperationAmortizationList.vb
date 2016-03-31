@@ -52,7 +52,7 @@
         Friend Sub SetCommonAccountCosts(ByVal accountCosts As Long)
             Me.RaiseListChangedEvents = False
             For Each i As OperationAmortization In Me
-                i.AccountCosts = accountCosts
+                If Not i.AccountCostsIsReadOnly Then i.AccountCosts = accountCosts
             Next
             Me.RaiseListChangedEvents = True
             Me.ResetBindings()

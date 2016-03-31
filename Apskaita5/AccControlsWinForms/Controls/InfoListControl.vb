@@ -84,6 +84,7 @@ Public Class InfoListControl
 
         baseDataListView.DefaultRenderer = New HighlightTextRenderer( _
             TextMatchFilter.Contains(baseDataListView, New String() {""}))
+        baseDataListView.SelectColumnsMenuStaysOpen = True
 
     End Sub
 

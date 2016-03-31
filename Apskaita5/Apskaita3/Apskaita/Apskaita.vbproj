@@ -662,7 +662,7 @@
     <Content Include="FFData\SAM-v05.ffdata">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="My Project\DataSources\AccControls.ReportData.datasource" />
+    <None Include="My Project\DataSources\AccControlsWinForms.ReportData.datasource" />
     <None Include="My Project\DataSources\AccDataAccessLayer.DatabaseAccess.DatabaseStructure.DatabaseStructure.datasource" />
     <None Include="My Project\DataSources\AccDataAccessLayer.Security.DatabaseInfoList.datasource" />
     <None Include="My Project\DataSources\AccDataAccessLayer.Security.LocalUser.datasource" />
@@ -765,7 +765,6 @@
     <None Include="My Project\DataSources\ApskaitaObjects.Workers.WageSheet.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Workers.WorkTimeClassList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Workers.WorkTimeSheet.datasource" />
-    <None Include="My Project\DataSources\LocalSettings.datasource" />
     <None Include="Resources\FromFillerIcon_24x24alt.png" />
     <None Include="Resources\FromFillerIcon_48x48.png" />
     <None Include="Resources\FromFillerIcon_32x32.png" />

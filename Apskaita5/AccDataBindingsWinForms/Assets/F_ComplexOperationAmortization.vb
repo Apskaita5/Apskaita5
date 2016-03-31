@@ -101,6 +101,8 @@ Friend Class F_ComplexOperationAmortization
 
             SetupDefaultControls(Of ComplexOperationAmortization)(Me, ComplexOperationAmortizationBindingSource)
 
+            LoadAccountInfoListToListCombo(CommonCostsAccountAccGridComboBox, True, 2, 3, 6)
+
         Catch ex As Exception
             ShowError(ex)
             DisableAllControls(Me)
@@ -215,6 +217,27 @@ Friend Class F_ComplexOperationAmortization
         Catch ex As Exception
             ShowError(ex)
             Exit Sub
+        End Try
+
+    End Sub
+
+    Private Sub SetCommonAccountCostsButton_Click(ByVal sender As System.Object, _
+        ByVal e As System.EventArgs) Handles SetCommonAccountCostsButton.Click
+
+        If _FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.Items.Count < 1 Then Exit Sub
+
+        Dim selectedAccount As Long = 0
+        Try
+            selectedAccount = DirectCast(CommonCostsAccountAccGridComboBox.SelectedValue, Long)
+        Catch ex As Exception
+        End Try
+
+        If Not selectedAccount > 0 Then Exit Sub
+
+        Try
+            _FormManager.DataSource.SetCommonAccountCosts(selectedAccount)
+        Catch ex As Exception
+            ShowError(ex)
         End Try
 
     End Sub

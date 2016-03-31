@@ -1,4 +1,5 @@
 ﻿Imports ApskaitaObjects.Attributes
+Imports ApskaitaObjects.My.Resources
 
 Namespace Assets
 
@@ -316,6 +317,26 @@ Namespace Assets
             For Each i As OperationAmortization In list
                 _ChronologyValidator.MergeNewValidationItem(i.ChronologyValidator)
             Next
+
+        End Sub
+
+        ''' <summary>
+        ''' Sets the same <see cref="OperationAmortization.AccountCosts">
+        ''' assets amorization costs account</see> for all the asset items within the document.
+        ''' </summary>
+        ''' <param name="accountCosts">an <see cref="General.Account.ID">account</see> to set</param>
+        ''' <remarks></remarks>
+        Public Sub SetCommonAccountCosts(ByVal accountCosts As Long)
+
+            If Not _ChronologyValidator.ChildrenFinancialDataCanChange Then
+                Throw New Exception(String.Format(Assets_ComplexOperationAmortization_SetCommonAccountCostsInvalidForChildItems, _
+                    vbCrLf, _ChronologyValidator.ChildrenFinancialDataCanChangeExplanation))
+            ElseIf Not _ChronologyValidator.FinancialDataCanChange Then
+                Throw New Exception(String.Format(Assets_ComplexOperationAmortization_SetCommonAccountCostsInvalidForDocument, _
+                    vbCrLf, _ChronologyValidator.FinancialDataCanChangeExplanation))
+            End If
+
+            _Items.SetCommonAccountCosts(accountCosts)
 
         End Sub
 

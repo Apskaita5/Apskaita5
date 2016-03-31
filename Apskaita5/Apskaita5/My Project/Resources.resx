@@ -13904,4 +13904,10 @@
   <data name="Documents_InvoiceAdapters_GoodsRedeemFromBuyerInvoiceAdapter_TypeName" xml:space="preserve">
     <value>prekių susigrąžinimo iš pirkėjo operacijos adapteris</value>
   </data>
+  <data name="Assets_ComplexOperationAmortization_SetCommonAccountCostsInvalidForChildItems" xml:space="preserve">
+    <value>Klaida. Bendros amortizacijos sąnaudų sąskaitos nustatyti neleidžiama, nes dalies operacijų finansinių duomenų keisti neleidžiama:{0}{1}</value>
+  </data>
+  <data name="Assets_ComplexOperationAmortization_SetCommonAccountCostsInvalidForDocument" xml:space="preserve">
+    <value>Klaida. Bendros amortizacijos sąnaudų sąskaitos nustatyti neleidžiama, nes viso dokumento finansinių duomenų keisti neleidžiama:{0}{1}</value>
+  </data>
 </root>

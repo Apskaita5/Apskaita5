@@ -38,9 +38,6 @@ Partial Friend Class F_ComplexOperationAmortization
         Me.LimitationsButton = New System.Windows.Forms.Button
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
         Me.ViewJournalEntryButton = New System.Windows.Forms.Button
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.AddItemsButton = New System.Windows.Forms.Button
-        Me.GetCalculationsButton = New System.Windows.Forms.Button
         Me.ContentTextBox = New System.Windows.Forms.TextBox
         Me.ComplexOperationAmortizationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TotalValueChangeAccTextBox = New AccControlsWinForms.AccTextBox
@@ -49,6 +46,12 @@ Partial Friend Class F_ComplexOperationAmortization
         Me.DocumentNumberTextBox = New System.Windows.Forms.TextBox
         Me.UpdateDateTextBox = New System.Windows.Forms.TextBox
         Me.DateDateTimePicker = New System.Windows.Forms.DateTimePicker
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
+        Me.GetCalculationsButton = New System.Windows.Forms.Button
+        Me.AddItemsButton = New System.Windows.Forms.Button
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.SetCommonAccountCostsButton = New System.Windows.Forms.Button
+        Me.CommonCostsAccountAccGridComboBox = New AccControlsWinForms.AccListComboBox
         Me.ItemsSortedBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ItemsDataListView = New BrightIdeasSoftware.DataListView
         Me.OlvColumn3 = New BrightIdeasSoftware.OLVColumn
@@ -122,8 +125,9 @@ Partial Friend Class F_ComplexOperationAmortization
         TotalValueChangeLabel = New System.Windows.Forms.Label
         Me.Panel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         CType(Me.ComplexOperationAmortizationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FlowLayoutPanel1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         CType(Me.ItemsSortedBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemsDataListView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorWarnInfoProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -147,7 +151,7 @@ Partial Friend Class F_ComplexOperationAmortization
         InsertDateLabel.AutoSize = True
         InsertDateLabel.Dock = System.Windows.Forms.DockStyle.Fill
         InsertDateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        InsertDateLabel.Location = New System.Drawing.Point(279, 0)
+        InsertDateLabel.Location = New System.Drawing.Point(329, 0)
         InsertDateLabel.Name = "InsertDateLabel"
         InsertDateLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         InsertDateLabel.Size = New System.Drawing.Size(59, 26)
@@ -160,7 +164,7 @@ Partial Friend Class F_ComplexOperationAmortization
         UpdateDateLabel.AutoSize = True
         UpdateDateLabel.Dock = System.Windows.Forms.DockStyle.Fill
         UpdateDateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        UpdateDateLabel.Location = New System.Drawing.Point(538, 0)
+        UpdateDateLabel.Location = New System.Drawing.Point(638, 0)
         UpdateDateLabel.Name = "UpdateDateLabel"
         UpdateDateLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         UpdateDateLabel.Size = New System.Drawing.Size(67, 26)
@@ -186,7 +190,7 @@ Partial Friend Class F_ComplexOperationAmortization
         DocumentNumberLabel.AutoSize = True
         DocumentNumberLabel.Dock = System.Windows.Forms.DockStyle.Fill
         DocumentNumberLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DocumentNumberLabel.Location = New System.Drawing.Point(279, 26)
+        DocumentNumberLabel.Location = New System.Drawing.Point(329, 26)
         DocumentNumberLabel.Name = "DocumentNumberLabel"
         DocumentNumberLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         DocumentNumberLabel.Size = New System.Drawing.Size(59, 26)
@@ -212,7 +216,7 @@ Partial Friend Class F_ComplexOperationAmortization
         TotalValueChangeLabel.AutoSize = True
         TotalValueChangeLabel.Dock = System.Windows.Forms.DockStyle.Fill
         TotalValueChangeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        TotalValueChangeLabel.Location = New System.Drawing.Point(538, 26)
+        TotalValueChangeLabel.Location = New System.Drawing.Point(638, 26)
         TotalValueChangeLabel.Name = "TotalValueChangeLabel"
         TotalValueChangeLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         TotalValueChangeLabel.Size = New System.Drawing.Size(67, 26)
@@ -231,7 +235,7 @@ Partial Friend Class F_ComplexOperationAmortization
         Me.Panel2.Location = New System.Drawing.Point(0, 325)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Padding = New System.Windows.Forms.Padding(0, 0, 0, 4)
-        Me.Panel2.Size = New System.Drawing.Size(804, 44)
+        Me.Panel2.Size = New System.Drawing.Size(956, 44)
         Me.Panel2.TabIndex = 2
         '
         'nCancelButton
@@ -239,7 +243,7 @@ Partial Friend Class F_ComplexOperationAmortization
         Me.nCancelButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.nCancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.nCancelButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nCancelButton.Location = New System.Drawing.Point(717, 12)
+        Me.nCancelButton.Location = New System.Drawing.Point(869, 12)
         Me.nCancelButton.Name = "nCancelButton"
         Me.nCancelButton.Size = New System.Drawing.Size(75, 23)
         Me.nCancelButton.TabIndex = 3
@@ -250,7 +254,7 @@ Partial Friend Class F_ComplexOperationAmortization
         '
         Me.ApplyButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ApplyButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ApplyButton.Location = New System.Drawing.Point(636, 12)
+        Me.ApplyButton.Location = New System.Drawing.Point(788, 12)
         Me.ApplyButton.Name = "ApplyButton"
         Me.ApplyButton.Size = New System.Drawing.Size(75, 23)
         Me.ApplyButton.TabIndex = 2
@@ -261,7 +265,7 @@ Partial Friend Class F_ComplexOperationAmortization
         '
         Me.nOkButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.nOkButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nOkButton.Location = New System.Drawing.Point(555, 12)
+        Me.nOkButton.Location = New System.Drawing.Point(707, 12)
         Me.nOkButton.Name = "nOkButton"
         Me.nOkButton.Size = New System.Drawing.Size(75, 23)
         Me.nOkButton.TabIndex = 1
@@ -288,9 +292,8 @@ Partial Friend Class F_ComplexOperationAmortization
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.ViewJournalEntryButton, 2, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 0, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.ContentTextBox, 1, 2)
         Me.TableLayoutPanel1.Controls.Add(ContentLabel, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.TotalValueChangeAccTextBox, 7, 1)
@@ -305,63 +308,29 @@ Partial Friend Class F_ComplexOperationAmortization
         Me.TableLayoutPanel1.Controls.Add(Me.UpdateDateTextBox, 7, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.DateDateTimePicker, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(DateLabel, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.FlowLayoutPanel1, 0, 3)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 4
+        Me.TableLayoutPanel1.RowCount = 5
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(804, 110)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(956, 129)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'ViewJournalEntryButton
         '
         Me.ViewJournalEntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ViewJournalEntryButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.lektuvelis_16
-        Me.ViewJournalEntryButton.Location = New System.Drawing.Point(252, 0)
+        Me.ViewJournalEntryButton.Location = New System.Drawing.Point(302, 0)
         Me.ViewJournalEntryButton.Margin = New System.Windows.Forms.Padding(0)
         Me.ViewJournalEntryButton.Name = "ViewJournalEntryButton"
         Me.ViewJournalEntryButton.Size = New System.Drawing.Size(24, 24)
         Me.ViewJournalEntryButton.TabIndex = 4
         Me.ViewJournalEntryButton.UseVisualStyleBackColor = True
-        '
-        'Panel1
-        '
-        Me.TableLayoutPanel1.SetColumnSpan(Me.Panel1, 9)
-        Me.Panel1.Controls.Add(Me.AddItemsButton)
-        Me.Panel1.Controls.Add(Me.GetCalculationsButton)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(0, 78)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(804, 32)
-        Me.Panel1.TabIndex = 3
-        '
-        'AddItemsButton
-        '
-        Me.AddItemsButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AddItemsButton.AutoSize = True
-        Me.AddItemsButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AddItemsButton.Location = New System.Drawing.Point(636, 3)
-        Me.AddItemsButton.Name = "AddItemsButton"
-        Me.AddItemsButton.Size = New System.Drawing.Size(53, 23)
-        Me.AddItemsButton.TabIndex = 0
-        Me.AddItemsButton.Text = "Pridėti"
-        Me.AddItemsButton.UseVisualStyleBackColor = True
-        '
-        'GetCalculationsButton
-        '
-        Me.GetCalculationsButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GetCalculationsButton.AutoSize = True
-        Me.GetCalculationsButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GetCalculationsButton.Location = New System.Drawing.Point(706, 3)
-        Me.GetCalculationsButton.Name = "GetCalculationsButton"
-        Me.GetCalculationsButton.Size = New System.Drawing.Size(86, 23)
-        Me.GetCalculationsButton.TabIndex = 1
-        Me.GetCalculationsButton.Text = "Paskaičiuoti"
-        Me.GetCalculationsButton.UseVisualStyleBackColor = True
         '
         'ContentTextBox
         '
@@ -371,7 +340,7 @@ Partial Friend Class F_ComplexOperationAmortization
         Me.ContentTextBox.Location = New System.Drawing.Point(80, 55)
         Me.ContentTextBox.MaxLength = 255
         Me.ContentTextBox.Name = "ContentTextBox"
-        Me.ContentTextBox.Size = New System.Drawing.Size(699, 20)
+        Me.ContentTextBox.Size = New System.Drawing.Size(849, 20)
         Me.ContentTextBox.TabIndex = 2
         '
         'ComplexOperationAmortizationBindingSource
@@ -383,10 +352,10 @@ Partial Friend Class F_ComplexOperationAmortization
         Me.TotalValueChangeAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.ComplexOperationAmortizationBindingSource, "TotalValueChange", True))
         Me.TotalValueChangeAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TotalValueChangeAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.TotalValueChangeAccTextBox.Location = New System.Drawing.Point(611, 29)
+        Me.TotalValueChangeAccTextBox.Location = New System.Drawing.Point(711, 29)
         Me.TotalValueChangeAccTextBox.Name = "TotalValueChangeAccTextBox"
         Me.TotalValueChangeAccTextBox.ReadOnly = True
-        Me.TotalValueChangeAccTextBox.Size = New System.Drawing.Size(168, 20)
+        Me.TotalValueChangeAccTextBox.Size = New System.Drawing.Size(218, 20)
         Me.TotalValueChangeAccTextBox.TabIndex = 15
         Me.TotalValueChangeAccTextBox.TabStop = False
         Me.TotalValueChangeAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -398,7 +367,7 @@ Partial Friend Class F_ComplexOperationAmortization
         Me.IDTextBox.Location = New System.Drawing.Point(80, 3)
         Me.IDTextBox.Name = "IDTextBox"
         Me.IDTextBox.ReadOnly = True
-        Me.IDTextBox.Size = New System.Drawing.Size(168, 20)
+        Me.IDTextBox.Size = New System.Drawing.Size(218, 20)
         Me.IDTextBox.TabIndex = 6
         Me.IDTextBox.TabStop = False
         Me.IDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -407,10 +376,10 @@ Partial Friend Class F_ComplexOperationAmortization
         '
         Me.InsertDateTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ComplexOperationAmortizationBindingSource, "InsertDate", True))
         Me.InsertDateTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.InsertDateTextBox.Location = New System.Drawing.Point(344, 3)
+        Me.InsertDateTextBox.Location = New System.Drawing.Point(394, 3)
         Me.InsertDateTextBox.Name = "InsertDateTextBox"
         Me.InsertDateTextBox.ReadOnly = True
-        Me.InsertDateTextBox.Size = New System.Drawing.Size(168, 20)
+        Me.InsertDateTextBox.Size = New System.Drawing.Size(218, 20)
         Me.InsertDateTextBox.TabIndex = 7
         Me.InsertDateTextBox.TabStop = False
         Me.InsertDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -419,10 +388,10 @@ Partial Friend Class F_ComplexOperationAmortization
         '
         Me.DocumentNumberTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ComplexOperationAmortizationBindingSource, "DocumentNumber", True))
         Me.DocumentNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DocumentNumberTextBox.Location = New System.Drawing.Point(344, 29)
+        Me.DocumentNumberTextBox.Location = New System.Drawing.Point(394, 29)
         Me.DocumentNumberTextBox.MaxLength = 30
         Me.DocumentNumberTextBox.Name = "DocumentNumberTextBox"
-        Me.DocumentNumberTextBox.Size = New System.Drawing.Size(168, 20)
+        Me.DocumentNumberTextBox.Size = New System.Drawing.Size(218, 20)
         Me.DocumentNumberTextBox.TabIndex = 1
         Me.DocumentNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -430,10 +399,10 @@ Partial Friend Class F_ComplexOperationAmortization
         '
         Me.UpdateDateTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ComplexOperationAmortizationBindingSource, "UpdateDate", True))
         Me.UpdateDateTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UpdateDateTextBox.Location = New System.Drawing.Point(611, 3)
+        Me.UpdateDateTextBox.Location = New System.Drawing.Point(711, 3)
         Me.UpdateDateTextBox.Name = "UpdateDateTextBox"
         Me.UpdateDateTextBox.ReadOnly = True
-        Me.UpdateDateTextBox.Size = New System.Drawing.Size(168, 20)
+        Me.UpdateDateTextBox.Size = New System.Drawing.Size(218, 20)
         Me.UpdateDateTextBox.TabIndex = 8
         Me.UpdateDateTextBox.TabStop = False
         Me.UpdateDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -445,8 +414,85 @@ Partial Friend Class F_ComplexOperationAmortization
         Me.DateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DateDateTimePicker.Location = New System.Drawing.Point(80, 29)
         Me.DateDateTimePicker.Name = "DateDateTimePicker"
-        Me.DateDateTimePicker.Size = New System.Drawing.Size(168, 20)
+        Me.DateDateTimePicker.Size = New System.Drawing.Size(218, 20)
         Me.DateDateTimePicker.TabIndex = 0
+        '
+        'FlowLayoutPanel1
+        '
+        Me.TableLayoutPanel1.SetColumnSpan(Me.FlowLayoutPanel1, 8)
+        Me.FlowLayoutPanel1.Controls.Add(Me.GetCalculationsButton)
+        Me.FlowLayoutPanel1.Controls.Add(Me.AddItemsButton)
+        Me.FlowLayoutPanel1.Controls.Add(Me.GroupBox1)
+        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 78)
+        Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(932, 100)
+        Me.FlowLayoutPanel1.TabIndex = 16
+        '
+        'GetCalculationsButton
+        '
+        Me.GetCalculationsButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GetCalculationsButton.AutoSize = True
+        Me.GetCalculationsButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GetCalculationsButton.Location = New System.Drawing.Point(843, 10)
+        Me.GetCalculationsButton.Margin = New System.Windows.Forms.Padding(3, 10, 3, 3)
+        Me.GetCalculationsButton.Name = "GetCalculationsButton"
+        Me.GetCalculationsButton.Size = New System.Drawing.Size(86, 27)
+        Me.GetCalculationsButton.TabIndex = 1
+        Me.GetCalculationsButton.Text = "Paskaičiuoti"
+        Me.GetCalculationsButton.UseVisualStyleBackColor = True
+        '
+        'AddItemsButton
+        '
+        Me.AddItemsButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AddItemsButton.AutoSize = True
+        Me.AddItemsButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AddItemsButton.Location = New System.Drawing.Point(782, 10)
+        Me.AddItemsButton.Margin = New System.Windows.Forms.Padding(5, 10, 5, 3)
+        Me.AddItemsButton.Name = "AddItemsButton"
+        Me.AddItemsButton.Size = New System.Drawing.Size(53, 27)
+        Me.AddItemsButton.TabIndex = 0
+        Me.AddItemsButton.Text = "Pridėti"
+        Me.AddItemsButton.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.SetCommonAccountCostsButton)
+        Me.GroupBox1.Controls.Add(Me.CommonCostsAccountAccGridComboBox)
+        Me.GroupBox1.Location = New System.Drawing.Point(463, 0)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(0)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(0)
+        Me.GroupBox1.Size = New System.Drawing.Size(314, 46)
+        Me.GroupBox1.TabIndex = 1
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Nustatyti Bendrą Sąnaudų Sąsk."
+        '
+        'SetCommonAccountCostsButton
+        '
+        Me.SetCommonAccountCostsButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SetCommonAccountCostsButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SetCommonAccountCostsButton.Location = New System.Drawing.Point(222, 15)
+        Me.SetCommonAccountCostsButton.Name = "SetCommonAccountCostsButton"
+        Me.SetCommonAccountCostsButton.Size = New System.Drawing.Size(85, 22)
+        Me.SetCommonAccountCostsButton.TabIndex = 6
+        Me.SetCommonAccountCostsButton.Text = "Nustatyti"
+        Me.SetCommonAccountCostsButton.UseVisualStyleBackColor = True
+        '
+        'CommonCostsAccountAccGridComboBox
+        '
+        Me.CommonCostsAccountAccGridComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CommonCostsAccountAccGridComboBox.EmptyValueString = ""
+        Me.CommonCostsAccountAccGridComboBox.FilterString = ""
+        Me.CommonCostsAccountAccGridComboBox.FormattingEnabled = True
+        Me.CommonCostsAccountAccGridComboBox.InstantBinding = True
+        Me.CommonCostsAccountAccGridComboBox.Location = New System.Drawing.Point(9, 16)
+        Me.CommonCostsAccountAccGridComboBox.Name = "CommonCostsAccountAccGridComboBox"
+        Me.CommonCostsAccountAccGridComboBox.Size = New System.Drawing.Size(207, 21)
+        Me.CommonCostsAccountAccGridComboBox.TabIndex = 0
         '
         'ItemsSortedBindingSource
         '
@@ -531,7 +577,7 @@ Partial Friend Class F_ComplexOperationAmortization
         Me.ItemsDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
         Me.ItemsDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.ItemsDataListView.IncludeColumnHeadersInCopy = True
-        Me.ItemsDataListView.Location = New System.Drawing.Point(0, 110)
+        Me.ItemsDataListView.Location = New System.Drawing.Point(0, 129)
         Me.ItemsDataListView.Name = "ItemsDataListView"
         Me.ItemsDataListView.RenderNonEditableCheckboxesAsDisabled = True
         Me.ItemsDataListView.SelectColumnsOnRightClickBehaviour = BrightIdeasSoftware.ObjectListView.ColumnSelectBehaviour.Submenu
@@ -542,7 +588,7 @@ Partial Friend Class F_ComplexOperationAmortization
         Me.ItemsDataListView.ShowImagesOnSubItems = True
         Me.ItemsDataListView.ShowItemCountOnGroups = True
         Me.ItemsDataListView.ShowItemToolTips = True
-        Me.ItemsDataListView.Size = New System.Drawing.Size(804, 215)
+        Me.ItemsDataListView.Size = New System.Drawing.Size(956, 196)
         Me.ItemsDataListView.TabIndex = 3
         Me.ItemsDataListView.UnfocusedSelectedBackColor = System.Drawing.Color.PaleGreen
         Me.ItemsDataListView.UnfocusedSelectedForeColor = System.Drawing.Color.Black
@@ -1290,7 +1336,7 @@ Partial Friend Class F_ComplexOperationAmortization
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(804, 369)
+        Me.ClientSize = New System.Drawing.Size(956, 369)
         Me.Controls.Add(Me.ItemsDataListView)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.Panel2)
@@ -1303,9 +1349,10 @@ Partial Friend Class F_ComplexOperationAmortization
         Me.Panel2.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         CType(Me.ComplexOperationAmortizationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FlowLayoutPanel1.ResumeLayout(False)
+        Me.FlowLayoutPanel1.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
         CType(Me.ItemsSortedBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemsDataListView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorWarnInfoProvider1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1329,7 +1376,6 @@ Partial Friend Class F_ComplexOperationAmortization
     Friend WithEvents TotalValueChangeAccTextBox As AccControlsWinForms.AccTextBox
     Friend WithEvents AddItemsButton As System.Windows.Forms.Button
     Friend WithEvents GetCalculationsButton As System.Windows.Forms.Button
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents ItemsSortedBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ViewJournalEntryButton As System.Windows.Forms.Button
     Friend WithEvents ItemsDataListView As BrightIdeasSoftware.DataListView
@@ -1395,4 +1441,8 @@ Partial Friend Class F_ComplexOperationAmortization
     Friend WithEvents ProgressFiller2 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ErrorWarnInfoProvider1 As AccControlsWinForms.ErrorWarnInfoProvider
+    Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents SetCommonAccountCostsButton As System.Windows.Forms.Button
+    Friend WithEvents CommonCostsAccountAccGridComboBox As AccControlsWinForms.AccListComboBox
 End Class

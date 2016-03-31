@@ -1,6 +1,7 @@
 ﻿Imports ApskaitaObjects.Goods
 Imports Csla.Validation
 Imports ApskaitaObjects.My.Resources
+Imports ApskaitaObjects.General
 
 Namespace Documents.InvoiceAdapters
 
@@ -484,11 +485,7 @@ Namespace Documents.InvoiceAdapters
         Public ReadOnly Property DefaultVatRate() As Double Implements IInvoiceAdapter.DefaultVatRate
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                If _IsForInvoiceMade Then
-                    Return _GoodsRedeem.GoodsInfo.DefaultVatRateSales
-                Else
-                    Return _GoodsRedeem.GoodsInfo.DefaultVatRatePurchase
-                End If
+                Return _GoodsRedeem.GoodsInfo.DefaultVatRateSales
             End Get
         End Property
 
@@ -497,11 +494,11 @@ Namespace Documents.InvoiceAdapters
         ''' or the <see cref="InvoiceReceivedItem.AccountVat">InvoiceReceivedItem.AccountVat</see>
         ''' properties should be initialized by the corresponding attached operation property.
         ''' </summary>
-        ''' <remarks>Returns FALSE for a goods redeem from a buyer.</remarks>
+        ''' <remarks>Returns TRUE for a goods redeem from a buyer.</remarks>
         Public ReadOnly Property ProvidesDefaultVatAccount() As Boolean Implements IInvoiceAdapter.ProvidesDefaultVatAccount
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return False
+                Return True
             End Get
         End Property
 
@@ -511,11 +508,12 @@ Namespace Documents.InvoiceAdapters
         ''' or the <see cref="InvoiceMadeItem.AccountVat">InvoiceMadeItem.AccountVat</see>
         ''' properties if the <see cref="ProvidesDefaultVatRate">ProvidesDefaultAccountVat</see> is set to TRUE.
         ''' </summary>
-        ''' <remarks>Returns 0 for a goods redeem from a buyer.</remarks>
+        ''' <remarks>Returns <see cref="DefaultAccountType.VatPayable">default company VAT payable account</see> 
+        ''' for a goods redeem from a buyer.</remarks>
         Public ReadOnly Property DefaultVatAccount() As Long Implements IInvoiceAdapter.DefaultVatAccount
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return 0
+                Return GetCurrentCompany.GetDefaultAccount(DefaultAccountType.VatPayable)
             End Get
         End Property
 

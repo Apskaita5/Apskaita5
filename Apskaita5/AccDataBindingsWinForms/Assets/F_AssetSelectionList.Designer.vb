@@ -37,6 +37,8 @@ Partial Friend Class F_AssetSelectionList
         Me.OlvColumn8 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn9 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn10 = New BrightIdeasSoftware.OLVColumn
+        Me.OlvColumn1 = New BrightIdeasSoftware.OLVColumn
+        Me.OlvColumn11 = New BrightIdeasSoftware.OLVColumn
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
         Me.Panel2.SuspendLayout()
         CType(Me.LongTermAssetInfoListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,12 +95,14 @@ Partial Friend Class F_AssetSelectionList
         Me.LongTermAssetInfoListDataListView.AllColumns.Add(Me.OlvColumn8)
         Me.LongTermAssetInfoListDataListView.AllColumns.Add(Me.OlvColumn9)
         Me.LongTermAssetInfoListDataListView.AllColumns.Add(Me.OlvColumn10)
+        Me.LongTermAssetInfoListDataListView.AllColumns.Add(Me.OlvColumn1)
+        Me.LongTermAssetInfoListDataListView.AllColumns.Add(Me.OlvColumn11)
         Me.LongTermAssetInfoListDataListView.AllowColumnReorder = True
         Me.LongTermAssetInfoListDataListView.AutoGenerateColumns = False
         Me.LongTermAssetInfoListDataListView.CausesValidation = False
         Me.LongTermAssetInfoListDataListView.CellEditUseWholeCell = False
         Me.LongTermAssetInfoListDataListView.CheckBoxes = True
-        Me.LongTermAssetInfoListDataListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumn6, Me.OlvColumn4, Me.OlvColumn7, Me.OlvColumn8, Me.OlvColumn10})
+        Me.LongTermAssetInfoListDataListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumn6, Me.OlvColumn4, Me.OlvColumn7, Me.OlvColumn10, Me.OlvColumn1, Me.OlvColumn11})
         Me.LongTermAssetInfoListDataListView.Cursor = System.Windows.Forms.Cursors.Default
         Me.LongTermAssetInfoListDataListView.DataSource = Me.LongTermAssetInfoListBindingSource
         Me.LongTermAssetInfoListDataListView.Dock = System.Windows.Forms.DockStyle.Fill
@@ -210,9 +214,11 @@ Partial Friend Class F_AssetSelectionList
         '
         Me.OlvColumn8.AspectName = "CustomGroup"
         Me.OlvColumn8.CellEditUseWholeCell = True
+        Me.OlvColumn8.DisplayIndex = 3
         Me.OlvColumn8.HeaderFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OlvColumn8.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.OlvColumn8.IsEditable = False
+        Me.OlvColumn8.IsVisible = False
         Me.OlvColumn8.Text = "Grupė"
         Me.OlvColumn8.ToolTipText = ""
         Me.OlvColumn8.Width = 200
@@ -240,6 +246,20 @@ Partial Friend Class F_AssetSelectionList
         Me.OlvColumn10.Text = "Kiekis"
         Me.OlvColumn10.ToolTipText = ""
         Me.OlvColumn10.Width = 50
+        '
+        'OlvColumn1
+        '
+        Me.OlvColumn1.AspectName = "AfterValuePerUnit"
+        Me.OlvColumn1.AspectToStringFormat = "{0:##,0.0000}"
+        Me.OlvColumn1.Text = "Vnt. Balansinė Vertė"
+        Me.OlvColumn1.Width = 78
+        '
+        'OlvColumn11
+        '
+        Me.OlvColumn11.AspectName = "AfterValue"
+        Me.OlvColumn11.AspectToStringFormat = "{0:##,0.00}"
+        Me.OlvColumn11.Text = "Viso Balansinė Vertė"
+        Me.OlvColumn11.Width = 77
         '
         'ProgressFiller1
         '
@@ -288,4 +308,6 @@ Partial Friend Class F_AssetSelectionList
     Friend WithEvents OlvColumn9 As BrightIdeasSoftware.OLVColumn
     Friend WithEvents OlvColumn10 As BrightIdeasSoftware.OLVColumn
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
+    Friend WithEvents OlvColumn1 As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents OlvColumn11 As BrightIdeasSoftware.OLVColumn
 End Class

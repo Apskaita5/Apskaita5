@@ -6841,6 +6841,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Bendros amortizacijos sąnaudų sąskaitos nustatyti neleidžiama, nes dalies operacijų finansinių duomenų keisti neleidžiama:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationAmortization_SetCommonAccountCostsInvalidForChildItems() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationAmortization_SetCommonAccountCostsInvalidForChildItems", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Bendros amortizacijos sąnaudų sąskaitos nustatyti neleidžiama, nes viso dokumento finansinių duomenų keisti neleidžiama:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Assets_ComplexOperationAmortization_SetCommonAccountCostsInvalidForDocument() As String
+            Get
+                Return ResourceManager.GetString("Assets_ComplexOperationAmortization_SetCommonAccountCostsInvalidForDocument", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to kompleksinis ilgalaikio turto amortizacijos paskaičiavimo dokumentas.
         '''</summary>
         Friend ReadOnly Property Assets_ComplexOperationAmortization_ToString() As String
