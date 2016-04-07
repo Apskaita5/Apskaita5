@@ -161,6 +161,14 @@ Namespace CachedInfoLists
                     DirectCast(nFilterCriteria(2), Boolean), _
                     DirectCast(nFilterCriteria(3), Boolean))
 
+            ElseIf cachedItemBaseType Is GetType(VatDeclarationSchemaInfoList) Then
+
+                result = VatDeclarationSchemaInfoList.GetCachedFilteredList( _
+                    DirectCast(nFilterCriteria(0), Boolean), _
+                    DirectCast(nFilterCriteria(1), Boolean), _
+                    DirectCast(nFilterCriteria(2), Boolean), _
+                    DirectCast(nFilterCriteria(3), Boolean))
+
             ElseIf CachedItemBaseType Is GetType(DocumentSerialInfoList) Then
 
                 result = DocumentSerialInfoList.GetCachedFilteredList( _

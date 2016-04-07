@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FFData Version="1" CreatedByApp="ABBYY eFormFiller 2.5 v6 (build 190)" CreatedByLogin="Administrator" CreatedOn="2011-03-01">
+<Form FormDefId="{DFDCC8EC-FFAB-4AA2-92E3-E20980272B19}" FormLocation="c:\documents and settings\administrator\desktop\fr0600_v02.mxfd">
+<DocumentPages>
+<Group Name="Visa forma">
+<ListPages>
+<ListPage>FR0600</ListPage>
+</ListPages>
+</Group>
+</DocumentPages>
+<Pages Count="1">
+<Page PageDefName="FR0600" PageNumber="1">
+<Fields Count="40">
+<Field Name="B_MM_Pavad"></Field>
+<Field Name="B_MM_ID"></Field>
+<Field Name="LT"></Field>
+<Field Name="B_MM_PVM"></Field>
+<Field Name="B_MM_Adresas"></Field>
+<Field Name="B_MM_Epastas"></Field>
+<Field Name="B_UzpildData"></Field>
+<Field Name="B_ML_DataNuo"></Field>
+<Field Name="B_ML_DataIki"></Field>
+<Field Name="E10"></Field>
+<Field Name="E11"></Field>
+<Field Name="E12"></Field>
+<Field Name="E13"></Field>
+<Field Name="E14"></Field>
+<Field Name="E15"></Field>
+<Field Name="E16"></Field>
+<Field Name="E17"></Field>
+<Field Name="E18"></Field>
+<Field Name="E19"></Field>
+<Field Name="E20"></Field>
+<Field Name="E21"></Field>
+<Field Name="E22"></Field>
+<Field Name="E23"></Field>
+<Field Name="E24"></Field>
+<Field Name="E25"></Field>
+<Field Name="E26"></Field>
+<Field Name="E27"></Field>
+<Field Name="E28"></Field>
+<Field Name="E29"></Field>
+<Field Name="E30"></Field>
+<Field Name="E31"></Field>
+<Field Name="E32"></Field>
+<Field Name="E33"></Field>
+<Field Name="E34"></Field>
+<Field Name="E35"></Field>
+<Field Name="E36"></Field>
+<Field Name="B_FormNr"></Field>
+<Field Name="B_FormVerNr"></Field>
+<Field Name="E8">1</Field>
+<Field Name="E9">1</Field>
+</Fields>
+</Page>
+</Pages>
+</Form>
+</FFData>

@@ -52,12 +52,15 @@ Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Releas
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\SAM-v04.ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\SAM-v05.ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\13-SD-v05.ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\FR0600(2).ffdata"; DestDir: "{app}\FFData"; Flags: onlyifdoesntexist
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\FR0572(4).mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\FR0573(4).mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\SAM-v03.mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\SAM-v04.mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\SAM-v05.mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\13-SD-v05.mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\FR0600(2).mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
+
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\CommonSettings.xmls"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 

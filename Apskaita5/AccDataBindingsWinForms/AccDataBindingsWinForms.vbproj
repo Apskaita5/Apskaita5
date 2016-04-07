@@ -57,6 +57,10 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AccControls, Version=1.0.5486.29043, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Apskaita5\AccControls.dll</HintPath>
+    </Reference>
     <Reference Include="AccWebCrawler, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\AccWebCrawler\AccWebCrawler\bin\Release\AccWebCrawler.dll</HintPath>
@@ -87,6 +91,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -346,6 +351,12 @@
     <Compile Include="CachedInfoLists\TemplateJournalEntryInfoListControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="CachedInfoLists\VatDeclarationSchemaInfoListControl.Designer.vb">
+      <DependentUpon>VatDeclarationSchemaInfoListControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CachedInfoLists\VatDeclarationSchemaInfoListControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="CachedInfoLists\WarehouseInfoListControl.Designer.vb">
       <DependentUpon>WarehouseInfoListControl.vb</DependentUpon>
     </Compile>
@@ -469,6 +480,18 @@
       <DependentUpon>F_TillSpendingsOrder.vb</DependentUpon>
     </Compile>
     <Compile Include="Documents\F_TillSpendingsOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documents\F_VatDeclarationSchema.Designer.vb">
+      <DependentUpon>F_VatDeclarationSchema.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Documents\F_VatDeclarationSchema.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documents\F_VatDeclarationSchemaInfoItemList.Designer.vb">
+      <DependentUpon>F_VatDeclarationSchemaInfoItemList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Documents\F_VatDeclarationSchemaInfoItemList.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Documents\ImportedBankOperation.vb" />
@@ -779,6 +802,12 @@
     <Compile Include="Printing\WageSheetItem.vb" />
     <Compile Include="Settings\LocalSettings.vb" />
     <Compile Include="Settings\SettingsPersistenceObject.vb" />
+    <Compile Include="Templates.Designer.vb">
+      <DependentUpon>Templates.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Templates.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TypeItem.vb" />
     <Compile Include="Utilities\F_CurrencyRateChangeImpactCalculator.Designer.vb">
       <DependentUpon>F_CurrencyRateChangeImpactCalculator.vb</DependentUpon>
@@ -1022,6 +1051,9 @@
     <EmbeddedResource Include="CachedInfoLists\TemplateJournalEntryInfoListControl.resx">
       <DependentUpon>TemplateJournalEntryInfoListControl.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CachedInfoLists\VatDeclarationSchemaInfoListControl.resx">
+      <DependentUpon>VatDeclarationSchemaInfoListControl.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CachedInfoLists\WarehouseInfoListControl.resx">
       <DependentUpon>WarehouseInfoListControl.vb</DependentUpon>
     </EmbeddedResource>
@@ -1081,6 +1113,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Documents\F_TillSpendingsOrder.resx">
       <DependentUpon>F_TillSpendingsOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Documents\F_VatDeclarationSchema.resx">
+      <DependentUpon>F_VatDeclarationSchema.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Documents\F_VatDeclarationSchemaInfoItemList.resx">
+      <DependentUpon>F_VatDeclarationSchemaInfoItemList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="General\F_AccountList.resx">
       <DependentUpon>F_AccountList.vb</DependentUpon>
@@ -1228,6 +1266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Printing\F_SendObjToEmail.resx">
       <DependentUpon>F_SendObjToEmail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Templates.resx">
+      <DependentUpon>Templates.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utilities\F_CurrencyRateChangeImpactCalculator.resx">
       <DependentUpon>F_CurrencyRateChangeImpactCalculator.vb</DependentUpon>
@@ -1528,9 +1569,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.LongTermAssetInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.VatDeclarationSchemaInfoItemList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Documents.BankOperationItemList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.InvoiceReceived.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.VatDeclarationSchema.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.General.Company.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.CashAccountInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.ServiceInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.VatDeclarationSchemaInfoList.datasource" />
     <None Include="Resources\Web_Database_icon_48p.png" />
   </ItemGroup>
   <ItemGroup>

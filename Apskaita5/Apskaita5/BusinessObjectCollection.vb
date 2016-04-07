@@ -6,7 +6,7 @@
 ''' </summary>
 ''' <typeparam name="T">A type of business objects in the collection.</typeparam>
 ''' <remarks>Business objects must implement a public static method "CanGetObject"
-''' and a nonpublic static method "GetObjectTypeNameOnServer" in order for 
+''' and a nonpublic static method "GetObjectTypeNameChild" in order for 
 ''' the collection to be able to fetch them.</remarks>
 <Serializable()> _
 Public Class BusinessObjectCollection(Of T)

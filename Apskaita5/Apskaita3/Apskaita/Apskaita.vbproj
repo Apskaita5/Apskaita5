@@ -121,6 +121,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\NetOffice 1.5.1.2 [RC]\NetOffice.dll</HintPath>
     </Reference>
+    <Reference Include="ObjectListView, Version=2.9.0.38611, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ObjectListView\ObjectListView\bin\Release\ObjectListView.dll</HintPath>
+    </Reference>
     <Reference Include="OfficeApi, Version=1.5.1.2, Culture=neutral, PublicKeyToken=0e3d40a252277b73, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\NetOffice 1.5.1.2 [RC]\OfficeApi.dll</HintPath>
@@ -523,6 +527,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="Reports\R_Declaration_FR0600_2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -660,6 +667,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="FFData\SAM-v05.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\FR0600%282%29.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\FR0600%282%29.mxfd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="My Project\DataSources\AccControlsWinForms.ReportData.datasource" />
@@ -907,6 +920,7 @@
     <None Include="Resources\usersadd32.png" />
     <None Include="Resources\booksadd32.png" />
     <None Include="Resources\refresh32.png" />
+    <None Include="Resources\searchIcon_16x16.png" />
     <Content Include="sqlite3.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

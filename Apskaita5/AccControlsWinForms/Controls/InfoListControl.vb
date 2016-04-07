@@ -107,6 +107,7 @@ Public Class InfoListControl
                     If value = baseDataListView.GetItem(i - 1).RowObject Then
                         baseDataListView.SelectObject(baseDataListView. _
                             GetItem(i - 1).RowObject, True)
+                        baseDataListView.EnsureVisible(i - 1)
                         Exit For
                     End If
                 Catch ex As Exception
@@ -114,6 +115,7 @@ Public Class InfoListControl
                         If value.Equals(baseDataListView.GetItem(i - 1).RowObject) Then
                             baseDataListView.SelectObject(baseDataListView. _
                             GetItem(i - 1).RowObject, True)
+                            baseDataListView.EnsureVisible(i - 1)
                             Exit For
                         End If
                     Catch f As Exception
@@ -121,6 +123,7 @@ Public Class InfoListControl
                             If value Is baseDataListView.GetItem(i - 1).RowObject Then
                                 baseDataListView.SelectObject(baseDataListView. _
                                 GetItem(i - 1).RowObject, True)
+                                baseDataListView.EnsureVisible(i - 1)
                                 Exit For
                             End If
                         Catch e As Exception
@@ -144,6 +147,7 @@ Public Class InfoListControl
                 If value = currentValue Then
                     baseDataListView.SelectObject(baseDataListView. _
                         GetItem(i - 1).RowObject, True)
+                    baseDataListView.EnsureVisible(i - 1)
                     Exit For
                 End If
 

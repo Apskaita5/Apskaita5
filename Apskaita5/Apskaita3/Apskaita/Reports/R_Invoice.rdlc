@@ -826,7 +826,7 @@
         <ZIndex>11</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>0.25in</Height>
-        <Value>="Suma su PVM: " &amp; First(Fields!Column22.Value, "ReportData_TableGeneral")</Value>
+        <Value>="Suma" &amp; IIF(First(Fields!Column4.Value, "ReportData_TableCompany")&lt;&gt;"", " su PVM: ",": ") &amp; First(Fields!Column22.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
       <Image Name="image2">
         <Sizing>FitProportional</Sizing>

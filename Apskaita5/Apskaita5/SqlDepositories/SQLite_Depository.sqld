@@ -7,12 +7,12 @@
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>CompanyInsert</Key>
-    <Statement>INSERT INTO Imone(I_Kodas, I_Pavadinimas, I_PVM_kodas, I_Mail, I_Vadas, I_SD, HeadPersonSignature, NumbersInInvoice, AddDateToInvoiceNumber, DefaultInvoiceMadeContent, DefaultInvoiceReceivedContent, AccountClassPrefix11, AccountClassPrefix12, AccountClassPrefix21, AccountClassPrefix22, AccountClassPrefix31, AccountClassPrefix32, AccountClassPrefix41, AccountClassPrefix42, AccountClassPrefix51, AccountClassPrefix52, AccountClassPrefix61, AccountClassPrefix62, DefaultTaxNpdFormula, I_Adresas, I_Banko_sask, I_Bankas, BankSWIFT, BankAddress, I_Koordinates, InvoiceInfoLine, MeasureUnitInvoiceMade, MeasureUnitInvoiceReceived, DiscountName, HeadTitle, AddDateToTillIncomeOrderNumber, AddDateToTillSpendingsOrderNumber, BaseCurrency, Accountant, Cashier) VALUES($AA, $AB, $AC, $AD, $AE, $AF, $AG, $AH, $AI, $AJ, $AK, $AL, $AM, $AN, $AO, $AQ, $AP, $AR, $AT, $AU, $AV, $AZ, $AW, $BA, $BB, $BC, $BD, $BE, $BF, $BG, $BH, $BI, $BJ, $BK, $BL, $BM, $BN, $BO, $BQ, $BP);</Statement>
+    <Statement>INSERT INTO Imone(I_Kodas, I_Pavadinimas, I_PVM_kodas, I_Mail, I_Vadas, I_SD, HeadPersonSignature, NumbersInInvoice, AddDateToInvoiceNumber, DefaultInvoiceMadeContent, DefaultInvoiceReceivedContent, AccountClassPrefix11, AccountClassPrefix12, AccountClassPrefix21, AccountClassPrefix22, AccountClassPrefix31, AccountClassPrefix32, AccountClassPrefix41, AccountClassPrefix42, AccountClassPrefix51, AccountClassPrefix52, AccountClassPrefix61, AccountClassPrefix62, DefaultTaxNpdFormula, I_Adresas, I_Banko_sask, I_Bankas, BankSWIFT, BankAddress, I_Koordinates, InvoiceInfoLine, MeasureUnitInvoiceMade, MeasureUnitInvoiceReceived, DiscountName, HeadTitle, AddDateToTillIncomeOrderNumber, AddDateToTillSpendingsOrderNumber, BaseCurrency, Accountant, Cashier, UseVatDeclarationSchemas) VALUES($AA, $AB, $AC, $AD, $AE, $AF, $AG, $AH, $AI, $AJ, $AK, $AL, $AM, $AN, $AO, $AQ, $AP, $AR, $AT, $AU, $AV, $AZ, $AW, $BA, $BB, $BC, $BD, $BE, $BF, $BG, $BH, $BI, $BJ, $BK, $BL, $BM, $BN, $BO, $BQ, $BP, $BR);</Statement>
     <Objects>General.Company</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>CompanyUpdate</Key>
-    <Statement>UPDATE Imone SET I_Kodas=$AA, I_Pavadinimas=$AB, I_PVM_kodas=$AC, I_Mail=$AD, I_Vadas=$AE, I_SD=$AF, HeadPersonSignature=$AG, NumbersInInvoice=$AH, AddDateToInvoiceNumber=$AI, DefaultInvoiceMadeContent=$AJ, DefaultInvoiceReceivedContent=$AK, AccountClassPrefix11=$AL, AccountClassPrefix12=$AM, AccountClassPrefix21=$AN, AccountClassPrefix22=$AO, AccountClassPrefix31=$AQ, AccountClassPrefix32=$AP, AccountClassPrefix41=$AR, AccountClassPrefix42=$AT, AccountClassPrefix51=$AU, AccountClassPrefix52=$AV, AccountClassPrefix61=$AZ, AccountClassPrefix62=$AW, DefaultTaxNpdFormula=$BA, MeasureUnitInvoiceReceived=$BJ, AddDateToTillIncomeOrderNumber=$BM, AddDateToTillSpendingsOrderNumber=$BN, Accountant=$BQ, Cashier=$BP;</Statement>
+    <Statement>UPDATE Imone SET I_Kodas=$AA, I_Pavadinimas=$AB, I_PVM_kodas=$AC, I_Mail=$AD, I_Vadas=$AE, I_SD=$AF, HeadPersonSignature=$AG, NumbersInInvoice=$AH, AddDateToInvoiceNumber=$AI, DefaultInvoiceMadeContent=$AJ, DefaultInvoiceReceivedContent=$AK, AccountClassPrefix11=$AL, AccountClassPrefix12=$AM, AccountClassPrefix21=$AN, AccountClassPrefix22=$AO, AccountClassPrefix31=$AQ, AccountClassPrefix32=$AP, AccountClassPrefix41=$AR, AccountClassPrefix42=$AT, AccountClassPrefix51=$AU, AccountClassPrefix52=$AV, AccountClassPrefix61=$AZ, AccountClassPrefix62=$AW, DefaultTaxNpdFormula=$BA, MeasureUnitInvoiceReceived=$BJ, AddDateToTillIncomeOrderNumber=$BM, AddDateToTillSpendingsOrderNumber=$BN, Accountant=$BQ, Cashier=$BP, UseVatDeclarationSchemas=$BR;</Statement>
     <Objects>General.Company</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -235,7 +235,7 @@
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>CompanyFetch</Key>
-    <Statement>SELECT C.I_Kodas, C.I_Pavadinimas, C.I_PVM_kodas, C.I_Mail, C.I_Vadas, C.I_SD, C.HeadPersonSignature, C.NumbersInInvoice, C.AddDateToInvoiceNumber, C.DefaultInvoiceMadeContent, C.DefaultInvoiceReceivedContent, C.AccountClassPrefix11, C.AccountClassPrefix12, C.AccountClassPrefix21, C.AccountClassPrefix22, C.AccountClassPrefix31, C.AccountClassPrefix32, C.AccountClassPrefix41, C.AccountClassPrefix42, C.AccountClassPrefix51, C.AccountClassPrefix52, C.AccountClassPrefix61, C.AccountClassPrefix62, C.DefaultTaxNpdFormula, C.MeasureUnitInvoiceReceived, C.AddDateToTillIncomeOrderNumber, C.AddDateToTillSpendingsOrderNumber, C.BaseCurrency, C.Accountant, C.Cashier FROM Imone C;</Statement>
+    <Statement>SELECT C.I_Kodas, C.I_Pavadinimas, C.I_PVM_kodas, C.I_Mail, C.I_Vadas, C.I_SD, C.HeadPersonSignature, C.NumbersInInvoice, C.AddDateToInvoiceNumber, C.DefaultInvoiceMadeContent, C.DefaultInvoiceReceivedContent, C.AccountClassPrefix11, C.AccountClassPrefix12, C.AccountClassPrefix21, C.AccountClassPrefix22, C.AccountClassPrefix31, C.AccountClassPrefix32, C.AccountClassPrefix41, C.AccountClassPrefix42, C.AccountClassPrefix51, C.AccountClassPrefix52, C.AccountClassPrefix61, C.AccountClassPrefix62, C.DefaultTaxNpdFormula, C.MeasureUnitInvoiceReceived, C.AddDateToTillIncomeOrderNumber, C.AddDateToTillSpendingsOrderNumber, C.BaseCurrency, C.Accountant, C.Cashier, C.UseVatDeclarationSchemas FROM Imone C;</Statement>
     <Objects>General.Company</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -960,7 +960,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchCompanyInfo</Key>
-    <Statement>SELECT C.I_Kodas, C.I_Pavadinimas, C.I_PVM_kodas, C.I_Mail, C.I_Vadas, C.I_SD, C.NumbersInInvoice, C.AddDateToInvoiceNumber, C.DefaultInvoiceMadeContent, C.DefaultInvoiceReceivedContent, C.AccountClassPrefix11, C.AccountClassPrefix12, C.AccountClassPrefix21, C.AccountClassPrefix22, C.AccountClassPrefix31, C.AccountClassPrefix32, C.AccountClassPrefix41, C.AccountClassPrefix42, C.AccountClassPrefix51, C.AccountClassPrefix52, C.AccountClassPrefix61, C.AccountClassPrefix62, C.DefaultTaxNpdFormula, C.MeasureUnitInvoiceReceived, C.MeasureUnitInvoiceMade, C.I_Adresas, C.I_Bankas, C.I_Banko_sask, C.AddDateToTillIncomeOrderNumber, C.AddDateToTillSpendingsOrderNumber, C.BaseCurrency, C.Accountant, C.Cashier, (SELECT MAX(b.Op_data) FROM bz b WHERE b.Op_dok_rusis='uz' OR b.Op_dok_rusis='lik') FROM Imone C;</Statement>
+    <Statement>SELECT C.I_Kodas, C.I_Pavadinimas, C.I_PVM_kodas, C.I_Mail, C.I_Vadas, C.I_SD, C.NumbersInInvoice, C.AddDateToInvoiceNumber, C.DefaultInvoiceMadeContent, C.DefaultInvoiceReceivedContent, C.AccountClassPrefix11, C.AccountClassPrefix12, C.AccountClassPrefix21, C.AccountClassPrefix22, C.AccountClassPrefix31, C.AccountClassPrefix32, C.AccountClassPrefix41, C.AccountClassPrefix42, C.AccountClassPrefix51, C.AccountClassPrefix52, C.AccountClassPrefix61, C.AccountClassPrefix62, C.DefaultTaxNpdFormula, C.MeasureUnitInvoiceReceived, C.MeasureUnitInvoiceMade, C.I_Adresas, C.I_Bankas, C.I_Banko_sask, C.AddDateToTillIncomeOrderNumber, C.AddDateToTillSpendingsOrderNumber, C.BaseCurrency, C.Accountant, C.Cashier, C.UseVatDeclarationSchemas, (SELECT MAX(b.Op_data) FROM bz b WHERE b.Op_dok_rusis='uz' OR b.Op_dok_rusis='lik') FROM Imone C;</Statement>
     <Objects>Settings.CompanyInfo</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -1135,12 +1135,12 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>InsertInvoiceMadeItem</Key>
-    <Statement>INSERT INTO sfd(SF_ID,  Rusis,  P_ID,  Preke,  NameAltLng, Kiekis,  Kaina,  SumOriginal,  Tar,  SumVatOriginal,  UnitValueLTL,  SumLTL,  SumVatLTL, Discount,  DiscountLTL,  DiscountVat,  DiscountVatLTL, Vnt, MeasureUnitAltLng, P_Sas, A_Sas, AccountDiscount, IncludeVatInObject, VatIsVirtual) VALUES($AB, $AC, $AD, $AE, $AF, $AG, $AH, $AI, $AJ, $AK, $AL, $AM, $AN, $AO, $AQ, $AP, $AR, $AT, $AU, $AV, $AW, $BA, $BB, $BC);</Statement>
+    <Statement>INSERT INTO sfd(SF_ID,  Rusis,  P_ID,  Preke,  NameAltLng, Kiekis,  Kaina,  SumOriginal,  Tar,  SumVatOriginal,  UnitValueLTL,  SumLTL,  SumVatLTL, Discount,  DiscountLTL,  DiscountVat,  DiscountVatLTL, Vnt, MeasureUnitAltLng, P_Sas, A_Sas, AccountDiscount, IncludeVatInObject, VatIsVirtual, DeclarationSchemaID) VALUES($AB, $AC, $AD, $AE, $AF, $AG, $AH, $AI, $AJ, $AK, $AL, $AM, $AN, $AO, $AQ, $AP, $AR, $AT, $AU, $AV, $AW, $BA, $BB, $BC, $BD);</Statement>
     <Objects>Documents.InvoiceMadeItem</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>UpdateInvoiceMadeItem</Key>
-    <Statement>UPDATE sfd SET Preke=$AE, NameAltLng=$AF, Kiekis=$AG, Kaina=$AH, SumOriginal=$AI, Tar=$AJ, SumVatOriginal=$AK, UnitValueLTL=$AL, SumLTL=$AM, SumVatLTL=$AN, Discount=$AO, DiscountLTL=$AQ, DiscountVat=$AP, DiscountVatLTL=$AR, Vnt=$AT, MeasureUnitAltLng=$AU, P_Sas=$AV, A_Sas=$AW, AccountDiscount=$BA, IncludeVatInObject=$BB, VatIsVirtual=$BC WHERE ID=$MD ;</Statement>
+    <Statement>UPDATE sfd SET Preke=$AE, NameAltLng=$AF, Kiekis=$AG, Kaina=$AH, SumOriginal=$AI, Tar=$AJ, SumVatOriginal=$AK, UnitValueLTL=$AL, SumLTL=$AM, SumVatLTL=$AN, Discount=$AO, DiscountLTL=$AQ, DiscountVat=$AP, DiscountVatLTL=$AR, Vnt=$AT, MeasureUnitAltLng=$AU, P_Sas=$AV, A_Sas=$AW, AccountDiscount=$BA, IncludeVatInObject=$BB, VatIsVirtual=$BC, DeclarationSchemaID=$BD WHERE ID=$MD ;</Statement>
     <Objects>Documents.InvoiceMadeItem</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -1150,7 +1150,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchInvoiceMadeItemList</Key>
-    <Statement>SELECT O.ID, O.Preke, O.NameAltLng, O.Kiekis, O.Kaina, O.SumOriginal, O.Tar, O.SumVatOriginal, O.UnitValueLTL, O.SumLTL, O.SumVatLTL, O.Discount, O.DiscountLTL, O.DiscountVat, O.DiscountVatLTL, O.Rusis, O.P_ID, O.Vnt, O.MeasureUnitAltLng, O.P_Sas, O.A_Sas, O.AccountDiscount, O.IncludeVatInObject, O.VatIsVirtual FROM sfd O WHERE O.SF_ID=$MD GROUP BY O.ID;</Statement>
+    <Statement>SELECT O.ID, O.Preke, O.NameAltLng, O.Kiekis, O.Kaina, O.SumOriginal, O.Tar, O.SumVatOriginal, O.UnitValueLTL, O.SumLTL, O.SumVatLTL, O.Discount, O.DiscountLTL, O.DiscountVat, O.DiscountVatLTL, O.Rusis, O.P_ID, O.Vnt, O.MeasureUnitAltLng, O.P_Sas, O.A_Sas, O.AccountDiscount, O.IncludeVatInObject, O.VatIsVirtual, V.ID, V.Name, V.Description, V.VatRate, V.IsObsolete, V.TradedType, V.ExternalCode FROM sfd O LEFT JOIN VatDeclarationSchemas V ON V.ID=O.DeclarationSchemaID WHERE O.SF_ID=$MD GROUP BY O.ID;</Statement>
     <Objects>Documents.InvoiceMadeItemList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -1180,12 +1180,12 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>InsertInvoiceReceivedItem</Key>
-    <Statement>INSERT INTO sfg(BZ_ID,  Rus,  P_ID,  Preke,  Vnt,  V_KN,  V_KK,  Tarif,  PVM_S,  Sanaud,  SumOriginal,  SumVatOriginal,  UnitValueLTL,  SumLTL,  SumVatLTL, IncludeVatInObject) VALUES($AA, $AB, $AC, $AD, $AE, $AF, $AG, $AH, $AI, $AJ, $AK, $AL, $AM, $AN, $AO, $AQ);</Statement>
+    <Statement>INSERT INTO sfg(BZ_ID,  Rus,  P_ID,  Preke,  Vnt,  V_KN,  V_KK,  Tarif,  PVM_S,  Sanaud,  SumOriginal,  SumVatOriginal,  UnitValueLTL,  SumLTL,  SumVatLTL, IncludeVatInObject, DeclarationSchemaID) VALUES($AA, $AB, $AC, $AD, $AE, $AF, $AG, $AH, $AI, $AJ, $AK, $AL, $AM, $AN, $AO, $AQ, $AP);</Statement>
     <Objects>Documents.InvoiceReceivedItem</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>UpdateInvoiceReceivedItem</Key>
-    <Statement>UPDATE sfg SET Preke=$AD, Vnt=$AE, V_KN=$AF, V_KK=$AG, Tarif=$AH, PVM_S=$AI, Sanaud=$AJ, SumOriginal=$AK, SumVatOriginal=$AL, UnitValueLTL=$AM, SumLTL=$AN, SumVatLTL=$AO, IncludeVatInObject=$AQ WHERE ID=$MD ;</Statement>
+    <Statement>UPDATE sfg SET Preke=$AD, Vnt=$AE, V_KN=$AF, V_KK=$AG, Tarif=$AH, PVM_S=$AI, Sanaud=$AJ, SumOriginal=$AK, SumVatOriginal=$AL, UnitValueLTL=$AM, SumLTL=$AN, SumVatLTL=$AO, IncludeVatInObject=$AQ, DeclarationSchemaID=$AP WHERE ID=$MD ;</Statement>
     <Objects>Documents.InvoiceReceivedItem</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -1195,22 +1195,22 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchInvoiceReceivedItemList</Key>
-    <Statement>SELECT I.ID, I.Preke, I.V_KK, I.UnitValueLTL, I.SumLTL, I.Tarif, I.SumVatLTL, I.V_KN, I.SumOriginal, I.SumVatOriginal, I.Vnt, I.Rus, I.P_ID, I.PVM_S, I.Sanaud, I.IncludeVatInObject FROM sfg I WHERE I.BZ_ID=$MD GROUP BY I.ID;</Statement>
+    <Statement>SELECT I.ID, I.Preke, I.V_KK, I.UnitValueLTL, I.SumLTL, I.Tarif, I.SumVatLTL, I.V_KN, I.SumOriginal, I.SumVatOriginal, I.Vnt, I.Rus, I.P_ID, I.PVM_S, I.Sanaud, I.IncludeVatInObject, V.ID, V.Name, V.Description, V.VatRate, V.IsObsolete, V.TradedType, V.ExternalCode FROM sfg I LEFT JOIN VatDeclarationSchemas V ON V.ID=I.DeclarationSchemaID WHERE I.BZ_ID=$MD GROUP BY I.ID;</Statement>
     <Objects>Documents.InvoiceReceivedItemList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchInvoiceReceived</Key>
-    <Statement>SELECT b.Op_data, b.Op_Dok, b.Op_turinys, I.CurrencyCode, I.CurrencyRate, I.CommentsInternal, I.AccountSupplier, I.InvoiceType, I.InsertDate, I.UpdateDate, I.ExternalID, I.IndirectVatSum, I.IndirectVatAccount, I.IndirectVatCostsAccount, I.ActualDate, a.ID, a.Pavad, a.Kodas, a.Adresas, a.SP_kodas, a.B_Sask, a.Bank, a.B_Kor, a.B_Kor_Tiek, a.E_Mail, a.SD_kodas, a.ContactInfo, a.InternalCode, a.IsObsolete, a.IsNaturalPerson, a.LanguageCode, a.CurrencyCode, a.IsClient, a.IsSupplier, a.IsWorker FROM bz b LEFT JOIN invoicesreceived I ON I.ID=b.Op_ID LEFT JOIN asmenys a ON a.ID=b.Op_analitika WHERE I.ID=$MD GROUP BY b.Op_ID;</Statement>
+    <Statement>SELECT b.Op_data, b.Op_Dok, b.Op_turinys, I.CurrencyCode, I.CurrencyRate, I.CommentsInternal, I.AccountSupplier, I.InvoiceType, I.InsertDate, I.UpdateDate, I.ExternalID, I.IndirectVatSum, I.IndirectVatAccount, I.IndirectVatCostsAccount, I.ActualDate, a.ID, a.Pavad, a.Kodas, a.Adresas, a.SP_kodas, a.B_Sask, a.Bank, a.B_Kor, a.B_Kor_Tiek, a.E_Mail, a.SD_kodas, a.ContactInfo, a.InternalCode, a.IsObsolete, a.IsNaturalPerson, a.LanguageCode, a.CurrencyCode, a.IsClient, a.IsSupplier, a.IsWorker, V.ID, V.Name, V.Description, V.VatRate, V.IsObsolete, V.TradedType, V.ExternalCode FROM bz b LEFT JOIN invoicesreceived I ON I.ID=b.Op_ID LEFT JOIN asmenys a ON a.ID=b.Op_analitika LEFT JOIN VatDeclarationSchemas V ON V.ID=I.DeclarationSchemaID WHERE I.ID=$MD GROUP BY b.Op_ID;</Statement>
     <Objects>Documents.InvoiceReceived</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>InsertInvoiceReceived</Key>
-    <Statement>INSERT INTO invoicesreceived(ID,  CurrencyCode,  CurrencyRate,  CommentsInternal,  AccountSupplier, InvoiceType, ExternalID, InsertDate, UpdateDate, IndirectVatSum, IndirectVatAccount, IndirectVatCostsAccount, ActualDate) VALUES($AA, $AB, $AC, $AD, $AE, $AF, $AG, $AH, $AH, $AI, $AJ, $AK, $AL);</Statement>
+    <Statement>INSERT INTO invoicesreceived(ID,  CurrencyCode,  CurrencyRate,  CommentsInternal,  AccountSupplier, InvoiceType, ExternalID, InsertDate, UpdateDate, IndirectVatSum, IndirectVatAccount, IndirectVatCostsAccount, ActualDate, DeclarationSchemaID) VALUES($AA, $AB, $AC, $AD, $AE, $AF, $AG, $AH, $AH, $AI, $AJ, $AK, $AL, $AM);</Statement>
     <Objects>Documents.InvoiceReceived</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>UpdateInvoiceReceived</Key>
-    <Statement>UPDATE invoicesreceived SET CurrencyCode=$AB, CurrencyRate=$AC, CommentsInternal=$AD, AccountSupplier=$AE, InvoiceType=$AF, ExternalID=$AG, UpdateDate=$AH, IndirectVatSum=$AI, IndirectVatAccount=$AJ, IndirectVatCostsAccount=$AK, ActualDate=$AL WHERE ID=$AA ;</Statement>
+    <Statement>UPDATE invoicesreceived SET CurrencyCode=$AB, CurrencyRate=$AC, CommentsInternal=$AD, AccountSupplier=$AE, InvoiceType=$AF, ExternalID=$AG, UpdateDate=$AH, IndirectVatSum=$AI, IndirectVatAccount=$AJ, IndirectVatCostsAccount=$AK, ActualDate=$AL, DeclarationSchemaID=$AM WHERE ID=$AA ;</Statement>
     <Objects>Documents.InvoiceReceived</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -1430,17 +1430,17 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchAdvanceReportItemList</Key>
-    <Statement>SELECT R.ID, R.Dt, R.DocNr, R.Aprasas, R.Tipas, R.Suma, R.PVMTarifas, R.SumVat, R.SumLTL, R.SumVatLTL, R.CurrencyRateChangeEffect, R.AccountCurrencyRateChangeEffect, R.Sask, R.PVMSask, R.SG, IFNULL(M.ID, N.ID) AS InvoiceID, IFNULL(M.AccountPayer, N.AccountSupplier) AS InvoiceAccount, IFNULL(Q.Op_turinys, W.Op_turinys) AS InvoiceContent, (CASE WHEN NOT M.ID IS NULL THEN 1 ELSE 0 END) AS IsInvoiceMade, IFNULL(Q.Op_data, W.Op_data) AS InvoiceDate, IFNULL(Q.Op_Dok, W.Op_Dok) AS InvoiceNumber, IFNULL(M.CurrencyCode, N.CurrencyCode) AS InvoiceCurrency, IFNULL(M.CurrencyRate, N.CurrencyRate) AS InvoiceCurrencyRate, IFNULL(SUM(S.SumOriginal), SUM(T.SumOriginal)) AS InvoiceSum, IFNULL(SUM(S.SumVatOriginal), SUM(T.SumVatOriginal)) AS InvoiceSumVat, IFNULL(SUM(S.SumLTL), SUM(T.SumLTL)) AS InvoiceSumLTL, IFNULL(SUM(S.SumVatLTL), SUM(T.SumVatLTL)) AS InvoiceSumVatLTL, a.ID, a.Pavad, a.Kodas, a.Adresas, a.SP_kodas, a.B_Sask, a.Bank, a.B_Kor, a.B_Kor_Tiek, a.E_Mail, a.SD_kodas, a.ContactInfo, a.InternalCode, a.IsObsolete, a.IsNaturalPerson, a.LanguageCode, a.CurrencyCode, a.IsClient, a.IsSupplier, a.IsWorker, c.ID, c.Pavad, c.Kodas, c.Adresas, c.SP_kodas, c.B_Sask, c.Bank, c.B_Kor, c.B_Kor_Tiek, c.E_Mail, c.SD_kodas, c.ContactInfo, c.InternalCode, c.IsObsolete, c.IsNaturalPerson, c.LanguageCode, c.CurrencyCode, c.IsClient, c.IsSupplier, c.IsWorker FROM Apyskaitos R LEFT JOIN InvoicesMade M ON M.ID=R.SG LEFT JOIN InvoicesReceived N ON N.ID=R.SG LEFT JOIN SFD S ON S.SF_ID=M.ID LEFT JOIN SFG T ON T.BZ_ID=N.ID LEFT JOIN BZ Q ON Q.Op_ID=M.ID LEFT JOIN BZ W ON W.Op_ID=N.ID LEFT JOIN asmenys a ON a.ID=R.Analit LEFT JOIN asmenys c ON c.ID=Q.Op_analitika OR (Q.Op_analitika IS NULL AND c.ID=W.Op_analitika) WHERE R.BZ_ID=$CD GROUP BY R.ID;</Statement>
+    <Statement>SELECT R.ID, R.Dt, R.DocNr, R.Aprasas, R.Tipas, R.Suma, R.PVMTarifas, R.SumVat, R.SumLTL, R.SumVatLTL, R.CurrencyRateChangeEffect, R.AccountCurrencyRateChangeEffect, R.Sask, R.PVMSask, R.SG, IFNULL(M.ID, N.ID) AS InvoiceID, IFNULL(M.AccountPayer, N.AccountSupplier) AS InvoiceAccount, IFNULL(Q.Op_turinys, W.Op_turinys) AS InvoiceContent, (CASE WHEN NOT M.ID IS NULL THEN 1 ELSE 0 END) AS IsInvoiceMade, IFNULL(Q.Op_data, W.Op_data) AS InvoiceDate, IFNULL(Q.Op_Dok, W.Op_Dok) AS InvoiceNumber, IFNULL(M.CurrencyCode, N.CurrencyCode) AS InvoiceCurrency, IFNULL(M.CurrencyRate, N.CurrencyRate) AS InvoiceCurrencyRate, IFNULL(SUM(S.SumOriginal), SUM(T.SumOriginal)) AS InvoiceSum, IFNULL(SUM(S.SumVatOriginal), SUM(T.SumVatOriginal)) AS InvoiceSumVat, IFNULL(SUM(S.SumLTL), SUM(T.SumLTL)) AS InvoiceSumLTL, IFNULL(SUM(S.SumVatLTL), SUM(T.SumVatLTL)) AS InvoiceSumVatLTL, a.ID, a.Pavad, a.Kodas, a.Adresas, a.SP_kodas, a.B_Sask, a.Bank, a.B_Kor, a.B_Kor_Tiek, a.E_Mail, a.SD_kodas, a.ContactInfo, a.InternalCode, a.IsObsolete, a.IsNaturalPerson, a.LanguageCode, a.CurrencyCode, a.IsClient, a.IsSupplier, a.IsWorker, c.ID, c.Pavad, c.Kodas, c.Adresas, c.SP_kodas, c.B_Sask, c.Bank, c.B_Kor, c.B_Kor_Tiek, c.E_Mail, c.SD_kodas, c.ContactInfo, c.InternalCode, c.IsObsolete, c.IsNaturalPerson, c.LanguageCode, c.CurrencyCode, c.IsClient, c.IsSupplier, c.IsWorker, V.ID, V.Name, V.Description, V.VatRate, V.IsObsolete, V.TradedType, V.ExternalCode FROM Apyskaitos R LEFT JOIN InvoicesMade M ON M.ID=R.SG LEFT JOIN InvoicesReceived N ON N.ID=R.SG LEFT JOIN SFD S ON S.SF_ID=M.ID LEFT JOIN SFG T ON T.BZ_ID=N.ID LEFT JOIN BZ Q ON Q.Op_ID=M.ID LEFT JOIN BZ W ON W.Op_ID=N.ID LEFT JOIN asmenys a ON a.ID=R.Analit LEFT JOIN asmenys c ON c.ID=Q.Op_analitika OR (Q.Op_analitika IS NULL AND c.ID=W.Op_analitika) LEFT JOIN VatDeclarationSchemas V ON V.ID=R.DeclarationSchemaID WHERE R.BZ_ID=$CD GROUP BY R.ID;</Statement>
     <Objects>Documents.AdvanceReport</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>InsertAdvanceReportItem</Key>
-    <Statement>INSERT INTO Apyskaitos(BZ_ID, DocNr, Aprasas, Tipas, Suma, PVMTarifas, SumVat, SumLTL, SumVatLTL, SG, Dt, Analit, Sask, PVMSask, CurrencyRateChangeEffect, AccountCurrencyRateChangeEffect) VALUES($AA, $AB, $AC, $AD, $AE, $AF, $AG, $AH, $AI, $AJ, $AK, $AL, $AM, $AN, $AO, $AP);</Statement>
+    <Statement>INSERT INTO Apyskaitos(BZ_ID, DocNr, Aprasas, Tipas, Suma, PVMTarifas, SumVat, SumLTL, SumVatLTL, SG, Dt, Analit, Sask, PVMSask, CurrencyRateChangeEffect, AccountCurrencyRateChangeEffect, DeclarationSchemaID) VALUES($AA, $AB, $AC, $AD, $AE, $AF, $AG, $AH, $AI, $AJ, $AK, $AL, $AM, $AN, $AO, $AP, $AQ);</Statement>
     <Objects>Documents.AdvanceReportItem</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>UpdateAdvanceReportItem</Key>
-    <Statement>UPDATE Apyskaitos SET DocNr=$AB, Aprasas=$AC, Tipas=$AD, Suma=$AE, PVMTarifas=$AF, SumVat=$AG, SumLTL=$AH, SumVatLTL=$AI, Dt=$AK, Analit=$AL, Sask=$AM, PVMSask=$AN, CurrencyRateChangeEffect=$AO, AccountCurrencyRateChangeEffect=$AP WHERE ID=$CD ;</Statement>
+    <Statement>UPDATE Apyskaitos SET DocNr=$AB, Aprasas=$AC, Tipas=$AD, Suma=$AE, PVMTarifas=$AF, SumVat=$AG, SumLTL=$AH, SumVatLTL=$AI, Dt=$AK, Analit=$AL, Sask=$AM, PVMSask=$AN, CurrencyRateChangeEffect=$AO, AccountCurrencyRateChangeEffect=$AP, DeclarationSchemaID=$AQ WHERE ID=$CD ;</Statement>
     <Objects>Documents.AdvanceReportItem</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3337,5 +3337,75 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
     <Key>FetchLongTermAssetOperationIdByJournalEntryId</Key>
     <Statement>SELECT t.ID FROM turtas_op t WHERE t.JE_ID=$JD ;</Statement>
     <Objects>Assets.OperationPersistenceObject</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchVatDeclarationEntryList</Key>
+    <Statement>SELECT V.ID, V.FieldCode, V.InclusionPercentage, V.IsVatField, V.MinusValue, V.Remarks FROM VatDeclarationEntrys V WHERE V.ParentID=$CD ;</Statement>
+    <Objects>Documents.VatDeclarationEntryList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>InsertVatDeclarationEntry</Key>
+    <Statement>INSERT INTO VatDeclarationEntrys(ParentID, FieldCode, InclusionPercentage, IsVatField, Remarks, MinusValue) VALUES($CD, $AA, $AB, $AC, $AD, $AE);</Statement>
+    <Objects>Documents.VatDeclarationEntry</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>UpdateVatDeclarationEntry</Key>
+    <Statement>UPDATE VatDeclarationEntrys SET FieldCode=$AA, InclusionPercentage=$AB, IsVatField=$AC, Remarks=$AD, MinusValue=$AE WHERE ID=$CD ;</Statement>
+    <Objects>Documents.VatDeclarationEntry</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>DeleteVatDeclarationEntry</Key>
+    <Statement>DELETE FROM VatDeclarationEntrys WHERE VatDeclarationEntrys.ID=$CD ;</Statement>
+    <Objects>Documents.VatDeclarationEntry</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>DeleteVatDeclarationEntryList</Key>
+    <Statement>DELETE FROM VatDeclarationEntrys WHERE VatDeclarationEntrys.ParentID=$CD ;</Statement>
+    <Objects>Documents.VatDeclarationSchema</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>CheckIfVatDeclarationSchemaUpdateDateChanged</Key>
+    <Statement>SELECT V.UpdateDate FROM VatDeclarationSchemas V WHERE V.ID=$CD</Statement>
+    <Objects>Documents.VatDeclarationSchema</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchVatDeclarationSchema</Key>
+    <Statement>SELECT V.ID, V.Name, V.Description, V.VatRate, V.IsObsolete, V.TradedType, V.ExternalCode, V.InsertDate, V.UpdateDate FROM VatDeclarationSchemas V WHERE V.ID=$CD</Statement>
+    <Objects>Documents.VatDeclarationSchema</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>InsertVatDeclarationSchema</Key>
+    <Statement>INSERT INTO VatDeclarationSchemas(Name, Description, VatRate, IsObsolete, TradedType, ExternalCode, InsertDate, UpdateDate) VALUES($AA, $AB, $AC, $AD, $AE, $AF, $AG, $AG);</Statement>
+    <Objects>Documents.VatDeclarationSchema</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>UpdateVatDeclarationSchema</Key>
+    <Statement>UPDATE VatDeclarationSchemas SET Name=$AA, Description=$AB, VatRate=$AC, IsObsolete=$AD, TradedType=$AE, ExternalCode=$AF, UpdateDate=$AG WHERE ID=$CD ;</Statement>
+    <Objects>Documents.VatDeclarationSchema</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>DeleteVatDeclarationSchema</Key>
+    <Statement>DELETE FROM VatDeclarationSchemas WHERE VatDeclarationSchemas.ID=$CD ;</Statement>
+    <Objects>Documents.VatDeclarationSchema</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchVatDeclarationSchemaInfoList</Key>
+    <Statement>SELECT V.ID, V.Name, V.Description, V.VatRate, V.IsObsolete, V.TradedType, V.ExternalCode FROM VatDeclarationSchemas V ORDER BY V.Name;</Statement>
+    <Objects>HelperLists.VatDeclarationSchemaInfoList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchVatDeclarationSchemaInfoItemList</Key>
+    <Statement>SELECT V.ID, V.Name, V.Description, V.VatRate, V.IsObsolete, V.TradedType, V.ExternalCode FROM VatDeclarationSchemas V ORDER BY V.Name;</Statement>
+    <Objects>ActiveReports.VatDeclarationSchemaInfoItemList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>CheckIfVatDeclarationSchemaWasUsed</Key>
+    <Statement>SELECT b.Op_data, b.Op_Dok FROM (SELECT a.BZ_ID AS BZID FROM apyskaitos a WHERE a.DeclarationSchemaID=$CD UNION SELECT r.ID AS BZID FROM invoicesreceived r WHERE r.DeclarationSchemaID=$CD UNION SELECT g.BZ_ID AS BZID FROM sfg g WHERE g.DeclarationSchemaID=$CD UNION SELECT d.SF_ID AS BZID FROM sfd d WHERE d.DeclarationSchemaID=$CD ORDER BY BZID DESC LIMIT 1) AS l LEFT JOIN bz b ON b.Op_ID=l.BZID;</Statement>
+    <Objects>Documents.VatDeclarationSchema</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchDeclarationFR0600_2</Key>
+    <Statement>SELECT l.FieldCode, SUM(l.FieldValue) FROM (SELECT e.FieldCode AS FieldCode, CROUND((CASE WHEN e.IsVatField &gt; 0 THEN d.SumVatLTL ELSE d.SumLTL END) * (CASE WHEN e.MinusValue &gt; 0 THEN -1 ELSE 1 END) * e.InclusionPercentage / 100, 2) AS FieldValue FROM bz b LEFT JOIN sfd d ON d.SF_ID=b.Op_ID LEFT JOIN VatDeclarationEntrys e ON e.ParentID=d.DeclarationSchemaID WHERE d.DeclarationSchemaID &gt; 0 AND b.Op_Data &gt;= $DF AND b.Op_Data &lt;= $DT UNION SELECT e.FieldCode AS FieldCode, CROUND((CASE WHEN e.IsVatField &gt; 0 THEN d.SumVatLTL ELSE d.SumLTL END) * (CASE WHEN e.MinusValue &gt; 0 THEN -1 ELSE 1 END) * e.InclusionPercentage / 100, 2) AS FieldValue FROM bz b LEFT JOIN sfg d ON d.BZ_ID=b.Op_ID LEFT JOIN VatDeclarationEntrys e ON e.ParentID=d.DeclarationSchemaID WHERE d.DeclarationSchemaID &gt; 0 AND b.Op_Data &gt;= $DF AND b.Op_Data &lt;= $DT UNION SELECT e.FieldCode AS FieldCode, CROUND((CASE WHEN e.IsVatField &gt; 0 THEN i.IndirectVatSum ELSE 0 END) * (CASE WHEN e.MinusValue &gt; 0 THEN -1 ELSE 1 END) * e.InclusionPercentage / 100, 2) AS FieldValue FROM bz b LEFT JOIN InvoicesReceived i ON i.ID=b.Op_ID LEFT JOIN VatDeclarationEntrys e ON e.ParentID=i.DeclarationSchemaID WHERE i.DeclarationSchemaID &gt; 0 AND b.Op_Data &gt;= $DF AND b.Op_Data &lt;= $DT UNION SELECT e.FieldCode AS FieldCode, CROUND((CASE WHEN e.IsVatField &gt; 0 THEN d.SumVatLTL ELSE d.SumLTL END) * (CASE WHEN e.MinusValue &gt; 0 THEN -1 ELSE 1 END) * e.InclusionPercentage / 100, 2) AS FieldValue FROM bz b LEFT JOIN apyskaitos d ON d.BZ_ID=b.Op_ID LEFT JOIN VatDeclarationEntrys e ON e.ParentID=d.DeclarationSchemaID WHERE d.DeclarationSchemaID &gt; 0 AND NOT d.SG&gt;0 AND b.Op_Data &gt;= $DF AND b.Op_Data &lt;= $DT) AS l GROUP BY l.FieldCode;</Statement>
+    <Objects>ActiveReports.DeclarationFR0600_2</Objects>
   </MySQL_Statement>
 </NewDataSet>

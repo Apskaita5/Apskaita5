@@ -82,6 +82,7 @@ Public Module CommonMethods
         _BusinessObjectsViews.Add(GetType(HelperLists.IndirectRelationInfoList), GetType(F_IndirectRelationInfoList))
         _BusinessObjectsViews.Add(GetType(HelperLists.TemplateJournalEntryInfoList), GetType(F_TemplateJournalEntryInfoList))
         _BusinessObjectsViews.Add(GetType(ActiveReports.ServiceInfoItemList), GetType(F_ServiceInfoList))
+        _BusinessObjectsViews.Add(GetType(ActiveReports.VatDeclarationSchemaInfoItemList), GetType(F_VatDeclarationSchemaInfoItemList))
         _BusinessObjectsViews.Add(GetType(ApskaitaObjects.Settings.DocumentSerialList), GetType(F_DocumentSerialList))
         _BusinessObjectsViews.Add(GetType(ApskaitaObjects.Settings.CommonSettings), GetType(F_GeneralSettings))
         _BusinessObjectsViews.Add(GetType(Workers.ImprestSheet), GetType(F_ImprestSheet))
@@ -104,6 +105,7 @@ Public Module CommonMethods
         _BusinessObjectsViews.Add(GetType(Documents.Service), GetType(F_Service))
         _BusinessObjectsViews.Add(GetType(Documents.TillIncomeOrder), GetType(F_TillIncomeOrder))
         _BusinessObjectsViews.Add(GetType(Documents.TillSpendingsOrder), GetType(F_TillSpendingsOrder))
+        _BusinessObjectsViews.Add(GetType(Documents.VatDeclarationSchema), GetType(F_VatDeclarationSchema))
         _BusinessObjectsViews.Add(GetType(Goods.GoodsComplexOperationDiscard), GetType(F_GoodsComplexOperationDiscard))
         _BusinessObjectsViews.Add(GetType(Goods.GoodsComplexOperationInternalTransfer), GetType(F_GoodsComplexOperationInternalTransfer))
         _BusinessObjectsViews.Add(GetType(Goods.GoodsComplexOperationInventorization), GetType(F_GoodsComplexOperationInventorization))
@@ -749,6 +751,7 @@ Public Module CommonMethods
         _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationSD13_1)
         _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationSD13_2)
         _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationSD13_5)
+        _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationFR0600_2)
 
     End Sub
 

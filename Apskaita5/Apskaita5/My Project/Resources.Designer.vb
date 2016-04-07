@@ -5437,6 +5437,114 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to aprašymas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSchemaInfoItem_Description() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSchemaInfoItem_Description", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to išorinis kodas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSchemaInfoItem_ExternalCode() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSchemaInfoItem_ExternalCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSchemaInfoItem_ID() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSchemaInfoItem_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to istorinė.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSchemaInfoItem_IsObsolete() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSchemaInfoItem_IsObsolete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSchemaInfoItem_Name() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSchemaInfoItem_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSchemaInfoItem_ToString() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSchemaInfoItem_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to apyvartos tipas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSchemaInfoItem_TradedType() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSchemaInfoItem_TradedType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to apyvartos tipas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSchemaInfoItem_TradedTypeHumanReadable() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSchemaInfoItem_TradedTypeHumanReadable", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaravimo schemų ataskaitos eilutė.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSchemaInfoItem_TypeName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSchemaInfoItem_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM tarifas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSchemaInfoItem_VatRate() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSchemaInfoItem_VatRate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaravimo schemų ataskaita.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSchemaInfoItemList_ToString() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSchemaInfoItemList_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaravimo schemų ataskaita.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSchemaInfoItemList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSchemaInfoItemList_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to priskaičiuota garant. fondo.
         '''</summary>
         Friend ReadOnly Property ActiveReports_WageSheetInfo_ContributionsGuaranteeFund() As String
@@ -15018,6 +15126,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Metodas SaveChild gali būti naudojamas tik child objektams..
+        '''</summary>
+        Friend ReadOnly Property Common_InvalidSaveChild() As String
+            Get
+                Return ResourceManager.GetString("Common_InvalidSaveChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Nurodytas kalbos kodas {0} neatinka nė vieno kalbos kodo pgl. ISO 639-1 standartą..
         '''</summary>
         Friend ReadOnly Property Common_LanguageCodeInvalid() As String
@@ -15891,6 +16008,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to PVM deklaravimo schema.
+        '''</summary>
+        Friend ReadOnly Property Documents_AdvanceReportItem_DeclarationSchema() As String
+            Get
+                Return ResourceManager.GetString("Documents_AdvanceReportItem_DeclarationSchema", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Priskirta PVM deklaravimo schema, nors PVM tarifas lygus nuliui..
+        '''</summary>
+        Friend ReadOnly Property Documents_AdvanceReportItem_DeclarationSchemaWithoutVat() As String
+            Get
+                Return ResourceManager.GetString("Documents_AdvanceReportItem_DeclarationSchemaWithoutVat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to dok. Nr..
         '''</summary>
         Friend ReadOnly Property Documents_AdvanceReportItem_DocumentNumber() As String
@@ -16382,6 +16517,15 @@ Namespace My.Resources
         Friend ReadOnly Property Documents_AdvanceReportItem_VatRateIsReadOnly() As String
             Get
                 Return ResourceManager.GetString("Documents_AdvanceReportItem_VatRateIsReadOnly", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nustatytas PVM tarifas ({0} %) nesutampa su pasirinktos PVM deklaravimo schemos tarifu ({1} %)..
+        '''</summary>
+        Friend ReadOnly Property Documents_AdvanceReportItem_VatRateMismatch() As String
+            Get
+                Return ResourceManager.GetString("Documents_AdvanceReportItem_VatRateMismatch", resourceCulture)
             End Get
         End Property
         
@@ -17651,6 +17795,61 @@ Namespace My.Resources
         Friend ReadOnly Property Documents_CashAccountType_Till() As String
             Get
                 Return ResourceManager.GetString("Documents_CashAccountType_Till", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko deserializuoti PVM deklaravimo schemų duomenų: {0}.
+        '''</summary>
+        Friend ReadOnly Property Documents_CommandImportVatDeclarationSchemas_FailedToDeserializeXmlData() As String
+            Get
+                Return ResourceManager.GetString("Documents_CommandImportVatDeclarationSchemas_FailedToDeserializeXmlData", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Dėl nežinomų priežasčių nepavyko deserializuoti PVM deklaravimo schemų duomenų..
+        '''</summary>
+        Friend ReadOnly Property Documents_CommandImportVatDeclarationSchemas_FailedToDeserializeXmlDataForUnkownReason() As String
+            Get
+                Return ResourceManager.GetString("Documents_CommandImportVatDeclarationSchemas_FailedToDeserializeXmlDataForUnkownR"& _ 
+                        "eason", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nepavyko importuoti nė vienos PVM deklaravimo schemos, klaidos duomenyse:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Documents_CommandImportVatDeclarationSchemas_FailureMessage() As String
+            Get
+                Return ResourceManager.GetString("Documents_CommandImportVatDeclarationSchemas_FailureMessage", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Sėkmingai importuota {0} PVM deklaravimo schemų..
+        '''</summary>
+        Friend ReadOnly Property Documents_CommandImportVatDeclarationSchemas_SuccessMessage() As String
+            Get
+                Return ResourceManager.GetString("Documents_CommandImportVatDeclarationSchemas_SuccessMessage", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Sėkmingai importuota {0} PVM deklaravimo schemų iš {1}. Importuojamuose duomenyse yra šios klaidos:{2}{3}.
+        '''</summary>
+        Friend ReadOnly Property Documents_CommandImportVatDeclarationSchemas_WarningMessage() As String
+            Get
+                Return ResourceManager.GetString("Documents_CommandImportVatDeclarationSchemas_WarningMessage", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodyti importuotini duomenys..
+        '''</summary>
+        Friend ReadOnly Property Documents_CommandImportVatDeclarationSchemas_XmlProxiesNull() As String
+            Get
+                Return ResourceManager.GetString("Documents_CommandImportVatDeclarationSchemas_XmlProxiesNull", resourceCulture)
             End Get
         End Property
         
@@ -19472,6 +19671,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to PVM deklaravimo schema.
+        '''</summary>
+        Friend ReadOnly Property Documents_InvoiceMadeItem_DeclarationSchema() As String
+            Get
+                Return ResourceManager.GetString("Documents_InvoiceMadeItem_DeclarationSchema", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to nuolaida.
         '''</summary>
         Friend ReadOnly Property Documents_InvoiceMadeItem_Discount() As String
@@ -20003,6 +20211,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Nustatytas PVM tarifas ({0} %) nesutampa su pasirinktos PVM deklaravimo schemos tarifu ({1} %)..
+        '''</summary>
+        Friend ReadOnly Property Documents_InvoiceMadeItem_VatRateMismatch() As String
+            Get
+                Return ResourceManager.GetString("Documents_InvoiceMadeItem_VatRateMismatch", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to tiekėjo sąskaita.
         '''</summary>
         Friend ReadOnly Property Documents_InvoiceReceived_AccountSupplier() As String
@@ -20188,6 +20405,15 @@ Namespace My.Resources
         Friend ReadOnly Property Documents_InvoiceReceived_IndirectVatCostsAccountIsReadOnly() As String
             Get
                 Return ResourceManager.GetString("Documents_InvoiceReceived_IndirectVatCostsAccountIsReadOnly", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaravimo schema.
+        '''</summary>
+        Friend ReadOnly Property Documents_InvoiceReceived_IndirectVatDeclarationSchema() As String
+            Get
+                Return ResourceManager.GetString("Documents_InvoiceReceived_IndirectVatDeclarationSchema", resourceCulture)
             End Get
         End Property
         
@@ -20476,6 +20702,15 @@ Namespace My.Resources
         Friend ReadOnly Property Documents_InvoiceReceivedItem_CanBeCopied() As String
             Get
                 Return ResourceManager.GetString("Documents_InvoiceReceivedItem_CanBeCopied", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaravimo schema.
+        '''</summary>
+        Friend ReadOnly Property Documents_InvoiceReceivedItem_DeclarationSchema() As String
+            Get
+                Return ResourceManager.GetString("Documents_InvoiceReceivedItem_DeclarationSchema", resourceCulture)
             End Get
         End Property
         
@@ -20791,6 +21026,15 @@ Namespace My.Resources
         Friend ReadOnly Property Documents_InvoiceReceivedItem_VatRateIsReadOnly() As String
             Get
                 Return ResourceManager.GetString("Documents_InvoiceReceivedItem_VatRateIsReadOnly", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nustatytas PVM tarifas ({0} %) nesutampa su pasirinktos PVM deklaravimo schemos tarifu ({1} %)..
+        '''</summary>
+        Friend ReadOnly Property Documents_InvoiceReceivedItem_VatRateMismatch() As String
+            Get
+                Return ResourceManager.GetString("Documents_InvoiceReceivedItem_VatRateMismatch", resourceCulture)
             End Get
         End Property
         
@@ -22384,6 +22628,213 @@ Namespace My.Resources
         Friend ReadOnly Property Documents_TradedItemType_Sales() As String
             Get
                 Return ResourceManager.GetString("Documents_TradedItemType_Sales", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to deklaracijos laukelio kodas.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationEntry_FieldCode() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationEntry_FieldCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationEntry_ID() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationEntry_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įskaitymo procentas.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationEntry_InclusionPercentage() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationEntry_InclusionPercentage", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įtraukti PVM sumą.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationEntry_IsVatField() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationEntry_IsVatField", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to minusuoti.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationEntry_MinusValue() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationEntry_MinusValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pastabos.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationEntry_Remarks() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationEntry_Remarks", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vertė deklaracijos laukelyje &quot;{0}&quot;.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationEntry_ToString() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationEntry_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vertė deklaracijos laukelyje.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationEntry_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationEntry_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Ši PVM deklaravimo schema yra priskirta vienai ar daugiau sąskaitų faktūrų (pvz., {0} Nr. {1}), jos pašalinti neleidžiama. .
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_CannotDelete() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_CannotDelete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vertės deklaracijos laukeliuose.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_DeclarationEntries() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_DeclarationEntries", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to aprašymas.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_Description() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_Description", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Neįvestas priskyrimas nei vienai deklaracijos eilutei..
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_EntriesEmpty() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_EntriesEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to išorinis kodas.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_ExternalCode() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_ExternalCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_ID() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įtraukta.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_InsertDate() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_InsertDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to istorinė.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_IsObsolete() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_IsObsolete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_Name() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_ToString() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to apyvartos tipas.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_TradedType() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_TradedType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to apyvartos tipas.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_TradedTypeHumanReadable() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_TradedTypeHumanReadable", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaravimo schema.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pakeista.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_UpdateDate() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_UpdateDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM tarifas.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_VatRate() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_VatRate", resourceCulture)
             End Get
         End Property
         
@@ -35341,6 +35792,114 @@ Namespace My.Resources
         Friend ReadOnly Property HelperLists_TemplateJournalEntryInfo_Name() As String
             Get
                 Return ResourceManager.GetString("HelperLists_TemplateJournalEntryInfo_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to aprašymas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_VatDeclarationSchemaInfo_Description() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_VatDeclarationSchemaInfo_Description", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to išorinis kodas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_VatDeclarationSchemaInfo_ExternalCode() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_VatDeclarationSchemaInfo_ExternalCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_VatDeclarationSchemaInfo_ID() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_VatDeclarationSchemaInfo_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to istorinė.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_VatDeclarationSchemaInfo_IsObsolete() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_VatDeclarationSchemaInfo_IsObsolete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_VatDeclarationSchemaInfo_Name() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_VatDeclarationSchemaInfo_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} % {1}.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_VatDeclarationSchemaInfo_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_VatDeclarationSchemaInfo_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to apyvartos tipas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_VatDeclarationSchemaInfo_TradedType() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_VatDeclarationSchemaInfo_TradedType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to apyvartos tipas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_VatDeclarationSchemaInfo_TradedTypeHumanReadable() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_VatDeclarationSchemaInfo_TradedTypeHumanReadable", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaravimo schema.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_VatDeclarationSchemaInfo_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_VatDeclarationSchemaInfo_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM tarifas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_VatDeclarationSchemaInfo_VatRate() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_VatDeclarationSchemaInfo_VatRate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaravimo schemos.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_VatDeclarationSchemaInfoList_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_VatDeclarationSchemaInfoList_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaravimo schemos.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_VatDeclarationSchemaInfoList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_VatDeclarationSchemaInfoList_TypeName", resourceCulture)
             End Get
         End Property
         

@@ -372,6 +372,23 @@ Namespace CachedInfoLists
 
         End Sub
 
+        Public Sub LoadVatDeclarationSchemaInfoListToListCombo(ByVal comboObject As AccListComboBox, _
+            ByVal addEmptyItem As Boolean, ByVal showSales As Boolean, _
+            ByVal showPurchases As Boolean)
+
+            If comboObject.HasAttachedInfoList Then Exit Sub
+
+            Dim result As New VatDeclarationSchemaInfoListControl
+
+            result.DataSource = GetBindingSourceForCachedList(Of VatDeclarationSchemaInfoList) _
+                (addEmptyItem, showSales, showPurchases, True)
+            result.AcceptSingleClick = True
+            comboObject.AddDataListView(result)
+
+            AddHandler comboObject.Disposed, AddressOf ComboControl_Disposed
+
+        End Sub
+
         Public Sub LoadWarehouseInfoListToListCombo(ByVal comboObject As AccListComboBox, _
                                                     ByVal addEmptyItem As Boolean)
 
