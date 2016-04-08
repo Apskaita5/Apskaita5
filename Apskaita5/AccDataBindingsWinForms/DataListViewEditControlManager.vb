@@ -290,7 +290,8 @@ Public Class DataListViewEditControlManager(Of T)
         listView.HotTracking = False
         listView.UseHotControls = False
 
-        If listView.CellEditActivation <> ObjectListView.CellEditActivateMode.None Then
+        If listView.CellEditActivation <> ObjectListView.CellEditActivateMode.None _
+            AndAlso Not _ItemAddHandler Is Nothing Then
 
             Dim textOverlay As TextOverlay = listView.EmptyListMsgOverlay
             textOverlay.Text = "Norėdami pridėti eilutę paspauskite + arba Insert mygtuką."
@@ -302,6 +303,80 @@ Public Class DataListViewEditControlManager(Of T)
             textOverlay.Rotation = -5
 
         End If
+
+        Dim printMenuItem As New ToolStripMenuItem("Spausdinti lentelę", Nothing, _
+            AddressOf PrintTableMenuItem_Clicked)
+        Dim aggregatesMenuItem As New ToolStripMenuItem("Rodyti agreguotas sumas", Nothing, _
+            AddressOf ShowAggregatesMenuItem_Clicked)
+        Dim exportMenuItem As New ToolStripMenuItem("Eksportuoti")
+        exportMenuItem.DropDownItems.Add(OlvExport.OLVExporterExcel.GetToolStripItem(AddressOf ExportMenuItem_Clicked))
+        exportMenuItem.DropDownItems.Add(OlvExport.OLVExporterClipboard.GetToolStripItem(AddressOf ExportMenuItem_Clicked))
+        exportMenuItem.DropDownItems.Add(OlvExport.OLVExporterCsv.GetToolStripItem(AddressOf ExportMenuItem_Clicked))
+        exportMenuItem.DropDownItems.Add(OlvExport.OLVExporterHtml.GetToolStripItem(AddressOf ExportMenuItem_Clicked))
+
+        listView.SetUserMenuItems(New ToolStripItem() {aggregatesMenuItem, printMenuItem, exportMenuItem})
+
+    End Sub
+
+    Private Sub PrintTableMenuItem_Clicked(ByVal sender As Object, ByVal e As EventArgs)
+        Dim frm As New F_OLVPrinter(_CurrentListView)
+        If Not _CurrentListView.FindForm() Is Nothing Then
+            frm.HeaderText = _CurrentListView.FindForm().Text
+        End If
+        MyCustomSettings.SetFormLayout(frm)
+        AddHandler frm.FormClosed, AddressOf Form_Closed
+        OpenForm(frm)
+    End Sub
+
+    Private Sub ExportMenuItem_Clicked(ByVal sender As Object, ByVal e As EventArgs)
+
+        Dim exporter As OlvExport.IOLVExporter = Nothing
+        Try
+            exporter = DirectCast(DirectCast(sender, ToolStripMenuItem).Tag, OlvExport.IOLVExporter)
+        Catch ex As Exception
+        End Try
+        If exporter Is Nothing Then Exit Sub
+
+        exporter.Export(_CurrentListView)
+
+    End Sub
+
+    Private Sub ShowAggregatesMenuItem_Clicked(ByVal sender As Object, ByVal e As EventArgs)
+
+        Dim table As DataTable
+        Try
+            table = DataAggregator.AggregateSumList.GetObjectListViewDataTable(_CurrentListView, GetType(T))
+        Catch ex As Exception
+            ShowError(ex)
+            Exit Sub
+        End Try
+
+        Dim frm As New DataAggregator.F_DataAggregator(table)
+        MyCustomSettings.SetFormLayout(frm)
+        AddHandler frm.FormClosed, AddressOf Form_Closed
+        OpenForm(frm)
+
+    End Sub
+
+    Private Sub Form_Closed(ByVal sender As Object, ByVal e As EventArgs)
+
+        Dim frm As Form = Nothing
+        Try
+            frm = DirectCast(sender, Form)
+        Catch ex As Exception
+        End Try
+        If frm Is Nothing Then Exit Sub
+
+        MyCustomSettings.GetFormLayout(frm)
+
+        Try
+            RemoveHandler frm.FormClosed, AddressOf Form_Closed
+        Catch ex As Exception
+        End Try
+        Try
+            If Not frm.IsDisposed Then frm.Dispose()
+        Catch ex As Exception
+        End Try
 
     End Sub
 

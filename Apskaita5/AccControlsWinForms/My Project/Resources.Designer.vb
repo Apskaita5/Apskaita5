@@ -102,6 +102,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property csv_text() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("csv_text", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property Error_red_16x16() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Error_red_16x16", resourceCulture)
@@ -112,6 +119,13 @@ Namespace My.Resources
         Friend ReadOnly Property error_red_32x32() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("error_red_32x32", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property excel() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("excel", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -228,6 +242,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property Paste_icon_16p() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Paste_icon_16p", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property rtbMessageDefaultModifiers() As System.CodeDom.MemberAttributes
             Get
                 Dim obj As Object = ResourceManager.GetObject("rtbMessageDefaultModifiers", resourceCulture)
@@ -246,6 +267,13 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("rtbMessageModifiers", resourceCulture)
                 Return CType(obj,System.CodeDom.MemberAttributes)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property text_html() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("text_html", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
         

@@ -608,6 +608,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property rekvizitai_logo() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("rekvizitai_logo", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property Warning_yellow_7231_16x16() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Warning_yellow_7231_16x16", resourceCulture)

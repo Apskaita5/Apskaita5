@@ -375,13 +375,6 @@ Namespace My.Resources
             End Get
         End Property
         
-        Friend ReadOnly Property Excel_32x32() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("Excel_32x32", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
         Friend ReadOnly Property filesaveas_16x16() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("filesaveas_16x16", resourceCulture)

@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AccWebCrawler", "AccWebCrawler\AccWebCrawler.vbproj", "{089AC5CD-97A9-445F-9EF4-92A52A73E817}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CrawlerTest", "CrawlerTest\CrawlerTest.vbproj", "{8229F942-4EAD-451C-A706-8F72B90A21E1}"

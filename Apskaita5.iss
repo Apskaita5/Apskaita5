@@ -42,12 +42,9 @@ Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Releas
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Microsoft.ReportViewer.ProcessingObjectModel.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Microsoft.ReportViewer.WinForms.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MySql.Data.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ExcelApi.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\NetOffice.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\OfficeApi.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\VBIDEApi.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\EPPlus.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ListViewPrinter.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\InvoiceInfo.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Microsoft.Office.Interop.Excel.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\sqlite3.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\AccMigration\bin\x86\Release\AccMigration.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\*"; DestDir: "{app}\FFData"; Flags: ignoreversion recursesubdirs createallsubdirs

@@ -1,5 +1,6 @@
 ﻿Imports AccControlsWinForms.MessageBoxExLib
 Imports System.Windows.Forms
+Imports BrightIdeasSoftware
 
 Public Module CommonMethods
 
@@ -149,6 +150,17 @@ Public Module CommonMethods
             .GetEntryAssembly().Location)
     End Function
 
+    ''' <summary>
+    ''' Gets a rounded value of d using Asymmetric Arithmetic Rounding algorithm
+    ''' </summary>
+    Friend Function CRound(ByVal d As Double, ByVal r As Integer) As Double
+        Dim i As Long = CLng(Math.Floor(d * Math.Pow(10, r)))
+        If i + 0.5 > CType(d * Math.Pow(10, r), Decimal) Then
+            Return i / Math.Pow(10, r)
+        Else
+            Return (i + 1) / Math.Pow(10, r)
+        End If
+    End Function
 
     ''' <summary>
     ''' Gets a substring from Tab (CHR9) delimited string.
