@@ -16,6 +16,20 @@
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
+         <PropertyUISetting Name="Date">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                  <BindableControlInfo Name="SmartDateTimePicker" Type="AccControlsWinForms.SmartDateTimePicker" AssemblyName="AccControlsWinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" AssemblyCodeBase="file:///D:/My Documents/My Projects/Apskaita5/AccControlsWinForms/obj/x86/Debug/AccControlsWinForms.dll" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
+         <PropertyUISetting Name="ActualDate">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                  <BindableControlInfo Name="SmartDateTimePicker" Type="AccControlsWinForms.SmartDateTimePicker" AssemblyName="AccControlsWinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" AssemblyCodeBase="file:///D:/My Documents/My Projects/Apskaita5/AccControlsWinForms/obj/x86/Debug/AccControlsWinForms.dll" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
       </PropertyUISettings>
    </TypeUISetting>
 </GenericObjectDataSource>

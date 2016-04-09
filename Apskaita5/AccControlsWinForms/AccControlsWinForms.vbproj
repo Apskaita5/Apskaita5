@@ -137,6 +137,7 @@
     <Compile Include="Controls\InfoListControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Controls\SmartDateTimePicker.vb" />
     <Compile Include="DataAggregator\AggregateFunctionAverage.vb" />
     <Compile Include="DataAggregator\AggregateFunctionCount.vb" />
     <Compile Include="DataAggregator\AggregateFunctionMax.vb" />
