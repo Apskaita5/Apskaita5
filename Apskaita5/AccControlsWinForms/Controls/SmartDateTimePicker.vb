@@ -113,7 +113,7 @@ Public Class SmartDateTimePicker
         End Get
         Set(ByVal value As String)
             ' set the Text property of _mySmartDate
-            SetMyValue(value, True)
+            SetMyValue(value)
         End Set
     End Property
 
@@ -136,7 +136,7 @@ Public Class SmartDateTimePicker
         End Get
         Set(ByVal value As Date)
             ' set the Date property of _mySmartDate
-            SetMyValue(value, True)
+            SetMyValue(value)
         End Set
     End Property
 
@@ -226,7 +226,10 @@ Public Class SmartDateTimePicker
     End Sub
 
     Private Sub DateTimePicker_TextChanged(ByVal sender As Object, ByVal e As EventArgs)
-        SetMyValue(MyBase.Text, False)
+        If MyBase.Value.Date <> _myDateValue.Date Then
+            _myDateValue = MyBase.Value
+        End If
+        UpdateMyTextBox()
     End Sub
 
     Private Sub MyTextBox_Enter(ByVal sender As Object, ByVal e As EventArgs)
@@ -236,7 +239,7 @@ Public Class SmartDateTimePicker
     End Sub
 
     Private Sub MyTextBox_Leave(ByVal sender As Object, ByVal e As EventArgs)
-        SetMyValue(_myDateTextBox.Text, True)
+        SetMyValue(_myDateTextBox.Text)
     End Sub
 
     Private Sub SmartDateTimePicker_Enter(ByVal sender As Object, ByVal e As EventArgs)
@@ -254,28 +257,34 @@ Public Class SmartDateTimePicker
         _myDateTextBox.Focus()
     End Sub
 
-    Private Sub SetMyValue(ByVal text As String, ByVal updateBaseValue As Boolean)
+    Private Sub SetMyValue(ByVal text As String)
         Dim tempdate As Date
-        If Date.TryParseExact(text, New String() {"yyyy-MM-dd", "yyyyMMdd", "yyMMdd"}, _
-            Globalization.CultureInfo.CurrentCulture, DateTimeStyles.None, tempdate) Then
+        Dim currentFormat As String = _customFormat
+        If currentFormat Is Nothing OrElse String.IsNullOrEmpty(currentFormat.Trim) _
+            OrElse currentFormat.Trim.ToLower = "d" Then
+            currentFormat = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern
+        End If
+        If Date.TryParseExact(text, currentFormat, Globalization.CultureInfo.InvariantCulture, _
+            DateTimeStyles.None, tempdate) Then
+            If tempdate.Date <> _myDateValue.Date Then
+                _myDateValue = tempdate
+            End If
+        ElseIf Date.TryParseExact(text, New String() {"yyyy-MM-dd", "yyyyMMdd", "yyMMdd"}, _
+            Globalization.CultureInfo.InvariantCulture, DateTimeStyles.None, tempdate) Then
             If tempdate.Date <> _myDateValue.Date Then
                 _myDateValue = tempdate
             End If
         End If
         UpdateMyTextBox()
-        If updateBaseValue Then
-            SetBaseValue()
-        End If
+        SetBaseValue()
     End Sub
 
-    Private Sub SetMyValue(ByVal value As DateTime, ByVal updateBaseValue As Boolean)
+    Private Sub SetMyValue(ByVal value As DateTime)
         If _myDateValue.Date <> value.Date Then
             _myDateValue = value
         End If
         UpdateMyTextBox()
-        If updateBaseValue Then
-            SetBaseValue()
-        End If
+        SetBaseValue()
     End Sub
 
     Private Sub SetBaseValue()
