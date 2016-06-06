@@ -11,8 +11,8 @@
         Implements IDeclaration
 
         Private Const DECLARATION_NAME As String = "FR0572 v.4"
-        Private Const FILENAMEMXFDFR0572_4 As String = "\MXFD\FR0572(4).mxfd"
-        Private Const FILENAMEFFDATAFR0572_4 As String = "\FFData\FR0572(4).ffdata"
+        Private Const FILENAMEMXFDFR0572_4 As String = "MXFD\FR0572(4).mxfd"
+        Private Const FILENAMEFFDATAFR0572_4 As String = "FFData\FR0572(4).ffdata"
 
 
         ''' <summary>
@@ -271,19 +271,32 @@
             Dim i As Integer
             Dim currentUser As AccDataAccessLayer.Security.AccIdentity = GetCurrentIdentity()
 
+            Dim declarationFilePath As String = IO.Path.Combine(AppPath(), FILENAMEFFDATAFR0572_4)
+            Dim tempPath As String = IO.Path.Combine(AppPath(), "temp.ffdata")
+            Try
+                If IO.File.Exists(tempPath) Then
+                    IO.File.Delete(tempPath)
+                End If
+            Catch ex As Exception
+            End Try
+
             If dds.Tables("Details").Rows.Count < 1 Then
+
                 Dim myDoc As New Xml.XmlDocument
-                myDoc.Load(AppPath() & FILENAMEFFDATAFR0572_4)
+                myDoc.Load(declarationFilePath)
+
                 myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0).ChildNodes(0).RemoveChild( _
                     myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0).ChildNodes(0).ChildNodes(1))
                 myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).RemoveChild( _
                     myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).ChildNodes(1))
                 myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).Attributes(0).Value = "1"
-                myDoc.Save(AppPath() & FILENAMEFFDATATEMP)
+
+                myDoc.Save(tempPath)
 
             ElseIf dds.Tables("Details").Rows.Count > 4 Then
+
                 Dim myDoc As New Xml.XmlDocument
-                myDoc.Load(AppPath() & FILENAMEFFDATAFR0572_4)
+                myDoc.Load(declarationFilePath)
 
                 For i = 1 To Convert.ToInt32(Math.Ceiling(dds.Tables("Details").Rows.Count / 4) - 1)
                     Dim addPg1 As Xml.XmlElement = DirectCast(myDoc.ChildNodes(1).ChildNodes(0). _
@@ -296,23 +309,32 @@
                 Next
                 myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).Attributes(0).Value = _
                     Convert.ToInt32(Math.Ceiling(dds.Tables("Details").Rows.Count / 4) + 1).ToString
-                myDoc.Save(AppPath() & FILENAMEFFDATATEMP)
+
+                myDoc.Save(tempPath)
 
             Else
-                IO.File.Copy(AppPath() & FILENAMEFFDATAFR0572_4, AppPath() & FILENAMEFFDATATEMP)
+                IO.File.Copy(declarationFilePath, tempPath)
             End If
 
             ' read ffdata xml structure to dataset
             Dim formDataSet As New DataSet
-            Using formFileStream As IO.FileStream = New IO.FileStream( _
-                AppPath() & FILENAMEFFDATATEMP, IO.FileMode.Open)
-                formDataSet.ReadXml(formFileStream)
-                formFileStream.Close()
-            End Using
+            Try
+                Using formFileStream As IO.FileStream = New IO.FileStream(tempPath, IO.FileMode.Open)
+                    formDataSet.ReadXml(formFileStream)
+                    formFileStream.Close()
+                End Using
+            Catch ex As Exception
+                Throw New Exception("Failed to prepare ffdata file.", ex)
+            End Try
+
+            Try
+                IO.File.Delete(tempPath)
+            Catch ex As Exception
+            End Try
 
             formDataSet.Tables(0).Rows(0).Item(3) = currentUser.Name
             formDataSet.Tables(0).Rows(0).Item(4) = GetDateInFFDataFormat(Today)
-            formDataSet.Tables(1).Rows(0).Item(2) = AppPath() & FILENAMEMXFDFR0572_4
+            formDataSet.Tables(1).Rows(0).Item(2) = IO.Path.Combine(AppPath(), FILENAMEMXFDFR0572_4)
 
             Dim specificDataRow As DataRow = dds.Tables("Specific").Rows(0)
 
@@ -346,29 +368,23 @@
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
                         CDbl(specificDataRow.Item(7)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E19" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
-                        CDbl(specificDataRow.Item(8)))
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = Convert.ToInt32(CDbl(specificDataRow.Item(8))).ToString()
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E20" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
-                        CDbl(specificDataRow.Item(9)))
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = Convert.ToInt32(CDbl(specificDataRow.Item(9))).ToString()
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E21" Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
                         CDbl(specificDataRow.Item(10)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E22" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
-                        CDbl(specificDataRow.Item(11)))
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = Convert.ToInt32(CDbl(specificDataRow.Item(11))).ToString()
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E23" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
-                        CDbl(specificDataRow.Item(12)))
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = Convert.ToInt32(CDbl(specificDataRow.Item(12))).ToString()
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E24" Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
                         CDbl(specificDataRow.Item(13)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E25" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
-                        CDbl(specificDataRow.Item(14)))
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = Convert.ToInt32(CDbl(specificDataRow.Item(14))).ToString()
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E26" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
-                        CDbl(specificDataRow.Item(15)))
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = Convert.ToInt32(CDbl(specificDataRow.Item(15))).ToString()
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E27" _
                     AndAlso CInt(specificDataRow.Item(2)) = 2009 Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
@@ -381,7 +397,8 @@
             Next
 
             Dim detailsDataTable As DataTable = dds.Tables("Details")
-            Dim pageIncome, pageGPM, pagePSD As Double
+            Dim pageIncome As Double
+            Dim pageGPM, pagePSD As Integer
             Dim p As Integer
             For i = 1 To Convert.ToInt32(Math.Ceiling(detailsDataTable.Rows.Count / 4))
                 pageIncome = 0
@@ -399,7 +416,7 @@
                     formDataSet.Tables(8).Rows(32 + 75 * (i - 1) + 16 * (j - 1)).Item(1) = _
                         GetNumberInFFDataFormat(CDbl(detailsDataTable.Rows(p + j - 1).Item(4)))
                     formDataSet.Tables(8).Rows(35 + 75 * (i - 1) + 16 * (j - 1)).Item(1) = _
-                        GetNumberInFFDataFormat(CDbl(detailsDataTable.Rows(p + j - 1).Item(5)))
+                        Convert.ToInt32(CRound(CDbl(detailsDataTable.Rows(p + j - 1).Item(5)), 0)).ToString()
                     formDataSet.Tables(8).Rows(37 + 75 * (i - 1) + 16 * (j - 1)).Item(1) = _
                         detailsDataTable.Rows(p + j - 1).Item(6)
                     formDataSet.Tables(8).Rows(38 + 75 * (i - 1) + 16 * (j - 1)).Item(1) = _
@@ -407,15 +424,15 @@
                     formDataSet.Tables(8).Rows(43 + 75 * (i - 1) + 16 * (j - 1)).Item(1) = "1"
                     If detailsDataTable.Columns.Count > 8 AndAlso CInt(specificDataRow.Item(2)) = 2009 Then
                         formDataSet.Tables(8).Rows(40 + 75 * (i - 1) + 16 * (j - 1)).Item(1) = _
-                            GetNumberInFFDataFormat(CDbl(detailsDataTable.Rows(p + j - 1).Item(8)))
-                        pagePSD = pagePSD + CDbl(detailsDataTable.Rows(p + j - 1).Item(8))
+                            Convert.ToInt32(CDbl(detailsDataTable.Rows(p + j - 1).Item(8))).ToString()
+                        pagePSD = pagePSD + Convert.ToInt32(CDbl(detailsDataTable.Rows(p + j - 1).Item(8)))
                     End If
                     pageIncome = pageIncome + CRound(CDbl(detailsDataTable.Rows(p + j - 1).Item(4)), 2)
-                    pageGPM = pageGPM + CRound(CDbl(detailsDataTable.Rows(p + j - 1).Item(5)), 0)
+                    pageGPM = pageGPM + Convert.ToInt32(CRound(CDbl(detailsDataTable.Rows(p + j - 1).Item(5)), 0))
                 Next
                 formDataSet.Tables(8).Rows(92 + 75 * (i - 1)).Item(1) = GetNumberInFFDataFormat(pageIncome)
-                formDataSet.Tables(8).Rows(93 + 75 * (i - 1)).Item(1) = GetNumberInFFDataFormat(pageGPM)
-                formDataSet.Tables(8).Rows(94 + 75 * (i - 1)).Item(1) = GetNumberInFFDataFormat(pagePSD)
+                formDataSet.Tables(8).Rows(93 + 75 * (i - 1)).Item(1) = pageGPM.ToString()
+                formDataSet.Tables(8).Rows(94 + 75 * (i - 1)).Item(1) = pagePSD.ToString()
             Next
 
             Return formDataSet

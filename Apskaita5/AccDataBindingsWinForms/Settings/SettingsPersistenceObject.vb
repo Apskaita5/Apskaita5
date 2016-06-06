@@ -57,6 +57,9 @@ Public Class SettingsPersistenceObject
         Private _CheckInvoiceReceivedNumberWithDate As Boolean = False
         Private _CheckInvoiceReceivedNumberWithSupplier As Boolean = False
         Private _EditListViewWithDoubleClick As Boolean = False
+        Private _UseHotTracking As Boolean = True
+        Private _ShowEmptyListMessage As Boolean = True
+        Private _ShowGridLines As Boolean = False
 
 
         ''' <summary>
@@ -696,6 +699,51 @@ Public Class SettingsPersistenceObject
             Set(ByVal value As Boolean)
                 If _EditListViewWithDoubleClick <> value Then
                     _EditListViewWithDoubleClick = value
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
+        ''' Gets or sets whether to use hot item traking in the ObjectListView's. (CPU intensive)
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Property UseHotTracking() As Boolean
+            Get
+                Return _UseHotTracking
+            End Get
+            Set(ByVal value As Boolean)
+                If _UseHotTracking <> value Then
+                    _UseHotTracking = value
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
+        ''' Gets or sets whether to show a default empty list message in the ObjectListView's.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Property ShowEmptyListMessage() As Boolean
+            Get
+                Return _ShowEmptyListMessage
+            End Get
+            Set(ByVal value As Boolean)
+                If _ShowEmptyListMessage <> value Then
+                    _ShowEmptyListMessage = value
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
+        ''' Gets or sets whether to show gridlines in the ObjectListView's.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Property ShowGridLines() As Boolean
+            Get
+                Return _ShowGridLines
+            End Get
+            Set(ByVal value As Boolean)
+                If _ShowGridLines <> value Then
+                    _ShowGridLines = value
                 End If
             End Set
         End Property

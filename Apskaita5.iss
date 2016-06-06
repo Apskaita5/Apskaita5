@@ -6,9 +6,9 @@ AppName=Apskaita5
 AppID=Apskaita5MD
 AppVerName=Apskaita5 v. 2.0
 AppPublisher=Marius Dagys
-AppPublisherURL=http://www.tax.lt/
-AppSupportURL=http://www.tax.lt/
-AppUpdatesURL=http://www.tax.lt/
+AppPublisherURL=https://apskaita5.codeplex.com/
+AppSupportURL=http://www.tax.lt/temos/12748-nemokama-apskaitos-programa
+AppUpdatesURL=https://apskaita5.codeplex.com/
 DefaultDirName={pf}\Apskaita5
 DisableDirPage=yes
 DefaultGroupName=Apskaita5
@@ -31,6 +31,8 @@ Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Releas
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccDataAccessLayer.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccControlsWinForms.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccDataBindingsWinForms.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccPluginManager.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccIPlugin.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ObjectListView.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccWebCrawler.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\HtmlAgilityPack.dll"; DestDir: "{app}"; Flags: ignoreversion

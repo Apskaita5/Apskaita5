@@ -531,6 +531,42 @@ Namespace My
                 Me("EditListViewWithDoubleClick") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property UseHotTracking() As Boolean
+            Get
+                Return CType(Me("UseHotTracking"),Boolean)
+            End Get
+            Set
+                Me("UseHotTracking") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property ShowEmptyListMessage() As Boolean
+            Get
+                Return CType(Me("ShowEmptyListMessage"),Boolean)
+            End Get
+            Set
+                Me("ShowEmptyListMessage") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property ShowGridLines() As Boolean
+            Get
+                Return CType(Me("ShowGridLines"),Boolean)
+            End Get
+            Set
+                Me("ShowGridLines") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

@@ -200,6 +200,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property Apskaita5_LargeLogo() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Apskaita5_LargeLogo", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property bill32() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("bill32", resourceCulture)

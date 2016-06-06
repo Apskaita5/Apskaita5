@@ -195,7 +195,7 @@ Public Class BookEntryInternal
     ''' of the original credit and vice versa. 
     ''' </summary>
     ''' <remarks></remarks>
-    Friend Function GetInvertedEntry() As BookEntryInternal
+    Public Function GetInvertedEntry() As BookEntryInternal
         If _EntryType = BookEntryType.Debetas Then
             Return New BookEntryInternal(BookEntryType.Kreditas, _Account, _Ammount, _Person)
         Else

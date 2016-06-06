@@ -201,15 +201,10 @@
                 preparatorName = ""
             End If
 
-            Dim i As Integer
-
-            IO.File.Copy(IO.Path.Combine(AppPath(), FILENAMEFFDATAFR0600_2), _
-                AppPath() & FILENAMEFFDATATEMP)
-
             ' read ffdata xml structure to dataset
             Dim formDataSet As DataSet
             Using formFileStream As IO.FileStream = New IO.FileStream( _
-                AppPath() & FILENAMEFFDATATEMP, IO.FileMode.Open)
+                IO.Path.Combine(AppPath(), FILENAMEFFDATAFR0600_2), IO.FileMode.Open)
                 formDataSet = New DataSet
                 formDataSet.ReadXml(formFileStream)
                 formFileStream.Close()
@@ -220,7 +215,7 @@
             formDataSet.Tables(1).Rows(0).Item(2) = IO.Path.Combine(AppPath(), FILENAMEMXFDFR0600_2)
 
             Dim dr As DataRow = declarationDataSet.Tables("Specific").Rows(0)
-            For i = 1 To formDataSet.Tables(8).Rows.Count
+            For i As Integer = 1 To formDataSet.Tables(8).Rows.Count
                 For Each col As DataColumn In declarationDataSet.Tables("Specific").Columns
                     If formDataSet.Tables(8).Rows(i - 1).Item(0).ToString.Trim.ToUpper = col.ColumnName.Trim.ToUpper Then
                         If col.DataType Is GetType(Double) Then

@@ -255,17 +255,17 @@
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>JournalEntryFetch</Key>
-    <Statement>SELECT b.Op_data, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, b.InsertDate, b.UpdateDate, a.ID, a.Pavad, a.Kodas, a.Adresas, a.SP_kodas, a.B_Sask, a.Bank, a.B_Kor, a.B_Kor_Tiek, a.E_Mail, a.SD_kodas, a.ContactInfo, a.InternalCode, a.IsObsolete, a.IsNaturalPerson, a.LanguageCode, a.CurrencyCode, a.IsClient, a.IsSupplier, a.IsWorker FROM bz b LEFT JOIN asmenys a ON a.ID=b.Op_analitika WHERE b.Op_ID=$BD GROUP BY b.Op_ID;</Statement>
+    <Statement>SELECT b.Op_data, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, b.PluginDocTypeCode, b.InsertDate, b.UpdateDate, a.ID, a.Pavad, a.Kodas, a.Adresas, a.SP_kodas, a.B_Sask, a.Bank, a.B_Kor, a.B_Kor_Tiek, a.E_Mail, a.SD_kodas, a.ContactInfo, a.InternalCode, a.IsObsolete, a.IsNaturalPerson, a.LanguageCode, a.CurrencyCode, a.IsClient, a.IsSupplier, a.IsWorker FROM bz b LEFT JOIN asmenys a ON a.ID=b.Op_analitika WHERE b.Op_ID=$BD GROUP BY b.Op_ID;</Statement>
     <Objects>General.JournalEntry</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>JournalEntryInsert</Key>
-    <Statement>INSERT INTO bz(Op_data, Op_Dok, Op_turinys, Op_dok_rusis, Op_analitika, Op_korespond, InsertDate, UpdateDate) VALUES($AA, $AB, $AC, $AD, $AE, $AF, $AG, $AG);</Statement>
+    <Statement>INSERT INTO bz(Op_data, Op_Dok, Op_turinys, Op_dok_rusis, Op_analitika, Op_korespond, PluginDocTypeCode, InsertDate, UpdateDate) VALUES($AA, $AB, $AC, $AD, $AE, $AF, $AG, $AH, $AH);</Statement>
     <Objects>General.JournalEntry</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>JournalEntryUpdate</Key>
-    <Statement>UPDATE bz SET Op_data=$AA, Op_Dok=$AB, Op_turinys=$AC, Op_dok_rusis=$AD, Op_analitika=$AE, Op_korespond=$AF, UpdateDate=$AG WHERE Op_ID=$BD ;</Statement>
+    <Statement>UPDATE bz SET Op_data=$AA, Op_Dok=$AB, Op_turinys=$AC, Op_analitika=$AE, Op_korespond=$AF, UpdateDate=$AH WHERE Op_ID=$BD ;</Statement>
     <Objects>General.JournalEntry</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -1080,7 +1080,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchTemplateJournalEntryInfoList</Key>
-    <Statement>SELECT t.T_ID, t.Pavadinimas, t.Turinys, GROUP_CONCAT(CONCAT(CAST(d.T_tipas AS CHAR), CAST(d.T_saskaita AS CHAR)), ',') FROM tipines_op t LEFT JOIN tipines_data d ON d.T_ID=t.T_ID GROUP BY t.T_ID ORDER BY t.Pavadinimas</Statement>
+    <Statement>SELECT t.T_ID, t.Pavadinimas, t.Turinys FROM tipines_op t ORDER BY t.Pavadinimas;</Statement>
     <Objects>HelperLists.TemplateJournalEntryInfoList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3407,5 +3407,10 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
     <Key>FetchDeclarationFR0600_2</Key>
     <Statement>SELECT l.FieldCode, SUM(l.FieldValue) FROM (SELECT e.FieldCode AS FieldCode, CROUND((CASE WHEN e.IsVatField &gt; 0 THEN d.SumVatLTL ELSE d.SumLTL END) * (CASE WHEN e.MinusValue &gt; 0 THEN -1 ELSE 1 END) * e.InclusionPercentage / 100, 2) AS FieldValue FROM bz b LEFT JOIN sfd d ON d.SF_ID=b.Op_ID LEFT JOIN VatDeclarationEntrys e ON e.ParentID=d.DeclarationSchemaID WHERE d.DeclarationSchemaID &gt; 0 AND b.Op_Data &gt;= $DF AND b.Op_Data &lt;= $DT UNION SELECT e.FieldCode AS FieldCode, CROUND((CASE WHEN e.IsVatField &gt; 0 THEN d.SumVatLTL ELSE d.SumLTL END) * (CASE WHEN e.MinusValue &gt; 0 THEN -1 ELSE 1 END) * e.InclusionPercentage / 100, 2) AS FieldValue FROM bz b LEFT JOIN sfg d ON d.BZ_ID=b.Op_ID LEFT JOIN VatDeclarationEntrys e ON e.ParentID=d.DeclarationSchemaID WHERE d.DeclarationSchemaID &gt; 0 AND b.Op_Data &gt;= $DF AND b.Op_Data &lt;= $DT UNION SELECT e.FieldCode AS FieldCode, CROUND((CASE WHEN e.IsVatField &gt; 0 THEN i.IndirectVatSum ELSE 0 END) * (CASE WHEN e.MinusValue &gt; 0 THEN -1 ELSE 1 END) * e.InclusionPercentage / 100, 2) AS FieldValue FROM bz b LEFT JOIN InvoicesReceived i ON i.ID=b.Op_ID LEFT JOIN VatDeclarationEntrys e ON e.ParentID=i.DeclarationSchemaID WHERE i.DeclarationSchemaID &gt; 0 AND b.Op_Data &gt;= $DF AND b.Op_Data &lt;= $DT UNION SELECT e.FieldCode AS FieldCode, CROUND((CASE WHEN e.IsVatField &gt; 0 THEN d.SumVatLTL ELSE d.SumLTL END) * (CASE WHEN e.MinusValue &gt; 0 THEN -1 ELSE 1 END) * e.InclusionPercentage / 100, 2) AS FieldValue FROM bz b LEFT JOIN apyskaitos d ON d.BZ_ID=b.Op_ID LEFT JOIN VatDeclarationEntrys e ON e.ParentID=d.DeclarationSchemaID WHERE d.DeclarationSchemaID &gt; 0 AND NOT d.SG&gt;0 AND b.Op_Data &gt;= $DF AND b.Op_Data &lt;= $DT) AS l GROUP BY l.FieldCode;</Statement>
     <Objects>ActiveReports.DeclarationFR0600_2</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchTemplateBookEntryInfoList</Key>
+    <Statement>SELECT d.T_ID, d.T_tipas, d.T_saskaita FROM tipines_data d;</Statement>
+    <Objects>HelperLists.TemplateJournalEntryInfoList</Objects>
   </MySQL_Statement>
 </NewDataSet>

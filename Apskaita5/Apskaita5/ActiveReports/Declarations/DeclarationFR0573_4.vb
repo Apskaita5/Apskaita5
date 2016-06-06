@@ -11,8 +11,8 @@
         Implements IDeclaration
 
         Private Const DECLARATION_NAME As String = "FR0573 v.4"
-        Private Const FILENAMEMXFDFR0573_4 As String = "\MXFD\FR0573(4).mxfd"
-        Private Const FILENAMEFFDATAFR0573_4 As String = "\FFData\FR0573(4).ffdata"
+        Private Const FILENAMEMXFDFR0573_4 As String = "MXFD\FR0573(4).mxfd"
+        Private Const FILENAMEFFDATAFR0573_4 As String = "FFData\FR0573(4).ffdata"
 
 
         ''' <summary>
@@ -219,11 +219,19 @@
             Dim i As Integer
             Dim currentUser As AccDataAccessLayer.Security.AccIdentity = GetCurrentIdentity()
 
+            Dim declarationFilePath As String = IO.Path.Combine(AppPath(), FILENAMEFFDATAFR0573_4)
+            Dim tempPath As String = IO.Path.Combine(AppPath(), "temp.ffdata")
+            Try
+                If IO.File.Exists(tempPath) Then
+                    IO.File.Delete(tempPath)
+                End If
+            Catch ex As Exception
+            End Try
+
             If dds.Tables("Details").Rows.Count > 1 Then
 
                 Dim myDoc As New Xml.XmlDocument
-
-                myDoc.Load(AppPath() & FILENAMEFFDATAFR0573_4)
+                myDoc.Load(declarationFilePath)
 
                 For i = 1 To Convert.ToInt32(Math.Ceiling(dds.Tables("Details").Rows.Count / 5) - 1)
                     Dim addSd As Xml.XmlElement = DirectCast(myDoc.ChildNodes(1).ChildNodes(0). _
@@ -236,24 +244,34 @@
                 Next
                 myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).Attributes(0).Value = _
                     (2 + Math.Ceiling(dds.Tables("Details").Rows.Count / 5) - 1).ToString
-                myDoc.Save(AppPath() & FILENAMEFFDATATEMP)
+
+                myDoc.Save(tempPath)
+
             Else
                 
-                IO.File.Copy(AppPath() & FILENAMEFFDATAFR0573_4, AppPath() & FILENAMEFFDATATEMP)
+                IO.File.Copy(declarationFilePath, tempPath)
 
             End If
 
             ' read ffdata xml structure to dataset
             Dim formDataSet As New DataSet
-            Using formFileStream As IO.FileStream = New IO.FileStream( _
-                AppPath() & FILENAMEFFDATATEMP, IO.FileMode.Open)
-                formDataSet.ReadXml(formFileStream)
-                formFileStream.Close()
-            End Using
+            Try
+                Using formFileStream As IO.FileStream = New IO.FileStream(tempPath, IO.FileMode.Open)
+                    formDataSet.ReadXml(formFileStream)
+                    formFileStream.Close()
+                End Using
+            Catch ex As Exception
+                Throw New Exception("Failed to prepare ffdata file.", ex)
+            End Try
+
+            Try
+                IO.File.Delete(tempPath)
+            Catch ex As Exception
+            End Try
 
             formDataSet.Tables(0).Rows(0).Item(3) = currentUser.Name
             formDataSet.Tables(0).Rows(0).Item(4) = GetDateInFFDataFormat(Today)
-            formDataSet.Tables(1).Rows(0).Item(2) = AppPath() & FILENAMEMXFDFR0573_4
+            formDataSet.Tables(1).Rows(0).Item(2) = IO.Path.Combine(AppPath(), FILENAMEMXFDFR0573_4)
 
             Dim specificDataRow As DataRow = dds.Tables("Specific").Rows(0)
             For i = 1 To formDataSet.Tables(8).Rows.Count ' bendri duomenys

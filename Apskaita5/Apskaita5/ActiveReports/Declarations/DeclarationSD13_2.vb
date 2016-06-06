@@ -11,8 +11,8 @@
         Implements IDeclaration
 
         Private Const DECLARATION_NAME As String = "SD13 v.2"
-        Private Const FILENAMEMXFDSD13_2 As String = "\MXFD\13-SD-v02.mxfd"
-        Private Const FILENAMEFFDATASD13_2 As String = "\FFData\13-SD-v02.ffdata"
+        Private Const FILENAMEMXFDSD13_2 As String = "MXFD\13-SD-v02.mxfd"
+        Private Const FILENAMEFFDATASD13_2 As String = "FFData\13-SD-v02.ffdata"
 
 
         ''' <summary>
@@ -217,12 +217,20 @@
             Dim i As Integer
             Dim currentUser As AccDataAccessLayer.Security.AccIdentity = GetCurrentIdentity()
 
+            Dim declarationFilePath As String = IO.Path.Combine(AppPath(), FILENAMEFFDATASD13_2)
+            Dim tempPath As String = IO.Path.Combine(AppPath(), "temp.ffdata")
+            Try
+                If IO.File.Exists(tempPath) Then
+                    IO.File.Delete(tempPath)
+                End If
+            Catch ex As Exception
+            End Try
+
             Dim pageCount As Integer = 2
             If dds.Tables("Details").Rows.Count > 6 Then
 
                 Dim myDoc As New Xml.XmlDocument
-                myDoc.Load(AppPath() & FILENAMEFFDATASD13_2)
-            
+                myDoc.Load(declarationFilePath)
 
                 pageCount = Convert.ToInt32(Math.Ceiling((dds.Tables("Details").Rows.Count - 6) / 5) + 2)
                 For i = 1 To pageCount - 2
@@ -235,24 +243,30 @@
                     myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).AppendChild(addTb)
                 Next
                 myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).Attributes(0).Value = pageCount.ToString
-                myDoc.Save(AppPath() & FILENAMEFFDATATEMP)
+
+                myDoc.Save(tempPath)
+
             Else
 
-                IO.File.Copy(AppPath() & FILENAMEFFDATASD13_2, AppPath() & FILENAMEFFDATATEMP)
+                IO.File.Copy(declarationFilePath, tempPath)
                 
             End If
 
             ' read ffdata xml structure to dataset
             Dim formDataSet As New DataSet
-            Using formFileStream As IO.FileStream = New IO.FileStream( _
-                AppPath() & FILENAMEFFDATATEMP, IO.FileMode.Open)
+            Using formFileStream As IO.FileStream = New IO.FileStream(tempPath, IO.FileMode.Open)
                 formDataSet.ReadXml(formFileStream)
                 formFileStream.Close()
             End Using
 
+            Try
+                IO.File.Delete(tempPath)
+            Catch ex As Exception
+            End Try
+
             formDataSet.Tables(0).Rows(0).Item(3) = currentUser.Name
             formDataSet.Tables(0).Rows(0).Item(4) = GetDateInFFDataFormat(Today)
-            formDataSet.Tables(1).Rows(0).Item(2) = AppPath() & FILENAMEMXFDSD13_2
+            formDataSet.Tables(1).Rows(0).Item(2) = IO.Path.Combine(AppPath(), FILENAMEMXFDSD13_2)
 
             Dim specificDataRow As DataRow = dds.Tables("Specific").Rows(0)
 

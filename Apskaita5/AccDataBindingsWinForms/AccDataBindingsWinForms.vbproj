@@ -1598,6 +1598,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="My Project\DataSources\AccDataBindingsWinForms.Settings.LocalSettings.datasource" />
     <None Include="Resources\rekvizitai_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

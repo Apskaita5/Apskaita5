@@ -80,13 +80,14 @@ Public Class DataListViewEditControlManager(Of T)
             Else
                 listView.CellEditActivation = ObjectListView.CellEditActivateMode.SingleClickAlways
             End If
+            AddHandler listView.CellEditStarting, AddressOf DataListView_CellEditStarting
+            AddHandler listView.CellEditFinishing, AddressOf DataListView_CellEditFinishing
         End If
 
-        AddHandler listView.CellEditStarting, AddressOf DataListView_CellEditStarting
-        AddHandler listView.CellEditFinishing, AddressOf DataListView_CellEditFinishing
         If _IsValidationEnabled Then
             AddHandler listView.FormatCell, AddressOf DataListView_FormatCell
         End If
+
         AddHandler listView.CellToolTipShowing, AddressOf DataListView_CellToolTipShowing
         AddHandler listView.KeyDown, AddressOf DataListView_KeyDown
         If Not contextMenuStrip Is Nothing Then
@@ -291,7 +292,7 @@ Public Class DataListViewEditControlManager(Of T)
         listView.UseHotControls = False
 
         If listView.CellEditActivation <> ObjectListView.CellEditActivateMode.None _
-            AndAlso Not _ItemAddHandler Is Nothing Then
+            AndAlso Not _ItemAddHandler Is Nothing AndAlso MyCustomSettings.ShowEmptyListMessage Then
 
             Dim textOverlay As TextOverlay = listView.EmptyListMsgOverlay
             textOverlay.Text = "Norėdami pridėti eilutę paspauskite + arba Insert mygtuką."
@@ -1157,12 +1158,13 @@ Public Class DataListViewEditControlManager(Of T)
 
         If Not _IsValidationEnabled Then
 
-            If Not e.SubItem.Text Is Nothing AndAlso e.SubItem.Text.Length > 100 Then
-                e.StandardIcon = ToolTipControl.StandardIcons.None
-                e.Title = ""
+            e.StandardIcon = ToolTipControl.StandardIcons.None
+            e.Title = ""
+
+            If Not e.SubItem.Text Is Nothing AndAlso e.SubItem.Text.Length > 50 Then
                 e.Text = e.SubItem.Text
             Else
-                e.SubItem.Text = ""
+                e.Text = ""
             End If
 
             Exit Sub
@@ -1227,7 +1229,9 @@ Public Class DataListViewEditControlManager(Of T)
             e.Text = e.SubItem.Text
 
         Else
-            e.SubItem.Text = ""
+            e.StandardIcon = ToolTipControl.StandardIcons.None
+            e.Title = ""
+            e.Text = ""
         End If
 
     End Sub

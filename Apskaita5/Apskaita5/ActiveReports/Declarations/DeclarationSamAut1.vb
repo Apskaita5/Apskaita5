@@ -11,8 +11,8 @@
         Implements IDeclaration
 
         Private Const DECLARATION_NAME As String = "SAM v.1 autor."
-        Private Const FILENAMEFFDATASAMAUT01 As String = "\FFData\SAM-v01.ffdata"
-        Private Const FILENAMEMXFDSAMAUT01 As String = "\MXFD\SAM-v01.mxfd"
+        Private Const FILENAMEFFDATASAMAUT01 As String = "FFData\SAM-v01.ffdata"
+        Private Const FILENAMEMXFDSAMAUT01 As String = "MXFD\SAM-v01.mxfd"
 
 
         ''' <summary>
@@ -329,27 +329,46 @@
 
             Dim currentUser As AccDataAccessLayer.Security.AccIdentity = GetCurrentIdentity()
 
+            Dim declarationFilePath As String = IO.Path.Combine(AppPath(), FILENAMEFFDATASAMAUT01)
+            Dim tempPath As String = IO.Path.Combine(AppPath(), "temp.ffdata")
+            Try
+                If IO.File.Exists(tempPath) Then
+                    IO.File.Delete(tempPath)
+                End If
+            Catch ex As Exception
+            End Try
+
             ' delete 3SD appendix
             Dim myDoc As New Xml.XmlDocument
-            myDoc.Load(AppPath() & FILENAMEFFDATASAMAUT01)
+            myDoc.Load(declarationFilePath)
+
             myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).RemoveChild( _
                 myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).ChildNodes(2))
             myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0).ChildNodes(0).RemoveChild( _
                 myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0).ChildNodes(0).ChildNodes(2))
             myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).Attributes(0).Value = "2"
-            myDoc.Save(AppPath() & FILENAMEFFDATATEMP)
+
+            myDoc.Save(tempPath)
 
             ' read ffdata xml structure to dataset
             Dim formDataSet As New DataSet
-            Using formFileStream As IO.FileStream = New IO.FileStream( _
-                AppPath() & FILENAMEFFDATATEMP, IO.FileMode.Open)
-                formDataSet.ReadXml(formFileStream)
-                formFileStream.Close()
-            End Using
+            Try
+                Using formFileStream As IO.FileStream = New IO.FileStream(tempPath, IO.FileMode.Open)
+                    formDataSet.ReadXml(formFileStream)
+                    formFileStream.Close()
+                End Using
+            Catch ex As Exception
+                Throw New Exception("Failed to prepare ffdata file.", ex)
+            End Try
+
+            Try
+                IO.File.Delete(tempPath)
+            Catch ex As Exception
+            End Try
 
             formDataSet.Tables(0).Rows(0).Item(3) = currentUser.Name
             formDataSet.Tables(0).Rows(0).Item(4) = GetDateInFFDataFormat(Today)
-            formDataSet.Tables(1).Rows(0).Item(2) = AppPath() & FILENAMEMXFDSAMAUT01
+            formDataSet.Tables(1).Rows(0).Item(2) = IO.Path.Combine(AppPath(), FILENAMEMXFDSAMAUT01)
 
             Dim specificDataRow As DataRow = dds.Tables("Specific").Rows(0)
             For i = 1 To formDataSet.Tables(8).Rows.Count

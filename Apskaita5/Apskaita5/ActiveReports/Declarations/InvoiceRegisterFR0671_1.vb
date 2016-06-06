@@ -12,8 +12,8 @@
         Implements IInvoiceRegisterDeclaration
 
         Private Const DECLARATION_NAME As String = "FR0671 v.1"
-        Private Const FILENAMEMXFDFR0671 As String = "\MXFD\FR0671.mxfd"
-        Private Const FILENAMEFFDATAFR0671 As String = "\FFData\FR0671.ffdata"
+        Private Const FILENAMEMXFDFR0671 As String = "MXFD\FR0671.mxfd"
+        Private Const FILENAMEFFDATAFR0671 As String = "FFData\FR0671.ffdata"
 
         ''' <summary>
         ''' Gets a name of the invoice register declaration.
@@ -68,14 +68,21 @@
             Dim currentUser As AccDataAccessLayer.Security.AccIdentity = GetCurrentIdentity()
             Dim currentCompany As Settings.CompanyInfo = GetCurrentCompany()
 
-            Dim declarationFileName As String = AppPath() & FILENAMEFFDATAFR0671
-
             Dim pageCount As Integer = Convert.ToInt32(Math.Ceiling((invoiceRegister.Count - 14) / 8))
+
+            Dim declarationFilePath As String = IO.Path.Combine(AppPath(), FILENAMEFFDATAFR0671)
+            Dim tempPath As String = IO.Path.Combine(AppPath(), "temp.ffdata")
+            Try
+                If IO.File.Exists(tempPath) Then
+                    IO.File.Delete(tempPath)
+                End If
+            Catch ex As Exception
+            End Try
 
             If pageCount > 0 Then
 
                 Dim myDoc As New Xml.XmlDocument
-                myDoc.Load(declarationFileName)
+                myDoc.Load(declarationFilePath)
 
                 For i = 1 To pageCount
                     Dim addP As Xml.XmlElement = DirectCast(myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0). _
@@ -90,25 +97,34 @@
                 myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).Attributes(0).Value = _
                     (2 + pageCount).ToString
 
-                myDoc.Save(AppPath() & FILENAMEFFDATATEMP)
+                myDoc.Save(tempPath)
 
             Else
-                IO.File.Copy(declarationFileName, AppPath() & FILENAMEFFDATATEMP)
+                IO.File.Copy(declarationFilePath, tempPath)
             End If
 
-            ' read ffdata xml structure to dataset
             Dim formDataSet As New DataSet
-            Using formFileStream As IO.FileStream = New IO.FileStream( _
-                AppPath() & FILENAMEFFDATATEMP, IO.FileMode.Open)
-                formDataSet.ReadXml(formFileStream)
-                formFileStream.Close()
-            End Using
+
+            ' read ffdata xml structure to dataset
+            Try
+                Using formFileStream As IO.FileStream = New IO.FileStream(tempPath, IO.FileMode.Open)
+                    formDataSet.ReadXml(formFileStream)
+                    formFileStream.Close()
+                End Using
+            Catch ex As Exception
+                Throw New Exception("Failed to prepare ffdata file.", ex)
+            End Try
+
+            Try
+                IO.File.Delete(tempPath)
+            Catch ex As Exception
+            End Try
 
             ' GENERAL DATA
 
             formDataSet.Tables(0).Rows(0).Item(3) = currentUser.Name
             formDataSet.Tables(0).Rows(0).Item(4) = GetDateInFFDataFormat(Today.Date)
-            formDataSet.Tables(1).Rows(0).Item(2) = AppPath() & FILENAMEMXFDFR0671
+            formDataSet.Tables(1).Rows(0).Item(2) = IO.Path.Combine(AppPath(), FILENAMEMXFDFR0671)
 
             Dim k As Integer = 1
             For i = 1 To formDataSet.Tables(8).Rows.Count ' bendri duomenys

@@ -11,8 +11,8 @@
         Implements IDeclaration
 
         Private Const DECLARATION_NAME As String = "FR0572 v.2"
-        Private Const FILENAMEMXFDFR0572_2 As String = "\MXFD\FR0572(2).mxfd"
-        Private Const FILENAMEFFDATAFR0572_2 As String = "\FFData\FR0572.ffdata"
+        Private Const FILENAMEMXFDFR0572_2 As String = "MXFD\FR0572(2).mxfd"
+        Private Const FILENAMEFFDATAFR0572_2 As String = "FFData\FR0572.ffdata"
 
 
         ''' <summary>
@@ -167,14 +167,14 @@
             ' read ffdata xml structure to dataset
             Dim formDataSet As New DataSet
             Using formFileStream As IO.FileStream = New IO.FileStream( _
-                AppPath() & FILENAMEFFDATAFR0572_2, IO.FileMode.Open)
+                IO.Path.Combine(AppPath(), FILENAMEFFDATAFR0572_2), IO.FileMode.Open)
                 formDataSet.ReadXml(formFileStream)
                 formFileStream.Close()
             End Using
 
             formDataSet.Tables(0).Rows(0).Item(2) = currentUser.Name
             formDataSet.Tables(0).Rows(0).Item(3) = GetDateInFFDataFormat(Today)
-            formDataSet.Tables(1).Rows(0).Item(2) = AppPath() & FILENAMEMXFDFR0572_2
+            formDataSet.Tables(1).Rows(0).Item(2) = IO.Path.Combine(AppPath(), FILENAMEMXFDFR0572_2)
 
             Dim specificDataRow As DataRow = dds.Tables("Specific").Rows(0)
             For i As Integer = 1 To formDataSet.Tables(8).Rows.Count

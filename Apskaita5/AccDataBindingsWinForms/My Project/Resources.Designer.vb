@@ -334,6 +334,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Kopijuoti.
+        '''</summary>
+        Friend ReadOnly Property F_JournalEntryInfoList_CopyJournalEntryLabel() As String
+            Get
+                Return ResourceManager.GetString("F_JournalEntryInfoList_CopyJournalEntryLabel", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Kopijuoti bendrojo žurnalo įrašą.
+        '''</summary>
+        Friend ReadOnly Property F_JournalEntryInfoList_CopyJournalEntryToolTipLabel() As String
+            Get
+                Return ResourceManager.GetString("F_JournalEntryInfoList_CopyJournalEntryToolTipLabel", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Korespondencijos.
         '''</summary>
         Friend ReadOnly Property F_JournalEntryInfoList_CorrespondencesLabel() As String

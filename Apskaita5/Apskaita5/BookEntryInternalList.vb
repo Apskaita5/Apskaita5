@@ -146,11 +146,11 @@ Public Class BookEntryInternalList
     ''' <summary>
     ''' Gets a new instance of BookEntryInternalList.
     ''' </summary>
-    ''' <param name="nDefaultBookEntryType">A default <see cref="BookEntryType">BookEntryType</see> value to use when adding new items.</param>
+    ''' <param name="defaultBookEntryType">A default <see cref="BookEntryType">BookEntryType</see> value to use when adding new items.</param>
     ''' <remarks></remarks>
-    Friend Shared Function NewBookEntryInternalList(ByVal nDefaultBookEntryType As BookEntryType) As BookEntryInternalList
+    Friend Shared Function NewBookEntryInternalList(ByVal defaultBookEntryType As BookEntryType) As BookEntryInternalList
         Dim result As BookEntryInternalList = New BookEntryInternalList
-        result._DefaultBookEntryType = nDefaultBookEntryType
+        result._DefaultBookEntryType = defaultBookEntryType
         Return result
     End Function
 
@@ -158,7 +158,7 @@ Public Class BookEntryInternalList
     ''' Gets a copy of the list with debit entries replaced with credit entries and vice versa.
     ''' </summary>
     ''' <remarks></remarks>
-    Friend Function GetInvertedList() As BookEntryInternalList
+    Public Function GetInvertedList() As BookEntryInternalList
 
         Dim result As New BookEntryInternalList
 

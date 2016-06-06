@@ -22884,6 +22884,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to plėtinio dokumentas.
+        '''</summary>
+        Friend ReadOnly Property DocumentType_Custom() As String
+            Get
+                Return ResourceManager.GetString("DocumentType_Custom", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to atsargų sąsk. pakeitimas.
         '''</summary>
         Friend ReadOnly Property DocumentType_GoodsAccountChange() As String
@@ -25310,6 +25319,15 @@ Namespace My.Resources
         Friend ReadOnly Property General_JournalEntry_Person() As String
             Get
                 Return ResourceManager.GetString("General_JournalEntry_Person", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas plugin&apos;o dokumento kodas..
+        '''</summary>
+        Friend ReadOnly Property General_JournalEntry_PluginDocumentCodeNull() As String
+            Get
+                Return ResourceManager.GetString("General_JournalEntry_PluginDocumentCodeNull", resourceCulture)
             End Get
         End Property
         

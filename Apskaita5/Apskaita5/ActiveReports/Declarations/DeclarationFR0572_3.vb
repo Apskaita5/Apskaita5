@@ -11,8 +11,8 @@
         Implements IDeclaration
 
         Private Const DECLARATION_NAME As String = "FR0572 v.3"
-        Private Const FILENAMEMXFDFR0572_3 As String = "\MXFD\FR0572(3).mxfd"
-        Private Const FILENAMEFFDATAFR0572_3 As String = "\FFData\FR0572(3).ffdata"
+        Private Const FILENAMEMXFDFR0572_3 As String = "MXFD\FR0572(3).mxfd"
+        Private Const FILENAMEFFDATAFR0572_3 As String = "FFData\FR0572(3).ffdata"
 
 
         ''' <summary>
@@ -271,19 +271,32 @@
             Dim i As Integer
             Dim currentUser As AccDataAccessLayer.Security.AccIdentity = GetCurrentIdentity()
 
+            Dim declarationFilePath As String = IO.Path.Combine(AppPath(), FILENAMEFFDATAFR0572_3)
+            Dim tempPath As String = IO.Path.Combine(AppPath(), "temp.ffdata")
+            Try
+                If IO.File.Exists(tempPath) Then
+                    IO.File.Delete(tempPath)
+                End If
+            Catch ex As Exception
+            End Try
+
             If dds.Tables("Details").Rows.Count < 1 Then
+
                 Dim myDoc As New Xml.XmlDocument
-                myDoc.Load(AppPath() & FILENAMEFFDATAFR0572_3)
+                myDoc.Load(declarationFilePath)
+
                 myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0).ChildNodes(0).RemoveChild( _
                     myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0).ChildNodes(0).ChildNodes(1))
                 myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).RemoveChild( _
                     myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).ChildNodes(1))
                 myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).Attributes(0).Value = "1"
-                myDoc.Save(AppPath() & FILENAMEFFDATATEMP)
+
+                myDoc.Save(tempPath)
 
             ElseIf dds.Tables("Details").Rows.Count > 4 Then
+
                 Dim myDoc As New Xml.XmlDocument
-                myDoc.Load(AppPath() & FILENAMEFFDATAFR0572_3)
+                myDoc.Load(declarationFilePath)
 
                 For i = 1 To Convert.ToInt32(Math.Ceiling(dds.Tables("Details").Rows.Count / 4) - 1)
                     Dim addPg1 As Xml.XmlElement = DirectCast(myDoc.ChildNodes(1).ChildNodes(0). _
@@ -296,23 +309,28 @@
                 Next
                 myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).Attributes(0).Value = _
                     Convert.ToInt32(Math.Ceiling(dds.Tables("Details").Rows.Count / 4) + 1).ToString
-                myDoc.Save(AppPath() & FILENAMEFFDATATEMP)
+
+                myDoc.Save(tempPath)
 
             Else
-                IO.File.Copy(AppPath() & FILENAMEFFDATAFR0572_3, AppPath() & FILENAMEFFDATATEMP)
+                IO.File.Copy(declarationFilePath, tempPath)
             End If
 
             ' read ffdata xml structure to dataset
             Dim formDataSet As New DataSet
-            Using formFileStream As IO.FileStream = New IO.FileStream( _
-                AppPath() & FILENAMEFFDATATEMP, IO.FileMode.Open)
+            Using formFileStream As IO.FileStream = New IO.FileStream(tempPath, IO.FileMode.Open)
                 formDataSet.ReadXml(formFileStream)
                 formFileStream.Close()
             End Using
 
+            Try
+                IO.File.Delete(tempPath)
+            Catch ex As Exception
+            End Try
+
             formDataSet.Tables(0).Rows(0).Item(3) = currentUser.Name
             formDataSet.Tables(0).Rows(0).Item(4) = GetDateInFFDataFormat(Today)
-            formDataSet.Tables(1).Rows(0).Item(2) = AppPath() & FILENAMEMXFDFR0572_3
+            formDataSet.Tables(1).Rows(0).Item(2) = IO.Path.Combine(AppPath(), FILENAMEMXFDFR0572_3)
 
             Dim specificDataRow As DataRow = dds.Tables("Specific").Rows(0)
 

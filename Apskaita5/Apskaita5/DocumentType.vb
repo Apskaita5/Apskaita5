@@ -167,4 +167,12 @@ Public Enum DocumentType
     <EnumValue(18, "")> _
     None
 
+    ''' <summary>
+    ''' A custom parent document created by an external plugin.
+    ''' </summary>
+    ''' <remarks>an actual document type is defined by the <see cref="General.JournalEntry.PluginDocTypeCode">
+    ''' JournalEntry.PluginDocTypeCode</see></remarks>
+    <EnumValue(23, "pl")> _
+    Custom
+
 End Enum

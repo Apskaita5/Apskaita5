@@ -14096,4 +14096,10 @@
   <data name="Documents_CommandImportVatDeclarationSchemas_FailedToDeserializeXmlDataForUnkownReason" xml:space="preserve">
     <value>Klaida. Dėl nežinomų priežasčių nepavyko deserializuoti PVM deklaravimo schemų duomenų.</value>
   </data>
+  <data name="DocumentType_Custom" xml:space="preserve">
+    <value>plėtinio dokumentas</value>
+  </data>
+  <data name="General_JournalEntry_PluginDocumentCodeNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas plugin'o dokumento kodas.</value>
+  </data>
 </root>

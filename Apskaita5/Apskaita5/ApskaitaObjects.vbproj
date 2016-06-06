@@ -208,6 +208,8 @@
     <Compile Include="Documents\VatDeclarationEntryProxy.vb" />
     <Compile Include="Documents\VatDeclarationSchema.vb" />
     <Compile Include="Documents\VatDeclarationSchemaProxy.vb" />
+    <Compile Include="Extensibility\Extensibility.vb" />
+    <Compile Include="Extensibility\General\Extensibility.vb" />
     <Compile Include="Goods\OperationsSimple\GoodsOperationRedeemFromBuyer.vb" />
     <Compile Include="Goods\OperationsSimple\GoodsOperationRedeemToSupplier.vb" />
     <Compile Include="HelperLists\VatDeclarationSchemaInfo.vb" />
@@ -595,6 +597,10 @@
     <ProjectReference Include="..\AccCommon\AccCommon.vbproj">
       <Project>{380B0551-D15D-4072-A72C-406274CCB50E}</Project>
       <Name>AccCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PluginManager\AccPluginManager.vbproj">
+      <Project>{5ABA2DD0-A3F3-4221-9E89-CA13B75DBB01}</Project>
+      <Name>AccPluginManager</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

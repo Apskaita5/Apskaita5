@@ -49,6 +49,9 @@ Module CommonMethods
         result.CheckInvoiceReceivedNumber = My.Settings.CheckInvoiceReceivedNumber
         result.CheckInvoiceReceivedNumberWithDate = My.Settings.CheckInvoiceReceivedNumberWithDate
         result.CheckInvoiceReceivedNumberWithSupplier = My.Settings.CheckInvoiceReceivedNumberWithSupplier
+        result.UseHotTracking = My.Settings.UseHotTracking
+        result.ShowEmptyListMessage = My.Settings.ShowEmptyListMessage
+        result.ShowGridLines = My.Settings.ShowGridLines
 
         Return result
 
@@ -96,6 +99,9 @@ Module CommonMethods
         My.Settings.CheckInvoiceReceivedNumber = settings.CheckInvoiceReceivedNumber
         My.Settings.CheckInvoiceReceivedNumberWithDate = settings.CheckInvoiceReceivedNumberWithDate
         My.Settings.CheckInvoiceReceivedNumberWithSupplier = settings.CheckInvoiceReceivedNumberWithSupplier
+        My.Settings.UseHotTracking = settings.UseHotTracking
+        My.Settings.ShowEmptyListMessage = settings.ShowEmptyListMessage
+        My.Settings.ShowGridLines = settings.ShowGridLines
 
         My.Settings.Save()
 

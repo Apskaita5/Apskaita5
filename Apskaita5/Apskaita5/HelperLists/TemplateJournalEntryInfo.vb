@@ -149,9 +149,11 @@ Namespace HelperLists
         ''' <summary>
         ''' Gets an existing template info by a database query.
         ''' </summary>
-        ''' <param name="dr">DataRow containing account data.</param>
-        Friend Shared Function GetTemplateJournalEntryInfo(ByVal dr As DataRow) As TemplateJournalEntryInfo
-            Return New TemplateJournalEntryInfo(dr)
+        ''' <param name="dr">DataRow containing general template data</param>
+        ''' <param name="detailsData">Datatable containing template booke entries' data</param>
+        Friend Shared Function GetTemplateJournalEntryInfo(ByVal dr As DataRow, _
+            ByVal detailsData As DataTable) As TemplateJournalEntryInfo
+            Return New TemplateJournalEntryInfo(dr, detailsData)
         End Function
 
         ''' <summary>
@@ -166,71 +168,54 @@ Namespace HelperLists
             ' require use of factory methods
         End Sub
 
-        Private Sub New(ByVal dr As DataRow)
-            Fetch(dr)
+        Private Sub New(ByVal dr As DataRow, ByVal detailsData As DataTable)
+            Fetch(dr, detailsData)
         End Sub
 
 #End Region
 
 #Region " Data Access "
 
-        Private Sub Fetch(ByVal dr As DataRow)
+        Private Sub Fetch(ByVal dr As DataRow, ByVal detailsData As DataTable)
 
-            _ID = CIntSafe(dr.item(0), 0)
+            _ID = CIntSafe(dr.Item(0), 0)
             _Name = CStrSafe(dr.Item(1)).Trim
             _Content = CStrSafe(dr.Item(2)).Trim
 
-            Dim Corespondations As String() = CStrSafe(dr.Item(3)).Trim.Split( _
-                New Char() {","c}, StringSplitOptions.RemoveEmptyEntries)
-
-            Dim DebetList As New List(Of String)
-            Dim CreditList As New List(Of String)
-
-            For Each s As String In Corespondations
-                If s.Trim.ToLower.StartsWith(Utilities.ConvertDatabaseCharID(BookEntryType.Debetas).ToLower) Then
-                    DebetList.Add(s.Trim.ToLower.Replace(Utilities.ConvertDatabaseCharID( _
-                        BookEntryType.Debetas).ToLower, ""))
-                ElseIf s.Trim.ToLower.StartsWith(Utilities.ConvertDatabaseCharID(BookEntryType.Kreditas).ToLower) Then
-                    CreditList.Add(s.Trim.ToLower.Replace(Utilities.ConvertDatabaseCharID( _
-                        BookEntryType.Kreditas).ToLower, ""))
-                End If
-            Next
-
+            Dim DebetListStr As New List(Of String)
+            Dim CreditListStr As New List(Of String)
             Dim DebetListLng As New List(Of Long)
             Dim CreditListLng As New List(Of Long)
-            Dim currentAccountID As Long
+            Dim currentAccount As Long
 
-            For i As Integer = DebetList.Count To 1 Step -1
-                If Long.TryParse(DebetList(i - 1), currentAccountID) Then
-                    DebetListLng.Add(currentAccountID)
-                Else
-                    DebetList.RemoveAt(i - 1)
-                End If
-            Next
-            For i As Integer = CreditList.Count To 1 Step -1
-                If Not Long.TryParse(CreditList(i - 1), New Long) Then CreditList.RemoveAt(i - 1)
-                If Long.TryParse(CreditList(i - 1), currentAccountID) Then
-                    CreditListLng.Add(currentAccountID)
-                Else
-                    CreditList.RemoveAt(i - 1)
+            For Each entry As DataRow In detailsData.Rows
+                If CIntSafe(entry.Item(0), 0) = _ID Then
+                    currentAccount = CLongSafe(entry.Item(2), 0)
+                    If ConvertDatabaseCharID(Of BookEntryType)(CStrSafe(entry.Item(1))) = BookEntryType.Debetas Then
+                        DebetListStr.Add(currentAccount.ToString())
+                        DebetListLng.Add(currentAccount)
+                    Else
+                        CreditListStr.Add(currentAccount.ToString())
+                        CreditListLng.Add(currentAccount)
+                    End If
                 End If
             Next
 
             _DebetList = DebetListLng.ToArray
             _CreditList = CreditListLng.ToArray
-            _DebetListString = String.Join(",", DebetList.ToArray)
-            _CreditListString = String.Join(",", CreditList.ToArray)
+            _DebetListString = String.Join(",", DebetListStr.ToArray)
+            _CreditListString = String.Join(",", CreditListStr.ToArray)
 
-            For i As Integer = DebetList.Count To 1 Step -1
-                DebetList(i - 1) = My.Resources.General_BookEntryList_CharForDebit & DebetList(i - 1)
+            For i As Integer = 1 To DebetListStr.Count
+                DebetListStr(i - 1) = My.Resources.General_BookEntryList_CharForDebit & DebetListStr(i - 1)
             Next
-            For i As Integer = CreditList.Count To 1 Step -1
-                CreditList(i - 1) = My.Resources.General_BookEntryList_CharForCredit & CreditList(i - 1)
+            For i As Integer = 1 To CreditListStr.Count
+                CreditListStr(i - 1) = My.Resources.General_BookEntryList_CharForCredit & CreditListStr(i - 1)
             Next
 
-            DebetList.AddRange(CreditList)
+            DebetListStr.AddRange(CreditListStr)
 
-            _CorespondationListString = String.Join(", ", DebetList.ToArray)
+            _CorespondationListString = String.Join(", ", DebetListStr.ToArray)
 
         End Sub
 
