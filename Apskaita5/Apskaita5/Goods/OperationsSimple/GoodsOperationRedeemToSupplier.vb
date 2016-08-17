@@ -15,7 +15,7 @@ Namespace Goods
     ''' irrespective of goods accounting type, because you have to ""annul"" the 
     ''' acquisition consignments that are made irrespective of goods accounting type.</remarks>
     <Serializable()> _
-    Public Class GoodsOperationRedeemToSupplier
+    Public NotInheritable Class GoodsOperationRedeemToSupplier
         Inherits BusinessBase(Of GoodsOperationRedeemToSupplier)
         Implements IIsDirtyEnough, IGetErrorForListItem, IValidationMessageProvider
 
@@ -779,7 +779,7 @@ Namespace Goods
 
             ValidationRules.AddRule(AddressOf DescriptionValidation, New RuleArgs("Description"))
             ValidationRules.AddRule(AddressOf JournalEntryValidation, New RuleArgs("JournalEntryID"))
-            
+
 
             ValidationRules.AddDependantProperty("Date", "JournalEntryID", False)
             ValidationRules.AddDependantProperty("Warehouse", "Date", False)

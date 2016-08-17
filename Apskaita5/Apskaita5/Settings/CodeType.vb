@@ -33,6 +33,22 @@ Namespace Settings
         <EnumValue(2)> _
         VmiMunicipality
 
+        ''' <summary>
+        ''' A state code (ISO 3166–1 alpha 2) used in various tax declarations 
+        ''' by the state tax inspectorate (VMI).
+        ''' </summary>
+        ''' <remarks></remarks>
+        <EnumValue(3)> _
+        VmiState
+
+        ''' <summary>
+        ''' A VAT schema type used in various tax declarations 
+        ''' by the state tax inspectorate (VMI).
+        ''' </summary>
+        ''' <remarks></remarks>
+        <EnumValue(4)> _
+        VmiVatType
+
     End Enum
 
 End Namespace

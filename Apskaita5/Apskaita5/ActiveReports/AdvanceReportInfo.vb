@@ -8,7 +8,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks>Should only be used as a child of <see cref="AdvanceReportInfoList">AdvanceReportInfoList</see>.</remarks>
     <Serializable()> _
-    Public Class AdvanceReportInfo
+    Public NotInheritable Class AdvanceReportInfo
         Inherits ReadOnlyBase(Of AdvanceReportInfo)
 
 #Region " Business Methods "

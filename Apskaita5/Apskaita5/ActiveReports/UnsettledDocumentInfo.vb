@@ -8,7 +8,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks>Should only be used as a child of <see cref="UnsettledDocumentInfoList">UnsettledDocumentInfoList</see>.</remarks>
     <Serializable()> _
-    Public Class UnsettledDocumentInfo
+    Public NotInheritable Class UnsettledDocumentInfo
         Inherits ReadOnlyBase(Of UnsettledDocumentInfo)
 
 #Region " Business Methods "

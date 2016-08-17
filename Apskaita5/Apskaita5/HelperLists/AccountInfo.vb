@@ -5,9 +5,9 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks>Values are stored in the database table saskaitupl.</remarks>
     <Serializable()> _
-    Public Class AccountInfo
+    Public NotInheritable Class AccountInfo
         Inherits ReadOnlyBase(Of AccountInfo)
-        Implements IValueObjectIsEmpty
+        Implements IValueObject, IComparable
 
 #Region " Business Methods "
 
@@ -23,7 +23,7 @@ Namespace HelperLists
         ''' </summary>
         ''' <remarks></remarks>
         Public ReadOnly Property IsEmpty() As Boolean _
-            Implements IValueObjectIsEmpty.IsEmpty
+            Implements IValueObject.IsEmpty
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return Not _ID > 0
@@ -105,6 +105,71 @@ Namespace HelperLists
         End Property
 
 
+        Public Shared Operator =(ByVal a As AccountInfo, ByVal b As AccountInfo) As Boolean
+
+            Dim aId, bId As Long
+            If a Is Nothing OrElse a.IsEmpty Then
+                aId = 0
+            Else
+                aId = a.ID
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bId = 0
+            Else
+                bId = b.ID
+            End If
+
+            Return aId = bId
+
+        End Operator
+
+        Public Shared Operator <>(ByVal a As AccountInfo, ByVal b As AccountInfo) As Boolean
+            Return Not a = b
+        End Operator
+
+        Public Shared Operator >(ByVal a As AccountInfo, ByVal b As AccountInfo) As Boolean
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString > bToString
+
+        End Operator
+
+        Public Shared Operator <(ByVal a As AccountInfo, ByVal b As AccountInfo) As Boolean
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString < bToString
+
+        End Operator
+
+        Public Function CompareTo(ByVal obj As Object) As Integer Implements System.IComparable.CompareTo
+            Dim tmp As AccountInfo = TryCast(obj, AccountInfo)
+            If Me = tmp Then Return 0
+            If Me > tmp Then Return 1
+            Return -1
+        End Function
+
 
         Protected Overrides Function GetIdValue() As Object
             Return _ID
@@ -119,19 +184,24 @@ Namespace HelperLists
 
 #Region " Factory Methods "
 
+        Private Shared _Empty As AccountInfo = Nothing
+
+        ''' <summary>
+        ''' Gets an empty account info (placeholder).
+        ''' </summary>
+        Public Shared Function Empty() As AccountInfo
+            If _Empty Is Nothing Then
+                _Empty = New AccountInfo
+            End If
+            Return _Empty
+        End Function
+
         ''' <summary>
         ''' Gets an existing account info by a database query.
         ''' </summary>
         ''' <param name="dr">DataRow containing account data.</param>
         Friend Shared Function GetAccountInfo(ByVal dr As DataRow) As AccountInfo
             Return New AccountInfo(dr)
-        End Function
-
-        ''' <summary>
-        ''' Gets an empty account info (placeholder).
-        ''' </summary>
-        Friend Shared Function GetEmptyAccountInfo() As AccountInfo
-            Return New AccountInfo()
         End Function
 
 

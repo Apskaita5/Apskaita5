@@ -9,7 +9,7 @@
 ''' and a nonpublic static method "GetObjectTypeNameChild" in order for 
 ''' the collection to be able to fetch them.</remarks>
 <Serializable()> _
-Public Class BusinessObjectCollection(Of T)
+Public NotInheritable Class BusinessObjectCollection(Of T)
     Inherits BusinessBase(Of BusinessObjectCollection(Of T))
 
 #Region " Business Methods "

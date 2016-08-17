@@ -41,7 +41,6 @@ Partial Friend Class F_OperationAmortization
         Me.nCancelButton = New System.Windows.Forms.Button
         Me.ApplyButton = New System.Windows.Forms.Button
         Me.nOkButton = New System.Windows.Forms.Button
-        Me.LimitationsButton = New System.Windows.Forms.Button
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
         Me.AmortizationCalculationsTextBox = New System.Windows.Forms.TextBox
         Me.OperationAmortizationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -252,7 +251,7 @@ Partial Friend Class F_OperationAmortization
         AmortizationCalculationsLabel.Location = New System.Drawing.Point(3, 125)
         AmortizationCalculationsLabel.Name = "AmortizationCalculationsLabel"
         AmortizationCalculationsLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
-        AmortizationCalculationsLabel.Size = New System.Drawing.Size(139, 226)
+        AmortizationCalculationsLabel.Size = New System.Drawing.Size(139, 228)
         AmortizationCalculationsLabel.TabIndex = 22
         AmortizationCalculationsLabel.Text = "Skaičiavimai:"
         AmortizationCalculationsLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -263,12 +262,11 @@ Partial Friend Class F_OperationAmortization
         Me.Panel2.Controls.Add(Me.nCancelButton)
         Me.Panel2.Controls.Add(Me.ApplyButton)
         Me.Panel2.Controls.Add(Me.nOkButton)
-        Me.Panel2.Controls.Add(Me.LimitationsButton)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 383)
+        Me.Panel2.Location = New System.Drawing.Point(0, 385)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Padding = New System.Windows.Forms.Padding(0, 0, 0, 4)
-        Me.Panel2.Size = New System.Drawing.Size(946, 44)
+        Me.Panel2.Size = New System.Drawing.Size(946, 42)
         Me.Panel2.TabIndex = 1
         '
         'nCancelButton
@@ -304,15 +302,6 @@ Partial Friend Class F_OperationAmortization
         Me.nOkButton.TabIndex = 1
         Me.nOkButton.Text = "OK"
         Me.nOkButton.UseVisualStyleBackColor = True
-        '
-        'LimitationsButton
-        '
-        Me.LimitationsButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.Action_lock_icon_16p
-        Me.LimitationsButton.Location = New System.Drawing.Point(12, 9)
-        Me.LimitationsButton.Name = "LimitationsButton"
-        Me.LimitationsButton.Size = New System.Drawing.Size(28, 28)
-        Me.LimitationsButton.TabIndex = 0
-        Me.LimitationsButton.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel1
         '
@@ -364,7 +353,7 @@ Partial Friend Class F_OperationAmortization
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(932, 351)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(932, 353)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'AmortizationCalculationsTextBox
@@ -377,7 +366,7 @@ Partial Friend Class F_OperationAmortization
         Me.AmortizationCalculationsTextBox.Multiline = True
         Me.AmortizationCalculationsTextBox.Name = "AmortizationCalculationsTextBox"
         Me.AmortizationCalculationsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.AmortizationCalculationsTextBox.Size = New System.Drawing.Size(760, 220)
+        Me.AmortizationCalculationsTextBox.Size = New System.Drawing.Size(760, 222)
         Me.AmortizationCalculationsTextBox.TabIndex = 10
         '
         'OperationAmortizationBindingSource
@@ -561,7 +550,7 @@ Partial Friend Class F_OperationAmortization
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(946, 383)
+        Me.TabControl1.Size = New System.Drawing.Size(946, 385)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -570,7 +559,7 @@ Partial Friend Class F_OperationAmortization
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(938, 357)
+        Me.TabPage1.Size = New System.Drawing.Size(938, 359)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Operacijos Duomenys"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -655,7 +644,6 @@ Partial Friend Class F_OperationAmortization
     Friend WithEvents RevaluedPortionTotalValueChangeAccTextBox As AccControlsWinForms.AccTextBox
     Friend WithEvents TotalValueChangeAccTextBox As AccControlsWinForms.AccTextBox
     Friend WithEvents ViewJournalEntryButton As System.Windows.Forms.Button
-    Friend WithEvents LimitationsButton As System.Windows.Forms.Button
     Friend WithEvents AmortizationCalculatedForMonthsAccTextBox As AccControlsWinForms.AccTextBox
     Friend WithEvents CalculateAmortizationButton As System.Windows.Forms.Button
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl

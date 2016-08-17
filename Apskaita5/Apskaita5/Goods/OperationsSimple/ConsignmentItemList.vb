@@ -11,7 +11,7 @@ Namespace Goods
     ''' Values are stored using a <see cref="ConsignmentPersistenceObject">ConsignmentPersistenceObject</see>
     ''' and a <see cref="ConsignmentDiscardPersistenceObject">ConsignmentDiscardPersistenceObject</see>.</remarks>
     <Serializable()> _
-    Public Class ConsignmentItemList
+    Public NotInheritable Class ConsignmentItemList
         Inherits BusinessListBase(Of ConsignmentItemList, ConsignmentItem)
 
 #Region " Business Methods "
@@ -138,7 +138,7 @@ Namespace Goods
             ByVal financialDataCanChange As Boolean, ByVal accountingMethod As GoodsAccountingMethod)
             ' require use of factory methods
             MarkAsChild()
-            Me.AllowEdit = FinancialDataCanChange
+            Me.AllowEdit = financialDataCanChange
             Me.AllowNew = False
             Me.AllowRemove = False
             Fetch(operationID, goodsID, warehouseID, changeIsNegative, _

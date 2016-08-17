@@ -8,7 +8,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks>Should only be used as a child of <see cref="GoodsTurnoverInfoList">GoodsTurnoverInfoList</see>.</remarks>
     <Serializable()> _
-    Public Class GoodsTurnoverInfo
+    Public NotInheritable Class GoodsTurnoverInfo
         Inherits ReadOnlyBase(Of GoodsTurnoverInfo)
 
 #Region " Business Methods "

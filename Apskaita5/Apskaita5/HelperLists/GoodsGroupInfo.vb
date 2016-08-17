@@ -5,9 +5,9 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks>Values are stored in the database table prekes_gr.</remarks>
     <Serializable()> _
-Public Class GoodsGroupInfo
+Public NotInheritable Class GoodsGroupInfo
         Inherits ReadOnlyBase(Of GoodsGroupInfo)
-        Implements IValueObjectIsEmpty, IComparable
+        Implements IValueObject, IComparable
 
 #Region " Business Methods "
 
@@ -20,7 +20,7 @@ Public Class GoodsGroupInfo
         ''' </summary>
         ''' <remarks></remarks>
         Public ReadOnly Property IsEmpty() As Boolean _
-            Implements IValueObjectIsEmpty.IsEmpty
+            Implements IValueObject.IsEmpty
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return Not _ID > 0
@@ -50,31 +50,65 @@ Public Class GoodsGroupInfo
         End Property
 
 
-        Public Overloads Shared Operator =(ByVal Obj1 As GoodsGroupInfo, _
-            ByVal Obj2 As GoodsGroupInfo) As Boolean
-            Return Obj1.ID = Obj2.ID
+        Public Shared Operator =(ByVal a As GoodsGroupInfo, ByVal b As GoodsGroupInfo) As Boolean
+
+            Dim aId, bId As Integer
+            If a Is Nothing OrElse a.IsEmpty Then
+                aId = 0
+            Else
+                aId = a.ID
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bId = 0
+            Else
+                bId = b.ID
+            End If
+
+            Return aId = bId
+
         End Operator
 
-        Public Overloads Shared Operator <>(ByVal Obj1 As GoodsGroupInfo, _
-            ByVal Obj2 As GoodsGroupInfo) As Boolean
-            Return Obj1.ID <> Obj2.ID
+        Public Shared Operator <>(ByVal a As GoodsGroupInfo, ByVal b As GoodsGroupInfo) As Boolean
+            Return Not a = b
         End Operator
 
         Public Shared Operator >(ByVal a As GoodsGroupInfo, ByVal b As GoodsGroupInfo) As Boolean
-            If a Is Nothing Then Return False
-            If a IsNot Nothing And b Is Nothing Then Return True
-            Return a.ToString > b.ToString
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString > bToString
+
         End Operator
 
         Public Shared Operator <(ByVal a As GoodsGroupInfo, ByVal b As GoodsGroupInfo) As Boolean
-            If a Is Nothing And b Is Nothing Then Return False
-            If a Is Nothing Then Return True
-            If b Is Nothing Then Return False
-            Return a.ToString < b.ToString
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString < bToString
+
         End Operator
 
-        Public Function CompareTo(ByVal obj As Object) As Integer _
-            Implements System.IComparable.CompareTo
+        Public Function CompareTo(ByVal obj As Object) As Integer Implements System.IComparable.CompareTo
             Dim tmp As GoodsGroupInfo = TryCast(obj, GoodsGroupInfo)
             If Me = tmp Then Return 0
             If Me > tmp Then Return 1
@@ -94,8 +128,16 @@ Public Class GoodsGroupInfo
 
 #Region " Factory Methods "
 
-        Friend Shared Function EmptyGoodsGroupInfo() As GoodsGroupInfo
-            Return New GoodsGroupInfo()
+        Private Shared _Empty As GoodsGroupInfo = Nothing
+
+        ''' <summary>
+        ''' Gets an empty GoodsGroupInfo (placeholder).
+        ''' </summary>
+        Public Shared Function Empty() As GoodsGroupInfo
+            If _Empty Is Nothing Then
+                _Empty = New GoodsGroupInfo
+            End If
+            Return _Empty
         End Function
 
         Friend Shared Function GetGoodsGroupInfo(ByVal dr As DataRow, _

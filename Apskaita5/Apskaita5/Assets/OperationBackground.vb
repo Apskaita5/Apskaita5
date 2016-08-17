@@ -8,7 +8,7 @@ Namespace Assets
     ''' </summary>
     ''' <remarks>Should only be used as a child of a long term asset operation.</remarks>
     <Serializable()> _
-    Public Class OperationBackground
+    Public NotInheritable Class OperationBackground
         Inherits BusinessBase(Of OperationBackground)
 
 #Region " Business Methods "

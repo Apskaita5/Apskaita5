@@ -52,6 +52,7 @@ Module CommonMethods
         result.UseHotTracking = My.Settings.UseHotTracking
         result.ShowEmptyListMessage = My.Settings.ShowEmptyListMessage
         result.ShowGridLines = My.Settings.ShowGridLines
+        result.DefaultActionByDoubleClick = My.Settings.DefaultActionByDoubleClick
 
         Return result
 
@@ -102,6 +103,7 @@ Module CommonMethods
         My.Settings.UseHotTracking = settings.UseHotTracking
         My.Settings.ShowEmptyListMessage = settings.ShowEmptyListMessage
         My.Settings.ShowGridLines = settings.ShowGridLines
+        My.Settings.DefaultActionByDoubleClick = settings.DefaultActionByDoubleClick
 
         My.Settings.Save()
 

@@ -5,7 +5,7 @@ Namespace General
     ''' </summary>
     ''' <remarks>Only used as a child of a <see cref="Person">Person</see>.</remarks>
     <Serializable()> _
-    Public Class PersonGroupAssignmentList
+    Public NotInheritable Class PersonGroupAssignmentList
         Inherits BusinessListBase(Of PersonGroupAssignmentList, PersonGroupAssignment)
 
 #Region " Business Methods "
@@ -76,7 +76,7 @@ Namespace General
 
         Public Function GetAllWarnings() As String
             Dim result As String = GetAllWarningsForList(Me)
-            
+
             Return result
         End Function
 

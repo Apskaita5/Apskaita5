@@ -5,7 +5,7 @@
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class UnsettledPersonInfoList
+    Public NotInheritable Class UnsettledPersonInfoList
         Inherits ReadOnlyListBase(Of UnsettledPersonInfoList, UnsettledPersonInfo)
 
 #Region " Business Methods "

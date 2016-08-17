@@ -9,7 +9,7 @@ Namespace Assets
     ''' <remarks>Values are stored in the database table turtas_op.
     ''' Operation data is persisted by the <see cref="OperationPersistenceObject">OperationPersistenceObject</see>.</remarks>
     <Serializable()> _
-    Public Class OperationDiscard
+    Public NotInheritable Class OperationDiscard
         Inherits BusinessBase(Of OperationDiscard)
         Implements IGetErrorForListItem, IIsDirtyEnough, IValidationMessageProvider
 

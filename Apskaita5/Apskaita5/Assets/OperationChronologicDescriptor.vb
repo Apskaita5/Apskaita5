@@ -8,7 +8,7 @@
     ''' Acts as a common data container to make changing it's content or datasource easyer.
     ''' Possibly could be made generic for goods also???</remarks>
     <Serializable()> _
-    Public Class OperationChronologicDescriptor
+    Public NotInheritable Class OperationChronologicDescriptor
 
 #Region " Business Methods "
 
@@ -36,7 +36,7 @@
         ''' </summary>
         ''' <remarks>If the value is set to nothing or an empty array,
         ''' then the current operation does not affect any operations.</remarks>
-        Public ReadOnly Property AffectsOperations As LtaOperationType()
+        Public ReadOnly Property AffectsOperations() As LtaOperationType()
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _AffectsOperations

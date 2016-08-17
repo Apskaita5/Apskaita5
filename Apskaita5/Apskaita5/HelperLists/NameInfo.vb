@@ -10,16 +10,29 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class NameInfo
+    Public NotInheritable Class NameInfo
         Inherits ReadOnlyBase(Of NameInfo)
+        Implements IValueObject, IComparable
 
 #Region " Business Methods "
 
         Private ReadOnly _Guid As Guid = Guid.NewGuid()
-        Private _Type As NameType = Nothing
+        Private _Type As NameType = NameType.SodraBranch
         Private _Name As String = ""
         Private _IsObsolete As Boolean = False
 
+
+        ''' <summary>
+        ''' Whether an object is a palace holder (does not represent a real name).
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property IsEmpty() As Boolean _
+            Implements IValueObject.IsEmpty
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return StringIsNullOrEmpty(_Name)
+            End Get
+        End Property
 
         ''' <summary>
         ''' Gets a type of the name.
@@ -55,6 +68,71 @@ Namespace HelperLists
         End Property
 
 
+        Public Shared Operator =(ByVal a As NameInfo, ByVal b As NameInfo) As Boolean
+
+            Dim aId, bId As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aId = ""
+            Else
+                aId = a.Type.ToString & a.Name.Trim.ToLower
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bId = ""
+            Else
+                bId = b.Type.ToString & b.Name.Trim.ToLower
+            End If
+
+            Return aId = bId
+
+        End Operator
+
+        Public Shared Operator <>(ByVal a As NameInfo, ByVal b As NameInfo) As Boolean
+            Return Not a = b
+        End Operator
+
+        Public Shared Operator >(ByVal a As NameInfo, ByVal b As NameInfo) As Boolean
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString > bToString
+
+        End Operator
+
+        Public Shared Operator <(ByVal a As NameInfo, ByVal b As NameInfo) As Boolean
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString < bToString
+
+        End Operator
+
+        Public Function CompareTo(ByVal obj As Object) As Integer Implements System.IComparable.CompareTo
+            Dim tmp As NameInfo = TryCast(obj, NameInfo)
+            If Me = tmp Then Return 0
+            If Me > tmp Then Return 1
+            Return -1
+        End Function
+
 
         Protected Overrides Function GetIdValue() As Object
             Return _Guid
@@ -67,6 +145,18 @@ Namespace HelperLists
 #End Region
 
 #Region " Factory Methods "
+
+        Private Shared _Empty As NameInfo = Nothing
+
+        ''' <summary>
+        ''' Gets an empty NameInfo (placeholder).
+        ''' </summary>
+        Public Shared Function Empty() As NameInfo
+            If _Empty Is Nothing Then
+                _Empty = New NameInfo
+            End If
+            Return _Empty
+        End Function
 
         Friend Shared Function GetNameInfo(ByVal dr As DataRow) As NameInfo
             Return New NameInfo(dr)

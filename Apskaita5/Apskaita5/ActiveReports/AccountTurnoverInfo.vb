@@ -7,7 +7,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class AccountTurnoverInfo
+    Public NotInheritable Class AccountTurnoverInfo
         Inherits ReadOnlyBase(Of AccountTurnoverInfo)
 
 #Region " Business Methods "

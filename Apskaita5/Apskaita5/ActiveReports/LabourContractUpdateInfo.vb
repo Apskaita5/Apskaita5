@@ -5,7 +5,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class LabourContractUpdateInfo
+    Public NotInheritable Class LabourContractUpdateInfo
         Inherits ReadOnlyBase(Of LabourContractUpdateInfo)
 
 #Region " Business Methods "

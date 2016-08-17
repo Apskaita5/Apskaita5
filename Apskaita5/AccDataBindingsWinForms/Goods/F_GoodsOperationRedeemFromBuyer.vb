@@ -3,7 +3,7 @@ Imports AccControlsWinForms
 Imports AccDataBindingsWinForms.CachedInfoLists
 
 Public Class F_GoodsOperationRedeemFromBuyer
-    Implements IObjectEditForm
+    Implements IObjectEditForm, ISupportsChronologicValidator
 
     Private ReadOnly _RequiredCachedLists As Type() = New Type() _
         {GetType(HelperLists.AccountInfoList), GetType(HelperLists.WarehouseInfoList)}
@@ -87,7 +87,7 @@ Public Class F_GoodsOperationRedeemFromBuyer
             _FormManager = New CslaActionExtenderEditForm(Of GoodsOperationRedeemFromBuyer) _
                 (Me, GoodsOperationRedeemFromBuyerBindingSource, _DocumentToEdit, _
                 _RequiredCachedLists, nOkButton, ApplyButton, nCancelButton, _
-                LimitationsButton, ProgressFiller1)
+                Nothing, ProgressFiller1)
 
         Catch ex As Exception
             ShowError(ex)
@@ -165,6 +165,21 @@ Public Class F_GoodsOperationRedeemFromBuyer
         If _FormManager.DataSource Is Nothing OrElse Not _FormManager.DataSource.JournalEntryID > 0 Then Exit Sub
         OpenJournalEntryEditForm(_QueryManager, _FormManager.DataSource.JournalEntryID)
     End Sub
+
+
+    Public Function ChronologicContent() As String _
+            Implements ISupportsChronologicValidator.ChronologicContent
+        If _FormManager.DataSource Is Nothing Then Return ""
+        Return _FormManager.DataSource.OperationLimitations.LimitsExplanation
+    End Function
+
+    Public Function HasChronologicContent() As Boolean _
+        Implements ISupportsChronologicValidator.HasChronologicContent
+
+        Return Not _FormManager.DataSource Is Nothing AndAlso _
+            Not StringIsNullOrEmpty(_FormManager.DataSource.OperationLimitations.LimitsExplanation)
+
+    End Function
 
 
   Private Sub ConfigureButtons()

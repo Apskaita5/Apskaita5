@@ -6,7 +6,7 @@
     ''' <remarks>Should only be used as a child of a long term asset operation.
     ''' Values are stored in the database table turtas_op.</remarks>
     <Serializable()> _
-    Friend Class OperationPersistenceObject
+    Friend NotInheritable Class OperationPersistenceObject
 
 #Region " Business Methods "
 

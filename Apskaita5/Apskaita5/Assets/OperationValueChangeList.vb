@@ -7,7 +7,7 @@
     ''' <remarks>Values are stored in the database table turtas_op.
     ''' Should only be used as a child of <see cref="ComplexOperationValueChange">ComplexOperationValueChange</see>.</remarks>
     <Serializable()> _
-    Public Class OperationValueChangeList
+    Public NotInheritable Class OperationValueChangeList
         Inherits BusinessListBase(Of OperationValueChangeList, OperationValueChange)
 
 #Region " Business Methods "

@@ -8,7 +8,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class VatDeclarationSchemaInfoItemList
+    Public NotInheritable Class VatDeclarationSchemaInfoItemList
         Inherits ReadOnlyListBase(Of VatDeclarationSchemaInfoItemList, VatDeclarationSchemaInfoItem)
 
 #Region " Business Methods "

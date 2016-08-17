@@ -4,7 +4,7 @@
 ''' </summary>
 ''' <remarks></remarks>
 <Serializable()> _
-Public Class EmptyChronologicValidator
+Public NotInheritable Class EmptyChronologicValidator
     Inherits ReadOnlyBase(Of EmptyChronologicValidator)
     Implements IChronologicValidator
 

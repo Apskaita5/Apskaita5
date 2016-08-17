@@ -5,9 +5,9 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks>Values are stored in the database tables tipines_op (general data) and tipines_data (details).</remarks>
     <Serializable()> _
-    Public Class TemplateJournalEntryInfo
+    Public NotInheritable Class TemplateJournalEntryInfo
         Inherits ReadOnlyBase(Of TemplateJournalEntryInfo)
-        Implements IValueObjectIsEmpty
+        Implements IValueObject, IComparable
 
 #Region " Business Methods "
 
@@ -26,7 +26,7 @@ Namespace HelperLists
         ''' </summary>
         ''' <remarks></remarks>
         Public ReadOnly Property IsEmpty() As Boolean _
-            Implements IValueObjectIsEmpty.IsEmpty
+            Implements IValueObject.IsEmpty
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return Not _ID > 0
@@ -125,12 +125,70 @@ Namespace HelperLists
         End Property
 
 
-        Public ReadOnly Property GetMe() As TemplateJournalEntryInfo
-            Get
-                Return Me
-            End Get
-        End Property
+        Public Shared Operator =(ByVal a As TemplateJournalEntryInfo, ByVal b As TemplateJournalEntryInfo) As Boolean
 
+            Dim aId, bId As Integer
+            If a Is Nothing OrElse a.IsEmpty Then
+                aId = 0
+            Else
+                aId = a.ID
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bId = 0
+            Else
+                bId = b.ID
+            End If
+
+            Return aId = bId
+
+        End Operator
+
+        Public Shared Operator <>(ByVal a As TemplateJournalEntryInfo, ByVal b As TemplateJournalEntryInfo) As Boolean
+            Return Not a = b
+        End Operator
+
+        Public Shared Operator >(ByVal a As TemplateJournalEntryInfo, ByVal b As TemplateJournalEntryInfo) As Boolean
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString > bToString
+
+        End Operator
+
+        Public Shared Operator <(ByVal a As TemplateJournalEntryInfo, ByVal b As TemplateJournalEntryInfo) As Boolean
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString < bToString
+
+        End Operator
+
+        Public Function CompareTo(ByVal obj As Object) As Integer Implements System.IComparable.CompareTo
+            Dim tmp As TemplateJournalEntryInfo = TryCast(obj, TemplateJournalEntryInfo)
+            If Me = tmp Then Return 0
+            If Me > tmp Then Return 1
+            Return -1
+        End Function
 
 
         Protected Overrides Function GetIdValue() As Object
@@ -146,6 +204,18 @@ Namespace HelperLists
 
 #Region " Factory Methods "
 
+        Private Shared _Empty As TemplateJournalEntryInfo = Nothing
+
+        ''' <summary>
+        ''' Gets an empty TemplateJournalEntryInfo (placeholder).
+        ''' </summary>
+        Public Shared Function Empty() As TemplateJournalEntryInfo
+            If _Empty Is Nothing Then
+                _Empty = New TemplateJournalEntryInfo
+            End If
+            Return _Empty
+        End Function
+
         ''' <summary>
         ''' Gets an existing template info by a database query.
         ''' </summary>
@@ -154,13 +224,6 @@ Namespace HelperLists
         Friend Shared Function GetTemplateJournalEntryInfo(ByVal dr As DataRow, _
             ByVal detailsData As DataTable) As TemplateJournalEntryInfo
             Return New TemplateJournalEntryInfo(dr, detailsData)
-        End Function
-
-        ''' <summary>
-        ''' Gets an empty template info (placeholder).
-        ''' </summary>
-        Friend Shared Function GetEmptyTemplateJournalEntryInfo() As TemplateJournalEntryInfo
-            Return New TemplateJournalEntryInfo()
         End Function
 
 

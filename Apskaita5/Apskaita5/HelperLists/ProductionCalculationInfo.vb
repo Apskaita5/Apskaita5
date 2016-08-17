@@ -6,9 +6,9 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks>Values are stored in the database table kalkuliac.</remarks>
     <Serializable()> _
-    Public Class ProductionCalculationInfo
+    Public NotInheritable Class ProductionCalculationInfo
         Inherits ReadOnlyBase(Of ProductionCalculationInfo)
-        Implements IValueObjectIsEmpty
+        Implements IValueObject, IComparable
 
 #Region " Business Methods "
 
@@ -25,7 +25,7 @@ Namespace HelperLists
         ''' </summary>
         ''' <remarks></remarks>
         Public ReadOnly Property IsEmpty() As Boolean _
-            Implements IValueObjectIsEmpty.IsEmpty
+            Implements IValueObject.IsEmpty
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return Not _ID > 0
@@ -102,6 +102,71 @@ Namespace HelperLists
         End Property
 
 
+        Public Shared Operator =(ByVal a As ProductionCalculationInfo, ByVal b As ProductionCalculationInfo) As Boolean
+
+            Dim aId, bId As Integer
+            If a Is Nothing OrElse a.IsEmpty Then
+                aId = 0
+            Else
+                aId = a.ID
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bId = 0
+            Else
+                bId = b.ID
+            End If
+
+            Return aId = bId
+
+        End Operator
+
+        Public Shared Operator <>(ByVal a As ProductionCalculationInfo, ByVal b As ProductionCalculationInfo) As Boolean
+            Return Not a = b
+        End Operator
+
+        Public Shared Operator >(ByVal a As ProductionCalculationInfo, ByVal b As ProductionCalculationInfo) As Boolean
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString > bToString
+
+        End Operator
+
+        Public Shared Operator <(ByVal a As ProductionCalculationInfo, ByVal b As ProductionCalculationInfo) As Boolean
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString < bToString
+
+        End Operator
+
+        Public Function CompareTo(ByVal obj As Object) As Integer Implements System.IComparable.CompareTo
+            Dim tmp As ProductionCalculationInfo = TryCast(obj, ProductionCalculationInfo)
+            If Me = tmp Then Return 0
+            If Me > tmp Then Return 1
+            Return -1
+        End Function
+
 
         Protected Overrides Function GetIdValue() As Object
             Return _ID
@@ -117,8 +182,16 @@ Namespace HelperLists
 
 #Region " Factory Methods "
 
-        Friend Shared Function EmptyProductionCalculationInfo() As ProductionCalculationInfo
-            Return New ProductionCalculationInfo()
+        Private Shared _Empty As ProductionCalculationInfo = Nothing
+
+        ''' <summary>
+        ''' Gets an empty ProductionCalculationInfo (placeholder).
+        ''' </summary>
+        Public Shared Function Empty() As ProductionCalculationInfo
+            If _Empty Is Nothing Then
+                _Empty = New ProductionCalculationInfo
+            End If
+            Return _Empty
         End Function
 
         Friend Shared Function GetProductionCalculationInfo(ByVal dr As DataRow) As ProductionCalculationInfo
@@ -140,7 +213,7 @@ Namespace HelperLists
 
         Private Sub Fetch(ByVal dr As DataRow)
 
-            _ID = CIntSafe(dr.item(0), 0)
+            _ID = CIntSafe(dr.Item(0), 0)
             _Date = CDateSafe(dr.Item(1), Date.MinValue)
             _IsObsolete = ConvertDbBoolean(CIntSafe(dr.Item(2), 0))
             _Description = CStrSafe(dr.Item(3)).Trim

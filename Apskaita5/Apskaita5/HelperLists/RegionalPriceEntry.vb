@@ -11,7 +11,7 @@ Namespace HelperLists
     ''' Used with <see cref="IRegionalDataObject">localized objects</see> in order to provide localization in runtime.
     ''' Values are stored in the database table regionalprices.</remarks>
     <Serializable()> _
-    Public Class RegionalPriceEntry
+    Public NotInheritable Class RegionalPriceEntry
         Inherits ReadOnlyBase(Of RegionalPriceEntry)
 
 #Region " Business Methods "

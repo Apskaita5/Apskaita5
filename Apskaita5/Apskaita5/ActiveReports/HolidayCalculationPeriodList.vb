@@ -5,7 +5,7 @@
     ''' </summary>
     ''' <remarks>Should only by used as a child of UnusedHolidayInfo.</remarks>
     <Serializable()> _
-    Public Class HolidayCalculationPeriodList
+    Public NotInheritable Class HolidayCalculationPeriodList
         Inherits ReadOnlyListBase(Of HolidayCalculationPeriodList, HolidayCalculationPeriod)
 
 #Region " Business Methods "

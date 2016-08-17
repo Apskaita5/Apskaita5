@@ -7,7 +7,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks>Should only be used as a child of WageVDUInfoList.</remarks>
     <Serializable()> _
-    Public Class WageVDUInfo
+    Public NotInheritable Class WageVDUInfo
         Inherits ReadOnlyBase(Of WageVDUInfo)
 
 #Region " Business Methods "

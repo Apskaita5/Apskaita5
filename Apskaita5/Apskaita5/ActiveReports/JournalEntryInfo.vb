@@ -7,7 +7,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class JournalEntryInfo
+    Public NotInheritable Class JournalEntryInfo
         Inherits ReadOnlyBase(Of JournalEntryInfo)
 
 #Region " Business Methods "

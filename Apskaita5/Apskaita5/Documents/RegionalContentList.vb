@@ -7,7 +7,7 @@ Namespace Documents
     ''' <remarks>Should be only used as a child of <see cref="IRegionalDataObject">IRegionalDataObject</see>.
     ''' Values are stored in the database table regionalcontents.</remarks>
     <Serializable()> _
-    Public Class RegionalContentList
+    Public NotInheritable Class RegionalContentList
         Inherits BusinessListBase(Of RegionalContentList, RegionalContent)
 
 #Region " Business Methods "

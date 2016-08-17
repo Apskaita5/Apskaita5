@@ -6,7 +6,7 @@
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class VatDeclarationEntryProxy
+    Public NotInheritable Class VatDeclarationEntryProxy
 
         Private _FieldCode As String = ""
         Private _InclusionPercentage As Double = 100

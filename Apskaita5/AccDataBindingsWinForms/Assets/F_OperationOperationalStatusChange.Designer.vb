@@ -35,7 +35,6 @@ Partial Friend Class F_OperationOperationalStatusChange
         Me.nCancelButton = New System.Windows.Forms.Button
         Me.ApplyButton = New System.Windows.Forms.Button
         Me.nOkButton = New System.Windows.Forms.Button
-        Me.LimitationsButton = New System.Windows.Forms.Button
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.TabPage1 = New System.Windows.Forms.TabPage
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
@@ -48,9 +47,9 @@ Partial Friend Class F_OperationOperationalStatusChange
         Me.DateDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.IDTextBox = New System.Windows.Forms.TextBox
         Me.InsertDateTextBox = New System.Windows.Forms.TextBox
-        Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
         Me.TabPage2 = New System.Windows.Forms.TabPage
         Me.BackgroundInfoPanel1 = New AccDataBindingsWinForms.BackgroundInfoPanel
+        Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
         Me.ErrorWarnInfoProvider1 = New AccControlsWinForms.ErrorWarnInfoProvider(Me.components)
         Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller
         ContentLabel = New System.Windows.Forms.Label
@@ -166,12 +165,11 @@ Partial Friend Class F_OperationOperationalStatusChange
         Me.Panel2.Controls.Add(Me.nCancelButton)
         Me.Panel2.Controls.Add(Me.ApplyButton)
         Me.Panel2.Controls.Add(Me.nOkButton)
-        Me.Panel2.Controls.Add(Me.LimitationsButton)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 416)
+        Me.Panel2.Location = New System.Drawing.Point(0, 418)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Padding = New System.Windows.Forms.Padding(0, 0, 0, 4)
-        Me.Panel2.Size = New System.Drawing.Size(790, 44)
+        Me.Panel2.Size = New System.Drawing.Size(790, 42)
         Me.Panel2.TabIndex = 1
         '
         'nCancelButton
@@ -208,15 +206,6 @@ Partial Friend Class F_OperationOperationalStatusChange
         Me.nOkButton.Text = "OK"
         Me.nOkButton.UseVisualStyleBackColor = True
         '
-        'LimitationsButton
-        '
-        Me.LimitationsButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.Action_lock_icon_16p
-        Me.LimitationsButton.Location = New System.Drawing.Point(12, 9)
-        Me.LimitationsButton.Name = "LimitationsButton"
-        Me.LimitationsButton.Size = New System.Drawing.Size(28, 28)
-        Me.LimitationsButton.TabIndex = 0
-        Me.LimitationsButton.UseVisualStyleBackColor = True
-        '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
@@ -225,7 +214,7 @@ Partial Friend Class F_OperationOperationalStatusChange
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(790, 416)
+        Me.TabControl1.Size = New System.Drawing.Size(790, 418)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -235,7 +224,7 @@ Partial Friend Class F_OperationOperationalStatusChange
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(782, 390)
+        Me.TabPage1.Size = New System.Drawing.Size(782, 392)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Operacijos duomenys"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -276,7 +265,7 @@ Partial Friend Class F_OperationOperationalStatusChange
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(776, 384)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(776, 386)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'TypeHumanReadableTextBox
@@ -381,14 +370,6 @@ Partial Friend Class F_OperationOperationalStatusChange
         Me.InsertDateTextBox.TabStop = False
         Me.InsertDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'ProgressFiller1
-        '
-        Me.ProgressFiller1.Location = New System.Drawing.Point(49, 45)
-        Me.ProgressFiller1.Name = "ProgressFiller1"
-        Me.ProgressFiller1.Size = New System.Drawing.Size(218, 66)
-        Me.ProgressFiller1.TabIndex = 1
-        Me.ProgressFiller1.Visible = False
-        '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.BackgroundInfoPanel1)
@@ -408,6 +389,14 @@ Partial Friend Class F_OperationOperationalStatusChange
         Me.BackgroundInfoPanel1.Name = "BackgroundInfoPanel1"
         Me.BackgroundInfoPanel1.Size = New System.Drawing.Size(776, 384)
         Me.BackgroundInfoPanel1.TabIndex = 0
+        '
+        'ProgressFiller1
+        '
+        Me.ProgressFiller1.Location = New System.Drawing.Point(49, 45)
+        Me.ProgressFiller1.Name = "ProgressFiller1"
+        Me.ProgressFiller1.Size = New System.Drawing.Size(218, 66)
+        Me.ProgressFiller1.TabIndex = 1
+        Me.ProgressFiller1.Visible = False
         '
         'ErrorWarnInfoProvider1
         '
@@ -454,7 +443,6 @@ Partial Friend Class F_OperationOperationalStatusChange
     Friend WithEvents nCancelButton As System.Windows.Forms.Button
     Friend WithEvents ApplyButton As System.Windows.Forms.Button
     Friend WithEvents nOkButton As System.Windows.Forms.Button
-    Friend WithEvents LimitationsButton As System.Windows.Forms.Button
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents IsComplexActCheckBox As System.Windows.Forms.CheckBox

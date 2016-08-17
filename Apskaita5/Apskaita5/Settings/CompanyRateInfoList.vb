@@ -6,7 +6,7 @@ Namespace Settings
     ''' <remarks>Should only be used as a child of <see cref="CompanyInfo">CompanyInfo</see>.
     ''' Values are stored in the database table companyrates.</remarks>
     <Serializable()> _
-    Public Class CompanyRateInfoList
+    Public NotInheritable Class CompanyRateInfoList
         Inherits ReadOnlyListBase(Of CompanyRateInfoList, CompanyRateInfo)
 
 #Region " Business Methods "

@@ -13,7 +13,7 @@ Namespace Documents.InvoiceAdapters
     ''' Can be added to an invoice by invoking <see cref="InvoiceMade.AttachNewObject">InvoiceMade.AttachNewObject</see>
     ''' or <see cref="InvoiceReceived.AttachNewObject">InvoiceReceived.AttachNewObject</see> methods.</remarks>
     <Serializable()> _
-    Public Class AssetAcquisitionValueIncreaseInvoiceAdapter
+    Public NotInheritable Class AssetAcquisitionValueIncreaseInvoiceAdapter
         Inherits BusinessBase(Of AssetAcquisitionValueIncreaseInvoiceAdapter)
         Implements IInvoiceAdapter
 
@@ -198,7 +198,7 @@ Namespace Documents.InvoiceAdapters
             End Get
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Set(ByVal value As String)
-                
+
             End Set
         End Property
 

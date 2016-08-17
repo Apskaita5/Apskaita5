@@ -11,7 +11,7 @@ Namespace ActiveReports
     ''' goods valuation method change operatiions</see>.
     ''' Should only be used as a child of <see cref="GoodsOperationInfoList">GoodsOperationInfoList</see>.</remarks>
     <Serializable()> _
-    Public Class GoodsOperationInfo
+    Public NotInheritable Class GoodsOperationInfo
         Inherits ReadOnlyBase(Of GoodsOperationInfo)
 
 #Region " Business Methods "

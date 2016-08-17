@@ -6,7 +6,7 @@ Namespace General
     ''' <remarks>Can only be used as a child object for <see cref="General.TemplateJournalEntry">TemplateJournalEntry</see>.
     ''' Values are stored in the database table tipines_data.</remarks>
     <Serializable()> _
-    Public Class TemplateBookEntryList
+    Public NotInheritable Class TemplateBookEntryList
         Inherits BusinessListBase(Of TemplateBookEntryList, TemplateBookEntry)
 
 #Region " Business Methods "

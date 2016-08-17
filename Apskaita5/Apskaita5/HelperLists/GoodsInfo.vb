@@ -6,9 +6,9 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks>Values are stored in the database table goods.</remarks>
     <Serializable()> _
-    Public Class GoodsInfo
+    Public NotInheritable Class GoodsInfo
         Inherits ReadOnlyBase(Of GoodsInfo)
-        Implements IValueObjectIsEmpty
+        Implements IValueObject, IComparable
 
 #Region " Business Methods "
 
@@ -32,7 +32,7 @@ Namespace HelperLists
         ''' </summary>
         ''' <remarks></remarks>
         Public ReadOnly Property IsEmpty() As Boolean _
-            Implements IValueObjectIsEmpty.IsEmpty
+            Implements IValueObject.IsEmpty
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return Not _ID > 0
@@ -198,6 +198,72 @@ Namespace HelperLists
         End Property
 
 
+        Public Shared Operator =(ByVal a As GoodsInfo, ByVal b As GoodsInfo) As Boolean
+
+            Dim aId, bId As Integer
+            If a Is Nothing OrElse a.IsEmpty Then
+                aId = 0
+            Else
+                aId = a.ID
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bId = 0
+            Else
+                bId = b.ID
+            End If
+
+            Return aId = bId
+
+        End Operator
+
+        Public Shared Operator <>(ByVal a As GoodsInfo, ByVal b As GoodsInfo) As Boolean
+            Return Not a = b
+        End Operator
+
+        Public Shared Operator >(ByVal a As GoodsInfo, ByVal b As GoodsInfo) As Boolean
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString > bToString
+
+        End Operator
+
+        Public Shared Operator <(ByVal a As GoodsInfo, ByVal b As GoodsInfo) As Boolean
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString < bToString
+
+        End Operator
+
+        Public Function CompareTo(ByVal obj As Object) As Integer Implements System.IComparable.CompareTo
+            Dim tmp As GoodsInfo = TryCast(obj, GoodsInfo)
+            If Me = tmp Then Return 0
+            If Me > tmp Then Return 1
+            Return -1
+        End Function
+
+
         Protected Overrides Function GetIdValue() As Object
             Return _ID
         End Function
@@ -220,8 +286,16 @@ Namespace HelperLists
 
 #Region " Factory Methods "
 
-        Friend Shared Function EmptyGoodsInfo() As GoodsInfo
-            Return New GoodsInfo()
+        Private Shared _Empty As GoodsInfo = Nothing
+
+        ''' <summary>
+        ''' Gets an empty GoodsInfo (placeholder).
+        ''' </summary>
+        Public Shared Function Empty() As GoodsInfo
+            If _Empty Is Nothing Then
+                _Empty = New GoodsInfo
+            End If
+            Return _Empty
         End Function
 
         Friend Shared Function GetGoodsInfo(ByVal dr As DataRow, ByVal offset As Integer) As GoodsInfo

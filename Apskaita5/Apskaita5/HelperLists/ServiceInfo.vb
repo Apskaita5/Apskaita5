@@ -7,9 +7,9 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks>Values are stored in the database table paslaugos.</remarks>
     <Serializable()> _
-    Public Class ServiceInfo
+    Public NotInheritable Class ServiceInfo
         Inherits ReadOnlyBase(Of ServiceInfo)
-        Implements IComparable, IValueObjectIsEmpty
+        Implements IComparable, IValueObject
 
 #Region " Business Methods "
 
@@ -34,7 +34,7 @@ Namespace HelperLists
         ''' </summary>
         ''' <remarks></remarks>
         Public ReadOnly Property IsEmpty() As Boolean _
-            Implements IValueObjectIsEmpty.IsEmpty
+            Implements IValueObject.IsEmpty
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return Not _ID > 0
@@ -201,9 +201,21 @@ Namespace HelperLists
 
 
         Public Shared Operator =(ByVal a As ServiceInfo, ByVal b As ServiceInfo) As Boolean
-            If a Is Nothing AndAlso b Is Nothing Then Return True
-            If a Is Nothing OrElse b Is Nothing Then Return False
-            Return a.ID = b.ID
+
+            Dim aId, bId As Integer
+            If a Is Nothing OrElse a.IsEmpty Then
+                aId = 0
+            Else
+                aId = a.ID
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bId = 0
+            Else
+                bId = b.ID
+            End If
+
+            Return aId = bId
+
         End Operator
 
         Public Shared Operator <>(ByVal a As ServiceInfo, ByVal b As ServiceInfo) As Boolean
@@ -211,20 +223,42 @@ Namespace HelperLists
         End Operator
 
         Public Shared Operator >(ByVal a As ServiceInfo, ByVal b As ServiceInfo) As Boolean
-            If a Is Nothing Then Return False
-            If a IsNot Nothing And b Is Nothing Then Return True
-            Return a.ToString > b.ToString
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString > bToString
+
         End Operator
 
         Public Shared Operator <(ByVal a As ServiceInfo, ByVal b As ServiceInfo) As Boolean
-            If a Is Nothing And b Is Nothing Then Return False
-            If a Is Nothing Then Return True
-            If b Is Nothing Then Return False
-            Return a.ToString < b.ToString
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString < bToString
+
         End Operator
 
-        Public Function CompareTo(ByVal obj As Object) As Integer _
-        Implements System.IComparable.CompareTo
+        Public Function CompareTo(ByVal obj As Object) As Integer Implements System.IComparable.CompareTo
             Dim tmp As ServiceInfo = TryCast(obj, ServiceInfo)
             If Me = tmp Then Return 0
             If Me > tmp Then Return 1
@@ -244,8 +278,16 @@ Namespace HelperLists
 
 #Region " Factory Methods "
 
-        Friend Shared Function NewServiceInfo() As ServiceInfo
-            Return New ServiceInfo
+        Private Shared _Empty As ServiceInfo = Nothing
+
+        ''' <summary>
+        ''' Gets an empty ServiceInfo (placeholder).
+        ''' </summary>
+        Public Shared Function Empty() As ServiceInfo
+            If _Empty Is Nothing Then
+                _Empty = New ServiceInfo
+            End If
+            Return _Empty
         End Function
 
         Friend Shared Function GetServiceInfo(ByVal dr As DataRow) As ServiceInfo

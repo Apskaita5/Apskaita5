@@ -79,6 +79,7 @@ Public Module CommonMethods
         _BusinessObjectsViews.Add(GetType(ActiveReports.LongTermAssetComplexDocumentInfoList), GetType(F_LongTermAssetComplexDocumentInfoList))
         _BusinessObjectsViews.Add(GetType(ActiveReports.LongTermAssetOperationInfoListParent), GetType(F_LongTermAssetOperationInfoListParent))
         _BusinessObjectsViews.Add(GetType(ActiveReports.LongTermAssetInfoList), GetType(F_LongTermAssetInfoList))
+        _BusinessObjectsViews.Add(GetType(ActiveReports.VatDeclaration), GetType(F_VatDeclaration))
         _BusinessObjectsViews.Add(GetType(HelperLists.IndirectRelationInfoList), GetType(F_IndirectRelationInfoList))
         _BusinessObjectsViews.Add(GetType(HelperLists.TemplateJournalEntryInfoList), GetType(F_TemplateJournalEntryInfoList))
         _BusinessObjectsViews.Add(GetType(ActiveReports.ServiceInfoItemList), GetType(F_ServiceInfoList))
@@ -751,7 +752,6 @@ Public Module CommonMethods
         _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationSD13_1)
         _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationSD13_2)
         _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationSD13_5)
-        _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationFR0600_2)
 
     End Sub
 

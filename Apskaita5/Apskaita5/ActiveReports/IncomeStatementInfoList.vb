@@ -5,7 +5,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks>Should only be used as a child of of <see cref="ActiveReports.FinancialStatementsInfo">FinancialStatementsInfo</see>.</remarks>
     <Serializable()> _
-    Public Class IncomeStatementInfoList
+    Public NotInheritable Class IncomeStatementInfoList
         Inherits ReadOnlyListBase(Of IncomeStatementInfoList, IncomeStatementInfo)
 
 #Region " Business Methods "

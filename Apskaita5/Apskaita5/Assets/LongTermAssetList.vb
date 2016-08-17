@@ -7,7 +7,7 @@
     ''' <remarks>Values are stored in the database table turtas.
     ''' Should only be used as a child of <see cref="ComplexOperationValueChange">ComplexOperationValueChange</see>.</remarks>
     <Serializable()> _
-    Public Class LongTermAssetList
+    Public NotInheritable Class LongTermAssetList
         Inherits BusinessListBase(Of LongTermAssetList, LongTermAsset)
         Implements IValidationMessageProvider
 

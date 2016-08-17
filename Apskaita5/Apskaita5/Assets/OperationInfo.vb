@@ -10,7 +10,7 @@ Namespace Assets
     ''' <remarks>Used to provide long term asset operation access from other
     ''' program modules, e.g. to open operation form from a general ledger.</remarks>
     <Serializable()> _
-    Public Class OperationInfo
+    Public NotInheritable Class OperationInfo
         Inherits ReadOnlyBase(Of OperationInfo)
 
 #Region " Business Methods "

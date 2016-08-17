@@ -7,7 +7,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks>Should only be used as a child of <see cref="WorkerWageInfoReport">WorkerWageInfoReport</see>.</remarks>
     <Serializable()> _
-    Public Class WorkerWageInfoList
+    Public NotInheritable Class WorkerWageInfoList
         Inherits ReadOnlyListBase(Of WorkerWageInfoList, WorkerWageInfo)
 
 #Region " Business Methods "

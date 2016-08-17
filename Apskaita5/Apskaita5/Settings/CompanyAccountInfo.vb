@@ -6,7 +6,7 @@ Namespace Settings
     ''' </summary>
     ''' <remarks>Values are stored in the database table companyaccounts.</remarks>
     <Serializable()> _
-    Public Class CompanyAccountInfo
+    Public NotInheritable Class CompanyAccountInfo
         Inherits ReadOnlyBase(Of CompanyAccountInfo)
 
 #Region " Business Methods "

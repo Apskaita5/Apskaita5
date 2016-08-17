@@ -7,7 +7,7 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class RegionalInfoDictionary
+    Public NotInheritable Class RegionalInfoDictionary
         Inherits ReadOnlyBase(Of RegionalInfoDictionary)
 
 #Region " Business Methods "

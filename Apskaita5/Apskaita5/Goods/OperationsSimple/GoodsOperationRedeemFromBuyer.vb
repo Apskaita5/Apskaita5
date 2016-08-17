@@ -14,7 +14,7 @@ Namespace Goods
     ''' Persistent accounting method</see> the operation also encapsulates 
     ''' a single goods <see cref="ConsignmentPersistenceObject">consignment</see>.</remarks>
     <Serializable()> _
-Public Class GoodsOperationRedeemFromBuyer
+Public NotInheritable Class GoodsOperationRedeemFromBuyer
         Inherits BusinessBase(Of GoodsOperationRedeemFromBuyer)
         Implements IIsDirtyEnough, IGetErrorForListItem, IValidationMessageProvider
 
@@ -665,7 +665,7 @@ Public Class GoodsOperationRedeemFromBuyer
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return Not _OperationLimitations.FinancialDataCanChange OrElse _
-                    (Not Me.IsChild AndAlso IsChildOperation) 
+                    (Not Me.IsChild AndAlso IsChildOperation)
             End Get
         End Property
 

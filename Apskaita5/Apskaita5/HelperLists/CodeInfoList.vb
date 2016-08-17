@@ -13,7 +13,7 @@ Namespace HelperLists
     ''' historical values need to be added from the current database
     ''' in order to provide consistent datasource.</remarks>
     <Serializable()> _
-    Public Class CodeInfoList
+    Public NotInheritable Class CodeInfoList
         Inherits ReadOnlyListBase(Of CodeInfoList, CodeInfo)
 
 #Region " Business Methods "
@@ -215,7 +215,7 @@ Namespace HelperLists
 
             _CodeWageGPM = settingsProxy.CodeWageGPM
 
-            Add(CodeInfo.NewCodeInfo())
+            Add(CodeInfo.Empty())
 
             For Each proxy As CodeProxy In settingsProxy.Codes
                 Add(CodeInfo.GetCodeInfo(proxy))

@@ -7,9 +7,9 @@
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class AssignableCRItem
+    Public NotInheritable Class AssignableCRItem
         Inherits ReadOnlyBase(Of AssignableCRItem)
-        Implements IValueObjectIsEmpty, IComparable
+        Implements IValueObject, IComparable
 
 #Region " Business Methods "
 
@@ -44,7 +44,7 @@
         ''' </summary>
         ''' <remarks></remarks>
         Public ReadOnly Property IsEmpty() As Boolean _
-            Implements IValueObjectIsEmpty.IsEmpty
+            Implements IValueObject.IsEmpty
             Get
                 Return (Not _ID > 0)
             End Get
@@ -53,10 +53,19 @@
 
         Public Shared Operator =(ByVal a As AssignableCRItem, ByVal b As AssignableCRItem) As Boolean
 
-            If a Is Nothing AndAlso b Is Nothing Then Return True
-            If a Is Nothing OrElse b Is Nothing Then Return False
+            Dim aId, bId As Integer
+            If a Is Nothing OrElse a.IsEmpty Then
+                aId = 0
+            Else
+                aId = a.ID
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bId = 0
+            Else
+                bId = b.ID
+            End If
 
-            Return a.ID = b.ID
+            Return aId = bId
 
         End Operator
 
@@ -65,16 +74,39 @@
         End Operator
 
         Public Shared Operator >(ByVal a As AssignableCRItem, ByVal b As AssignableCRItem) As Boolean
-            If a Is Nothing Then Return False
-            If b Is Nothing Then Return True
-            Return a.ToString > b.ToString
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString > bToString
+
         End Operator
 
         Public Shared Operator <(ByVal a As AssignableCRItem, ByVal b As AssignableCRItem) As Boolean
-            If a Is Nothing And b Is Nothing Then Return False
-            If a Is Nothing Then Return True
-            If b Is Nothing Then Return False
-            Return a.ToString < b.ToString
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString < bToString
+
         End Operator
 
         Public Function CompareTo(ByVal obj As Object) As Integer Implements System.IComparable.CompareTo
@@ -97,8 +129,16 @@
 
 #Region " Factory Methods "
 
-        Friend Shared Function NewAssignableCRItem() As AssignableCRItem
-            Return New AssignableCRItem()
+        Private Shared _Empty As AssignableCRItem = Nothing
+
+        ''' <summary>
+        ''' Gets an empty AssignableCRItem (placeholder).
+        ''' </summary>
+        Public Shared Function Empty() As AssignableCRItem
+            If _Empty Is Nothing Then
+                _Empty = New AssignableCRItem
+            End If
+            Return _Empty
         End Function
 
         Friend Shared Function GetAssignableCRItem(ByVal dr As DataRow, _

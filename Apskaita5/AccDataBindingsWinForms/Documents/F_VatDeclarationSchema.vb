@@ -94,6 +94,8 @@ Friend Class F_VatDeclarationSchema
             SetupDefaultControls(Of VatDeclarationSchema)(Me, VatDeclarationSchemaBindingSource)
 
             LoadEnumLocalizedListToComboBox(TradedTypeHumanReadableComboBox, GetType(TradedItemType), False)
+            LoadCodeInfoListToListCombo(ExternalCodeAccListComboBox, _
+                CodeType.VmiVatType, False, False)
 
         Catch ex As Exception
             ShowError(ex)

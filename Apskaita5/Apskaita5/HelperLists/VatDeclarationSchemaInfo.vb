@@ -7,9 +7,9 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks>Values are stored in the database table VatDeclarationSchemas.</remarks>
     <Serializable()> _
-    Public Class VatDeclarationSchemaInfo
+    Public NotInheritable Class VatDeclarationSchemaInfo
         Inherits ReadOnlyBase(Of VatDeclarationSchemaInfo)
-        Implements IComparable, IValueObjectIsEmpty
+        Implements IComparable, IValueObject
 
 #Region " Business Methods "
 
@@ -29,7 +29,7 @@ Namespace HelperLists
         ''' </summary>
         ''' <remarks></remarks>
         Public ReadOnly Property IsEmpty() As Boolean _
-            Implements IValueObjectIsEmpty.IsEmpty
+            Implements IValueObject.IsEmpty
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return Not _ID > 0
@@ -128,11 +128,22 @@ Namespace HelperLists
         End Property
 
 
-
         Public Shared Operator =(ByVal a As VatDeclarationSchemaInfo, ByVal b As VatDeclarationSchemaInfo) As Boolean
-            If a Is Nothing AndAlso b Is Nothing Then Return True
-            If a Is Nothing OrElse b Is Nothing Then Return False
-            Return a.ID = b.ID
+
+            Dim aId, bId As Integer
+            If a Is Nothing OrElse a.IsEmpty Then
+                aId = 0
+            Else
+                aId = a.ID
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bId = 0
+            Else
+                bId = b.ID
+            End If
+
+            Return aId = bId
+
         End Operator
 
         Public Shared Operator <>(ByVal a As VatDeclarationSchemaInfo, ByVal b As VatDeclarationSchemaInfo) As Boolean
@@ -140,20 +151,42 @@ Namespace HelperLists
         End Operator
 
         Public Shared Operator >(ByVal a As VatDeclarationSchemaInfo, ByVal b As VatDeclarationSchemaInfo) As Boolean
-            If a Is Nothing Then Return False
-            If a IsNot Nothing And b Is Nothing Then Return True
-            Return a.ToString > b.ToString
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString > bToString
+
         End Operator
 
         Public Shared Operator <(ByVal a As VatDeclarationSchemaInfo, ByVal b As VatDeclarationSchemaInfo) As Boolean
-            If a Is Nothing And b Is Nothing Then Return False
-            If a Is Nothing Then Return True
-            If b Is Nothing Then Return False
-            Return a.ToString < b.ToString
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString < bToString
+
         End Operator
 
-        Public Function CompareTo(ByVal obj As Object) As Integer _
-        Implements System.IComparable.CompareTo
+        Public Function CompareTo(ByVal obj As Object) As Integer Implements System.IComparable.CompareTo
             Dim tmp As VatDeclarationSchemaInfo = TryCast(obj, VatDeclarationSchemaInfo)
             If Me = tmp Then Return 0
             If Me > tmp Then Return 1
@@ -175,13 +208,22 @@ Namespace HelperLists
 
 #Region " Factory Methods "
 
-        Friend Shared Function NewVatDeclarationSchemaInfo() As VatDeclarationSchemaInfo
-            Return New VatDeclarationSchemaInfo()
+        Private Shared _Empty As VatDeclarationSchemaInfo = Nothing
+
+        ''' <summary>
+        ''' Gets an empty VatDeclarationSchemaInfo (placeholder).
+        ''' </summary>
+        Public Shared Function Empty() As VatDeclarationSchemaInfo
+            If _Empty Is Nothing Then
+                _Empty = New VatDeclarationSchemaInfo
+            End If
+            Return _Empty
         End Function
 
         Friend Shared Function GetVatDeclarationSchemaInfo(ByVal dr As DataRow, ByVal offset As Integer) As VatDeclarationSchemaInfo
             Return New VatDeclarationSchemaInfo(dr, offset)
         End Function
+
 
         Private Sub New()
             ' require use of factory methods

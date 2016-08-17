@@ -9,7 +9,7 @@ Namespace Workers
     ''' <remarks>Encapsulates a <see cref="General.JournalEntry">JournalEntry</see> of type <see cref="DocumentType.ImprestSheet">DocumentType.ImprestSheet</see>.
     ''' Values are stored in the database table d_avansai.</remarks>
     <Serializable()> _
-    Public Class HolidayPayReserve
+    Public NotInheritable Class HolidayPayReserve
         Inherits BusinessBase(Of HolidayPayReserve)
         Implements IIsDirtyEnough, IValidationMessageProvider
 

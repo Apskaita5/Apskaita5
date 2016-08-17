@@ -33,10 +33,10 @@ Partial Friend Class F_VatDeclarationSchema
         Dim DescriptionLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_VatDeclarationSchema))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.NameTextBox = New System.Windows.Forms.TextBox
+        Me.VatRateComboBox = New System.Windows.Forms.ComboBox
         Me.VatDeclarationSchemaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.NameTextBox = New System.Windows.Forms.TextBox
         Me.IsObsoleteCheckBox = New System.Windows.Forms.CheckBox
-        Me.ExternalCodeTextBox = New System.Windows.Forms.TextBox
         Me.UpdateDateTextBox = New System.Windows.Forms.TextBox
         Me.IDTextBox = New System.Windows.Forms.TextBox
         Me.InsertDateTextBox = New System.Windows.Forms.TextBox
@@ -56,7 +56,7 @@ Partial Friend Class F_VatDeclarationSchema
         Me.OlvColumn5 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn6 = New BrightIdeasSoftware.OLVColumn
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
-        Me.VatRateComboBox = New System.Windows.Forms.ComboBox
+        Me.ExternalCodeAccListComboBox = New AccControlsWinForms.AccListComboBox
         IDLabel = New System.Windows.Forms.Label
         InsertDateLabel = New System.Windows.Forms.Label
         UpdateDateLabel = New System.Windows.Forms.Label
@@ -91,7 +91,7 @@ Partial Friend Class F_VatDeclarationSchema
         InsertDateLabel.AutoSize = True
         InsertDateLabel.Dock = System.Windows.Forms.DockStyle.Fill
         InsertDateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        InsertDateLabel.Location = New System.Drawing.Point(348, 0)
+        InsertDateLabel.Location = New System.Drawing.Point(351, 0)
         InsertDateLabel.Name = "InsertDateLabel"
         InsertDateLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         InsertDateLabel.Size = New System.Drawing.Size(71, 26)
@@ -104,7 +104,7 @@ Partial Friend Class F_VatDeclarationSchema
         UpdateDateLabel.AutoSize = True
         UpdateDateLabel.Dock = System.Windows.Forms.DockStyle.Fill
         UpdateDateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        UpdateDateLabel.Location = New System.Drawing.Point(608, 0)
+        UpdateDateLabel.Location = New System.Drawing.Point(613, 0)
         UpdateDateLabel.Name = "UpdateDateLabel"
         UpdateDateLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         UpdateDateLabel.Size = New System.Drawing.Size(60, 26)
@@ -130,7 +130,7 @@ Partial Friend Class F_VatDeclarationSchema
         VatRateLabel.AutoSize = True
         VatRateLabel.Dock = System.Windows.Forms.DockStyle.Fill
         VatRateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        VatRateLabel.Location = New System.Drawing.Point(348, 26)
+        VatRateLabel.Location = New System.Drawing.Point(351, 26)
         VatRateLabel.Name = "VatRateLabel"
         VatRateLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         VatRateLabel.Size = New System.Drawing.Size(71, 27)
@@ -143,7 +143,7 @@ Partial Friend Class F_VatDeclarationSchema
         ExternalCodeLabel.AutoSize = True
         ExternalCodeLabel.Dock = System.Windows.Forms.DockStyle.Fill
         ExternalCodeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        ExternalCodeLabel.Location = New System.Drawing.Point(608, 26)
+        ExternalCodeLabel.Location = New System.Drawing.Point(613, 26)
         ExternalCodeLabel.Name = "ExternalCodeLabel"
         ExternalCodeLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         ExternalCodeLabel.Size = New System.Drawing.Size(60, 27)
@@ -188,13 +188,13 @@ Partial Friend Class F_VatDeclarationSchema
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.VatRateComboBox, 4, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.ExternalCodeAccListComboBox, 7, 1)
         Me.TableLayoutPanel1.Controls.Add(DescriptionLabel, 0, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.NameTextBox, 1, 2)
         Me.TableLayoutPanel1.Controls.Add(NameLabel, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.IsObsoleteCheckBox, 6, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.ExternalCodeTextBox, 7, 1)
         Me.TableLayoutPanel1.Controls.Add(ExternalCodeLabel, 6, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.UpdateDateTextBox, 7, 0)
         Me.TableLayoutPanel1.Controls.Add(UpdateDateLabel, 6, 0)
@@ -215,8 +215,22 @@ Partial Friend Class F_VatDeclarationSchema
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(857, 166)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(865, 166)
         Me.TableLayoutPanel1.TabIndex = 0
+        '
+        'VatRateComboBox
+        '
+        Me.VatRateComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.VatDeclarationSchemaBindingSource, "VatRate", True))
+        Me.VatRateComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.VatRateComboBox.FormattingEnabled = True
+        Me.VatRateComboBox.Location = New System.Drawing.Point(428, 29)
+        Me.VatRateComboBox.Name = "VatRateComboBox"
+        Me.VatRateComboBox.Size = New System.Drawing.Size(159, 21)
+        Me.VatRateComboBox.TabIndex = 7
+        '
+        'VatDeclarationSchemaBindingSource
+        '
+        Me.VatDeclarationSchemaBindingSource.DataSource = GetType(ApskaitaObjects.Documents.VatDeclarationSchema)
         '
         'NameTextBox
         '
@@ -225,12 +239,8 @@ Partial Friend Class F_VatDeclarationSchema
         Me.NameTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.NameTextBox.Location = New System.Drawing.Point(111, 56)
         Me.NameTextBox.Name = "NameTextBox"
-        Me.NameTextBox.Size = New System.Drawing.Size(471, 20)
+        Me.NameTextBox.Size = New System.Drawing.Size(476, 20)
         Me.NameTextBox.TabIndex = 2
-        '
-        'VatDeclarationSchemaBindingSource
-        '
-        Me.VatDeclarationSchemaBindingSource.DataSource = GetType(ApskaitaObjects.Documents.VatDeclarationSchema)
         '
         'IsObsoleteCheckBox
         '
@@ -238,7 +248,7 @@ Partial Friend Class F_VatDeclarationSchema
         Me.TableLayoutPanel1.SetColumnSpan(Me.IsObsoleteCheckBox, 2)
         Me.IsObsoleteCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.VatDeclarationSchemaBindingSource, "IsObsolete", True))
         Me.IsObsoleteCheckBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IsObsoleteCheckBox.Location = New System.Drawing.Point(608, 56)
+        Me.IsObsoleteCheckBox.Location = New System.Drawing.Point(613, 56)
         Me.IsObsoleteCheckBox.Name = "IsObsoleteCheckBox"
         Me.IsObsoleteCheckBox.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
         Me.IsObsoleteCheckBox.Size = New System.Drawing.Size(117, 20)
@@ -246,24 +256,14 @@ Partial Friend Class F_VatDeclarationSchema
         Me.IsObsoleteCheckBox.Text = "Nebenaudojama"
         Me.IsObsoleteCheckBox.UseVisualStyleBackColor = True
         '
-        'ExternalCodeTextBox
-        '
-        Me.ExternalCodeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.VatDeclarationSchemaBindingSource, "ExternalCode", True))
-        Me.ExternalCodeTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ExternalCodeTextBox.Location = New System.Drawing.Point(674, 29)
-        Me.ExternalCodeTextBox.Name = "ExternalCodeTextBox"
-        Me.ExternalCodeTextBox.Size = New System.Drawing.Size(157, 20)
-        Me.ExternalCodeTextBox.TabIndex = 6
-        Me.ExternalCodeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'UpdateDateTextBox
         '
         Me.UpdateDateTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.VatDeclarationSchemaBindingSource, "UpdateDate", True))
         Me.UpdateDateTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UpdateDateTextBox.Location = New System.Drawing.Point(674, 3)
+        Me.UpdateDateTextBox.Location = New System.Drawing.Point(679, 3)
         Me.UpdateDateTextBox.Name = "UpdateDateTextBox"
         Me.UpdateDateTextBox.ReadOnly = True
-        Me.UpdateDateTextBox.Size = New System.Drawing.Size(157, 20)
+        Me.UpdateDateTextBox.Size = New System.Drawing.Size(159, 20)
         Me.UpdateDateTextBox.TabIndex = 6
         Me.UpdateDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -274,7 +274,7 @@ Partial Friend Class F_VatDeclarationSchema
         Me.IDTextBox.Location = New System.Drawing.Point(111, 3)
         Me.IDTextBox.Name = "IDTextBox"
         Me.IDTextBox.ReadOnly = True
-        Me.IDTextBox.Size = New System.Drawing.Size(211, 20)
+        Me.IDTextBox.Size = New System.Drawing.Size(214, 20)
         Me.IDTextBox.TabIndex = 3
         Me.IDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -282,10 +282,10 @@ Partial Friend Class F_VatDeclarationSchema
         '
         Me.InsertDateTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.VatDeclarationSchemaBindingSource, "InsertDate", True))
         Me.InsertDateTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.InsertDateTextBox.Location = New System.Drawing.Point(425, 3)
+        Me.InsertDateTextBox.Location = New System.Drawing.Point(428, 3)
         Me.InsertDateTextBox.Name = "InsertDateTextBox"
         Me.InsertDateTextBox.ReadOnly = True
-        Me.InsertDateTextBox.Size = New System.Drawing.Size(157, 20)
+        Me.InsertDateTextBox.Size = New System.Drawing.Size(159, 20)
         Me.InsertDateTextBox.TabIndex = 4
         Me.InsertDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -296,7 +296,7 @@ Partial Friend Class F_VatDeclarationSchema
         Me.TradedTypeHumanReadableComboBox.FormattingEnabled = True
         Me.TradedTypeHumanReadableComboBox.Location = New System.Drawing.Point(111, 29)
         Me.TradedTypeHumanReadableComboBox.Name = "TradedTypeHumanReadableComboBox"
-        Me.TradedTypeHumanReadableComboBox.Size = New System.Drawing.Size(211, 21)
+        Me.TradedTypeHumanReadableComboBox.Size = New System.Drawing.Size(214, 21)
         Me.TradedTypeHumanReadableComboBox.TabIndex = 2
         '
         'DescriptionTextBox
@@ -309,7 +309,7 @@ Partial Friend Class F_VatDeclarationSchema
         Me.DescriptionTextBox.Multiline = True
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.DescriptionTextBox.Size = New System.Drawing.Size(720, 76)
+        Me.DescriptionTextBox.Size = New System.Drawing.Size(727, 76)
         Me.DescriptionTextBox.TabIndex = 2
         '
         'Panel2
@@ -320,16 +320,16 @@ Partial Friend Class F_VatDeclarationSchema
         Me.Panel2.Controls.Add(Me.IOkButton)
         Me.Panel2.Controls.Add(Me.IApplyButton)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 454)
+        Me.Panel2.Location = New System.Drawing.Point(0, 301)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(857, 32)
+        Me.Panel2.Size = New System.Drawing.Size(865, 32)
         Me.Panel2.TabIndex = 4
         '
         'ICancelButton
         '
         Me.ICancelButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ICancelButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ICancelButton.Location = New System.Drawing.Point(756, 6)
+        Me.ICancelButton.Location = New System.Drawing.Point(764, 6)
         Me.ICancelButton.Name = "ICancelButton"
         Me.ICancelButton.Size = New System.Drawing.Size(89, 23)
         Me.ICancelButton.TabIndex = 3
@@ -340,7 +340,7 @@ Partial Friend Class F_VatDeclarationSchema
         '
         Me.IOkButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.IOkButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IOkButton.Location = New System.Drawing.Point(550, 6)
+        Me.IOkButton.Location = New System.Drawing.Point(558, 6)
         Me.IOkButton.Name = "IOkButton"
         Me.IOkButton.Size = New System.Drawing.Size(89, 23)
         Me.IOkButton.TabIndex = 1
@@ -351,7 +351,7 @@ Partial Friend Class F_VatDeclarationSchema
         '
         Me.IApplyButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.IApplyButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IApplyButton.Location = New System.Drawing.Point(654, 6)
+        Me.IApplyButton.Location = New System.Drawing.Point(662, 6)
         Me.IApplyButton.Name = "IApplyButton"
         Me.IApplyButton.Size = New System.Drawing.Size(89, 23)
         Me.IApplyButton.TabIndex = 2
@@ -407,7 +407,7 @@ Partial Friend Class F_VatDeclarationSchema
         Me.DeclarationEntriesDataListView.ShowImagesOnSubItems = True
         Me.DeclarationEntriesDataListView.ShowItemCountOnGroups = True
         Me.DeclarationEntriesDataListView.ShowItemToolTips = True
-        Me.DeclarationEntriesDataListView.Size = New System.Drawing.Size(857, 288)
+        Me.DeclarationEntriesDataListView.Size = New System.Drawing.Size(865, 135)
         Me.DeclarationEntriesDataListView.TabIndex = 5
         Me.DeclarationEntriesDataListView.UnfocusedSelectedBackColor = System.Drawing.Color.PaleGreen
         Me.DeclarationEntriesDataListView.UnfocusedSelectedForeColor = System.Drawing.Color.Black
@@ -488,21 +488,24 @@ Partial Friend Class F_VatDeclarationSchema
         Me.ProgressFiller1.TabIndex = 6
         Me.ProgressFiller1.Visible = False
         '
-        'VatRateComboBox
+        'ExternalCodeAccListComboBox
         '
-        Me.VatRateComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.VatDeclarationSchemaBindingSource, "VatRate", True))
-        Me.VatRateComboBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.VatRateComboBox.FormattingEnabled = True
-        Me.VatRateComboBox.Location = New System.Drawing.Point(425, 29)
-        Me.VatRateComboBox.Name = "VatRateComboBox"
-        Me.VatRateComboBox.Size = New System.Drawing.Size(157, 21)
-        Me.VatRateComboBox.TabIndex = 7
+        Me.ExternalCodeAccListComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.VatDeclarationSchemaBindingSource, "ExternalCode", True))
+        Me.ExternalCodeAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ExternalCodeAccListComboBox.EmptyValueString = ""
+        Me.ExternalCodeAccListComboBox.FilterString = ""
+        Me.ExternalCodeAccListComboBox.FormattingEnabled = True
+        Me.ExternalCodeAccListComboBox.InstantBinding = True
+        Me.ExternalCodeAccListComboBox.Location = New System.Drawing.Point(679, 29)
+        Me.ExternalCodeAccListComboBox.Name = "ExternalCodeAccListComboBox"
+        Me.ExternalCodeAccListComboBox.Size = New System.Drawing.Size(159, 21)
+        Me.ExternalCodeAccListComboBox.TabIndex = 4
         '
         'F_VatDeclarationSchema
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(857, 486)
+        Me.ClientSize = New System.Drawing.Size(865, 333)
         Me.Controls.Add(Me.DeclarationEntriesDataListView)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.TableLayoutPanel1)
@@ -526,7 +529,6 @@ Partial Friend Class F_VatDeclarationSchema
     Friend WithEvents NameTextBox As System.Windows.Forms.TextBox
     Friend WithEvents VatDeclarationSchemaBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IsObsoleteCheckBox As System.Windows.Forms.CheckBox
-    Friend WithEvents ExternalCodeTextBox As System.Windows.Forms.TextBox
     Friend WithEvents UpdateDateTextBox As System.Windows.Forms.TextBox
     Friend WithEvents IDTextBox As System.Windows.Forms.TextBox
     Friend WithEvents InsertDateTextBox As System.Windows.Forms.TextBox
@@ -547,4 +549,5 @@ Partial Friend Class F_VatDeclarationSchema
     Friend WithEvents OlvColumn6 As BrightIdeasSoftware.OLVColumn
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents VatRateComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents ExternalCodeAccListComboBox As AccControlsWinForms.AccListComboBox
 End Class

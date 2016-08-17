@@ -11,7 +11,7 @@ Namespace Settings
     ''' <remarks>Should only be used as a child of <see cref="CodeList">CodeList</see>.
     ''' Persisted using xml proxies as a part of <see cref="CommonSettings">CommonSettings</see>.</remarks>
     <Serializable()> _
-    Public Class Code
+    Public NotInheritable Class Code
         Inherits BusinessBase(Of Code)
         Implements IGetErrorForListItem
 

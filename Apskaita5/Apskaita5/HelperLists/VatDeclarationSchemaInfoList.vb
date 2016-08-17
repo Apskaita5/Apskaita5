@@ -5,7 +5,7 @@
     ''' </summary>
     ''' <remarks>Exists a single instance per company.</remarks>
     <Serializable()> _
-    Public Class VatDeclarationSchemaInfoList
+    Public NotInheritable Class VatDeclarationSchemaInfoList
         Inherits ReadOnlyListBase(Of VatDeclarationSchemaInfoList, VatDeclarationSchemaInfo)
 
 #Region " Business Methods "
@@ -182,7 +182,7 @@
                 RaiseListChangedEvents = False
                 IsReadOnly = False
 
-                Add(VatDeclarationSchemaInfo.NewVatDeclarationSchemaInfo())
+                Add(VatDeclarationSchemaInfo.Empty())
 
                 For Each dr As DataRow In myData.Rows
                     Add(VatDeclarationSchemaInfo.GetVatDeclarationSchemaInfo(dr, 0))

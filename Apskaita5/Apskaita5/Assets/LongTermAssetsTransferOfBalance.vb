@@ -6,7 +6,7 @@
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class LongTermAssetsTransferOfBalance
+    Public NotInheritable Class LongTermAssetsTransferOfBalance
         Inherits BusinessBase(Of LongTermAssetsTransferOfBalance)
         Implements IIsDirtyEnough, IValidationMessageProvider
 
@@ -320,7 +320,7 @@
         Private Overloads Sub DataPortal_Fetch(ByVal criteria As Criteria)
 
             Dim myComm As New SQLCommand("FetchTransferOfBalanceData")
-            
+
             Using myData As DataTable = myComm.Fetch
 
                 If myData.Rows.Count < 1 Then Throw New Exception( _
@@ -330,7 +330,7 @@
 
                 _ID = CIntSafe(dr.Item(0), 0)
                 _Date = CDateSafe(dr.Item(1), Today)
-                
+
             End Using
 
             Dim baseValidator As SimpleChronologicValidator = _

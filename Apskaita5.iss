@@ -61,6 +61,7 @@ Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Releas
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\WTClasses.dat"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\LastUpdateA5.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MySQL_accsecurity.sql"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Apskaita5Help.chm"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Dirs]
@@ -69,6 +70,7 @@ Name: "{app}\Data"; Flags: uninsneveruninstall; Permissions: users-modify
 [Icons]
 Name: "{group}\Apskaita5"; Filename: "{app}\Apskaita5.exe"
 Name: "{group}\AccMigration"; Filename: "{app}\AccMigration.exe"
+Name: "{group}\Pagalba"; Filename: "{app}\Apskaita5Help.chm"; Flags: runmaximized
 Name: "{group}\{cm:UninstallProgram,Apskaita5}"; Filename: "{uninstallexe}"
 Name: "{commondesktop}\Apskaita5"; Filename: "{app}\Apskaita5.exe"; Tasks: desktopicon; IconFilename: "{app}\zalsva.ico"
 

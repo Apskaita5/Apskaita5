@@ -7,7 +7,7 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks>Values are stored in the database table regionalprices.</remarks>
     <Serializable()> _
-    Public Class RegionalPriceEntryList
+    Public NotInheritable Class RegionalPriceEntryList
         Inherits ReadOnlyListBase(Of RegionalPriceEntryList, RegionalPriceEntry)
 
 #Region " Business Methods "

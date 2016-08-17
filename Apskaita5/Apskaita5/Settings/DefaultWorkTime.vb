@@ -11,7 +11,7 @@ Namespace Settings
     ''' <remarks>Should only be used as a child of <see cref="DefaultWorkTimeList">DefaultWorkTimeList</see>.
     ''' Persisted using xml proxies as a part of <see cref="CommonSettings">CommonSettings</see>.</remarks>
     <Serializable()> _
-    Public Class DefaultWorkTime
+    Public NotInheritable Class DefaultWorkTime
         Inherits BusinessBase(Of DefaultWorkTime)
         Implements IGetErrorForListItem
 

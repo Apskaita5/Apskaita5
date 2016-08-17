@@ -6,7 +6,7 @@ Namespace Workers
     ''' <remarks>Should only be used as a child of a <see cref="WageSheet">WageSheet</see>.
     ''' Values are stored in the database table du_ziniarastis_d.</remarks>
     <Serializable()> _
-    Public Class WageItemList
+    Public NotInheritable Class WageItemList
         Inherits BusinessListBase(Of WageItemList, WageItem)
 
 #Region " Business Methods "
@@ -59,7 +59,7 @@ Namespace Workers
 
             RaiseListChangedEvents = True
 
-            If RaiseResetBindings Then ResetBindings()
+            If raiseResetBindings Then ResetBindings()
 
         End Sub
 
@@ -74,7 +74,7 @@ Namespace Workers
 
             RaiseListChangedEvents = True
 
-            If RaiseResetBindings Then ResetBindings()
+            If raiseResetBindings Then ResetBindings()
 
         End Sub
 
@@ -88,7 +88,7 @@ Namespace Workers
 
             RaiseListChangedEvents = True
 
-            If RaiseResetBindings Then ResetBindings()
+            If raiseResetBindings Then ResetBindings()
 
         End Sub
 

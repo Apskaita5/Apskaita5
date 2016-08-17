@@ -97,6 +97,7 @@
     <Compile Include="ActiveReports\CashOperationInfoList.vb" />
     <Compile Include="ActiveReports\ContractInfo.vb" />
     <Compile Include="ActiveReports\ContractInfoList.vb" />
+    <Compile Include="ActiveReports\IVatDeclaration.vb" />
     <Compile Include="ActiveReports\DebtInfo.vb" />
     <Compile Include="ActiveReports\DebtInfoList.vb" />
     <Compile Include="ActiveReports\DeclarationCriteria.vb" />
@@ -119,6 +120,8 @@
     <Compile Include="ActiveReports\Declarations\InvoiceRegisterFR0671_2.vb" />
     <Compile Include="ActiveReports\Declarations\InvoiceRegisterFR0672_1.vb" />
     <Compile Include="ActiveReports\Declarations\InvoiceRegisterFR0672_2.vb" />
+    <Compile Include="ActiveReports\Declarations\InvoiceRegisterSafT_1.vb" />
+    <Compile Include="ActiveReports\Declarations\SafTTemplates\SafT_1_1.vb" />
     <Compile Include="ActiveReports\FinancialStatementsInfo.vb" />
     <Compile Include="ActiveReports\GoodsOperationInfo.vb" />
     <Compile Include="ActiveReports\GoodsOperationInfoList.vb" />
@@ -131,11 +134,14 @@
     <Compile Include="ActiveReports\HolidaySpentItemList.vb" />
     <Compile Include="ActiveReports\HolidaySpentItemType.vb" />
     <Compile Include="ActiveReports\IInvoiceRegisterDeclaration.vb" />
+    <Compile Include="ActiveReports\IInvoiceRegisterSafT.vb" />
     <Compile Include="ActiveReports\IncomeStatementInfo.vb" />
     <Compile Include="ActiveReports\IncomeStatementInfoList.vb" />
     <Compile Include="ActiveReports\InvoiceInfoItem.vb" />
     <Compile Include="ActiveReports\InvoiceInfoItemList.vb" />
     <Compile Include="ActiveReports\InvoiceInfoType.vb" />
+    <Compile Include="ActiveReports\InvoiceSubtotalItem.vb" />
+    <Compile Include="ActiveReports\InvoiceSubtotalItemList.vb" />
     <Compile Include="ActiveReports\LabourContractUpdateInfo.vb" />
     <Compile Include="ActiveReports\LabourContractUpdateInfoList.vb" />
     <Compile Include="ActiveReports\PayOutNaturalPersonInfo.vb" />
@@ -203,11 +209,16 @@
     <Compile Include="CommonValidation\IChronologicValidator.vb" />
     <Compile Include="Documents\CommandImportVatDeclarationSchemas.vb" />
     <Compile Include="Documents\InvoiceAdapters\GoodsRedeemFromBuyerInvoiceAdapter.vb" />
+    <Compile Include="ActiveReports\VatDeclaration.vb" />
     <Compile Include="Documents\VatDeclarationEntry.vb" />
     <Compile Include="Documents\VatDeclarationEntryList.vb" />
     <Compile Include="Documents\VatDeclarationEntryProxy.vb" />
+    <Compile Include="ActiveReports\VatDeclarationItem.vb" />
+    <Compile Include="ActiveReports\VatDeclarationItemList.vb" />
     <Compile Include="Documents\VatDeclarationSchema.vb" />
     <Compile Include="Documents\VatDeclarationSchemaProxy.vb" />
+    <Compile Include="ActiveReports\VatDeclarationSubtotal.vb" />
+    <Compile Include="ActiveReports\VatDeclarationSubtotalList.vb" />
     <Compile Include="Extensibility\Extensibility.vb" />
     <Compile Include="Extensibility\General\Extensibility.vb" />
     <Compile Include="Goods\OperationsSimple\GoodsOperationRedeemFromBuyer.vb" />
@@ -303,7 +314,7 @@
     <Compile Include="HelperLists\DefaultWorkTimeInfoList.vb" />
     <Compile Include="HelperLists\GoodsInfo.vb" />
     <Compile Include="HelperLists\GoodsInfoList.vb" />
-    <Compile Include="HelperLists\IValueObjectIsEmpty.vb" />
+    <Compile Include="HelperLists\IValueObject.vb" />
     <Compile Include="HelperLists\NameInfo.vb" />
     <Compile Include="HelperLists\NameInfoList.vb" />
     <Compile Include="HelperLists\ProductionCalculationInfo.vb" />
@@ -325,7 +336,6 @@
     <Compile Include="Documents\AdvanceReport.vb" />
     <Compile Include="Documents\AdvanceReportItem.vb" />
     <Compile Include="Documents\AdvanceReportItemList.vb" />
-    <Compile Include="Documents\BankOperationImportSourceType.vb" />
     <Compile Include="Documents\BankOperationItem.vb" />
     <Compile Include="Documents\BankOperationItemList.vb" />
     <Compile Include="Documents\CashAccount.vb" />
@@ -350,7 +360,6 @@
     <Compile Include="Documents\InvoiceMade.vb" />
     <Compile Include="Documents\InvoiceMadeItem.vb" />
     <Compile Include="Documents\InvoiceMadeItemList.vb" />
-    <Compile Include="Documents\InvoiceMadeList.vb" />
     <Compile Include="Documents\InvoiceReceived.vb" />
     <Compile Include="Documents\InvoiceReceivedItem.vb" />
     <Compile Include="Documents\InvoiceReceivedItemList.vb" />

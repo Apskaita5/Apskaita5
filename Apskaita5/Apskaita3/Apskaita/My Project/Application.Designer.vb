@@ -27,7 +27,8 @@ Namespace My
             Me.IsSingleInstance = true
             Me.EnableVisualStyles = true
             Me.SaveMySettingsOnExit = true
-            Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
+            Me.ShutdownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
+            Global.AccDataAccessLayer.ConfigProxy.ReplaceSettings()
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _

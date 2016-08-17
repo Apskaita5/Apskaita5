@@ -7,7 +7,7 @@ Namespace General
     ''' <remarks>Should only be used as a child of a <see cref="ConsolidatedReportItem">
     ''' ConsolidatedReportItem</see> or a <see cref="ConsolidatedReport">ConsolidatedReport</see>.</remarks>
     <Serializable()> _
-    Public Class ConsolidatedReportItemList
+    Public NotInheritable Class ConsolidatedReportItemList
         Inherits BusinessListBase(Of ConsolidatedReportItemList, ConsolidatedReportItem)
 
 #Region " Business Methods "

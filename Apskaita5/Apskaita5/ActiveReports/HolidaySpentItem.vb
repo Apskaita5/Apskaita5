@@ -7,7 +7,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class HolidaySpentItem
+    Public NotInheritable Class HolidaySpentItem
         Inherits ReadOnlyBase(Of HolidaySpentItem)
 
 #Region " Business Methods "

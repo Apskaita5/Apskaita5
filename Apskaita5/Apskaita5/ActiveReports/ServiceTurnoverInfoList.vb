@@ -9,7 +9,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class ServiceTurnoverInfoList
+    Public NotInheritable Class ServiceTurnoverInfoList
         Inherits ReadOnlyListBase(Of ServiceTurnoverInfoList, ServiceTurnoverInfo)
 
 #Region " Business Methods "

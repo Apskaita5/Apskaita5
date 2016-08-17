@@ -5,7 +5,7 @@
     ''' </summary>
     ''' <remarks>Should only be used as a child of WorkersVDUInfo.</remarks>
     <Serializable()> _
-    Public Class WageVDUInfoList
+    Public NotInheritable Class WageVDUInfoList
         Inherits ReadOnlyListBase(Of WageVDUInfoList, WageVDUInfo)
 
 #Region " Business Methods "

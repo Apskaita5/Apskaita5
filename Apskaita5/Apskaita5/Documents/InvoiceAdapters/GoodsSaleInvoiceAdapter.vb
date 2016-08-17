@@ -12,7 +12,7 @@ Namespace Documents.InvoiceAdapters
     ''' Can be added to an invoice by invoking <see cref="InvoiceMade.AttachNewObject">InvoiceMade.AttachNewObject</see>
     ''' or <see cref="InvoiceReceived.AttachNewObject">InvoiceReceived.AttachNewObject</see> methods.</remarks>
     <Serializable()> _
-    Public Class GoodsSaleInvoiceAdapter
+    Public NotInheritable Class GoodsSaleInvoiceAdapter
         Inherits BusinessBase(Of GoodsSaleInvoiceAdapter)
         Implements IInvoiceAdapter, IRegionalDataObject
 

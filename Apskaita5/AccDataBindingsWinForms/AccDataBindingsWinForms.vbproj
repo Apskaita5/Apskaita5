@@ -482,6 +482,12 @@
     <Compile Include="Documents\F_TillSpendingsOrder.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Documents\F_VatDeclaration.Designer.vb">
+      <DependentUpon>F_VatDeclaration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Documents\F_VatDeclaration.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Documents\F_VatDeclarationSchema.Designer.vb">
       <DependentUpon>F_VatDeclarationSchema.vb</DependentUpon>
     </Compile>
@@ -774,6 +780,7 @@
     </Compile>
     <Compile Include="IObjectEditForm.vb" />
     <Compile Include="ISingleInstanceForm.vb" />
+    <Compile Include="ISupportsChronologicValidator.vb" />
     <Compile Include="ISupportsPrinting.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -1113,6 +1120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Documents\F_TillSpendingsOrder.resx">
       <DependentUpon>F_TillSpendingsOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Documents\F_VatDeclaration.resx">
+      <DependentUpon>F_VatDeclaration.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Documents\F_VatDeclarationSchema.resx">
       <DependentUpon>F_VatDeclarationSchema.vb</DependentUpon>
@@ -1599,7 +1609,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\DataSources\AccDataBindingsWinForms.Settings.LocalSettings.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.General.Person.datasource" />
     <None Include="Resources\rekvizitai_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Xml_icon_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Xml_icon_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Xml_icon_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.VatDeclaration.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Workers.ImprestSheet.datasource" />
+    <None Include="Resources\Xml_icon_48x48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

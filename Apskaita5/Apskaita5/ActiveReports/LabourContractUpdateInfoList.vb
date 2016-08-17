@@ -5,7 +5,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks>Should only be used as a child of a <see cref="ContractInfo">ContractInfo</see>.</remarks>
     <Serializable()> _
-    Public Class LabourContractUpdateInfoList
+    Public NotInheritable Class LabourContractUpdateInfoList
         Inherits ReadOnlyListBase(Of LabourContractUpdateInfoList, LabourContractUpdateInfo)
 
 #Region " Business Methods "
@@ -49,7 +49,7 @@ Namespace ActiveReports
         Private Sub Fetch(ByVal myData As DataTable, ByVal contractSerial As String, _
             ByVal contractNumber As Integer)
 
-            If Not ContractNumber > 0 OrElse myData Is Nothing OrElse Not myData.Rows.Count > 0 Then Exit Sub
+            If Not contractNumber > 0 OrElse myData Is Nothing OrElse Not myData.Rows.Count > 0 Then Exit Sub
 
             RaiseListChangedEvents = False
             IsReadOnly = False

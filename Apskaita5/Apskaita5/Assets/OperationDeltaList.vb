@@ -7,7 +7,7 @@
     ''' </summary>
     ''' <remarks>Should only be used as a child of <see cref="OperationBackground">OperationBackground</see>.</remarks>
     <Serializable()> _
-    Public Class OperationDeltaList
+    Public NotInheritable Class OperationDeltaList
         Inherits ReadOnlyListBase(Of OperationDeltaList, OperationDelta)
 
 #Region " Business Methods "

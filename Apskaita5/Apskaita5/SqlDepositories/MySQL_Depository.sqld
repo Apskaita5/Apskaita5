@@ -122,7 +122,7 @@
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>UpdatePerson</Key>
-    <Statement>UPDATE asmenys SET Pavad=?PN, Kodas=?PC, Adresas=?PA, SP_kodas=?PV, B_Sask=?PT, Bank=?PB, B_Kor=?PQ, E_Mail=?PE, SD_kodas=?PS, B_Kor_Tiek=?PW, ContactInfo=?AI, IsObsolete=?AJ, InternalCode=?AK, IsNaturalPerson=?AL, LanguageCode=?AM, CurrencyCode=?AN, IsClient=?IC, IsSupplier=?IP, IsWorker=?IW, UpdateDate=?UD WHERE ID=?PD ;</Statement>
+    <Statement>UPDATE asmenys SET Pavad=?PN, Kodas=?PC, Adresas=?PA, SP_kodas=?PV, B_Sask=?PT, Bank=?PB, B_Kor=?PQ, E_Mail=?PE, SD_kodas=?PS, B_Kor_Tiek=?PW, ContactInfo=?AI, IsObsolete=?AJ, InternalCode=?AK, IsNaturalPerson=?AL, LanguageCode=?AM, CurrencyCode=?AN, IsClient=?IC, IsSupplier=?IP, IsWorker=?IW, UpdateDate=?UD, StateCode=?SC, CodeIsNotReal=?CR WHERE ID=?PD ;</Statement>
     <Objects>General.Person</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -132,7 +132,7 @@
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>AddPerson</Key>
-    <Statement>INSERT INTO asmenys(Pavad, Kodas, Adresas, SP_kodas, B_Sask, Bank, B_Kor, E_Mail, B_Kor_Tiek, SD_kodas, ContactInfo, IsObsolete, InternalCode, IsNaturalPerson, LanguageCode, CurrencyCode, IsClient, IsSupplier, IsWorker, InsertDate, UpdateDate) VALUES(?PN, ?PC, ?PA, ?PV, ?PT, ?PB, ?PQ, ?PE, ?PW, ?PS, ?AI, ?AJ, ?AK, ?AL, ?AM, ?AN, ?IC, ?IP, ?IW, ?UD, ?UD);</Statement>
+    <Statement>INSERT INTO asmenys(Pavad, Kodas, Adresas, SP_kodas, B_Sask, Bank, B_Kor, E_Mail, B_Kor_Tiek, SD_kodas, ContactInfo, IsObsolete, InternalCode, IsNaturalPerson, LanguageCode, CurrencyCode, IsClient, IsSupplier, IsWorker, InsertDate, UpdateDate, StateCode, CodeIsNotReal) VALUES(?PN, ?PC, ?PA, ?PV, ?PT, ?PB, ?PQ, ?PE, ?PW, ?PS, ?AI, ?AJ, ?AK, ?AL, ?AM, ?AN, ?IC, ?IP, ?IW, ?UD, ?UD, ?SC, ?CR);</Statement>
     <Objects>General.Person</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -554,8 +554,8 @@
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchWageSheetInfoList</Key>
-    <Statement>SELECT b.ID, b.Nr, b.Z_Data, b.Metai, b.Men, b.Dalin, b.P_S, b.N_V, b.Y_S, b.Nedarb, b.GPM, b.Garant, b.SD_d, b.SD_v, b.PSDW, b.PSDE, b.NPDF, COUNT(d.AK), SUM(d.Val), SUM(d.Dien), SUM(d.DU_pr), SUM(d.P_Atost), SUM(d.II), SUM(d.Issk), SUM(d.Avans), SUM(CROUND(b.Nedarb * d.Nedarb * d.VDU_dien / 100,2)), SUM(d.DU_is), (SELECT SUM(g.DU_is) FROM du_ziniarastis_d g WHERE g.Z_ID=b.ID AND g.Ismoketa IS NOT Null) AS Ismok, SUM(CROUND(d.DU_pr*b.SD_d/100,2)) AS SODRA_Issk, SUM(CROUND(d.DU_pr*b.SD_v/100,2)) AS SODRA_Prisk, SUM(CROUND((d.DU_pr+CROUND(b.Nedarb * d.Nedarb * d.VDU_dien / 100,2)-d.NPD-d.PNPD)*b.GPM/100,2)) AS GPM_Issk, SUM(CROUND(d.DU_pr*b.Garant/100,2)) AS Gar_prisk, SUM(CROUND(d.DU_pr*b.PSDW/100,2)) AS PSD_Issk, SUM(CROUND(d.DU_pr*b.PSDE/100,2)) AS PSD_Prisk, CASE WHEN b.Metai=2009 THEN SUM(CROUND(CROUND(b.Nedarb * d.Nedarb * d.VDU_dien / 100,2)*b.PSDW/100,2)) ELSE 0 END AS PSD_Issk_Nedarb FROM du_ziniarastis b, du_ziniarastis_d d WHERE (b.Metai&gt;?YF OR (b.Metai=?YF AND b.Men&gt;=?MF)) AND (b.Metai&lt;?YT OR (b.Metai=?YT AND b.Men&lt;=?MT)) AND d.Z_ID=b.ID GROUP BY d.Z_ID ORDER BY b.Z_Data;</Statement>
-    <Objects>Workers.WageSheetInfoList</Objects>
+    <Statement>SELECT b.ID, b.Nr, b.Z_Data, b.Metai, b.Men, b.Dalin, b.P_S, b.N_V, b.Y_S, b.Nedarb, b.GPM, b.Garant, b.SD_d, b.SD_v, b.PSDW, b.PSDE, b.NPDF, COUNT(d.AK), SUM(d.Val), SUM(d.Dien), SUM(d.DU_pr), SUM(d.P_Atost), SUM(d.II), SUM(d.Issk), SUM(d.Avans), SUM(d.CalculatedSickLeave), SUM(d.DU_is), SUM(CASE WHEN d.Ismoketa IS NULL THEN 0 ELSE d.DU_is END) AS Ismok, SUM(d.DeductedSODRA) AS SODRA_Issk, SUM(d.ContributionSODRA) AS SODRA_Prisk, SUM(d.DeductedGPM) AS GPM_Issk, SUM(d.ContributionGuaranteeFund) AS Gar_prisk, SUM(d.DeductedPSD) AS PSD_Issk, SUM(d.ContributionPSD) AS PSD_Prisk, SUM(d.DeductedPSDSickLeave) AS PSD_Issk_Nedarb, SUM(CASE WHEN ?PD&lt;1 OR d.AK=?PD THEN 1 ELSE 0 END) AS WorkerCriteria FROM du_ziniarastis b LEFT JOIN du_ziniarastis_d d ON d.Z_ID=b.ID WHERE (b.Metai&gt;?YF OR (b.Metai=?YF AND b.Men&gt;=?MF)) AND (b.Metai&lt;?YT OR (b.Metai=?YT AND b.Men&lt;=?MT)) GROUP BY b.ID HAVING WorkerCriteria&gt;0 ORDER BY b.ID;</Statement>
+    <Objects>ActiveReports.WageSheetInfoList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchNewWageSheet</Key>
@@ -889,7 +889,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchPerson</Key>
-    <Statement>SELECT a.ID, a.Pavad, a.Kodas, a.Adresas, a.SP_kodas, a.B_Sask, a.Bank, a.B_Kor, a.B_Kor_Tiek, a.E_Mail, a.SD_kodas, COUNT(b.AK), a.ContactInfo, a.InternalCode, a.IsObsolete, a.IsNaturalPerson, a.LanguageCode, a.CurrencyCode, a.IsClient, a.IsSupplier, a.IsWorker, a.InsertDate, a.UpdateDate FROM asmenys a LEFT JOIN darbuotojai_d b ON b.AK=a.ID WHERE a.ID=?PD GROUP BY a.ID;</Statement>
+    <Statement>SELECT a.ID, a.Pavad, a.Kodas, a.Adresas, a.SP_kodas, a.B_Sask, a.Bank, a.B_Kor, a.B_Kor_Tiek, a.E_Mail, a.SD_kodas, COUNT(b.AK), a.ContactInfo, a.InternalCode, a.IsObsolete, a.IsNaturalPerson, a.LanguageCode, a.CurrencyCode, a.IsClient, a.IsSupplier, a.IsWorker, a.InsertDate, a.UpdateDate, a.StateCode, a.CodeIsNotReal FROM asmenys a LEFT JOIN darbuotojai_d b ON b.AK=a.ID WHERE a.ID=?PD GROUP BY a.ID;</Statement>
     <Objects>General.Person</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -1209,22 +1209,12 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchInvoiceInfoItemListForInvoiceReceived</Key>
-    <Statement>SELECT O.ID, C.ID, C.Pavad, C.Kodas, C.SP_kodas, C.E_Mail, b.Op_data, b.Op_Dok, b.Op_turinys, O.CurrencyCode, O.CurrencyRate, 'LT', O.CommentsInternal, MAX(I.Tarif), SUM(I.SumOriginal), SUM(I.SumVatOriginal), SUM(I.SumLTL), SUM(I.SumVatLTL), 0, 0, 0, 0, O.AccountSupplier, 0, O.IndirectVatSum FROM bz b LEFT JOIN InvoicesReceived O ON O.ID=b.Op_ID LEFT JOIN sfg as I ON I.BZ_ID=O.ID LEFT JOIN asmenys C ON C.ID=b.Op_analitika WHERE b.Op_data&gt;=?DF AND b.Op_data&lt;=?DT AND NOT O.ID IS NULL GROUP BY O.ID ORDER BY b.Op_data, b.Op_Dok;</Statement>
-    <Objects>ActiveReports.InvoiceInfoItemList</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>FetchInvoiceInfoItemListForInvoiceReceivedByClient</Key>
-    <Statement>SELECT O.ID, C.ID, C.Pavad, C.Kodas, C.SP_kodas, C.E_Mail, b.Op_data, b.Op_Dok, b.Op_turinys, O.CurrencyCode, O.CurrencyRate, 'LT', O.CommentsInternal, MAX(I.Tarif), SUM(I.SumOriginal), SUM(I.SumVatOriginal), SUM(I.SumLTL), SUM(I.SumVatLTL), 0, 0, 0, 0, O.AccountSupplier, 0, O.IndirectVatSum FROM bz b LEFT JOIN InvoicesReceived O ON O.ID=b.Op_ID LEFT JOIN sfg as I ON I.BZ_ID=O.ID LEFT JOIN asmenys C ON C.ID=b.Op_analitika WHERE b.Op_data&gt;=?DF AND b.Op_data&lt;=?DT AND NOT O.ID IS NULL AND B.Op_analitika=?PD GROUP BY O.ID ORDER BY b.Op_data, b.Op_Dok;</Statement>
+    <Statement>SELECT O.ID, C.ID, C.Pavad, C.Kodas, C.SP_kodas, C.E_Mail, b.Op_data, b.Op_Dok, b.Op_turinys, O.CurrencyCode, O.CurrencyRate, 'LT', O.CommentsInternal, MAX(I.Tarif), SUM(I.SumOriginal), SUM(I.SumVatOriginal), SUM(I.SumLTL), SUM(I.SumVatLTL), 0, 0, 0, 0, O.AccountSupplier, 0, O.IndirectVatSum, C.StateCode, C.CodeIsNotReal, O.InvoiceType, CASE WHEN O.ActualDate IS NULL THEN b.Op_data ELSE O.ActualDate END FROM bz b LEFT JOIN InvoicesReceived O ON O.ID=b.Op_ID LEFT JOIN sfg as I ON I.BZ_ID=O.ID LEFT JOIN asmenys C ON C.ID=b.Op_analitika WHERE b.Op_data&gt;=?DF AND b.Op_data&lt;=?DT AND NOT O.ID IS NULL AND (?PD &lt; 1 OR B.Op_analitika=?PD) GROUP BY O.ID ORDER BY b.Op_data, b.Op_Dok;</Statement>
     <Objects>ActiveReports.InvoiceInfoItemList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchInvoiceInfoItemListForInvoiceMade</Key>
-    <Statement>SELECT O.ID, C.ID, C.Pavad, C.Kodas, C.SP_kodas, C.E_Mail, b.Op_data, b.Op_Dok, b.Op_turinys, O.CurrencyCode, O.CurrencyRate, O.LanguageCode, O.CommentsInternal, MAX(I.Tar), SUM(I.SumOriginal), SUM(I.SumVatOriginal), SUM(I.SumLTL), SUM(I.SumVatLTL), SUM(I.Discount), SUM(I.DiscountVat), SUM(I.DiscountLTL), SUM(I.DiscountVatLTL), O.AccountPayer, SUM(CASE WHEN I.VatIsVirtual&gt;0 THEN I.SumVatOriginal - I.DiscountVat ELSE 0 END) AS VirtualVat, SUM(CASE WHEN I.VatIsVirtual&gt;0 THEN I.SumVatLTL - I.DiscountVatLTL ELSE 0 END) AS VirtualVatLTL FROM bz b LEFT JOIN InvoicesMade O ON O.ID=b.Op_ID LEFT JOIN sfd as I ON I.SF_ID=O.ID LEFT JOIN asmenys C ON C.ID=b.Op_analitika WHERE b.Op_data&gt;=?DF AND b.Op_data&lt;=?DT AND NOT O.ID IS NULL GROUP BY O.ID ORDER BY b.Op_data, b.Op_Dok;</Statement>
-    <Objects>ActiveReports.InvoiceInfoItemList</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
-    <Key>FetchInvoiceInfoItemListForInvoiceMadeByClient</Key>
-    <Statement>SELECT O.ID, C.ID, C.Pavad, C.Kodas, C.SP_kodas, C.E_Mail, b.Op_data, b.Op_Dok, b.Op_turinys, O.CurrencyCode, O.CurrencyRate, O.LanguageCode, O.CommentsInternal, MAX(I.Tar), SUM(I.SumOriginal), SUM(I.SumVatOriginal), SUM(I.SumLTL), SUM(I.SumVatLTL), SUM(I.Discount), SUM(I.DiscountVat), SUM(I.DiscountLTL), SUM(I.DiscountVatLTL), O.AccountPayer, SUM(CASE WHEN I.VatIsVirtual&gt;0 THEN I.SumVatOriginal - I.DiscountVat ELSE 0 END) AS VirtualVat, SUM(CASE WHEN I.VatIsVirtual&gt;0 THEN I.SumVatLTL - I.DiscountVatLTL ELSE 0 END) AS VirtualVatLTL FROM bz b LEFT JOIN InvoicesMade O ON O.ID=b.Op_ID LEFT JOIN sfd as I ON I.SF_ID=O.ID LEFT JOIN asmenys C ON C.ID=b.Op_analitika WHERE b.Op_data&gt;=?DF AND b.Op_data&lt;=?DT AND NOT O.ID IS NULL AND B.Op_analitika=?PD GROUP BY O.ID ORDER BY b.Op_data, b.Op_Dok;</Statement>
+    <Statement>SELECT O.ID, C.ID, C.Pavad, C.Kodas, C.SP_kodas, C.E_Mail, b.Op_data, b.Op_Dok, b.Op_turinys, O.CurrencyCode, O.CurrencyRate, O.LanguageCode, O.CommentsInternal, MAX(I.Tar), SUM(I.SumOriginal), SUM(I.SumVatOriginal), SUM(I.SumLTL), SUM(I.SumVatLTL), SUM(I.Discount), SUM(I.DiscountVat), SUM(I.DiscountLTL), SUM(I.DiscountVatLTL), O.AccountPayer, SUM(CASE WHEN I.VatIsVirtual&gt;0 THEN I.SumVatOriginal - I.DiscountVat ELSE 0 END) AS VirtualVat, SUM(CASE WHEN I.VatIsVirtual&gt;0 THEN I.SumVatLTL - I.DiscountVatLTL ELSE 0 END) AS VirtualVatLTL, C.StateCode, C.CodeIsNotReal, O.InvoiceType, b.Op_data FROM bz b LEFT JOIN InvoicesMade O ON O.ID=b.Op_ID LEFT JOIN sfd as I ON I.SF_ID=O.ID LEFT JOIN asmenys C ON C.ID=b.Op_analitika WHERE b.Op_data&gt;=?DF AND b.Op_data&lt;=?DT AND NOT O.ID IS NULL AND (?PD &lt; 1 OR B.Op_analitika=?PD) GROUP BY O.ID ORDER BY b.Op_data, b.Op_Dok;</Statement>
     <Objects>ActiveReports.InvoiceInfoItemList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -2064,7 +2054,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchPersonInfoItemList</Key>
-    <Statement>SELECT a.ID, a.Pavad, a.Kodas, a.Adresas, a.SP_kodas, a.B_Sask, a.Bank, a.B_Kor, a.B_Kor_Tiek, a.E_Mail, a.SD_kodas, a.ContactInfo, a.InternalCode, a.IsObsolete, a.IsNaturalPerson, a.LanguageCode, a.CurrencyCode, a.IsClient, a.IsSupplier, a.IsWorker FROM asmenys a WHERE (a.Pavad LIKE ?LS OR a.Kodas LIKE ?LS OR a.Adresas LIKE ?LS) AND ((?IC&gt;0 AND ?IP&gt;0 AND ?IW&gt;0) OR (a.IsClient&gt;0 AND ?IC&gt;0) OR (a.IsSupplier&gt;0 AND ?IP&gt;0) OR (a.IsWorker&gt;0 AND ?IW&gt;0)) ORDER BY a.Pavad;</Statement>
+    <Statement>SELECT a.ID, a.Pavad, a.Kodas, a.Adresas, a.SP_kodas, a.B_Sask, a.Bank, a.B_Kor, a.B_Kor_Tiek, a.E_Mail, a.SD_kodas, a.ContactInfo, a.InternalCode, a.IsObsolete, a.IsNaturalPerson, a.LanguageCode, a.CurrencyCode, a.IsClient, a.IsSupplier, a.IsWorker, a.StateCode, a.CodeIsNotReal FROM asmenys a WHERE (a.Pavad LIKE ?LS OR a.Kodas LIKE ?LS OR a.Adresas LIKE ?LS) AND ((?IC&gt;0 AND ?IP&gt;0 AND ?IW&gt;0) OR (a.IsClient&gt;0 AND ?IC&gt;0) OR (a.IsSupplier&gt;0 AND ?IP&gt;0) OR (a.IsWorker&gt;0 AND ?IW&gt;0)) ORDER BY a.Pavad;</Statement>
     <Objects>ActiveReports.PersonInfoItemList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3134,7 +3124,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchHolidaySpentItemList</Key>
-    <Statement>SELECT 0 AS ItemType, d.Atost + d.Atost_n AS Spent, 0 AS Compensated, 0 AS Correction, b.ID AS DocumentID, b.Z_Data AS DocumentDate, a.Op_Dok AS DocumentNumber, a.Op_turinys AS DocumentContent FROM du_ziniarastis_d d LEFT JOIN du_ziniarastis b ON b.ID=d.Z_ID LEFT JOIN bz a ON a.Op_ID=b.ID WHERE d.DS_NR=?CN AND UPPER(TRIM(d.DS_Serija))=UPPER(TRIM(?CS)) AND d.AT_K&lt;1 AND (d.Atost&gt;0 OR d.Atost_n&gt;0) AND (b.Z_data&lt;=?DT OR ?UH&gt;0) UNION SELECT 1 AS ItemType, 0 AS Spent, d.Atost AS Compensated, 0 AS Correction, b.ID AS DocumentID, b.Z_Data AS DocumentDate, a.Op_Dok AS DocumentNumber, a.Op_turinys AS DocumentContent FROM du_ziniarastis_d d LEFT JOIN du_ziniarastis b ON b.ID=d.Z_ID LEFT JOIN bz a ON a.Op_ID=b.ID WHERE d.DS_NR=?CN AND UPPER(TRIM(d.DS_Serija))=UPPER(TRIM(?CS)) AND d.AT_K&gt;0 AND d.Atost&gt;0 AND (b.Z_data&lt;=?DT OR ?UH&gt;0) UNION SELECT 2 AS ItemType, 0 AS Spent, 0 AS Compensated, c.Dydis AS Correction, c.ID AS DocumentID, c.Nuo AS DocumentDate, '' AS DocumentNumber, c.Pagrindas AS DocumentContent FROM darbuotojai_d c WHERE c.DS_Nr=?CN AND UPPER(TRIM(c.DS_Serija))=UPPER(TRIM(?CS)) AND c.Tipas='o' AND (c.Nuo&lt;=?DT OR ?UH&gt;0);</Statement>
+    <Statement>SELECT 0 AS ItemType, d.Atost + d.Atost_n AS Spent, 0 AS Compensated, 0 AS Correction, b.ID AS DocumentID, b.Z_Data AS DocumentDate, a.Op_Dok AS DocumentNumber, a.Op_turinys AS DocumentContent FROM du_ziniarastis_d d LEFT JOIN du_ziniarastis b ON b.ID=d.Z_ID LEFT JOIN bz a ON a.Op_ID=b.ID WHERE d.DS_NR=?CN AND UPPER(TRIM(d.DS_Serija))=UPPER(TRIM(?CS)) AND d.AT_K&lt;1 AND (d.Atost&gt;0 OR d.Atost_n&gt;0) AND (b.Z_data&lt;=?DT OR ?UH&gt;0) UNION SELECT 1 AS ItemType, 0 AS Spent, d.Atost AS Compensated, 0 AS Correction, b.ID AS DocumentID, b.Z_Data AS DocumentDate, a.Op_Dok AS DocumentNumber, a.Op_turinys AS DocumentContent FROM du_ziniarastis_d d LEFT JOIN du_ziniarastis b ON b.ID=d.Z_ID LEFT JOIN bz a ON a.Op_ID=b.ID WHERE d.DS_NR=?CN AND UPPER(TRIM(d.DS_Serija))=UPPER(TRIM(?CS)) AND d.AT_K&gt;0 AND d.Atost&gt;0 AND (b.Z_data&lt;=?DT OR ?UH&gt;0) UNION SELECT 2 AS ItemType, 0 AS Spent, 0 AS Compensated, c.Dydis AS Correction, IFNULL((SELECT t.ID FROM darbuotojai_d t WHERE t.Nuo=c.Nuo AND UPPER(TRIM(t.DS_Serija)) = UPPER(TRIM(c.DS_Serija)) AND t.DS_NR=c.DS_NR AND t.Tipas='d' LIMIT 1), c.ID) AS DocumentID, c.Nuo AS DocumentDate, '' AS DocumentNumber, c.Pagrindas AS DocumentContent FROM darbuotojai_d c WHERE c.DS_Nr=?CN AND UPPER(TRIM(c.DS_Serija))=UPPER(TRIM(?CS)) AND c.Tipas='o' AND (c.Nuo&lt;=?DT OR ?UH&gt;0);</Statement>
     <Objects>ActiveReports.WorkerHolidayInfo</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3334,7 +3324,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchCodeInfoList</Key>
-    <Statement>SELECT b.TypeID AS TypeID, b.CodeValue AS CodeValue FROM (SELECT DISTINCT 0 AS TypeID, d.Kodas AS CodeValue FROM d_kitos d) b WHERE NOT CodeValue IS NULL AND CodeValue&gt;0 UNION SELECT c.TypeID AS TypeID, c.CodeValue AS CodeValue FROM (SELECT DISTINCT 1 AS TypeID, d.KodasSD AS CodeValue FROM d_kitos d) AS c WHERE NOT CodeValue IS NULL AND CodeValue&gt;0 ORDER BY TypeID, CodeValue;</Statement>
+    <Statement>SELECT b.TypeID AS TypeID, b.CodeValue AS CodeValue FROM (SELECT DISTINCT 0 AS TypeID, d.Kodas AS CodeValue FROM d_kitos d) b WHERE NOT CodeValue IS NULL AND CodeValue&gt;0 UNION SELECT c.TypeID AS TypeID, c.CodeValue AS CodeValue FROM (SELECT DISTINCT 1 AS TypeID, d.KodasSD AS CodeValue FROM d_kitos d) AS c WHERE NOT CodeValue IS NULL AND CodeValue&gt;0 UNION SELECT w.TypeID AS TypeID, w.CodeValue AS CodeValue FROM (SELECT DISTINCT 3 AS TypeID, d.StateCode AS CodeValue FROM asmenys d) AS w WHERE NOT CodeValue IS NULL AND TRIM(CodeValue) &lt;&gt; '' UNION SELECT v.TypeID AS TypeID, v.CodeValue AS CodeValue FROM (SELECT DISTINCT 4 AS TypeID, d.ExternalCode AS CodeValue FROM VatDeclarationSchemas d) AS v WHERE NOT CodeValue IS NULL AND TRIM(CodeValue) &lt;&gt; '' ORDER BY TypeID, CodeValue;</Statement>
     <Objects>HelperLists.CodeInfoList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3456,5 +3446,21 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
     <Key>FetchTemplateBookEntryInfoList</Key>
     <Statement>SELECT d.T_ID, d.T_tipas, d.T_saskaita FROM tipines_data d;</Statement>
     <Objects>HelperLists.TemplateJournalEntryInfoList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchInvoiceSubtotalListForInvoiceReceived</Key>
+    <Statement>SELECT w.ID, w.VatCode, w.VatRate, w.BaseSum, w.TaxSum, w.VatIsVirtual FROM (SELECT O.ID AS ID, '' AS VatCode, I.Tarif AS VatRate, SUM(I.SumLTL) AS BaseSum, SUM(I.SumVatLTL) AS TaxSum,
+CASE WHEN O.ID &gt; 0 THEN 0 ELSE 1 END AS VatIsVirtual FROM bz b LEFT JOIN InvoicesReceived O ON O.ID=b.Op_ID LEFT JOIN sfg as I ON I.BZ_ID=O.ID LEFT JOIN VatDeclarationSchemas s ON s.ID=I.DeclarationSchemaID WHERE b.Op_data&gt;=?DF AND b.Op_data&lt;=?DT AND NOT O.ID IS NULL AND (?PD&lt;1 OR b.Op_analitika=?PD) GROUP BY O.ID, I.Tarif ORDER BY O.ID) AS w UNION SELECT w.ID, w.VatCode, w.VatRate, w.BaseSum, w.TaxSum, w.VatIsVirtual FROM (SELECT O.ID AS ID, s.ExternalCode AS VatCode, s.VatRate AS VatRate, SUM(I.SumLTL) AS BaseSum, O.IndirectVatSum AS TaxSum, CASE WHEN O.ID &gt; 0 THEN 1 ELSE 0 END AS VatIsVirtual FROM bz b LEFT JOIN InvoicesReceived O ON O.ID=b.Op_ID LEFT JOIN VatDeclarationSchemas s ON s.ID=O.DeclarationSchemaID LEFT JOIN sfg as I ON I.BZ_ID=O.ID WHERE b.Op_data&gt;='2000-01-01' AND b.Op_data&lt;='2020-01-01' AND NOT O.ID IS NULL AND CROUND(O.IndirectVatSum, 2) &gt; 0 AND (?PD&lt;1 OR b.Op_analitika=?PD) GROUP BY O.ID ORDER BY O.ID) AS w;</Statement>
+    <Objects>ActiveReports.InvoiceInfoItemList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchInvoiceSubtotalListForInvoiceMade</Key>
+    <Statement>SELECT O.ID, s.ExternalCode, s.VatRate, SUM(I.SumLTL - I.DiscountLTL), SUM(I.SumVatLTL - I.DiscountVatLTL), I.VatIsVirtual FROM bz b LEFT JOIN InvoicesMade O ON O.ID=b.Op_ID LEFT JOIN sfd as I ON I.SF_ID=O.ID LEFT JOIN VatDeclarationSchemas s ON s.ID=I.DeclarationSchemaID WHERE b.Op_data&gt;=?DF AND b.Op_data&lt;=?DT AND NOT O.ID IS NULL AND (?PD&lt;1 OR b.Op_analitika=?PD) GROUP BY O.ID, s.ExternalCode, s.VatRate ORDER BY O.ID;</Statement>
+    <Objects>ActiveReports.InvoiceInfoItemList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchVatDeclaration</Key>
+    <Statement>SELECT b.Op_ID, b.Op_data, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, d.Preke, d.SumLTL-d.DiscountLTL, d.Tar, d.SumVatLTL-d.DiscountVatLTL, e.FieldCode, CROUND((CASE WHEN e.IsVatField &gt; 0 THEN d.SumVatLTL-d.DiscountVatLTL ELSE d.SumLTL-d.DiscountLTL END) * (CASE WHEN e.MinusValue &gt; 0 THEN -1 ELSE 1 END) * e.InclusionPercentage / 100, 2) AS FieldValue FROM bz b LEFT JOIN sfd d ON d.SF_ID=b.Op_ID LEFT JOIN VatDeclarationEntrys e ON e.ParentID=d.DeclarationSchemaID WHERE d.DeclarationSchemaID &gt; 0 AND b.Op_Data &gt;= ?DF AND b.Op_Data &lt;= ?DT UNION SELECT b.Op_ID, b.Op_data, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, d.Preke, d.SumLTL, d.Tarif, d.SumVatLTL, e.FieldCode, CROUND((CASE WHEN e.IsVatField &gt; 0 THEN d.SumVatLTL ELSE d.SumLTL END) * (CASE WHEN e.MinusValue &gt; 0 THEN -1 ELSE 1 END) * e.InclusionPercentage / 100, 2) AS FieldValue FROM bz b LEFT JOIN sfg d ON d.BZ_ID=b.Op_ID LEFT JOIN VatDeclarationEntrys e ON e.ParentID=d.DeclarationSchemaID WHERE d.DeclarationSchemaID &gt; 0 AND b.Op_Data &gt;= ?DF AND b.Op_Data &lt;= ?DT UNION SELECT b.Op_ID, b.Op_data, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, CASE WHEN b.Op_ID&gt;0 THEN ?IV ELSE NULL END, 0, 0, i.IndirectVatSum, e.FieldCode, CROUND((CASE WHEN e.IsVatField &gt; 0 THEN i.IndirectVatSum ELSE 0 END) * (CASE WHEN e.MinusValue &gt; 0 THEN -1 ELSE 1 END) * e.InclusionPercentage / 100, 2) AS FieldValue FROM bz b LEFT JOIN InvoicesReceived i ON i.ID=b.Op_ID LEFT JOIN VatDeclarationEntrys e ON e.ParentID=i.DeclarationSchemaID WHERE i.DeclarationSchemaID &gt; 0 AND b.Op_Data &gt;= ?DF AND b.Op_Data &lt;= ?DT UNION SELECT b.Op_ID, b.Op_data, b.Op_Dok, b.Op_turinys, b.Op_dok_rusis, d.Aprasas, d.SumLTL, d.PVMTarifas, d.SumVatLTL, e.FieldCode, CROUND((CASE WHEN e.IsVatField &gt; 0 THEN d.SumVatLTL ELSE d.SumLTL END) * (CASE WHEN e.MinusValue &gt; 0 THEN -1 ELSE 1 END) * e.InclusionPercentage / 100, 2) AS FieldValue FROM bz b LEFT JOIN apyskaitos d ON d.BZ_ID=b.Op_ID LEFT JOIN VatDeclarationEntrys e ON e.ParentID=d.DeclarationSchemaID WHERE d.DeclarationSchemaID &gt; 0 AND NOT d.SG&gt;0 AND b.Op_Data &gt;= ?DF AND b.Op_Data &lt;= ?DT;</Statement>
+    <Objects>ActiveReports.VatDeclaration</Objects>
   </MySQL_Statement>
 </NewDataSet>

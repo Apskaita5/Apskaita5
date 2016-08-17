@@ -50,7 +50,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Dim DescriptionLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_GoodsOperationRedeemFromBuyer))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.LimitationsButton = New System.Windows.Forms.Button
         Me.RedeemCostsAccountAccGridComboBox = New AccControlsWinForms.AccListComboBox
         Me.GoodsOperationRedeemFromBuyerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TotalValueInWarehouseAccTextBox = New AccControlsWinForms.AccTextBox
@@ -464,7 +463,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.LimitationsButton, 0, 12)
         Me.TableLayoutPanel1.Controls.Add(DescriptionLabel, 0, 11)
         Me.TableLayoutPanel1.Controls.Add(Me.RedeemCostsAccountAccGridComboBox, 7, 9)
         Me.TableLayoutPanel1.Controls.Add(RedeemCostsAccountLabel, 6, 9)
@@ -537,16 +535,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(827, 369)
         Me.TableLayoutPanel1.TabIndex = 0
-        '
-        'LimitationsButton
-        '
-        Me.LimitationsButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.LimitationsButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.Action_lock_icon_32p
-        Me.LimitationsButton.Location = New System.Drawing.Point(111, 317)
-        Me.LimitationsButton.Name = "LimitationsButton"
-        Me.LimitationsButton.Size = New System.Drawing.Size(50, 40)
-        Me.LimitationsButton.TabIndex = 8
-        Me.LimitationsButton.UseVisualStyleBackColor = True
         '
         'RedeemCostsAccountAccGridComboBox
         '
@@ -1111,7 +1099,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
     Friend WithEvents RefreshJournalEntryInfoButton As System.Windows.Forms.Button
     Friend WithEvents JournalEntryInfoComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents AttachJournalEntryInfoButton As System.Windows.Forms.Button
-    Friend WithEvents LimitationsButton As System.Windows.Forms.Button
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents nCancelButton As System.Windows.Forms.Button
     Friend WithEvents ApplyButton As System.Windows.Forms.Button

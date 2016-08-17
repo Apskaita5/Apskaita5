@@ -7,7 +7,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks>Should only be used as a child of <see cref="ImprestSheetInfoList">ImprestSheetInfoList</see>.</remarks>
     <Serializable()> _
-    Public Class ImprestSheetInfo
+    Public NotInheritable Class ImprestSheetInfo
         Inherits ReadOnlyBase(Of ImprestSheetInfo)
 
 #Region " Business Methods "

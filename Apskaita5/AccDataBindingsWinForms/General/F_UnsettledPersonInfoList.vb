@@ -108,7 +108,7 @@ Friend Class F_UnsettledPersonInfoList
         If TypeOf e.Model Is UnsettledPersonInfo Then
 
             Dim frm As New F_BookEntryInfoListParent(_FormManager.DataSource.Account, _
-                _FormManager.DataSource.AsOfDate, _FormManager.DataSource.AsOfDate.AddMonths(-3), _
+                _FormManager.DataSource.AsOfDate.AddMonths(-3), _FormManager.DataSource.AsOfDate, _
                 DirectCast(e.Model, UnsettledPersonInfo).ID)
             frm.MdiParent = CurrentMdiParent
             frm.Show()

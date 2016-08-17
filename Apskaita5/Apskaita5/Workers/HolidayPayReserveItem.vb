@@ -9,7 +9,7 @@ Namespace Workers
     ''' <remarks>Should only be used as a child of a <see cref="HolidayPayReserveItemList">HolidayPayReserveItemList</see>.
     ''' Values are stored in the database table d_avansai_d.</remarks>
     <Serializable()> _
-    Public Class HolidayPayReserveItem
+    Public NotInheritable Class HolidayPayReserveItem
         Inherits BusinessBase(Of HolidayPayReserveItem)
         Implements IGetErrorForListItem
 

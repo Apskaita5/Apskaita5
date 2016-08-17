@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Friend Class F_NewWorkTimeSheet(Of T As ApskaitaObjects.Workers.WorkTimeSheet)
+Partial Friend Class F_NewWorkTimeSheet
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.

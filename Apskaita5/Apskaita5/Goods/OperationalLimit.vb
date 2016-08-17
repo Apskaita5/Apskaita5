@@ -6,7 +6,7 @@ Namespace Goods
     ''' <remarks>Aggregates operations becouce it would be too costly to keep
     ''' all the operations info (as compared to a long term asset).</remarks>
     <Serializable()> _
-    Public Class OperationalLimit
+    Public NotInheritable Class OperationalLimit
         Inherits ReadOnlyBase(Of OperationalLimit)
 
 #Region " Business Methods "

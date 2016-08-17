@@ -9,7 +9,7 @@ Namespace ActiveReports
     ''' <remarks>Should only be used as a child of <see cref="ActiveReports.LongTermAssetInfoList">LongTermAssetInfoList</see>.
     ''' Values are stored in the database table turtas.</remarks>
     <Serializable()> _
-    Public Class LongTermAssetInfo
+    Public NotInheritable Class LongTermAssetInfo
         Inherits ReadOnlyBase(Of LongTermAssetInfo)
 
 #Region " Business Methods "

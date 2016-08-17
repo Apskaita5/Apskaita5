@@ -2376,6 +2376,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to PVM apmokestinamosios vertės.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_InvoiceInfoItem_SubtotalList() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_InvoiceInfoItem_SubtotalList", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM apmokestinamosios vertės.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_InvoiceInfoItem_Subtotals() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_InvoiceInfoItem_Subtotals", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to {0} Nr. {1}: {2}.
         '''</summary>
         Friend ReadOnly Property ActiveReports_InvoiceInfoItem_ToString() As String
@@ -2489,6 +2507,78 @@ Namespace My.Resources
         Friend ReadOnly Property ActiveReports_InvoiceInfoType_InvoiceReceived() As String
             Get
                 Return ResourceManager.GetString("ActiveReports_InvoiceInfoType_InvoiceReceived", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to apmokestinamoji vertė.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_InvoiceSubtotalItem_TaxableValue() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_InvoiceSubtotalItem_TaxableValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM suma.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_InvoiceSubtotalItem_TaxAmount() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_InvoiceSubtotalItem_TaxAmount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM kodas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_InvoiceSubtotalItem_TaxCode() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_InvoiceSubtotalItem_TaxCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM tarifas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_InvoiceSubtotalItem_TaxPercentage() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_InvoiceSubtotalItem_TaxPercentage", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} ({1} %): suma = {2} EUR, PVM suma = {3}.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_InvoiceSubtotalItem_ToString() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_InvoiceSubtotalItem_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM sąskaitos faktūros apmokestinamoji vertė.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_InvoiceSubtotalItem_ToString_TypeName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_InvoiceSubtotalItem_ToString_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to netiesioginis PVM.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_InvoiceSubtotalItem_VatIsVirtual() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_InvoiceSubtotalItem_VatIsVirtual", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM sąskaitos faktūros apmokestinamosios vertės.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_InvoiceSubtotalItemList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_InvoiceSubtotalItemList_TypeName", resourceCulture)
             End Get
         End Property
         
@@ -5437,6 +5527,276 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to data.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclaration_Date() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclaration_Date", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Deklaracijos data negali būti ankstesnė už mėnesį, kuriam ji formuojama..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclaration_DateInvalid() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclaration_DateInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodyta deklaracijos versija..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclaration_DeclarationFormNull() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclaration_DeclarationFormNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas failas..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclaration_FileNull() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclaration_FileNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to netiesioginis PVM.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclaration_IndirectVatName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclaration_IndirectVatName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to eilutės.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclaration_Items() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclaration_Items", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Deklaracijoje nėra nė vienos eilutės..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclaration_ListEmpty() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclaration_ListEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to mėnuo.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclaration_Month() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclaration_Month", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Mėnuo turi būti tarp 1 ir 12..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclaration_MonthInvalid() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclaration_MonthInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pasirinkta deklaracijos versija galioja nuo {0} iki {1}, o pasirinktas laikotarpis ({2} m. {3} mėn.) į šį laikotarpį nepakliūna..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclaration_PeriodInvalid() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclaration_PeriodInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sumos.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclaration_Subtotals() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclaration_Subtotals", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaracija už {0} m. {1} mėn..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclaration_ToString() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclaration_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaracija.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclaration_TypeName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclaration_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Eksportuojant duomenis kilo nežinoma klaida..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclaration_UnknownErrorWhileExporting() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclaration_UnknownErrorWhileExporting", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to metai.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclaration_Year() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclaration_Year", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Metai turi būti tarp 1970 ir 2100..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclaration_YearInvalid() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclaration_YearInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to dokumentas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationItem_Document() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationItem_Document", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} {1} Nr. {2} (ID={3}).
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationItem_DocumentTemplate() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationItem_DocumentTemplate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to dokumento tipas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationItem_DocumentType() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationItem_DocumentType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to deklaracijos laukelis.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationItem_FieldCode() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationItem_FieldCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma deklaracijos laukelyje.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationItem_FieldSum() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationItem_FieldSum", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to dokumento ID.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationItem_ID() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationItem_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to dokumento eilutė.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationItem_Item() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationItem_Item", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma eilutėje.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationItem_ItemSum() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationItem_ItemSum", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM tarifas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationItem_ItemVatRate() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationItem_ItemVatRate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM suma eilutėje.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationItem_ItemVatSum() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationItem_ItemVatSum", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}, eilutė - {1}: {2} -&gt; {3}.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationItem_ToString() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationItem_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaracijos eilutė.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationItem_TypeName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationItem_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaracijos eilutės.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationItemList_ToString() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationItemList_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaracijos eilutės.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationItemList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationItemList_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to aprašymas.
         '''</summary>
         Friend ReadOnly Property ActiveReports_VatDeclarationSchemaInfoItem_Description() As String
@@ -5541,6 +5901,60 @@ Namespace My.Resources
         Friend ReadOnly Property ActiveReports_VatDeclarationSchemaInfoItemList_TypeName() As String
             Get
                 Return ResourceManager.GetString("ActiveReports_VatDeclarationSchemaInfoItemList_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to laukelio kodas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSubtotal_Code() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSubtotal_Code", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSubtotal_Sum() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSubtotal_Sum", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} = {1}.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSubtotal_ToString() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSubtotal_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma PVM deklaracijos laukelyje.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSubtotal_TypeName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSubtotal_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sumos PVM deklaracijoje.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSubtotalList_ToString() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSubtotalList_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sumos PVM deklaracijoje.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_VatDeclarationSubtotalList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_VatDeclarationSubtotalList_TypeName", resourceCulture)
             End Get
         End Property
         
@@ -13474,6 +13888,15 @@ Namespace My.Resources
         Friend ReadOnly Property Assets_OperationTransfer_AfterOperationValueIncreaseAmortizationAccountValue() As String
             Get
                 Return ResourceManager.GetString("Assets_OperationTransfer_AfterOperationValueIncreaseAmortizationAccountValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas perleidžiamas kiekis..
+        '''</summary>
+        Friend ReadOnly Property Assets_OperationTransfer_AmountNullForNewJournalEntry() As String
+            Get
+                Return ResourceManager.GetString("Assets_OperationTransfer_AmountNullForNewJournalEntry", resourceCulture)
             End Get
         End Property
         
@@ -25089,7 +25512,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to pavadinimas&lt;BR&gt;asmens ar įmonės kodas&lt;BR&gt;adresas&lt;BR&gt;banko pavadinimas&lt;BR&gt;banko sąskaitos numeris&lt;BR&gt;PVM mokėtojo kodas&lt;BR&gt;SODROS kodas&lt;BR&gt;e-paštas&lt;BR&gt;kontaktinė info&lt;BR&gt;vidinis kodas&lt;BR&gt;kalbos ISO 639-1 kodas&lt;BR&gt;valiutos kodas&lt;BR&gt;fizinio asmens žymuo(0/1)&lt;BR&gt;pirkėjo žymuo(0/1)&lt;BR&gt;tiekėjo žymuo(0/1)&lt;BR&gt;darbuotojo žymuo(0/1)&lt;BR&gt;nebenaudojamas žymuo(0/1)&lt;BR&gt;kontuojama pirkėjų skolų sąskaita&lt;BR&gt;kontuojama tiekėjų skolų sąskaita.
+        '''  Looks up a localized string similar to pavadinimas&lt;BR&gt;asmens ar įmonės kodas&lt;BR&gt;adresas&lt;BR&gt;banko pavadinimas&lt;BR&gt;banko sąskaitos numeris&lt;BR&gt;PVM mokėtojo kodas&lt;BR&gt;SODROS kodas&lt;BR&gt;e-paštas&lt;BR&gt;kontaktinė info&lt;BR&gt;vidinis kodas&lt;BR&gt;kalbos ISO 639-1 kodas&lt;BR&gt;valiutos kodas&lt;BR&gt;fizinio asmens žymuo(0/1)&lt;BR&gt;pirkėjo žymuo(0/1)&lt;BR&gt;tiekėjo žymuo(0/1)&lt;BR&gt;darbuotojo žymuo(0/1)&lt;BR&gt;nebenaudojamas žymuo(0/1)&lt;BR&gt;kontuojama pirkėjų skolų sąskaita&lt;BR&gt;kontuojama tiekėjų skolų sąskaita&lt;BR&gt;kodas netikras(0/1)&lt;BR&gt;valstybės ISO 3166–1 alpha 2 kodas.
         '''</summary>
         Friend ReadOnly Property General_ImportedPerson_PasteColumns() As String
             Get
@@ -25440,6 +25863,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to netikras įmonės (asmens) kodas.
+        '''</summary>
+        Friend ReadOnly Property General_Person_CodeIsNotReal() As String
+            Get
+                Return ResourceManager.GetString("General_Person_CodeIsNotReal", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Klaida. Asmuo su tokiu asmens/įmonės kodu jau egzistuoja..
         '''</summary>
         Friend ReadOnly Property General_Person_CodeNotUnique() As String
@@ -25643,6 +26075,15 @@ Namespace My.Resources
         Friend ReadOnly Property General_Person_SodraCodeRequired() As String
             Get
                 Return ResourceManager.GetString("General_Person_SodraCodeRequired", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to valstybė.
+        '''</summary>
+        Friend ReadOnly Property General_Person_StateCode() As String
+            Get
+                Return ResourceManager.GetString("General_Person_StateCode", resourceCulture)
             End Get
         End Property
         
@@ -35076,6 +35517,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Visos grupės.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_PersonGroupInfo_EmptyPersonGroupString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_PersonGroupInfo_EmptyPersonGroupString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to ID.
         '''</summary>
         Friend ReadOnly Property HelperLists_PersonGroupInfo_ID() As String
@@ -36215,6 +36665,24 @@ Namespace My.Resources
         Friend ReadOnly Property Settings_CodeType_VmiMunicipality() As String
             Get
                 Return ResourceManager.GetString("Settings_CodeType_VmiMunicipality", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to šalies ISO kodas.
+        '''</summary>
+        Friend ReadOnly Property Settings_CodeType_VmiState() As String
+            Get
+                Return ResourceManager.GetString("Settings_CodeType_VmiState", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM kodas.
+        '''</summary>
+        Friend ReadOnly Property Settings_CodeType_VmiVatType() As String
+            Get
+                Return ResourceManager.GetString("Settings_CodeType_VmiVatType", resourceCulture)
             End Get
         End Property
         

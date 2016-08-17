@@ -6,7 +6,7 @@ Namespace Workers
     ''' <remarks>Should only be used as a child of a <see cref="ImprestSheet">ImprestSheet</see>.
     ''' Values are stored in the database table d_avansai_d.</remarks>
     <Serializable()> _
-    Public Class ImprestItemList
+    Public NotInheritable Class ImprestItemList
         Inherits BusinessListBase(Of ImprestItemList, ImprestItem)
 
 #Region " Business Methods "

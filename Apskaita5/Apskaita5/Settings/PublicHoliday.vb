@@ -9,7 +9,7 @@ Namespace Settings
     ''' <remarks>Should only be used as a child of <see cref="PublicHolidayList">PublicHolidayList</see>.
     ''' Persisted using xml proxies as a part of <see cref="CommonSettings">CommonSettings</see>.</remarks>
     <Serializable()> _
-    Public Class PublicHoliday
+    Public NotInheritable Class PublicHoliday
         Inherits BusinessBase(Of PublicHoliday)
         Implements IGetErrorForListItem
 

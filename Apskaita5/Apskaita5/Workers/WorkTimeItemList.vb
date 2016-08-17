@@ -7,7 +7,7 @@ Namespace Workers
     ''' Values are stored by an encapsulated <see cref="DayWorkTimeList">DayWorkTimeList</see> object
     ''' and a databse table worktimeitems.</remarks>
     <Serializable()> _
-    Public Class WorkTimeItemList
+    Public NotInheritable Class WorkTimeItemList
         Inherits BusinessListBase(Of WorkTimeItemList, WorkTimeItem)
 
 #Region " Business Methods "

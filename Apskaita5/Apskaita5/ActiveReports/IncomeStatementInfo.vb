@@ -7,7 +7,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class IncomeStatementInfo
+    Public NotInheritable Class IncomeStatementInfo
         Inherits ReadOnlyBase(Of IncomeStatementInfo)
 
 #Region " Business Methods "

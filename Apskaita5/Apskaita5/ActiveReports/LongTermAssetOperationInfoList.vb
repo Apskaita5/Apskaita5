@@ -9,7 +9,7 @@ Namespace ActiveReports
     ''' <remarks>Should only be used as a child of <see cref="LongTermAssetOperationInfoListParent">LongTermAssetOperationInfoListParent</see>.
     ''' Values are stored in the database table turtas_op.</remarks>
     <Serializable()> _
-Public Class LongTermAssetOperationInfoList
+Public NotInheritable Class LongTermAssetOperationInfoList
         Inherits ReadOnlyListBase(Of LongTermAssetOperationInfoList, LongTermAssetOperationInfo)
 
 #Region " Authorization Rules "

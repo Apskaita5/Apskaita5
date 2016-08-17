@@ -8,7 +8,7 @@ Namespace Assets
     ''' </summary>
     ''' <remarks>Should only be used as a child of a <see cref="OperationDeltaList">OperationDeltaList</see>.</remarks>
     <Serializable()> _
-    Public Class OperationDelta
+    Public NotInheritable Class OperationDelta
         Inherits ReadOnlyBase(Of OperationDelta)
 
 #Region " Business Methods "

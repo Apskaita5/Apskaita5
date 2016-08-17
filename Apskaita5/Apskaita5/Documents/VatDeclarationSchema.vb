@@ -9,7 +9,7 @@ Namespace Documents
     ''' </summary>
     ''' <remarks>Values are stored in the database table VatDeclarationSchemas.</remarks>
     <Serializable()> _
-    Public Class VatDeclarationSchema
+    Public NotInheritable Class VatDeclarationSchema
         Inherits BusinessBase(Of VatDeclarationSchema)
         Implements IIsDirtyEnough, IValidationMessageProvider
 

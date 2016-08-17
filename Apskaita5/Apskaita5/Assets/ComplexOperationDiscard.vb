@@ -10,7 +10,7 @@ Namespace Assets
     ''' are derived from the encapsulated JournalEntry and child items.
     ''' Child operation values are stored in the database table turtas_op.</remarks>
     <Serializable()> _
-    Public Class ComplexOperationDiscard
+    Public NotInheritable Class ComplexOperationDiscard
         Inherits BusinessBase(Of ComplexOperationDiscard)
         Implements IIsDirtyEnough, IValidationMessageProvider
 

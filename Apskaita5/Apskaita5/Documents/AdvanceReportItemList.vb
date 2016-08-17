@@ -8,7 +8,7 @@ Namespace Documents
     ''' <remarks>Should only be used as a child of a <see cref="AdvanceReport">AdvanceReport</see>.
     ''' Values are stored in the database table apyskaitos.</remarks>
     <Serializable()> _
-    Public Class AdvanceReportItemList
+    Public NotInheritable Class AdvanceReportItemList
         Inherits BusinessListBase(Of AdvanceReportItemList, AdvanceReportItem)
 
 #Region " Business Methods "

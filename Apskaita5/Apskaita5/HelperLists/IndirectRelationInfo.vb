@@ -7,7 +7,7 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class IndirectRelationInfo
+    Public NotInheritable Class IndirectRelationInfo
         Inherits ReadOnlyBase(Of IndirectRelationInfo)
 
 #Region " Business Methods "

@@ -8,7 +8,7 @@ Namespace ActiveReports
     ''' <remarks>Provides additional info on top of a <see cref="General.JournalEntry">JournalEntry</see>.
     ''' Values are stored in the database table d_kitos.</remarks>
     <Serializable()> _
-    Public Class PayOutNaturalPersonInfo
+    Public NotInheritable Class PayOutNaturalPersonInfo
         Inherits ReadOnlyBase(Of PayOutNaturalPersonInfo)
 
 #Region " Business Methods "

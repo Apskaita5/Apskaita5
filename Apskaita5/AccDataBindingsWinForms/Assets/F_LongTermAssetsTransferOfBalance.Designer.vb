@@ -29,7 +29,6 @@ Partial Friend Class F_LongTermAssetsTransferOfBalance
         Dim UpdateDateLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_LongTermAssetsTransferOfBalance))
         Me.Panel2 = New System.Windows.Forms.Panel
-        Me.LimitationsButton = New System.Windows.Forms.Button
         Me.nCancelButton = New System.Windows.Forms.Button
         Me.ApplyButton = New System.Windows.Forms.Button
         Me.nOkButton = New System.Windows.Forms.Button
@@ -152,25 +151,15 @@ Partial Friend Class F_LongTermAssetsTransferOfBalance
         'Panel2
         '
         Me.Panel2.AutoSize = True
-        Me.Panel2.Controls.Add(Me.LimitationsButton)
         Me.Panel2.Controls.Add(Me.nCancelButton)
         Me.Panel2.Controls.Add(Me.ApplyButton)
         Me.Panel2.Controls.Add(Me.nOkButton)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 328)
+        Me.Panel2.Location = New System.Drawing.Point(0, 329)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Padding = New System.Windows.Forms.Padding(0, 0, 0, 4)
-        Me.Panel2.Size = New System.Drawing.Size(802, 38)
+        Me.Panel2.Size = New System.Drawing.Size(802, 37)
         Me.Panel2.TabIndex = 2
-        '
-        'LimitationsButton
-        '
-        Me.LimitationsButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.Action_lock_icon_24p
-        Me.LimitationsButton.Location = New System.Drawing.Point(12, 6)
-        Me.LimitationsButton.Name = "LimitationsButton"
-        Me.LimitationsButton.Size = New System.Drawing.Size(25, 25)
-        Me.LimitationsButton.TabIndex = 26
-        Me.LimitationsButton.UseVisualStyleBackColor = True
         '
         'nCancelButton
         '
@@ -400,7 +389,7 @@ Partial Friend Class F_LongTermAssetsTransferOfBalance
         Me.ItemsDataListView.ShowImagesOnSubItems = True
         Me.ItemsDataListView.ShowItemCountOnGroups = True
         Me.ItemsDataListView.ShowItemToolTips = True
-        Me.ItemsDataListView.Size = New System.Drawing.Size(802, 260)
+        Me.ItemsDataListView.Size = New System.Drawing.Size(802, 261)
         Me.ItemsDataListView.TabIndex = 4
         Me.ItemsDataListView.UnfocusedSelectedBackColor = System.Drawing.Color.PaleGreen
         Me.ItemsDataListView.UnfocusedSelectedForeColor = System.Drawing.Color.Black
@@ -875,7 +864,6 @@ Partial Friend Class F_LongTermAssetsTransferOfBalance
 
     End Sub
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents LimitationsButton As System.Windows.Forms.Button
     Friend WithEvents nCancelButton As System.Windows.Forms.Button
     Friend WithEvents ApplyButton As System.Windows.Forms.Button
     Friend WithEvents nOkButton As System.Windows.Forms.Button

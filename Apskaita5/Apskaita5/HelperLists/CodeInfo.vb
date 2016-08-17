@@ -9,8 +9,9 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class CodeInfo
+    Public NotInheritable Class CodeInfo
         Inherits ReadOnlyBase(Of CodeInfo)
+        Implements IComparable, IValueObject
 
 #Region " Business Methods "
 
@@ -20,6 +21,18 @@ Namespace HelperLists
         Private _Name As String = ""
         Private _IsObsolete As Boolean = False
 
+
+        ''' <summary>
+        ''' Whether an object is a place holder (does not represent a real code).
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property IsEmpty() As Boolean _
+            Implements IValueObject.IsEmpty
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _Code = 0
+            End Get
+        End Property
 
         ''' <summary>
         ''' Gets a type of the code.
@@ -66,12 +79,78 @@ Namespace HelperLists
         End Property
 
 
+        Public Shared Operator =(ByVal a As CodeInfo, ByVal b As CodeInfo) As Boolean
+
+            Dim aId, bId As Integer
+            If a Is Nothing OrElse a.IsEmpty Then
+                aId = 0
+            Else
+                aId = a.Code
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bId = 0
+            Else
+                bId = b.Code
+            End If
+
+            Return aId = bId
+
+        End Operator
+
+        Public Shared Operator <>(ByVal a As CodeInfo, ByVal b As CodeInfo) As Boolean
+            Return Not a = b
+        End Operator
+
+        Public Shared Operator >(ByVal a As CodeInfo, ByVal b As CodeInfo) As Boolean
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString > bToString
+
+        End Operator
+
+        Public Shared Operator <(ByVal a As CodeInfo, ByVal b As CodeInfo) As Boolean
+
+            Dim aToString, bToString As String
+            If a Is Nothing OrElse a.IsEmpty Then
+                aToString = ""
+            Else
+                aToString = a.ToString
+            End If
+            If b Is Nothing OrElse b.IsEmpty Then
+                bToString = ""
+            Else
+                bToString = b.ToString
+            End If
+
+            Return aToString < bToString
+
+        End Operator
+
+        Public Function CompareTo(ByVal obj As Object) As Integer Implements System.IComparable.CompareTo
+            Dim tmp As CodeInfo = TryCast(obj, CodeInfo)
+            If Me = tmp Then Return 0
+            If Me > tmp Then Return 1
+            Return -1
+        End Function
+
 
         Protected Overrides Function GetIdValue() As Object
             Return _Guid
         End Function
 
         Public Overrides Function ToString() As String
+            If Not _Code = 0 Then Return ""
             Return _Code.ToString("00")
         End Function
 
@@ -79,8 +158,16 @@ Namespace HelperLists
 
 #Region " Factory Methods "
 
-        Friend Shared Function NewCodeInfo() As CodeInfo
-            Return New CodeInfo()
+        Private Shared _Empty As CodeInfo = Nothing
+
+        ''' <summary>
+        ''' Gets an empty CodeInfo (placeholder).
+        ''' </summary>
+        Public Shared Function Empty() As CodeInfo
+            If _Empty Is Nothing Then
+                _Empty = New CodeInfo
+            End If
+            Return _Empty
         End Function
 
         Friend Shared Function GetCodeInfo(ByVal dr As DataRow) As CodeInfo

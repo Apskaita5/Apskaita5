@@ -7,7 +7,7 @@ Namespace Documents
     ''' <remarks>Should only be used as a child of <see cref="Offset">Offset</see>.
     ''' Values are stored in the database table offsetitems.</remarks>
     <Serializable()> _
-    Public Class OffsetItemList
+    Public NotInheritable Class OffsetItemList
         Inherits BusinessListBase(Of OffsetItemList, OffsetItem)
 
 #Region " Business Methods "

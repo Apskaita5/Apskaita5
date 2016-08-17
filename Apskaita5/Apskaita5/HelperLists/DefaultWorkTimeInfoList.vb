@@ -9,7 +9,7 @@ Namespace HelperLists
     ''' <remarks>Exists a single instance accross all of the databases.
     ''' Persisted using xml proxies as a part of <see cref="ApskaitaObjects.Settings.CommonSettings">Settings.CommonSettings</see>.</remarks>
     <Serializable()> _
-    Public Class DefaultWorkTimeInfoList
+    Public NotInheritable Class DefaultWorkTimeInfoList
         Inherits ReadOnlyListBase(Of DefaultWorkTimeInfoList, DefaultWorkTimeInfo)
 
 #Region " Business Methods "

@@ -60,6 +60,7 @@ Public Class SettingsPersistenceObject
         Private _UseHotTracking As Boolean = True
         Private _ShowEmptyListMessage As Boolean = True
         Private _ShowGridLines As Boolean = False
+        Private _DefaultActionByDoubleClick As Boolean = False
 
 
         ''' <summary>
@@ -744,6 +745,23 @@ Public Class SettingsPersistenceObject
             Set(ByVal value As Boolean)
                 If _ShowGridLines <> value Then
                     _ShowGridLines = value
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
+        ''' Gets or sets whether to perform a default action when 
+        ''' an ObjectListView is double clicked (as oposed to showing 
+        ''' a meniu of available actions).
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Property DefaultActionByDoubleClick() As Boolean
+            Get
+                Return _DefaultActionByDoubleClick
+            End Get
+            Set(ByVal value As Boolean)
+                If _DefaultActionByDoubleClick <> value Then
+                    _DefaultActionByDoubleClick = value
                 End If
             End Set
         End Property

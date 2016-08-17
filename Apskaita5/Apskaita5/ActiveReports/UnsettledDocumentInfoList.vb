@@ -6,7 +6,7 @@
     ''' </summary>
     ''' <remarks>Should onle be used as a child of <see cref="UnsettledPersonInfo">UnsettledPersonInfo</see>.</remarks>
     <Serializable()> _
-    Public Class UnsettledDocumentInfoList
+    Public NotInheritable Class UnsettledDocumentInfoList
         Inherits ReadOnlyListBase(Of UnsettledDocumentInfoList, UnsettledDocumentInfo)
 
 #Region " Business Methods "

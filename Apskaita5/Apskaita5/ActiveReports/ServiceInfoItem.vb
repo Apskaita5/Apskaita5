@@ -8,7 +8,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks>Values are stored in the database table paslaugos.</remarks>
     <Serializable()> _
-    Public Class ServiceInfoItem
+    Public NotInheritable Class ServiceInfoItem
         Inherits ReadOnlyBase(Of ServiceInfoItem)
 
 #Region " Business Methods "

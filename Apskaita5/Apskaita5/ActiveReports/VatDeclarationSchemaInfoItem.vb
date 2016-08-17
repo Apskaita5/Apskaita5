@@ -8,7 +8,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class VatDeclarationSchemaInfoItem
+    Public NotInheritable Class VatDeclarationSchemaInfoItem
         Inherits ReadOnlyBase(Of VatDeclarationSchemaInfoItem)
 
 #Region " Business Methods "
@@ -115,7 +115,7 @@ Namespace ActiveReports
         End Property
 
 
-       Protected Overrides Function GetIdValue() As Object
+        Protected Overrides Function GetIdValue() As Object
             Return _ID
         End Function
 

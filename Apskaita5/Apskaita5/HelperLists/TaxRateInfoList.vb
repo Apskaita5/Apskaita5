@@ -12,7 +12,7 @@ Namespace HelperLists
     ''' historical values need to be added from the current database
     ''' in order to provide consistent datasource.</remarks>
     <Serializable()> _
-    Public Class TaxRateInfoList
+    Public NotInheritable Class TaxRateInfoList
         Inherits ReadOnlyListBase(Of TaxRateInfoList, TaxRateInfo)
 
 #Region " Business Methods "

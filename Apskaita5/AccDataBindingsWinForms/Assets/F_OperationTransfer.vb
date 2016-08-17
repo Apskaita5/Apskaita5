@@ -3,7 +3,7 @@ Imports AccControlsWinForms
 Imports AccDataBindingsWinForms.Printing
 
 Friend Class F_OperationTransfer
-    Implements ISupportsPrinting, IObjectEditForm
+    Implements ISupportsPrinting, IObjectEditForm, ISupportsChronologicValidator
 
     Private WithEvents _FormManager As CslaActionExtenderEditForm(Of OperationTransfer)
     Private _QueryManager As CslaActionExtenderQueryObject
@@ -104,7 +104,7 @@ Friend Class F_OperationTransfer
         Try
             _FormManager = New CslaActionExtenderEditForm(Of OperationTransfer) _
                 (Me, OperationTransferBindingSource, _DocumentToEdit, _
-                Nothing, nOkButton, ApplyButton, nCancelButton, LimitationsButton, ProgressFiller1)
+                Nothing, nOkButton, ApplyButton, nCancelButton, Nothing, ProgressFiller1)
         Catch ex As Exception
             ShowError(ex)
             DisableAllControls(Me)
@@ -261,6 +261,21 @@ Friend Class F_OperationTransfer
     Public Function SupportsEmailing() As Boolean _
         Implements ISupportsPrinting.SupportsEmailing
         Return True
+    End Function
+
+
+    Public Function ChronologicContent() As String _
+        Implements ISupportsChronologicValidator.ChronologicContent
+        If _FormManager.DataSource Is Nothing Then Return ""
+        Return _FormManager.DataSource.ChronologyValidator.LimitsExplanation
+    End Function
+
+    Public Function HasChronologicContent() As Boolean _
+        Implements ISupportsChronologicValidator.HasChronologicContent
+
+        Return Not _FormManager.DataSource Is Nothing AndAlso _
+            Not StringIsNullOrEmpty(_FormManager.DataSource.ChronologyValidator.LimitsExplanation)
+
     End Function
 
 

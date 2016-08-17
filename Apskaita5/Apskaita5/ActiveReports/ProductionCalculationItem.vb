@@ -8,7 +8,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks>Values are stored in the database tables kalkuliac and kalkuliac_d.</remarks>
     <Serializable()> _
-    Public Class ProductionCalculationItem
+    Public NotInheritable Class ProductionCalculationItem
         Inherits ReadOnlyBase(Of ProductionCalculationItem)
 
 #Region " Business Methods "
@@ -213,7 +213,7 @@ Namespace ActiveReports
 
         Private Sub Fetch(ByVal dr As DataRow)
 
-            _ID = CIntSafe(dr.item(0), 0)
+            _ID = CIntSafe(dr.Item(0), 0)
             _Amount = CDblSafe(dr.Item(1), ROUNDAMOUNTGOODS, 0)
             _Date = CDateSafe(dr.Item(2), Today)
             _IsObsolete = ConvertDbBoolean(CIntSafe(dr.Item(3), 0))

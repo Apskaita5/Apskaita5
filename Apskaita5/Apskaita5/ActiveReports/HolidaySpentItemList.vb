@@ -5,7 +5,7 @@
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class HolidaySpentItemList
+    Public NotInheritable Class HolidaySpentItemList
         Inherits ReadOnlyListBase(Of HolidaySpentItemList, HolidaySpentItem)
 
 #Region " Business Methods "

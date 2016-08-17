@@ -7,7 +7,7 @@ Namespace Goods
     ''' <remarks>Should only be used as a child of <see cref="ProductionCalculation">ProductionCalculation</see>.
     ''' Values are stored in the database table kalkuliac_d.</remarks>
     <Serializable()> _
-    Public Class ProductionCostItemList
+    Public NotInheritable Class ProductionCostItemList
         Inherits BusinessListBase(Of ProductionCostItemList, ProductionCostItem)
 
 #Region " Business Methods "

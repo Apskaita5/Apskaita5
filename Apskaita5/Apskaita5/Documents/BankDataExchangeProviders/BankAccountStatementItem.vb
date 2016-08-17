@@ -6,7 +6,7 @@
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class BankAccountStatementItem
+    Public NotInheritable Class BankAccountStatementItem
 
         Private _Date As Date = Today
         Private _DocumentNumber As String = ""

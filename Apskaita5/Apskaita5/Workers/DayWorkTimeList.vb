@@ -6,7 +6,7 @@ Namespace Workers
     ''' <remarks>Should only be used as a child of a <see cref="WorkTimeItem">WorkTimeItem</see>.
     ''' Values are stored in the database table dayworktimes.</remarks>
     <Serializable()> _
-    Public Class DayWorkTimeList
+    Public NotInheritable Class DayWorkTimeList
         Inherits BusinessListBase(Of DayWorkTimeList, DayWorkTime)
 
 #Region " Business Methods "
@@ -38,7 +38,7 @@ Namespace Workers
         ''' <remarks></remarks>
         Public Function GetItemForDay(ByVal dayNumber As Integer) As DayWorkTime
             For Each i As DayWorkTime In Me
-                If i.DayNumber = DayNumber Then Return i
+                If i.DayNumber = dayNumber Then Return i
             Next
             Return Nothing
         End Function

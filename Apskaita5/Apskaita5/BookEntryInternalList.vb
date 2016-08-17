@@ -3,7 +3,7 @@
 ''' </summary>
 ''' <remarks></remarks>
 <Serializable()> _
-Public Class BookEntryInternalList
+Public NotInheritable Class BookEntryInternalList
     Inherits BusinessListBase(Of BookEntryInternalList, BookEntryInternal)
 
 #Region " Business Methods "

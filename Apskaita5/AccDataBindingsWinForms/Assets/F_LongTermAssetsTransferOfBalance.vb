@@ -4,7 +4,7 @@ Imports AccControlsWinForms
 Imports AccDataBindingsWinForms.CachedInfoLists
 
 Friend Class F_LongTermAssetsTransferOfBalance
-    Implements ISingleInstanceForm
+    Implements ISingleInstanceForm, ISupportsChronologicValidator
 
     Private Shared ReadOnly _FinancialAspects As String() = New String() {"AccountAcquisition", "AccountAccumulatedAmortization", _
         "AccountRevaluedPortionAmmortization", "AccountValueDecrease", "AccountValueIncrease", _
@@ -175,6 +175,21 @@ Friend Class F_LongTermAssetsTransferOfBalance
         End If
 
     End Sub
+
+
+    Public Function ChronologicContent() As String _
+        Implements ISupportsChronologicValidator.ChronologicContent
+        If _FormManager.DataSource Is Nothing Then Return ""
+        Return _FormManager.DataSource.ChronologyValidator.LimitsExplanation
+    End Function
+
+    Public Function HasChronologicContent() As Boolean _
+        Implements ISupportsChronologicValidator.HasChronologicContent
+
+        Return Not _FormManager.DataSource Is Nothing AndAlso _
+            Not StringIsNullOrEmpty(_FormManager.DataSource.ChronologyValidator.LimitsExplanation)
+
+    End Function
 
 
     Private Sub _FormManager_DataSourceStateHasChanged(ByVal sender As Object, _

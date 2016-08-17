@@ -9,7 +9,7 @@ Namespace Documents
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class CommandImportVatDeclarationSchemas
+    Public NotInheritable Class CommandImportVatDeclarationSchemas
         Inherits CommandBase
 
 #Region " Authorization Rules "

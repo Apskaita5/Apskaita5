@@ -288,8 +288,9 @@ Public Class DataListViewEditControlManager(Of T)
         listView.MenuLabelUnsort = "Pašalinti rūšiavimą pagal {0}"
 
         listView.SelectColumnsMenuStaysOpen = True
-        listView.HotTracking = False
-        listView.UseHotControls = False
+        listView.UseHotControls = MyCustomSettings.UseHotTracking
+        listView.UseHotItem = MyCustomSettings.UseHotTracking
+        listView.GridLines = MyCustomSettings.ShowGridLines
 
         If listView.CellEditActivation <> ObjectListView.CellEditActivateMode.None _
             AndAlso Not _ItemAddHandler Is Nothing AndAlso MyCustomSettings.ShowEmptyListMessage Then
@@ -520,7 +521,8 @@ Public Class DataListViewEditControlManager(Of T)
         If currentItem Is Nothing Then Exit Sub
 
         ' no point in showing dialog with a single button
-        If _Handledbuttons.Count = 1 AndAlso Not _AddCancelButton Then
+        If MyCustomSettings.DefaultActionByDoubleClick OrElse _
+            (_Handledbuttons.Count = 1 AndAlso Not _AddCancelButton) Then
 
             Dim singleAction As ItemAction = _Handledbuttons.Values(0).Value
 

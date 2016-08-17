@@ -7,7 +7,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class BalanceSheetInfo
+    Public NotInheritable Class BalanceSheetInfo
         Inherits ReadOnlyBase(Of BalanceSheetInfo)
 
 #Region " Business Methods "

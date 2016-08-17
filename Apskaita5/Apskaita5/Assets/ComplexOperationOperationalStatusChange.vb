@@ -11,7 +11,7 @@ Namespace Assets
     ''' are derived from the encapsulated JournalEntry and child items.
     ''' Child operation values are stored in the database table turtas_op.</remarks>
     <Serializable()> _
-    Public Class ComplexOperationOperationalStatusChange
+    Public NotInheritable Class ComplexOperationOperationalStatusChange
         Inherits BusinessBase(Of ComplexOperationOperationalStatusChange)
         Implements IIsDirtyEnough, IValidationMessageProvider
 
@@ -25,7 +25,7 @@ Namespace Assets
         Private _Date As Date = Today.Date
         Private _Content As String = ""
         Private _DocumentNumber As String = ""
-        
+
         Private WithEvents _Items As OperationOperationalStatusChangeList
 
         <NonSerialized()> _

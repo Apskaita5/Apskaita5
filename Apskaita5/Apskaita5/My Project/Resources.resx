@@ -412,7 +412,7 @@
     <value>įkrautuose duomenyse įmonės/asmens kodas neunikalus</value>
   </data>
   <data name="General_ImportedPerson_PasteColumns" xml:space="preserve">
-    <value>pavadinimas&lt;BR&gt;asmens ar įmonės kodas&lt;BR&gt;adresas&lt;BR&gt;banko pavadinimas&lt;BR&gt;banko sąskaitos numeris&lt;BR&gt;PVM mokėtojo kodas&lt;BR&gt;SODROS kodas&lt;BR&gt;e-paštas&lt;BR&gt;kontaktinė info&lt;BR&gt;vidinis kodas&lt;BR&gt;kalbos ISO 639-1 kodas&lt;BR&gt;valiutos kodas&lt;BR&gt;fizinio asmens žymuo(0/1)&lt;BR&gt;pirkėjo žymuo(0/1)&lt;BR&gt;tiekėjo žymuo(0/1)&lt;BR&gt;darbuotojo žymuo(0/1)&lt;BR&gt;nebenaudojamas žymuo(0/1)&lt;BR&gt;kontuojama pirkėjų skolų sąskaita&lt;BR&gt;kontuojama tiekėjų skolų sąskaita</value>
+    <value>pavadinimas&lt;BR&gt;asmens ar įmonės kodas&lt;BR&gt;adresas&lt;BR&gt;banko pavadinimas&lt;BR&gt;banko sąskaitos numeris&lt;BR&gt;PVM mokėtojo kodas&lt;BR&gt;SODROS kodas&lt;BR&gt;e-paštas&lt;BR&gt;kontaktinė info&lt;BR&gt;vidinis kodas&lt;BR&gt;kalbos ISO 639-1 kodas&lt;BR&gt;valiutos kodas&lt;BR&gt;fizinio asmens žymuo(0/1)&lt;BR&gt;pirkėjo žymuo(0/1)&lt;BR&gt;tiekėjo žymuo(0/1)&lt;BR&gt;darbuotojo žymuo(0/1)&lt;BR&gt;nebenaudojamas žymuo(0/1)&lt;BR&gt;kontuojama pirkėjų skolų sąskaita&lt;BR&gt;kontuojama tiekėjų skolų sąskaita&lt;BR&gt;kodas netikras(0/1)&lt;BR&gt;valstybės ISO 3166–1 alpha 2 kodas</value>
   </data>
   <data name="General_ImportedPerson_PasteColumnsDescription1" xml:space="preserve">
     <value>Kontrahento duomenys privalo būti išdėstyti {0} stulpeliuose: {1}.</value>
@@ -14101,5 +14101,161 @@
   </data>
   <data name="General_JournalEntry_PluginDocumentCodeNull" xml:space="preserve">
     <value>Klaida. Nenurodytas plugin'o dokumento kodas.</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoItem_SubtotalList" xml:space="preserve">
+    <value>PVM apmokestinamosios vertės</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoItem_Subtotals" xml:space="preserve">
+    <value>PVM apmokestinamosios vertės</value>
+  </data>
+  <data name="ActiveReports_InvoiceSubtotalItemList_TypeName" xml:space="preserve">
+    <value>PVM sąskaitos faktūros apmokestinamosios vertės</value>
+  </data>
+  <data name="ActiveReports_InvoiceSubtotalItem_TaxableValue" xml:space="preserve">
+    <value>apmokestinamoji vertė</value>
+  </data>
+  <data name="ActiveReports_InvoiceSubtotalItem_TaxAmount" xml:space="preserve">
+    <value>PVM suma</value>
+  </data>
+  <data name="ActiveReports_InvoiceSubtotalItem_TaxCode" xml:space="preserve">
+    <value>PVM kodas</value>
+  </data>
+  <data name="ActiveReports_InvoiceSubtotalItem_TaxPercentage" xml:space="preserve">
+    <value>PVM tarifas</value>
+  </data>
+  <data name="ActiveReports_InvoiceSubtotalItem_ToString" xml:space="preserve">
+    <value>{0} ({1} %): suma = {2} EUR, PVM suma = {3}</value>
+  </data>
+  <data name="ActiveReports_InvoiceSubtotalItem_ToString_TypeName" xml:space="preserve">
+    <value>PVM sąskaitos faktūros apmokestinamoji vertė</value>
+  </data>
+  <data name="ActiveReports_InvoiceSubtotalItem_VatIsVirtual" xml:space="preserve">
+    <value>netiesioginis PVM</value>
+  </data>
+  <data name="General_Person_CodeIsNotReal" xml:space="preserve">
+    <value>netikras įmonės (asmens) kodas</value>
+  </data>
+  <data name="General_Person_StateCode" xml:space="preserve">
+    <value>valstybė</value>
+  </data>
+  <data name="Settings_CodeType_VmiState" xml:space="preserve">
+    <value>šalies ISO kodas</value>
+  </data>
+  <data name="Settings_CodeType_VmiVatType" xml:space="preserve">
+    <value>PVM kodas</value>
+  </data>
+  <data name="ActiveReports_VatDeclaration_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="ActiveReports_VatDeclaration_Items" xml:space="preserve">
+    <value>eilutės</value>
+  </data>
+  <data name="ActiveReports_VatDeclaration_Month" xml:space="preserve">
+    <value>mėnuo</value>
+  </data>
+  <data name="ActiveReports_VatDeclaration_Subtotals" xml:space="preserve">
+    <value>sumos</value>
+  </data>
+  <data name="ActiveReports_VatDeclaration_ToString" xml:space="preserve">
+    <value>PVM deklaracija už {0} m. {1} mėn.</value>
+  </data>
+  <data name="ActiveReports_VatDeclaration_TypeName" xml:space="preserve">
+    <value>PVM deklaracija</value>
+  </data>
+  <data name="ActiveReports_VatDeclaration_Year" xml:space="preserve">
+    <value>metai</value>
+  </data>
+  <data name="ActiveReports_VatDeclaration_YearInvalid" xml:space="preserve">
+    <value>Metai turi būti tarp 1970 ir 2100.</value>
+  </data>
+  <data name="ActiveReports_VatDeclaration_MonthInvalid" xml:space="preserve">
+    <value>Mėnuo turi būti tarp 1 ir 12.</value>
+  </data>
+  <data name="ActiveReports_VatDeclaration_DateInvalid" xml:space="preserve">
+    <value>Deklaracijos data negali būti ankstesnė už mėnesį, kuriam ji formuojama.</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationItemList_ToString" xml:space="preserve">
+    <value>PVM deklaracijos eilutės</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationItemList_TypeName" xml:space="preserve">
+    <value>PVM deklaracijos eilutės</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationItem_Document" xml:space="preserve">
+    <value>dokumentas</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationItem_DocumentTemplate" xml:space="preserve">
+    <value>{0} {1} Nr. {2} (ID={3})</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationItem_DocumentType" xml:space="preserve">
+    <value>dokumento tipas</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationItem_FieldCode" xml:space="preserve">
+    <value>deklaracijos laukelis</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationItem_FieldSum" xml:space="preserve">
+    <value>suma deklaracijos laukelyje</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationItem_ID" xml:space="preserve">
+    <value>dokumento ID</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationItem_Item" xml:space="preserve">
+    <value>dokumento eilutė</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationItem_ItemSum" xml:space="preserve">
+    <value>suma eilutėje</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationItem_ItemVatRate" xml:space="preserve">
+    <value>PVM tarifas</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationItem_ItemVatSum" xml:space="preserve">
+    <value>PVM suma eilutėje</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationItem_ToString" xml:space="preserve">
+    <value>{0}, eilutė - {1}: {2} -&gt; {3}</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationItem_TypeName" xml:space="preserve">
+    <value>PVM deklaracijos eilutė</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationSubtotalList_ToString" xml:space="preserve">
+    <value>sumos PVM deklaracijoje</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationSubtotalList_TypeName" xml:space="preserve">
+    <value>sumos PVM deklaracijoje</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationSubtotal_Code" xml:space="preserve">
+    <value>laukelio kodas</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationSubtotal_Sum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationSubtotal_ToString" xml:space="preserve">
+    <value>{0} = {1}</value>
+  </data>
+  <data name="ActiveReports_VatDeclarationSubtotal_TypeName" xml:space="preserve">
+    <value>suma PVM deklaracijos laukelyje</value>
+  </data>
+  <data name="ActiveReports_VatDeclaration_IndirectVatName" xml:space="preserve">
+    <value>netiesioginis PVM</value>
+  </data>
+  <data name="ActiveReports_VatDeclaration_ListEmpty" xml:space="preserve">
+    <value>Klaida. Deklaracijoje nėra nė vienos eilutės.</value>
+  </data>
+  <data name="ActiveReports_VatDeclaration_FileNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas failas.</value>
+  </data>
+  <data name="ActiveReports_VatDeclaration_DeclarationFormNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta deklaracijos versija.</value>
+  </data>
+  <data name="ActiveReports_VatDeclaration_PeriodInvalid" xml:space="preserve">
+    <value>Pasirinkta deklaracijos versija galioja nuo {0} iki {1}, o pasirinktas laikotarpis ({2} m. {3} mėn.) į šį laikotarpį nepakliūna.</value>
+  </data>
+  <data name="ActiveReports_VatDeclaration_UnknownErrorWhileExporting" xml:space="preserve">
+    <value>Eksportuojant duomenis kilo nežinoma klaida.</value>
+  </data>
+  <data name="HelperLists_PersonGroupInfo_EmptyPersonGroupString" xml:space="preserve">
+    <value>Visos grupės</value>
+  </data>
+  <data name="Assets_OperationTransfer_AmountNullForNewJournalEntry" xml:space="preserve">
+    <value>Klaida. Nenurodytas perleidžiamas kiekis.</value>
   </data>
 </root>

@@ -903,6 +903,7 @@
     <None Include="Resources\refresh32.png" />
     <None Include="Resources\searchIcon_16x16.png" />
     <None Include="Resources\Apskaita5_LargeLogo.png" />
+    <None Include="Resources\icon_help_32x32.png" />
     <Content Include="sqlite3.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

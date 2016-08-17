@@ -205,20 +205,25 @@ Public Module CommonMethods
     ''' </summary>
     ''' <typeparam name="T">Type of the object to serialize.</typeparam>
     ''' <param name="obj">The object to serialize.</param>
+    ''' <param name="enc">Text encoding to use for serialization. 
+    ''' The default is <see cref="Encoding.Unicode">Unicode</see>.</param>
     ''' <remarks></remarks>
-    Public Function ToXmlString(Of T)(ByVal obj As T) As String
+    Public Function ToXmlString(Of T)(ByVal obj As T, _
+        Optional ByVal enc As Encoding = Nothing) As String
+
+        If enc Is Nothing Then enc = Encoding.Unicode
 
         Dim serializer As New XmlSerializer(GetType(T))
         Dim settings As New XmlWriterSettings
 
         settings.Indent = True
         settings.IndentChars = " "
-        settings.Encoding = Encoding.Unicode
+        settings.Encoding = enc
 
         Using ms As New IO.MemoryStream
             Using writer As XmlWriter = XmlWriter.Create(ms, settings)
-                serializer.Serialize(writer, Obj)
-                Return Encoding.Unicode.GetString(ms.ToArray())
+                serializer.Serialize(writer, obj)
+                Return enc.GetString(ms.ToArray())
             End Using
         End Using
 
@@ -229,12 +234,17 @@ Public Module CommonMethods
     ''' </summary>
     ''' <typeparam name="T">Type of the object to deserialize.</typeparam>
     ''' <param name="xmlString">An xml string containing serialized object data.</param>
+    ''' <param name="enc">Text encoding to use for serialization. 
+    ''' The default is <see cref="Encoding.Unicode">Unicode</see>.</param>
     ''' <remarks></remarks>
-    Public Function FromXmlString(Of T)(ByVal xmlString As String) As T
+    Public Function FromXmlString(Of T)(ByVal xmlString As String, _
+        Optional ByVal enc As Encoding = Nothing) As T
+
+        If enc Is Nothing Then enc = Encoding.Unicode
 
         Dim serializer As New XmlSerializer(GetType(T))
 
-        Using ms As New IO.MemoryStream(Encoding.Unicode.GetBytes(xmlString))
+        Using ms As New IO.MemoryStream(enc.GetBytes(xmlString))
             Return DirectCast(serializer.Deserialize(ms), T)
         End Using
 

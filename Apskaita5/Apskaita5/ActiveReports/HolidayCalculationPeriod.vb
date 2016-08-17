@@ -7,7 +7,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks>Should only by used as a child of HolidayCalculationPeriodList.</remarks>
     <Serializable()> _
-    Public Class HolidayCalculationPeriod
+    Public NotInheritable Class HolidayCalculationPeriod
         Inherits ReadOnlyBase(Of HolidayCalculationPeriod)
 
 #Region " Business Methods "

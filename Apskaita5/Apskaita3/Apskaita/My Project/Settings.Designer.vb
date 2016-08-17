@@ -567,6 +567,18 @@ Namespace My
                 Me("ShowGridLines") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property DefaultActionByDoubleClick() As Boolean
+            Get
+                Return CType(Me("DefaultActionByDoubleClick"),Boolean)
+            End Get
+            Set
+                Me("DefaultActionByDoubleClick") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

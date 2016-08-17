@@ -6,7 +6,7 @@ Namespace Settings
     ''' </summary>
     ''' <remarks>Exists a single instance per company.</remarks>
     <Serializable()> _
-    Public Class CompanyAccountInfoList
+    Public NotInheritable Class CompanyAccountInfoList
         Inherits ReadOnlyListBase(Of CompanyAccountInfoList, CompanyAccountInfo)
 
 #Region " Business Methods "

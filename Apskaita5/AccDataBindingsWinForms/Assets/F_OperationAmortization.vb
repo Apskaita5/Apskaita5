@@ -4,7 +4,7 @@ Imports AccDataBindingsWinForms.CachedInfoLists
 Imports AccDataBindingsWinForms.Printing
 
 Friend Class F_OperationAmortization
-    Implements ISupportsPrinting, IObjectEditForm
+    Implements ISupportsPrinting, IObjectEditForm, ISupportsChronologicValidator
 
     Private ReadOnly _RequiredCachedLists As Type() = New Type() _
         {GetType(HelperLists.AccountInfoList)}
@@ -112,7 +112,7 @@ Friend Class F_OperationAmortization
             _FormManager = New CslaActionExtenderEditForm(Of OperationAmortization) _
                 (Me, OperationAmortizationBindingSource, _DocumentToEdit, _
                 _RequiredCachedLists, nOkButton, ApplyButton, nCancelButton, _
-                LimitationsButton, ProgressFiller1)
+                Nothing, ProgressFiller1)
 
         Catch ex As Exception
             ShowError(ex)
@@ -242,6 +242,21 @@ Friend Class F_OperationAmortization
     Public Function SupportsEmailing() As Boolean _
         Implements ISupportsPrinting.SupportsEmailing
         Return True
+    End Function
+
+
+    Public Function ChronologicContent() As String _
+        Implements ISupportsChronologicValidator.ChronologicContent
+        If _FormManager.DataSource Is Nothing Then Return ""
+        Return _FormManager.DataSource.ChronologyValidator.LimitsExplanation
+    End Function
+
+    Public Function HasChronologicContent() As Boolean _
+        Implements ISupportsChronologicValidator.HasChronologicContent
+
+        Return Not _FormManager.DataSource Is Nothing AndAlso _
+            Not StringIsNullOrEmpty(_FormManager.DataSource.ChronologyValidator.LimitsExplanation)
+
     End Function
 
 

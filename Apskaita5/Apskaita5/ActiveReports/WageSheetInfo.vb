@@ -8,7 +8,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks>Values are stored in the database tables du_ziniarastis and du_ziniarastis_d.</remarks>
     <Serializable()> _
-    Public Class WageSheetInfo
+    Public NotInheritable Class WageSheetInfo
         Inherits ReadOnlyBase(Of WageSheetInfo)
 
 #Region " Business Methods "

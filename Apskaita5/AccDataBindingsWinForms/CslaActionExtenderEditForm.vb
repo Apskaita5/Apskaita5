@@ -47,7 +47,6 @@ Public Class CslaActionExtenderEditForm(Of T)
     Private _ApplyButton As Button = Nothing
     Private _CancelButton As Button = Nothing
     Private _NewButton As Button = Nothing
-    Private _LimitationsButton As Button = Nothing
     Private _ProgressControl As ProgressFiller = Nothing
     Private _IsLoading As Boolean = True
     Private _CloseFormAfterSave As Boolean = False
@@ -169,7 +168,6 @@ Public Class CslaActionExtenderEditForm(Of T)
         _ApplyButton = applyButton
         _CancelButton = cancelButton
         _ProgressControl = progressControl
-        _LimitationsButton = limitationsButton
         _DataSource = dataSource
 
         AddHandler parentForm.Activated, AddressOf Form_Activated
@@ -182,9 +180,6 @@ Public Class CslaActionExtenderEditForm(Of T)
         If Not applyButton Is Nothing Then
             AddHandler applyButton.Click, AddressOf ApplyButton_Click
         End If
-        If Not limitationsButton Is Nothing Then
-            AddHandler limitationsButton.Click, AddressOf LimitationsButton_Click
-        End If
         AddHandler progressControl.AsyncOperationCompleted, AddressOf AsyncOperationCompleted
 
         Try
@@ -195,10 +190,6 @@ Public Class CslaActionExtenderEditForm(Of T)
         parentBindingSource.DataSource = dataSource
 
         MyCustomSettings.SetFormLayout(parentForm)
-
-        If Not _LimitationsButton Is Nothing Then
-            _LimitationsButton.Visible = Not String.IsNullOrEmpty(GetLimitationsString().Trim)
-        End If
 
     End Sub
 
@@ -287,10 +278,6 @@ Public Class CslaActionExtenderEditForm(Of T)
         _DataSource = newDataSource
 
         _BindingSourceTree.Bind(_DataSource)
-
-        If Not _LimitationsButton Is Nothing Then
-            _LimitationsButton.Visible = Not String.IsNullOrEmpty(GetLimitationsString().Trim)
-        End If
 
         RaiseEvent DataSourceStateHasChanged(Me, New EventArgs)
 
@@ -381,13 +368,6 @@ Public Class CslaActionExtenderEditForm(Of T)
         Catch ex As Exception
         End Try
         Try
-            If Not _LimitationsButton Is Nothing Then
-                RemoveHandler _LimitationsButton.Click, AddressOf LimitationsButton_Click
-            End If
-        Catch ex As Exception
-
-        End Try
-        Try
             RemoveHandler _ProgressControl.AsyncOperationCompleted, AddressOf AsyncOperationCompleted
         Catch ex As Exception
         End Try
@@ -408,7 +388,6 @@ Public Class CslaActionExtenderEditForm(Of T)
         _ApplyButton = Nothing
         _CancelButton = Nothing
         _ProgressControl = Nothing
-        _LimitationsButton = Nothing
 
     End Sub
 
@@ -453,19 +432,6 @@ Public Class CslaActionExtenderEditForm(Of T)
 
     End Sub
 
-    Private Sub LimitationsButton_Click(ByVal sender As Object, ByVal e As System.EventArgs)
-
-        Dim result As String = GetLimitationsString()
-
-        If String.IsNullOrEmpty(result.Trim) Then
-            MsgBox("Nėra jokių taikytinų chronologinių apribojimų.")
-        Else
-            MsgBox(String.Format("Taikomi chronologiniai apribojimai:{0}{1}", _
-                vbCrLf, result), MsgBoxStyle.Information, "Info")
-        End If
-
-    End Sub
-
 
     Private Sub AsyncOperationCompleted(ByVal sender As Object, ByVal e As System.EventArgs)
 
@@ -503,10 +469,6 @@ Public Class CslaActionExtenderEditForm(Of T)
             MsgBox("ProgressControl negrąžino nei klaidos, nei rezultato.", _
                 MsgBoxStyle.Exclamation, "Klaida")
 
-        End If
-
-        If Not _LimitationsButton Is Nothing Then
-            _LimitationsButton.Visible = Not String.IsNullOrEmpty(GetLimitationsString().Trim)
         End If
 
         If _FetchingNewDataSource Then
@@ -683,10 +645,6 @@ Public Class CslaActionExtenderEditForm(Of T)
 
         Else
 
-            If Not _LimitationsButton Is Nothing Then
-                _LimitationsButton.Visible = Not String.IsNullOrEmpty(GetLimitationsString().Trim)
-            End If
-
             RaiseEvent DataSourceStateHasChanged(Me, New EventArgs)
 
             If _ProceedToNewDataSource Then
@@ -782,32 +740,6 @@ Public Class CslaActionExtenderEditForm(Of T)
             Catch e As Exception
             End Try
         End Try
-
-        Return result
-
-    End Function
-
-    Private Function GetLimitationsString() As String
-
-        If _DataSource Is Nothing OrElse _LimitationsButton Is Nothing Then Return ""
-
-        Dim result As String = ""
-
-        For Each propInfo As PropertyInfo In GetType(T).GetProperties
-
-            If propInfo.PropertyType Is GetType(IChronologicValidator) _
-                OrElse Not Array.IndexOf(propInfo.PropertyType.GetInterfaces, _
-                GetType(IChronologicValidator)) < 0 Then
-
-                Try
-                    result = AddWithNewLine(result, DirectCast(propInfo.GetValue( _
-                        _DataSource, Nothing), IChronologicValidator).LimitsExplanation, False)
-                Catch ex As Exception
-                End Try
-
-            End If
-
-        Next
 
         Return result
 

@@ -480,6 +480,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property icon_help_32x32() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("icon_help_32x32", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property isirasytisask32() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("isirasytisask32", resourceCulture)

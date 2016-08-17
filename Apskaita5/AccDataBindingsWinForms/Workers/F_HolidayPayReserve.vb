@@ -4,7 +4,7 @@ Imports AccDataBindingsWinForms.CachedInfoLists
 Imports AccDataBindingsWinForms.Printing
 
 Friend Class F_HolidayPayReserve
-    Implements ISupportsPrinting, IObjectEditForm
+    Implements ISupportsPrinting, IObjectEditForm, ISupportsChronologicValidator
 
     Private ReadOnly _RequiredCachedLists As Type() = New Type() _
         {GetType(HelperLists.AccountInfoList)}
@@ -105,7 +105,7 @@ Friend Class F_HolidayPayReserve
             _FormManager = New CslaActionExtenderEditForm(Of HolidayPayReserve) _
                 (Me, HolidayPayReserveBindingSource, _DocumentToEdit, _
                  _RequiredCachedLists, IOkButton, IApplyButton, ICancelButton, _
-                 LimitationsButton, ProgressFiller1)
+                 Nothing, ProgressFiller1)
 
             _FormManager.ManageDataListViewStates(ItemsDataListView)
 
@@ -233,6 +233,21 @@ Friend Class F_HolidayPayReserve
     Public Function SupportsEmailing() As Boolean _
         Implements ISupportsPrinting.SupportsEmailing
         Return True
+    End Function
+
+
+    Public Function ChronologicContent() As String _
+            Implements ISupportsChronologicValidator.ChronologicContent
+        If _FormManager.DataSource Is Nothing Then Return ""
+        Return _FormManager.DataSource.ChronologicValidator.LimitsExplanation
+    End Function
+
+    Public Function HasChronologicContent() As Boolean _
+        Implements ISupportsChronologicValidator.HasChronologicContent
+
+        Return Not _FormManager.DataSource Is Nothing AndAlso _
+            Not StringIsNullOrEmpty(_FormManager.DataSource.ChronologicValidator.LimitsExplanation)
+
     End Function
 
 

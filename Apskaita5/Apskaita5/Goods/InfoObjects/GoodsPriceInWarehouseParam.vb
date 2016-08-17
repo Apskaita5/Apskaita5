@@ -7,7 +7,7 @@ Namespace Goods
     ''' <remarks>Used to pass parameters in <see cref="GoodsPriceInWarehouseItem">GoodsPriceInWarehouseItem</see>
     ''' and <see cref="GoodsPriceInWarehouseItemList">GoodsPriceInWarehouseItemList</see>.</remarks>
     <Serializable()> _
-    Public Class GoodsPriceInWarehouseParam
+    Public NotInheritable Class GoodsPriceInWarehouseParam
         Inherits ReadOnlyBase(Of GoodsPriceInWarehouseParam)
 
 #Region " Business Methods "

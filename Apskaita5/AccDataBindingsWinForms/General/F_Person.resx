@@ -162,11 +162,20 @@
   <metadata name="CurrencyCodeLabel.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
+  <metadata name="InsertDateLabel.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="UpdateDateLabel.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="StateCodeLabel.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="FetchFromWebButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEIAAAASCAYAAADv2ggfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAbsSURBVFhH3Zh9WM1nGMfz//bP8hYjhCyp5aXyWmIS5S1v
+        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAbsSURBVFhH3Zh9WM1nGMfz//bP8hYjhCyp5aXyWmIS5S1v
         15LaJmYXedkmrmVyYSbpnE51TlE4oTchlayNXckWYag0kVIqetcpqY6X7+7n/vmRxi5Nf9ju6zrXde7n
         9/ye33N/fvfzve9zDJb6JGP2kjjM+iIOnmuTcPLXGxD285kCTF10CK5e8Zj5eRzmfXkY1bVNcPaIwWya
         K8xj9THYz9OipvYhvDeehMP8KJzNKkHt/WbM+CwWLh7R0DW2wHNNIl3Toq7+IbzWpcDFMxZzaN3ZS+Ix

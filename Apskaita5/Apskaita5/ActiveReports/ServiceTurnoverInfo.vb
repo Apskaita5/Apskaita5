@@ -11,7 +11,7 @@ Namespace ActiveReports
     ''' <remarks>Should only be used as a child of <see cref="ServiceTurnoverInfoList">ServiceTurnoverInfoList</see>.
     ''' It is unclear what could be a meaning of debit invoices with negative sum???</remarks>
     <Serializable()> _
-    Public Class ServiceTurnoverInfo
+    Public NotInheritable Class ServiceTurnoverInfo
         Inherits ReadOnlyBase(Of ServiceTurnoverInfo)
 
 #Region " Business Methods "

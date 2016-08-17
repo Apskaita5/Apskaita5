@@ -9,7 +9,7 @@ Namespace General
     ''' method <see cref="Settings.CompanyInfo.GetDefaultRate">GetDefaultRate</see>.
     ''' Values are stored in the database table companyrates.</remarks>
     <Serializable()> _
-    Public Class CompanyRateList
+    Public NotInheritable Class CompanyRateList
         Inherits BusinessListBase(Of CompanyRateList, CompanyRate)
 
 #Region " Business Methods "

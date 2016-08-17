@@ -8,7 +8,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks>Should only be used as a child of BonusVDUInfoList.</remarks>
     <Serializable()> _
-    Public Class BonusVDUInfo
+    Public NotInheritable Class BonusVDUInfo
         Inherits ReadOnlyBase(Of BonusVDUInfo)
 
 #Region " Business Methods "

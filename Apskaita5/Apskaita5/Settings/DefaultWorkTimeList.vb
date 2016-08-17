@@ -9,7 +9,7 @@ Namespace Settings
     ''' Should only be used as a child of <see cref="CommonSettings">CommonSettings</see>
     ''' Persisted using xml proxies as a part of <see cref="CommonSettings">CommonSettings</see>.</remarks>
     <Serializable()> _
-    Public Class DefaultWorkTimeList
+    Public NotInheritable Class DefaultWorkTimeList
         Inherits BusinessListBase(Of DefaultWorkTimeList, DefaultWorkTime)
 
 #Region " Business Methods "

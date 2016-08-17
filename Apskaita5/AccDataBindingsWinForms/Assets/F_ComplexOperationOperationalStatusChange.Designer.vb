@@ -35,7 +35,6 @@ Partial Friend Class F_ComplexOperationOperationalStatusChange
         Me.nCancelButton = New System.Windows.Forms.Button
         Me.ApplyButton = New System.Windows.Forms.Button
         Me.nOkButton = New System.Windows.Forms.Button
-        Me.LimitationsButton = New System.Windows.Forms.Button
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
         Me.TypeHumanReadableTextBox = New System.Windows.Forms.TextBox
         Me.ComplexOperationOperationalStatusChangeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -188,12 +187,11 @@ Partial Friend Class F_ComplexOperationOperationalStatusChange
         Me.Panel2.Controls.Add(Me.nCancelButton)
         Me.Panel2.Controls.Add(Me.ApplyButton)
         Me.Panel2.Controls.Add(Me.nOkButton)
-        Me.Panel2.Controls.Add(Me.LimitationsButton)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 421)
+        Me.Panel2.Location = New System.Drawing.Point(0, 423)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Padding = New System.Windows.Forms.Padding(0, 0, 0, 4)
-        Me.Panel2.Size = New System.Drawing.Size(779, 44)
+        Me.Panel2.Size = New System.Drawing.Size(779, 42)
         Me.Panel2.TabIndex = 2
         '
         'nCancelButton
@@ -229,15 +227,6 @@ Partial Friend Class F_ComplexOperationOperationalStatusChange
         Me.nOkButton.TabIndex = 1
         Me.nOkButton.Text = "OK"
         Me.nOkButton.UseVisualStyleBackColor = True
-        '
-        'LimitationsButton
-        '
-        Me.LimitationsButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.Action_lock_icon_16p
-        Me.LimitationsButton.Location = New System.Drawing.Point(12, 9)
-        Me.LimitationsButton.Name = "LimitationsButton"
-        Me.LimitationsButton.Size = New System.Drawing.Size(28, 28)
-        Me.LimitationsButton.TabIndex = 0
-        Me.LimitationsButton.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel1
         '
@@ -445,7 +434,7 @@ Partial Friend Class F_ComplexOperationOperationalStatusChange
         Me.ItemsDataListView.ShowImagesOnSubItems = True
         Me.ItemsDataListView.ShowItemCountOnGroups = True
         Me.ItemsDataListView.ShowItemToolTips = True
-        Me.ItemsDataListView.Size = New System.Drawing.Size(779, 305)
+        Me.ItemsDataListView.Size = New System.Drawing.Size(779, 307)
         Me.ItemsDataListView.TabIndex = 3
         Me.ItemsDataListView.UnfocusedSelectedBackColor = System.Drawing.Color.PaleGreen
         Me.ItemsDataListView.UnfocusedSelectedForeColor = System.Drawing.Color.Black
@@ -783,7 +772,6 @@ Partial Friend Class F_ComplexOperationOperationalStatusChange
     Friend WithEvents nCancelButton As System.Windows.Forms.Button
     Friend WithEvents ApplyButton As System.Windows.Forms.Button
     Friend WithEvents nOkButton As System.Windows.Forms.Button
-    Friend WithEvents LimitationsButton As System.Windows.Forms.Button
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents ComplexOperationOperationalStatusChangeBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ContentTextBox As System.Windows.Forms.TextBox

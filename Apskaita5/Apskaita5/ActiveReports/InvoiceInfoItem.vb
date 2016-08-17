@@ -9,7 +9,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks>Should only be used as a child of <see cref="InvoiceInfoItemList">InvoiceInfoItemList</see>.</remarks>
     <Serializable()> _
-    Public Class InvoiceInfoItem
+    Public NotInheritable Class InvoiceInfoItem
         Inherits ReadOnlyBase(Of InvoiceInfoItem)
 
 #Region " Business Methods "
@@ -19,12 +19,17 @@ Namespace ActiveReports
         Private _PersonID As Integer = 0
         Private _PersonName As String = ""
         Private _PersonCode As String = ""
+        Private _CodeIsNotReal As Boolean = False
         Private _PersonVatCode As String = ""
         Private _PersonEmail As String = ""
         Private _PersonAccount As Long = 0
+        Private _StateCode As String = StateCodeLith
         Private _Date As Date = Today
+        Private _ActualDate As Date = Today
         Private _Number As String = ""
         Private _Content As String = ""
+        Private _InvoiceType As Documents.InvoiceType = Documents.InvoiceType.Normal
+        Private _InvoiceTypeHumanReadable As String = ""
         Private _CurrencyCode As String = ""
         Private _CurrencyRate As Double = 0
         Private _LanguageName As String = ""
@@ -44,6 +49,8 @@ Namespace ActiveReports
         Private _TotalSumDiscountLTL As Double = 0
         Private _SumVatVirtual As Double = 0
         Private _SumVatLTLVirtual As Double = 0
+        Private _Subtotals As String = ""
+        Private _SubtotalList As InvoiceSubtotalItemList = Nothing
 
 
         ''' <summary>
@@ -108,6 +115,19 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
+        ''' Gets whether the <see cref="PersonCode">PersonCode</see> is not real, 
+        ''' i.e. assigned by the company (e.g. natural persons are not required
+        ''' to provide their personal identification code).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.CodeIsNotReal.</remarks>
+        Public ReadOnly Property CodeIsNotReal() As Boolean
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _CodeIsNotReal
+            End Get
+        End Property
+
+        ''' <summary>
         ''' Gets a VAT code of the person in the invoice.
         ''' </summary>
         ''' <remarks>Corresponds to <see cref="Documents.InvoiceMade.Payer">InvoiceMade.Payer</see>
@@ -146,6 +166,18 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
+        ''' Gets a state of the origin of the person (ISO 3166–1 alpha 2 code).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.StateCode.</remarks>
+        <StringField(ValueRequiredLevel.Mandatory, 10, False)> _
+        Public ReadOnly Property StateCode() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _StateCode.Trim
+            End Get
+        End Property
+
+        ''' <summary>
         ''' Gets a date of the invoice.
         ''' </summary>
         ''' <remarks>Corresponds to <see cref="Documents.InvoiceMade.Date">InvoiceMade.Date</see>
@@ -154,6 +186,19 @@ Namespace ActiveReports
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _Date
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets the actual date of the invoice (if it is different from 
+        ''' <see cref="Date">the registration date, only applicable 
+        ''' to the invoices received)</see>.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Documents.InvoiceReceived.ActualDate">InvoiceReceived.Date</see>.</remarks>
+        Public ReadOnly Property ActualDate() As Date
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _ActualDate
             End Get
         End Property
 
@@ -178,6 +223,30 @@ Namespace ActiveReports
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _Content.Trim
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a type of the invoice.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field invoicesreceived.InvoiceType
+        ''' or invoicesmade.InvoiceType.</remarks>
+        Public ReadOnly Property InvoiceType() As Documents.InvoiceType
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _InvoiceType
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a type of the invoice as a human readable string.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field invoicesreceived.InvoiceType
+        ''' or invoicesmade.InvoiceType.</remarks>
+        Public ReadOnly Property InvoiceTypeHumanReadable() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _InvoiceTypeHumanReadable
             End Get
         End Property
 
@@ -420,6 +489,28 @@ Namespace ActiveReports
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a human readable description of the invoice's subtotals (per tax code).
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property Subtotals() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _Subtotals.Trim
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a list of the invoice's subtotals (per tax code).
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property SubtotalList() As InvoiceSubtotalItemList
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _SubtotalList
+            End Get
+        End Property
+
 
         Protected Overrides Function GetIdValue() As Object
             Return _ID
@@ -435,26 +526,29 @@ Namespace ActiveReports
 #Region " Factory Methods "
 
         Friend Shared Function GetInvoiceInfoItem(ByVal dr As DataRow, _
-            ByVal nType As InvoiceInfoType) As InvoiceInfoItem
-            Return New InvoiceInfoItem(dr, nType)
+            ByVal dataType As InvoiceInfoType, ByVal subtotalsData As DataTable) As InvoiceInfoItem
+            Return New InvoiceInfoItem(dr, dataType, subtotalsData)
         End Function
+
 
         Private Sub New()
             ' require use of factory methods
         End Sub
 
-        Private Sub New(ByVal dr As DataRow, ByVal nType As InvoiceInfoType)
-            Fetch(dr, nType)
+        Private Sub New(ByVal dr As DataRow, ByVal dataType As InvoiceInfoType, _
+            ByVal subtotalsData As DataTable)
+            Fetch(dr, dataType, subtotalsData)
         End Sub
 
 #End Region
 
 #Region " Data Access "
 
-        Private Sub Fetch(ByVal dr As DataRow, ByVal nType As InvoiceInfoType)
+        Private Sub Fetch(ByVal dr As DataRow, ByVal dataType As InvoiceInfoType, _
+            ByVal subtotalsData As DataTable)
 
             _ID = CIntSafe(dr.Item(0), 0)
-            _Type = nType
+            _Type = dataType
             _PersonID = CIntSafe(dr.Item(1), 0)
             _PersonName = CStrSafe(dr.Item(2)).Trim
             _PersonCode = CStrSafe(dr.Item(3)).Trim
@@ -486,6 +580,22 @@ Namespace ActiveReports
             _PersonAccount = CLongSafe(dr.Item(22), 0)
             _SumVatVirtual = CDblSafe(dr.Item(23), 2, 0)
             _SumVatLTLVirtual = CDblSafe(dr.Item(24), 2, 0)
+
+            _StateCode = CStrSafe(dr.Item(25)).Trim
+            If StringIsNullOrEmpty(_StateCode) Then
+                _StateCode = StateCodeLith
+            End If
+            _CodeIsNotReal = ConvertDbBoolean(CIntSafe(dr.Item(26), 0))
+
+            _InvoiceType = ConvertDatabaseID(Of Documents.InvoiceType) _
+                (CIntSafe(dr.Item(27), 0))
+            _InvoiceTypeHumanReadable = ConvertLocalizedName(_InvoiceType)
+            _ActualDate = CDateSafe(dr.Item(28), Today)
+
+
+            _SubtotalList = InvoiceSubtotalItemList.GetInvoiceSubtotalItemList( _
+                _ID, subtotalsData)
+            _Subtotals = _SubtotalList.ToString()
 
         End Sub
 

@@ -13,8 +13,8 @@ Public Module ProjectConstants
     ' All paths are relative to:
     ' In case of winforms - to program instalation folder.
     ' In case of webservice - to App_Data. (see Helpers\Utilities.AppPath)
-    Friend Const Path_DatabaseStructureGauge As String = "\DbStructure\DatabaseStructureGauge.xml"
-    Friend Const Path_RoleDatabaseAccessGauge As String = "\DbStructure\RoleDatabaseAccessGauge.xml"
+    Friend Const Path_DatabaseStructureGauge As String = "DbStructure\DatabaseStructureGauge.xml"
+    Friend Const Path_RoleDatabaseAccessGauge As String = "DbStructure\RoleDatabaseAccessGauge.xml"
     ''' <summary>
     ''' All database files should be in this folder (for SQL file server, e.g. SQLite).
     ''' </summary>

@@ -9,7 +9,7 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class TaxRateInfo
+    Public NotInheritable Class TaxRateInfo
         Inherits ReadOnlyBase(Of TaxRateInfo)
 
 #Region " Business Methods "

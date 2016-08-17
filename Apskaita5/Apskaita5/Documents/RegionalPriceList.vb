@@ -6,7 +6,7 @@ Namespace Documents
     ''' <remarks>Should be only used as a child of <see cref="IRegionalDataObject">IRegionalDataObject</see>
     ''' Values are stored in the database table regionalprices.</remarks>
     <Serializable()> _
-    Public Class RegionalPriceList
+    Public NotInheritable Class RegionalPriceList
         Inherits BusinessListBase(Of RegionalPriceList, RegionalPrice)
 
 #Region " Business Methods "

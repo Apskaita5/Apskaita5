@@ -42,7 +42,6 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.nCancelButton = New System.Windows.Forms.Button
         Me.ApplyButton = New System.Windows.Forms.Button
         Me.nOkButton = New System.Windows.Forms.Button
-        Me.LimitationsButton = New System.Windows.Forms.Button
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.AttachNewJournalEntryButton = New System.Windows.Forms.Button
@@ -287,12 +286,11 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.Panel2.Controls.Add(Me.nCancelButton)
         Me.Panel2.Controls.Add(Me.ApplyButton)
         Me.Panel2.Controls.Add(Me.nOkButton)
-        Me.Panel2.Controls.Add(Me.LimitationsButton)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 371)
+        Me.Panel2.Location = New System.Drawing.Point(0, 373)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Padding = New System.Windows.Forms.Padding(0, 0, 0, 4)
-        Me.Panel2.Size = New System.Drawing.Size(802, 44)
+        Me.Panel2.Size = New System.Drawing.Size(802, 42)
         Me.Panel2.TabIndex = 1
         '
         'nCancelButton
@@ -328,15 +326,6 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.nOkButton.TabIndex = 1
         Me.nOkButton.Text = "OK"
         Me.nOkButton.UseVisualStyleBackColor = True
-        '
-        'LimitationsButton
-        '
-        Me.LimitationsButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.Action_lock_icon_16p
-        Me.LimitationsButton.Location = New System.Drawing.Point(12, 9)
-        Me.LimitationsButton.Name = "LimitationsButton"
-        Me.LimitationsButton.Size = New System.Drawing.Size(28, 28)
-        Me.LimitationsButton.TabIndex = 0
-        Me.LimitationsButton.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel1
         '
@@ -376,7 +365,7 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(788, 339)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(788, 341)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'GroupBox2
@@ -671,7 +660,7 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(802, 371)
+        Me.TabControl1.Size = New System.Drawing.Size(802, 373)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -681,7 +670,7 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(794, 345)
+        Me.TabPage1.Size = New System.Drawing.Size(794, 347)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Operacijos duomenys"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -763,7 +752,6 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
     Friend WithEvents nCancelButton As System.Windows.Forms.Button
     Friend WithEvents ApplyButton As System.Windows.Forms.Button
     Friend WithEvents nOkButton As System.Windows.Forms.Button
-    Friend WithEvents LimitationsButton As System.Windows.Forms.Button
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage

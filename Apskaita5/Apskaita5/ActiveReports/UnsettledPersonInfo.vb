@@ -8,7 +8,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks>Should onle be used as a child of <see cref="UnsettledPersonInfoList">UnsettledPersonInfoList</see>.</remarks>
     <Serializable()> _
-    Public Class UnsettledPersonInfo
+    Public NotInheritable Class UnsettledPersonInfo
         Inherits ReadOnlyBase(Of UnsettledPersonInfo)
 
 #Region " Business Methods "

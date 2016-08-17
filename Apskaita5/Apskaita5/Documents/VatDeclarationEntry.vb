@@ -9,7 +9,7 @@ Namespace Documents
     ''' <remarks>Values are persisted in the database table VatDeclarationEntrys.
     ''' Should only be used as a child of <see cref="VatDeclarationEntryList">VatDeclarationEntryList</see>.</remarks>
     <Serializable()> _
-    Public Class VatDeclarationEntry
+    Public NotInheritable Class VatDeclarationEntry
         Inherits BusinessBase(Of VatDeclarationEntry)
         Implements IGetErrorForListItem
 

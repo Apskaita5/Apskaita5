@@ -5,7 +5,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class ContractInfo
+    Public NotInheritable Class ContractInfo
         Inherits ReadOnlyBase(Of ContractInfo)
 
 #Region " Business Methods "
@@ -404,7 +404,7 @@ Namespace ActiveReports
             End If
             If Not IsDBNull(dr.Item(20)) Then _WorkLoad = DblParser(CDblSafe(dr.Item(20), ROUNDWORKLOAD, 0), ROUNDWORKLOAD)
             _Position = CStrSafe(dr.Item(21)).Trim
-            
+
             _UpdatesList = LabourContractUpdateInfoList.GetLabourContractUpdateInfoList( _
                 myData, _Serial, _Number)
 

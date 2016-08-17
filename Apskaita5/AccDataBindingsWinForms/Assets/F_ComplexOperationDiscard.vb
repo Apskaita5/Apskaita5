@@ -4,7 +4,7 @@ Imports AccDataBindingsWinForms.CachedInfoLists
 Imports AccDataBindingsWinForms.Printing
 
 Friend Class F_ComplexOperationDiscard
-    Implements ISupportsPrinting, IObjectEditForm
+    Implements ISupportsPrinting, IObjectEditForm, ISupportsChronologicValidator
 
     Private ReadOnly _RequiredCachedLists As Type() = New Type() _
         {GetType(HelperLists.AccountInfoList)}
@@ -70,7 +70,7 @@ Friend Class F_ComplexOperationDiscard
             _FormManager = New CslaActionExtenderEditForm(Of ComplexOperationDiscard) _
                 (Me, ComplexOperationDiscardBindingSource, _DocumentToEdit, _
                 _RequiredCachedLists, nOkButton, ApplyButton, nCancelButton, _
-                LimitationsButton, ProgressFiller1)
+                Nothing, ProgressFiller1)
 
             _FormManager.ManageDataListViewStates(ItemsDataListView)
 
@@ -235,6 +235,21 @@ Friend Class F_ComplexOperationDiscard
     End Function
 
 
+    Public Function ChronologicContent() As String _
+        Implements ISupportsChronologicValidator.ChronologicContent
+        If _FormManager.DataSource Is Nothing Then Return ""
+        Return _FormManager.DataSource.ChronologyValidator.LimitsExplanation
+    End Function
+
+    Public Function HasChronologicContent() As Boolean _
+        Implements ISupportsChronologicValidator.HasChronologicContent
+
+        Return Not _FormManager.DataSource Is Nothing AndAlso _
+            Not StringIsNullOrEmpty(_FormManager.DataSource.ChronologyValidator.LimitsExplanation)
+
+    End Function
+
+
     Private Sub _FormManager_DataSourceStateHasChanged(ByVal sender As Object, _
         ByVal e As System.EventArgs) Handles _FormManager.DataSourceStateHasChanged
         ConfigureButtons()
@@ -261,9 +276,6 @@ Friend Class F_ComplexOperationDiscard
         nOkButton.Enabled = (Not _FormManager.DataSource Is Nothing)
         ApplyButton.Enabled = (Not _FormManager.DataSource Is Nothing)
         nCancelButton.Enabled = (Not _FormManager.DataSource Is Nothing AndAlso Not _FormManager.DataSource.IsNew)
-
-        LimitationsButton.Visible = (Not _FormManager.DataSource Is Nothing AndAlso _
-            Not StringIsNullOrEmpty(_FormManager.DataSource.ChronologyValidator.LimitsExplanation))
 
     End Sub
 

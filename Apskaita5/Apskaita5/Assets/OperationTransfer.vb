@@ -1,5 +1,6 @@
 ﻿Imports ApskaitaObjects.Attributes
 Imports Csla.Validation
+Imports ApskaitaObjects.My.Resources
 
 Namespace Assets
 
@@ -9,7 +10,7 @@ Namespace Assets
     ''' <remarks>Values are stored in the database table turtas_op.
     ''' Operation data is persisted by the <see cref="OperationPersistenceObject">OperationPersistenceObject</see>.</remarks>
     <Serializable()> _
-    Public Class OperationTransfer
+    Public NotInheritable Class OperationTransfer
         Inherits BusinessBase(Of OperationTransfer)
         Implements IGetErrorForListItem, IIsDirtyEnough, IValidationMessageProvider
 
@@ -1364,6 +1365,10 @@ Namespace Assets
         ''' <remarks>Could be used as a helper method when registering 
         ''' non invoice based transfer operations.</remarks>
         Public Function NewJournalEntry() As General.JournalEntry
+
+            If _AmountToTransfer < 1 Then
+                Throw New Exception(Assets_OperationTransfer_AmountNullForNewJournalEntry)
+            End If
 
             Dim result As General.JournalEntry = General.JournalEntry.NewJournalEntry()
 

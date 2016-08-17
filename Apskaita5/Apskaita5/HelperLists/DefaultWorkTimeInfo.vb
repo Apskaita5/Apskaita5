@@ -9,7 +9,7 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class DefaultWorkTimeInfo
+    Public NotInheritable Class DefaultWorkTimeInfo
         Inherits ReadOnlyBase(Of DefaultWorkTimeInfo)
 
 #Region " Business Methods "

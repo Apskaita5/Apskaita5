@@ -7,7 +7,7 @@
     ''' <remarks>Values are persisted in the database table VatDeclarationEntrys.
     ''' Should only be used as a child of <see cref="VatDeclarationSchema">VatDeclarationSchema</see>.</remarks>
     <Serializable()> _
-    Public Class VatDeclarationEntryList
+    Public NotInheritable Class VatDeclarationEntryList
         Inherits BusinessListBase(Of VatDeclarationEntryList, VatDeclarationEntry)
 
 #Region " Business Methods "

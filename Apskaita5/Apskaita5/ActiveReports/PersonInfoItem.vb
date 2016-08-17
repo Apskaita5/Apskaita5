@@ -5,7 +5,7 @@ Namespace ActiveReports
     ''' </summary>
     ''' <remarks>Values are stored in the database table asmenys.</remarks>
     <Serializable()> _
-    Public Class PersonInfoItem
+    Public NotInheritable Class PersonInfoItem
         Inherits ReadOnlyBase(Of PersonInfoItem)
 
 #Region " Business Methods "
@@ -13,6 +13,7 @@ Namespace ActiveReports
         Private _ID As Integer = 0
         Private _Name As String = ""
         Private _Code As String = ""
+        Private _CodeIsNotReal As Boolean = False
         Private _Address As String = ""
         Private _Bank As String = ""
         Private _BankAccount As String = ""
@@ -26,6 +27,7 @@ Namespace ActiveReports
         Private _LanguageCode As String = LanguageCodeLith
         Private _LanguageName As String = GetLanguageName(LanguageCodeLith, False)
         Private _CurrencyCode As String = GetCurrentCompany.BaseCurrency
+        Private _StateCode As String = StateCodeLith
         Private _IsNaturalPerson As Boolean = False
         Private _IsObsolete As Boolean = False
         Private _IsClient As Boolean = False
@@ -60,6 +62,19 @@ Namespace ActiveReports
         Public ReadOnly Property Code() As String
             Get
                 Return _Code
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets whether the <see cref="Code">Code</see> is not real, 
+        ''' i.e. assigned by the company (e.g. natural persons are not required
+        ''' to provide their personal identification code).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.CodeIsNotReal.</remarks>
+        Public ReadOnly Property CodeIsNotReal() As Boolean
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _CodeIsNotReal
             End Get
         End Property
 
@@ -178,6 +193,18 @@ Namespace ActiveReports
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _CurrencyCode.Trim
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a state of the origin of the person (ISO 3166–1 alpha 2 code).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field asmenys.StateCode.</remarks>
+        <StringField(ValueRequiredLevel.Mandatory, 10, False)> _
+        Public ReadOnly Property StateCode() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _StateCode.Trim
             End Get
         End Property
 
@@ -311,6 +338,8 @@ Namespace ActiveReports
             _IsClient = ConvertDbBoolean(CIntSafe(dr.Item(17), 0))
             _IsSupplier = ConvertDbBoolean(CIntSafe(dr.Item(18), 0))
             _IsWorker = ConvertDbBoolean(CIntSafe(dr.Item(19), 0))
+            _StateCode = CStrSafe(dr.Item(20)).Trim
+            _CodeIsNotReal = ConvertDbBoolean(CIntSafe(dr.Item(21), 0))
 
         End Sub
 

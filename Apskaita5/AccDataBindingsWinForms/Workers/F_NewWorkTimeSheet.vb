@@ -2,13 +2,13 @@
 Imports ApskaitaObjects.HelperLists
 Imports AccDataBindingsWinForms.CachedInfoLists
 
-Friend Class F_NewWorkTimeSheet(Of T As WorkTimeSheet)
+Friend Class F_NewWorkTimeSheet
 
-    Private _Result As T = Nothing
+    Private _Result As WorkTimeSheet = Nothing
     Private _QueryManager As CslaActionExtenderQueryObject = Nothing
 
 
-    Public ReadOnly Property Result() As T
+    Public ReadOnly Property Result() As WorkTimeSheet
         Get
             Return _Result
         End Get
@@ -86,7 +86,7 @@ Friend Class F_NewWorkTimeSheet(Of T As WorkTimeSheet)
             Exit Sub
         End If
 
-        _Result = DirectCast(result, T)
+        _Result = DirectCast(result, WorkTimeSheet)
 
         Me.Hide()
         Me.Close()
