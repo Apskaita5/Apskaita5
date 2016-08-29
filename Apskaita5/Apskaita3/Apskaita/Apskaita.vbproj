@@ -114,6 +114,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\ObjectListView\ObjectListView\bin\Release\ObjectListView.dll</HintPath>
     </Reference>
+    <Reference Include="RdlCri, Version=4.5.5482.20773, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MajorSilence binaries for NET 3.5\RdlCri.dll</HintPath>
+    </Reference>
+    <Reference Include="RdlDesign, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\RdlDesign\RdlDesign\bin\x86\Release\RdlDesign.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Private>True</Private>
     </Reference>
@@ -904,6 +912,12 @@
     <None Include="Resources\searchIcon_16x16.png" />
     <None Include="Resources\Apskaita5_LargeLogo.png" />
     <None Include="Resources\icon_help_32x32.png" />
+    <Content Include="UserReportExample.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RdlEngineConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="sqlite3.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -953,6 +967,10 @@
     <ProjectReference Include="..\..\AccDataBindingsWinForms\AccDataBindingsWinForms.vbproj">
       <Project>{4F683A20-E3ED-4A04-9B13-C02AC23397A8}</Project>
       <Name>AccDataBindingsWinForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AccDataProvider\AccDataProvider.vbproj">
+      <Project>{839E9F67-BE1A-4B6F-A42E-B8C0F1DCAB9F}</Project>
+      <Name>AccDataProvider</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Apskaita5\ApskaitaObjects.vbproj">
       <Project>{5F12CA52-9B64-42A3-B168-7861C44FD24E}</Project>

@@ -8,12 +8,11 @@ Friend Class F_WorkersVDUInfo
     Implements ISupportsPrinting
 
     Private ReadOnly _RequiredCachedLists As Type() = New Type() _
-        {GetType(HelperLists.PersonInfoList)}
+        {GetType(PersonInfoList), GetType(ShortLabourContractList)}
 
     Private _FormManager As CslaActionExtenderReportForm(Of WorkersVDUInfo)
     Private _WageListViewManager As DataListViewEditControlManager(Of WageVDUInfo)
     Private _BonusListViewManager As DataListViewEditControlManager(Of BonusVDUInfo)
-    Private _QueryManager As CslaActionExtenderQueryObject
 
 
     Private Sub F_WorkersVDUInfo_Load(ByVal sender As System.Object, _
@@ -38,8 +37,6 @@ Friend Class F_WorkersVDUInfo
             '_SpentListViewManager.AddCancelButton = False
             '_SpentListViewManager.AddButtonHandler("Dokumentas", "Rodyti dokumentą.", _
             '    AddressOf ShowHolidayAffectingDocument)
-
-            _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller2)
 
             ' WorkersVDUInfo.GetWorkersVDUInfo(nSerial, nNumber, nDate, includeCurrentMonth)
             _FormManager = New CslaActionExtenderReportForm(Of WorkersVDUInfo) _
@@ -90,17 +87,9 @@ Friend Class F_WorkersVDUInfo
             Exit Sub
         End If
 
-        ' ShortLabourContractList.GetList(currentWorker.ID)
-        _QueryManager.InvokeQuery(Of ShortLabourContractList)(Nothing, "GetList", True, _
-            AddressOf OnContractsFetched, currentWorker.ID)
-
-    End Sub
-
-    Private Sub OnContractsFetched(ByVal result As Object, ByVal exceptionHandled As Boolean)
-
-        If result Is Nothing Then Exit Sub
-
-        Dim contractList As ShortLabourContractList = DirectCast(result, ShortLabourContractList)
+        Dim contractList As Csla.FilteredBindingList(Of ShortLabourContract) _
+            = ShortLabourContractList.GetCachedFilteredList(False, _
+            currentWorker.ID, Today)
 
         LabourContractComboBox.DataSource = Nothing
         LabourContractComboBox.DataSource = contractList

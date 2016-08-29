@@ -422,6 +422,38 @@ Namespace CachedInfoLists
 
         End Sub
 
+        Public Sub LoadUserReportInfoListToListCombo(ByVal comboObject As AccListComboBox)
+
+            If comboObject.HasAttachedInfoList Then Exit Sub
+
+            Dim result As New UserReportInfoListControl
+
+            result.DataSource = GetBindingSourceForCachedList(Of UserReportInfoList)()
+            result.AcceptSingleClick = True
+
+            comboObject.AddDataListView(result)
+
+            AddHandler comboObject.Disposed, AddressOf ComboControl_Disposed
+
+        End Sub
+
+        Public Sub LoadShortLabourContractListToListCombo(ByVal comboObject As AccListComboBox, _
+            ByVal addEmptyItem As Boolean, ByVal personID As Integer, _
+            ByVal beforeDate As Date)
+
+            If comboObject.HasAttachedInfoList Then Exit Sub
+
+            Dim result As New ShortLabourContractListControl
+
+            result.DataSource = GetBindingSourceForCachedList(Of ShortLabourContractList) _
+                (addEmptyItem, personID, beforeDate)
+            result.AcceptSingleClick = True
+            comboObject.AddDataListView(result)
+
+            AddHandler comboObject.Disposed, AddressOf ComboControl_Disposed
+
+        End Sub
+
 
         Private Sub ComboControl_Disposed(ByVal sender As Object, ByVal e As System.EventArgs)
             If TypeOf sender Is ComboBox Then

@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description>Pardavimai pagal mėnesius</Description>
+  <Author>Marius Dagys</Author>
+  <PageHeight>11in</PageHeight>
+  <PageWidth>8.5in</PageWidth>
+  <DataSources>
+    <DataSource Name="DS1">
+      <ConnectionProperties>
+        <DataProvider>Apskaita5</DataProvider>
+        <ConnectString>a</ConnectString>
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <Width>7.5in</Width>
+  <TopMargin>.25in</TopMargin>
+  <LeftMargin>.25in</LeftMargin>
+  <RightMargin>.25in</RightMargin>
+  <BottomMargin>.25in</BottomMargin>
+  <DataSets>
+    <DataSet Name="Data">
+      <Query>
+        <DataSourceName>DS1</DataSourceName>
+        <CommandText>SELECT m.Month AS Month, IFNULL(q.Name, '') AS Name, IFNULL(q.TotalSum, 0) AS TotalSum, IFNULL(q.TotalAmount, 0) AS TotalAmount
+FROM (SELECT 1 AS Month UNION SELECT 2 AS Month UNION SELECT 3 AS Month UNION SELECT 4 AS Month UNION 
+SELECT 5 AS Month UNION SELECT 6 AS Month UNION SELECT 7 AS Month UNION SELECT 8 AS Month UNION SELECT 9 AS Month 
+UNION SELECT 10 AS Month UNION SELECT 11 AS Month UNION SELECT 12 AS Month) AS m
+
+LEFT JOIN (
+SELECT MONTH(b.Op_data) AS Month, n.Name AS Name, SUM(d.SumLTL-d.DiscountLTL) AS TotalSum, 
+SUM(d.Kiekis) AS TotalAmount 
+FROM bz b  
+LEFT JOIN invoicesmade i ON i.ID = b.Op_ID AND i.InvoiceType=0 
+LEFT JOIN sfd d ON d.SF_ID = i.ID AND d.Rusis = 1 
+LEFT JOIN goodsoperations g ON g.ID = d.P_ID 
+LEFT JOIN goods n ON n.ID = g.GoodsID
+WHERE YEAR(b.Op_data)=@ForYear AND (@FilterByPersonInfo &lt; 1 OR b.Op_analitika = @FilterByPersonInfo) AND NOT n.ID IS NULL
+GROUP BY MONTH(b.Op_data), n.ID
+
+UNION ALL
+
+SELECT MONTH(b.Op_data) AS Month, s.TrPav AS Name, SUM(d.SumLTL-d.DiscountLTL) AS TotalSum, 
+SUM(d.Kiekis) AS TotalAmount 
+FROM bz b  
+LEFT JOIN invoicesmade i ON i.ID = b.Op_ID AND i.InvoiceType=0 
+LEFT JOIN sfd d ON d.SF_ID = i.ID AND d.Rusis = 2 
+LEFT JOIN paslaugos s ON s.ID = d.P_ID 
+WHERE YEAR(b.Op_data)=@ForYear AND (@FilterByPersonInfo &lt; 1 OR b.Op_analitika = @FilterByPersonInfo) AND NOT s.ID IS NULL
+GROUP BY MONTH(b.Op_data), s.ID
+
+) AS q ON q.Month=m.Month
+
+ORDER BY m.Month;</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="ForYear">
+            <Value>=Parameters!ForYear</Value>
+          </QueryParameter>
+          <QueryParameter Name="FilterByPersonInfo">
+            <Value>=Parameters!FilterByPersonInfo</Value>
+          </QueryParameter>
+        </QueryParameters>
+      </Query>
+      <Fields>
+        <Field Name="Month">
+          <DataField>Month</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalSum">
+          <DataField>TotalSum</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="TotalAmount">
+          <DataField>TotalAmount</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="CompanyData">
+      <Query>
+        <DataSourceName>DS1</DataSourceName>
+        <CommandText>SELECT I_Pavadinimas AS CompanyName, I_Kodas AS CompanyCode, I_Adresas AS ComapyAddress FROM imone</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="CompanyCode">
+          <DataField>CompanyCode</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+        <Field Name="ComapyAddress">
+          <DataField>ComapyAddress</DataField>
+          <TypeName>System.String</TypeName>
+        </Field>
+      </Fields>
+      <fyi:Rows xmlns:fyi="http://www.fyireporting.com/schemas">
+        <Row>
+          <CompanyName>Naujos versijos test, UAB</CompanyName>
+          <CompanyCode>5468354885</CompanyCode>
+          <ComapyAddress>Šv. Ignoto g. 1, Vilnius</ComapyAddress>
+        </Row>
+      </fyi:Rows>
+    </DataSet>
+  </DataSets>
+  <PageHeader>
+    <Height>19.9pt</Height>
+    <ReportItems>
+      <Textbox Name="Textbox1">
+        <Top>0.0pt</Top>
+        <Left>0.0pt</Left>
+        <Width>6in</Width>
+        <Height>.25in</Height>
+        <Value>Pardavimų ataskaita</Value>
+        <Style>
+          <FontSize>15pt</FontSize>
+          <FontWeight>Bold</FontWeight>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageHeader>
+  <Body>
+    <ReportItems>
+      <Table Name="Table1">
+        <DataSetName>Data</DataSetName>
+        <NoRows>Query returned no rows!</NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <TableColumns>
+          <TableColumn>
+            <Width>38.2pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>304.7pt</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1in</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>74.8pt</Width>
+          </TableColumn>
+        </TableColumns>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <Height>12pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox2">
+                      <Value>Mėnuo</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth>
+                          <Top>3pt</Top>
+                          <Bottom>3pt</Bottom>
+                        </BorderWidth>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox3">
+                      <Value>Prekė (Paslauga)</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth>
+                          <Top>3pt</Top>
+                          <Bottom>3pt</Bottom>
+                        </BorderWidth>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox4">
+                      <Value>Suma</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth>
+                          <Top>3pt</Top>
+                          <Bottom>3pt</Bottom>
+                        </BorderWidth>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox5">
+                      <Value>Kiekis</Value>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                        </BorderStyle>
+                        <FontWeight>Bold</FontWeight>
+                        <BorderColor />
+                        <BorderWidth>
+                          <Top>3pt</Top>
+                          <Bottom>3pt</Bottom>
+                        </BorderWidth>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <TableGroups>
+          <TableGroup>
+            <Header>
+              <TableRows>
+                <TableRow>
+                  <Height>12pt</Height>
+                  <TableCells>
+                    <TableCell>
+                      <ColSpan>4</ColSpan>
+                      <ReportItems>
+                        <Textbox Name="Textbox6">
+                          <Value>={?ForYear} &amp; " m. " &amp; GetMonthLith(Convert.ToInt32(Fields.Month.Value)) &amp; " mėn."</Value>
+                          <Style>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <BorderStyle>
+                              <Default>Solid</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>Solid</Top>
+                            </BorderStyle>
+                            <FontWeight>Bold</FontWeight>
+                            <BorderColor />
+                            <BorderWidth />
+                            <TextAlign>Left</TextAlign>
+                            <BackgroundColor>Lightgrey</BackgroundColor>
+                          </Style>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                  </TableCells>
+                </TableRow>
+              </TableRows>
+              <RepeatOnNewPage>true</RepeatOnNewPage>
+            </Header>
+            <Footer>
+              <TableRows>
+                <TableRow>
+                  <Height>12pt</Height>
+                  <TableCells>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox7">
+                          <Value>
+                          </Value>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>Dotted</Top>
+                              <Bottom>Dotted</Bottom>
+                            </BorderStyle>
+                            <BorderColor />
+                            <BorderWidth />
+                          </Style>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox8">
+                          <Value>
+                          </Value>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>Dotted</Top>
+                              <Bottom>Dotted</Bottom>
+                            </BorderStyle>
+                            <BorderColor />
+                            <BorderWidth />
+                          </Style>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="gf_TotalSum">
+                          <Value>=Sum(Fields!TotalSum.Value)</Value>
+                          <CanGrow>false</CanGrow>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>Dotted</Top>
+                              <Bottom>Dotted</Bottom>
+                            </BorderStyle>
+                            <PaddingRight>2pt</PaddingRight>
+                            <TextAlign>Center</TextAlign>
+                            <BorderColor />
+                            <BorderWidth />
+                            <FontWeight>Bold</FontWeight>
+                            <Format>#,##0.00</Format>
+                          </Style>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                    <TableCell>
+                      <ReportItems>
+                        <Textbox Name="Textbox9">
+                          <Value>
+                          </Value>
+                          <Style>
+                            <BorderStyle>
+                              <Default>None</Default>
+                              <Left>None</Left>
+                              <Right>None</Right>
+                              <Top>Dotted</Top>
+                              <Bottom>Dotted</Bottom>
+                            </BorderStyle>
+                            <BorderColor />
+                            <BorderWidth />
+                          </Style>
+                        </Textbox>
+                      </ReportItems>
+                    </TableCell>
+                  </TableCells>
+                </TableRow>
+              </TableRows>
+            </Footer>
+            <Grouping Name="MonthGroup">
+              <GroupExpressions>
+                <GroupExpression>=Fields!Month.Value</GroupExpression>
+              </GroupExpressions>
+            </Grouping>
+          </TableGroup>
+        </TableGroups>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <Height>12pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox10">
+                      <Value>
+                      </Value>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Bottom>None</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Name">
+                      <Value>=Fields!Name.Value</Value>
+                      <CanGrow>true</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Bottom>None</Bottom>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderColor />
+                        <BorderWidth />
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="TotalSum">
+                      <Value>=Convert.ToDouble(Fields!TotalSum.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Bottom>None</Bottom>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderColor />
+                        <BorderWidth />
+                        <TextAlign>Center</TextAlign>
+                        <Format>#,##0.00</Format>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="TotalAmount">
+                      <Value>=Convert.ToDouble(Fields!TotalAmount.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Bottom>None</Bottom>
+                          <Right>None</Right>
+                          <Top>None</Top>
+                        </BorderStyle>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <BorderColor />
+                        <BorderWidth />
+                        <TextAlign>Center</TextAlign>
+                        <Format>#,##0.00</Format>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <Footer>
+          <TableRows>
+            <TableRow>
+              <Height>12pt</Height>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox11">
+                      <Value>
+                      </Value>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth>
+                          <Top>3pt</Top>
+                          <Bottom>3pt</Bottom>
+                        </BorderWidth>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox12">
+                      <Value>
+                      </Value>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth>
+                          <Top>3pt</Top>
+                          <Bottom>3pt</Bottom>
+                        </BorderWidth>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="tf_TotalSum">
+                      <Value>=Sum(Fields!TotalSum.Value)</Value>
+                      <CanGrow>false</CanGrow>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <PaddingRight>2pt</PaddingRight>
+                        <TextAlign>Center</TextAlign>
+                        <BorderColor />
+                        <BorderWidth>
+                          <Top>3pt</Top>
+                          <Bottom>3pt</Bottom>
+                        </BorderWidth>
+                        <FontWeight>Bold</FontWeight>
+                        <Format>#,##0.00</Format>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Textbox13">
+                      <Value>
+                      </Value>
+                      <Style>
+                        <BorderStyle>
+                          <Default>None</Default>
+                          <Left>None</Left>
+                          <Right>None</Right>
+                          <Top>Solid</Top>
+                          <Bottom>Solid</Bottom>
+                        </BorderStyle>
+                        <BorderColor />
+                        <BorderWidth>
+                          <Top>3pt</Top>
+                          <Bottom>3pt</Bottom>
+                        </BorderWidth>
+                      </Style>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+            </TableRow>
+          </TableRows>
+        </Footer>
+        <Left>0.2pt</Left>
+        <Top>28.1pt</Top>
+      </Table>
+      <Textbox Name="Textbox15">
+        <Height>15.00pt</Height>
+        <Width>489.43pt</Width>
+        <Value>=First(Fields!CompanyName, "CompanyData") &amp; " (įmonės kodas " &amp; First(Fields!CompanyCode, "CompanyData") &amp; ")"</Value>
+        <ZIndex>1</ZIndex>
+        <Left>0.00pt</Left>
+        <Top>5.60pt</Top>
+        <Style>
+          <FontWeight>Bold</FontWeight>
+          <BorderStyle>
+            <Bottom>Ridge</Bottom>
+            <Top>Ridge</Top>
+          </BorderStyle>
+          <BorderColor />
+          <BorderWidth />
+          <BackgroundColor>Silver</BackgroundColor>
+        </Style>
+      </Textbox>
+      <Chart Name="Chart1">
+        <Height>210.71pt</Height>
+        <Width>489.32pt</Width>
+        <DataSetName>Data</DataSetName>
+        <NoRows>Query returned no rows!</NoRows>
+        <Style>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <BackgroundColor>White</BackgroundColor>
+          <BackgroundGradientType>LeftRight</BackgroundGradientType>
+          <BackgroundGradientEndColor>Azure</BackgroundGradientEndColor>
+          <BorderColor />
+          <BorderWidth />
+        </Style>
+        <Type>Column</Type>
+        <Subtype>Stacked</Subtype>
+        <CategoryGroupings>
+          <CategoryGrouping>
+            <DynamicCategories>
+              <Grouping Name="DynamicCategoriesGroup2">
+                <GroupExpressions>
+                  <GroupExpression>=Convert.ToInt32(Fields!Month.Value)</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Sorting>
+                <SortBy>
+                  <SortExpression>={Month}</SortExpression>
+                  <Direction>Ascending</Direction>
+                </SortBy>
+              </Sorting>
+            </DynamicCategories>
+          </CategoryGrouping>
+        </CategoryGroupings>
+        <CategoryAxis>
+          <Axis>
+            <Visible>true</Visible>
+            <MajorTickMarks>Inside</MajorTickMarks>
+            <MajorGridLines>
+              <ShowGridLines>false</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Dotted</Default>
+                </BorderStyle>
+                <BorderColor>
+                  <Default>Black</Default>
+                </BorderColor>
+                <BorderWidth>
+                  <Default>1pt</Default>
+                </BorderWidth>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <ShowGridLines>false</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Dotted</Default>
+                </BorderStyle>
+                <BorderColor>
+                  <Default>Black</Default>
+                </BorderColor>
+                <BorderWidth>
+                  <Default>1pt</Default>
+                </BorderWidth>
+              </Style>
+            </MinorGridLines>
+            <Title>
+              <Caption>Mėnesiai</Caption>
+              <Style>
+                <BorderStyle />
+                <BorderColor />
+                <BorderWidth />
+              </Style>
+            </Title>
+            <Style>
+              <BorderStyle />
+              <BorderColor />
+              <BorderWidth />
+            </Style>
+            <Max>
+            </Max>
+            <Min>
+            </Min>
+            <Scalar>true</Scalar>
+          </Axis>
+        </CategoryAxis>
+        <SeriesGroupings>
+          <SeriesGrouping>
+            <DynamicSeries>
+              <Grouping Name="DynamicSeriesGroup2">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!Name.Value</GroupExpression>
+                </GroupExpressions>
+              </Grouping>
+              <Label>=Fields!Name.Value</Label>
+            </DynamicSeries>
+          </SeriesGrouping>
+        </SeriesGroupings>
+        <ChartData>
+          <ChartSeries>
+            <DataPoints>
+              <DataPoint>
+                <DataValues>
+                  <DataValue>
+                    <Value>=Sum(Fields!TotalSum.Value)</Value>
+                  </DataValue>
+                </DataValues>
+              </DataPoint>
+            </DataPoints>
+          </ChartSeries>
+        </ChartData>
+        <ValueAxis>
+          <Axis>
+            <Visible>true</Visible>
+            <MajorTickMarks>Inside</MajorTickMarks>
+            <MajorGridLines>
+              <ShowGridLines>true</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Dotted</Default>
+                </BorderStyle>
+                <FontSize>8pt</FontSize>
+                <BorderColor>
+                  <Default>Black</Default>
+                </BorderColor>
+                <BorderWidth>
+                  <Default>1pt</Default>
+                </BorderWidth>
+              </Style>
+            </MajorGridLines>
+            <MinorGridLines>
+              <ShowGridLines>false</ShowGridLines>
+              <Style>
+                <BorderStyle>
+                  <Default>Solid</Default>
+                </BorderStyle>
+                <BorderColor>
+                  <Default>Black</Default>
+                </BorderColor>
+                <BorderWidth>
+                  <Default>1pt</Default>
+                </BorderWidth>
+              </Style>
+            </MinorGridLines>
+            <Title>
+              <Caption>Suma</Caption>
+              <Style>
+                <WritingMode>tb-rl</WritingMode>
+              </Style>
+            </Title>
+            <Style>
+              <BorderStyle />
+              <BorderColor />
+              <BorderWidth />
+            </Style>
+          </Axis>
+        </ValueAxis>
+        <Legend>
+          <Style>
+            <BorderStyle>
+              <Default>Solid</Default>
+            </BorderStyle>
+            <PaddingLeft>5pt</PaddingLeft>
+            <FontSize>8pt</FontSize>
+            <BorderColor />
+            <BorderWidth />
+          </Style>
+          <Visible>true</Visible>
+          <Position>RightCenter</Position>
+        </Legend>
+        <Title>
+          <Style>
+            <FontWeight>Bold</FontWeight>
+            <FontSize>14pt</FontSize>
+            <TextAlign>Center</TextAlign>
+            <BorderStyle />
+            <BorderColor />
+            <BorderWidth />
+          </Style>
+          <Caption>Pardavimai pagal mėnesius ir prekes (paslaugas)</Caption>
+        </Title>
+        <Left>0.00pt</Left>
+        <Top>92.50pt</Top>
+      </Chart>
+    </ReportItems>
+    <Height>307.9pt</Height>
+    <Columns>1</Columns>
+  </Body>
+  <PageFooter>
+    <Height>14pt</Height>
+    <ReportItems>
+      <Textbox Name="Textbox14">
+        <Top>1pt</Top>
+        <Left>10pt</Left>
+        <Height>12pt</Height>
+        <Width>3in</Width>
+        <Value>="Psl. " &amp; Globals!PageNumber + " iš " + Globals!TotalPages</Value>
+        <Style>
+          <FontSize>10pt</FontSize>
+          <FontWeight>Normal</FontWeight>
+        </Style>
+      </Textbox>
+    </ReportItems>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageFooter>
+  <DataElementName>Report</DataElementName>
+  <DataElementStyle>AttributeNormal</DataElementStyle>
+  <Code>Public Function GetMonthLith(ByVal monthInt As Integer) As String
+If monthInt = 1 Then
+Return "sausio"
+ElseIf monthInt = 2 Then
+Return "vasario"
+ElseIf monthInt = 3 Then
+Return "kovo"
+ElseIf monthInt = 4 Then
+Return "balandžio"
+ElseIf monthInt = 5 Then
+Return "gegužės"
+ElseIf monthInt = 6 Then
+Return "birželio"
+ElseIf monthInt = 7 Then
+Return "liepos"
+ElseIf monthInt = 8 Then
+Return "rugpjūčio"
+ElseIf monthInt = 9 Then
+Return "rugsėjo"
+ElseIf monthInt = 10 Then
+Return "spalio"
+ElseIf monthInt = 11 Then
+Return "lapkričio"
+ElseIf monthInt = 12 Then
+Return "gruodžio"
+Else
+Return "mėnuo nenurodytas (" &amp; monthInt.ToString &amp; ")"
+End If
+End Function</Code>
+  <ReportParameters>
+    <ReportParameter Name="ForYear">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>2016</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>Už metus</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FilterByPersonInfo">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Nullable>false</Nullable>
+      <AllowBlank>false</AllowBlank>
+      <MultiValue>false</MultiValue>
+      <Prompt>Kontrahentas:</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+</Report>

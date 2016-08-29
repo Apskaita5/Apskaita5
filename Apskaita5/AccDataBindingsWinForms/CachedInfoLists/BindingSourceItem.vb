@@ -79,11 +79,11 @@ Namespace CachedInfoLists
         End Function
 
         Private Function GetDataSource(ByVal cachedItemBaseType As Type, _
-                                       ByRef nFilterCriteria As Object()) As Object
+            ByRef nFilterCriteria As Object()) As Object
 
             Dim result As Object = Nothing
 
-            If CachedItemBaseType Is GetType(AccountInfoList) Then
+            If cachedItemBaseType Is GetType(AccountInfoList) Then
 
                 If nFilterCriteria.Length > 1 AndAlso Not nFilterCriteria(1) Is Nothing Then
                     result = AccountInfoList.GetCachedFilteredList( _
@@ -94,7 +94,7 @@ Namespace CachedInfoLists
                         DirectCast(nFilterCriteria(0), Boolean))
                 End If
 
-            ElseIf CachedItemBaseType Is GetType(CompanyRegionalInfoList) Then
+            ElseIf cachedItemBaseType Is GetType(CompanyRegionalInfoList) Then
 
                 If nFilterCriteria Is Nothing OrElse nFilterCriteria.Length < 1 Then
                     result = CompanyRegionalInfoList.GetList
@@ -102,12 +102,12 @@ Namespace CachedInfoLists
                     result = CompanyRegionalInfoList.GetCachedFilteredList(DirectCast(nFilterCriteria(0), Boolean))
                 End If
 
-            ElseIf CachedItemBaseType Is GetType(PersonGroupInfoList) Then
+            ElseIf cachedItemBaseType Is GetType(PersonGroupInfoList) Then
 
                 result = PersonGroupInfoList.GetCachedFilteredList( _
                     DirectCast(nFilterCriteria(0), Boolean))
 
-            ElseIf CachedItemBaseType Is GetType(PersonInfoList) Then
+            ElseIf cachedItemBaseType Is GetType(PersonInfoList) Then
 
                 result = PersonInfoList.GetCachedFilteredList( _
                     DirectCast(nFilterCriteria(0), Boolean), _
@@ -115,7 +115,7 @@ Namespace CachedInfoLists
                     DirectCast(nFilterCriteria(2), Boolean), _
                     DirectCast(nFilterCriteria(3), Boolean))
 
-            ElseIf CachedItemBaseType Is GetType(AssignableCRItemList) Then
+            ElseIf cachedItemBaseType Is GetType(AssignableCRItemList) Then
 
                 result = AssignableCRItemList.GetCachedFilteredList(True)
 
@@ -142,18 +142,18 @@ Namespace CachedInfoLists
                     DirectCast(nFilterCriteria(0), TaxRateType), _
                     DirectCast(nFilterCriteria(1), Boolean))
 
-            ElseIf CachedItemBaseType Is GetType(LongTermAssetCustomGroupInfoList) Then
+            ElseIf cachedItemBaseType Is GetType(LongTermAssetCustomGroupInfoList) Then
 
                 result = LongTermAssetCustomGroupInfoList.GetCachedFilteredList( _
                     DirectCast(nFilterCriteria(0), Boolean))
 
-            ElseIf CachedItemBaseType Is GetType(CashAccountInfoList) Then
+            ElseIf cachedItemBaseType Is GetType(CashAccountInfoList) Then
 
                 result = CashAccountInfoList.GetCachedFilteredList( _
                     DirectCast(nFilterCriteria(0), Boolean), _
                     DirectCast(nFilterCriteria(1), Boolean))
 
-            ElseIf CachedItemBaseType Is GetType(ServiceInfoList) Then
+            ElseIf cachedItemBaseType Is GetType(ServiceInfoList) Then
 
                 result = ServiceInfoList.GetCachedFilteredList( _
                     DirectCast(nFilterCriteria(0), Boolean), _
@@ -169,54 +169,63 @@ Namespace CachedInfoLists
                     DirectCast(nFilterCriteria(2), Boolean), _
                     DirectCast(nFilterCriteria(3), Boolean))
 
-            ElseIf CachedItemBaseType Is GetType(DocumentSerialInfoList) Then
+            ElseIf cachedItemBaseType Is GetType(DocumentSerialInfoList) Then
 
                 result = DocumentSerialInfoList.GetCachedFilteredList( _
                     DirectCast(nFilterCriteria(0), Boolean), _
                     DirectCast(nFilterCriteria(1), DocumentSerialType))
 
-            ElseIf CachedItemBaseType Is GetType(TemplateJournalEntryInfoList) Then
+            ElseIf cachedItemBaseType Is GetType(TemplateJournalEntryInfoList) Then
 
                 result = TemplateJournalEntryInfoList.GetCachedFilteredList( _
                     DirectCast(nFilterCriteria(0), Boolean))
 
-            ElseIf CachedItemBaseType Is GetType(WorkTimeClassInfoList) Then
+            ElseIf cachedItemBaseType Is GetType(WorkTimeClassInfoList) Then
 
                 result = WorkTimeClassInfoList.GetCachedFilteredList( _
                     DirectCast(nFilterCriteria(0), Boolean), _
                     DirectCast(nFilterCriteria(1), Boolean), _
                     DirectCast(nFilterCriteria(2), Boolean))
 
-            ElseIf CachedItemBaseType Is GetType(GoodsInfoList) Then
+            ElseIf cachedItemBaseType Is GetType(GoodsInfoList) Then
 
                 result = GoodsInfoList.GetCachedFilteredList( _
                     DirectCast(nFilterCriteria(0), Boolean), _
                     DirectCast(nFilterCriteria(1), Boolean), _
                     DirectCast(nFilterCriteria(2), Documents.TradedItemType))
 
-            ElseIf CachedItemBaseType Is GetType(WarehouseInfoList) Then
+            ElseIf cachedItemBaseType Is GetType(WarehouseInfoList) Then
 
                 result = WarehouseInfoList.GetCachedFilteredList( _
                     DirectCast(nFilterCriteria(0), Boolean), _
                     DirectCast(nFilterCriteria(1), Boolean))
 
-            ElseIf CachedItemBaseType Is GetType(ProductionCalculationInfoList) Then
+            ElseIf cachedItemBaseType Is GetType(ProductionCalculationInfoList) Then
 
                 result = ProductionCalculationInfoList.GetCachedFilteredList( _
                     DirectCast(nFilterCriteria(0), Boolean), _
                     DirectCast(nFilterCriteria(1), Boolean))
 
-            ElseIf CachedItemBaseType Is GetType(GoodsGroupInfoList) Then
+            ElseIf cachedItemBaseType Is GetType(GoodsGroupInfoList) Then
 
                 result = GoodsGroupInfoList.GetCachedFilteredList( _
                     DirectCast(nFilterCriteria(0), Boolean))
 
+            ElseIf cachedItemBaseType Is GetType(UserReportInfoList) Then
 
+                result = UserReportInfoList.GetCachedFilteredList()
+
+            ElseIf cachedItemBaseType Is GetType(ShortLabourContractList) Then
+
+                result = ShortLabourContractList.GetCachedFilteredList( _
+                    DirectCast(nFilterCriteria(0), Boolean), _
+                    DirectCast(nFilterCriteria(1), Integer), _
+                    DirectCast(nFilterCriteria(2), Date))
 
 
             Else
                 Throw New InvalidOperationException("Klaida. CacheBindingsManager neaptarnauja kešo tipui '" _
-                                                    & CachedItemBaseType.FullName & "'.")
+                                                    & cachedItemBaseType.FullName & "'.")
             End If
 
             Return result

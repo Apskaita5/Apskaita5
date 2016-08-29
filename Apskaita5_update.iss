@@ -33,6 +33,13 @@ Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Releas
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccDataBindingsWinForms.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccPluginManager.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccIPlugin.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccDataProvider.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\DataProviders.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\itextsharp.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlDesign.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlViewer.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlEngine.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlCri.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ObjectListView.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\EPPlus.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ListViewPrinter.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -70,7 +77,12 @@ Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Releas
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\FR0600(2).mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Apskaita5Help.chm"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\CommonSettings.xmls"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlEngineConfig.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\UserReportExample.rdl"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+
+[Dirs]
+Name: "{app}\UserReports"; Flags: uninsneveruninstall; Permissions: users-modify
 
 [Run]
 Filename: "{app}\Apskaita5.exe"; Description: "{cm:LaunchProgram,Apskaita5}"; Flags: nowait postinstall skipifsilent

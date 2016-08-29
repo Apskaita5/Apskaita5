@@ -56,7 +56,11 @@ Namespace DatabaseAccess
         Public Sub New(ByVal ParName As String, ByVal ParValue As Object)
             _Name = ParName
             _Value = ParValue
-            _ValueType = ParValue.GetType
+            If _Value Is Nothing Then
+                _ValueType = GetType(String)
+            Else
+                _ValueType = ParValue.GetType()
+            End If
         End Sub
 
         ''' <summary>

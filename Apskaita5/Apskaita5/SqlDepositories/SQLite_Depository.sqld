@@ -664,14 +664,9 @@
     <Objects>Workers.WageSheet</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
-    <Key>FetchShortLabourContractListForPerson</Key>
-    <Statement>SELECT d.DS_NR, d.DS_Serija, d.Nuo FROM darbuotojai_d d WHERE d.Tipas='d' AND d.Nuo&lt;$DT AND d.AK=$PD ORDER BY d.DS_Serija, d.DS_NR;</Statement>
-    <Objects>Workers.ShortLabourContractList</Objects>
-  </MySQL_Statement>
-  <MySQL_Statement>
     <Key>FetchShortLabourContractList</Key>
-    <Statement>SELECT d.DS_NR, d.DS_Serija, d.Nuo FROM darbuotojai_d d WHERE d.Tipas='d' AND d.Nuo&lt;$DT ORDER BY d.DS_Serija, d.DS_NR;</Statement>
-    <Objects>Workers.ShortLabourContractList</Objects>
+    <Statement>SELECT a.ID AS PersonID, a.Pavad AS PersonName, a.Kodas AS PersonCode, d.DS_NR AS ContractNumber, d.DS_Serija AS ContractSerial, d.Nuo AS ContractDate, (SELECT t.Nuo FROM darbuotojai_d t WHERE UPPER(TRIM(t.DS_Serija)) = UPPER(TRIM(d.DS_Serija)) AND t.DS_NR=d.DS_NR AND t.Tipas='n' LIMIT 1) AS DateTerminated, (SELECT t.DU_tipas FROM darbuotojai_d t WHERE UPPER(TRIM(t.DS_Serija)) = UPPER(TRIM(d.DS_Serija)) AND t.DS_NR=d.DS_NR AND t.Tipas='f' ORDER BY t.Nuo DESC LIMIT 1) AS CurrentPosition FROM darbuotojai_d d LEFT JOIN asmenys a ON a.ID=d.AK WHERE d.Tipas='d' ORDER BY d.DS_Serija, d.DS_NR;</Statement>
+    <Objects>HelperLists.ShortLabourContractList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>CheckIfWorkerStatusCanBeDeleted</Key>

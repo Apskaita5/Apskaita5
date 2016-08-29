@@ -14258,4 +14258,139 @@
   <data name="Assets_OperationTransfer_AmountNullForNewJournalEntry" xml:space="preserve">
     <value>Klaida. Nenurodytas perleidžiamas kiekis.</value>
   </data>
+  <data name="Settings_CommandUploadUserReport_FileContentInvalid" xml:space="preserve">
+    <value>Klaida. Nepavyko nuskaityti ataskaitos failo duomenų:{0}{1}</value>
+  </data>
+  <data name="Settings_CommandUploadUserReport_FileContentNull" xml:space="preserve">
+    <value>Klaida. Pasirinktas failas tuščias.</value>
+  </data>
+  <data name="Settings_CommandUploadUserReport_ReportAlreadyExists" xml:space="preserve">
+    <value>Ataskaita, kurios pavadinimas - "{0}", autorius - "{1}", o parametrų skaičius - {2}, jau yra įkelta.</value>
+  </data>
+  <data name="Settings_CommandUploadUserReport_OutOfFileNames" xml:space="preserve">
+    <value>Klaida. Neliko laisvų failų pavadinimų ataskaitoms.</value>
+  </data>
+  <data name="Settings_CommandUploadUserReport_ToString" xml:space="preserve">
+    <value>vartotojo ataskaitos įkėlimas</value>
+  </data>
+  <data name="Settings_CommandUploadUserReport_TypeName" xml:space="preserve">
+    <value>vartotojo ataskaitos įkėlimas</value>
+  </data>
+  <data name="HelperLists_UserReportInfo_FailedToParseDesciption" xml:space="preserve">
+    <value>Nepavyko nustatyti ataskaitos pavadinimo</value>
+  </data>
+  <data name="HelperLists_UserReportInfo_NullAuthorString" xml:space="preserve">
+    <value>Nenustatytas</value>
+  </data>
+  <data name="HelperLists_UserReportInfo_ToString" xml:space="preserve">
+    <value>{0} ({1})</value>
+  </data>
+  <data name="HelperLists_UserReportInfo_TypeName" xml:space="preserve">
+    <value>vartotojo ataskaitos duomenys</value>
+  </data>
+  <data name="HelperLists_UserReportInfoList_UserReportFolderDoesNotExist" xml:space="preserve">
+    <value>Nėra vartotojų ataskaitų folderio ({0}).</value>
+  </data>
+  <data name="HelperLists_UserReportInfoList_NoAvailableReports" xml:space="preserve">
+    <value>Nėra prieinamų (įkeltų) vartotojo ataskaitų failų.</value>
+  </data>
+  <data name="HelperLists_UserReportInfoList_FailedToOpenFile" xml:space="preserve">
+    <value>Klaida. Nepavyko atidaryti failo '{0}':{1}{2}</value>
+  </data>
+  <data name="HelperLists_UserReportInfoList_FailedToParseReport" xml:space="preserve">
+    <value>Klaida. Nepavyko nuskaityti ataskaitos failo '{0}' duomenų:{1}{2}</value>
+  </data>
+  <data name="HelperLists_UserReportInfoList_ToString" xml:space="preserve">
+    <value>vartotojo ataskaitų sąrašas</value>
+  </data>
+  <data name="HelperLists_UserReportInfoList_TypeName" xml:space="preserve">
+    <value>vartotojo ataskaitų sąrašas</value>
+  </data>
+  <data name="HelperLists_UserReportParamInfoList_ToString" xml:space="preserve">
+    <value>vartotojo ataskaitos parametrų sąrašas</value>
+  </data>
+  <data name="HelperLists_UserReportParamInfoList_TypeName" xml:space="preserve">
+    <value>vartotojo ataskaitos parametrų sąrašas</value>
+  </data>
+  <data name="HelperLists_UserReportParamInfo_FailedToParseParamName" xml:space="preserve">
+    <value>Klaida. Nepavyko nustatyti parametro pavadinimo.</value>
+  </data>
+  <data name="HelperLists_UserReportParamInfo_FailedToParseParamPrompt" xml:space="preserve">
+    <value>Klaida. Nepavyko nustatyti parametro {0} prompto.</value>
+  </data>
+  <data name="HelperLists_UserReportParamInfo_MandatoryString" xml:space="preserve">
+    <value>privalomas</value>
+  </data>
+  <data name="HelperLists_UserReportParamInfo_ToString" xml:space="preserve">
+    <value>{0} = {1} {2}</value>
+  </data>
+  <data name="HelperLists_UserReportParamInfo_TypeName" xml:space="preserve">
+    <value>vartotojo ataskaitos parametro duomenys</value>
+  </data>
+  <data name="ActiveReports_UserReport_FailedToParseQueries" xml:space="preserve">
+    <value>Klaida. Nepavyko perskaityti SQL užklausų.</value>
+  </data>
+  <data name="ActiveReports_UserReport_FailedToParseQueryName" xml:space="preserve">
+    <value>Klaida. Nepavyko perskaityti SQL užklausos pavadinimo.</value>
+  </data>
+  <data name="ActiveReports_UserReport_FailedToParseQueryContent" xml:space="preserve">
+    <value>Klaida. Nepavyko perskaityti SQL užklausos teksto.</value>
+  </data>
+  <data name="ActiveReports_UserReport_ReportDataSet" xml:space="preserve">
+    <value>ataskaitos duomenys</value>
+  </data>
+  <data name="ActiveReports_UserReport_ReportInfo" xml:space="preserve">
+    <value>ataskaitos bendri duomenys</value>
+  </data>
+  <data name="ActiveReports_UserReport_ReportParams" xml:space="preserve">
+    <value>ataskaitos parametrai</value>
+  </data>
+  <data name="ActiveReports_UserReport_ReportRdlContent" xml:space="preserve">
+    <value>ataskaitos RDL failo turinys</value>
+  </data>
+  <data name="ActiveReports_UserReport_TypeName" xml:space="preserve">
+    <value>vartotojo ataskaita</value>
+  </data>
+  <data name="HelperLists_UserReportInfo_Author" xml:space="preserve">
+    <value>ataskaitos autorius</value>
+  </data>
+  <data name="HelperLists_UserReportInfo_FileAdded" xml:space="preserve">
+    <value>įkelta</value>
+  </data>
+  <data name="HelperLists_UserReportInfo_FileLastUpdated" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="HelperLists_UserReportInfo_FileName" xml:space="preserve">
+    <value>failo pavadinimas</value>
+  </data>
+  <data name="HelperLists_UserReportInfo_IsEmpty" xml:space="preserve">
+    <value>tuščias</value>
+  </data>
+  <data name="HelperLists_UserReportInfo_Name" xml:space="preserve">
+    <value>ataskaitos pavadinimas</value>
+  </data>
+  <data name="HelperLists_UserReportInfo_Params" xml:space="preserve">
+    <value>parametrai</value>
+  </data>
+  <data name="HelperLists_UserReportParamInfo_AllowNull" xml:space="preserve">
+    <value>parametras nebūtinas</value>
+  </data>
+  <data name="HelperLists_UserReportParamInfo_Name" xml:space="preserve">
+    <value>parametro kodas</value>
+  </data>
+  <data name="HelperLists_UserReportParamInfo_Prompt" xml:space="preserve">
+    <value>parametro pavadinimas</value>
+  </data>
+  <data name="Settings_CommandDownloadUserReport_FileNotFound" xml:space="preserve">
+    <value>Ataskaitos failas nerastas.</value>
+  </data>
+  <data name="Settings_CommandDeleteUserReport_FileNotFound" xml:space="preserve">
+    <value>Ataskaitos failas nerastas.</value>
+  </data>
+  <data name="Settings_CommandDeleteUserReport_TypeName" xml:space="preserve">
+    <value>vartotojo ataskaitos ištrynimas</value>
+  </data>
+  <data name="Settings_CommandDownloadUserReport_TypeName" xml:space="preserve">
+    <value>vartotojo ataskaitos parsisiuntimas</value>
+  </data>
 </root>

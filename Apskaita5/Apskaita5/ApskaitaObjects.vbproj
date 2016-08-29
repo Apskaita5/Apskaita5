@@ -158,6 +158,7 @@
     <Compile Include="ActiveReports\UnsettledDocumentInfoList.vb" />
     <Compile Include="ActiveReports\UnsettledPersonInfo.vb" />
     <Compile Include="ActiveReports\UnsettledPersonInfoList.vb" />
+    <Compile Include="ActiveReports\UserReport.vb" />
     <Compile Include="ActiveReports\VatDeclarationSchemaInfoItem.vb" />
     <Compile Include="ActiveReports\VatDeclarationSchemaInfoItemList.vb" />
     <Compile Include="ActiveReports\WorkerWageInfo.vb" />
@@ -223,6 +224,10 @@
     <Compile Include="Extensibility\General\Extensibility.vb" />
     <Compile Include="Goods\OperationsSimple\GoodsOperationRedeemFromBuyer.vb" />
     <Compile Include="Goods\OperationsSimple\GoodsOperationRedeemToSupplier.vb" />
+    <Compile Include="HelperLists\UserReportInfo.vb" />
+    <Compile Include="HelperLists\UserReportInfoList.vb" />
+    <Compile Include="HelperLists\UserReportParamInfo.vb" />
+    <Compile Include="HelperLists\UserReportParamInfoList.vb" />
     <Compile Include="HelperLists\VatDeclarationSchemaInfo.vb" />
     <Compile Include="HelperLists\VatDeclarationSchemaInfoList.vb" />
     <Compile Include="IClientEmailProvider.vb" />
@@ -411,6 +416,7 @@
     <Compile Include="Settings\CodeList.vb" />
     <Compile Include="Settings\CodeType.vb" />
     <Compile Include="Settings\CommandLastDocumentNumber.vb" />
+    <Compile Include="Settings\CommandUploadUserReport.vb" />
     <Compile Include="Settings\CompanyAccountInfo.vb" />
     <Compile Include="Settings\CompanyAccountInfoList.vb" />
     <Compile Include="General\CompanyObjects\CompanyAccountList.vb" />
@@ -425,6 +431,8 @@
     <Compile Include="HelperLists\PersonGroupInfoList.vb" />
     <Compile Include="HelperLists\PersonInfoList.vb" />
     <Compile Include="General\TemplateBookEntry.vb" />
+    <Compile Include="Settings\CommandDeleteUserReport.vb" />
+    <Compile Include="Settings\CommandDownloadUserReport.vb" />
     <Compile Include="Settings\DefaultWorkTime.vb" />
     <Compile Include="Settings\DefaultWorkTimeList.vb" />
     <Compile Include="Settings\DocumentSerial.vb" />

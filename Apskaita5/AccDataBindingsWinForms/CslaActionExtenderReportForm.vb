@@ -25,6 +25,14 @@ Public Class CslaActionExtenderReportForm(Of T)
     ''' <remarks></remarks>
     Public Delegate Function GetReportParams() As Object()
 
+    ''' <summary>
+    ''' a method signature that the parent form shall implement in order 
+    ''' to implement some before and after fetch processing
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Delegate Sub OnProgressChange()
+
+
     Private _DataSource As T = Nothing
     Private _ParentForm As Form = Nothing
     Private _CachedListsTypes As Type()
@@ -35,6 +43,8 @@ Public Class CslaActionExtenderReportForm(Of T)
     Private _ManagedStateDataListViews As ObjectListView() = Nothing
     Private _GetReportParamsDelegate As GetReportParams = Nothing
     Private _RefreshMethodName As String = ""
+    Private _BeforeFetchHandler As OnProgressChange = Nothing
+    Private _AfterFetchHandler As OnProgressChange = Nothing
 
 
     ''' <summary>
@@ -147,6 +157,24 @@ Public Class CslaActionExtenderReportForm(Of T)
 
     End Sub
 
+    ''' <summary>
+    ''' Sets a method that will be invoked before the fetch operation.
+    ''' </summary>
+    ''' <param name="beforeFetchHandler">a method to invoke before the fetch operation</param>
+    ''' <remarks></remarks>
+    Public Sub SetBeforeFetchHandler(ByVal beforeFetchHandler As OnProgressChange)
+        _BeforeFetchHandler = beforeFetchHandler
+    End Sub
+
+    ''' <summary>
+    ''' Sets a method that will be invoked after the fetch operation.
+    ''' </summary>
+    ''' <param name="afterFetchHandler">a method to invoke after the fetch operation</param>
+    ''' <remarks></remarks>
+    Public Sub SetAfterFetchHandler(ByVal afterFetchHandler As OnProgressChange)
+        _AfterFetchHandler = afterFetchHandler
+    End Sub
+
 
     Private Sub Form_Activated(ByVal sender As Object, ByVal e As System.EventArgs)
 
@@ -205,6 +233,8 @@ Public Class CslaActionExtenderReportForm(Of T)
 
 
     Private Sub RefreshButton_Click(ByVal sender As Object, ByVal e As System.EventArgs)
+
+        If Not _BeforeFetchHandler Is Nothing Then _BeforeFetchHandler.Invoke()
 
         Dim params As Object() = Nothing
 
@@ -271,6 +301,7 @@ Public Class CslaActionExtenderReportForm(Of T)
             _ManagedStateDataListViews.Length > 0 Then
             _ManagedStateDataListViews(0).Focus()
         End If
+        If Not _AfterFetchHandler Is Nothing Then _AfterFetchHandler.Invoke()
     End Sub
 
 End Class

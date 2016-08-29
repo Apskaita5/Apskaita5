@@ -9,7 +9,7 @@ Friend Class F_WorkerHolidayInfo
     Implements ISupportsPrinting
 
     Private ReadOnly _RequiredCachedLists As Type() = New Type() _
-        {GetType(HelperLists.PersonInfoList)}
+        {GetType(PersonInfoList), GetType(ShortLabourContractList)}
 
     Private _FormManager As CslaActionExtenderReportForm(Of WorkerHolidayInfo)
     Private _CalculatedListViewManager As DataListViewEditControlManager(Of HolidayCalculationPeriod)
@@ -115,17 +115,9 @@ Friend Class F_WorkerHolidayInfo
             Exit Sub
         End If
 
-        ' ShortLabourContractList.GetList(currentWorker.ID)
-        _QueryManager.InvokeQuery(Of ShortLabourContractList)(Nothing, "GetList", True, _
-            AddressOf OnContractsFetched, currentWorker.ID)
-
-    End Sub
-
-    Private Sub OnContractsFetched(ByVal result As Object, ByVal exceptionHandled As Boolean)
-
-        If result Is Nothing Then Exit Sub
-
-        Dim contractList As ShortLabourContractList = DirectCast(result, ShortLabourContractList)
+        Dim contractList As Csla.FilteredBindingList(Of ShortLabourContract) _
+            = ShortLabourContractList.GetCachedFilteredList(False, _
+            currentWorker.ID, Today)
 
         LabourContractComboBox.DataSource = Nothing
         LabourContractComboBox.DataSource = contractList

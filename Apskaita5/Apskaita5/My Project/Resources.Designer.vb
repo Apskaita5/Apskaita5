@@ -5527,6 +5527,78 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko perskaityti SQL užklausų..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_UserReport_FailedToParseQueries() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_UserReport_FailedToParseQueries", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko perskaityti SQL užklausos teksto..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_UserReport_FailedToParseQueryContent() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_UserReport_FailedToParseQueryContent", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko perskaityti SQL užklausos pavadinimo..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_UserReport_FailedToParseQueryName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_UserReport_FailedToParseQueryName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ataskaitos duomenys.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_UserReport_ReportDataSet() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_UserReport_ReportDataSet", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ataskaitos bendri duomenys.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_UserReport_ReportInfo() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_UserReport_ReportInfo", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ataskaitos parametrai.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_UserReport_ReportParams() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_UserReport_ReportParams", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ataskaitos RDL failo turinys.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_UserReport_ReportRdlContent() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_UserReport_ReportRdlContent", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vartotojo ataskaita.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_UserReport_TypeName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_UserReport_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to data.
         '''</summary>
         Friend ReadOnly Property ActiveReports_VatDeclaration_Date() As String
@@ -36264,6 +36336,249 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to ataskaitos autorius.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfo_Author() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfo_Author", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nepavyko nustatyti ataskaitos pavadinimo.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfo_FailedToParseDesciption() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfo_FailedToParseDesciption", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įkelta.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfo_FileAdded() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfo_FileAdded", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pakeista.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfo_FileLastUpdated() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfo_FileLastUpdated", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to failo pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfo_FileName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfo_FileName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to tuščias.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfo_IsEmpty() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfo_IsEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ataskaitos pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfo_Name() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfo_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenustatytas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfo_NullAuthorString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfo_NullAuthorString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to parametrai.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfo_Params() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfo_Params", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} ({1}).
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfo_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfo_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vartotojo ataskaitos duomenys.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfo_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfo_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko atidaryti failo &apos;{0}&apos;:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfoList_FailedToOpenFile() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfoList_FailedToOpenFile", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko nuskaityti ataskaitos failo &apos;{0}&apos; duomenų:{1}{2}.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfoList_FailedToParseReport() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfoList_FailedToParseReport", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nėra prieinamų (įkeltų) vartotojo ataskaitų failų..
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfoList_NoAvailableReports() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfoList_NoAvailableReports", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vartotojo ataskaitų sąrašas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfoList_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfoList_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vartotojo ataskaitų sąrašas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfoList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfoList_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nėra vartotojų ataskaitų folderio ({0})..
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportInfoList_UserReportFolderDoesNotExist() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportInfoList_UserReportFolderDoesNotExist", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to parametras nebūtinas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamInfo_AllowNull() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamInfo_AllowNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko nustatyti parametro pavadinimo..
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamInfo_FailedToParseParamName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamInfo_FailedToParseParamName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko nustatyti parametro {0} prompto..
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamInfo_FailedToParseParamPrompt() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamInfo_FailedToParseParamPrompt", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to privalomas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamInfo_MandatoryString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamInfo_MandatoryString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to parametro kodas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamInfo_Name() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamInfo_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to parametro pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamInfo_Prompt() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamInfo_Prompt", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} = {1} {2}.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamInfo_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamInfo_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vartotojo ataskaitos parametro duomenys.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamInfo_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamInfo_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vartotojo ataskaitos parametrų sąrašas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamInfoList_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamInfoList_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vartotojo ataskaitos parametrų sąrašas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamInfoList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamInfoList_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to aprašymas.
         '''</summary>
         Friend ReadOnly Property HelperLists_VatDeclarationSchemaInfo_Description() As String
@@ -36683,6 +36998,96 @@ Namespace My.Resources
         Friend ReadOnly Property Settings_CodeType_VmiVatType() As String
             Get
                 Return ResourceManager.GetString("Settings_CodeType_VmiVatType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Ataskaitos failas nerastas..
+        '''</summary>
+        Friend ReadOnly Property Settings_CommandDeleteUserReport_FileNotFound() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommandDeleteUserReport_FileNotFound", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vartotojo ataskaitos ištrynimas.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommandDeleteUserReport_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommandDeleteUserReport_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Ataskaitos failas nerastas..
+        '''</summary>
+        Friend ReadOnly Property Settings_CommandDownloadUserReport_FileNotFound() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommandDownloadUserReport_FileNotFound", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vartotojo ataskaitos parsisiuntimas.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommandDownloadUserReport_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommandDownloadUserReport_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepavyko nuskaityti ataskaitos failo duomenų:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommandUploadUserReport_FileContentInvalid() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommandUploadUserReport_FileContentInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Pasirinktas failas tuščias..
+        '''</summary>
+        Friend ReadOnly Property Settings_CommandUploadUserReport_FileContentNull() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommandUploadUserReport_FileContentNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Neliko laisvų failų pavadinimų ataskaitoms..
+        '''</summary>
+        Friend ReadOnly Property Settings_CommandUploadUserReport_OutOfFileNames() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommandUploadUserReport_OutOfFileNames", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Ataskaita, kurios pavadinimas - &quot;{0}&quot;, autorius - &quot;{1}&quot;, o parametrų skaičius - {2}, jau yra įkelta..
+        '''</summary>
+        Friend ReadOnly Property Settings_CommandUploadUserReport_ReportAlreadyExists() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommandUploadUserReport_ReportAlreadyExists", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vartotojo ataskaitos įkėlimas.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommandUploadUserReport_ToString() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommandUploadUserReport_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vartotojo ataskaitos įkėlimas.
+        '''</summary>
+        Friend ReadOnly Property Settings_CommandUploadUserReport_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Settings_CommandUploadUserReport_TypeName", resourceCulture)
             End Get
         End Property
         

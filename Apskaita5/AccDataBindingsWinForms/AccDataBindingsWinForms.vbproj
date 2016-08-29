@@ -57,10 +57,6 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AccControls, Version=1.0.5486.29043, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Apskaita5\AccControls.dll</HintPath>
-    </Reference>
     <Reference Include="AccWebCrawler, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\AccWebCrawler\AccWebCrawler\bin\Release\AccWebCrawler.dll</HintPath>
@@ -69,10 +65,16 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\csla20vb\csla20vb\Csla\bin\Release\Csla.dll</HintPath>
     </Reference>
+    <Reference Include="DataProviders, Version=4.8.5482.20772, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MajorSilence binaries for NET 3.5\DataProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL" />
     <Reference Include="InvoiceInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\InvoiceInfo\InvoiceInfo\bin\Release\InvoiceInfo.dll</HintPath>
     </Reference>
+    <Reference Include="ListViewPrinter, Version=2.5.0.31248, Culture=neutral, PublicKeyToken=21b031892bc54fb5, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ReportViewer_libraries\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -89,9 +91,20 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ObjectListView\ObjectListView\bin\Release\ObjectListView.dll</HintPath>
     </Reference>
+    <Reference Include="RdlCri, Version=4.5.5482.20773, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MajorSilence binaries for NET 3.5\RdlCri.dll</HintPath>
+    </Reference>
+    <Reference Include="RdlEngine, Version=4.8.5482.20772, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MajorSilence binaries for NET 3.5\RdlEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="RdlViewer, Version=4.8.5482.20773, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MajorSilence binaries for NET 3.5\RdlViewer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -99,9 +112,6 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
   </ItemGroup>
@@ -129,6 +139,12 @@
       <DependentUpon>F_SettingsLocal.vb</DependentUpon>
     </Compile>
     <Compile Include="Administration\F_SettingsLocal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\F_UserReportInfoList.Designer.vb">
+      <DependentUpon>F_UserReportInfoList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\F_UserReportInfoList.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AssetOperationManager.vb" />
@@ -339,6 +355,12 @@
     <Compile Include="CachedInfoLists\ServiceInfoListControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="CachedInfoLists\ShortLabourContractListControl.Designer.vb">
+      <DependentUpon>ShortLabourContractListControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CachedInfoLists\ShortLabourContractListControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="CachedInfoLists\TaxRateInfoListControl.Designer.vb">
       <DependentUpon>TaxRateInfoListControl.vb</DependentUpon>
     </Compile>
@@ -349,6 +371,12 @@
       <DependentUpon>TemplateJournalEntryInfoListControl.vb</DependentUpon>
     </Compile>
     <Compile Include="CachedInfoLists\TemplateJournalEntryInfoListControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CachedInfoLists\UserReportInfoListControl.Designer.vb">
+      <DependentUpon>UserReportInfoListControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CachedInfoLists\UserReportInfoListControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CachedInfoLists\VatDeclarationSchemaInfoListControl.Designer.vb">
@@ -501,6 +529,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Documents\ImportedBankOperation.vb" />
+    <Compile Include="FyiPrint.Designer.vb">
+      <DependentUpon>FyiPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FyiPrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="General\F_AccountList.Designer.vb">
       <DependentUpon>F_AccountList.vb</DependentUpon>
     </Compile>
@@ -828,6 +862,18 @@
     <Compile Include="Utilities\F_ServiceTurnoverInfoList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utilities\F_UserReport.Designer.vb">
+      <DependentUpon>F_UserReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\F_UserReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities\F_UserReportParamsDialog.Designer.vb">
+      <DependentUpon>F_UserReportParamsDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\F_UserReportParamsDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Workers\F_Contract.Designer.vb">
       <DependentUpon>F_Contract.vb</DependentUpon>
     </Compile>
@@ -950,6 +996,9 @@
     <EmbeddedResource Include="Administration\F_SettingsLocal.resx">
       <DependentUpon>F_SettingsLocal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administration\F_UserReportInfoList.resx">
+      <DependentUpon>F_UserReportInfoList.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assets\BackgroundInfoPanel.resx">
       <DependentUpon>BackgroundInfoPanel.vb</DependentUpon>
     </EmbeddedResource>
@@ -1052,11 +1101,17 @@
     <EmbeddedResource Include="CachedInfoLists\ServiceInfoListControl.resx">
       <DependentUpon>ServiceInfoListControl.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CachedInfoLists\ShortLabourContractListControl.resx">
+      <DependentUpon>ShortLabourContractListControl.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CachedInfoLists\TaxRateInfoListControl.resx">
       <DependentUpon>TaxRateInfoListControl.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CachedInfoLists\TemplateJournalEntryInfoListControl.resx">
       <DependentUpon>TemplateJournalEntryInfoListControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CachedInfoLists\UserReportInfoListControl.resx">
+      <DependentUpon>UserReportInfoListControl.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CachedInfoLists\VatDeclarationSchemaInfoListControl.resx">
       <DependentUpon>VatDeclarationSchemaInfoListControl.vb</DependentUpon>
@@ -1129,6 +1184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Documents\F_VatDeclarationSchemaInfoItemList.resx">
       <DependentUpon>F_VatDeclarationSchemaInfoItemList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FyiPrint.resx">
+      <DependentUpon>FyiPrint.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="General\F_AccountList.resx">
       <DependentUpon>F_AccountList.vb</DependentUpon>
@@ -1285,6 +1343,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utilities\F_ServiceTurnoverInfoList.resx">
       <DependentUpon>F_ServiceTurnoverInfoList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\F_UserReport.resx">
+      <DependentUpon>F_UserReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\F_UserReportParamsDialog.resx">
+      <DependentUpon>F_UserReportParamsDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Workers\F_Contract.resx">
       <DependentUpon>F_Contract.vb</DependentUpon>
@@ -1623,6 +1687,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.VatDeclaration.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.UserReportInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Workers.ImprestSheet.datasource" />
     <None Include="Resources\Xml_icon_48x48.png" />
   </ItemGroup>

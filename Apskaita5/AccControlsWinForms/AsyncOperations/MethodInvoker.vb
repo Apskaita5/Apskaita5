@@ -293,6 +293,8 @@ Friend Class MethodInvoker(Of T)
 
         If param.GetType Is paramInfo.ParameterType Then Return True
 
+        If paramInfo.ParameterType.IsAssignableFrom(param.GetType) Then Return True
+
         If paramInfo.ParameterType.IsInterface _
             AndAlso Array.IndexOf(param.GetType.GetInterfaces, _
             paramInfo.ParameterType) >= 0 Then Return True

@@ -59,12 +59,14 @@ Public Class RawSQLFetch
 #Region " Factory Methods "
 
     Public Shared Function GetRawSQLFetch(ByVal RawSQLStatement As String) As RawSQLFetch
-        If Not CanGetObject() Then _
-            Throw New Exception("Klaida. Vykdyti tiesiogines SQL užklausas gali tik administratorius.")
-
         If String.IsNullOrEmpty(RawSQLStatement.Trim) Then Return New RawSQLFetch
-
         Return DataPortal.Fetch(Of RawSQLFetch)(New Criteria(RawSQLStatement))
+    End Function
+
+    Public Shared Function GetRawSQLFetch(ByVal rawSqlStatement As String, _
+        ByVal params As List(Of KeyValuePair(Of String, Object))) As RawSQLFetch
+        If String.IsNullOrEmpty(rawSQLStatement.Trim) Then Return New RawSQLFetch
+        Return DataPortal.Fetch(Of RawSQLFetch)(New Criteria(rawSqlStatement, params))
     End Function
 
     Private Sub New()
@@ -78,18 +80,39 @@ Public Class RawSQLFetch
     <Serializable()> _
     Private Class Criteria
         Private _RawSQLStatement As String
+        Private _Params As List(Of KeyValuePair(Of String, Object)) = Nothing
         Public ReadOnly Property RawSQLStatement() As String
             Get
                 Return _RawSQLStatement
             End Get
         End Property
+        Public ReadOnly Property Params() As List(Of KeyValuePair(Of String, Object))
+            Get
+                Return _Params
+            End Get
+        End Property
         Public Sub New(ByVal nRawSQLStatement As String)
             _RawSQLStatement = nRawSQLStatement
+        End Sub
+        Public Sub New(ByVal nRawSQLStatement As String, _
+            ByVal nParams As List(Of KeyValuePair(Of String, Object)))
+            _RawSQLStatement = nRawSQLStatement
+            _Params = nParams
         End Sub
     End Class
 
     Private Overloads Sub DataPortal_Fetch(ByVal criteria As Criteria)
+
+        If Not CanGetObject() Then
+            Throw New Exception("Klaida. Vykdyti tiesiogines SQL užklausas gali tik administratorius.")
+        End If
+
         Dim myComm As New SQLCommand("RawSQL", criteria.RawSQLStatement)
+        If Not criteria.Params Is Nothing Then
+            For Each param As KeyValuePair(Of String, Object) In criteria.Params
+                myComm.AddParam(param.Key, param.Value)
+            Next
+        End If
 
         Dim result As DataTable = Nothing
 
