@@ -50,7 +50,8 @@ Friend Class F_WorkerHolidayInfo
             _FormManager.ManageDataListViewStates(HolidayCalculatedListDataListView)
             _FormManager.ManageDataListViewStates(HolidaySpentListDataListView)
 
-            LoadPersonInfoListToListCombo(WorkerAccGridComboBox, True, False, False, True)
+            LoadShortLabourContractListToListCombo(LabourContractAccListComboBox, _
+                False, 0, Today)
 
         Catch ex As Exception
             ShowError(ex)
@@ -67,11 +68,11 @@ Friend Class F_WorkerHolidayInfo
 
     Private Function GetReportParams() As Object()
 
-        Dim nSerial As String = CType(LabourContractComboBox.SelectedItem, ShortLabourContract).Serial.Trim
-        Dim nNumber As Integer = CType(LabourContractComboBox.SelectedItem, ShortLabourContract).Number
+        Dim nSerial As String = ""
+        Dim nNumber As Integer = 0
         Try
-            nSerial = CType(LabourContractComboBox.SelectedItem, ShortLabourContract).Serial.Trim
-            nNumber = CType(LabourContractComboBox.SelectedItem, ShortLabourContract).Number
+            nSerial = CType(LabourContractAccListComboBox.SelectedValue, ShortLabourContract).Serial.Trim
+            nNumber = CType(LabourContractAccListComboBox.SelectedValue, ShortLabourContract).Number
         Catch ex As Exception
         End Try
 
@@ -98,35 +99,6 @@ Friend Class F_WorkerHolidayInfo
             ' ContractUpdate.GetContractUpdate(item.DocumentID)
             _QueryManager.InvokeQuery(Of ContractUpdate)(Nothing, "GetContractUpdate", True, _
                 AddressOf OpenObjectEditForm, item.DocumentID)
-        End If
-
-    End Sub
-
-    Private Sub RefreshLabourContractsButton_Click(ByVal sender As System.Object, _
-        ByVal e As System.EventArgs) Handles RefreshLabourContractsButton.Click
-
-        Dim currentWorker As HelperLists.PersonInfo = Nothing
-        Try
-            currentWorker = DirectCast(WorkerAccGridComboBox.SelectedValue, HelperLists.PersonInfo)
-        Catch ex As Exception
-        End Try
-        If currentWorker Is Nothing OrElse currentWorker.IsEmpty Then
-            MsgBox("Klaida. Nepasirinktas darbuotojas.", MsgBoxStyle.Exclamation, "Klaida.")
-            Exit Sub
-        End If
-
-        Dim contractList As Csla.FilteredBindingList(Of ShortLabourContract) _
-            = ShortLabourContractList.GetCachedFilteredList(False, _
-            currentWorker.ID, Today)
-
-        LabourContractComboBox.DataSource = Nothing
-        LabourContractComboBox.DataSource = contractList
-        If contractList.Count > 0 Then
-            LabourContractComboBox.SelectedIndex = contractList.Count - 1
-        Else
-            LabourContractComboBox.SelectedIndex = -1
-            MsgBox("Klaida. Šiam darbuotojui nėra registruotų darbo sutarčių.", _
-                MsgBoxStyle.Exclamation, "Klaida.")
         End If
 
     End Sub

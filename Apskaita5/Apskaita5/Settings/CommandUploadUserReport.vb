@@ -14,7 +14,7 @@ Namespace Settings
 #Region " Authorization Rules "
 
         Public Shared Function CanExecuteCommand() As Boolean
-            Return ApplicationContext.User.IsInRole("UserReportInfoList2")
+            Return ApplicationContext.User.IsInRole("HelperLists.UserReportInfoList2")
         End Function
 
 #End Region

@@ -45,11 +45,7 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.TableLayoutPanel13 = New System.Windows.Forms.TableLayoutPanel
         Me.ForCompensationCheckBox = New System.Windows.Forms.CheckBox
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.RefreshLabourContractsButton = New System.Windows.Forms.Button
-        Me.LabourContractComboBox = New System.Windows.Forms.ComboBox
-        Me.WorkerAccGridComboBox = New AccControlsWinForms.AccListComboBox
         Me.DateDateTimePicker = New System.Windows.Forms.DateTimePicker
-        Me.Label2 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
         Me.RefreshButton = New System.Windows.Forms.Button
@@ -104,6 +100,7 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.HolidaySpentListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
         Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller
+        Me.LabourContractAccListComboBox = New AccControlsWinForms.AccListComboBox
         DateLabel = New System.Windows.Forms.Label
         ContractDateLabel = New System.Windows.Forms.Label
         ContractSerialLabel = New System.Windows.Forms.Label
@@ -395,24 +392,17 @@ Partial Friend Class F_WorkerHolidayInfo
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.AutoSize = True
-        Me.TableLayoutPanel1.ColumnCount = 10
+        Me.TableLayoutPanel1.ColumnCount = 6
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.RefreshLabourContractsButton, 7, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.LabourContractComboBox, 8, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.WorkerAccGridComboBox, 4, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.DateDateTimePicker, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label2, 6, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label3, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 3, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.LabourContractAccListComboBox, 4, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
@@ -422,57 +412,14 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(889, 29)
         Me.TableLayoutPanel1.TabIndex = 0
         '
-        'RefreshLabourContractsButton
-        '
-        Me.RefreshLabourContractsButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.RefreshLabourContractsButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.Button_Reload_icon_16p
-        Me.RefreshLabourContractsButton.Location = New System.Drawing.Point(725, 3)
-        Me.RefreshLabourContractsButton.Margin = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.RefreshLabourContractsButton.Name = "RefreshLabourContractsButton"
-        Me.RefreshLabourContractsButton.Size = New System.Drawing.Size(24, 22)
-        Me.RefreshLabourContractsButton.TabIndex = 22
-        Me.RefreshLabourContractsButton.UseVisualStyleBackColor = True
-        '
-        'LabourContractComboBox
-        '
-        Me.LabourContractComboBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabourContractComboBox.FormattingEnabled = True
-        Me.LabourContractComboBox.Location = New System.Drawing.Point(752, 3)
-        Me.LabourContractComboBox.Name = "LabourContractComboBox"
-        Me.LabourContractComboBox.Size = New System.Drawing.Size(109, 21)
-        Me.LabourContractComboBox.TabIndex = 1
-        '
-        'WorkerAccGridComboBox
-        '
-        Me.WorkerAccGridComboBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WorkerAccGridComboBox.EmptyValueString = ""
-        Me.WorkerAccGridComboBox.FilterString = ""
-        Me.WorkerAccGridComboBox.FormattingEnabled = True
-        Me.WorkerAccGridComboBox.InstantBinding = True
-        Me.WorkerAccGridComboBox.Location = New System.Drawing.Point(324, 3)
-        Me.WorkerAccGridComboBox.Name = "WorkerAccGridComboBox"
-        Me.WorkerAccGridComboBox.Size = New System.Drawing.Size(282, 21)
-        Me.WorkerAccGridComboBox.TabIndex = 1
-        '
         'DateDateTimePicker
         '
         Me.DateDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DateDateTimePicker.Location = New System.Drawing.Point(47, 3)
         Me.DateDateTimePicker.Name = "DateDateTimePicker"
-        Me.DateDateTimePicker.Size = New System.Drawing.Size(166, 20)
+        Me.DateDateTimePicker.Size = New System.Drawing.Size(264, 20)
         Me.DateDateTimePicker.TabIndex = 1
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label2.Location = New System.Drawing.Point(632, 5)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(90, 13)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Darbo sutartis:"
         '
         'Label3
         '
@@ -489,7 +436,7 @@ Partial Friend Class F_WorkerHolidayInfo
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label1.Location = New System.Drawing.Point(239, 5)
+        Me.Label1.Location = New System.Drawing.Point(337, 5)
         Me.Label1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(79, 13)
@@ -1261,6 +1208,18 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.ProgressFiller2.TabIndex = 9
         Me.ProgressFiller2.Visible = False
         '
+        'LabourContractAccListComboBox
+        '
+        Me.LabourContractAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabourContractAccListComboBox.EmptyValueString = ""
+        Me.LabourContractAccListComboBox.FilterString = ""
+        Me.LabourContractAccListComboBox.FormattingEnabled = True
+        Me.LabourContractAccListComboBox.InstantBinding = True
+        Me.LabourContractAccListComboBox.Location = New System.Drawing.Point(422, 3)
+        Me.LabourContractAccListComboBox.Name = "LabourContractAccListComboBox"
+        Me.LabourContractAccListComboBox.Size = New System.Drawing.Size(444, 21)
+        Me.LabourContractAccListComboBox.TabIndex = 4
+        '
         'F_WorkerHolidayInfo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1313,11 +1272,7 @@ Partial Friend Class F_WorkerHolidayInfo
     Friend WithEvents TableLayoutPanel13 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents ForCompensationCheckBox As System.Windows.Forms.CheckBox
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents RefreshLabourContractsButton As System.Windows.Forms.Button
-    Friend WithEvents LabourContractComboBox As System.Windows.Forms.ComboBox
-    Friend WithEvents WorkerAccGridComboBox As AccControlsWinForms.AccListComboBox
     Friend WithEvents DateDateTimePicker As System.Windows.Forms.DateTimePicker
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents RefreshButton As System.Windows.Forms.Button
@@ -1372,4 +1327,5 @@ Partial Friend Class F_WorkerHolidayInfo
     Friend WithEvents OlvColumn16 As BrightIdeasSoftware.OLVColumn
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ProgressFiller2 As AccControlsWinForms.ProgressFiller
+    Friend WithEvents LabourContractAccListComboBox As AccControlsWinForms.AccListComboBox
 End Class

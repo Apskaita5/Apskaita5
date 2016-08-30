@@ -23,9 +23,10 @@ Partial Class F_UserReportParamsDialog
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.OK_Button = New System.Windows.Forms.Button
         Me.Cancel_Button = New System.Windows.Forms.Button
+        Me.OK_Button = New System.Windows.Forms.Button
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
+        Me.Label1 = New System.Windows.Forms.Label
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -38,6 +39,7 @@ Partial Class F_UserReportParamsDialog
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 208)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -46,15 +48,6 @@ Partial Class F_UserReportParamsDialog
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(435, 52)
         Me.TableLayoutPanel1.TabIndex = 0
-        '
-        'OK_Button
-        '
-        Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.OK_Button.Location = New System.Drawing.Point(272, 14)
-        Me.OK_Button.Name = "OK_Button"
-        Me.OK_Button.Size = New System.Drawing.Size(67, 23)
-        Me.OK_Button.TabIndex = 0
-        Me.OK_Button.Text = "OK"
         '
         'Cancel_Button
         '
@@ -65,6 +58,15 @@ Partial Class F_UserReportParamsDialog
         Me.Cancel_Button.Size = New System.Drawing.Size(67, 23)
         Me.Cancel_Button.TabIndex = 1
         Me.Cancel_Button.Text = "Cancel"
+        '
+        'OK_Button
+        '
+        Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.OK_Button.Location = New System.Drawing.Point(272, 14)
+        Me.OK_Button.Name = "OK_Button"
+        Me.OK_Button.Size = New System.Drawing.Size(67, 23)
+        Me.OK_Button.TabIndex = 0
+        Me.OK_Button.Text = "OK"
         '
         'TableLayoutPanel2
         '
@@ -79,6 +81,16 @@ Partial Class F_UserReportParamsDialog
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(435, 208)
         Me.TableLayoutPanel2.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(3, 10)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(129, 13)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "* privalomi parametrai"
         '
         'F_UserReportParamsDialog
         '
@@ -97,6 +109,7 @@ Partial Class F_UserReportParamsDialog
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "F_UserReportParamsDialog"
         Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -104,5 +117,6 @@ Partial Class F_UserReportParamsDialog
     Friend WithEvents OK_Button As System.Windows.Forms.Button
     Friend WithEvents Cancel_Button As System.Windows.Forms.Button
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 
 End Class

@@ -16,8 +16,9 @@ Namespace HelperLists
 #Region " Business Methods "
 
         Private ReadOnly _Guid As Guid = Guid.NewGuid()
+        Private _IsEmpty As Boolean = False
         Private _Type As CodeType = CodeType.GpmDeclaration
-        Private _Code As Integer = 0
+        Private _Code As String = ""
         Private _Name As String = ""
         Private _IsObsolete As Boolean = False
 
@@ -30,7 +31,7 @@ Namespace HelperLists
             Implements IValueObject.IsEmpty
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return _Code = 0
+                Return _IsEmpty
             End Get
         End Property
 
@@ -46,10 +47,23 @@ Namespace HelperLists
         End Property
 
         ''' <summary>
-        ''' Gets a code value.
+        ''' Gets a code value as an integer.
         ''' </summary>
         ''' <remarks></remarks>
-        Public ReadOnly Property Code() As Integer
+        Public ReadOnly Property CodeInt() As Integer
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Dim result As Integer
+                If Not Integer.TryParse(_Code, result) Then Return 0
+                Return result
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a code value as an integer.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property Code() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _Code
@@ -81,19 +95,19 @@ Namespace HelperLists
 
         Public Shared Operator =(ByVal a As CodeInfo, ByVal b As CodeInfo) As Boolean
 
-            Dim aId, bId As Integer
+            Dim aId, bId As String
             If a Is Nothing OrElse a.IsEmpty Then
-                aId = 0
+                aId = ""
             Else
                 aId = a.Code
             End If
             If b Is Nothing OrElse b.IsEmpty Then
-                bId = 0
+                bId = ""
             Else
                 bId = b.Code
             End If
 
-            Return aId = bId
+            Return aId.Trim.ToLower() = bId.Trim.ToLower()
 
         End Operator
 
@@ -150,8 +164,8 @@ Namespace HelperLists
         End Function
 
         Public Overrides Function ToString() As String
-            If Not _Code = 0 Then Return ""
-            Return _Code.ToString("00")
+            If _IsEmpty Then Return ""
+            Return _Code
         End Function
 
 #End Region
@@ -166,6 +180,7 @@ Namespace HelperLists
         Public Shared Function Empty() As CodeInfo
             If _Empty Is Nothing Then
                 _Empty = New CodeInfo
+                _Empty._IsEmpty = True
             End If
             Return _Empty
         End Function
@@ -198,7 +213,7 @@ Namespace HelperLists
         Private Sub Fetch(ByVal dr As DataRow)
 
             _Type = Utilities.ConvertDatabaseID(Of CodeType)(CIntSafe(dr.Item(0), 0))
-            _Code = CIntSafe(dr.Item(1), 0)
+            _Code = CStrSafe(dr.Item(1))
             _Name = My.Resources.HelperLists_CodeInfo_UnknownCodeName
             _IsObsolete = True
 

@@ -211,7 +211,8 @@ Namespace HelperLists
         Public Overrides Function ToString() As String
             If Not _Number > 0 Then Return ""
             Return String.Format(My.Resources.HelperLists_ShortLabourContract_ToString, _
-                _Date.ToString("yyyy-MM-dd"), _Serial, _Number.ToString)
+                _Position, _PersonName, _Date.ToString("yyyy-MM-dd"), _
+                _Serial, _Number.ToString)
         End Function
 
 #End Region

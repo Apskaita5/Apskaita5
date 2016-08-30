@@ -228,6 +228,8 @@
     <Compile Include="HelperLists\UserReportInfoList.vb" />
     <Compile Include="HelperLists\UserReportParamInfo.vb" />
     <Compile Include="HelperLists\UserReportParamInfoList.vb" />
+    <Compile Include="HelperLists\UserReportParamValueInfo.vb" />
+    <Compile Include="HelperLists\UserReportParamValueInfoList.vb" />
     <Compile Include="HelperLists\VatDeclarationSchemaInfo.vb" />
     <Compile Include="HelperLists\VatDeclarationSchemaInfoList.vb" />
     <Compile Include="IClientEmailProvider.vb" />

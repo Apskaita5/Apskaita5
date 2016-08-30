@@ -41,7 +41,22 @@ Namespace HelperLists
         ''' <remarks></remarks>
         Public Function GetItemByCode(ByVal ofType As CodeType, ByVal code As Integer) As CodeInfo
             For Each c As CodeInfo In Me
-                If c.Code = code AndAlso c.Type = ofType Then Return c
+                If c.CodeInt = code AndAlso c.Type = ofType Then Return c
+            Next
+            Return Nothing
+        End Function
+
+        ''' <summary>
+        ''' Gets a CodeInfo instance by requested code type and code value.
+        ''' </summary>
+        ''' <param name="ofType">a type of code to look for</param>
+        ''' <param name="code">a code value to look for</param>
+        ''' <remarks></remarks>
+        Public Function GetItemByCode(ByVal ofType As CodeType, ByVal code As String) As CodeInfo
+            If code Is Nothing Then Return Nothing
+            For Each c As CodeInfo In Me
+                If c.Code.Trim.ToLower() = code.Trim.ToLower() _
+                    AndAlso c.Type = ofType Then Return c
             Next
             Return Nothing
         End Function
@@ -173,9 +188,9 @@ Namespace HelperLists
 
             Dim current As CodeInfo = DirectCast(item, CodeInfo)
 
-            If Not showEmpty AndAlso current.Code = 0 Then Return False
+            If Not showEmpty AndAlso current.IsEmpty Then Return False
             If Not showObsolete AndAlso current.IsObsolete Then Return False
-            If current.Code <> 0 AndAlso current.Type <> ofType Then Return False
+            If Not current.IsEmpty AndAlso current.Type <> ofType Then Return False
 
             Return True
 
@@ -240,10 +255,11 @@ Namespace HelperLists
 
         Private Sub AddIfNotExists(ByVal newItem As CodeInfo)
 
-            If newItem.Code = 0 Then Exit Sub
+            If newItem.IsEmpty Then Exit Sub
 
             For Each n As CodeInfo In Me
-                If n.Type = newItem.Type AndAlso n.Code = newItem.Code Then Exit Sub
+                If n.Type = newItem.Type AndAlso n.Code.Trim.ToLower() _
+                    = newItem.Code.Trim.ToLower() Then Exit Sub
             Next
 
             Add(newItem)

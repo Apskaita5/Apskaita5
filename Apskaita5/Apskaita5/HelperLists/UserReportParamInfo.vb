@@ -16,6 +16,7 @@ Namespace HelperLists
         Private _Name As String = ""
         Private _Prompt As String = ""
         Private _AllowNull As Boolean = False
+        Private _ParamValues As UserReportParamValueInfoList = Nothing
 
 
         ''' <summary>
@@ -48,6 +49,17 @@ Namespace HelperLists
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _AllowNull
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a list of possible parameter values (for use in a combobox).
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property ParamValues() As UserReportParamValueInfoList
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _ParamValues
             End Get
         End Property
 
@@ -95,12 +107,25 @@ Namespace HelperLists
                     _Prompt = childNode.InnerText
                 ElseIf childNode.Name.Trim.ToLower = "nullable" Then
                     Boolean.TryParse(childNode.InnerText, _AllowNull)
+                ElseIf childNode.Name.Trim.ToLower = "validvalues" Then
+                    _ParamValues = UserReportParamValueInfoList. _
+                        GetUserReportParamValueInfoList(childNode)
                 End If
             Next
 
             If StringIsNullOrEmpty(_Prompt) Then
                 Throw New Exception(String.Format( _
                     HelperLists_UserReportParamInfo_FailedToParseParamPrompt, _Name))
+            End If
+
+            If _ParamValues Is Nothing Then
+                If _Name.Trim.ToLower.EndsWith("ComboBox".ToLower) Then
+                    Throw New Exception(String.Format( _
+                        HelperLists_UserReportParamInfo_ParamValuesMissing, _Prompt))
+                Else
+                    _ParamValues = UserReportParamValueInfoList. _
+                        NewUserReportParamValueInfoList()
+                End If
             End If
 
         End Sub

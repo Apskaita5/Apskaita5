@@ -95,7 +95,7 @@ Friend Class F_VatDeclarationSchema
 
             LoadEnumLocalizedListToComboBox(TradedTypeHumanReadableComboBox, GetType(TradedItemType), False)
             LoadCodeInfoListToListCombo(ExternalCodeAccListComboBox, _
-                CodeType.VmiVatType, False, False)
+                CodeType.VmiVatType, False, False, False)
 
         Catch ex As Exception
             ShowError(ex)

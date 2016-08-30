@@ -39,6 +39,23 @@ Public Class F_UserReport
 
         If Not SetDataSources() Then Exit Sub
 
+        Me.ViewerToolstrip1.Items(1).Image = My.Resources.Actions_document_save_icon_16p
+        Me.ViewerToolstrip1.Items(1).Text = "Išsaugoti kaip..."
+        ' Me.ViewerToolstrip1.Items(2).Image = My.Resources.
+        Me.ViewerToolstrip1.Items(2).Text = "Spausdinti"
+        Me.ViewerToolstrip1.Items(9).Image = My.Resources.icon_zoom_in_16x16
+        Me.ViewerToolstrip1.Items(9).Text = "Padidinti"
+        Me.ViewerToolstrip1.Items(10).Image = My.Resources.icon_zoom_out_16x16
+        Me.ViewerToolstrip1.Items(10).Text = "Sumažinti"
+
+        Me.ViewerToolstrip1.Items.RemoveAt(12)
+        Me.ViewerToolstrip1.Items.RemoveAt(11)
+        Me.ViewerToolstrip1.Items.RemoveAt(8)
+        Me.ViewerToolstrip1.Items.RemoveAt(7)
+        Me.ViewerToolstrip1.Items.RemoveAt(0)
+
+        Me.ViewerToolstrip1.Items.Insert(2, New ToolStripSeparator)
+        Me.ViewerToolstrip1.Items.Insert(7, New ToolStripSeparator)
 
     End Sub
 

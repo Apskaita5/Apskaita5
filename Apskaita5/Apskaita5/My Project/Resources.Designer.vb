@@ -34698,6 +34698,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to kodas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_CodeInfo_CodeInt() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_CodeInfo_CodeInt", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to nebenaudojamas.
         '''</summary>
         Friend ReadOnly Property HelperLists_CodeInfo_IsObsolete() As String
@@ -36192,11 +36201,56 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to tuščia eilutė.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_ShortLabourContract_IsEmpty() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_ShortLabourContract_IsEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Nr..
         '''</summary>
         Friend ReadOnly Property HelperLists_ShortLabourContract_Number() As String
             Get
                 Return ResourceManager.GetString("HelperLists_ShortLabourContract_Number", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to asmens kodas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_ShortLabourContract_PersonCode() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_ShortLabourContract_PersonCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento (darbuotojo) ID.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_ShortLabourContract_PersonID() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_ShortLabourContract_PersonID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vardas, pavardė.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_ShortLabourContract_PersonName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_ShortLabourContract_PersonName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pareigos.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_ShortLabourContract_Position() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_ShortLabourContract_Position", resourceCulture)
             End Get
         End Property
         
@@ -36210,7 +36264,25 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {0} Nr. {1}{2}.
+        '''  Looks up a localized string similar to nutraukimo data.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_ShortLabourContract_TerminationDate() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_ShortLabourContract_TerminationDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nutraukimo data.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_ShortLabourContract_TerminationDateString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_ShortLabourContract_TerminationDateString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} {1} {2} Nr. {3}{4}.
         '''</summary>
         Friend ReadOnly Property HelperLists_ShortLabourContract_ToString() As String
             Get
@@ -36534,6 +36606,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Parametrui {0} nenurodytos (combobox) vertės..
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamInfo_ParamValuesMissing() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamInfo_ParamValuesMissing", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to parametro pavadinimas.
         '''</summary>
         Friend ReadOnly Property HelperLists_UserReportParamInfo_Prompt() As String
@@ -36575,6 +36656,78 @@ Namespace My.Resources
         Friend ReadOnly Property HelperLists_UserReportParamInfoList_TypeName() As String
             Get
                 Return ResourceManager.GetString("HelperLists_UserReportParamInfoList_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nepavyko perskaityti parametro pavadinimo..
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamValueInfo_FailedToParseParamName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamValueInfo_FailedToParseParamName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nepavyko perskaityti parametro vertės..
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamValueInfo_FailedToParseParamValue() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamValueInfo_FailedToParseParamValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vartotojo ataskaitos parametro vertės pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamValueInfo_Name() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamValueInfo_Name", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamValueInfo_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamValueInfo_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vartotojo ataskaitos parametro vertė.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamValueInfo_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamValueInfo_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vartotojo ataskaitos parametro vertė.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamValueInfo_Value() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamValueInfo_Value", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vartotojo ataskaitos parametro vertės.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamValueInfoList_ToString() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamValueInfoList_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vartotojo ataskaitos parametro vertės.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_UserReportParamValueInfoList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_UserReportParamValueInfoList_TypeName", resourceCulture)
             End Get
         End Property
         

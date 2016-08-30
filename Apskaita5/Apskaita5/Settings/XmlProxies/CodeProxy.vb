@@ -4,7 +4,7 @@
     Public Class CodeProxy
 
         Private _Type As CodeType = CodeType.GpmDeclaration
-        Private _Code As Integer = 0
+        Private _Code As String = ""
         Private _Name As String = ""
         Private _IsObsolete As Boolean = False
 
@@ -19,13 +19,14 @@
             End Set
         End Property
 
-        Public Property Code() As Integer
+        Public Property Code() As String
             Get
                 Return _Code
             End Get
-            Set(ByVal value As Integer)
-                If _Code <> value Then
-                    _Code = value
+            Set(ByVal value As String)
+                If value Is Nothing Then value = ""
+                If _Code.Trim <> value.Trim Then
+                    _Code = value.Trim
                 End If
             End Set
         End Property

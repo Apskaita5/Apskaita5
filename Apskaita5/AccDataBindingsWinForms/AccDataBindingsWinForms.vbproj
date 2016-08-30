@@ -1691,6 +1691,12 @@
     <None Include="My Project\DataSources\ApskaitaObjects.Workers.ImprestSheet.datasource" />
     <None Include="Resources\Xml_icon_48x48.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_zoom_in_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_zoom_out_16x16.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

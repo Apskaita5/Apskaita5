@@ -19,7 +19,7 @@ Namespace Settings
 
         Private ReadOnly _Guid As Guid = Guid.NewGuid()
         Private _Type As CodeType = CodeType.GpmDeclaration
-        Private _Code As Integer = 0
+        Private _Code As String = ""
         Private _Name As String = ""
         Private _IsObsolete As Boolean = False
 
@@ -74,17 +74,18 @@ Namespace Settings
         ''' Gets or sets a code value.
         ''' </summary>
         ''' <remarks></remarks>
-        <IntegerField(ValueRequiredLevel.Mandatory, True)> _
-        Public Property Code() As Integer
+        <StringField(ValueRequiredLevel.Mandatory, 50)> _
+        Public Property Code() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _Code
             End Get
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Set(ByVal value As Integer)
+            Set(ByVal value As String)
                 CanWriteProperty(True)
-                If _Code <> value Then
-                    _Code = value
+                If value Is Nothing Then value = ""
+                If _Code.Trim <> value.Trim Then
+                    _Code = value.Trim
                     PropertyHasChanged()
                 End If
             End Set
@@ -165,9 +166,9 @@ Namespace Settings
 
         Protected Overrides Sub AddBusinessRules()
 
-            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.IntegerFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.StringFieldValidation, _
                 New RuleArgs("Code"))
-            ValidationRules.AddRule(AddressOf CommonValidation.CommonValidation.StringFieldValidation, _
+            ValidationRules.AddRule(AddressOf CommonValidation.StringFieldValidation, _
                 New RuleArgs("Name"))
         End Sub
 

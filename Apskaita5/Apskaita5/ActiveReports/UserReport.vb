@@ -110,7 +110,7 @@ Namespace ActiveReports
         End Sub
 
         Public Shared Function CanGetObject() As Boolean
-            Return ApplicationContext.User.IsInRole("UserReportInfoList1")
+            Return ApplicationContext.User.IsInRole("HelperLists.UserReportInfoList1")
         End Function
 
 #End Region

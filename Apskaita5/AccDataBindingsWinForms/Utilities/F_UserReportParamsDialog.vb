@@ -80,7 +80,11 @@ Public Class F_UserReportParamsDialog
 
                     Dim paramLabel As New Label()
                     paramLabel.Font = New Font(Me.Font, FontStyle.Bold)
-                    paramLabel.Text = param.Prompt
+                    If param.AllowNull Then
+                        paramLabel.Text = param.Prompt
+                    Else
+                        paramLabel.Text = param.Prompt & "*"
+                    End If
                     paramLabel.Padding = New Padding(0, 5, 0, 0)
                     paramLabel.TextAlign = ContentAlignment.TopRight
                     Me.TableLayoutPanel2.Controls.Add(paramLabel, 0, i)
@@ -230,6 +234,8 @@ Public Class F_UserReportParamsDialog
 
         Next
 
+        Return result.ToArray()
+
     End Function
 
     Private Function GetControl(ByVal param As UserReportParamInfo) As Control
@@ -261,6 +267,13 @@ Public Class F_UserReportParamsDialog
             result.SelectedItem = Today.AddMonths(-1).Month
             Return result
 
+        ElseIf param.Name.Trim.ToLower.EndsWith("ComboBox".ToLower) Then
+
+            Dim result As New ComboBox
+            result.DataSource = param.ParamValues
+            result.Tag = GetType(UserReportParamValueInfo)
+            Return result
+
         ElseIf param.Name.Trim.ToLower.EndsWith("CheckBox".ToLower) Then
 
             Dim result As New CheckBox
@@ -273,6 +286,7 @@ Public Class F_UserReportParamsDialog
 
             Dim result As New RadioButton
             result.Text = param.Prompt
+            result.Font = New Font(Me.Font, FontStyle.Bold)
             result.AutoSize = True
             result.Tag = GetType(Byte)
             Return result
@@ -487,7 +501,7 @@ Public Class F_UserReportParamsDialog
 
             Dim underlyingType As Type = DirectCast(cntr.Tag, Type)
 
-            If Not param.AllowNull AndAlso underlyingType Is GetType(IValueObject) Then
+            If Not param.AllowNull AndAlso GetType(IValueObject).IsAssignableFrom(underlyingType) Then
                 Dim valueObject As IValueObject = Nothing
                 Try
                     valueObject = DirectCast(DirectCast(cntr, AccListComboBox). _
@@ -641,8 +655,20 @@ Public Class F_UserReportParamsDialog
 
             Else
 
-                ' TODO: implement combo
-                Return DirectCast(cntr, ComboBox).SelectedItem.ToString
+                Dim result As UserReportParamValueInfo = Nothing
+                Try
+                    result = DirectCast(DirectCast(cntr, ComboBox).SelectedValue,  _
+                        UserReportParamValueInfo)
+                Catch ex As Exception
+                End Try
+                If result Is Nothing Then
+                    If Not param.AllowNull Then
+                        Throw New Exception(String.Format("Nenurodyta {0}.", param.Prompt))
+                    End If
+                    Return ""
+                Else
+                    Return result.Value
+                End If
 
             End If
 

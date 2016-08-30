@@ -151,7 +151,7 @@
                                 CIntSafe(dr.Item(6), 0))
                             If sci Is Nothing Then Throw New Exception(String.Format( _
                                 My.Resources.ActiveReports_Declarations_DeclarationSD13_1_UnknownReasonCode, CStrSafe(dr.Item(6))))
-                            dd.Rows(i).Item(8) = sci.Code
+                            dd.Rows(i).Item(8) = sci.CodeInt
                             dd.Rows(i).Item(9) = sci.Name
                         Else
                             dd.Rows(i).Item(8) = ""

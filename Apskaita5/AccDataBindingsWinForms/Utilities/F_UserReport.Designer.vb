@@ -25,11 +25,11 @@ Partial Class F_UserReport
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_UserReport))
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.RefreshButton = New System.Windows.Forms.Button
-        Me.UserReportInfoListAccListComboBox = New AccControlsWinForms.AccListComboBox
         Me.RdlViewer1 = New fyiReporting.RdlViewer.RdlViewer
         Me.ViewerToolstrip1 = New fyiReporting.RdlViewer.ViewerToolstrip
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
+        Me.UserReportInfoListAccListComboBox = New AccControlsWinForms.AccListComboBox
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
         Me.Panel1.SuspendLayout()
         Me.ViewerToolstrip1.SuspendLayout()
@@ -55,19 +55,6 @@ Partial Class F_UserReport
         Me.RefreshButton.Size = New System.Drawing.Size(33, 32)
         Me.RefreshButton.TabIndex = 2
         Me.RefreshButton.UseVisualStyleBackColor = True
-        '
-        'UserReportInfoListAccListComboBox
-        '
-        Me.UserReportInfoListAccListComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.UserReportInfoListAccListComboBox.EmptyValueString = ""
-        Me.UserReportInfoListAccListComboBox.FilterString = ""
-        Me.UserReportInfoListAccListComboBox.FormattingEnabled = True
-        Me.UserReportInfoListAccListComboBox.InstantBinding = True
-        Me.UserReportInfoListAccListComboBox.Location = New System.Drawing.Point(11, 7)
-        Me.UserReportInfoListAccListComboBox.Name = "UserReportInfoListAccListComboBox"
-        Me.UserReportInfoListAccListComboBox.Size = New System.Drawing.Size(547, 21)
-        Me.UserReportInfoListAccListComboBox.TabIndex = 0
         '
         'RdlViewer1
         '
@@ -110,15 +97,28 @@ Partial Class F_UserReport
         Me.ViewerToolstrip1.Text = "ViewerToolstrip1"
         Me.ViewerToolstrip1.Viewer = Me.RdlViewer1
         '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
         '
-        'ToolStripSeparator2
+        'UserReportInfoListAccListComboBox
         '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 25)
+        Me.UserReportInfoListAccListComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.UserReportInfoListAccListComboBox.EmptyValueString = ""
+        Me.UserReportInfoListAccListComboBox.FilterString = ""
+        Me.UserReportInfoListAccListComboBox.FormattingEnabled = True
+        Me.UserReportInfoListAccListComboBox.InstantBinding = True
+        Me.UserReportInfoListAccListComboBox.Location = New System.Drawing.Point(11, 7)
+        Me.UserReportInfoListAccListComboBox.Name = "UserReportInfoListAccListComboBox"
+        Me.UserReportInfoListAccListComboBox.Size = New System.Drawing.Size(547, 21)
+        Me.UserReportInfoListAccListComboBox.TabIndex = 0
         '
         'ProgressFiller1
         '
@@ -153,7 +153,7 @@ Partial Class F_UserReport
     Friend WithEvents RefreshButton As System.Windows.Forms.Button
     Friend WithEvents RdlViewer1 As fyiReporting.RdlViewer.RdlViewer
     Friend WithEvents ViewerToolstrip1 As fyiReporting.RdlViewer.ViewerToolstrip
+    Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
 End Class

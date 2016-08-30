@@ -514,6 +514,20 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property icon_zoom_in_16x16() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("icon_zoom_in_16x16", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property icon_zoom_out_16x16() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("icon_zoom_out_16x16", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property Information_6227_32x() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Information_6227_32x", resourceCulture)

@@ -221,13 +221,18 @@ Namespace CachedInfoLists
         End Sub
 
         Public Sub LoadCodeInfoListToListCombo(ByVal comboObject As AccListComboBox, _
-                                               ByVal ofType As CodeType, ByVal includeEmpty As Boolean, ByVal includeObsolete As Boolean)
+            ByVal ofType As CodeType, ByVal includeEmpty As Boolean, _
+            ByVal includeObsolete As Boolean, ByVal bindToIntValue As Boolean)
 
             If comboObject.HasAttachedInfoList Then Exit Sub
 
             Dim result As New CodeInfoListControl
 
-            result.ValueMember = "Code"
+            If bindToIntValue Then
+                result.ValueMember = "CodeInt"
+            Else
+                result.ValueMember = "Code"
+            End If
             result.DataSource = GetBindingSourceForCachedList(Of CodeInfoList) _
                 (ofType, includeEmpty, includeObsolete)
             result.AcceptSingleClick = True

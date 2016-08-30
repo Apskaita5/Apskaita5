@@ -832,4 +832,12 @@
     DatabaseReadOnlyTableAccessList=""
     IsHelperList="false"
     ParentRoles="" />
+  <RoleDatabaseAccess
+    VisibleIndex="85"
+    RoleName="HelperLists.UserReportInfoList"
+    RoleNameHumanReadable="vartotojų ataskaitos"
+    DatabaseTableAccessList=""
+    DatabaseReadOnlyTableAccessList=""
+    IsHelperList="false"
+    ParentRoles="" />
 </RoleDatabaseAccessList>

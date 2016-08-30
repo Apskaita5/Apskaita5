@@ -367,12 +367,21 @@ ORDER BY m.Month;</CommandText>
                   </TableCells>
                 </TableRow>
               </TableRows>
+              <RepeatOnNewPage>false</RepeatOnNewPage>
             </Footer>
             <Grouping Name="MonthGroup">
               <GroupExpressions>
-                <GroupExpression>=Fields!Month.Value</GroupExpression>
+                <GroupExpression>=Convert.ToInt32(Fields!Month.Value)</GroupExpression>
               </GroupExpressions>
+              <PageBreakAtStart>false</PageBreakAtStart>
+              <PageBreakAtEnd>false</PageBreakAtEnd>
             </Grouping>
+            <Sorting>
+              <SortBy>
+                <SortExpression>=Convert.ToInt32(Fields!Month.Value)</SortExpression>
+                <Direction>Ascending</Direction>
+              </SortBy>
+            </Sorting>
           </TableGroup>
         </TableGroups>
         <Details>
@@ -464,6 +473,12 @@ ORDER BY m.Month;</CommandText>
               </TableCells>
             </TableRow>
           </TableRows>
+          <Sorting>
+            <SortBy>
+              <SortExpression>=Convert.ToInt32({Month})</SortExpression>
+              <Direction>Ascending</Direction>
+            </SortBy>
+          </Sorting>
         </Details>
         <Footer>
           <TableRows>
@@ -614,7 +629,7 @@ ORDER BY m.Month;</CommandText>
               </Grouping>
               <Sorting>
                 <SortBy>
-                  <SortExpression>={Month}</SortExpression>
+                  <SortExpression>=Convert.ToInt32(Fields!Month.Value)</SortExpression>
                   <Direction>Ascending</Direction>
                 </SortBy>
               </Sorting>
@@ -824,7 +839,7 @@ Else
 Return "mėnuo nenurodytas (" &amp; monthInt.ToString &amp; ")"
 End If
 End Function</Code>
-  <ReportParameters>
+  <ReportParameters >
     <ReportParameter Name="ForYear">
       <DataType>Integer</DataType>
       <DefaultValue>
@@ -844,7 +859,7 @@ End Function</Code>
           <Value>0</Value>
         </Values>
       </DefaultValue>
-      <Nullable>false</Nullable>
+      <Nullable>true</Nullable>
       <AllowBlank>false</AllowBlank>
       <MultiValue>false</MultiValue>
       <Prompt>Kontrahentas:</Prompt>
