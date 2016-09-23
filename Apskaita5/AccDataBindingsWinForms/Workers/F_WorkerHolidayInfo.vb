@@ -4,6 +4,7 @@ Imports ApskaitaObjects.HelperLists
 Imports AccControlsWinForms
 Imports AccDataBindingsWinForms.Printing
 Imports AccDataBindingsWinForms.CachedInfoLists
+Imports ApskaitaObjects.Attributes
 
 Friend Class F_WorkerHolidayInfo
     Implements ISupportsPrinting
@@ -31,10 +32,11 @@ Friend Class F_WorkerHolidayInfo
         Try
 
             _CalculatedListViewManager = New DataListViewEditControlManager(Of HolidayCalculationPeriod) _
-                (HolidayCalculatedListDataListView, Nothing, Nothing, Nothing, Nothing)
+                (HolidayCalculatedListDataListView, Nothing, Nothing, _
+                 Nothing, Nothing, Nothing)
 
             _SpentListViewManager = New DataListViewEditControlManager(Of HolidaySpentItem) _
-                (HolidaySpentListDataListView, Nothing, Nothing, Nothing, Nothing)
+                (HolidaySpentListDataListView, Nothing, Nothing, Nothing, Nothing, Nothing)
 
             _SpentListViewManager.AddCancelButton = False
             _SpentListViewManager.AddButtonHandler("Dokumentas", "Rodyti dokumentą.", _
@@ -50,8 +52,8 @@ Friend Class F_WorkerHolidayInfo
             _FormManager.ManageDataListViewStates(HolidayCalculatedListDataListView)
             _FormManager.ManageDataListViewStates(HolidaySpentListDataListView)
 
-            LoadShortLabourContractListToListCombo(LabourContractAccListComboBox, _
-                False, 0, Today)
+            PrepareControl(LabourContractAccListComboBox, _
+                New ShortLabourContractFieldAttribute(ValueRequiredLevel.Optional))
 
         Catch ex As Exception
             ShowError(ex)

@@ -1,6 +1,8 @@
 ﻿Imports ApskaitaObjects.Documents.InvoiceAdapters
 Imports AccControlsWinForms
 Imports AccDataBindingsWinForms.CachedInfoLists
+Imports ApskaitaObjects.Attributes
+Imports ApskaitaObjects.Documents
 
 Friend Class F_NewInvoiceAdapterForServiceOperation
 
@@ -34,7 +36,8 @@ Friend Class F_NewInvoiceAdapterForServiceOperation
 
         Try
 
-            LoadServiceInfoListToListCombo(ServicesAccGridComboBox, False, True, True)
+            PrepareControl(ServicesAccGridComboBox, New ServiceFieldAttribute( _
+                ValueRequiredLevel.Optional, TradedItemType.All))
 
             _QueryBrowser = New CslaActionExtenderQueryObject(Me, ProgressFiller1)
 

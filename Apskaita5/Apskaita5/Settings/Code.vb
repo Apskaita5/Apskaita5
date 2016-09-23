@@ -48,6 +48,7 @@ Namespace Settings
         ''' Gets or sets a type of the code as a human readable (localized) string.
         ''' </summary>
         ''' <remarks></remarks>
+        <LocalizedEnumField(GetType(CodeType), False, "")> _
         Public Property TypeHumanReadable() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get

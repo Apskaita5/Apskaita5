@@ -8,7 +8,7 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class UserReportInfoList
+    Public NotInheritable Class UserReportInfoList
         Inherits ReadOnlyListBase(Of UserReportInfoList, UserReportInfo)
 
 #Region " Business Methods "

@@ -29,12 +29,14 @@ Friend Class F_LongTermAssetsTransferOfBalance
     Private Sub F_LongTermAssetsTransferOfBalance_Load(ByVal sender As Object, _
         ByVal e As System.EventArgs) Handles Me.Load
 
-        If Not SetDataSources() Then Exit Sub
-
         Try
+
+            _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller2)
+
             ' LongTermAssetsTransferOfBalance.GetLongTermAssetsTransferOfBalance()
             _QueryManager.InvokeQuery(Of LongTermAssetsTransferOfBalance)(Nothing, _
                 "GetLongTermAssetsTransferOfBalance", True, AddressOf OnDataSourceLoaded)
+
         Catch ex As Exception
             ShowError(ex)
             DisableAllControls(Me)
@@ -43,26 +45,18 @@ Friend Class F_LongTermAssetsTransferOfBalance
 
     End Sub
 
-    Private Function SetDataSources() As Boolean
+    Private Function SetDataSources(ByVal currentSource As LongTermAssetsTransferOfBalance) As Boolean
 
         If Not PrepareCache(Me, _RequiredCachedLists) Then Return False
 
         Try
 
             _ListViewManager = New DataListViewEditControlManager(Of LongTermAsset) _
-                (ItemsDataListView, Nothing, AddressOf OnItemsDelete, Nothing, Nothing)
+                (ItemsDataListView, Nothing, AddressOf OnItemsDelete, _
+                 Nothing, Nothing, currentSource)
 
-            Dim legalGroupComboBox As New ComboBox
-            LoadNameInfoListToCombo(legalGroupComboBox, ApskaitaObjects.Settings.NameType.LongTermAssetLegalGroup, True)
-            _ListViewManager.AddCustomEditControl("LegalGroup", legalGroupComboBox)
-
-            Dim customGroupAccListComboBox As New AccListComboBox
-            LoadLongTermAssetCustomGroupInfoToListCombo(customGroupAccListComboBox, True)
-            _ListViewManager.AddCustomEditControl("CustomGroupInfo", customGroupAccListComboBox)
-
-            _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller2)
-
-            SetupDefaultControls(Of LongTermAssetsTransferOfBalance)(Me, LongTermAssetsTransferOfBalanceBindingSource)
+            SetupDefaultControls(Of LongTermAssetsTransferOfBalance) _
+                (Me, LongTermAssetsTransferOfBalanceBindingSource, currentSource)
 
         Catch ex As Exception
             ShowError(ex)
@@ -92,6 +86,10 @@ Friend Class F_LongTermAssetsTransferOfBalance
             DisableAllControls(Me)
             Exit Sub
 
+        End If
+
+        If Not SetDataSources(DirectCast(source, LongTermAssetsTransferOfBalance)) Then
+            Exit Sub
         End If
 
         Try

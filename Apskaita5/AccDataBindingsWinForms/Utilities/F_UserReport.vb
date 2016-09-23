@@ -2,6 +2,7 @@
 Imports ApskaitaObjects.HelperLists
 Imports ApskaitaObjects.ActiveReports
 Imports AccDataBindingsWinForms.CachedInfoLists
+Imports ApskaitaObjects.Attributes
 
 Public Class F_UserReport
 
@@ -65,7 +66,8 @@ Public Class F_UserReport
 
         Try
 
-            LoadUserReportInfoListToListCombo(UserReportInfoListAccListComboBox)
+            PrepareControl(UserReportInfoListAccListComboBox, _
+                New UserReportFieldAttribute(ValueRequiredLevel.Optional))
 
             _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller1)
 

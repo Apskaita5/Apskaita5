@@ -107,7 +107,7 @@ Namespace Documents
         ''' Gets or sets a VAT rate for the declaration schema.
         ''' </summary>
         ''' <remarks>Value is stored in the database field VatDeclarationSchemas.VatRate.</remarks>
-        <DoubleField(ValueRequiredLevel.Recommended, False, 2, True, 0, 99)> _
+        <TaxRateField(ValueRequiredLevel.Recommended, ApskaitaObjects.Settings.TaxRateType.Vat)> _
         Public Property VatRate() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -168,6 +168,7 @@ Namespace Documents
         ''' as a human readable string.
         ''' </summary>
         ''' <remarks>Value is stored in the database field VatDeclarationSchemas.TradedType.</remarks>
+        <LocalizedEnumField(GetType(TradedItemType), False, "")> _
         Public Property TradedTypeHumanReadable() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -191,7 +192,7 @@ Namespace Documents
         ''' Gets or sets a code of the VAT declaration schema that is used for integration with external systems.
         ''' </summary>
         ''' <remarks>Value is stored in the database field VatDeclarationSchemas.ExternalCode.</remarks>
-        <StringField(ValueRequiredLevel.Optional, 255)> _
+        <CodeField(ValueRequiredLevel.Mandatory, ApskaitaObjects.Settings.CodeType.VmiVatType)> _
         Public Property ExternalCode() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get

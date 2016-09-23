@@ -82,11 +82,13 @@ Friend Class F_HolidayPayReserve
         Try
 
             _ListViewManager = New DataListViewEditControlManager(Of HolidayPayReserveItem) _
-                (ItemsDataListView, Nothing, AddressOf OnItemsDelete, Nothing, Nothing)
+                (ItemsDataListView, Nothing, AddressOf OnItemsDelete, _
+                 Nothing, Nothing, _DocumentToEdit)
 
             _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller2)
 
-            SetupDefaultControls(Of HolidayPayReserve)(Me, HolidayPayReserveBindingSource)
+            SetupDefaultControls(Of HolidayPayReserve)(Me, _
+                HolidayPayReserveBindingSource, _DocumentToEdit)
 
         Catch ex As Exception
             ShowError(ex)

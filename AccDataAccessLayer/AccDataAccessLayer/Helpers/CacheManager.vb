@@ -6,7 +6,8 @@ Public Module CacheManager
 
     Public Event BaseTypeCacheIsAdded(ByVal e As CacheChangedEventArgs)
 
-    Public Function GetItemFromCache(Of T)(ByVal nBaseType As Type, ByVal nFilterArguments As Object()) As T
+
+    Public Function GetItemFromCache(Of T)(ByVal baseType As Type, ByVal filterArguments As Object()) As T
 
         If _CacheItemList Is Nothing Then Return Nothing
 
@@ -20,47 +21,50 @@ Public Module CacheManager
             End If
         End If
 
-        Dim ItemToFind As New CacheItem(nBaseType, GetType(T), nFilterArguments, databaseName)
+        Dim itemToFind As New CacheItem(baseType, GetType(T), filterArguments, databaseName)
 
         For Each item As CacheItem In _CacheItemList
-            If item = ItemToFind Then Return DirectCast(item.CachedObject, T)
+            If item = itemToFind Then Return DirectCast(item.CachedObject, T)
         Next
 
         Return Nothing
 
     End Function
 
-    Public Sub InvalidateCache(ByVal ParamArray nBaseType() As Type)
+    Public Sub InvalidateCache(ByVal ParamArray baseTypes() As Type)
 
         If _CacheItemList Is Nothing OrElse _CacheItemList.Count < 1 Then Exit Sub
 
-        Dim DatabaseName As String = ""
+        Dim databaseName As String = ""
 
         If IsWebServer(GetCurrentIdentity.IsWebServerImpersonation) Then
             If WebServerUsesCache() Then
-                DatabaseName = GetCurrentIdentity().Database.Trim
+                databaseName = GetCurrentIdentity().Database.Trim
             Else
                 Exit Sub
             End If
         End If
 
         For i As Integer = _CacheItemList.Count To 1 Step -1
-            If Not Array.IndexOf(nBaseType, _CacheItemList(i - 1).BaseType) < 0 _
-                AndAlso (_CacheItemList(i - 1).DatabaseName.Trim.ToLower = DatabaseName _
-                OrElse _CacheItemList(i - 1).IsApplicationWide) Then _
+            If Not Array.IndexOf(baseTypes, _CacheItemList(i - 1).BaseType) < 0 _
+                AndAlso (_CacheItemList(i - 1).DatabaseName.Trim.ToLower = databaseName _
+                OrElse _CacheItemList(i - 1).IsApplicationWide) Then
+
                 _CacheItemList.RemoveAt(i - 1)
+
+            End If
         Next
 
     End Sub
 
-    Public Sub AddCacheItem(ByVal nBaseType As Type, ByVal nCachedObject As Object, _
-        ByVal nFilterArguments As Object())
+    Public Sub AddCacheItem(ByVal baseType As Type, ByVal cachedObject As Object, _
+        ByVal filterArguments As Object())
 
-        Dim DatabaseName As String = ""
+        Dim databaseName As String = ""
 
         If IsWebServer(GetCurrentIdentity.IsWebServerImpersonation) Then
             If WebServerUsesCache() Then
-                DatabaseName = GetCurrentIdentity().Database.Trim
+                databaseName = GetCurrentIdentity().Database.Trim
             Else
                 Exit Sub
             End If
@@ -68,49 +72,58 @@ Public Module CacheManager
 
         If _CacheItemList Is Nothing Then _CacheItemList = New List(Of CacheItem)
 
-        Dim NewCacheItem As New CacheItem(nBaseType, nFilterArguments, nCachedObject, DatabaseName)
+        Dim newCacheItem As New CacheItem(baseType, filterArguments, cachedObject, databaseName)
 
         If _CacheItemList.Count > 0 Then
-            If NewCacheItem.BaseType Is NewCacheItem.Type Then
+            If newCacheItem.BaseType Is newCacheItem.Type Then
+
                 For i As Integer = _CacheItemList.Count To 1 Step -1
-                    If _CacheItemList(i - 1).BaseType Is NewCacheItem.BaseType _
-                        AndAlso (NewCacheItem.IsApplicationWide _
-                        OrElse NewCacheItem.DatabaseName.Trim.ToLower = _
-                        _CacheItemList(i - 1).DatabaseName.Trim.ToLower) Then _CacheItemList.RemoveAt(i - 1)
+                    If _CacheItemList(i - 1).BaseType Is newCacheItem.BaseType _
+                        AndAlso (newCacheItem.IsApplicationWide _
+                        OrElse newCacheItem.DatabaseName.Trim.ToLower = _
+                        _CacheItemList(i - 1).DatabaseName.Trim.ToLower) Then
+
+                        _CacheItemList.RemoveAt(i - 1)
+
+                    End If
                 Next
+
             Else
                 For i As Integer = _CacheItemList.Count To 1 Step -1
-                    If _CacheItemList(i - 1) = NewCacheItem Then _CacheItemList.RemoveAt(i - 1)
+                    If _CacheItemList(i - 1) = newCacheItem Then
+                        _CacheItemList.RemoveAt(i - 1)
+                    End If
                 Next
             End If
         End If
 
-        _CacheItemList.Add(NewCacheItem)
+        _CacheItemList.Add(newCacheItem)
 
         ' web server has no awareness of the client -> no means to get the browser of the cache change
         ' -> no point in rising event
-        If String.IsNullOrEmpty(DatabaseName.Trim) AndAlso NewCacheItem.BaseType Is NewCacheItem.Type Then _
-            RaiseEvent BaseTypeCacheIsAdded(New CacheChangedEventArgs(NewCacheItem.BaseType))
+        If String.IsNullOrEmpty(databaseName.Trim) AndAlso newCacheItem.BaseType Is newCacheItem.Type Then
+            RaiseEvent BaseTypeCacheIsAdded(New CacheChangedEventArgs(newCacheItem.BaseType))
+        End If
 
     End Sub
 
-    Public Function CacheIsInvalidated(ByVal nBaseType As Type) As Boolean
+    Public Function CacheIsInvalidated(ByVal baseType As Type) As Boolean
 
         If _CacheItemList Is Nothing Then Return True
 
-        Dim DatabaseName As String = ""
+        Dim databaseName As String = ""
 
         If IsWebServer(GetCurrentIdentity.IsWebServerImpersonation) Then
             If WebServerUsesCache() Then
-                DatabaseName = GetCurrentIdentity().Database.Trim
+                databaseName = GetCurrentIdentity().Database.Trim
             Else
                 Exit Function
             End If
         End If
 
         For Each item As CacheItem In _CacheItemList
-            If item.BaseType Is nBaseType AndAlso (item.IsApplicationWide _
-                OrElse item.DatabaseName.Trim.ToLower = DatabaseName.Trim.ToLower) Then Return False
+            If item.BaseType Is baseType AndAlso (item.IsApplicationWide _
+                OrElse item.DatabaseName.Trim.ToLower = databaseName.Trim.ToLower) Then Return False
         Next
 
         Return True
@@ -121,11 +134,11 @@ Public Module CacheManager
 
         If _CacheItemList Is Nothing OrElse _CacheItemList.Count < 1 Then Exit Sub
 
-        Dim DatabaseName As String = ""
+        Dim databaseName As String = ""
 
         If IsWebServer(GetCurrentIdentity.IsWebServerImpersonation) Then
             If WebServerUsesCache() Then
-                DatabaseName = GetCurrentIdentity().Database.Trim
+                databaseName = GetCurrentIdentity().Database.Trim
             Else
                 Exit Sub
             End If
@@ -133,8 +146,12 @@ Public Module CacheManager
 
         For i As Integer = _CacheItemList.Count To 1 Step -1
             If Not _CacheItemList(i - 1).IsApplicationWide AndAlso _
-                _CacheItemList(i - 1).DatabaseName.Trim.ToLower = _
-                DatabaseName.Trim.ToLower Then _CacheItemList.RemoveAt(i - 1)
+               _CacheItemList(i - 1).DatabaseName.Trim.ToLower = _
+               databaseName.Trim.ToLower Then
+
+                _CacheItemList.RemoveAt(i - 1)
+
+            End If
         Next
 
     End Sub

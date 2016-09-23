@@ -79,10 +79,16 @@ Namespace Printing
         ''' <remarks></remarks>
         Public Sub DisposeLocalReportDatasources(ByRef report As LocalReport)
 
-            For Each ds As Microsoft.Reporting.WinForms.ReportDataSource In report.DataSources
-                DirectCast(ds.Value, BindingSource).Dispose()
-            Next
-            report.DataSources.Clear()
+            Try
+                For Each ds As Microsoft.Reporting.WinForms.ReportDataSource In report.DataSources
+                    Try
+                        DirectCast(ds.Value, BindingSource).Dispose()
+                    Catch ex As Exception
+                    End Try
+                Next
+                report.DataSources.Clear()
+            Catch ex As Exception
+            End Try
 
         End Sub
 

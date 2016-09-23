@@ -3,6 +3,7 @@ Imports ApskaitaObjects.HelperLists
 Imports AccControlsWinForms
 Imports AccDataBindingsWinForms.Printing
 Imports AccDataBindingsWinForms.CachedInfoLists
+Imports ApskaitaObjects.Attributes
 
 Friend Class F_WorkersVDUInfo
     Implements ISupportsPrinting
@@ -29,10 +30,10 @@ Friend Class F_WorkersVDUInfo
         Try
 
             _WageListViewManager = New DataListViewEditControlManager(Of WageVDUInfo) _
-                (WageListDataListView, Nothing, Nothing, Nothing, Nothing)
+                (WageListDataListView, Nothing, Nothing, Nothing, Nothing, Nothing)
 
             _BonusListViewManager = New DataListViewEditControlManager(Of BonusVDUInfo) _
-                (BonusListListDataListView, Nothing, Nothing, Nothing, Nothing)
+                (BonusListListDataListView, Nothing, Nothing, Nothing, Nothing, Nothing)
 
             '_SpentListViewManager.AddCancelButton = False
             '_SpentListViewManager.AddButtonHandler("Dokumentas", "Rodyti dokumentą.", _
@@ -46,8 +47,8 @@ Friend Class F_WorkersVDUInfo
             _FormManager.ManageDataListViewStates(BonusListListDataListView)
             _FormManager.ManageDataListViewStates(WageListDataListView)
 
-            LoadShortLabourContractListToListCombo(LabourContractAccListComboBox, _
-                False, 0, Today)
+            PrepareControl(LabourContractAccListComboBox, _
+                New ShortLabourContractFieldAttribute(ValueRequiredLevel.Optional))
 
         Catch ex As Exception
             ShowError(ex)

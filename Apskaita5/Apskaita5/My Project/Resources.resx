@@ -7255,7 +7255,7 @@
     <value>{0} gauta sąskaita faktūra Nr. {1} (ID={2}): {3}.</value>
   </data>
   <data name="Documents_InvoiceReceived_TypeName" xml:space="preserve">
-    <value>išrašyta sąskaita faktūra</value>
+    <value>gauta sąskaita faktūra</value>
   </data>
   <data name="Documents_InvoiceMade_DoomyCommentsInternal" xml:space="preserve">
     <value>Kažkokie vidiniai komentarai</value>
@@ -14443,5 +14443,23 @@
   </data>
   <data name="HelperLists_UserReportParamValueInfoList_TypeName" xml:space="preserve">
     <value>vartotojo ataskaitos parametro vertės</value>
+  </data>
+  <data name="Common_PersonBaseGroupNameBuyers" xml:space="preserve">
+    <value>pirkėjai</value>
+  </data>
+  <data name="Common_PersonBaseGroupNameSuppliers" xml:space="preserve">
+    <value>tiekėjai</value>
+  </data>
+  <data name="Common_PersonBaseGroupNameWorkers" xml:space="preserve">
+    <value>darbuotojai</value>
+  </data>
+  <data name="Common_PersonBaseGroupInvalid" xml:space="preserve">
+    <value>Pasirinktas kontrahentas nėra priskirtas nei vienai leistinai grupei ({0}).</value>
+  </data>
+  <data name="Common_CashAccountTypeInvalid" xml:space="preserve">
+    <value>Pasirinkta lėšų sąskaita nėra leistino tipo ({0}).</value>
+  </data>
+  <data name="Common_VatRateMismatch" xml:space="preserve">
+    <value>PVM tarifas schemoje ({0}%) skiriasi nuo nustatyto PVM tarifo ({1}%).</value>
   </data>
 </root>

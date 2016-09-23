@@ -7,7 +7,7 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks>Should only be used as a child of <see cref="UserReportParamInfo">UserReportParamInfo</see>.</remarks>
     <Serializable()> _
-    Public Class UserReportParamValueInfoList
+    Public NotInheritable Class UserReportParamValueInfoList
         Inherits ReadOnlyListBase(Of UserReportParamValueInfoList, UserReportParamValueInfo)
 
 #Region " Business Methods "

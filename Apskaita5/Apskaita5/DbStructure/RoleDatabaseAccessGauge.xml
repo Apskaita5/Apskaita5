@@ -799,7 +799,7 @@
     DatabaseTableAccessList=""
     DatabaseReadOnlyTableAccessList=""
     IsHelperList="true"
-    ParentRoles="Workers.Declaration, Workers.PayOutNaturalPerson" />
+    ParentRoles="Workers.Declaration, Workers.PayOutNaturalPerson, General.Person" />
   <RoleDatabaseAccess
     VisibleIndex="82"
     RoleName="Documents.VatDeclarationSchema"

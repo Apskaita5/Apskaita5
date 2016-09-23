@@ -54,6 +54,18 @@ Namespace HelperLists
         End Property
 
 
+        Friend Shared Function GetValueObjectIdString(ByVal value As Double, _
+            ByVal valueType As TaxRateType) As String
+
+            Return String.Format("{0}:={1}", valueType.ToString(), _
+                value.ToString(Globalization.CultureInfo.InvariantCulture))
+
+        End Function
+
+        Friend Function GetValueObjectIdString() As String
+            Return GetValueObjectIdString(_Rate, _Type)
+        End Function
+
 
         Protected Overrides Function GetIdValue() As Object
             Return _Guid

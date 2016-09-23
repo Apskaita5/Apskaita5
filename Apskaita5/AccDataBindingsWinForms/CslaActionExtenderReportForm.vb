@@ -195,6 +195,11 @@ Public Class CslaActionExtenderReportForm(Of T)
 
     Private Sub Form_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs)
 
+        If Not _ProgressControl Is Nothing AndAlso Not _ProgressControl.IsDisposed _
+            AndAlso _ProgressControl.IsRunning Then
+            _ProgressControl.CancelProgress()
+        End If
+
         If Not _ManagedStateDataListViews Is Nothing AndAlso _ManagedStateDataListViews.Length > 0 Then
             For Each listView As ObjectListView In _ManagedStateDataListViews
                 MyCustomSettings.GetListViewLayOut(listView)

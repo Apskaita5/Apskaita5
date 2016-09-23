@@ -4,6 +4,7 @@ Imports System.Drawing
 Imports AccDataBindingsWinForms.CachedInfoLists
 Imports AccControlsWinForms
 Imports ApskaitaObjects.Documents
+Imports ApskaitaObjects.Attributes
 
 Public Class F_UserReportParamsDialog
 
@@ -310,70 +311,80 @@ Public Class F_UserReportParamsDialog
         ElseIf param.Name.Trim.ToLower.EndsWith("AccountInfo".ToLower) Then
 
             Dim result As New AccListComboBox
-            LoadAccountInfoListToListCombo(result, True, 1, 2, 3, 4, 5, 6)
+            PrepareControl(result, New AccountFieldAttribute( _
+                ValueRequiredLevel.Optional, False))
             result.Tag = GetType(AccountInfo)
             Return result
 
         ElseIf param.Name.Trim.ToLower.EndsWith("AssignableCRItem".ToLower) Then
 
             Dim result As New AccListComboBox
-            LoadAssignableCRItemListToListCombo(result, True)
+            PrepareControl(result, New AssignableCRItemFieldAttribute( _
+                ValueRequiredLevel.Optional))
             result.Tag = GetType(AssignableCRItem)
             Return result
 
         ElseIf param.Name.Trim.ToLower.EndsWith("CashAccountInfo".ToLower) Then
 
             Dim result As New AccListComboBox
-            LoadCashAccountInfoListToListCombo(result, True)
+            PrepareControl(result, New CashAccountFieldAttribute( _
+                ValueRequiredLevel.Optional, False))
             result.Tag = GetType(CashAccountInfo)
             Return result
 
         ElseIf param.Name.Trim.ToLower.EndsWith("GoodsGroupInfo".ToLower) Then
 
             Dim result As New AccListComboBox
-            LoadGoodsGroupInfoListToListCombo(result, True)
+            PrepareControl(result, New GoodsGroupFieldAttribute( _
+                ValueRequiredLevel.Optional))
             result.Tag = GetType(GoodsGroupInfo)
             Return result
 
         ElseIf param.Name.Trim.ToLower.EndsWith("GoodsInfo".ToLower) Then
 
             Dim result As New AccListComboBox
-            LoadGoodsInfoListToListCombo(result, True, TradedItemType.All)
+            PrepareControl(result, New GoodsFieldAttribute( _
+                ValueRequiredLevel.Optional, TradedItemType.All))
             result.Tag = GetType(GoodsInfo)
             Return result
 
         ElseIf param.Name.Trim.ToLower.EndsWith("LongTermAssetCustomGroupInfo".ToLower) Then
 
             Dim result As New AccListComboBox
-            LoadLongTermAssetCustomGroupInfoToListCombo(result, True)
+            PrepareControl(result, New LongTermAssetCustomGroupFieldAttribute( _
+                ValueRequiredLevel.Optional))
             result.Tag = GetType(LongTermAssetCustomGroupInfo)
             Return result
 
         ElseIf param.Name.Trim.ToLower.EndsWith("PersonGroupInfo".ToLower) Then
 
             Dim result As New AccListComboBox
-            LoadPersonGroupInfoListToListCombo(result)
+            PrepareControl(result, New PersonGroupFieldAttribute( _
+                ValueRequiredLevel.Optional))
             result.Tag = GetType(PersonGroupInfo)
             Return result
 
         ElseIf param.Name.Trim.ToLower.EndsWith("PersonInfo".ToLower) Then
 
             Dim result As New AccListComboBox
-            LoadPersonInfoListToListCombo(result, True, True, True, True)
+            PrepareControl(result, New PersonFieldAttribute( _
+                ValueRequiredLevel.Optional, True, True, True))
             result.Tag = GetType(PersonInfo)
             Return result
 
         ElseIf param.Name.Trim.ToLower.EndsWith("ServiceInfo".ToLower) Then
 
             Dim result As New AccListComboBox
-            LoadServiceInfoListToListCombo(result, True, True, True)
+            PrepareControl(result, New ServiceFieldAttribute( _
+                ValueRequiredLevel.Optional))
             result.Tag = GetType(ServiceInfo)
             Return result
 
         ElseIf param.Name.Trim.ToLower.EndsWith("LabourContractSerial".ToLower) Then
 
             Dim result As New AccListComboBox
-            LoadShortLabourContractListToListCombo(result, True, 0, Today)
+            PrepareControl(result, New ShortLabourContractFieldAttribute( _
+                ValueRequiredLevel.Optional))
             result.Tag = GetType(ShortLabourContract)
             Return result
 
@@ -385,14 +396,16 @@ Public Class F_UserReportParamsDialog
         ElseIf param.Name.Trim.ToLower.EndsWith("VatDeclarationSchemaInfo".ToLower) Then
 
             Dim result As New AccListComboBox
-            LoadVatDeclarationSchemaInfoListToListCombo(result, True, True, True)
+            PrepareControl(result, New VatDeclarationSchemaFieldAttribute( _
+                ValueRequiredLevel.Optional))
             result.Tag = GetType(VatDeclarationSchemaInfo)
             Return result
 
         ElseIf param.Name.Trim.ToLower.EndsWith("WarehouseInfo".ToLower) Then
 
             Dim result As New AccListComboBox
-            LoadWarehouseInfoListToListCombo(result, True)
+            PrepareControl(result, New WarehouseFieldAttribute( _
+                ValueRequiredLevel.Optional))
             result.Tag = GetType(WarehouseInfo)
             Return result
 

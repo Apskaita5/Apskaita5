@@ -1,5 +1,9 @@
 Public Module CurrencyMethods
 
+    ''' <summary>
+    ''' An array of all the legal ISO 4217 currency codes.
+    ''' </summary>
+    ''' <remarks></remarks>
     Public CurrencyCodes As String() = {"LTL", "USD", "EUR", "RUB", "AFN", "ALL", _
         "DZD", "AED", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", _
         "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYR", "BZD", _

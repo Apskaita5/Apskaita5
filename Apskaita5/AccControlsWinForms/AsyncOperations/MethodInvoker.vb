@@ -1,4 +1,5 @@
 Imports System.Reflection
+Imports System.Windows.Forms
 
 ''' <summary>
 ''' A helper object that allows to execute an arbitrary method async.
@@ -8,6 +9,7 @@ Imports System.Reflection
 Friend Class MethodInvoker(Of T)
 
     Private _Worker As System.ComponentModel.BackgroundWorker = Nothing
+
 
     ''' <summary>
     ''' Event raised when the operation has completed.
@@ -30,7 +32,7 @@ Friend Class MethodInvoker(Of T)
     Public Event FetchCompleted As EventHandler
 
     ''' <summary>
-    ''' Raises the event.
+    ''' Raises the event or invokes a callback method if provided.
     ''' </summary>
     ''' <param name="e">
     ''' The parameter provided to the event handler.

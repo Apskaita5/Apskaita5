@@ -50,10 +50,13 @@ Public Class CacheItem
     Friend Sub New(ByVal nBaseType As Type, ByVal nFilterArguments As Object(), _
         ByVal nCachedObject As Object, ByVal nDatabaseName As String)
 
-        If nCachedObject Is Nothing Then Throw New ArgumentNullException( _
-            "Klaida. CacheManager nurodytas kešuotinas objektas yra null.")
-        If nBaseType Is Nothing Then Throw New ArgumentNullException( _
-            "Klaida. Nenurodytas kešuojamo objekto bazinis tipas.")
+        If nCachedObject Is Nothing Then
+            Throw New ArgumentNullException("nCachedObject")
+        End If
+        If nBaseType Is Nothing Then
+            Throw New ArgumentNullException("nBaseType")
+        End If
+
         _BaseType = nBaseType
         _Type = nCachedObject.GetType
         _FilterArguments = nFilterArguments
@@ -61,9 +64,9 @@ Public Class CacheItem
         _DatabaseName = nDatabaseName
 
         Try
-            Dim MI As MethodInfo = nBaseType.GetMethod("IsApplicationWideCache", _
+            Dim mi As MethodInfo = nBaseType.GetMethod("IsApplicationWideCache", _
                 BindingFlags.NonPublic Or BindingFlags.Static)
-            _IsApplicationWide = DirectCast(MI.Invoke(Nothing, Nothing), Boolean)
+            _IsApplicationWide = DirectCast(mi.Invoke(Nothing, Nothing), Boolean)
         Catch ex As Exception
             _IsApplicationWide = False
         End Try
@@ -73,8 +76,13 @@ Public Class CacheItem
     Friend Sub New(ByVal nBaseType As Type, ByVal nType As Type, _
         ByVal nFilterArguments As Object(), ByVal nDatabaseName As String)
 
-        If nBaseType Is Nothing OrElse nType Is Nothing Then Throw New ArgumentNullException( _
-            "Klaida. Nenurodytas kešuojamo objekto tipas arba bazinis tipas.")
+        If nType Is Nothing Then
+            Throw New ArgumentNullException("nType")
+        End If
+        If nBaseType Is Nothing Then
+            Throw New ArgumentNullException("nBaseType")
+        End If
+
         _BaseType = nBaseType
         _Type = nType
         _FilterArguments = nFilterArguments
@@ -82,9 +90,9 @@ Public Class CacheItem
         _DatabaseName = nDatabaseName
 
         Try
-            Dim MI As MethodInfo = nBaseType.GetMethod("IsApplicationWideCache", _
+            Dim mi As MethodInfo = nBaseType.GetMethod("IsApplicationWideCache", _
                 BindingFlags.NonPublic Or BindingFlags.Static)
-            _IsApplicationWide = DirectCast(MI.Invoke(Nothing, Nothing), Boolean)
+            _IsApplicationWide = DirectCast(mi.Invoke(Nothing, Nothing), Boolean)
         Catch ex As Exception
             _IsApplicationWide = False
         End Try
@@ -132,14 +140,50 @@ Public Class CacheItem
         If nFilterArguments.Length <> _FilterArguments.Length Then Return False
 
         For i As Integer = 1 To nFilterArguments.Length
-            If Not nFilterArguments(i - 1).GetType Is _FilterArguments(i - 1).GetType _
-                OrElse (nFilterArguments(i - 1) Is Nothing AndAlso Not _FilterArguments(i - 1) Is Nothing) _
-                OrElse (Not nFilterArguments(i - 1) Is Nothing AndAlso _FilterArguments(i - 1) Is Nothing) _
-                OrElse (Not nFilterArguments(i - 1) Is Nothing AndAlso Not _FilterArguments(i - 1) Is Nothing _
-                AndAlso nFilterArguments(i - 1) <> _FilterArguments(i - 1)) Then Return False
+            If Not FilterObjectsEqual(nFilterArguments(i - 1), _
+                _FilterArguments(i - 1)) Then Return False
         Next
 
         Return True
+
+    End Function
+
+    Private Shared Function FilterObjectsEqual(ByVal obj1 As Object, _
+        ByVal obj2 As Object) As Boolean
+
+        If obj1 Is Nothing AndAlso obj2 Is Nothing Then Return True
+        If obj1 Is Nothing OrElse obj2 Is Nothing Then Return False
+
+        If Not obj1.GetType Is obj2.GetType Then Return False
+
+        If obj1.GetType.IsValueType Then
+            Return obj1.Equals(obj2)
+        ElseIf obj1.GetType Is GetType(String) Then
+            Return DirectCast(obj1, String).Trim = DirectCast(obj2, String).Trim
+        ElseIf obj1.GetType.IsArray Then
+            If DirectCast(obj1, Array).Length <> DirectCast(obj2, Array).Length Then Return False
+            For i As Integer = 0 To DirectCast(obj1, Array).Length - 1
+                If Not FilterObjectsEqual(DirectCast(obj1, Array).GetValue(i), _
+                    DirectCast(obj2, Array).GetValue(i)) Then Return False
+            Next
+            Return True
+        ElseIf GetType(IList).IsAssignableFrom(obj1.GetType) Then
+            If DirectCast(obj1, IList).Count <> DirectCast(obj2, IList).Count Then Return False
+            For i As Integer = 0 To DirectCast(obj1, IList).Count - 1
+                If Not FilterObjectsEqual(DirectCast(obj1, IList)(i), _
+                    DirectCast(obj2, IList)(i)) Then Return False
+            Next
+            Return True
+        ElseIf obj1.GetType.IsEnum Then
+            Return [Enum].GetName(obj1.GetType, obj1).Trim.ToUpper = _
+                [Enum].GetName(obj1.GetType, obj2).Trim.ToUpper
+        ElseIf GetType(IComparable).IsAssignableFrom(obj1.GetType) Then
+            Return DirectCast(obj1, IComparable).CompareTo(obj2) = 0
+        Else
+            Throw New NotImplementedException(String.Format( _
+                "Klaida. Tipo {0} palyginimas neimplementuotas.", _
+                obj1.GetType.FullName))
+        End If
 
     End Function
 

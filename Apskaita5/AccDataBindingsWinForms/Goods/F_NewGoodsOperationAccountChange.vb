@@ -2,6 +2,7 @@
 Imports AccDataBindingsWinForms.CachedInfoLists
 Imports ApskaitaObjects.Goods
 Imports ApskaitaObjects.Documents
+Imports ApskaitaObjects.Attributes
 
 Public Class F_NewGoodsOperationAccountChange
 
@@ -46,10 +47,14 @@ Public Class F_NewGoodsOperationAccountChange
 
             _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller1)
 
-            LoadGoodsInfoListToListCombo(GoodsInfoListAccListComboBox, True, TradedItemType.All)
-            LoadEnumLocalizedListToComboBox(AccountTypeComboBox, GetType(GoodsOperationType), False, _
-                GoodsOperationType.AccountDiscountsChange, GoodsOperationType.AccountPurchasesChange, _
-                GoodsOperationType.AccountSalesNetCostsChange, GoodsOperationType.AccountValueReductionChange)
+            PrepareControl(GoodsInfoListAccListComboBox, _
+                New GoodsFieldAttribute(ValueRequiredLevel.Optional))
+            PrepareControl(AccountTypeComboBox, New LocalizedEnumFieldAttribute( _
+                GetType(GoodsOperationType), False, "", _
+                GoodsOperationType.AccountDiscountsChange, _
+                GoodsOperationType.AccountPurchasesChange, _
+                GoodsOperationType.AccountSalesNetCostsChange, _
+                GoodsOperationType.AccountValueReductionChange))
 
         Catch ex As Exception
             ShowError(ex)

@@ -19,7 +19,8 @@ Public Class F_VatDeclarationSchemaInfoItemList
         Try
 
             _ListViewManager = New DataListViewEditControlManager(Of VatDeclarationSchemaInfoItem) _
-                (VatDeclarationSchemaInfoItemListDataListView, ContextMenuStrip1, Nothing, Nothing, Nothing)
+                (VatDeclarationSchemaInfoItemListDataListView, _
+                 ContextMenuStrip1, Nothing, Nothing, Nothing, Nothing)
 
             _ListViewManager.AddCancelButton = True
             _ListViewManager.AddButtonHandler("Keisti", "Keisti deklaravimo schemos duomenis.", _

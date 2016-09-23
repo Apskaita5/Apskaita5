@@ -426,6 +426,7 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
         ''' </summary>
         ''' <remarks>Corresponds to <see cref="OperationPersistenceObject.Warehouse">OperationPersistenceObject.Warehouse</see>
         ''' and <see cref="ConsignmentPersistenceObject.WarehouseID">ConsignmentPersistenceObject.WarehouseID</see>.</remarks>
+        <WarehouseField(ValueRequiredLevel.Mandatory)> _
         Public Property Warehouse() As WarehouseInfo
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -921,7 +922,7 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
             ValidationRules.AddRule(AddressOf CommonValidation.AccountFieldValidation, _
                 New RuleArgs("RedeemCostsAccount"))
             ValidationRules.AddRule(AddressOf CommonValidation.ValueObjectFieldValidation, _
-                New CommonValidation.ExtendedRuleArgs("Warehouse", RuleSeverity.Error))
+                New Csla.Validation.RuleArgs("Warehouse"))
 
             ValidationRules.AddRule(AddressOf CommonValidation.ChronologyValidation, _
                 New CommonValidation.ChronologyRuleArgs("Date", "OperationLimitations"))

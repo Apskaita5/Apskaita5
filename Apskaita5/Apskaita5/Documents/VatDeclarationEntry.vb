@@ -60,7 +60,7 @@ Namespace Documents
         ''' Gets or sets a persent of the invoice (VAT) sum that should be added to the declaration field.
         ''' </summary>
         ''' <remarks>Value is stored in the database field VatDeclarationEntrys.InclusionPercentage.</remarks>
-        <DoubleField(ValueRequiredLevel.Mandatory, False, 2, True, 10, 100, False)> _
+        <DoubleField(ValueRequiredLevel.Mandatory, False, 2, True, 0.1, 100, False)> _
         Public Property InclusionPercentage() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get

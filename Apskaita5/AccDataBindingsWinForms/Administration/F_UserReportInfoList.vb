@@ -3,6 +3,7 @@ Imports ApskaitaObjects.HelperLists
 Imports ApskaitaObjects.Settings
 
 Public Class F_UserReportInfoList
+    Implements ISingleInstanceForm
 
     Private _FormManager As CslaActionExtenderReportForm(Of UserReportInfoList)
     Private _ListViewManager As DataListViewEditControlManager(Of UserReportInfo)
@@ -24,7 +25,7 @@ Public Class F_UserReportInfoList
 
             _ListViewManager = New DataListViewEditControlManager(Of UserReportInfo) _
                 (UserReportInfoListDataListView, ContextMenuStrip1, Nothing, _
-                 Nothing, Nothing)
+                 Nothing, Nothing, Nothing)
 
             _ListViewManager.AddCancelButton = True
             _ListViewManager.AddButtonHandler("Parsisiųsti", "Parsisiųsti ataskaitos failą (*.rdl).", _

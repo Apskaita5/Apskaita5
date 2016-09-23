@@ -13,6 +13,7 @@ Public Class ProgressFiller
     Private _Result As Object
     Private _Exception As Exception
     Private _IsRunning As Boolean = False
+    Private _Initialized As Boolean = False
 
     Public Event AsyncOperationCompleted As EventHandler
 
@@ -79,12 +80,17 @@ Public Class ProgressFiller
     Public Sub RunOperationAsync(Of T)(ByVal instance As T, ByVal methodName As String, _
         ByVal allowCancel As Boolean, ByVal ParamArray methodParams As Object())
 
+        If Not _Initialized Then
+            Dim parentFrm As Form = Me.ParentForm
+            AddHandler parentFrm.SizeChanged, AddressOf ParentForm_SizeChanged
+            _Initialized = True
+        End If
+
         Me.Location = New Point(0, 0)
-        Me.Size = Me.ParentForm.ClientSize
         Me.Visible = True
+        Me.Size = Me.ParentForm.ClientSize
         Me.BringToFront()
-        ProgressBar1.Style = ProgressBarStyle.Marquee
-        CancelActionButton.Visible = allowCancel
+        Me.Label1.Visible = allowCancel
 
         _Result = Nothing
         _Exception = Nothing
@@ -109,7 +115,6 @@ Public Class ProgressFiller
         _Result = DirectCast(e, AsyncResult).ObjectInstance
         _Exception = DirectCast(e, AsyncResult).Exception
 
-        ProgressBar1.Style = ProgressBarStyle.Continuous
         Me.Visible = False
         Me.SendToBack()
         _Operation = Nothing
@@ -124,35 +129,26 @@ Public Class ProgressFiller
     Private Sub ProgressFiller_SizeChanged(ByVal sender As Object, _
         ByVal e As System.EventArgs) Handles Me.SizeChanged
 
-        Dim xCoord As Integer = ((Me.Size.Width / 2) - (ProgressBar1.Size.Width / 2))
+        Dim xCoord As Integer = ((Me.Size.Width / 2) - (PictureBox1.Size.Width / 2))
         If xCoord < 0 Then xCoord = 0
 
-        Dim yCoord As Integer = ((Me.Size.Height / 2) - (ProgressBar1.Size.Height / 2))
+        Dim yCoord As Integer = ((Me.Size.Height / 2) - (PictureBox1.Size.Height / 2))
         If yCoord < 0 Then yCoord = 0
 
-        ProgressBar1.Location = New System.Drawing.Point(xCoord, yCoord)
-        CancelActionButton.Location = New System.Drawing.Point(xCoord + 60, yCoord + 29)
+        PictureBox1.Location = New System.Drawing.Point(xCoord, yCoord)
+        Label1.Location = New System.Drawing.Point(xCoord + 3, yCoord + 213)
 
+        Me.Invalidate()
+
+    End Sub
+
+    Private Sub ParentForm_SizeChanged(ByVal sender As Object, ByVal e As EventArgs)
+        If Not Me.Visible Then Exit Sub
+        Me.Size = Me.ParentForm.ClientSize
     End Sub
 
     Private Sub ProgressFiller_KeyDown(ByVal sender As Object, _
-            ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
-
-        If e.KeyData <> Keys.Escape Then Exit Sub
-
-        e.Handled = True
-
-        CancelProgress()
-
-    End Sub
-
-    Private Sub CancelActionButton_Click(ByVal sender As System.Object, _
-        ByVal e As System.EventArgs) Handles CancelActionButton.Click
-        CancelProgress()
-    End Sub
-
-    Private Sub CancelActionButton_KeyDown(ByVal sender As Object, _
-        ByVal e As System.Windows.Forms.KeyEventArgs) Handles CancelActionButton.KeyDown
+        ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
 
         If e.KeyData <> Keys.Escape Then Exit Sub
 
@@ -163,7 +159,7 @@ Public Class ProgressFiller
     End Sub
 
 
-    Private Sub CancelProgress()
+    Public Sub CancelProgress()
 
         If _Operation Is Nothing Then Exit Sub
 

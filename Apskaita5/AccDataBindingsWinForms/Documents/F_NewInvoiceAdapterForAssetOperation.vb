@@ -68,14 +68,8 @@ Friend Class F_NewInvoiceAdapterForAssetOperation(Of T)
 
         Try
 
-            Dim assetList As LongTermAssetInfoList = DirectCast(result, LongTermAssetInfoList)
-
-            Dim listView As New LongTermAssetInfoListControl
-
-            listView.DataSource = assetList.GetFilteredList(False)
-            listView.AcceptSingleClick = True
-
-            Me.LongTermAssetAccGridComboBox.AddDataListView(listView)
+            PrepareControlWithAdHocDataSource(Of LongTermAssetInfoList) _
+                (LongTermAssetAccGridComboBox, DirectCast(result, LongTermAssetInfoList))
 
         Catch ex As Exception
             ShowError(ex)

@@ -15504,6 +15504,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Pasirinkta lėšų sąskaita nėra leistino tipo ({0})..
+        '''</summary>
+        Friend ReadOnly Property Common_CashAccountTypeInvalid() As String
+            Get
+                Return ResourceManager.GetString("Common_CashAccountTypeInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Įvestuose duomenyse yra klaidų:{0}{1}.
         '''</summary>
         Friend ReadOnly Property Common_ContainsErrors() As String
@@ -15693,6 +15702,42 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Pasirinktas kontrahentas nėra priskirtas nei vienai leistinai grupei ({0})..
+        '''</summary>
+        Friend ReadOnly Property Common_PersonBaseGroupInvalid() As String
+            Get
+                Return ResourceManager.GetString("Common_PersonBaseGroupInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pirkėjai.
+        '''</summary>
+        Friend ReadOnly Property Common_PersonBaseGroupNameBuyers() As String
+            Get
+                Return ResourceManager.GetString("Common_PersonBaseGroupNameBuyers", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to tiekėjai.
+        '''</summary>
+        Friend ReadOnly Property Common_PersonBaseGroupNameSuppliers() As String
+            Get
+                Return ResourceManager.GetString("Common_PersonBaseGroupNameSuppliers", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to darbuotojai.
+        '''</summary>
+        Friend ReadOnly Property Common_PersonBaseGroupNameWorkers() As String
+            Get
+                Return ResourceManager.GetString("Common_PersonBaseGroupNameWorkers", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Klaida. Jūsų teisių nepakanka šiai operacijai įvykdyti..
         '''</summary>
         Friend ReadOnly Property Common_SecurityExecuteDenied() As String
@@ -15761,6 +15806,15 @@ Namespace My.Resources
         Friend ReadOnly Property Common_UpdateDateHasChanged() As String
             Get
                 Return ResourceManager.GetString("Common_UpdateDateHasChanged", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM tarifas schemoje ({0}%) skiriasi nuo nustatyto PVM tarifo ({1}%)..
+        '''</summary>
+        Friend ReadOnly Property Common_VatRateMismatch() As String
+            Get
+                Return ResourceManager.GetString("Common_VatRateMismatch", resourceCulture)
             End Get
         End Property
         
@@ -21093,7 +21147,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to išrašyta sąskaita faktūra.
+        '''  Looks up a localized string similar to gauta sąskaita faktūra.
         '''</summary>
         Friend ReadOnly Property Documents_InvoiceReceived_TypeName() As String
             Get

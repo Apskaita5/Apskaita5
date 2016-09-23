@@ -170,11 +170,6 @@
         End Function
 
 
-        ''' <summary>
-        ''' Imports long term asset using string (clipboard) data.
-        ''' </summary>
-        ''' <param name="source">Paste string, lines delimited by CrLf, fields - by Tab.</param>
-        ''' <remarks></remarks>
         Public Sub ImportRange(ByVal source As String)
 
             If Not CanEditObject() Then Throw New System.Security.SecurityException( _

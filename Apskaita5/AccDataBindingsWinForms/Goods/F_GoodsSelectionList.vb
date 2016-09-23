@@ -28,7 +28,7 @@ Friend Class F_GoodsSelectionList
 
         Try
             GoodsInfoListBindingSource.DataSource = GoodsInfoList.GetCachedFilteredList( _
-            True, False, TradedItemType.All)
+                False, False, TradedItemType.All, Nothing)
         Catch ex As Exception
             ShowError(ex)
             DisableAllControls(Me)

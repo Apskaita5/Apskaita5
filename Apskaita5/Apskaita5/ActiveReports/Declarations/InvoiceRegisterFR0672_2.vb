@@ -187,9 +187,10 @@
                             GetNumberInFFDataFormat(invoiceRegister(4 * (j - 1) + i - 1).SumLTL)
                         formDataSet.Tables(8).Rows((i - 1) * 9 + 25 + 48 * (j - 1)).Item(1) = _
                             GetNumberInFFDataFormat(invoiceRegister(4 * (j - 1) + i - 1).SumVatLTL)
-                        formDataSet.Tables(8).Rows((i - 1) * 9 + 26 + 48 * (j - 1)).Item(1) = 0
+                        formDataSet.Tables(8).Rows((i - 1) * 9 + 26 + 48 * (j - 1)).Item(1) = _
+                            GetNumberInFFDataFormat(invoiceRegister(4 * (j - 1) + i - 1).SumVatLTLVirtual)
 
-                        If Not String.IsNullOrEmpty(invoiceRegister(4 * (j - 1) + i - 1).PersonVatCode) Then
+                        If Not StringIsNullOrEmpty(invoiceRegister(4 * (j - 1) + i - 1).PersonVatCode) Then
                             formDataSet.Tables(8).Rows((i - 1) * 9 + 28 + 48 * (j - 1)).Item(1) = _
                                 invoiceRegister(4 * (j - 1) + i - 1).PersonVatCode
                         Else

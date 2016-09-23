@@ -71,17 +71,42 @@ Namespace HelperLists
         ''' </summary>
         ''' <remarks>Result is cached.
         ''' Required by <see cref="AccDataAccessLayer.CacheManager">AccDataAccessLayer.CacheManager</see>.</remarks>
-        Public Shared Function GetCachedFilteredList() As Csla.FilteredBindingList(Of NameInfo)
+        Public Shared Function GetCachedFilteredList(ByVal ofType As NameType, _
+            ByVal showEmpty As Boolean, ByVal showObsolete As Boolean, _
+            ByVal usedObjectsIds As List(Of String)) As System.ComponentModel.BindingList(Of String)
 
-            Dim result As Csla.FilteredBindingList(Of NameInfo) = _
-                CacheManager.GetItemFromCache(Of Csla.FilteredBindingList(Of NameInfo)) _
-                (GetType(NameInfoList), Nothing)
+            Dim filterToApply(3) As Object
+            filterToApply(0) = showEmpty
+            filterToApply(1) = ofType
+            filterToApply(2) = showObsolete
+            filterToApply(3) = usedObjectsIds
+
+            Dim result As System.ComponentModel.BindingList(Of String) = _
+                CacheManager.GetItemFromCache(Of System.ComponentModel.BindingList(Of String)) _
+                (GetType(NameInfoList), filterToApply)
 
             If result Is Nothing Then
 
                 Dim baseList As NameInfoList = NameInfoList.GetList
-                result = New Csla.FilteredBindingList(Of NameInfo)(baseList)
-                CacheManager.AddCacheItem(GetType(ServiceInfoList), result, Nothing)
+                result = New System.ComponentModel.BindingList(Of String)
+
+                For Each name As NameInfo In baseList
+                    If name.Type = ofType Then
+
+                        If showEmpty OrElse Not name.IsEmpty Then
+
+                            If (Not usedObjectsIds Is Nothing AndAlso usedObjectsIds.Contains( _
+                                name.GetValueObjectIdString())) OrElse _
+                                showObsolete OrElse Not name.IsObsolete Then
+                                result.Add(name.Name)
+                            End If
+
+                        End If
+
+                    End If
+                Next
+
+                CacheManager.AddCacheItem(GetType(NameInfoList), result, filterToApply)
 
             End If
 

@@ -2,6 +2,7 @@
 Imports AccControlsWinForms
 Imports AccDataBindingsWinForms.CachedInfoLists
 Imports AccDataBindingsWinForms.Printing
+Imports ApskaitaObjects.Attributes
 
 Friend Class F_ComplexOperationDiscard
     Implements ISupportsPrinting, IObjectEditForm, ISupportsChronologicValidator
@@ -91,13 +92,16 @@ Friend Class F_ComplexOperationDiscard
         Try
 
             _ListViewManager = New DataListViewEditControlManager(Of OperationDiscard) _
-                (ItemsDataListView, Nothing, AddressOf OnItemsDelete, Nothing, Nothing)
+                (ItemsDataListView, Nothing, AddressOf OnItemsDelete, _
+                 Nothing, Nothing, _DocumentToEdit)
 
             _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller2)
 
-            SetupDefaultControls(Of ComplexOperationDiscard)(Me, ComplexOperationDiscardBindingSource)
+            SetupDefaultControls(Of ComplexOperationDiscard)(Me, _
+                ComplexOperationDiscardBindingSource, _DocumentToEdit)
 
-            LoadAccountInfoListToListCombo(CostsAccountAccGridComboBox, True, 6)
+            PrepareControl(CostsAccountAccGridComboBox, _
+                New AccountFieldAttribute(ValueRequiredLevel.Optional, False, 6))
 
         Catch ex As Exception
             ShowError(ex)

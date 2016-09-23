@@ -2,6 +2,7 @@
 Imports AccControlsWinForms
 Imports AccDataBindingsWinForms.CachedInfoLists
 Imports AccDataBindingsWinForms.Printing
+Imports ApskaitaObjects.Attributes
 
 Friend Class F_ComplexOperationAmortization
     Implements ISupportsPrinting, IObjectEditForm, ISupportsChronologicValidator
@@ -91,7 +92,8 @@ Friend Class F_ComplexOperationAmortization
         Try
 
             _ListViewManager = New DataListViewEditControlManager(Of OperationAmortization) _
-                (ItemsDataListView, Nothing, AddressOf OnItemsDelete, Nothing, Nothing)
+                (ItemsDataListView, Nothing, AddressOf OnItemsDelete, _
+                 Nothing, Nothing, _DocumentToEdit)
 
             _ListViewManager.AddCancelButton = False
             _ListViewManager.AddButtonHandler("Paskaičiuoti", _
@@ -99,9 +101,11 @@ Friend Class F_ComplexOperationAmortization
 
             _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller2)
 
-            SetupDefaultControls(Of ComplexOperationAmortization)(Me, ComplexOperationAmortizationBindingSource)
+            SetupDefaultControls(Of ComplexOperationAmortization)(Me, _
+                ComplexOperationAmortizationBindingSource, _DocumentToEdit)
 
-            LoadAccountInfoListToListCombo(CommonCostsAccountAccGridComboBox, True, 2, 3, 6)
+            PrepareControl(CommonCostsAccountAccGridComboBox, _
+                New AccountFieldAttribute(ValueRequiredLevel.Optional, False, 2, 3, 6))
 
         Catch ex As Exception
             ShowError(ex)

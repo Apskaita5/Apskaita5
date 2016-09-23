@@ -1,6 +1,7 @@
 ﻿Imports ApskaitaObjects.Assets
 Imports AccControlsWinForms
 Imports AccDataBindingsWinForms.Printing
+Imports AccDataBindingsWinForms.CachedInfoLists
 
 Friend Class F_ComplexOperationOperationalStatusChange
     Implements ISupportsPrinting, IObjectEditForm, ISupportsChronologicValidator
@@ -96,11 +97,13 @@ Friend Class F_ComplexOperationOperationalStatusChange
         Try
 
             _ListViewManager = New DataListViewEditControlManager(Of OperationOperationalStatusChange) _
-                (ItemsDataListView, Nothing, AddressOf OnItemsDelete, Nothing, Nothing)
+                (ItemsDataListView, Nothing, AddressOf OnItemsDelete, _
+                 Nothing, Nothing, _DocumentToEdit)
 
             _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller2)
 
-            SetupDefaultControls(Of ComplexOperationOperationalStatusChange)(Me, ComplexOperationOperationalStatusChangeBindingSource)
+            SetupDefaultControls(Of ComplexOperationOperationalStatusChange) _
+                (Me, ComplexOperationOperationalStatusChangeBindingSource, _DocumentToEdit)
 
         Catch ex As Exception
             ShowError(ex)

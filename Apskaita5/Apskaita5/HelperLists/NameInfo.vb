@@ -134,6 +134,21 @@ Namespace HelperLists
         End Function
 
 
+        Friend Shared Function GetValueObjectIdString(ByVal value As String, _
+            ByVal valueType As NameType) As String
+
+            If StringIsNullOrEmpty(value) Then value = ""
+
+            Return String.Format("{0}:={1}", valueType.ToString(), _
+                value.Trim.ToUpper())
+
+        End Function
+
+        Friend Function GetValueObjectIdString() As String
+            Return GetValueObjectIdString(_Name, _Type)
+        End Function
+
+
         Protected Overrides Function GetIdValue() As Object
             Return _Guid
         End Function

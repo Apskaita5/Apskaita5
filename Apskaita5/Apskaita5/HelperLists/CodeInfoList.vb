@@ -101,12 +101,14 @@ Namespace HelperLists
         ''' <remarks>Result is cached.
         ''' Required by <see cref="AccDataAccessLayer.CacheManager">AccDataAccessLayer.CacheManager</see>.</remarks>
         Public Shared Function GetCachedFilteredList(ByVal ofType As CodeType, _
-            ByVal showEmpty As Boolean, ByVal showObsolete As Boolean) As Csla.FilteredBindingList(Of CodeInfo)
+            ByVal showEmpty As Boolean, ByVal showObsolete As Boolean, _
+            ByVal usedObjectsIds As List(Of String)) As Csla.FilteredBindingList(Of CodeInfo)
 
-            Dim filterToApply(2) As Object
-            filterToApply(0) = ConvertDbBoolean(showEmpty)
-            filterToApply(1) = Utilities.ConvertDatabaseID(ofType)
-            filterToApply(2) = ConvertDbBoolean(showObsolete)
+            Dim filterToApply(3) As Object
+            filterToApply(0) = showEmpty
+            filterToApply(1) = ofType
+            filterToApply(2) = showObsolete
+            filterToApply(3) = usedObjectsIds
 
             Dim result As Csla.FilteredBindingList(Of CodeInfo) = _
                 CacheManager.GetItemFromCache(Of Csla.FilteredBindingList(Of CodeInfo)) _
@@ -177,20 +179,32 @@ Namespace HelperLists
 
         Private Shared Function CodeInfoFilter(ByVal item As Object, ByVal filterValue As Object) As Boolean
 
-            If filterValue Is Nothing OrElse DirectCast(filterValue, Object()).Length < 3 Then Return True
+            If filterValue Is Nothing OrElse DirectCast(filterValue, Object()).Length < 4 Then Return True
 
-            Dim showEmpty As Boolean = ConvertDbBoolean( _
-                DirectCast(DirectCast(filterValue, Object())(0), Integer))
-            Dim ofType As CodeType = Utilities.ConvertDatabaseID(Of CodeType) _
-                (DirectCast(DirectCast(filterValue, Object())(1), Integer))
-            Dim showObsolete As Boolean = ConvertDbBoolean( _
-                DirectCast(DirectCast(filterValue, Object())(2), Integer))
+            Dim filterArray As Object() = DirectCast(filterValue, Object())
+
+            Dim showEmpty As Boolean = DirectCast(filterArray(0), Boolean)
+            Dim ofType As CodeType = DirectCast(filterArray(1), CodeType)
+            Dim showObsolete As Boolean = DirectCast(filterArray(2), Boolean)
+            Dim usedObjectsIds As List(Of String) = DirectCast(filterArray(3), List(Of String))
 
             Dim current As CodeInfo = DirectCast(item, CodeInfo)
 
-            If Not showEmpty AndAlso current.IsEmpty Then Return False
-            If Not showObsolete AndAlso current.IsObsolete Then Return False
-            If Not current.IsEmpty AndAlso current.Type <> ofType Then Return False
+            If current.IsEmpty Then
+
+                Return showEmpty
+
+            Else
+
+                If Not usedObjectsIds Is Nothing AndAlso usedObjectsIds.Contains( _
+                    current.GetValueObjectIdString()) Then
+                    Return True
+                End If
+
+                If current.Type <> ofType OrElse (Not showObsolete AndAlso _
+                    current.IsObsolete) Then Return False
+
+            End If
 
             Return True
 

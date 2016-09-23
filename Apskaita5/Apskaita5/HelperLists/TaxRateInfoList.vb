@@ -76,21 +76,35 @@ Namespace HelperLists
         ''' <remarks>Result is cached.
         ''' Required by <see cref="AccDataAccessLayer.CacheManager">AccDataAccessLayer.CacheManager</see>.</remarks>
         Public Shared Function GetCachedFilteredList(ByVal ofType As TaxRateType, _
-            ByVal showObsolete As Boolean) As Csla.FilteredBindingList(Of TaxRateInfo)
+            ByVal showObsolete As Boolean, ByVal usedObjectsIds As List(Of String)) _
+            As System.ComponentModel.BindingList(Of Double)
 
-            Dim filterToApply(1) As Object
-            filterToApply(0) = Utilities.ConvertDatabaseID(ofType)
-            filterToApply(1) = ConvertDbBoolean(showObsolete)
+            Dim filterToApply(2) As Object
+            filterToApply(0) = ofType
+            filterToApply(1) = showObsolete
+            filterToApply(2) = usedObjectsIds
 
-            Dim result As Csla.FilteredBindingList(Of TaxRateInfo) = _
-                CacheManager.GetItemFromCache(Of Csla.FilteredBindingList(Of TaxRateInfo)) _
+            Dim result As System.ComponentModel.BindingList(Of Double) = _
+                CacheManager.GetItemFromCache(Of System.ComponentModel.BindingList(Of Double)) _
                 (GetType(TaxRateInfoList), filterToApply)
 
             If result Is Nothing Then
 
                 Dim baseList As TaxRateInfoList = TaxRateInfoList.GetList
-                result = New Csla.FilteredBindingList(Of TaxRateInfo)(baseList, AddressOf TaxRateInfoFilter)
-                result.ApplyFilter("", filterToApply)
+                result = New System.ComponentModel.BindingList(Of Double)
+
+                For Each rate As TaxRateInfo In baseList
+                    If rate.Type = ofType Then
+
+                        If (Not usedObjectsIds Is Nothing AndAlso _
+                            usedObjectsIds.Contains(rate.GetValueObjectIdString())) _
+                            OrElse showObsolete OrElse Not rate.IsObsolete Then
+                            result.Add(rate.Rate)
+                        End If
+
+                    End If
+                Next
+
                 CacheManager.AddCacheItem(GetType(TaxRateInfoList), result, filterToApply)
 
             End If

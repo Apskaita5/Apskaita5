@@ -9,7 +9,7 @@ Namespace HelperLists
     ''' </summary>
     ''' <remarks></remarks>
     <Serializable()> _
-    Public Class UserReportInfo
+    Public NotInheritable Class UserReportInfo
         Inherits ReadOnlyBase(Of UserReportInfo)
         Implements IValueObject
 

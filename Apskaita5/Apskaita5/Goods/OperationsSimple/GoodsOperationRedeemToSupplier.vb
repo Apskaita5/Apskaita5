@@ -281,6 +281,7 @@ Namespace Goods
         ''' are redeemed (transfered) from.
         ''' </summary>
         ''' <remarks>Corresponds to <see cref="OperationPersistenceObject.Warehouse">OperationPersistenceObject.Warehouse</see>.</remarks>
+        <WarehouseField(ValueRequiredLevel.Mandatory)> _
         Public Property Warehouse() As WarehouseInfo
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -772,7 +773,7 @@ Namespace Goods
             ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
                 New RuleArgs("Amount"))
             ValidationRules.AddRule(AddressOf CommonValidation.ValueObjectFieldValidation, _
-                New CommonValidation.ExtendedRuleArgs("Warehouse", RuleSeverity.Error))
+                New Csla.Validation.RuleArgs("Warehouse"))
 
             ValidationRules.AddRule(AddressOf CommonValidation.ChronologyValidation, _
                 New CommonValidation.ChronologyRuleArgs("Date", "OperationLimitations"))

@@ -281,8 +281,7 @@
     <Compile Include="CachedInfoLists\AssignableCRItemListControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CachedInfoLists\BindingSourceItem.vb" />
-    <Compile Include="CachedInfoLists\CachedListManager.vb" />
+    <Compile Include="CachedInfoLists\BindingSourceManager.vb" />
     <Compile Include="CachedInfoLists\CashAccountInfoListControl.Designer.vb">
       <DependentUpon>CashAccountInfoListControl.vb</DependentUpon>
     </Compile>

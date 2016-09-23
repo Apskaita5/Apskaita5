@@ -194,6 +194,12 @@ Namespace HelperLists
         End Function
 
 
+        Friend Function GetValueObjectIdString() As String
+            If Me.IsEmpty Then Return ""
+            Return _ID.ToString(Globalization.CultureInfo.InvariantCulture)
+        End Function
+
+
         Protected Overrides Function GetIdValue() As Object
             Return _Guid
         End Function

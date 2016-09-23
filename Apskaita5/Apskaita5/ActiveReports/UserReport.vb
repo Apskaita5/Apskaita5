@@ -3,7 +3,7 @@
 Namespace ActiveReports
 
     <Serializable()> _
-    Public Class UserReport
+    Public NotInheritable Class UserReport
         Inherits ReadOnlyBase(Of UserReport)
 
 #Region " Business Methods "

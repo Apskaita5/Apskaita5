@@ -107,9 +107,8 @@ Public Class F_GoodsOperationRedeemFromBuyer
 
             _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller2)
 
-            SetupDefaultControls(Of GoodsOperationRedeemFromBuyer)(Me, GoodsOperationRedeemFromBuyerBindingSource)
-
-            LoadWarehouseInfoListToListCombo(WarehouseAccGridComboBox, False)
+            SetupDefaultControls(Of GoodsOperationRedeemFromBuyer)(Me, _
+                GoodsOperationRedeemFromBuyerBindingSource, _DocumentToEdit)
 
         Catch ex As Exception
             ShowError(ex)

@@ -87,15 +87,10 @@ Friend Class F_VatDeclarationSchema
 
             _ListViewManager = New DataListViewEditControlManager(Of VatDeclarationEntry) _
                 (DeclarationEntriesDataListView, Nothing, AddressOf OnItemsDelete, _
-                 AddressOf OnItemAdd, Nothing)
+                 AddressOf OnItemAdd, Nothing, _DocumentToEdit)
 
-            LoadTaxRateListToCombo(VatRateComboBox, TaxRateType.Vat)
-
-            SetupDefaultControls(Of VatDeclarationSchema)(Me, VatDeclarationSchemaBindingSource)
-
-            LoadEnumLocalizedListToComboBox(TradedTypeHumanReadableComboBox, GetType(TradedItemType), False)
-            LoadCodeInfoListToListCombo(ExternalCodeAccListComboBox, _
-                CodeType.VmiVatType, False, False, False)
+            SetupDefaultControls(Of VatDeclarationSchema)(Me, _
+                VatDeclarationSchemaBindingSource, _DocumentToEdit)
 
         Catch ex As Exception
             ShowError(ex)

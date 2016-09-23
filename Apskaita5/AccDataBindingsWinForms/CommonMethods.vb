@@ -1,9 +1,6 @@
 ﻿Imports System.Windows.Forms
-Imports AccControlsWinForms
 Imports System.Reflection
 Imports ApskaitaObjects.Attributes
-Imports ApskaitaObjects.HelperLists
-Imports AccDataBindingsWinForms.CachedInfoLists
 
 Public Module CommonMethods
 
@@ -407,178 +404,6 @@ Public Module CommonMethods
 
 #End Region
 
-#Region " Setup Default Controls For BindingSource "
-
-    ''' <summary>
-    ''' Initializes default control bindings and formats:
-    ''' - sets AccTextBox, NumericUpDown, TextBox formats;
-    ''' - loads AccountInfoList, CashAccountInfoList, PersonGroupInfoList
-    ''' and WarehouseInfoList to AccListBox controls that are bound to the
-    ''' properties of appropriate types (marked with AccountFieldAttribute 
-    ''' in case of AccountInfoList);
-    ''' - sets controls readonly/enabled status depending on whether the property is readonly.
-    ''' </summary>
-    ''' <typeparam name="T">a type of the object that the controls are bound to</typeparam>
-    ''' <param name="targetForm">a form that contains the controls</param>
-    ''' <param name="datasource">a datasource (BindingSource) that the controls are bound to</param>
-    ''' <remarks></remarks>
-    Public Sub SetupDefaultControls(Of T)(ByVal targetForm As Control, _
-        ByVal datasource As Object)
-        If Not targetForm.Controls Is Nothing Then
-            For Each ctrl As Control In targetForm.Controls
-                SetupDefaultControl(Of T)(ctrl, datasource)
-                If ctrl.Controls.Count > 0 Then SetupDefaultControls(Of T)(ctrl, datasource)
-            Next
-        End If
-    End Sub
-
-    Private Sub SetupDefaultControl(Of T)(ByVal ctrl As Control, ByVal datasource As Object)
-
-        Dim propInfo As PropertyInfo = GetBindingProperty(Of T)(ctrl, datasource)
-
-        If propInfo Is Nothing Then Exit Sub
-
-        If TypeOf ctrl Is AccTextBox Then
-
-            DirectCast(ctrl, AccTextBox).ReadOnly = Not propInfo.CanWrite
-            DirectCast(ctrl, AccTextBox).TextAlign = HorizontalAlignment.Center
-            DirectCast(ctrl, AccTextBox).KeepBackColorWhenReadOnly = False
-
-            If Not GetAttribute(Of DoubleFieldAttribute)(propInfo) Is Nothing Then
-
-                Dim attribute As DoubleFieldAttribute = GetAttribute(Of DoubleFieldAttribute)(propInfo)
-
-                DirectCast(ctrl, AccTextBox).NegativeValue = attribute.AllowNegative
-                DirectCast(ctrl, AccTextBox).DecimalLength = attribute.Round
-
-            ElseIf Not GetAttribute(Of IntegerFieldAttribute)(propInfo) Is Nothing Then
-
-                Dim attribute As IntegerFieldAttribute = GetAttribute(Of IntegerFieldAttribute)(propInfo)
-
-                DirectCast(ctrl, AccTextBox).NegativeValue = attribute.AllowNegative
-                DirectCast(ctrl, AccTextBox).DecimalLength = 0
-
-            End If
-
-        ElseIf TypeOf ctrl Is TextBox Then
-
-            DirectCast(ctrl, TextBox).ReadOnly = Not propInfo.CanWrite
-
-            If Not GetAttribute(Of StringFieldAttribute)(propInfo) Is Nothing Then
-
-                Dim attribute As StringFieldAttribute = GetAttribute(Of StringFieldAttribute)(propInfo)
-
-                DirectCast(ctrl, TextBox).MaxLength = attribute.MaxLength
-
-            ElseIf propInfo.PropertyType Is GetType(Integer) OrElse _
-                propInfo.PropertyType Is GetType(Long) OrElse _
-                propInfo.PropertyType Is GetType(Byte) OrElse _
-                propInfo.PropertyType Is GetType(Date) OrElse _
-                propInfo.PropertyType Is GetType(DateTime) Then
-
-                DirectCast(ctrl, TextBox).TextAlign = HorizontalAlignment.Center
-
-            End If
-
-        ElseIf TypeOf ctrl Is NumericUpDown Then
-
-            If propInfo.CanWrite Then
-                DirectCast(ctrl, NumericUpDown).ReadOnly = False
-                DirectCast(ctrl, NumericUpDown).Increment = 1
-            Else
-                DirectCast(ctrl, NumericUpDown).ReadOnly = True
-                DirectCast(ctrl, NumericUpDown).Increment = 0
-            End If
-
-            DirectCast(ctrl, NumericUpDown).DecimalPlaces = 0
-            DirectCast(ctrl, NumericUpDown).TextAlign = HorizontalAlignment.Center
-
-            If Not GetAttribute(Of IntegerFieldAttribute)(propInfo) Is Nothing Then
-
-                Dim attribute As IntegerFieldAttribute = GetAttribute(Of IntegerFieldAttribute)(propInfo)
-
-                If attribute.WithinRange Then
-                    DirectCast(ctrl, NumericUpDown).Maximum = attribute.MaxValue
-                    DirectCast(ctrl, NumericUpDown).Minimum = attribute.MinValue
-                ElseIf attribute.AllowNegative Then
-                    DirectCast(ctrl, NumericUpDown).Maximum = 1000000
-                    DirectCast(ctrl, NumericUpDown).Minimum = -1000000
-                Else
-                    DirectCast(ctrl, NumericUpDown).Maximum = 1000000
-                    DirectCast(ctrl, NumericUpDown).Minimum = 0
-                End If
-
-            Else
-
-                DirectCast(ctrl, NumericUpDown).Maximum = 1000000
-                DirectCast(ctrl, NumericUpDown).Minimum = -1000000
-
-            End If
-
-        ElseIf TypeOf ctrl Is AccListComboBox Then
-
-            DirectCast(ctrl, AccListComboBox).Enabled = propInfo.CanWrite
-
-            If Not GetAttribute(Of AccountFieldAttribute)(propInfo) Is Nothing Then
-
-                Dim attribute As AccountFieldAttribute = GetAttribute(Of AccountFieldAttribute)(propInfo)
-
-                LoadAccountInfoListToListCombo(DirectCast(ctrl, AccListComboBox), _
-                    Not attribute.ValueRequired, attribute.AcceptedClasses)
-
-            ElseIf propInfo.PropertyType Is GetType(CashAccountInfo) Then
-
-                LoadCashAccountInfoListToListCombo(DirectCast(ctrl, AccListComboBox), True)
-
-            ElseIf propInfo.PropertyType Is GetType(PersonGroupInfo) Then
-
-                LoadPersonGroupInfoListToListCombo(DirectCast(ctrl, AccListComboBox))
-
-            ElseIf propInfo.PropertyType Is GetType(WarehouseInfo) Then
-
-                LoadWarehouseInfoListToListCombo(DirectCast(ctrl, AccListComboBox), True)
-
-            End If
-
-        Else
-
-            Try
-                DirectCast(ctrl, Object).IsReadOnly = Not propInfo.CanWrite
-            Catch ex As Exception
-                ctrl.Enabled = propInfo.CanWrite
-            End Try
-
-        End If
-
-    End Sub
-
-    Private Function GetBindingProperty(Of T)(ByVal ctrl As Control, ByVal datasource As Object) As PropertyInfo
-
-        For Each binding As Binding In ctrl.DataBindings
-
-            If binding.DataSource Is datasource Then
-
-                If (TypeOf ctrl Is TextBox AndAlso binding.PropertyName.ToLower = "text") _
-                    OrElse (TypeOf ctrl Is AccTextBox AndAlso binding.PropertyName.ToLower = "decimalvalue") _
-                    OrElse (TypeOf ctrl Is AccListComboBox AndAlso binding.PropertyName.ToLower = "selectedvalue") _
-                    OrElse (TypeOf ctrl Is DateTimePicker AndAlso binding.PropertyName.ToLower = "value") _
-                    OrElse (TypeOf ctrl Is NumericUpDown AndAlso binding.PropertyName.ToLower = "value") _
-                    OrElse (TypeOf ctrl Is ComboBox AndAlso binding.PropertyName.ToLower = "text") Then
-
-                    Return GetBindingProperty(Of T)(binding.BindingMemberInfo.BindingMember)
-
-                End If
-
-            End If
-
-        Next
-
-        Return Nothing
-
-    End Function
-
-#End Region
-
 #Region " Invoice Adapters "
 
     Private _InvoiceAdapterTypes As List(Of TypeItem)
@@ -852,7 +677,7 @@ Public Module CommonMethods
         If propInfo Is Nothing Then Return Nothing
 
         For Each attr As Attribute In Attribute.GetCustomAttributes(propInfo)
-            If TypeOf attr Is TC Then
+            If TypeOf attr Is TC OrElse GetType(TC).IsAssignableFrom(attr.GetType) Then
                 Return CType(attr, TC)
             End If
         Next
@@ -882,7 +707,7 @@ Public Module CommonMethods
     ''' <param name="aspectName">a name of the binded property (could be a property of a child object
     ''' delimited by a .)</param>
     ''' <remarks></remarks>
-    Friend Function GetBindingProperty(Of T)(ByVal aspectName As String) As PropertyInfo
+    Public Function GetPropertyInfo(Of T)(ByVal aspectName As String) As PropertyInfo
 
         If StringIsNullOrEmpty(aspectName) Then Return Nothing
 

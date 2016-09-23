@@ -77,9 +77,19 @@ Namespace Printing
         Private Sub On_FormClosing(ByVal sender As Object, _
             ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
 
-            DisposeLocalReportDatasources(Viewer.LocalReport)
-            Viewer.Dispose()
-            _ReportDataSet.Dispose()
+            Try
+                DisposeLocalReportDatasources(Viewer.LocalReport)
+            Catch ex As Exception
+            End Try
+            Try
+                Viewer.Dispose()
+            Catch ex As Exception
+            End Try
+
+            Try
+                _ReportDataSet.Dispose()
+            Catch ex As Exception
+            End Try
 
         End Sub
 

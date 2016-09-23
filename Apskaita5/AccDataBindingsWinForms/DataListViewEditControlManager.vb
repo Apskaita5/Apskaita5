@@ -54,10 +54,14 @@ Public Class DataListViewEditControlManager(Of T)
     ''' <param name="itemActionIsAvailable">a method that checks if a
     ''' specified ContextMenuStrip menu item or dialog button is available
     ''' for the item clicked (if any)</param>
+    ''' <param name="currentBusinessObject">an old business object that is going
+    ''' to be displayed in the DataListView, is used to find obsolete value 
+    ''' objects that need to be included in the datasource lists</param>
     ''' <remarks></remarks>
     Public Sub New(ByVal listView As ObjectListView, ByVal contextMenuStrip As ContextMenuStrip, _
         ByVal itemsDeleteHandler As ItemsDelete, ByVal itemAddHandler As ItemAdd, _
-        ByVal itemActionIsAvailable As ItemActionIsAvailable)
+        ByVal itemActionIsAvailable As ItemActionIsAvailable, _
+        ByVal currentBusinessObject As Object)
 
         If listView Is Nothing Then
             Throw New ArgumentNullException("listView")
@@ -72,7 +76,7 @@ Public Class DataListViewEditControlManager(Of T)
 
         RegionalizeListView(listView)
 
-        InitializeControlsDictionary()
+        InitializeControlsDictionary(currentBusinessObject)
 
         If listView.CellEditActivation <> ObjectListView.CellEditActivateMode.None Then
             If MyCustomSettings.EditListViewWithDoubleClick Then
@@ -678,34 +682,40 @@ Public Class DataListViewEditControlManager(Of T)
     End Sub
 
 
-    Private Sub InitializeControlsDictionary()
+    Private Sub InitializeControlsDictionary(ByVal currentBusinessObject As Object)
+
+        Dim usedValueObjectIds As Dictionary(Of Type, List(Of String)) = Nothing
+        If Not currentBusinessObject Is Nothing Then
+            usedValueObjectIds = GetContainedValueObjectLists(currentBusinessObject)
+        End If
 
         For Each col As OLVColumn In _CurrentListView.Columns
 
             If Not StringIsNullOrEmpty(col.AspectName) Then
 
-                Dim curProp As PropertyInfo = GetBindingProperty(Of T)(col.AspectName)
+                Dim curProp As PropertyInfo = GetPropertyInfo(Of T)(col.AspectName)
 
                 If Not curProp Is Nothing Then SetColumnFormat(curProp, col)
 
                 If Not curProp Is Nothing AndAlso curProp.CanWrite Then
 
-                    If curProp.PropertyType Is GetType(Double) Then
+                    If Not GetDataSourceProvider(curProp) Is Nothing Then
+                        AddListControl(curProp, usedValueObjectIds)
+                    ElseIf curProp.PropertyType Is GetType(Double) _
+                        OrElse curProp.PropertyType Is GetType(Single) _
+                        OrElse curProp.PropertyType Is GetType(Decimal) Then
                         AddDoubleControl(curProp)
-                    ElseIf curProp.PropertyType Is GetType(Integer) Then
+                    ElseIf curProp.PropertyType Is GetType(Integer) _
+                        OrElse curProp.PropertyType Is GetType(Short) _
+                        OrElse curProp.PropertyType Is GetType(Byte) _
+                        OrElse curProp.PropertyType Is GetType(Long) Then
                         AddIntegerControl(curProp)
-                    ElseIf curProp.PropertyType Is GetType(Long) Then
-                        AddAccountInfoControl(curProp)
-                    ElseIf curProp.PropertyType Is GetType(String) Then
-                        AddStringControl(curProp)
                     ElseIf curProp.PropertyType Is GetType(Date) Then
                         AddDateControl(curProp)
-                    ElseIf curProp.PropertyType Is GetType(HelperLists.CashAccountInfoList) Then
-                        AddCashAccountInfoListControl(curProp)
-                    ElseIf curProp.PropertyType Is GetType(HelperLists.PersonGroupInfo) Then
-                        AddPersonGroupInfoListControl(curProp)
-                    ElseIf curProp.PropertyType Is GetType(HelperLists.WarehouseInfo) Then
-                        AddWarehouseInfoListControl(curProp)
+                    ElseIf curProp.PropertyType Is GetType(String) Then
+                        AddStringControl(curProp)
+                    ElseIf curProp.PropertyType.IsEnum Then
+                        AddEnumControl(curProp)
                     End If
 
                 End If
@@ -737,7 +747,9 @@ Public Class DataListViewEditControlManager(Of T)
         If Not column.AspectToStringFormat Is Nothing AndAlso _
             Not String.IsNullOrEmpty(column.AspectToStringFormat.Trim) Then Exit Sub
 
-        If propInfo.PropertyType Is GetType(Double) Then
+        If propInfo.PropertyType Is GetType(Double) OrElse _
+            propInfo.PropertyType Is GetType(Decimal) OrElse _
+            propInfo.PropertyType Is GetType(Single) Then
 
             Dim curAttribute As DoubleFieldAttribute = _
                 GetAttribute(Of DoubleFieldAttribute)(propInfo)
@@ -757,7 +769,9 @@ Public Class DataListViewEditControlManager(Of T)
             column.AspectToStringFormat = "{0:yyyy-MM-dd}"
             column.TextAlign = HorizontalAlignment.Center
 
-        ElseIf propInfo.PropertyType Is GetType(Integer) Then
+        ElseIf propInfo.PropertyType Is GetType(Integer) OrElse _
+            propInfo.PropertyType Is GetType(Short) OrElse _
+            propInfo.PropertyType Is GetType(Byte) Then
 
             column.TextAlign = HorizontalAlignment.Center
 
@@ -776,6 +790,34 @@ Public Class DataListViewEditControlManager(Of T)
 
     End Sub
 
+
+    Private Sub AddListControl(ByVal curProp As PropertyInfo, _
+        ByVal usedValueObjectIds As Dictionary(Of Type, List(Of String)))
+
+        Dim dsProvider As IDataSourceProvider = GetDataSourceProvider(curProp)
+        If dsProvider Is Nothing Then Exit Sub
+
+        If TypeOf dsProvider Is CurrencyFieldAttribute OrElse _
+            TypeOf dsProvider Is DocumentSerialFieldAttribute OrElse _
+            TypeOf dsProvider Is LanguageCodeFieldAttribute OrElse _
+            TypeOf dsProvider Is LanguageNameFieldAttribute OrElse _
+            TypeOf dsProvider Is LocalizedEnumFieldAttribute OrElse _
+            TypeOf dsProvider Is NameFieldAttribute OrElse _
+            TypeOf dsProvider Is TaxRateFieldAttribute Then
+
+            Dim control As New ComboBox
+            PrepareControl(control, dsProvider, usedValueObjectIds)
+            _ControlsDictionary.Add(curProp.Name, control)
+
+        Else
+
+            Dim control As New AccListComboBox
+            PrepareControl(control, dsProvider, usedValueObjectIds)
+            _ControlsDictionary.Add(curProp.Name, control)
+
+        End If
+
+    End Sub
 
     Private Sub AddDoubleControl(ByVal curProp As PropertyInfo)
 
@@ -877,31 +919,6 @@ Public Class DataListViewEditControlManager(Of T)
 
     End Sub
 
-    Private Sub AddAccountInfoControl(ByVal curProp As PropertyInfo)
-
-        If curProp Is Nothing Then
-            Throw New ArgumentNullException("curProp")
-        End If
-
-        Dim curAttribute As AccountFieldAttribute = _
-            GetAttribute(Of AccountFieldAttribute)(curProp)
-
-        If curAttribute Is Nothing Then
-
-            AddIntegerControl(curProp)
-
-        Else
-
-            Dim control As New AccListComboBox
-            LoadAccountInfoListToListCombo(control, curAttribute.ValueRequired _
-                <> ValueRequiredLevel.Mandatory, curAttribute.AcceptedClasses)
-
-            _ControlsDictionary.Add(curProp.Name, control)
-
-        End If
-
-    End Sub
-
     Private Sub AddStringControl(ByVal curProp As PropertyInfo)
 
         If curProp Is Nothing Then
@@ -947,44 +964,18 @@ Public Class DataListViewEditControlManager(Of T)
 
     End Sub
 
-    Private Sub AddCashAccountInfoListControl(ByVal curProp As PropertyInfo)
+    Private Sub AddEnumControl(ByVal curProp As PropertyInfo)
 
         If curProp Is Nothing Then
             Throw New ArgumentNullException("curProp")
         End If
 
-        Dim control As New AccListComboBox
-        LoadCashAccountInfoListToListCombo(control, True)
-
+        Dim control As New ComboBox
+        PrepareControl(control, curProp.PropertyType)
         _ControlsDictionary.Add(curProp.Name, control)
 
     End Sub
 
-    Private Sub AddPersonGroupInfoListControl(ByVal curProp As PropertyInfo)
-
-        If curProp Is Nothing Then
-            Throw New ArgumentNullException("curProp")
-        End If
-
-        Dim control As New AccListComboBox
-        LoadPersonGroupInfoListToListCombo(control)
-
-        _ControlsDictionary.Add(curProp.Name, control)
-
-    End Sub
-
-    Private Sub AddWarehouseInfoListControl(ByVal curProp As PropertyInfo)
-
-        If curProp Is Nothing Then
-            Throw New ArgumentNullException("curProp")
-        End If
-
-        Dim control As New AccListComboBox
-        LoadWarehouseInfoListToListCombo(control, True)
-
-        _ControlsDictionary.Add(curProp.Name, control)
-
-    End Sub
 
     Private Sub DataListView_CellEditFinishing(ByVal sender As Object, ByVal e As CellEditEventArgs)
 
@@ -1000,6 +991,10 @@ Public Class DataListViewEditControlManager(Of T)
         If TypeOf currentControl Is NumericUpDown Then
             If GetPropertyType(e.Column.AspectName) Is GetType(Long) Then
                 e.NewValue = Convert.ToInt64(DirectCast(currentControl, NumericUpDown).Value)
+            ElseIf GetPropertyType(e.Column.AspectName) Is GetType(Byte) Then
+                e.NewValue = Convert.ToByte(DirectCast(currentControl, NumericUpDown).Value)
+            ElseIf GetPropertyType(e.Column.AspectName) Is GetType(Short) Then
+                e.NewValue = Convert.ToInt16(DirectCast(currentControl, NumericUpDown).Value)
             Else
                 e.NewValue = Convert.ToInt32(DirectCast(currentControl, NumericUpDown).Value)
             End If
@@ -1008,6 +1003,14 @@ Public Class DataListViewEditControlManager(Of T)
                 e.NewValue = Convert.ToInt64(DirectCast(currentControl, AccTextBox).DecimalValue)
             ElseIf GetPropertyType(e.Column.AspectName) Is GetType(Integer) Then
                 e.NewValue = Convert.ToInt32(DirectCast(currentControl, AccTextBox).DecimalValue)
+            ElseIf GetPropertyType(e.Column.AspectName) Is GetType(Byte) Then
+                e.NewValue = Convert.ToByte(DirectCast(currentControl, AccTextBox).DecimalValue)
+            ElseIf GetPropertyType(e.Column.AspectName) Is GetType(Short) Then
+                e.NewValue = Convert.ToInt16(DirectCast(currentControl, AccTextBox).DecimalValue)
+            ElseIf GetPropertyType(e.Column.AspectName) Is GetType(Single) Then
+                e.NewValue = Convert.ToSingle(DirectCast(currentControl, AccTextBox).DecimalValue)
+            ElseIf GetPropertyType(e.Column.AspectName) Is GetType(Decimal) Then
+                e.NewValue = Convert.ToDecimal(DirectCast(currentControl, AccTextBox).DecimalValue)
             Else
                 e.NewValue = Convert.ToDouble(DirectCast(currentControl, AccTextBox).DecimalValue)
             End If
@@ -1016,7 +1019,11 @@ Public Class DataListViewEditControlManager(Of T)
         ElseIf TypeOf currentControl Is TextBox Then
             e.NewValue = DirectCast(currentControl, TextBox).Text
         ElseIf TypeOf currentControl Is ComboBox Then
-            e.NewValue = DirectCast(currentControl, ComboBox).SelectedValue
+            If GetPropertyType(e.Column.AspectName).IsEnum Then
+                e.NewValue = DirectCast(currentControl, ComboBox).SelectedItem
+            Else
+                e.NewValue = DirectCast(currentControl, ComboBox).SelectedValue
+            End If
         ElseIf TypeOf currentControl Is DateTimePicker Then
             e.NewValue = DirectCast(currentControl, DateTimePicker).Value
         Else
@@ -1090,7 +1097,7 @@ Public Class DataListViewEditControlManager(Of T)
 
         Dim propInfo As PropertyInfo = Nothing
         Try
-            propInfo = GetBindingProperty(Of T)(aspectName)
+            propInfo = GetPropertyInfo(Of T)(aspectName)
         Catch ex As Exception
         End Try
         If propInfo Is Nothing Then Return Nothing

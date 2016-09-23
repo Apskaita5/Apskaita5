@@ -2,12 +2,8 @@
 Imports System.Windows.Forms
 Imports AccControlsWinForms
 Imports ApskaitaObjects
-Imports ApskaitaObjects.Attributes
 Imports BrightIdeasSoftware
 Imports System.Reflection
-Imports AccCommon
-Imports ApskaitaObjects.HelperLists
-Imports AccDataBindingsWinForms.CachedInfoLists
 
 ''' <summary>
 ''' Extender control providing automation around
@@ -26,6 +22,13 @@ Imports AccDataBindingsWinForms.CachedInfoLists
 ''' to configure controls that are dependant on object state every time 
 ''' the state changes.</remarks>
 Public Class CslaActionExtenderEditForm(Of T)
+
+    ''' <summary>
+    ''' a method signature that the parent form shall implement in order 
+    ''' to implement some before and after fetch processing
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Delegate Sub OnProgressChange()
 
     ''' <summary>
     ''' Event is raised after the the datasource object is saved or canceled.
@@ -311,6 +314,14 @@ Public Class CslaActionExtenderEditForm(Of T)
     End Sub
 
     Private Sub Form_FormClosing(ByVal sender As Object, ByVal e As FormClosingEventArgs)
+
+        If Not _ProgressControl Is Nothing AndAlso Not _ProgressControl.IsDisposed _
+            AndAlso _ProgressControl.IsRunning Then
+            MsgBox("Negalima uždaryti formos, kol vyksta duomenų išsaugojimas.", _
+                MsgBoxStyle.Exclamation, "Klaida")
+            e.Cancel = True
+            Exit Sub
+        End If
 
         If Not _CloseFormAfterSave AndAlso Not _DataSource Is Nothing _
             AndAlso TypeOf _DataSource Is IIsDirtyEnough AndAlso _

@@ -85,11 +85,13 @@ Friend Class F_ComplexOperationValueChange
         Try
 
             _ListViewManager = New DataListViewEditControlManager(Of OperationValueChange) _
-                (ItemsDataListView, Nothing, AddressOf OnItemsDelete, Nothing, Nothing)
+                (ItemsDataListView, Nothing, AddressOf OnItemsDelete, _
+                 Nothing, Nothing, _DocumentToEdit)
 
             _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller2)
 
-            SetupDefaultControls(Of ComplexOperationValueChange)(Me, ComplexOperationValueChangeBindingSource)
+            SetupDefaultControls(Of ComplexOperationValueChange) _
+                (Me, ComplexOperationValueChangeBindingSource, _DocumentToEdit)
 
         Catch ex As Exception
             ShowError(ex)

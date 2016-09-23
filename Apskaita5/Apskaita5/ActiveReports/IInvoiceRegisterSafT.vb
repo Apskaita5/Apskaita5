@@ -28,6 +28,12 @@
         ReadOnly Property ValidTo() As Date
 
         ''' <summary>
+        ''' Gets a name of the xsd file that defines the report xml requirements.
+        ''' </summary>
+        ''' <remarks></remarks>
+        ReadOnly Property XsdFileName() As String
+
+        ''' <summary>
         ''' Gets an XML representation of the report.
         ''' </summary>
         ''' <param name="invoiceRegister">an invoice register report to be exported.</param>

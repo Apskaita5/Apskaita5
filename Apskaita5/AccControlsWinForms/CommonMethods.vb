@@ -1,8 +1,17 @@
 ﻿Imports AccControlsWinForms.MessageBoxExLib
 Imports System.Windows.Forms
-Imports BrightIdeasSoftware
 
 Public Module CommonMethods
+
+    ''' <summary>
+    ''' A callback delegate that is invoked when an async operation finishes
+    ''' execution.
+    ''' </summary>
+    ''' <param name="result">a result returned by the async method</param>
+    ''' <param name="ex">an exception thrown by the async method (if any)</param>
+    ''' <remarks></remarks>
+    Public Delegate Sub AsyncOperationCallback(ByVal result As Object, ByVal ex As Exception)
+
 
     ''' <summary>
     ''' Creates a modal dialog, asks user a question and provides a list of possible answers as buttons.

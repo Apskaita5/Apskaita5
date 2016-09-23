@@ -1,6 +1,7 @@
 ﻿Imports ApskaitaObjects.Assets
 Imports AccControlsWinForms
 Imports AccDataBindingsWinForms.Printing
+Imports AccDataBindingsWinForms.CachedInfoLists
 
 Friend Class F_OperationTransfer
     Implements ISupportsPrinting, IObjectEditForm, ISupportsChronologicValidator
@@ -85,9 +86,11 @@ Friend Class F_OperationTransfer
 
             _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller2)
 
-            SetupDefaultControls(Of OperationTransfer)(Me, OperationTransferBindingSource)
+            SetupDefaultControls(Of OperationTransfer)(Me, _
+                OperationTransferBindingSource, _DocumentToEdit)
 
-            SetupDefaultControls(Of OperationBackground)(Me, BackgroundInfoPanel1.GetBindingSource())
+            SetupDefaultControls(Of OperationBackground)(Me, _
+                BackgroundInfoPanel1.GetBindingSource(), _DocumentToEdit)
 
         Catch ex As Exception
             ShowError(ex)

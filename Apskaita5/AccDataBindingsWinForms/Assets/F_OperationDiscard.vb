@@ -91,9 +91,11 @@ Friend Class F_OperationDiscard
 
             _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller2)
 
-            SetupDefaultControls(Of OperationDiscard)(Me, OperationDiscardBindingSource)
+            SetupDefaultControls(Of OperationDiscard) _
+                (Me, OperationDiscardBindingSource, _DocumentToEdit)
 
-            SetupDefaultControls(Of OperationBackground)(Me, BackgroundInfoPanel1.GetBindingSource())
+            SetupDefaultControls(Of OperationBackground) _
+                (Me, BackgroundInfoPanel1.GetBindingSource(), _DocumentToEdit)
 
         Catch ex As Exception
             ShowError(ex)

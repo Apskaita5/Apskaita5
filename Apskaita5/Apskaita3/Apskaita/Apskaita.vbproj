@@ -664,6 +664,9 @@
     <Content Include="MXFD\FR0600%282%29.mxfd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="MXFD\isaf_1_2.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="My Project\DataSources\AccControlsWinForms.ReportData.datasource" />
     <None Include="My Project\DataSources\AccDataAccessLayer.DatabaseAccess.DatabaseStructure.DatabaseStructure.datasource" />
     <None Include="My Project\DataSources\AccDataAccessLayer.Security.DatabaseInfoList.datasource" />

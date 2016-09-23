@@ -1,6 +1,8 @@
 ﻿Imports ApskaitaObjects.ActiveReports
 Imports AccControlsWinForms
 Imports AccDataBindingsWinForms.Printing
+Imports AccDataBindingsWinForms.CachedInfoLists
+Imports ApskaitaObjects.Attributes
 
 Friend Class F_ServiceTurnoverInfoList
     Implements ISupportsPrinting
@@ -15,7 +17,8 @@ Friend Class F_ServiceTurnoverInfoList
         Try
 
             _ListViewManager = New DataListViewEditControlManager(Of ServiceTurnoverInfo) _
-                (ServiceTurnoverInfoListDataListView, Nothing, Nothing, Nothing, Nothing)
+                (ServiceTurnoverInfoListDataListView, Nothing, Nothing, _
+                 Nothing, Nothing, Nothing)
 
             ' ServiceTurnoverInfoList.GetServiceTurnoverInfoList(dateFrom, dateTo, showWithoutTurnover, tradedType)
             _FormManager = New CslaActionExtenderReportForm(Of ServiceTurnoverInfoList) _
@@ -24,7 +27,8 @@ Friend Class F_ServiceTurnoverInfoList
 
             _FormManager.ManageDataListViewStates(ServiceTurnoverInfoListDataListView)
 
-            TradedTypeComboBox.DataSource = Utilities.GetLocalizedNameList(GetType(Documents.TradedItemType))
+            PrepareControl(TradedTypeComboBox, New LocalizedEnumFieldAttribute( _
+                GetType(Documents.TradedItemType), False, ""))
 
         Catch ex As Exception
             ShowError(ex)

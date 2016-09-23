@@ -31,10 +31,10 @@ Public Class F_VatDeclaration
         Try
 
             _ItemsListViewManager = New DataListViewEditControlManager(Of VatDeclarationItem) _
-                (ItemsDataListView, Nothing, Nothing, Nothing, Nothing)
+                (ItemsDataListView, Nothing, Nothing, Nothing, Nothing, Nothing)
 
             _SubtotalsListViewManager = New DataListViewEditControlManager(Of VatDeclarationSubtotal) _
-                (SubtotalsDataListView, Nothing, Nothing, Nothing, Nothing)
+                (SubtotalsDataListView, Nothing, Nothing, Nothing, Nothing, Nothing)
 
             _ItemsListViewManager.AddCancelButton = False
             _ItemsListViewManager.AddButtonHandler("Keisti", _

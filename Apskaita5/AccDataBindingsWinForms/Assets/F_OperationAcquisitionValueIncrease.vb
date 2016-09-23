@@ -91,9 +91,11 @@ Friend Class F_OperationAcquisitionValueIncrease
 
             _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller2)
 
-            SetupDefaultControls(Of OperationAcquisitionValueIncrease)(Me, OperationAcquisitionValueIncreaseBindingSource)
+            SetupDefaultControls(Of OperationAcquisitionValueIncrease) _
+                (Me, OperationAcquisitionValueIncreaseBindingSource, _DocumentToEdit)
 
-            SetupDefaultControls(Of OperationBackground)(Me, BackgroundInfoPanel1.GetBindingSource())
+            SetupDefaultControls(Of OperationBackground) _
+                (Me, BackgroundInfoPanel1.GetBindingSource(), _DocumentToEdit)
 
         Catch ex As Exception
             ShowError(ex)

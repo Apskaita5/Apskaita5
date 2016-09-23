@@ -1,6 +1,7 @@
 ﻿Namespace Attributes
+
     ''' <summary>
-    ''' Represents an attribute that is used to mark business objects' properties holding a strin value
+    ''' Represents an attribute that is used to mark business objects' properties holding a string value
     ''' and to store basic business rules (mandatory, max length, etc.).
     ''' </summary>
     ''' <remarks>Used for validation purposes in <see cref="StringFieldValidation">StringFieldValidation</see>

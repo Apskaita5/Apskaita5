@@ -2,6 +2,7 @@
 Imports AccControlsWinForms
 Imports AccDataBindingsWinForms.CachedInfoLists
 Imports AccDataBindingsWinForms.Printing
+Imports ApskaitaObjects.Attributes
 
 Friend Class F_UnsettledPersonInfoList
     Implements ISupportsPrinting
@@ -39,7 +40,8 @@ Friend Class F_UnsettledPersonInfoList
         Try
 
             _ListViewManager = New DataListViewEditControlManager(Of UnsettledDocumentInfo) _
-                (UnsettledPersonInfoListDataTreeView, Nothing, Nothing, Nothing, Nothing)
+                (UnsettledPersonInfoListDataTreeView, Nothing, Nothing, _
+                Nothing, Nothing, Nothing)
 
             ' UnsettledPersonInfoList.GetUnsettledPersonInfoList()
             _FormManager = New CslaActionExtenderReportForm(Of UnsettledPersonInfoList) _
@@ -49,8 +51,10 @@ Friend Class F_UnsettledPersonInfoList
 
             _FormManager.ManageDataListViewStates(UnsettledPersonInfoListDataTreeView)
 
-            LoadPersonGroupInfoListToListCombo(PersonGroupComboBox)
-            LoadAccountInfoListToListCombo(AccountAccGridComboBox, True, 1, 2, 3, 4)
+            PrepareControl(PersonGroupComboBox, New PersonGroupFieldAttribute( _
+                ValueRequiredLevel.Optional))
+            PrepareControl(AccountAccGridComboBox, New AccountFieldAttribute( _
+                ValueRequiredLevel.Optional, False, 1, 2, 3, 4))
 
             _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller2)
 

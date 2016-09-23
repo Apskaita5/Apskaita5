@@ -47,6 +47,7 @@ Namespace Settings
         ''' Gets or sets a type of the name as a human readable (localized) string.
         ''' </summary>
         ''' <remarks></remarks>
+        <LocalizedEnumField(GetType(NameType), False, "")> _
         Public Property TypeHumanReadable() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get

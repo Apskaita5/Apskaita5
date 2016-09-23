@@ -22,38 +22,45 @@ Partial Class ProgressFiller
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar
-        Me.CancelActionButton = New System.Windows.Forms.Button
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox
+        Me.Label1 = New System.Windows.Forms.Label
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'ProgressBar1
+        'PictureBox1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(99, 75)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(202, 23)
-        Me.ProgressBar1.TabIndex = 0
+        Me.PictureBox1.Image = Global.AccControlsWinForms.My.Resources.Resources.gears
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(210, 210)
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
         '
-        'CancelActionButton
+        'Label1
         '
-        Me.CancelActionButton.Location = New System.Drawing.Point(159, 104)
-        Me.CancelActionButton.Name = "CancelActionButton"
-        Me.CancelActionButton.Size = New System.Drawing.Size(75, 23)
-        Me.CancelActionButton.TabIndex = 1
-        Me.CancelActionButton.Text = "Atšaukti"
-        Me.CancelActionButton.UseVisualStyleBackColor = True
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(3, 213)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(205, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Paspauskite Esc norėdami atšaukti"
         '
         'ProgressFiller
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.CancelActionButton)
-        Me.Controls.Add(Me.ProgressBar1)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Name = "ProgressFiller"
-        Me.Size = New System.Drawing.Size(422, 191)
+        Me.Size = New System.Drawing.Size(220, 238)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents ProgressBar1 As System.Windows.Forms.ProgressBar
-    Friend WithEvents CancelActionButton As System.Windows.Forms.Button
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 
 End Class

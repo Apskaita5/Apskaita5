@@ -2,6 +2,7 @@
 Imports AccDataBindingsWinForms.CachedInfoLists
 Imports ApskaitaObjects.Goods
 Imports ApskaitaObjects.Documents
+Imports ApskaitaObjects.Attributes
 
 Public Class F_NewGoodsProductionOperation
 
@@ -47,10 +48,14 @@ Public Class F_NewGoodsProductionOperation
 
             _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller1)
 
-            LoadGoodsInfoListToListCombo(GoodsInfoListAccListComboBox, True, TradedItemType.All)
-            LoadWarehouseInfoListToListCombo(WarehouseFromInfoListAccListComboBox, True)
-            LoadWarehouseInfoListToListCombo(WarehouseToInfoListAccListComboBox, True)
-            LoadProductionCalculationInfoListToListCombo(ProductionCalculationInfoListAccListComboBox, True, False)
+            PrepareControl(GoodsInfoListAccListComboBox, _
+                New GoodsFieldAttribute(ValueRequiredLevel.Optional))
+            PrepareControl(WarehouseFromInfoListAccListComboBox, _
+                New WarehouseFieldAttribute(ValueRequiredLevel.Optional))
+            PrepareControl(WarehouseToInfoListAccListComboBox, _
+                New WarehouseFieldAttribute(ValueRequiredLevel.Optional))
+            PrepareControl(ProductionCalculationInfoListAccListComboBox, _
+                New ProductionCalculationFieldAttribute(ValueRequiredLevel.Optional))
 
         Catch ex As Exception
             ShowError(ex)

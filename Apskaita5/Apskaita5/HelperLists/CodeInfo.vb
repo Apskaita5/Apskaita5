@@ -15,6 +15,10 @@ Namespace HelperLists
 
 #Region " Business Methods "
 
+        Friend Shared ReadOnly IntegerCodeTypes As CodeType() = New CodeType() _
+            {CodeType.GpmDeclaration, CodeType.SodraDeclaration, _
+             CodeType.VmiMunicipality}
+
         Private ReadOnly _Guid As Guid = Guid.NewGuid()
         Private _IsEmpty As Boolean = False
         Private _Type As CodeType = CodeType.GpmDeclaration
@@ -156,6 +160,37 @@ Namespace HelperLists
             If Me = tmp Then Return 0
             If Me > tmp Then Return 1
             Return -1
+        End Function
+
+
+        Friend Shared Function GetValueObjectIdString(ByVal value As String, _
+            ByVal valueType As CodeType) As String
+
+            If StringIsNullOrEmpty(value) Then value = ""
+
+            Return String.Format("{0}:={1}", valueType.ToString(), _
+                value.Trim.ToUpper())
+
+        End Function
+
+        Friend Shared Function GetValueObjectIdString(ByVal value As Integer, _
+            ByVal valueType As CodeType) As String
+
+            If value = 0 Then Return ""
+
+            Return String.Format("{0}:={1}", valueType.ToString(), _
+                value.ToString(Globalization.CultureInfo.InvariantCulture))
+
+        End Function
+
+        Friend Function GetValueObjectIdString() As String
+
+            If Array.IndexOf(IntegerCodeTypes, _Type) < 0 Then
+                Return GetValueObjectIdString(_Code, _Type)
+            Else
+                Return GetValueObjectIdString(Me.CodeInt, _Type)
+            End If
+
         End Function
 
 

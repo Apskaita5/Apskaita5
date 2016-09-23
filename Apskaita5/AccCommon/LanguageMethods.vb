@@ -1,5 +1,9 @@
 Public Module LanguageMethods
 
+    ''' <summary>
+    ''' An array of all the legal ISO 639-1 language codes.
+    ''' </summary>
+    ''' <remarks></remarks>
     Private ReadOnly ValidLanguages As String() = New String() {"aa", "ab", "ae", "af", "ak", "am", _
         "an", "ar", "as", "av", "ay", "az", "ba", "be", "bg", "bh", "bi", "bm", "bn", "bo", "br", _
         "bs", "ca", "ce", "ch", "co", "cr", "cs", "cu", "cv", "cy", "da", "de", "dv", "dz", "ee", _
@@ -202,13 +206,35 @@ Public Module LanguageMethods
     ''' <param name="addEmptyLine">Whether to insert an empty string in the begining of the list.</param>
     ''' <returns>A list of human readable language names in lithuanian.</returns>
     ''' <remarks></remarks>
-    Public Function GetLanguageList(Optional ByVal addEmptyLine As Boolean = True) As List(Of String)
+    Public Function GetLanguageNameList(Optional ByVal addEmptyLine As Boolean = True) As List(Of String)
 
         Dim result As New List(Of String)
 
         For Each value As String In ValidLanguages
             Dim name As String = GetLanguageName(value, False)
             If Not StringIsNullOrEmpty(name) Then result.Add(name)
+        Next
+
+        result.Sort()
+
+        If addEmptyLine Then result.Insert(0, "")
+
+        Return result
+
+    End Function
+
+    ''' <summary>
+    ''' Gets a list of ISO 639-1 language codes.
+    ''' </summary>
+    ''' <param name="addEmptyLine">whether to insert an empty string in the begining of the list</param>
+    ''' <returns>A list of ISO 639-1 language codes.</returns>
+    ''' <remarks></remarks>
+    Public Function GetLanguageCodeList(Optional ByVal addEmptyLine As Boolean = True) As List(Of String)
+
+        Dim result As New List(Of String)
+
+        For Each value As String In ValidLanguages
+            result.Add(value)
         Next
 
         result.Sort()

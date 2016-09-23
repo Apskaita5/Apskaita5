@@ -1,6 +1,7 @@
 ﻿Imports ApskaitaObjects.Workers
 Imports ApskaitaObjects.HelperLists
 Imports AccDataBindingsWinForms.CachedInfoLists
+Imports ApskaitaObjects.Attributes
 
 Friend Class F_NewWorkTimeSheet
 
@@ -25,8 +26,10 @@ Friend Class F_NewWorkTimeSheet
             YearComboBox.Items.Add((Today.Year - i + 1).ToString)
         Next
 
-        LoadWorkTimeClassInfoListToListCombo(RestDayClassAccListComboBox, True, True, False)
-        LoadWorkTimeClassInfoListToListCombo(RestDayClassAccListComboBox, True, True, False)
+        PrepareControl(RestDayClassAccListComboBox, New WorkTimeClassFieldAttribute( _
+            ValueRequiredLevel.Optional, False, True))
+        PrepareControl(PublicHolidayClassAccListComboBox, New WorkTimeClassFieldAttribute( _
+            ValueRequiredLevel.Optional, False, True))
 
         _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller1)
 

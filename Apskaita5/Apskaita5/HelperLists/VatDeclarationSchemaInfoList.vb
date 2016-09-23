@@ -66,14 +66,14 @@
         ''' <remarks>Result is cached.
         ''' Required by <see cref="AccDataAccessLayer.CacheManager">AccDataAccessLayer.CacheManager</see>.</remarks>
         Public Shared Function GetCachedFilteredList(ByVal showEmpty As Boolean, _
-            ByVal showSales As Boolean, ByVal showPurchases As Boolean, _
-            ByVal showObsolete As Boolean) As Csla.FilteredBindingList(Of VatDeclarationSchemaInfo)
+            ByVal showObsolete As Boolean, ByVal tradedType As Documents.TradedItemType, _
+            ByVal usedObjectsIds As List(Of String)) As Csla.FilteredBindingList(Of VatDeclarationSchemaInfo)
 
             Dim filterToApply(3) As Object
-            filterToApply(0) = ConvertDbBoolean(showEmpty)
-            filterToApply(1) = ConvertDbBoolean(showSales)
-            filterToApply(2) = ConvertDbBoolean(showPurchases)
-            filterToApply(3) = ConvertDbBoolean(showObsolete)
+            filterToApply(0) = showObsolete
+            filterToApply(1) = showEmpty
+            filterToApply(2) = tradedType
+            filterToApply(3) = usedObjectsIds
 
             Dim result As Csla.FilteredBindingList(Of VatDeclarationSchemaInfo) = _
                 CacheManager.GetItemFromCache(Of Csla.FilteredBindingList(Of VatDeclarationSchemaInfo)) _
@@ -135,24 +135,38 @@
 
             If filterValue Is Nothing OrElse DirectCast(filterValue, Object()).Length < 4 Then Return True
 
-            Dim showEmpty As Boolean = ConvertDbBoolean( _
-                DirectCast(DirectCast(filterValue, Object())(0), Integer))
-            Dim showSales As Boolean = ConvertDbBoolean( _
-                DirectCast(DirectCast(filterValue, Object())(1), Integer))
-            Dim showPurchases As Boolean = ConvertDbBoolean( _
-                DirectCast(DirectCast(filterValue, Object())(2), Integer))
-            Dim showObsolete As Boolean = ConvertDbBoolean( _
-                DirectCast(DirectCast(filterValue, Object())(3), Integer))
+            Dim filterArray As Object() = DirectCast(filterValue, Object())
+
+            Dim showObsolete As Boolean = DirectCast(filterArray(0), Boolean)
+            Dim showEmpty As Boolean = DirectCast(filterArray(1), Boolean)
+            Dim tradedType As Documents.TradedItemType = _
+                DirectCast(filterArray(2), Documents.TradedItemType)
+            Dim usedObjectsIds As List(Of String) = DirectCast(filterArray(3), List(Of String))
 
             ' no criteria to apply
-            If showEmpty AndAlso showObsolete AndAlso showSales AndAlso showPurchases Then Return True
+            If showEmpty AndAlso showObsolete AndAlso _
+                tradedType = Documents.TradedItemType.All Then Return True
 
             Dim current As VatDeclarationSchemaInfo = DirectCast(item, VatDeclarationSchemaInfo)
 
-            If Not showEmpty AndAlso Not current.ID > 0 Then Return False
-            If Not showObsolete AndAlso current.IsObsolete Then Return False
-            If Not showSales AndAlso current.TradedType = Documents.TradedItemType.Sales Then Return False
-            If Not showPurchases AndAlso current.TradedType = Documents.TradedItemType.Purchases Then Return False
+            If current.IsEmpty Then
+
+                Return showEmpty
+
+            Else
+
+                If Not usedObjectsIds Is Nothing AndAlso usedObjectsIds.Contains( _
+                    current.GetValueObjectIdString()) Then
+                    Return True
+                End If
+
+                If Not showObsolete AndAlso current.IsObsolete Then Return False
+
+                If tradedType <> Documents.TradedItemType.All AndAlso _
+                    current.TradedType <> Documents.TradedItemType.All AndAlso _
+                    current.TradedType <> tradedType Then Return False
+
+            End If
 
             Return True
 

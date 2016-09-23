@@ -75,6 +75,7 @@ Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Releas
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\FR0671(2).mxfd"; DestDir: "{app}\MXFD"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\13-SD-v05.mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\FR0600(2).mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\isaf_1_2.xsd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Apskaita5Help.chm"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\CommonSettings.xmls"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlEngineConfig.xml"; DestDir: "{app}"; Flags: ignoreversion

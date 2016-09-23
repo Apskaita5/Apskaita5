@@ -23,7 +23,7 @@ Namespace ActiveReports.Declarations
         Public ReadOnly Property Name() As String _
             Implements IInvoiceRegisterSafT.Name
             Get
-                Return "SAF-T v. 1.1"
+                Return "SAF-T v. 1.2"
             End Get
         End Property
 
@@ -49,6 +49,17 @@ Namespace ActiveReports.Declarations
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a name of the xsd file that defines the report xml requirements.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property XsdFileName() As String _
+            Implements IInvoiceRegisterSafT.XsdFileName
+            Get
+                Return "MXFD\isaf_1_2.xsd"
+            End Get
+        End Property
+
 
         ''' <summary>
         ''' Gets an XML representation of the report.
@@ -66,20 +77,20 @@ Namespace ActiveReports.Declarations
                 Throw New ArgumentException("List cannot be empty.")
             End If
 
-            Dim result As New SafTTemplates.SafT_1_1.iSAFFile
+            Dim result As New SafTTemplates.SafT_1_2.iSAFFile
 
-            result.Header = New SafTTemplates.SafT_1_1.Header()
-            result.Header.FileDescription = New SafTTemplates.SafT_1_1.FileDescription()
+            result.Header = New SafTTemplates.SafT_1_2.Header()
+            result.Header.FileDescription = New SafTTemplates.SafT_1_2.FileDescription()
             If invoiceRegister.InfoType = InvoiceInfoType.InvoiceMade Then
                 result.Header.FileDescription.DataType = _
-                    SafTTemplates.SafT_1_1.ISAFDataType.S
+                    SafTTemplates.SafT_1_2.ISAFDataType.S
             Else
                 result.Header.FileDescription.DataType = _
-                    SafTTemplates.SafT_1_1.ISAFDataType.P
+                    SafTTemplates.SafT_1_2.ISAFDataType.P
             End If
             result.Header.FileDescription.FileDateCreated = Now
             result.Header.FileDescription.FileVersion = _
-                SafTTemplates.SafT_1_1.ISAFFileVersion.iSAF11
+                SafTTemplates.SafT_1_2.ISAFFileVersion.iSAF12
             result.Header.FileDescription.NumberOfParts = 1
             result.Header.FileDescription.PartNumber = "BENDRAS"
             result.Header.FileDescription.RegistrationNumber = _
@@ -89,14 +100,14 @@ Namespace ActiveReports.Declarations
             result.Header.FileDescription.SoftwareVersion = softwareVersion
 
             result.Header.FileDescription.SelectionCriteria = _
-                New SafTTemplates.SafT_1_1.SelectionCriteria()
+                New SafTTemplates.SafT_1_2.SelectionCriteria()
             result.Header.FileDescription.SelectionCriteria.SelectionStartDate _
                 = invoiceRegister.DateFrom
             result.Header.FileDescription.SelectionCriteria.SelectionEndDate _
                 = invoiceRegister.DateTo
 
-            result.SourceDocuments = New SafTTemplates.SafT_1_1.SourceDocuments()
-            result.MasterFiles = New SafTTemplates.SafT_1_1.MasterFiles()
+            result.SourceDocuments = New SafTTemplates.SafT_1_2.SourceDocuments()
+            result.MasterFiles = New SafTTemplates.SafT_1_2.MasterFiles()
 
             If invoiceRegister.InfoType = InvoiceInfoType.InvoiceMade Then
                 result.SourceDocuments.SalesInvoices = GetSalesInvoices(invoiceRegister)
@@ -127,23 +138,23 @@ Namespace ActiveReports.Declarations
 
 
         Private Function GetPurchaseInvoices(ByVal invoiceRegister As InvoiceInfoItemList) _
-            As SafTTemplates.SafT_1_1.PurchaseInvoice()
+            As SafTTemplates.SafT_1_2.PurchaseInvoice()
 
-            Dim result As New List(Of SafTTemplates.SafT_1_1.PurchaseInvoice)
+            Dim result As New List(Of SafTTemplates.SafT_1_2.PurchaseInvoice)
 
             For Each item As InvoiceInfoItem In invoiceRegister
 
-                Dim invoice As New SafTTemplates.SafT_1_1.PurchaseInvoice
+                Dim invoice As New SafTTemplates.SafT_1_2.PurchaseInvoice
 
-                invoice.References = New SafTTemplates.SafT_1_1.Reference() {}
+                invoice.References = New SafTTemplates.SafT_1_2.Reference() {}
                 invoice.InvoiceDate = item.ActualDate
                 invoice.InvoiceNo = item.Number
                 If item.InvoiceType = Documents.InvoiceType.Credit Then
-                    invoice.InvoiceType = SafTTemplates.SafT_1_1.ISAFshorttext2Type.KS
+                    invoice.InvoiceType = SafTTemplates.SafT_1_2.ISAFshorttext2Type.KS
                 ElseIf item.InvoiceType = Documents.InvoiceType.Debit Then
-                    invoice.InvoiceType = SafTTemplates.SafT_1_1.ISAFshorttext2Type.DS
+                    invoice.InvoiceType = SafTTemplates.SafT_1_2.ISAFshorttext2Type.DS
                 Else
-                    invoice.InvoiceType = SafTTemplates.SafT_1_1.ISAFshorttext2Type.SF
+                    invoice.InvoiceType = SafTTemplates.SafT_1_2.ISAFshorttext2Type.SF
                 End If
                 invoice.RegistrationAccountDate = item.Date
                 ' invoice.VATPointDate= Prekių gavimo arba paslaugų gavimo data,
@@ -152,7 +163,7 @@ Namespace ActiveReports.Declarations
                 ' sąskaitoje faktūroje / nefiksuojama(apskaitoje)/ sutampa su PVM
                 ' sąskaitos(faktūros)išrašymo data.
 
-                invoice.SupplierInfo = New SafTTemplates.SafT_1_1.SupplierInfo()
+                invoice.SupplierInfo = New SafTTemplates.SafT_1_2.SupplierInfo()
                 invoice.SupplierInfo.SupplierID = item.PersonID.ToString()
                 invoice.SupplierInfo.Name = item.PersonName
                 If StringIsNullOrEmpty(item.PersonVatCode) Then
@@ -167,10 +178,10 @@ Namespace ActiveReports.Declarations
                 End If
                 invoice.SupplierInfo.Country = item.StateCode.Trim.ToUpper()
 
-                Dim subtotals As New List(Of SafTTemplates.SafT_1_1.PurchaseDocumentTotal)
+                Dim subtotals As New List(Of SafTTemplates.SafT_1_2.PurchaseDocumentTotal)
                 For Each subitem As InvoiceSubtotalItem In item.SubtotalList
 
-                    Dim subtotal As New SafTTemplates.SafT_1_1.PurchaseDocumentTotal
+                    Dim subtotal As New SafTTemplates.SafT_1_2.PurchaseDocumentTotal
 
                     subtotal.Amount = Convert.ToDecimal(subitem.TaxAmount)
                     subtotal.TaxCode = subitem.TaxCode.Trim.ToUpper()
@@ -195,15 +206,15 @@ Namespace ActiveReports.Declarations
         End Function
 
         Private Function GetSalesInvoices(ByVal invoiceRegister As InvoiceInfoItemList) _
-            As SafTTemplates.SafT_1_1.SalesInvoice()
+            As SafTTemplates.SafT_1_2.SalesInvoice()
 
-            Dim result As New List(Of SafTTemplates.SafT_1_1.SalesInvoice)
+            Dim result As New List(Of SafTTemplates.SafT_1_2.SalesInvoice)
 
             For Each item As InvoiceInfoItem In invoiceRegister
 
-                Dim invoice As New SafTTemplates.SafT_1_1.SalesInvoice
+                Dim invoice As New SafTTemplates.SafT_1_2.SalesInvoice
 
-                invoice.References = New SafTTemplates.SafT_1_1.Reference() {}
+                invoice.References = New SafTTemplates.SafT_1_2.Reference() {}
                 invoice.InvoiceDate = item.Date
                 invoice.InvoiceNo = item.Number
                 ' invoice.InvoiceType = item.Type
@@ -214,7 +225,7 @@ Namespace ActiveReports.Declarations
                 ' sąskaitoje faktūroje / nefiksuojama(apskaitoje)/ sutampa su PVM
                 ' sąskaitos(faktūros)išrašymo data.
 
-                invoice.CustomerInfo = New SafTTemplates.SafT_1_1.CustomerInfo()
+                invoice.CustomerInfo = New SafTTemplates.SafT_1_2.CustomerInfo()
                 invoice.CustomerInfo.CustomerID = item.PersonID.ToString()
                 invoice.CustomerInfo.Name = item.PersonName
                 If StringIsNullOrEmpty(item.PersonVatCode) Then
@@ -229,10 +240,10 @@ Namespace ActiveReports.Declarations
                 End If
                 invoice.CustomerInfo.Country = item.StateCode.Trim.ToUpper()
 
-                Dim subtotals As New List(Of SafTTemplates.SafT_1_1.SalesDocumentTotal)
+                Dim subtotals As New List(Of SafTTemplates.SafT_1_2.SalesDocumentTotal)
                 For Each subitem As InvoiceSubtotalItem In item.SubtotalList
 
-                    Dim subtotal As New SafTTemplates.SafT_1_1.SalesDocumentTotal
+                    Dim subtotal As New SafTTemplates.SafT_1_2.SalesDocumentTotal
 
                     subtotal.Amount = Convert.ToDecimal(subitem.TaxAmount)
                     subtotal.TaxCode = subitem.TaxCode.Trim.ToUpper()
@@ -256,18 +267,18 @@ Namespace ActiveReports.Declarations
 
         End Function
 
-        Private Function GetCustomers(ByVal salesInvoices As SafTTemplates.SafT_1_1.SalesInvoice()) _
-            As SafTTemplates.SafT_1_1.Customer()
+        Private Function GetCustomers(ByVal salesInvoices As SafTTemplates.SafT_1_2.SalesInvoice()) _
+            As SafTTemplates.SafT_1_2.Customer()
 
-            Dim result As New List(Of SafTTemplates.SafT_1_1.Customer)
+            Dim result As New List(Of SafTTemplates.SafT_1_2.Customer)
 
             Dim personAlreadyAdded As Boolean
 
-            For Each invoice As SafTTemplates.SafT_1_1.SalesInvoice In salesInvoices
+            For Each invoice As SafTTemplates.SafT_1_2.SalesInvoice In salesInvoices
 
                 personAlreadyAdded = False
 
-                For Each item As SafTTemplates.SafT_1_1.Customer In result
+                For Each item As SafTTemplates.SafT_1_2.Customer In result
                     If item.CustomerID = invoice.CustomerInfo.CustomerID Then
                         personAlreadyAdded = True
                         Exit For
@@ -276,7 +287,7 @@ Namespace ActiveReports.Declarations
 
                 If Not personAlreadyAdded Then
 
-                    Dim newPerson As New SafTTemplates.SafT_1_1.Customer
+                    Dim newPerson As New SafTTemplates.SafT_1_2.Customer
                     newPerson.Country = invoice.CustomerInfo.Country
                     newPerson.CustomerID = invoice.CustomerInfo.CustomerID
                     newPerson.Name = invoice.CustomerInfo.Name
@@ -293,18 +304,18 @@ Namespace ActiveReports.Declarations
 
         End Function
 
-        Private Function GetSuppliers(ByVal purchaseInvoices As SafTTemplates.SafT_1_1.PurchaseInvoice()) _
-            As SafTTemplates.SafT_1_1.Supplier()
+        Private Function GetSuppliers(ByVal purchaseInvoices As SafTTemplates.SafT_1_2.PurchaseInvoice()) _
+            As SafTTemplates.SafT_1_2.Supplier()
 
-            Dim result As New List(Of SafTTemplates.SafT_1_1.Supplier)
+            Dim result As New List(Of SafTTemplates.SafT_1_2.Supplier)
 
             Dim personAlreadyAdded As Boolean
 
-            For Each invoice As SafTTemplates.SafT_1_1.PurchaseInvoice In purchaseInvoices
+            For Each invoice As SafTTemplates.SafT_1_2.PurchaseInvoice In purchaseInvoices
 
                 personAlreadyAdded = False
 
-                For Each item As SafTTemplates.SafT_1_1.Supplier In result
+                For Each item As SafTTemplates.SafT_1_2.Supplier In result
                     If item.SupplierID = invoice.SupplierInfo.SupplierID Then
                         personAlreadyAdded = True
                         Exit For
@@ -313,7 +324,7 @@ Namespace ActiveReports.Declarations
 
                 If Not personAlreadyAdded Then
 
-                    Dim newPerson As New SafTTemplates.SafT_1_1.Supplier
+                    Dim newPerson As New SafTTemplates.SafT_1_2.Supplier
                     newPerson.Country = invoice.SupplierInfo.Country
                     newPerson.SupplierID = invoice.SupplierInfo.SupplierID
                     newPerson.Name = invoice.SupplierInfo.Name

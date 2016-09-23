@@ -2,6 +2,7 @@
 Imports AccControlsWinForms
 Imports AccDataBindingsWinForms.CachedInfoLists
 Imports ApskaitaObjects.Documents
+Imports ApskaitaObjects.Attributes
 
 Friend Class F_NewInvoiceAdapterForGoodsOperation(Of T)
 
@@ -32,11 +33,15 @@ Friend Class F_NewInvoiceAdapterForGoodsOperation(Of T)
     Private Sub InvoiceAdapterForGoodsOperation_Load(ByVal sender As System.Object, _
         ByVal e As System.EventArgs) Handles MyBase.Load
 
-        If Not PrepareCache(Me, GetType(HelperLists.GoodsInfoList), GetType(HelperLists.WarehouseInfoList)) Then Exit Sub
+        If Not PrepareCache(Me, GetType(HelperLists.GoodsInfoList), _
+            GetType(HelperLists.WarehouseInfoList)) Then Exit Sub
 
         Try
-            LoadGoodsInfoListToListCombo(GoodsInfoListAccGridComboBox, True, TradedItemType.All)
-            LoadWarehouseInfoListToListCombo(WarehouseInfoListAccGridComboBox, True)
+
+            PrepareControl(GoodsInfoListAccGridComboBox, _
+                New GoodsFieldAttribute(ValueRequiredLevel.Optional, TradedItemType.All))
+            PrepareControl(WarehouseInfoListAccGridComboBox, _
+                New WarehouseFieldAttribute(ValueRequiredLevel.Optional))
 
             _QueryBrowser = New CslaActionExtenderQueryObject(Me, ProgressFiller1)
 
