@@ -1,6 +1,7 @@
 ﻿Imports System.Text
 Imports System.Xml.Serialization
 Imports System.Xml
+Imports ApskaitaObjects.ActiveReports.Declarations.SafTTemplates.SafT_1_2
 
 Namespace ActiveReports.Declarations
 
@@ -65,10 +66,12 @@ Namespace ActiveReports.Declarations
         ''' Gets an XML representation of the report.
         ''' </summary>
         ''' <param name="invoiceRegister">an invoice register report to be exported</param>
-        ''' <param name="softwareVersion">current version of the application</param>
+        ''' <param name="softwareVersion">a current version of the application</param>
+        ''' <param name="selectedInvoicesIds">id's of the invoices to be exported 
+        ''' (null or empty to export all the invoices)</param>
         ''' <remarks></remarks>
         Public Function GetXmlString(ByVal invoiceRegister As InvoiceInfoItemList, _
-            ByVal softwareVersion As String) As String _
+            ByVal softwareVersion As String, ByVal selectedInvoicesIds As Integer()) As String _
             Implements IInvoiceRegisterSafT.GetXmlString
 
             If invoiceRegister Is Nothing Then
@@ -90,7 +93,7 @@ Namespace ActiveReports.Declarations
             End If
             result.Header.FileDescription.FileDateCreated = Now
             result.Header.FileDescription.FileVersion = _
-                SafTTemplates.SafT_1_2.ISAFFileVersion.iSAF12
+                SafTTemplates.SafT_1_2.ISAFFileVersion.iSAFtest
             result.Header.FileDescription.NumberOfParts = 1
             result.Header.FileDescription.PartNumber = "BENDRAS"
             result.Header.FileDescription.RegistrationNumber = _
@@ -110,11 +113,11 @@ Namespace ActiveReports.Declarations
             result.MasterFiles = New SafTTemplates.SafT_1_2.MasterFiles()
 
             If invoiceRegister.InfoType = InvoiceInfoType.InvoiceMade Then
-                result.SourceDocuments.SalesInvoices = GetSalesInvoices(invoiceRegister)
+                result.SourceDocuments.SalesInvoices = GetSalesInvoices(invoiceRegister, selectedInvoicesIds)
                 result.MasterFiles.Customers = GetCustomers( _
                     result.SourceDocuments.SalesInvoices)
             Else
-                result.SourceDocuments.PurchaseInvoices = GetPurchaseInvoices(invoiceRegister)
+                result.SourceDocuments.PurchaseInvoices = GetPurchaseInvoices(invoiceRegister, selectedInvoicesIds)
                 result.MasterFiles.Suppliers = GetSuppliers( _
                     result.SourceDocuments.PurchaseInvoices)
             End If
@@ -137,67 +140,72 @@ Namespace ActiveReports.Declarations
         End Function
 
 
-        Private Function GetPurchaseInvoices(ByVal invoiceRegister As InvoiceInfoItemList) _
-            As SafTTemplates.SafT_1_2.PurchaseInvoice()
+        Private Function GetPurchaseInvoices(ByVal invoiceRegister As InvoiceInfoItemList, _
+            ByVal selectedInvoicesIds As Integer()) As SafTTemplates.SafT_1_2.PurchaseInvoice()
 
             Dim result As New List(Of SafTTemplates.SafT_1_2.PurchaseInvoice)
 
             For Each item As InvoiceInfoItem In invoiceRegister
 
-                Dim invoice As New SafTTemplates.SafT_1_2.PurchaseInvoice
+                If selectedInvoicesIds Is Nothing OrElse selectedInvoicesIds.Length < 1 OrElse _
+                    Not Array.IndexOf(selectedInvoicesIds, item.ID) < 0 Then
 
-                invoice.References = New SafTTemplates.SafT_1_2.Reference() {}
-                invoice.InvoiceDate = item.ActualDate
-                invoice.InvoiceNo = item.Number
-                If item.InvoiceType = Documents.InvoiceType.Credit Then
-                    invoice.InvoiceType = SafTTemplates.SafT_1_2.ISAFshorttext2Type.KS
-                ElseIf item.InvoiceType = Documents.InvoiceType.Debit Then
-                    invoice.InvoiceType = SafTTemplates.SafT_1_2.ISAFshorttext2Type.DS
-                Else
-                    invoice.InvoiceType = SafTTemplates.SafT_1_2.ISAFshorttext2Type.SF
-                End If
-                invoice.RegistrationAccountDate = item.Date
-                ' invoice.VATPointDate= Prekių gavimo arba paslaugų gavimo data,
-                ' jeigu ji nesutampa su PVM sąskaitos faktūros išrašymo data.
-                ' Elemento reikšmė gali būti nepildoma, jei ši data nenurodyta(PVM)
-                ' sąskaitoje faktūroje / nefiksuojama(apskaitoje)/ sutampa su PVM
-                ' sąskaitos(faktūros)išrašymo data.
+                    Dim invoice As New SafTTemplates.SafT_1_2.PurchaseInvoice
 
-                invoice.SupplierInfo = New SafTTemplates.SafT_1_2.SupplierInfo()
-                invoice.SupplierInfo.SupplierID = item.PersonID.ToString()
-                invoice.SupplierInfo.Name = item.PersonName
-                If StringIsNullOrEmpty(item.PersonVatCode) Then
-                    invoice.SupplierInfo.VATRegistrationNumber = NullValueString
-                Else
-                    invoice.SupplierInfo.VATRegistrationNumber = item.PersonVatCode
-                End If
-                If item.CodeIsNotReal Then
-                    invoice.SupplierInfo.RegistrationNumber = NullValueString
-                Else
-                    invoice.SupplierInfo.RegistrationNumber = item.PersonCode
-                End If
-                invoice.SupplierInfo.Country = item.StateCode.Trim.ToUpper()
-
-                Dim subtotals As New List(Of SafTTemplates.SafT_1_2.PurchaseDocumentTotal)
-                For Each subitem As InvoiceSubtotalItem In item.SubtotalList
-
-                    Dim subtotal As New SafTTemplates.SafT_1_2.PurchaseDocumentTotal
-
-                    subtotal.Amount = Convert.ToDecimal(subitem.TaxAmount)
-                    subtotal.TaxCode = subitem.TaxCode.Trim.ToUpper()
-                    If String.IsNullOrEmpty(subtotal.TaxCode) Then
-                        subtotal.TaxCode = "PVM1"
+                    invoice.References = New SafTTemplates.SafT_1_2.Reference() {}
+                    invoice.InvoiceDate = item.ActualDate
+                    invoice.InvoiceNo = item.Number
+                    If item.InvoiceType = Documents.InvoiceType.Credit Then
+                        invoice.InvoiceType = SafTTemplates.SafT_1_2.ISAFshorttext2Type.KS
+                    ElseIf item.InvoiceType = Documents.InvoiceType.Debit Then
+                        invoice.InvoiceType = SafTTemplates.SafT_1_2.ISAFshorttext2Type.DS
+                    Else
+                        invoice.InvoiceType = SafTTemplates.SafT_1_2.ISAFshorttext2Type.SF
                     End If
-                    subtotal.TaxPercentage = Convert.ToDecimal(subitem.TaxPercentage)
-                    subtotal.TaxableValue = Convert.ToDecimal(subitem.TaxableValue)
+                    invoice.RegistrationAccountDate = item.Date
+                    ' invoice.VATPointDate= Prekių gavimo arba paslaugų gavimo data,
+                    ' jeigu ji nesutampa su PVM sąskaitos faktūros išrašymo data.
+                    ' Elemento reikšmė gali būti nepildoma, jei ši data nenurodyta(PVM)
+                    ' sąskaitoje faktūroje / nefiksuojama(apskaitoje)/ sutampa su PVM
+                    ' sąskaitos(faktūros)išrašymo data.
 
-                    subtotals.Add(subtotal)
+                    invoice.SupplierInfo = New SafTTemplates.SafT_1_2.SupplierInfo()
+                    invoice.SupplierInfo.SupplierID = item.PersonID.ToString()
+                    invoice.SupplierInfo.Name = item.PersonName
+                    If StringIsNullOrEmpty(item.PersonVatCode) Then
+                        invoice.SupplierInfo.VATRegistrationNumber = NullValueString
+                    Else
+                        invoice.SupplierInfo.VATRegistrationNumber = item.PersonVatCode
+                    End If
+                    If item.CodeIsNotReal Then
+                        invoice.SupplierInfo.RegistrationNumber = NullValueString
+                    Else
+                        invoice.SupplierInfo.RegistrationNumber = item.PersonCode
+                    End If
+                    invoice.SupplierInfo.Country = item.StateCode.Trim.ToUpper()
 
-                Next
+                    Dim subtotals As New List(Of SafTTemplates.SafT_1_2.PurchaseDocumentTotal)
+                    For Each subitem As InvoiceSubtotalItem In item.SubtotalList
 
-                invoice.DocumentTotals = subtotals.ToArray()
+                        Dim subtotal As New SafTTemplates.SafT_1_2.PurchaseDocumentTotal
 
-                result.Add(invoice)
+                        subtotal.Amount = Convert.ToDecimal(subitem.TaxAmount)
+                        subtotal.TaxCode = subitem.TaxCode.Trim.ToUpper()
+                        If String.IsNullOrEmpty(subtotal.TaxCode) Then
+                            subtotal.TaxCode = "PVM1"
+                        End If
+                        subtotal.TaxPercentage = Convert.ToDecimal(subitem.TaxPercentage)
+                        subtotal.TaxableValue = Convert.ToDecimal(subitem.TaxableValue)
+
+                        subtotals.Add(subtotal)
+
+                    Next
+
+                    invoice.DocumentTotals = subtotals.ToArray()
+
+                    result.Add(invoice)
+
+                End If
 
             Next
 
@@ -205,61 +213,67 @@ Namespace ActiveReports.Declarations
 
         End Function
 
-        Private Function GetSalesInvoices(ByVal invoiceRegister As InvoiceInfoItemList) _
-            As SafTTemplates.SafT_1_2.SalesInvoice()
+        Private Function GetSalesInvoices(ByVal invoiceRegister As InvoiceInfoItemList, _
+            ByVal selectedInvoicesIds As Integer()) As SafTTemplates.SafT_1_2.SalesInvoice()
 
             Dim result As New List(Of SafTTemplates.SafT_1_2.SalesInvoice)
 
             For Each item As InvoiceInfoItem In invoiceRegister
 
-                Dim invoice As New SafTTemplates.SafT_1_2.SalesInvoice
+                If selectedInvoicesIds Is Nothing OrElse selectedInvoicesIds.Length < 1 OrElse _
+                    Not Array.IndexOf(selectedInvoicesIds, item.ID) < 0 Then
 
-                invoice.References = New SafTTemplates.SafT_1_2.Reference() {}
-                invoice.InvoiceDate = item.Date
-                invoice.InvoiceNo = item.Number
-                ' invoice.InvoiceType = item.Type
+                    Dim invoice As New SafTTemplates.SafT_1_2.SalesInvoice
 
-                ' invoice.VATPointDate= Prekių gavimo arba paslaugų gavimo data,
-                ' jeigu ji nesutampa su PVM sąskaitos faktūros išrašymo data.
-                ' Elemento reikšmė gali būti nepildoma, jei ši data nenurodyta(PVM)
-                ' sąskaitoje faktūroje / nefiksuojama(apskaitoje)/ sutampa su PVM
-                ' sąskaitos(faktūros)išrašymo data.
+                    invoice.References = New SafTTemplates.SafT_1_2.Reference() {}
+                    invoice.InvoiceDate = item.Date
+                    invoice.InvoiceNo = item.Number
+                    ' invoice.InvoiceType = item.Type
 
-                invoice.CustomerInfo = New SafTTemplates.SafT_1_2.CustomerInfo()
-                invoice.CustomerInfo.CustomerID = item.PersonID.ToString()
-                invoice.CustomerInfo.Name = item.PersonName
-                If StringIsNullOrEmpty(item.PersonVatCode) Then
-                    invoice.CustomerInfo.VATRegistrationNumber = NullValueString
-                Else
-                    invoice.CustomerInfo.VATRegistrationNumber = item.PersonVatCode
-                End If
-                If item.CodeIsNotReal Then
-                    invoice.CustomerInfo.RegistrationNumber = NullValueString
-                Else
-                    invoice.CustomerInfo.RegistrationNumber = item.PersonCode
-                End If
-                invoice.CustomerInfo.Country = item.StateCode.Trim.ToUpper()
+                    ' invoice.VATPointDate= Prekių gavimo arba paslaugų gavimo data,
+                    ' jeigu ji nesutampa su PVM sąskaitos faktūros išrašymo data.
+                    ' Elemento reikšmė gali būti nepildoma, jei ši data nenurodyta(PVM)
+                    ' sąskaitoje faktūroje / nefiksuojama(apskaitoje)/ sutampa su PVM
+                    ' sąskaitos(faktūros)išrašymo data.
 
-                Dim subtotals As New List(Of SafTTemplates.SafT_1_2.SalesDocumentTotal)
-                For Each subitem As InvoiceSubtotalItem In item.SubtotalList
-
-                    Dim subtotal As New SafTTemplates.SafT_1_2.SalesDocumentTotal
-
-                    subtotal.Amount = Convert.ToDecimal(subitem.TaxAmount)
-                    subtotal.TaxCode = subitem.TaxCode.Trim.ToUpper()
-                    If String.IsNullOrEmpty(subtotal.TaxCode) Then
-                        subtotal.TaxCode = "PVM1"
+                    invoice.CustomerInfo = New SafTTemplates.SafT_1_2.CustomerInfo()
+                    invoice.CustomerInfo.CustomerID = item.PersonID.ToString()
+                    invoice.CustomerInfo.Name = item.PersonName
+                    If StringIsNullOrEmpty(item.PersonVatCode) Then
+                        invoice.CustomerInfo.VATRegistrationNumber = NullValueString
+                    Else
+                        invoice.CustomerInfo.VATRegistrationNumber = item.PersonVatCode
                     End If
-                    subtotal.TaxPercentage = Convert.ToDecimal(subitem.TaxPercentage)
-                    subtotal.TaxableValue = Convert.ToDecimal(subitem.TaxableValue)
+                    If item.CodeIsNotReal Then
+                        invoice.CustomerInfo.RegistrationNumber = NullValueString
+                    Else
+                        invoice.CustomerInfo.RegistrationNumber = item.PersonCode
+                    End If
+                    invoice.CustomerInfo.Country = item.StateCode.Trim.ToUpper()
+                    invoice.SpecialTaxation = ISAFSpecialTaxationType.Item
 
-                    subtotals.Add(subtotal)
+                    Dim subtotals As New List(Of SafTTemplates.SafT_1_2.SalesDocumentTotal)
+                    For Each subitem As InvoiceSubtotalItem In item.SubtotalList
 
-                Next
+                        Dim subtotal As New SafTTemplates.SafT_1_2.SalesDocumentTotal
 
-                invoice.DocumentTotals = subtotals.ToArray()
+                        subtotal.Amount = Convert.ToDecimal(subitem.TaxAmount)
+                        subtotal.TaxCode = subitem.TaxCode.Trim.ToUpper()
+                        If String.IsNullOrEmpty(subtotal.TaxCode) Then
+                            subtotal.TaxCode = "PVM1"
+                        End If
+                        subtotal.TaxPercentage = Convert.ToDecimal(subitem.TaxPercentage)
+                        subtotal.TaxableValue = Convert.ToDecimal(subitem.TaxableValue)
 
-                result.Add(invoice)
+                        subtotals.Add(subtotal)
+
+                    Next
+
+                    invoice.DocumentTotals = subtotals.ToArray()
+
+                    result.Add(invoice)
+
+                End If
 
             Next
 

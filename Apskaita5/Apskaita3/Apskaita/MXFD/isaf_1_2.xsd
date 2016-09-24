@@ -1354,6 +1354,7 @@
   <xs:simpleType name="ISAFFileVersion">
     <xs:restriction base="xs:string">
       <xs:enumeration value="iSAF1.2"/>
+      <xs:enumeration value="iSAF_TEST"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="ISAFTaxCodeType">

@@ -225,6 +225,10 @@ Namespace ActiveReports.Declarations.SafTTemplates.SafT_1_2
         '''<remarks/>
         <System.Xml.Serialization.XmlEnumAttribute("iSAF1.2")> _
         iSAF12
+        '''<remarks/>
+        <System.Xml.Serialization.XmlEnumAttribute("iSAF_TEST")> _
+        iSAFtest
+
     End Enum
 
     '''<remarks/>

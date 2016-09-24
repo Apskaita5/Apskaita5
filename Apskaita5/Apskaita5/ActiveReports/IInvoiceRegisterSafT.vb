@@ -36,10 +36,13 @@
         ''' <summary>
         ''' Gets an XML representation of the report.
         ''' </summary>
-        ''' <param name="invoiceRegister">an invoice register report to be exported.</param>
+        ''' <param name="invoiceRegister">an invoice register report to be exported</param>
+        ''' <param name="softwareVersion">a current version of the application</param>
+        ''' <param name="selectedInvoicesIds">id's of the invoices to be exported 
+        ''' (null or empty to export all the invoices)</param>
         ''' <remarks></remarks>
         Function GetXmlString(ByVal invoiceRegister As InvoiceInfoItemList, _
-            ByVal softwareVersion As String) As String
+            ByVal softwareVersion As String, ByVal selectedInvoicesIds As Integer()) As String
 
     End Interface
 
