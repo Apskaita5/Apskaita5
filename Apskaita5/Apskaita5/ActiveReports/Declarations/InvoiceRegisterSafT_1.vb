@@ -94,8 +94,8 @@ Namespace ActiveReports.Declarations
             result.Header.FileDescription.FileDateCreated = Now
             result.Header.FileDescription.FileVersion = _
                 SafTTemplates.SafT_1_2.ISAFFileVersion.iSAFtest
-            result.Header.FileDescription.NumberOfParts = 1
-            result.Header.FileDescription.PartNumber = "BENDRAS"
+            result.Header.FileDescription.NumberOfParts = 2
+            result.Header.FileDescription.PartNumber = invoiceRegister.InfoType.ToString()
             result.Header.FileDescription.RegistrationNumber = _
                 Convert.ToUInt64(GetCurrentCompany.Code)
             result.Header.FileDescription.SoftwareCompanyName = "Marius Dagys"
@@ -163,6 +163,7 @@ Namespace ActiveReports.Declarations
                         invoice.InvoiceType = SafTTemplates.SafT_1_2.ISAFshorttext2Type.SF
                     End If
                     invoice.RegistrationAccountDate = item.Date
+                    invoice.SpecialTaxation = ISAFSpecialTaxationType.Item
                     ' invoice.VATPointDate= Prekių gavimo arba paslaugų gavimo data,
                     ' jeigu ji nesutampa su PVM sąskaitos faktūros išrašymo data.
                     ' Elemento reikšmė gali būti nepildoma, jei ši data nenurodyta(PVM)
@@ -228,7 +229,13 @@ Namespace ActiveReports.Declarations
                     invoice.References = New SafTTemplates.SafT_1_2.Reference() {}
                     invoice.InvoiceDate = item.Date
                     invoice.InvoiceNo = item.Number
-                    ' invoice.InvoiceType = item.Type
+                    If item.InvoiceType = Documents.InvoiceType.Credit Then
+                        invoice.InvoiceType = SafTTemplates.SafT_1_2.ISAFshorttext2Type.KS
+                    ElseIf item.InvoiceType = Documents.InvoiceType.Debit Then
+                        invoice.InvoiceType = SafTTemplates.SafT_1_2.ISAFshorttext2Type.DS
+                    Else
+                        invoice.InvoiceType = SafTTemplates.SafT_1_2.ISAFshorttext2Type.SF
+                    End If
 
                     ' invoice.VATPointDate= Prekių gavimo arba paslaugų gavimo data,
                     ' jeigu ji nesutampa su PVM sąskaitos faktūros išrašymo data.
