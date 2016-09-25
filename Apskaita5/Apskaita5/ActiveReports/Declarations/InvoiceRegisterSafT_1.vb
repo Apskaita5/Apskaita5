@@ -95,7 +95,7 @@ Namespace ActiveReports.Declarations
             result.Header.FileDescription.FileVersion = _
                 SafTTemplates.SafT_1_2.ISAFFileVersion.iSAFtest
             result.Header.FileDescription.NumberOfParts = 2
-            result.Header.FileDescription.PartNumber = invoiceRegister.InfoType.ToString()
+            result.Header.FileDescription.PartNumber = invoiceRegister.InfoType.ToString().ToUpper()
             result.Header.FileDescription.RegistrationNumber = _
                 Convert.ToUInt64(GetCurrentCompany.Code)
             result.Header.FileDescription.SoftwareCompanyName = "Marius Dagys"
