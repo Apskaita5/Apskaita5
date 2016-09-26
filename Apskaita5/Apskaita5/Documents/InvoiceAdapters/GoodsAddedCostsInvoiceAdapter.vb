@@ -491,6 +491,21 @@ Namespace Documents.InvoiceAdapters
         End Property
 
         ''' <summary>
+        ''' Gets a value of the attached operation property that provides a default (initial) value for the 
+        ''' <see cref="InvoiceMadeItem.DeclarationSchema">InvoiceMadeItem.DeclarationSchema</see>
+        ''' or the <see cref="InvoiceReceivedItem.DeclarationSchema">InvoiceReceivedItem.DeclarationSchema</see>
+        ''' properties if the <see cref="ProvidesDefaultVatRate">ProvidesDefaultVatRate</see> is set to TRUE.
+        ''' </summary>
+        ''' <remarks>Returns null for goods added costs.</remarks>
+        Public ReadOnly Property DefaultDeclarationSchema() As VatDeclarationSchemaInfo _
+            Implements IInvoiceAdapter.DefaultDeclarationSchema
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return Nothing
+            End Get
+        End Property
+
+        ''' <summary>
         ''' Whether the <see cref="InvoiceMadeItem.AccountVat">InvoiceMadeItem.AccountVat</see>
         ''' or the <see cref="InvoiceReceivedItem.AccountVat">InvoiceReceivedItem.AccountVat</see>
         ''' properties should be initialized by the corresponding attached operation property.

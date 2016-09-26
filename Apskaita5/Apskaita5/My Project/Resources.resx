@@ -14462,4 +14462,49 @@
   <data name="Common_VatRateMismatch" xml:space="preserve">
     <value>PVM tarifas schemoje ({0}%) skiriasi nuo nustatyto PVM tarifo ({1}%).</value>
   </data>
+  <data name="Documents_Service_DeclarationSchemaPurchase" xml:space="preserve">
+    <value>PVM seklaravimo schema pirkimams</value>
+  </data>
+  <data name="Documents_Service_DeclarationSchemaSales" xml:space="preserve">
+    <value>PVM deklaravimo schema pardavimams</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_DeclarationSchemaPurchase" xml:space="preserve">
+    <value>PVM seklaravimo schema pirkimams</value>
+  </data>
+  <data name="HelperLists_ServiceInfo_DeclarationSchemaSales" xml:space="preserve">
+    <value>PVM deklaravimo schema pardavimams</value>
+  </data>
+  <data name="General_Company_DeclarationSchemaPurchase" xml:space="preserve">
+    <value>įprastinė PVM deklaravimo schema pirkimams</value>
+  </data>
+  <data name="General_Company_DeclarationSchemaSales" xml:space="preserve">
+    <value>įprastinė PVM deklaravimo schema pardavimams</value>
+  </data>
+  <data name="General_Company_MainEconomicActivityCode" xml:space="preserve">
+    <value>pagrindinės įmonės ekonominės veiklos kodas (EVRK)</value>
+  </data>
+  <data name="General_Company_VatDeductionPercentage" xml:space="preserve">
+    <value>PVM atskaitos procentas</value>
+  </data>
+  <data name="Goods_GoodsItem_AccountSalesIncome" xml:space="preserve">
+    <value>pardavimo pajamų apskaitos sąskaita</value>
+  </data>
+  <data name="Goods_GoodsItem_DeclarationSchemaPurchase" xml:space="preserve">
+    <value>įprastinė PVM deklaravimo schema pirkimams</value>
+  </data>
+  <data name="Goods_GoodsItem_DeclarationSchemaSales" xml:space="preserve">
+    <value>įprastinė PVM deklaravimo schema pardavimams</value>
+  </data>
+  <data name="Settings_CompanyInfo_DeclarationSchemaPurchase" xml:space="preserve">
+    <value>įprastinė PVM deklaravimo schema pirkimams</value>
+  </data>
+  <data name="Settings_CompanyInfo_DeclarationSchemaSales" xml:space="preserve">
+    <value>įprastinė PVM deklaravimo schema pardavimams</value>
+  </data>
+  <data name="Settings_CompanyInfo_MainEconomicActivityCode" xml:space="preserve">
+    <value>pagrindinės įmonės ekonominės veiklos kodas (EVRK)</value>
+  </data>
+  <data name="Settings_CompanyInfo_VatDeductionPercentage" xml:space="preserve">
+    <value>PVM atskaitos procentas</value>
+  </data>
 </root>

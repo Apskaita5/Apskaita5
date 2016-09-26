@@ -57,6 +57,10 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AccControls, Version=1.0.5486.29043, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Apskaita5\AccControls.dll</HintPath>
+    </Reference>
     <Reference Include="AccWebCrawler, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\AccWebCrawler\AccWebCrawler\bin\Release\AccWebCrawler.dll</HintPath>
@@ -105,6 +109,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -1694,6 +1699,8 @@
     <None Include="Resources\icon_zoom_in_16x16.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.Service.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsItem.datasource" />
     <None Include="Resources\icon_zoom_out_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

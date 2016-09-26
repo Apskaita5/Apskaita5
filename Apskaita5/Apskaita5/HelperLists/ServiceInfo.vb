@@ -1,4 +1,5 @@
 Imports ApskaitaObjects.Attributes
+Imports ApskaitaObjects.Documents
 
 Namespace HelperLists
 
@@ -20,9 +21,11 @@ Namespace HelperLists
         Private _Amount As Double = 0
         Private _AccountSales As Long = 0
         Private _RateVatSales As Double = 0
+        Private _DeclarationSchemaSales As VatDeclarationSchemaInfo = Nothing
         Private _AccountVatSales As Long = 0
         Private _AccountPurchase As Long = 0
         Private _RateVatPurchase As Double = 0
+        Private _DeclarationSchemaPurchase As VatDeclarationSchemaInfo = Nothing
         Private _AccountVatPurchase As Long = 0
         Private _IsObsolete As Boolean = False
         Private _NameInvoice As String = ""
@@ -122,6 +125,18 @@ Namespace HelperLists
         End Property
 
         ''' <summary>
+        ''' Gets the applicable VAT declaration schema for the services sold.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table paslaugos.DeclarationSchemaIDSales.</remarks>
+        <VatDeclarationSchemaField(ValueRequiredLevel.Optional, TradedItemType.Sales)> _
+        Public ReadOnly Property DeclarationSchemaSales() As VatDeclarationSchemaInfo
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _DeclarationSchemaSales
+            End Get
+        End Property
+
+        ''' <summary>
         ''' Gets a default <see cref="General.Account.ID">sales VAT account</see> for the service.
         ''' </summary>
         ''' <remarks>Value is stored in the database field paslaugos.P_Sask.</remarks>
@@ -152,6 +167,18 @@ Namespace HelperLists
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return CRound(_RateVatPurchase)
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets the applicable VAT declaration schema for the services bought.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database table paslaugos.DeclarationSchemaIDPurchase.</remarks>
+        <VatDeclarationSchemaField(ValueRequiredLevel.Optional, TradedItemType.All)> _
+        Public ReadOnly Property DeclarationSchemaPurchase() As VatDeclarationSchemaInfo
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _DeclarationSchemaPurchase
             End Get
         End Property
 
@@ -337,6 +364,8 @@ Namespace HelperLists
             _AccountVatPurchase = CLongSafe(dr.Item(10), 0)
             _NameInvoice = CStrSafe(dr.Item(11)).Trim
             _MeasureUnit = CStrSafe(dr.Item(12)).Trim
+            _DeclarationSchemaSales = VatDeclarationSchemaInfo.GetVatDeclarationSchemaInfo(dr, 14)
+            _DeclarationSchemaPurchase = VatDeclarationSchemaInfo.GetVatDeclarationSchemaInfo(dr, 21)
 
         End Sub
 

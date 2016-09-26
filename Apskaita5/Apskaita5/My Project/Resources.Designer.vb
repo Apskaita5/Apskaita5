@@ -22209,6 +22209,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to PVM seklaravimo schema pirkimams.
+        '''</summary>
+        Friend ReadOnly Property Documents_Service_DeclarationSchemaPurchase() As String
+            Get
+                Return ResourceManager.GetString("Documents_Service_DeclarationSchemaPurchase", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaravimo schema pardavimams.
+        '''</summary>
+        Friend ReadOnly Property Documents_Service_DeclarationSchemaSales() As String
+            Get
+                Return ResourceManager.GetString("Documents_Service_DeclarationSchemaSales", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to ID.
         '''</summary>
         Friend ReadOnly Property Documents_Service_ID() As String
@@ -24423,6 +24441,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to įprastinė PVM deklaravimo schema pirkimams.
+        '''</summary>
+        Friend ReadOnly Property General_Company_DeclarationSchemaPurchase() As String
+            Get
+                Return ResourceManager.GetString("General_Company_DeclarationSchemaPurchase", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įprastinė PVM deklaravimo schema pardavimams.
+        '''</summary>
+        Friend ReadOnly Property General_Company_DeclarationSchemaSales() As String
+            Get
+                Return ResourceManager.GetString("General_Company_DeclarationSchemaSales", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to turinys naujoje išrašomoje sąskaitoje.
         '''</summary>
         Friend ReadOnly Property General_Company_DefaultInvoiceMadeContent() As String
@@ -24486,6 +24522,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to pagrindinės įmonės ekonominės veiklos kodas (EVRK).
+        '''</summary>
+        Friend ReadOnly Property General_Company_MainEconomicActivityCode() As String
+            Get
+                Return ResourceManager.GetString("General_Company_MainEconomicActivityCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to mato vienetas gaunamoje sąskaitoje.
         '''</summary>
         Friend ReadOnly Property General_Company_MeasureUnitInvoiceReceived() As String
@@ -24545,6 +24590,15 @@ Namespace My.Resources
         Friend ReadOnly Property General_Company_TypeName() As String
             Get
                 Return ResourceManager.GetString("General_Company_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM atskaitos procentas.
+        '''</summary>
+        Friend ReadOnly Property General_Company_VatDeductionPercentage() As String
+            Get
+                Return ResourceManager.GetString("General_Company_VatDeductionPercentage", resourceCulture)
             End Get
         End Property
         
@@ -28988,6 +29042,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to pardavimo pajamų apskaitos sąskaita.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsItem_AccountSalesIncome() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsItem_AccountSalesIncome", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to pardavimo savikainos sąsk..
         '''</summary>
         Friend ReadOnly Property Goods_GoodsItem_AccountSalesNetCosts() As String
@@ -29020,6 +29083,24 @@ Namespace My.Resources
         Friend ReadOnly Property Goods_GoodsItem_Barcode() As String
             Get
                 Return ResourceManager.GetString("Goods_GoodsItem_Barcode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įprastinė PVM deklaravimo schema pirkimams.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsItem_DeclarationSchemaPurchase() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsItem_DeclarationSchemaPurchase", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įprastinė PVM deklaravimo schema pardavimams.
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsItem_DeclarationSchemaSales() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsItem_DeclarationSchemaSales", resourceCulture)
             End Get
         End Property
         
@@ -36156,6 +36237,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to PVM seklaravimo schema pirkimams.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_ServiceInfo_DeclarationSchemaPurchase() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_ServiceInfo_DeclarationSchemaPurchase", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaravimo schema pardavimams.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_ServiceInfo_DeclarationSchemaSales() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_ServiceInfo_DeclarationSchemaSales", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to ID.
         '''</summary>
         Friend ReadOnly Property HelperLists_ServiceInfo_ID() As String
@@ -37731,6 +37830,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to įprastinė PVM deklaravimo schema pirkimams.
+        '''</summary>
+        Friend ReadOnly Property Settings_CompanyInfo_DeclarationSchemaPurchase() As String
+            Get
+                Return ResourceManager.GetString("Settings_CompanyInfo_DeclarationSchemaPurchase", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įprastinė PVM deklaravimo schema pardavimams.
+        '''</summary>
+        Friend ReadOnly Property Settings_CompanyInfo_DeclarationSchemaSales() As String
+            Get
+                Return ResourceManager.GetString("Settings_CompanyInfo_DeclarationSchemaSales", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Nenustatyta {0} sąskaita..
         '''</summary>
         Friend ReadOnly Property Settings_CompanyInfo_DefaultAccountNull() As String
@@ -37812,6 +37929,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to pagrindinės įmonės ekonominės veiklos kodas (EVRK).
+        '''</summary>
+        Friend ReadOnly Property Settings_CompanyInfo_MainEconomicActivityCode() As String
+            Get
+                Return ResourceManager.GetString("Settings_CompanyInfo_MainEconomicActivityCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to mato vnt. išrašytose sąskaitose.
         '''</summary>
         Friend ReadOnly Property Settings_CompanyInfo_MeasureUnitInvoiceMade() As String
@@ -37880,6 +38006,15 @@ Namespace My.Resources
         Friend ReadOnly Property Settings_CompanyInfo_TypeName() As String
             Get
                 Return ResourceManager.GetString("Settings_CompanyInfo_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM atskaitos procentas.
+        '''</summary>
+        Friend ReadOnly Property Settings_CompanyInfo_VatDeductionPercentage() As String
+            Get
+                Return ResourceManager.GetString("Settings_CompanyInfo_VatDeductionPercentage", resourceCulture)
             End Get
         End Property
         

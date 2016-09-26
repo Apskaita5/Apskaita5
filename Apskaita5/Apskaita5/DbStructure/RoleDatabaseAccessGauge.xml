@@ -823,7 +823,7 @@
     DatabaseTableAccessList=""
     DatabaseReadOnlyTableAccessList=""
     IsHelperList="true"
-    ParentRoles="Documents.InvoiceMade, Documents.InvoiceReceived, Documents.AdvanceReport" />
+    ParentRoles="Documents.InvoiceMade, Documents.InvoiceReceived, Documents.AdvanceReport, General.Company, Documents.Service, Goods.Goods" />
   <RoleDatabaseAccess
     VisibleIndex="84"
     RoleName="Documents.VatDeclaration"

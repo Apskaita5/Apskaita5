@@ -344,11 +344,11 @@ Namespace Documents.InvoiceAdapters
         ''' or the <see cref="InvoiceReceivedItem.AccountCosts">InvoiceReceivedItem.AccountCosts</see>
         ''' properties should be initialized by the corresponding attached operation property.
         ''' </summary>
-        ''' <remarks>Returns FALSE for a goods sale.</remarks>
+        ''' <remarks>Returns TRUE for a goods sale.</remarks>
         Public ReadOnly Property ProvidesDefaultAccount() As Boolean Implements IInvoiceAdapter.ProvidesDefaultAccount
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return False
+                Return True
             End Get
         End Property
 
@@ -358,11 +358,11 @@ Namespace Documents.InvoiceAdapters
         ''' or the <see cref="InvoiceMadeItem.AccountIncome">InvoiceMadeItem.AccountIncome</see>
         ''' properties if the <see cref="ProvidesDefaultAccount">ProvidesDefaultAccount</see> is set to TRUE.
         ''' </summary>
-        ''' <remarks>Returns 0.</remarks>
+        ''' <remarks>Returns <see cref="GoodsOperationTransfer.GoodsInfo">GoodsOperationTransfer.GoodsInfo.AccountSalesIncome</see>.</remarks>
         Public ReadOnly Property DefaultAccount() As Long Implements IInvoiceAdapter.DefaultAccount
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return 0
+                Return _GoodsSale.GoodsInfo.AccountSalesIncome
             End Get
         End Property
 
@@ -483,6 +483,27 @@ Namespace Documents.InvoiceAdapters
                     Return _GoodsSale.GoodsInfo.DefaultVatRateSales
                 Else
                     Return _GoodsSale.GoodsInfo.DefaultVatRatePurchase
+                End If
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a value of the attached operation property that provides a default (initial) value for the 
+        ''' <see cref="InvoiceMadeItem.DeclarationSchema">InvoiceMadeItem.DeclarationSchema</see>
+        ''' or the <see cref="InvoiceReceivedItem.DeclarationSchema">InvoiceReceivedItem.DeclarationSchema</see>
+        ''' properties if the <see cref="ProvidesDefaultVatRate">ProvidesDefaultVatRate</see> is set to TRUE.
+        ''' </summary>
+        ''' <remarks>Returns <see cref="GoodsOperationTransfer.GoodsInfo">GoodsOperationTransfer.GoodsInfo.DeclarationSchemaSales
+        ''' or GoodsOperationTransfer.GoodsInfo.DeclarationSchemaPurchase</see>
+        ''' subject to the invoice type.</remarks>
+        Public ReadOnly Property DefaultDeclarationSchema() As VatDeclarationSchemaInfo _
+            Implements IInvoiceAdapter.DefaultDeclarationSchema
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                If _IsForInvoiceMade Then
+                    Return _GoodsSale.GoodsInfo.DeclarationSchemaSales
+                Else
+                    Return _GoodsSale.GoodsInfo.DeclarationSchemaPurchase
                 End If
             End Get
         End Property

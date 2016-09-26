@@ -5,32 +5,25 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="Company" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>ApskaitaObjects.General.Company, ApskaitaObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+<GenericObjectDataSource DisplayName="GoodsItem" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>ApskaitaObjects.Goods.GoodsItem, ApskaitaObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
    <TypeUISetting>
       <PropertyUISettings>
-         <PropertyUISetting Name="MainEconomicActivityCode">
-            <ControlSettings>
-               <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
-                  <BindableControlInfo Name="TextBox" Type="System.Windows.Forms.TextBox" AssemblyName="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-               </ControlSetting>
-            </ControlSettings>
-         </PropertyUISetting>
-         <PropertyUISetting Name="VatDeductionPercentage">
-            <ControlSettings>
-               <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
-                  <BindableControlInfo Name="AccTextBox" Type="AccControls.AccTextBox" AssemblyName="AccControls, Version=1.0.5486.29043, Culture=neutral, PublicKeyToken=null" AssemblyCodeBase="file:///C:/Program Files (x86)/Apskaita5/AccControls.dll" />
-               </ControlSetting>
-            </ControlSettings>
-         </PropertyUISetting>
-         <PropertyUISetting Name="Company.DeclarationSchemaPurchase">
+         <PropertyUISetting Name="AccountSalesIncome">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
                   <BindableControlInfo Name="AccListComboBox" Type="AccControlsWinForms.AccListComboBox" AssemblyName="AccControlsWinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" AssemblyCodeBase="file:///D:/My Documents/My Projects/Apskaita5/AccControlsWinForms/obj/x86/Debug/AccControlsWinForms.dll" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
-         <PropertyUISetting Name="Company.DeclarationSchemaSales">
+         <PropertyUISetting Name="GoodsItem.DeclarationSchemaPurchase">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                  <BindableControlInfo Name="AccListComboBox" Type="AccControlsWinForms.AccListComboBox" AssemblyName="AccControlsWinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" AssemblyCodeBase="file:///D:/My Documents/My Projects/Apskaita5/AccControlsWinForms/obj/x86/Debug/AccControlsWinForms.dll" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
+         <PropertyUISetting Name="GoodsItem.DeclarationSchemaSales">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
                   <BindableControlInfo Name="AccListComboBox" Type="AccControlsWinForms.AccListComboBox" AssemblyName="AccControlsWinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" AssemblyCodeBase="file:///D:/My Documents/My Projects/Apskaita5/AccControlsWinForms/obj/x86/Debug/AccControlsWinForms.dll" />

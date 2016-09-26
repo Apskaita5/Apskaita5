@@ -244,6 +244,15 @@
         ReadOnly Property DefaultVatRate() As Double
 
         ''' <summary>
+        ''' Gets a value of the attached operation property that provides a default (initial) value for the 
+        ''' <see cref="InvoiceMadeItem.DeclarationSchema">InvoiceMadeItem.DeclarationSchema</see>
+        ''' or the <see cref="InvoiceReceivedItem.DeclarationSchema">InvoiceReceivedItem.DeclarationSchema</see>
+        ''' properties if the <see cref="ProvidesDefaultVatRate">ProvidesDefaultVatRate</see> is set to TRUE.
+        ''' </summary>
+        ''' <remarks></remarks>
+        ReadOnly Property DefaultDeclarationSchema() As VatDeclarationSchemaInfo
+
+        ''' <summary>
         ''' Whether the <see cref="InvoiceMadeItem.AccountVat">InvoiceMadeItem.AccountVat</see>
         ''' or the <see cref="InvoiceReceivedItem.AccountVat">InvoiceReceivedItem.AccountVat</see>
         ''' properties should be initialized by the corresponding attached operation property.
