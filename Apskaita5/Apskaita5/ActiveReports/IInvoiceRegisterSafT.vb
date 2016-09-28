@@ -40,9 +40,12 @@
         ''' <param name="softwareVersion">a current version of the application</param>
         ''' <param name="selectedInvoicesIds">id's of the invoices to be exported 
         ''' (null or empty to export all the invoices)</param>
+        ''' <param name="warnings">an out parameter that returns
+        ''' XML validation warnings</param>
         ''' <remarks></remarks>
         Function GetXmlString(ByVal invoiceRegister As InvoiceInfoItemList, _
-            ByVal softwareVersion As String, ByVal selectedInvoicesIds As Integer()) As String
+            ByVal softwareVersion As String, ByVal selectedInvoicesIds As Integer(), _
+            ByRef warnings As String) As String
 
     End Interface
 

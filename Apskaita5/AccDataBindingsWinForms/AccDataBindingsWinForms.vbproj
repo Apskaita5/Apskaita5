@@ -57,10 +57,6 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AccControls, Version=1.0.5486.29043, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Apskaita5\AccControls.dll</HintPath>
-    </Reference>
     <Reference Include="AccWebCrawler, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\AccWebCrawler\AccWebCrawler\bin\Release\AccWebCrawler.dll</HintPath>

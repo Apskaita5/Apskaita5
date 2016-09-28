@@ -71,7 +71,8 @@ Namespace ActiveReports.Declarations
         ''' (null or empty to export all the invoices)</param>
         ''' <remarks></remarks>
         Public Function GetXmlString(ByVal invoiceRegister As InvoiceInfoItemList, _
-            ByVal softwareVersion As String, ByVal selectedInvoicesIds As Integer()) As String _
+            ByVal softwareVersion As String, ByVal selectedInvoicesIds As Integer(), _
+            ByRef warnings As String) As String _
             Implements IInvoiceRegisterSafT.GetXmlString
 
             If invoiceRegister Is Nothing Then
@@ -130,12 +131,24 @@ Namespace ActiveReports.Declarations
             settings.IndentChars = " "
             settings.Encoding = enc
 
+            Dim resultString As String
+
             Using ms As New IO.MemoryStream
                 Using writer As XmlWriter = XmlWriter.Create(ms, settings)
                     serializer.Serialize(writer, result)
-                    Return enc.GetString(ms.ToArray())
+                    resultString = enc.GetString(ms.ToArray())
                 End Using
             End Using
+
+            Dim errorMessage As String = ""
+
+            If Not XmlValidationErrorBuilder.Validate(resultString, _
+                IO.Path.Combine(AppPath(), Me.XsdFileName), _
+                "http://www.vmi.lt/cms/imas/isaf", errorMessage, warnings) Then
+                Throw New Exception(errorMessage)
+            End If
+
+            Return resultString
 
         End Function
 
