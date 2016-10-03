@@ -10,7 +10,8 @@
     <Serializable()> _
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _
 Public Class StringFieldAttribute
-        Inherits System.Attribute
+        Inherits BusinessFieldAttribute
+        Implements IValidationRuleProvider
 
         Private _ValueRequired As ValueRequiredLevel = ValueRequiredLevel.Optional
         Private _MaxLength As Integer = 255
@@ -66,5 +67,16 @@ Public Class StringFieldAttribute
 
         End Sub
 
+
+        ''' <summary>
+        ''' Gets a concrete validation rule method to validate the property value.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Function GetValidationRule() As Csla.Validation.RuleHandler _
+            Implements IValidationRuleProvider.GetValidationRule
+            Return AddressOf CommonValidation.StringFieldValidation
+        End Function
+
     End Class
+
 End Namespace

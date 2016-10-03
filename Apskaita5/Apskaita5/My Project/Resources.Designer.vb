@@ -38505,7 +38505,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {0} yra vėlesnė nei šios dienos data..
+        '''  Looks up a localized string similar to Pasirinkta data yra labai labai senai..
+        '''</summary>
+        Friend ReadOnly Property ValidationRules_DeepPastDate() As String
+            Get
+                Return ResourceManager.GetString("ValidationRules_DeepPastDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pasirinkta data yra ateityje..
         '''</summary>
         Friend ReadOnly Property ValidationRules_FutureDate() As String
             Get

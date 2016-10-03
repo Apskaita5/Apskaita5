@@ -10,7 +10,7 @@
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _
     Public Class ServiceFieldAttribute
         Inherits ValueObjectFieldAttribute
-        Implements IValueObjectIdProvider, IDataSourceProvider
+        Implements IValueObjectIdProvider, IDataSourceProvider, IValidationRuleProvider
 
         Private _TradedType As Documents.TradedItemType = Documents.TradedItemType.All
 
@@ -119,6 +119,15 @@
             Return ServiceInfoList.GetCachedFilteredList( _
                 Me.ValueRequired <> ValueRequiredLevel.Mandatory, False, _
                 _TradedType, valueObjectIds)
+        End Function
+
+        ''' <summary>
+        ''' Gets a concrete validation rule method to validate the property value.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Function GetValidationRule() As Csla.Validation.RuleHandler _
+            Implements IValidationRuleProvider.GetValidationRule
+            Return AddressOf CommonValidation.ValueObjectFieldValidation
         End Function
 
     End Class

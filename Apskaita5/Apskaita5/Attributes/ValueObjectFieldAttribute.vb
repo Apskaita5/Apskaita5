@@ -10,7 +10,7 @@
     <Serializable()> _
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _
     Public MustInherit Class ValueObjectFieldAttribute
-        Inherits Attribute
+        Inherits BusinessFieldAttribute
 
         Private _ValueRequired As ValueRequiredLevel = ValueRequiredLevel.Optional
 

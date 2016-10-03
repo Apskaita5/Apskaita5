@@ -610,7 +610,7 @@
     <value>Kiekis po inventorizacijos negali būti neigiamas - prekė {0}.</value>
   </data>
   <data name="ValidationRules_FutureDate" xml:space="preserve">
-    <value>{0} yra vėlesnė nei šios dienos data.</value>
+    <value>Pasirinkta data yra ateityje.</value>
   </data>
   <data name="Common_AccountCannotBeNegative" xml:space="preserve">
     <value>Apskaitos sąskaitos numeris negali būti neigiamas. ({0})</value>
@@ -14506,5 +14506,8 @@
   </data>
   <data name="Settings_CompanyInfo_VatDeductionPercentage" xml:space="preserve">
     <value>PVM atskaitos procentas</value>
+  </data>
+  <data name="ValidationRules_DeepPastDate" xml:space="preserve">
+    <value>Pasirinkta data yra labai labai senai.</value>
   </data>
 </root>

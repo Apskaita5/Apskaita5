@@ -10,7 +10,7 @@
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _
     Public Class WarehouseFieldAttribute
         Inherits ValueObjectFieldAttribute
-        Implements IValueObjectIdProvider, IDataSourceProvider
+        Implements IValueObjectIdProvider, IDataSourceProvider, IValidationRuleProvider
 
         ''' <summary>
         ''' Gets a base type of the datasource (<see cref="HelperLists.WarehouseInfoList">WarehouseInfoList</see>).
@@ -100,6 +100,15 @@
         Public Function GetDataSource(ByVal valueObjectIds As List(Of String)) As IList _
             Implements IDataSourceProvider.GetDataSource
             Return WarehouseInfoList.GetCachedFilteredList(True, False, valueObjectIds)
+        End Function
+
+        ''' <summary>
+        ''' Gets a concrete validation rule method to validate the property value.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Function GetValidationRule() As Csla.Validation.RuleHandler _
+            Implements IValidationRuleProvider.GetValidationRule
+            Return AddressOf CommonValidation.ValueObjectFieldValidation
         End Function
 
     End Class

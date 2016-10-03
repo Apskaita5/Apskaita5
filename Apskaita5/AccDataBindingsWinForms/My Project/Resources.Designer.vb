@@ -200,6 +200,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property book_add_icon() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("book_add_icon", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property Button_Reload_icon_16p() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Button_Reload_icon_16p", resourceCulture)
@@ -644,6 +651,28 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("rekvizitai_logo", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to 11	 Nematerialusis turtas
+        '''111	 Plėtros darbai
+        '''1110	 Plėtros darbų atlikimo savikaina
+        '''1118	 Plėtros darbų vertės amortizacija (−)
+        '''1119	 Plėtros darbų vertės sumažėjimas (−)
+        '''112	 Prestižas
+        '''1120	 Prestižo įsigijimo savikaina
+        '''1128	 Prestižo vertės amortizacija (−)
+        '''1129	 Prestižo vertės sumažėjimas (−)
+        '''113	 Programinė įranga
+        '''1130	 Programinės įrangos įsigijimo savikaina
+        '''1138	 Programinės įrangos vertės amortizacija (−)
+        '''1139	 Programinės įrangos vertės sumažėjimas (−)
+        '''114	 Koncesijos, patentai, licen [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property TypicalAccountsGeneral() As String
+            Get
+                Return ResourceManager.GetString("TypicalAccountsGeneral", resourceCulture)
             End Get
         End Property
         

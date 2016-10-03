@@ -9,8 +9,8 @@
     <Serializable()> _
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _
     Public Class CurrencyFieldAttribute
-        Inherits System.Attribute
-        Implements IDataSourceProvider
+        Inherits BusinessFieldAttribute
+        Implements IDataSourceProvider, IValidationRuleProvider
 
         Private _ValueRequired As ValueRequiredLevel = ValueRequiredLevel.Optional
 
@@ -88,6 +88,15 @@
                 result.Insert(0, "")
             End If
             Return result
+        End Function
+
+        ''' <summary>
+        ''' Gets a concrete validation rule method to validate the property value.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Function GetValidationRule() As Csla.Validation.RuleHandler _
+            Implements IValidationRuleProvider.GetValidationRule
+            Return AddressOf CommonValidation.CurrencyFieldValidation
         End Function
 
     End Class

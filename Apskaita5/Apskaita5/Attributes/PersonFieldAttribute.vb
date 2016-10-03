@@ -11,7 +11,7 @@
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _
     Public Class PersonFieldAttribute
         Inherits ValueObjectFieldAttribute
-        Implements IValueObjectIdProvider, IDataSourceProvider
+        Implements IValueObjectIdProvider, IDataSourceProvider, IValidationRuleProvider
 
         Private _AllowBuyers As Boolean = False
         Private _AllowSuppliers As Boolean = False
@@ -179,6 +179,15 @@
             Implements IDataSourceProvider.GetDataSource
             Return PersonInfoList.GetCachedFilteredList(True, False, _
                 _AllowBuyers, _AllowSuppliers, _AllowWorkers, valueObjectIds)
+        End Function
+
+        ''' <summary>
+        ''' Gets a concrete validation rule method to validate the property value.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Function GetValidationRule() As Csla.Validation.RuleHandler _
+            Implements IValidationRuleProvider.GetValidationRule
+            Return AddressOf CommonValidation.PersonFieldValidation
         End Function
 
     End Class

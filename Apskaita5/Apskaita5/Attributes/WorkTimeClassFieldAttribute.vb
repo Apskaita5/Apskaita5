@@ -10,7 +10,7 @@
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _
     Public Class WorkTimeClassFieldAttribute
         Inherits ValueObjectFieldAttribute
-        Implements IDataSourceProvider
+        Implements IDataSourceProvider, IValidationRuleProvider
 
         Private _ShowWithHours As Boolean = False
         Private _ShowWithoutHours As Boolean = False
@@ -104,6 +104,15 @@
             Implements IDataSourceProvider.GetDataSource
             Return WorkTimeClassInfoList.GetCachedFilteredList( _
                 True, _ShowWithoutHours, _ShowWithHours)
+        End Function
+
+        ''' <summary>
+        ''' Gets a concrete validation rule method to validate the property value.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Function GetValidationRule() As Csla.Validation.RuleHandler _
+            Implements IValidationRuleProvider.GetValidationRule
+            Return AddressOf CommonValidation.ValueObjectFieldValidation
         End Function
 
     End Class

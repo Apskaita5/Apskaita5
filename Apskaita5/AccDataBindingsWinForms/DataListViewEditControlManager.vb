@@ -689,7 +689,7 @@ Public Class DataListViewEditControlManager(Of T)
             usedValueObjectIds = GetContainedValueObjectLists(currentBusinessObject)
         End If
 
-        For Each col As OLVColumn In _CurrentListView.Columns
+        For Each col As OLVColumn In _CurrentListView.AllColumns
 
             If Not StringIsNullOrEmpty(col.AspectName) Then
 
@@ -854,19 +854,21 @@ Public Class DataListViewEditControlManager(Of T)
             Throw New ArgumentNullException("curProp")
         End If
 
-        Dim curAttribute As IntegerFieldAttribute = _
-            GetAttribute(Of IntegerFieldAttribute)(curProp)
+        Dim correctionAttribute As CorrectionFieldAttribute = _
+            GetAttribute(Of CorrectionFieldAttribute)(curProp)
 
-        If curAttribute Is Nothing Then
+        If correctionAttribute Is Nothing Then
 
-            If curProp.Name.ToLower.Contains("correction") Then
+            Dim curAttribute As IntegerFieldAttribute = _
+                GetAttribute(Of IntegerFieldAttribute)(curProp)
 
-                Dim control As New NumericUpDown
-                control.DecimalPlaces = 0
-                control.Increment = 1
-                control.Maximum = 100
-                control.Minimum = -100
+            If curAttribute Is Nothing Then
+
+                Dim control As New AccTextBox
+                control.KeepBackColorWhenReadOnly = False
                 control.TextAlign = HorizontalAlignment.Center
+                control.DecimalLength = 0
+                control.NegativeValue = True
 
                 _ControlsDictionary.Add(curProp.Name, control)
 
@@ -884,36 +886,14 @@ Public Class DataListViewEditControlManager(Of T)
 
         Else
 
-            If curProp.Name.ToLower.Contains("correction") Then
+            Dim control As New NumericUpDown
+            control.DecimalPlaces = 0
+            control.Increment = 1
+            control.Maximum = correctionAttribute.MaxValue
+            control.Minimum = correctionAttribute.MinValue
+            control.TextAlign = HorizontalAlignment.Center
 
-                Dim control As New NumericUpDown
-                control.DecimalPlaces = 0
-                control.Increment = 1
-                control.TextAlign = HorizontalAlignment.Center
-                If curAttribute.WithinRange Then
-                    control.Maximum = curAttribute.MaxValue
-                    control.Minimum = curAttribute.MinValue
-                ElseIf curAttribute.AllowNegative Then
-                    control.Maximum = 100
-                    control.Minimum = -100
-                Else
-                    control.Maximum = 100
-                    control.Minimum = 0
-                End If
-
-                _ControlsDictionary.Add(curProp.Name, control)
-
-            Else
-
-                Dim control As New AccTextBox
-                control.KeepBackColorWhenReadOnly = False
-                control.TextAlign = HorizontalAlignment.Center
-                control.DecimalLength = 0
-                control.NegativeValue = curAttribute.AllowNegative
-
-                _ControlsDictionary.Add(curProp.Name, control)
-
-            End If
+            _ControlsDictionary.Add(curProp.Name, control)
 
         End If
 

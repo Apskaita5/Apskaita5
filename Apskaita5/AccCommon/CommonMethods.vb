@@ -258,9 +258,9 @@ Public Module CommonMethods
     ''' <param name="SourceString">Tab (CHR9) delimited string.</param>
     ''' <param name="index">Number (index) of substring to retrieve.</param>
     Public Function GetElement(ByVal SourceString As String, ByVal index As Integer) As String
-        Dim SubStrings As String() = SourceString.Split(Chr(9))
-        If SubStrings.Length > index Then
-            Return SubStrings(index)
+        Dim subStrings As String() = SourceString.Split(Chr(9))
+        If subStrings.Length > index Then
+            Return subStrings(index)
         Else
             Return ""
         End If

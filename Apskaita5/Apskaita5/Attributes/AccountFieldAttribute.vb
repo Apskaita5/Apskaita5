@@ -1,4 +1,5 @@
 ﻿Namespace Attributes
+
     ''' <summary>
     ''' Represents an attribute that is used to mark business objects' properties holding a reference
     ''' to the <see cref="General.Account.ID">Account.ID</see> property and to store basic business rules
@@ -10,8 +11,8 @@
     <Serializable()> _
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _
 Public Class AccountFieldAttribute
-        Inherits System.Attribute
-        Implements IDataSourceProvider
+        Inherits BusinessFieldAttribute
+        Implements IDataSourceProvider, IValidationRuleProvider
 
         ''' <summary>
         ''' A list of all the possible account base class values as provided by 
@@ -148,6 +149,15 @@ Public Class AccountFieldAttribute
         Public Function GetDataSource(ByVal valueObjectIds As List(Of String)) As IList _
             Implements IDataSourceProvider.GetDataSource
             Return AccountInfoList.GetCachedFilteredList(True, _AcceptedClasses)
+        End Function
+
+        ''' <summary>
+        ''' Gets a concrete validation rule method to validate the property value.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Function GetValidationRule() As Csla.Validation.RuleHandler _
+            Implements IValidationRuleProvider.GetValidationRule
+            Return AddressOf CommonValidation.AccountFieldValidation
         End Function
 
     End Class

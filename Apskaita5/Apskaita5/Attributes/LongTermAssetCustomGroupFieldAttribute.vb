@@ -10,7 +10,7 @@
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _
     Public Class LongTermAssetCustomGroupFieldAttribute
         Inherits ValueObjectFieldAttribute
-        Implements IDataSourceProvider
+        Implements IDataSourceProvider, IValidationRuleProvider
 
         ''' <summary>
         ''' Gets a base type of the datasource (<see cref="HelperLists.LongTermAssetCustomGroupInfoList">LongTermAssetCustomGroupInfoList</see>).
@@ -72,6 +72,15 @@
             Implements IDataSourceProvider.GetDataSource
             Return LongTermAssetCustomGroupInfoList.GetCachedFilteredList( _
                 Me.ValueRequired <> ValueRequiredLevel.Mandatory)
+        End Function
+
+        ''' <summary>
+        ''' Gets a concrete validation rule method to validate the property value.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Function GetValidationRule() As Csla.Validation.RuleHandler _
+            Implements IValidationRuleProvider.GetValidationRule
+            Return AddressOf CommonValidation.ValueObjectFieldValidation
         End Function
 
     End Class

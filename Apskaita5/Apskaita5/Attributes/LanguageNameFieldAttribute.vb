@@ -9,8 +9,8 @@
     <Serializable()> _
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _
     Public Class LanguageNameFieldAttribute
-        Inherits System.Attribute
-        Implements IDataSourceProvider
+        Inherits BusinessFieldAttribute
+        Implements IDataSourceProvider, IValidationRuleProvider
 
         Private _ValueRequired As ValueRequiredLevel = ValueRequiredLevel.Optional
         Private _WithRegionalSettingsOnly As Boolean = False
@@ -105,6 +105,15 @@
             Else
                 Return GetLanguageNameList(Me.ValueRequired <> ValueRequiredLevel.Mandatory)
             End If
+        End Function
+
+        ''' <summary>
+        ''' Gets a concrete validation rule method to validate the property value.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Function GetValidationRule() As Csla.Validation.RuleHandler _
+            Implements IValidationRuleProvider.GetValidationRule
+            Return AddressOf CommonValidation.LanguageNameValidation
         End Function
 
     End Class

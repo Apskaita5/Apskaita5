@@ -10,7 +10,7 @@
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _
     Public Class ProductionCalculationFieldAttribute
         Inherits ValueObjectFieldAttribute
-        Implements IValueObjectIdProvider, IDataSourceProvider
+        Implements IValueObjectIdProvider, IDataSourceProvider, IValidationRuleProvider
 
         ''' <summary>
         ''' Gets a base type of the datasource (<see cref="HelperLists.ProductionCalculationInfoList">ProductionCalculationInfoList</see>).
@@ -101,6 +101,15 @@
             Implements IDataSourceProvider.GetDataSource
             Return ProductionCalculationInfoList.GetCachedFilteredList( _
                 Me.ValueRequired <> ValueRequiredLevel.Mandatory, False, valueObjectIds)
+        End Function
+
+        ''' <summary>
+        ''' Gets a concrete validation rule method to validate the property value.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Function GetValidationRule() As Csla.Validation.RuleHandler _
+            Implements IValidationRuleProvider.GetValidationRule
+            Return AddressOf CommonValidation.ValueObjectFieldValidation
         End Function
 
     End Class

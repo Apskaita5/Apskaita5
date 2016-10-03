@@ -8,7 +8,8 @@
     <Serializable()> _
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _
 Public Class IntegerFieldAttribute
-        Inherits System.Attribute
+        Inherits BusinessFieldAttribute
+        Implements IValidationRuleProvider
 
         Private _ValueRequired As ValueRequiredLevel = ValueRequiredLevel.Optional
         Private _AllowNegative As Boolean = True
@@ -108,6 +109,15 @@ Public Class IntegerFieldAttribute
             _ErrorIfExceedsRange = valueErrorIfExceedsRange
 
         End Sub
+
+        ''' <summary>
+        ''' Gets a concrete validation rule method to validate the property value.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Function GetValidationRule() As Csla.Validation.RuleHandler _
+            Implements IValidationRuleProvider.GetValidationRule
+            Return AddressOf CommonValidation.IntegerFieldValidation
+        End Function
 
     End Class
 End Namespace

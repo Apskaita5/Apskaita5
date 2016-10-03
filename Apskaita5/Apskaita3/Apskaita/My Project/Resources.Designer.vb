@@ -731,40 +731,6 @@ Namespace My.Resources
             End Get
         End Property
         
-        '''<summary>
-        '''  Looks up a localized string similar to 1	ILGALAIKIS TURTAS
-        '''
-        '''11	Nematerialusis turtas
-        '''
-        '''111	Plėtros darbai
-        '''	1110 Įsigijimo savikaina
-        '''	1118 Amortizacija (-)
-        '''	1119 Vertės sumažėjimas (-)
-        '''
-        '''112	Prestižas
-        '''	1120 Įsigijimo savikaina
-        '''	1128 Amortizacija (-)
-        '''	1129 Vertės sumažėjimas (-)
-        '''
-        '''113	Patentai, licencijos
-        '''	1130 Įsigijimo savikaina
-        '''	1138 Amortizacija (-)
-        '''	1139 Vertės sumažėjimas (-)
-        '''
-        '''114	Programinė įranga
-        '''	1140 Įsigijimo savikaina
-        '''	1148 Amortizacija (-)
-        '''	1149 Vertės sumažėjimas (-)
-        '''
-        '''115	Kitas nematerialusis turtas
-        '''	1150 Įsigij [rest of string was truncated]&quot;;.
-        '''</summary>
-        Friend ReadOnly Property SP() As String
-            Get
-                Return ResourceManager.GetString("SP", resourceCulture)
-            End Get
-        End Property
-        
         Friend ReadOnly Property sql_16() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("sql_16", resourceCulture)
@@ -804,6 +770,28 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("sqlquery_16x16", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to 11 Nematerialusis turtas
+        '''111 Plėtros darbai
+        '''1110 Plėtros darbų atlikimo savikaina
+        '''1118 Plėtros darbų vertės amortizacija (−)
+        '''1119 Plėtros darbų vertės sumažėjimas (−)
+        '''112 Prestižas
+        '''1120 Prestižo įsigijimo savikaina
+        '''1128 Prestižo vertės amortizacija (−)
+        '''1129 Prestižo vertės sumažėjimas (−)
+        '''113 Programinė įranga
+        '''1130 Programinės įrangos įsigijimo savikaina
+        '''1138 Programinės įrangos vertės amortizacija (−)
+        '''1139 Programinės įrangos vertės sumažėjimas (−)
+        '''114 Koncesijos, patentai, licencijos, prekių  [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property TypicalAccountsGeneral() As String
+            Get
+                Return ResourceManager.GetString("TypicalAccountsGeneral", resourceCulture)
             End Get
         End Property
         

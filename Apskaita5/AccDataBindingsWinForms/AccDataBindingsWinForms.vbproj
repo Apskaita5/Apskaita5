@@ -643,12 +643,19 @@
     <Compile Include="General\F_TransferOfBalance.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="General\F_TypicalAccountInfoDialog.Designer.vb">
+      <DependentUpon>F_TypicalAccountInfoDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="General\F_TypicalAccountInfoDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="General\F_UnsettledPersonInfoList.Designer.vb">
       <DependentUpon>F_UnsettledPersonInfoList.vb</DependentUpon>
     </Compile>
     <Compile Include="General\F_UnsettledPersonInfoList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="General\TypicalAccountInfo.vb" />
     <Compile Include="GoodsOperationManager.vb" />
     <Compile Include="Goods\F_GoodsComplexOperationDiscard.Designer.vb">
       <DependentUpon>F_GoodsComplexOperationDiscard.vb</DependentUpon>
@@ -1242,6 +1249,9 @@
     <EmbeddedResource Include="General\F_TransferOfBalance.resx">
       <DependentUpon>F_TransferOfBalance.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="General\F_TypicalAccountInfoDialog.resx">
+      <DependentUpon>F_TypicalAccountInfoDialog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="General\F_UnsettledPersonInfoList.resx">
       <DependentUpon>F_UnsettledPersonInfoList.vb</DependentUpon>
     </EmbeddedResource>
@@ -1698,6 +1708,13 @@
     <None Include="My Project\DataSources\ApskaitaObjects.Documents.Service.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsItem.datasource" />
     <None Include="Resources\icon_zoom_out_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\DataSources\TypicalAccountInfo.datasource" />
+    <None Include="Resources\typicalaccountsgeneral.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book-add-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

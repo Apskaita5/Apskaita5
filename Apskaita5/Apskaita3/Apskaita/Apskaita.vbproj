@@ -248,18 +248,6 @@
     <Compile Include="Administration\F_NewCompany.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Helpai\Nusidevejimai.Designer.vb">
-      <DependentUpon>Nusidevejimai.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Helpai\Nusidevejimai.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Helpai\PVZ_SP.Designer.vb">
-      <DependentUpon>PVZ_SP.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Helpai\PVZ_SP.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="MDIParent1.Designer.vb">
       <DependentUpon>MDIParent1.vb</DependentUpon>
     </Compile>
@@ -498,14 +486,6 @@
       <SubType>Designer</SubType>
       <DependentUpon>F_NewCompany.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Helpai\Nusidevejimai.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>Nusidevejimai.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Helpai\PVZ_SP.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>PVZ_SP.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MDIParent1.resx">
       <SubType>Designer</SubType>
       <DependentUpon>MDIParent1.vb</DependentUpon>
@@ -533,9 +513,6 @@
       </SubType>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\SP.txt" />
   </ItemGroup>
   <ItemGroup>
     <BaseApplicationManifest Include="My Project\app.manifest" />
@@ -915,6 +892,8 @@
     <None Include="Resources\searchIcon_16x16.png" />
     <None Include="Resources\Apskaita5_LargeLogo.png" />
     <None Include="Resources\icon_help_32x32.png" />
+    <None Include="Resources\TypicalAccountsGeneral.txt" />
+    <None Include="Resources\book-add-icon.png" />
     <Content Include="UserReportExample.rdl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -203,6 +203,7 @@
     <Compile Include="Assets\OperationValueChangeList.vb" />
     <Compile Include="Attributes\AccountFieldAttribute.vb" />
     <Compile Include="Attributes\AssignableCRItemFieldAttribute.vb" />
+    <Compile Include="Attributes\BusinessFieldAttribute.vb" />
     <Compile Include="Attributes\CashAccountFieldAttribute.vb" />
     <Compile Include="Attributes\CodeFieldAttribute.vb" />
     <Compile Include="Attributes\CompanyRegionalInfoFieldAttribute.vb" />
@@ -212,6 +213,7 @@
     <Compile Include="Attributes\GoodsFieldAttribute.vb" />
     <Compile Include="Attributes\GoodsGroupFieldAttribute.vb" />
     <Compile Include="Attributes\IDataSourceProvider.vb" />
+    <Compile Include="Attributes\IValidationRuleProvider.vb" />
     <Compile Include="Attributes\IValueObjectIdProvider.vb" />
     <Compile Include="Attributes\LanguageCodeFieldAttribute.vb" />
     <Compile Include="Attributes\LanguageNameFieldAttribute.vb" />

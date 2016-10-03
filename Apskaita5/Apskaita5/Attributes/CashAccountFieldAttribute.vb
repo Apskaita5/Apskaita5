@@ -11,7 +11,7 @@
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _
     Public Class CashAccountFieldAttribute
         Inherits ValueObjectFieldAttribute
-        Implements IValueObjectIdProvider, IDataSourceProvider
+        Implements IValueObjectIdProvider, IDataSourceProvider, IValidationRuleProvider
 
         Private _AcceptedTypes As Documents.CashAccountType()
         Private _ErrorOnTypeMismatch As Boolean = False
@@ -142,6 +142,15 @@
             Implements IDataSourceProvider.GetDataSource
             Return CashAccountInfoList.GetCachedFilteredList( _
                 False, True, valueObjectIds, _AcceptedTypes)
+        End Function
+
+        ''' <summary>
+        ''' Gets a concrete validation rule method to validate the property value.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Function GetValidationRule() As Csla.Validation.RuleHandler _
+            Implements IValidationRuleProvider.GetValidationRule
+            Return AddressOf CommonValidation.CashAccountFieldValidation
         End Function
 
     End Class

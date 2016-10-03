@@ -9,7 +9,8 @@
     <Serializable()> _
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _
 Public Class DoubleFieldAttribute
-        Inherits Attribute
+        Inherits BusinessFieldAttribute
+        Implements IValidationRuleProvider
 
         Private _ValueRequired As ValueRequiredLevel = ValueRequiredLevel.Optional
         Private _AllowNegative As Boolean = True
@@ -124,6 +125,15 @@ Public Class DoubleFieldAttribute
             _ErrorIfExceedsRange = valueErrorIfExceedsRange
 
         End Sub
+
+        ''' <summary>
+        ''' Gets a concrete validation rule method to validate the property value.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Function GetValidationRule() As Csla.Validation.RuleHandler _
+            Implements IValidationRuleProvider.GetValidationRule
+            Return AddressOf CommonValidation.DoubleFieldValidation
+        End Function
 
     End Class
 End Namespace

@@ -11,7 +11,7 @@ Namespace Attributes
     <Serializable()> _
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _
     Public Class LocalizedEnumFieldAttribute
-        Inherits System.Attribute
+        Inherits BusinessFieldAttribute
         Implements IDataSourceProvider
 
         Private _EnumType As Type

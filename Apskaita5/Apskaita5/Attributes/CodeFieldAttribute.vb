@@ -13,8 +13,8 @@ Namespace Attributes
     <Serializable()> _
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _
     Public Class CodeFieldAttribute
-        Inherits System.Attribute
-        Implements IValueObjectIdProvider, IDataSourceProvider
+        Inherits BusinessFieldAttribute
+        Implements IValueObjectIdProvider, IDataSourceProvider, IValidationRuleProvider
 
         Private _ValueRequired As ValueRequiredLevel = ValueRequiredLevel.Optional
         Private _Type As ApskaitaObjects.Settings.CodeType
@@ -154,6 +154,15 @@ Namespace Attributes
         Public Function GetDataSource(ByVal valueObjectIds As List(Of String)) As IList _
             Implements IDataSourceProvider.GetDataSource
             Return CodeInfoList.GetCachedFilteredList(_Type, True, False, valueObjectIds)
+        End Function
+
+        ''' <summary>
+        ''' Gets a concrete validation rule method to validate the property value.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Function GetValidationRule() As Csla.Validation.RuleHandler _
+            Implements IValidationRuleProvider.GetValidationRule
+            Return AddressOf CommonValidation.CodeFieldValidation
         End Function
 
     End Class

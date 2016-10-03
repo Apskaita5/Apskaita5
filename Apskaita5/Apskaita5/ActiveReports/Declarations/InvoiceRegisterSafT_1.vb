@@ -94,7 +94,7 @@ Namespace ActiveReports.Declarations
             End If
             result.Header.FileDescription.FileDateCreated = Now
             result.Header.FileDescription.FileVersion = _
-                SafTTemplates.SafT_1_2.ISAFFileVersion.iSAFtest
+                SafTTemplates.SafT_1_2.ISAFFileVersion.iSAF12
             result.Header.FileDescription.NumberOfParts = 2
             result.Header.FileDescription.PartNumber = invoiceRegister.InfoType.ToString().ToUpper()
             result.Header.FileDescription.RegistrationNumber = _
