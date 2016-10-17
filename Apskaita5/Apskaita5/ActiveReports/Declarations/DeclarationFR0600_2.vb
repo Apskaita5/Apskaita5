@@ -90,11 +90,9 @@
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString.Trim.ToUpper = "B_UzpildData".ToUpper Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = GetDateInFFDataFormat(declaration.Date.Date)
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString.Trim.ToUpper = "B_ML_DataNuo".ToUpper Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetDateInFFDataFormat(New Date(declaration.Year, _
-                        declaration.Month, 1))
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetDateInFFDataFormat(declaration.DateFrom)
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString.Trim.ToUpper = "B_ML_DataIki".ToUpper Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetDateInFFDataFormat(New Date(declaration.Year, _
-                        declaration.Month, Date.DaysInMonth(declaration.Year, declaration.Month)))
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetDateInFFDataFormat(declaration.DateTo)
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString.Trim.ToUpper = "E10".ToUpper Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = GetCurrentCompany.MainEconomicActivityCode
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString.Trim.ToUpper = "E28".ToUpper Then

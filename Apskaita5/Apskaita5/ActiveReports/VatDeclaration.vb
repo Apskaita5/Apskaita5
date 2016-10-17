@@ -19,6 +19,12 @@ Namespace ActiveReports
         Private _Month As Integer = Today.AddMonths(-1).Month
         Private _Items As VatDeclarationItemList = Nothing
         Private _Subtotals As VatDeclarationSubtotalList = Nothing
+        Private _CustomPeriod As Boolean = False
+        Private _DateFrom As Date = New Date(Today.AddMonths(-1).Year, _
+            Today.AddMonths(-1).Month, 1)
+        Private _DateTo As Date = New Date(Today.AddMonths(-1).Year, _
+            Today.AddMonths(-1).Month, Date.DaysInMonth(Today.AddMonths(-1).Year, _
+            Today.AddMonths(-1).Month))
 
 
         ''' <summary>
@@ -51,6 +57,40 @@ Namespace ActiveReports
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _Month
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets whether the VAT declaration is fetched for a custom period
+        ''' (not a month).
+        ''' </summary>
+        '''  <remarks></remarks>
+        Public ReadOnly Property CustomPeriod() As Boolean
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _CustomPeriod
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a starting date of the VAT declaration period.
+        ''' </summary>
+        '''  <remarks></remarks>
+        Public ReadOnly Property DateFrom() As Date
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _DateFrom
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets an ending date of the VAT declaration period.
+        ''' </summary>
+        '''  <remarks></remarks>
+        Public ReadOnly Property DateTo() As Date
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _DateTo
             End Get
         End Property
 
@@ -194,7 +234,7 @@ Namespace ActiveReports
 #Region " Factory Methods "
 
         ''' <summary>
-        ''' Fetches a new instance of VatDeclaration.
+        ''' Fetches a new instance of VatDeclaration for a month.
         ''' </summary>
         ''' <param name="declarationDate">a date of the declaration</param>
         ''' <param name="year">a year that the VAT declaration data is fetched for</param>
@@ -204,6 +244,19 @@ Namespace ActiveReports
             ByVal year As Integer, ByVal month As Integer) As VatDeclaration
             Return DataPortal.Fetch(Of VatDeclaration)(New Criteria( _
                 declarationDate, year, month))
+        End Function
+
+        ''' <summary>
+        ''' Fetches a new instance of VatDeclaration for a custom period.
+        ''' </summary>
+        ''' <param name="declarationDate">a date of the declaration</param>
+        ''' <param name="periodStart">a starting date of the VAT declaration custom period</param>
+        ''' <param name="periodEnd">an ending date of the VAT declaration custom period</param>
+        ''' <remarks></remarks>
+        Public Shared Function GetVatDeclaration(ByVal declarationDate As Date, _
+            ByVal periodStart As Date, ByVal periodEnd As Date) As VatDeclaration
+            Return DataPortal.Fetch(Of VatDeclaration)(New Criteria( _
+                declarationDate, periodStart, periodEnd))
         End Function
 
         Private Sub New()
@@ -219,6 +272,12 @@ Namespace ActiveReports
             Private _Date As Date = Today
             Private _Year As Integer = Today.AddMonths(-1).Year
             Private _Month As Integer = Today.AddMonths(-1).Month
+            Private _CustomPeriod As Boolean = False
+            Private _DateFrom As Date = New Date(Today.AddMonths(-1).Year, _
+                Today.AddMonths(-1).Month, 1)
+            Private _DateTo As Date = New Date(Today.AddMonths(-1).Year, _
+                Today.AddMonths(-1).Month, Date.DaysInMonth(Today.AddMonths(-1).Year, _
+                Today.AddMonths(-1).Month))
             Public ReadOnly Property [Date]() As Date
                 Get
                     Return _Date
@@ -234,11 +293,35 @@ Namespace ActiveReports
                     Return _Month
                 End Get
             End Property
+            Public ReadOnly Property CustomPeriod() As Boolean
+                Get
+                    Return _CustomPeriod
+                End Get
+            End Property
+            Public ReadOnly Property DateFrom() As Date
+                Get
+                    Return _DateFrom
+                End Get
+            End Property
+            Public ReadOnly Property DateTo() As Date
+                Get
+                    Return _DateTo
+                End Get
+            End Property
             Public Sub New(ByVal nDate As Date, ByVal nYear As Integer, _
                 ByVal nMonth As Integer)
                 _Date = nDate
                 _Year = nYear
                 _Month = nMonth
+            End Sub
+            Public Sub New(ByVal nDate As Date, ByVal nDateFrom As Date, _
+                ByVal nDateTo As Date)
+                _Date = nDate
+                _Year = nDateFrom.Year
+                _Month = 0
+                _CustomPeriod = True
+                _DateFrom = nDateFrom
+                _DateTo = nDateTo
             End Sub
         End Class
 
@@ -249,16 +332,32 @@ Namespace ActiveReports
 
             If criteria.Year < 1970 OrElse criteria.Year > 2100 Then
                 Throw New Exception(ActiveReports_VatDeclaration_YearInvalid)
-            ElseIf criteria.Month < 1 OrElse criteria.Month > 12 Then
-                Throw New Exception(ActiveReports_VatDeclaration_MonthInvalid)
-            ElseIf criteria.Date.Date < New Date(criteria.Year, criteria.Month, 1) Then
-                Throw New Exception(ActiveReports_VatDeclaration_DateInvalid)
+            End If
+
+            If Not criteria.CustomPeriod Then
+                If criteria.Month < 1 OrElse criteria.Month > 12 Then
+                    Throw New Exception(ActiveReports_VatDeclaration_MonthInvalid)
+                ElseIf criteria.Date.Date < New Date(criteria.Year, criteria.Month, 1) Then
+                    Throw New Exception(ActiveReports_VatDeclaration_DateInvalid)
+                End If
+            End If
+
+            _Year = criteria.Year
+            _Date = criteria.Date
+            If criteria.CustomPeriod Then
+                _DateFrom = criteria.DateFrom
+                _DateTo = criteria.DateTo
+                _Month = 0
+            Else
+                _DateFrom = New Date(criteria.Year, criteria.Month, 1)
+                _DateTo = New Date(criteria.Year, criteria.Month, _
+                    Date.DaysInMonth(criteria.Year, criteria.Month))
+                _Month = criteria.Month
             End If
 
             Dim myComm As New SQLCommand("FetchVatDeclaration")
-            myComm.AddParam("?DF", New Date(criteria.Year, criteria.Month, 1))
-            myComm.AddParam("?DT", New Date(criteria.Year, criteria.Month, _
-                Date.DaysInMonth(criteria.Year, criteria.Month)))
+            myComm.AddParam("?DF", _DateFrom.Date)
+            myComm.AddParam("?DT", _DateTo.Date)
             myComm.AddParam("?IV", ActiveReports_VatDeclaration_IndirectVatName)
 
             Using myData As DataTable = myComm.Fetch
@@ -266,10 +365,6 @@ Namespace ActiveReports
             End Using
 
             _Subtotals = VatDeclarationSubtotalList.GetVatDeclarationSubtotalList(_Items)
-
-            _Date = criteria.Date
-            _Year = criteria.Year
-            _Month = criteria.Month
 
         End Sub
 

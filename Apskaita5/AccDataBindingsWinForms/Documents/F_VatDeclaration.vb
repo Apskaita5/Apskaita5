@@ -8,6 +8,7 @@ Public Class F_VatDeclaration
     Private _SubtotalsListViewManager As DataListViewEditControlManager(Of VatDeclarationSubtotal)
     Private _QueryManager As CslaActionExtenderQueryObject
 
+
     Private Sub F_VatDeclaration_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         If Not SetDataSources() Then Exit Sub
@@ -73,8 +74,19 @@ Public Class F_VatDeclaration
         Catch ex As Exception
         End Try
 
-        ' VatDeclaration.GetVatDeclaration(DateDateTimePicker.Value, year, month)
-        Return New Object() {DateDateTimePicker.Value.Date, year, month}
+        If CustomPeriodCheckBox.Checked Then
+
+            'VatDeclaration.GetVatDeclaration(DateDateTimePicker.Value, _
+            '    PeriodStartDateTimePicker.Value, PeriodEndDateTimePicker.Value)
+            Return New Object() {DateDateTimePicker.Value.Date, _
+                PeriodStartDateTimePicker.Value, PeriodEndDateTimePicker.Value}
+
+        Else
+
+            ' VatDeclaration.GetVatDeclaration(DateDateTimePicker.Value, year, month)
+            Return New Object() {DateDateTimePicker.Value.Date, year, month}
+
+        End If
 
     End Function
 
@@ -137,6 +149,24 @@ Public Class F_VatDeclaration
         Catch ex As Exception
             ShowError(ex)
         End Try
+
+    End Sub
+
+    Private Sub CustomPeriodCheckBox_CheckedChanged(ByVal sender As System.Object, _
+        ByVal e As System.EventArgs) Handles CustomPeriodCheckBox.CheckedChanged
+
+        YearComboBox.Enabled = Not CustomPeriodCheckBox.Checked
+        MonthComboBox.Enabled = Not CustomPeriodCheckBox.Checked
+        PeriodStartDateTimePicker.Enabled = CustomPeriodCheckBox.Checked
+        PeriodEndDateTimePicker.Enabled = CustomPeriodCheckBox.Checked
+
+        If CustomPeriodCheckBox.Checked Then
+            YearComboBox.SelectedIndex = -1
+            MonthComboBox.SelectedIndex = -1
+        Else
+            YearComboBox.SelectedItem = Today.AddMonths(-1).Year
+            MonthComboBox.SelectedItem = Today.AddMonths(-1).Month
+        End If
 
     End Sub
 
