@@ -51,8 +51,6 @@
             Me.AggregateSumListDataListView.HasCollapsibleGroups = False
             Me.AggregateSumListDataListView.HeaderWordWrap = True
             Me.AggregateSumListDataListView.HideSelection = False
-            Me.AggregateSumListDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-            Me.AggregateSumListDataListView.HighlightForegroundColor = System.Drawing.Color.Black
             Me.AggregateSumListDataListView.IncludeColumnHeadersInCopy = True
             Me.AggregateSumListDataListView.Location = New System.Drawing.Point(0, 0)
             Me.AggregateSumListDataListView.Name = "AggregateSumListDataListView"

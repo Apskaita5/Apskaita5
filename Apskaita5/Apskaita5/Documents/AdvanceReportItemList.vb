@@ -78,6 +78,26 @@ Namespace Documents
         End Function
 
 
+        Friend Sub AddNewRange(ByVal invoicesToAdd As List(Of ActiveReports.InvoiceInfoItem))
+
+            Dim persons As PersonInfoList = PersonInfoList.GetList()
+
+            Me.RaiseListChangedEvents = False
+
+            For Each invoice As ActiveReports.InvoiceInfoItem In invoicesToAdd
+
+                Dim newItem As AdvanceReportItem = AdvanceReportItem.NewAdvanceReportItem( _
+                    invoice, persons.GetPersonInfo(invoice.PersonID), _CurrencyCode, _CurrencyRate)
+                Me.Add(newItem)
+
+            Next
+
+            Me.RaiseListChangedEvents = True
+            Me.ResetBindings()
+
+        End Sub
+
+
         Protected Overrides Function AddNewCore() As Object
             Dim newItem As AdvanceReportItem = AdvanceReportItem.NewAdvanceReportItem
             Me.Add(newItem)

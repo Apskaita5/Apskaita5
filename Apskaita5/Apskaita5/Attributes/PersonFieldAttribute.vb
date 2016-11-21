@@ -5,7 +5,7 @@
     ''' to a <see cref="HelperLists.PersonInfo">PersonInfo</see> and to store  basic business rules 
     ''' (mandatory, allowed types, etc.).
     ''' </summary>
-    ''' <remarks>Used for validation purposes in <see cref="PersonValidation">PersonValidation</see> method.
+    ''' <remarks>Used for validation purposes in <see cref="CommonValidation.PersonFieldValidation">PersonFieldValidation</see> method.
     ''' Could be used by GUI to initialize appropriate controls.</remarks>
     <Serializable()> _
     <AttributeUsage(AttributeTargets.Property, AllowMultiple:=False, Inherited:=True)> _

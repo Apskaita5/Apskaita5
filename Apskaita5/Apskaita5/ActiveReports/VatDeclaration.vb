@@ -145,12 +145,12 @@ Namespace ActiveReports
                 Throw New Exception(ActiveReports_VatDeclaration_DeclarationFormNull)
             End If
 
-            If New Date(_Year, _Month, 1) < declarationForm.ValidFrom.Date OrElse _
-                New Date(_Year, _Month, Date.DaysInMonth(_Year, _Month)) > declarationForm.ValidTo.Date Then
+            If _DateFrom.Date < declarationForm.ValidFrom.Date OrElse _
+                _DateTo.Date > declarationForm.ValidTo.Date Then
                 warnings = String.Format(ActiveReports_VatDeclaration_PeriodInvalid, _
                     declarationForm.ValidFrom.ToString("yyyy-MM-dd"), _
                     declarationForm.ValidTo.ToString("yyyy-MM-dd"), _
-                    _Year.ToString, _Month.ToString)
+                    _DateFrom.ToString("yyyy-MM-dd"), _DateTo.ToString("yyyy-MM-dd"))
             End If
 
             ' Set culture params that were used when parsing declaration's

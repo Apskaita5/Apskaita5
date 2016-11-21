@@ -57,6 +57,69 @@ Namespace Documents
         End Property
 
         ''' <summary>
+        ''' Gets or sets how an invoice item/line value is displayed in a VAT declaration field.
+        ''' </summary>
+        ''' <remarks>A proxy complex property to the <see cref="MinusValue">MinusValue</see>
+        ''' and <see cref="IsVatField">IsVatField</see> values.</remarks>
+        Public Property [Type]() As VatDeclarationEntryType
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                If _IsVatField Then
+                    If _MinusValue Then
+                        Return VatDeclarationEntryType.SubtractVat
+                    Else
+                        Return VatDeclarationEntryType.AddVat
+                    End If
+                Else
+                    If _MinusValue Then
+                        Return VatDeclarationEntryType.SubtractPrice
+                    Else
+                        Return VatDeclarationEntryType.AddPrice
+                    End If
+                End If
+            End Get
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Set(ByVal value As VatDeclarationEntryType)
+                CanWriteProperty(True)
+                If value <> Me.Type Then
+                    _MinusValue = (value = VatDeclarationEntryType.SubtractPrice OrElse _
+                        value = VatDeclarationEntryType.SubtractVat)
+                    _IsVatField = (value = VatDeclarationEntryType.AddVat OrElse _
+                        value = VatDeclarationEntryType.SubtractVat)
+                    PropertyHasChanged()
+                    PropertyHasChanged("MinusValue")
+                    PropertyHasChanged("IsVatField")
+                    PropertyHasChanged("TypeHumanReadable")
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
+        ''' Gets or sets how an invoice item/line value is displayed in a VAT declaration field 
+        ''' as a human readable string.
+        ''' </summary>
+        ''' <remarks>A proxy complex property to the <see cref="MinusValue">MinusValue</see>
+        ''' and <see cref="IsVatField">IsVatField</see> values.</remarks>
+        <LocalizedEnumField(GetType(VatDeclarationEntryType), False, "")> _
+        Public Property TypeHumanReadable() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return ConvertLocalizedName(Me.Type)
+            End Get
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Set(ByVal value As String)
+                CanWriteProperty(True)
+                Dim enumValue As VatDeclarationEntryType = VatDeclarationEntryType.AddPrice
+                If Not StringIsNullOrEmpty(value) Then
+                    enumValue = ConvertLocalizedName(Of VatDeclarationEntryType)(value)
+                End If
+                If enumValue <> Me.Type Then
+                    Me.Type = enumValue
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
         ''' Gets or sets a persent of the invoice (VAT) sum that should be added to the declaration field.
         ''' </summary>
         ''' <remarks>Value is stored in the database field VatDeclarationEntrys.InclusionPercentage.</remarks>

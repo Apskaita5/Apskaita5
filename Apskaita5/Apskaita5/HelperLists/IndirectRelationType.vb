@@ -44,6 +44,14 @@ Namespace HelperLists
         <EnumValue(4)> _
         AdvanceReport
 
+        ''' <summary>
+        ''' An <see cref="Workers.PayOutNaturalPersonWithoutTaxes">payment to a natural person
+        ''' when no taxes are deducted or payed by the company</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <EnumValue(5)> _
+        PayoutToResidentWithoutTaxes
+
     End Enum
 
 End Namespace

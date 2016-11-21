@@ -141,7 +141,6 @@
   </ItemGroup>
   <ItemGroup>
     <Import Include="AccCommon" />
-    <Import Include="AccControls.PublicFunctions" />
     <Import Include="AccControlsWinForms" />
     <Import Include="AccDataAccessLayer.DatabaseAccess" />
     <Import Include="AccDataBindingsWinForms" />
@@ -642,6 +641,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="MXFD\isaf_1_2.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\FR0471%285%29.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\FR0471%285%29.mxfd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="My Project\DataSources\AccControlsWinForms.ReportData.datasource" />

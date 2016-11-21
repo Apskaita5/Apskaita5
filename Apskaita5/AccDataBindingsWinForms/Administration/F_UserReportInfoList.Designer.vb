@@ -95,8 +95,6 @@ Partial Class F_UserReportInfoList
         Me.UserReportInfoListDataListView.HasCollapsibleGroups = False
         Me.UserReportInfoListDataListView.HeaderWordWrap = True
         Me.UserReportInfoListDataListView.HideSelection = False
-        Me.UserReportInfoListDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.UserReportInfoListDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.UserReportInfoListDataListView.IncludeColumnHeadersInCopy = True
         Me.UserReportInfoListDataListView.Location = New System.Drawing.Point(0, 38)
         Me.UserReportInfoListDataListView.Name = "UserReportInfoListDataListView"

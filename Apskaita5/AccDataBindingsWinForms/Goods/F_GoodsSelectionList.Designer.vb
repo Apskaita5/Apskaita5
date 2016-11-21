@@ -107,8 +107,6 @@ Partial Friend Class F_GoodsSelectionList
         Me.GoodsInfoListDataListView.HasCollapsibleGroups = False
         Me.GoodsInfoListDataListView.HeaderWordWrap = True
         Me.GoodsInfoListDataListView.HideSelection = False
-        Me.GoodsInfoListDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.GoodsInfoListDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.GoodsInfoListDataListView.IncludeColumnHeadersInCopy = True
         Me.GoodsInfoListDataListView.Location = New System.Drawing.Point(0, 0)
         Me.GoodsInfoListDataListView.Name = "GoodsInfoListDataListView"

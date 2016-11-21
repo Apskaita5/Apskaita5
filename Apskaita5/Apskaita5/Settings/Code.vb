@@ -158,7 +158,7 @@ Namespace Settings
 
         Public Overrides Function ToString() As String
             Return String.Format(My.Resources.Settings_Code_ToString, _
-                TypeHumanReadable, _Code.ToString("00"), _Name)
+                TypeHumanReadable, _Code.ToString(), _Name)
         End Function
 
 #End Region

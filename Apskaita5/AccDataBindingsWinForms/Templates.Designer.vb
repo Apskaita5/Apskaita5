@@ -62,8 +62,6 @@ Partial Class Templates
         Me.EditableDataListView.HeaderUsesThemes = True
         Me.EditableDataListView.HeaderWordWrap = True
         Me.EditableDataListView.HideSelection = False
-        Me.EditableDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.EditableDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.EditableDataListView.IncludeColumnHeadersInCopy = True
         Me.EditableDataListView.Location = New System.Drawing.Point(15, 25)
         Me.EditableDataListView.Name = "EditableDataListView"
@@ -100,8 +98,6 @@ Partial Class Templates
         Me.ReportDataListView.HeaderUsesThemes = True
         Me.ReportDataListView.HeaderWordWrap = True
         Me.ReportDataListView.HideSelection = False
-        Me.ReportDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.ReportDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.ReportDataListView.IncludeColumnHeadersInCopy = True
         Me.ReportDataListView.Location = New System.Drawing.Point(15, 182)
         Me.ReportDataListView.Name = "ReportDataListView"

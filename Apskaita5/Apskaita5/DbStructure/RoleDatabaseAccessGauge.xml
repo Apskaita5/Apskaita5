@@ -499,7 +499,7 @@
   <RoleDatabaseAccess
     VisibleIndex="64"
     RoleName="Workers.PayOutNaturalPersonInfoList"
-    RoleNameHumanReadable="Išmokų fiziniams asmens suvestinė"
+    RoleNameHumanReadable="A klasės išmokų fiziniams asmens suvestinė"
     DatabaseTableAccessList=""
     DatabaseReadOnlyTableAccessList=""
     IsHelperList="false"
@@ -507,13 +507,13 @@
   <RoleDatabaseAccess
     VisibleIndex="65"
     RoleName="Workers.PayOutNaturalPerson"
-    RoleNameHumanReadable="Išmoka fiziniam asmeniui"
+    RoleNameHumanReadable="A klasės išmoka fiziniam asmeniui"
     DatabaseTableAccessList=""
     DatabaseReadOnlyTableAccessList=""
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="66"
+    VisibleIndex="67"
     RoleName="Workers.Declaration"
     RoleNameHumanReadable="Išmokų fiziniams asmens deklaracijos"
     DatabaseTableAccessList=""
@@ -521,7 +521,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="67"
+    VisibleIndex="68"
     RoleName="Reports.DebtInfoList"
     RoleNameHumanReadable="Skolų ataskaita"
     DatabaseTableAccessList=""
@@ -721,7 +721,7 @@
     IsHelperList="true"
     ParentRoles="General.GeneralLedger" />
   <RoleDatabaseAccess
-    VisibleIndex="68"
+    VisibleIndex="69"
     RoleName="Reports.UnsettledPersonInfoList"
     RoleNameHumanReadable="neapmokėtų dokumentų ataskaita"
     DatabaseTableAccessList=""
@@ -737,7 +737,7 @@
     IsHelperList="true"
     ParentRoles="Documents.InvoiceMade, Documents.InvoiceReceived" />
   <RoleDatabaseAccess
-    VisibleIndex="69"
+    VisibleIndex="70"
     RoleName="ActiveReports.WorkersVDUInfo"
     RoleNameHumanReadable="darbuotojų VDU duomenys"
     DatabaseTableAccessList=""
@@ -745,7 +745,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="70"
+    VisibleIndex="71"
     RoleName="ActiveReports.WorkerHolidayInfo"
     RoleNameHumanReadable="darbuotojų atostogų duomenys"
     DatabaseTableAccessList=""
@@ -753,7 +753,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="80"
+    VisibleIndex="72"
     RoleName="Workers.HolidayPayReserve"
     RoleNameHumanReadable="atostogų rezervo pažyma"
     DatabaseTableAccessList=""
@@ -761,7 +761,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="81"
+    VisibleIndex="73"
     RoleName="ActiveReports.ServiceTurnoverInfoList"
     RoleNameHumanReadable="paslaugų pardavimų ataskaita"
     DatabaseTableAccessList=""
@@ -801,7 +801,7 @@
     IsHelperList="true"
     ParentRoles="Workers.Declaration, Workers.PayOutNaturalPerson, General.Person" />
   <RoleDatabaseAccess
-    VisibleIndex="82"
+    VisibleIndex="74"
     RoleName="Documents.VatDeclarationSchema"
     RoleNameHumanReadable="PVM deklaravimo schema"
     DatabaseTableAccessList=""
@@ -809,7 +809,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="83"
+    VisibleIndex="75"
     RoleName="ActiveReports.VatDeclarationSchemaInfoItemList"
     RoleNameHumanReadable="PVM deklaravimo schemų suvestinė"
     DatabaseTableAccessList=""
@@ -825,7 +825,7 @@
     IsHelperList="true"
     ParentRoles="Documents.InvoiceMade, Documents.InvoiceReceived, Documents.AdvanceReport, General.Company, Documents.Service, Goods.Goods" />
   <RoleDatabaseAccess
-    VisibleIndex="84"
+    VisibleIndex="76"
     RoleName="Documents.VatDeclaration"
     RoleNameHumanReadable="PVM deklaracija"
     DatabaseTableAccessList=""
@@ -833,9 +833,17 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="85"
+    VisibleIndex="77"
     RoleName="HelperLists.UserReportInfoList"
     RoleNameHumanReadable="vartotojų ataskaitos"
+    DatabaseTableAccessList=""
+    DatabaseReadOnlyTableAccessList=""
+    IsHelperList="false"
+    ParentRoles="" />
+  <RoleDatabaseAccess
+    VisibleIndex="66"
+    RoleName="Workers.PayOutNaturalPersonWithoutTaxesList"
+    RoleNameHumanReadable="B klasės išmokos fiziniams asmenims"
     DatabaseTableAccessList=""
     DatabaseReadOnlyTableAccessList=""
     IsHelperList="false"

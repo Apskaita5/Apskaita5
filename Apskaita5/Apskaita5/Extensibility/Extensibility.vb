@@ -12,7 +12,7 @@
         End Function
 
         ''' <summary>
-        ''' Creates a new BookEntryInternal instance without setting a <see cref="Person">person</see>.
+        ''' Creates a new BookEntryInternal instance without setting a <see cref="BookEntryInternal.Person">person</see>.
         ''' </summary>
         ''' <param name="entryType">Type of the general ledger transaction.</param>
         ''' <param name="account">An Account that is affected by the general ledger transaction.</param>
@@ -40,7 +40,7 @@
         ''' Creates a new BookEntryInternal instance.
         ''' </summary>
         ''' <param name="entryType">Type of the general ledger transaction.</param>
-        ''' <param name="bookEntry">An instance of <see cref="General.BookEntry">BookEntry</see> 
+        ''' <param name="bookEntry">An instance of <see cref="ApskaitaObjects.General.BookEntry">BookEntry</see> 
         ''' that is used to initialize the values of the new BookEntryInternal instance.</param>
         ''' <remarks></remarks>
         Public Function NewBookEntryInternal(ByVal entryType As BookEntryType, _

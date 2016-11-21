@@ -49,8 +49,7 @@
         ''' <summary>
         ''' Gets a ffdata format dataset.
         ''' </summary>
-        ''' <param name="declarationDataSet">a declaration dataset fetched by the <see cref="GetBaseDataSet">GetBaseDataSet</see> method.</param>
-        ''' <param name="preparatorName">a name of the person who prepared the declaration.</param>
+        ''' <param name="declaration">a declaration data to be rendered into state tax inspectorate format</param>
         ''' <remarks></remarks>
         Public Function GetFfDataDataSet(ByVal declaration As VatDeclaration) As DataSet _
             Implements IVatDeclaration.GetFfDataDataSet

@@ -35,6 +35,7 @@ Partial Friend Class F_VatDeclarationSchema
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
         Me.VatRateComboBox = New System.Windows.Forms.ComboBox
         Me.VatDeclarationSchemaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ExternalCodeAccListComboBox = New AccControlsWinForms.AccListComboBox
         Me.NameTextBox = New System.Windows.Forms.TextBox
         Me.IsObsoleteCheckBox = New System.Windows.Forms.CheckBox
         Me.UpdateDateTextBox = New System.Windows.Forms.TextBox
@@ -53,10 +54,8 @@ Partial Friend Class F_VatDeclarationSchema
         Me.OlvColumn1 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn3 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn4 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn5 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn6 = New BrightIdeasSoftware.OLVColumn
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
-        Me.ExternalCodeAccListComboBox = New AccControlsWinForms.AccListComboBox
         IDLabel = New System.Windows.Forms.Label
         InsertDateLabel = New System.Windows.Forms.Label
         UpdateDateLabel = New System.Windows.Forms.Label
@@ -188,7 +187,7 @@ Partial Friend Class F_VatDeclarationSchema
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.VatRateComboBox, 4, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.ExternalCodeAccListComboBox, 7, 1)
         Me.TableLayoutPanel1.Controls.Add(DescriptionLabel, 0, 3)
@@ -231,6 +230,19 @@ Partial Friend Class F_VatDeclarationSchema
         'VatDeclarationSchemaBindingSource
         '
         Me.VatDeclarationSchemaBindingSource.DataSource = GetType(ApskaitaObjects.Documents.VatDeclarationSchema)
+        '
+        'ExternalCodeAccListComboBox
+        '
+        Me.ExternalCodeAccListComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.VatDeclarationSchemaBindingSource, "ExternalCode", True))
+        Me.ExternalCodeAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ExternalCodeAccListComboBox.EmptyValueString = ""
+        Me.ExternalCodeAccListComboBox.FilterString = ""
+        Me.ExternalCodeAccListComboBox.FormattingEnabled = True
+        Me.ExternalCodeAccListComboBox.InstantBinding = True
+        Me.ExternalCodeAccListComboBox.Location = New System.Drawing.Point(679, 29)
+        Me.ExternalCodeAccListComboBox.Name = "ExternalCodeAccListComboBox"
+        Me.ExternalCodeAccListComboBox.Size = New System.Drawing.Size(159, 21)
+        Me.ExternalCodeAccListComboBox.TabIndex = 4
         '
         'NameTextBox
         '
@@ -375,9 +387,8 @@ Partial Friend Class F_VatDeclarationSchema
         '
         Me.DeclarationEntriesDataListView.AllColumns.Add(Me.OlvColumn2)
         Me.DeclarationEntriesDataListView.AllColumns.Add(Me.OlvColumn1)
-        Me.DeclarationEntriesDataListView.AllColumns.Add(Me.OlvColumn3)
         Me.DeclarationEntriesDataListView.AllColumns.Add(Me.OlvColumn4)
-        Me.DeclarationEntriesDataListView.AllColumns.Add(Me.OlvColumn5)
+        Me.DeclarationEntriesDataListView.AllColumns.Add(Me.OlvColumn3)
         Me.DeclarationEntriesDataListView.AllColumns.Add(Me.OlvColumn6)
         Me.DeclarationEntriesDataListView.AllowColumnReorder = True
         Me.DeclarationEntriesDataListView.AutoGenerateColumns = False
@@ -385,7 +396,7 @@ Partial Friend Class F_VatDeclarationSchema
         Me.DeclarationEntriesDataListView.CellEditEnterChangesRows = True
         Me.DeclarationEntriesDataListView.CellEditTabChangesRows = True
         Me.DeclarationEntriesDataListView.CellEditUseWholeCell = False
-        Me.DeclarationEntriesDataListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumn2, Me.OlvColumn3, Me.OlvColumn4, Me.OlvColumn5, Me.OlvColumn6})
+        Me.DeclarationEntriesDataListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumn2, Me.OlvColumn4, Me.OlvColumn3, Me.OlvColumn6})
         Me.DeclarationEntriesDataListView.Cursor = System.Windows.Forms.Cursors.Default
         Me.DeclarationEntriesDataListView.DataSource = Me.DeclarationEntriesBindingSource
         Me.DeclarationEntriesDataListView.Dock = System.Windows.Forms.DockStyle.Fill
@@ -451,25 +462,12 @@ Partial Friend Class F_VatDeclarationSchema
         '
         'OlvColumn4
         '
-        Me.OlvColumn4.AspectName = "IsVatField"
+        Me.OlvColumn4.AspectName = "TypeHumanReadable"
         Me.OlvColumn4.CellEditUseWholeCell = True
-        Me.OlvColumn4.CheckBoxes = True
         Me.OlvColumn4.HeaderFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OlvColumn4.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.OlvColumn4.IsHeaderVertical = True
-        Me.OlvColumn4.Text = "PVM Suma"
-        Me.OlvColumn4.Width = 31
-        '
-        'OlvColumn5
-        '
-        Me.OlvColumn5.AspectName = "MinusValue"
-        Me.OlvColumn5.CellEditUseWholeCell = True
-        Me.OlvColumn5.CheckBoxes = True
-        Me.OlvColumn5.HeaderFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OlvColumn5.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.OlvColumn5.IsHeaderVertical = True
-        Me.OlvColumn5.Text = "Minusuoti"
-        Me.OlvColumn5.Width = 37
+        Me.OlvColumn4.Text = "Veiksmas"
+        Me.OlvColumn4.Width = 132
         '
         'OlvColumn6
         '
@@ -487,19 +485,6 @@ Partial Friend Class F_VatDeclarationSchema
         Me.ProgressFiller1.Size = New System.Drawing.Size(164, 64)
         Me.ProgressFiller1.TabIndex = 6
         Me.ProgressFiller1.Visible = False
-        '
-        'ExternalCodeAccListComboBox
-        '
-        Me.ExternalCodeAccListComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.VatDeclarationSchemaBindingSource, "ExternalCode", True))
-        Me.ExternalCodeAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ExternalCodeAccListComboBox.EmptyValueString = ""
-        Me.ExternalCodeAccListComboBox.FilterString = ""
-        Me.ExternalCodeAccListComboBox.FormattingEnabled = True
-        Me.ExternalCodeAccListComboBox.InstantBinding = True
-        Me.ExternalCodeAccListComboBox.Location = New System.Drawing.Point(679, 29)
-        Me.ExternalCodeAccListComboBox.Name = "ExternalCodeAccListComboBox"
-        Me.ExternalCodeAccListComboBox.Size = New System.Drawing.Size(159, 21)
-        Me.ExternalCodeAccListComboBox.TabIndex = 4
         '
         'F_VatDeclarationSchema
         '
@@ -545,7 +530,6 @@ Partial Friend Class F_VatDeclarationSchema
     Friend WithEvents OlvColumn2 As BrightIdeasSoftware.OLVColumn
     Friend WithEvents OlvColumn3 As BrightIdeasSoftware.OLVColumn
     Friend WithEvents OlvColumn4 As BrightIdeasSoftware.OLVColumn
-    Friend WithEvents OlvColumn5 As BrightIdeasSoftware.OLVColumn
     Friend WithEvents OlvColumn6 As BrightIdeasSoftware.OLVColumn
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents VatRateComboBox As System.Windows.Forms.ComboBox

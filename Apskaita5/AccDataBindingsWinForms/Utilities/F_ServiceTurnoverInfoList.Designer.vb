@@ -213,8 +213,6 @@ Partial Friend Class F_ServiceTurnoverInfoList
         Me.ServiceTurnoverInfoListDataListView.HasCollapsibleGroups = False
         Me.ServiceTurnoverInfoListDataListView.HeaderWordWrap = True
         Me.ServiceTurnoverInfoListDataListView.HideSelection = False
-        Me.ServiceTurnoverInfoListDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.ServiceTurnoverInfoListDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.ServiceTurnoverInfoListDataListView.IncludeColumnHeadersInCopy = True
         Me.ServiceTurnoverInfoListDataListView.Location = New System.Drawing.Point(0, 38)
         Me.ServiceTurnoverInfoListDataListView.Name = "ServiceTurnoverInfoListDataListView"

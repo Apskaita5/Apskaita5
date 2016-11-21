@@ -60,8 +60,9 @@
         ''' Gets a filtered view of the current VAT declaration schema info value object list.
         ''' </summary>
         ''' <param name="showEmpty">Wheather to include a placeholder object.</param>
-        ''' <param name="showSales">Wheather to include schemas that are ""sold"".</param>
-        ''' <param name="showPurchases">Wheather to include schemas that are ""purchased"".</param>
+        ''' <param name="tradedType">a type of schemas to include</param>
+        ''' <param name="usedObjectsIds"><see cref="VatDeclarationSchemaInfo.ID">id's of the schemas</see> that are
+        ''' used in the business object, i.e. should be included even if obsolete</param>
         ''' <param name="showObsolete">Wheather to include schemas that are obsolete (no loger in use).</param>
         ''' <remarks>Result is cached.
         ''' Required by <see cref="AccDataAccessLayer.CacheManager">AccDataAccessLayer.CacheManager</see>.</remarks>

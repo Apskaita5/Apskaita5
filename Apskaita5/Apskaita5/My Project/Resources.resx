@@ -5728,7 +5728,7 @@
     <value>ilgalaikio turto įsigijimas</value>
   </data>
   <data name="HelperLists_IndirectRelationType_PayoutToResident" xml:space="preserve">
-    <value>išmoka fiziniam asmeniui</value>
+    <value>A klasės išmoka fiziniam asmeniui</value>
   </data>
   <data name="Settings_CompanyInfo_DefaultAccountNull" xml:space="preserve">
     <value>Nenustatyta {0} sąskaita.</value>
@@ -14247,7 +14247,7 @@
     <value>Klaida. Nenurodyta deklaracijos versija.</value>
   </data>
   <data name="ActiveReports_VatDeclaration_PeriodInvalid" xml:space="preserve">
-    <value>Pasirinkta deklaracijos versija galioja nuo {0} iki {1}, o pasirinktas laikotarpis ({2} m. {3} mėn.) į šį laikotarpį nepakliūna.</value>
+    <value>Pasirinkta deklaracijos versija galioja nuo {0} iki {1}, o pasirinktas laikotarpis (nuo {2} iki {3}) į šį laikotarpį nepakliūna.</value>
   </data>
   <data name="ActiveReports_VatDeclaration_UnknownErrorWhileExporting" xml:space="preserve">
     <value>Eksportuojant duomenis kilo nežinoma klaida.</value>
@@ -14509,5 +14509,116 @@
   </data>
   <data name="ValidationRules_DeepPastDate" xml:space="preserve">
     <value>Pasirinkta data yra labai labai senai.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_PaymentAmountMismatch" xml:space="preserve">
+    <value>Nesutampa bendrojo žurnalo operacijos suma ir nurodyta išmokos suma.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_ToString" xml:space="preserve">
+    <value>{0} išmoka {1}</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_PaymentReceiverMismatch" xml:space="preserve">
+    <value>Nesutampa operacijoje nurodytas asmuo ir nurodytas mokėjimo gavėjas.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxesList_JournalEntriesIdsNull" xml:space="preserve">
+    <value>Klaida. Nenurodytos bendrojo žurnalo operacijos, kurioms reikėtų registruoti B klasės išmokas.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxesList_ListIsNotDirty" xml:space="preserve">
+    <value>Klaida. Nesukurta ir nepakeista nė viena B klasės išmoka.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxesList_DateFrom" xml:space="preserve">
+    <value>periodo pradžia</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxesList_DateTo" xml:space="preserve">
+    <value>periodo pabaiga</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxesList_PersonFilter" xml:space="preserve">
+    <value>filtras pagal asmenį</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxesList_ToString" xml:space="preserve">
+    <value>B klasės išmokos fiziniams asmenims</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxesList_TypeName" xml:space="preserve">
+    <value>B klasės išmokos fiziniams asmenims</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_TypeName" xml:space="preserve">
+    <value>B klasės išmoka fiziniam asmeniui</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxesList_RangeEmpty" xml:space="preserve">
+    <value>Bendrojo žurnalo operacijų sąraše nėra nei vienos operacijos.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_BookEntries" xml:space="preserve">
+    <value>operacijos kontavimai</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryAmount" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos suma</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryContent" xml:space="preserve">
+    <value>turinys</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryDate" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryDocNo" xml:space="preserve">
+    <value>Dok. Nr.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryDocType" xml:space="preserve">
+    <value>Dok. Tipas</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryDocTypeHumanReadable" xml:space="preserve">
+    <value>Dok. Tipas</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryID" xml:space="preserve">
+    <value>BŽ ID</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryPersonCode" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos kontrahento kodas</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryPersonID" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos kontrahento ID</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryPersonName" xml:space="preserve">
+    <value>bendrojo žurnalo operacijos kontrahentas</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_PaymentAmount" xml:space="preserve">
+    <value>išmokos suma</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_PaymentReceiver" xml:space="preserve">
+    <value>išmokos gavėjas</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_Remarks" xml:space="preserve">
+    <value>pastabos</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_TaxCode" xml:space="preserve">
+    <value>GPM kodas</value>
+  </data>
+  <data name="HelperLists_IndirectRelationType_PayoutToResidentWithoutTaxes" xml:space="preserve">
+    <value>B klasės išmoka fiziniam asmeniui</value>
+  </data>
+  <data name="ActiveReports_Declarations_InvoiceRegisterSafT_1_VatSchemaNull" xml:space="preserve">
+    <value>{0} sąskaitoje Nr. {1} nepriskirtos PVM schemos;</value>
+  </data>
+  <data name="ActiveReports_Declarations_InvoiceRegisterSafT_1_VatSchemaWithoutVatCode" xml:space="preserve">
+    <value>{0} sąskaitoje Nr. {1} priskirtoje PVM schemoje nenurodytas PVM kodas;</value>
+  </data>
+  <data name="ActiveReports_Declarations_InvoiceRegisterSafT_1_VatCodeInvalid" xml:space="preserve">
+    <value>{0} sąskaitoje Nr. {1} priskirtoje PVM schemoje nurodytas klaidingas PVM kodas {2};</value>
+  </data>
+  <data name="ActiveReports_Declarations_InvoiceRegisterSafT_1_InvoiceDataInvalid" xml:space="preserve">
+    <value>Pasirinktų sąskaitų faktūrų duomenyse yra trūkumų,, nesuderinamų su iSAF reikalavimais:{0}{1}</value>
+  </data>
+  <data name="Documents_VatDeclarationEntryType_AddPrice" xml:space="preserve">
+    <value>sumuoti kainą</value>
+  </data>
+  <data name="Documents_VatDeclarationEntryType_AddVat" xml:space="preserve">
+    <value>sumuoti PVM</value>
+  </data>
+  <data name="Documents_VatDeclarationEntryType_SubtractPrice" xml:space="preserve">
+    <value>minusuoti kainą</value>
+  </data>
+  <data name="Documents_VatDeclarationEntryType_SubtractVat" xml:space="preserve">
+    <value>minusuoti PVM</value>
   </data>
 </root>

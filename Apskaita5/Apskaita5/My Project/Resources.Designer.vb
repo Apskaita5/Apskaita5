@@ -1710,6 +1710,42 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Pasirinktų sąskaitų faktūrų duomenyse yra trūkumų,, nesuderinamų su iSAF reikalavimais:{0}{1}.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_Declarations_InvoiceRegisterSafT_1_InvoiceDataInvalid() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_Declarations_InvoiceRegisterSafT_1_InvoiceDataInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} sąskaitoje Nr. {1} priskirtoje PVM schemoje nurodytas klaidingas PVM kodas {2};.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_Declarations_InvoiceRegisterSafT_1_VatCodeInvalid() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_Declarations_InvoiceRegisterSafT_1_VatCodeInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} sąskaitoje Nr. {1} nepriskirtos PVM schemos;.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_Declarations_InvoiceRegisterSafT_1_VatSchemaNull() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_Declarations_InvoiceRegisterSafT_1_VatSchemaNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} sąskaitoje Nr. {1} priskirtoje PVM schemoje nenurodytas PVM kodas;.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_Declarations_InvoiceRegisterSafT_1_VatSchemaWithoutVatCode() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_Declarations_InvoiceRegisterSafT_1_VatSchemaWithoutVatCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to uždarymo sąskaita.
         '''</summary>
         Friend ReadOnly Property ActiveReports_FinancialStatementsInfo_ClosingSummaryAccount() As String
@@ -5680,7 +5716,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Pasirinkta deklaracijos versija galioja nuo {0} iki {1}, o pasirinktas laikotarpis ({2} m. {3} mėn.) į šį laikotarpį nepakliūna..
+        '''  Looks up a localized string similar to Pasirinkta deklaracijos versija galioja nuo {0} iki {1}, o pasirinktas laikotarpis (nuo {2} iki {3}) į šį laikotarpį nepakliūna..
         '''</summary>
         Friend ReadOnly Property ActiveReports_VatDeclaration_PeriodInvalid() As String
             Get
@@ -23271,6 +23307,42 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to sumuoti kainą.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationEntryType_AddPrice() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationEntryType_AddPrice", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sumuoti PVM.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationEntryType_AddVat() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationEntryType_AddVat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to minusuoti kainą.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationEntryType_SubtractPrice() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationEntryType_SubtractPrice", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to minusuoti PVM.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationEntryType_SubtractVat() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationEntryType_SubtractVat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Ši PVM deklaravimo schema yra priskirta vienai ar daugiau sąskaitų faktūrų (pvz., {0} Nr. {1}), jos pašalinti neleidžiama. .
         '''</summary>
         Friend ReadOnly Property Documents_VatDeclarationSchema_CannotDelete() As String
@@ -35661,11 +35733,20 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to išmoka fiziniam asmeniui.
+        '''  Looks up a localized string similar to A klasės išmoka fiziniam asmeniui.
         '''</summary>
         Friend ReadOnly Property HelperLists_IndirectRelationType_PayoutToResident() As String
             Get
                 Return ResourceManager.GetString("HelperLists_IndirectRelationType_PayoutToResident", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to B klasės išmoka fiziniam asmeniui.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_IndirectRelationType_PayoutToResidentWithoutTaxes() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_IndirectRelationType_PayoutToResidentWithoutTaxes", resourceCulture)
             End Get
         End Property
         
@@ -40661,6 +40742,258 @@ Namespace My.Resources
         Friend ReadOnly Property Workers_PayOutNaturalPerson_UpdateDate() As String
             Get
                 Return ResourceManager.GetString("Workers_PayOutNaturalPerson_UpdateDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to operacijos kontavimai.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_BookEntries() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_BookEntries", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_ID() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendrojo žurnalo operacijos suma.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryAmount() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryAmount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to turinys.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryContent() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryContent", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to data.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryDate() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Dok. Nr..
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryDocNo() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryDocNo", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Dok. Tipas.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryDocType() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryDocType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Dok. Tipas.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryDocTypeHumanReadable() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryDocTypeHumanReadable", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to BŽ ID.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryID() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendrojo žurnalo operacijos kontrahento kodas.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryPersonCode() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryPersonCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendrojo žurnalo operacijos kontrahento ID.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryPersonID() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryPersonID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendrojo žurnalo operacijos kontrahentas.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryPersonName() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_JournalEntryPersonName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to išmokos suma.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_PaymentAmount() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_PaymentAmount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nesutampa bendrojo žurnalo operacijos suma ir nurodyta išmokos suma..
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_PaymentAmountMismatch() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_PaymentAmountMismatch", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to išmokos gavėjas.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_PaymentReceiver() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_PaymentReceiver", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nesutampa operacijoje nurodytas asmuo ir nurodytas mokėjimo gavėjas..
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_PaymentReceiverMismatch() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_PaymentReceiverMismatch", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pastabos.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_Remarks() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_Remarks", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to GPM kodas.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_TaxCode() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_TaxCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} išmoka {1}.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_ToString() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to B klasės išmoka fiziniam asmeniui.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxes_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxes_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to periodo pradžia.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxesList_DateFrom() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxesList_DateFrom", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to periodo pabaiga.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxesList_DateTo() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxesList_DateTo", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytos bendrojo žurnalo operacijos, kurioms reikėtų registruoti B klasės išmokas..
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxesList_JournalEntriesIdsNull() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxesList_JournalEntriesIdsNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nesukurta ir nepakeista nė viena B klasės išmoka..
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxesList_ListIsNotDirty() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxesList_ListIsNotDirty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to filtras pagal asmenį.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxesList_PersonFilter() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxesList_PersonFilter", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Bendrojo žurnalo operacijų sąraše nėra nei vienos operacijos..
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxesList_RangeEmpty() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxesList_RangeEmpty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to B klasės išmokos fiziniams asmenims.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxesList_ToString() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxesList_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to B klasės išmokos fiziniams asmenims.
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPersonWithoutTaxesList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPersonWithoutTaxesList_TypeName", resourceCulture)
             End Get
         End Property
         

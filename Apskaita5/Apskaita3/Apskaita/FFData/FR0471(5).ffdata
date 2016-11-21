@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FFData Version="1" CreatedByApp="ABBYY eFormFiller 2.5 v6 (build 190)" CreatedByLogin="Niemand" CreatedOn="2016-11-18">
+<Form FormDefId="{40F5E678-5C8A-455B-BC15-035BA2DCC5B8}" FormLocation="c:\users\niemand\desktop\deklaracijos\fr0471_5.mxfd">
+<DocumentPages>
+<Group Name="Visa forma">
+<ListPages>
+<ListPage>FR0471</ListPage>
+</ListPages>
+<Group Name="Priedas_FR0471P">
+<ListPages>
+<ListPage>FR0471P</ListPage>
+</ListPages>
+</Group>
+</Group>
+</DocumentPages>
+<Pages Count="2">
+<Page PageDefName="FR0471" PageNumber="1">
+<Fields Count="32">
+<Field Name="B_MM_ID"></Field>
+<Field Name="B_MM_Pavad"></Field>
+<Field Name="B_MM_Adresas"></Field>
+<Field Name="B_MM_Epastas"></Field>
+<Field Name="B_MM_Tel"></Field>
+<Field Name="B_ML_Metai"></Field>
+<Field Name="E11-1"></Field>
+<Field Name="E12-1"></Field>
+<Field Name="E12_1-1"></Field>
+<Field Name="E30-1"></Field>
+<Field Name="E13-1"></Field>
+<Field Name="E14-1"></Field>
+<Field Name="E15-1"></Field>
+<Field Name="E16-1"></Field>
+<Field Name="E25-1"></Field>
+<Field Name="E26-1"></Field>
+<Field Name="E11-2"></Field>
+<Field Name="E12-2"></Field>
+<Field Name="E12_1-2"></Field>
+<Field Name="E30-2"></Field>
+<Field Name="E13-2"></Field>
+<Field Name="E14-2"></Field>
+<Field Name="E15-2"></Field>
+<Field Name="E16-2"></Field>
+<Field Name="E25-2"></Field>
+<Field Name="E26-2"></Field>
+<Field Name="E17">1</Field>
+<Field Name="E19"></Field>
+<Field Name="E20"></Field>
+<Field Name="E18"></Field>
+<Field Name="B_FormNr"></Field>
+<Field Name="B_FormVerNr"></Field>
+</Fields>
+</Page>
+<Page PageDefName="FR0471P" PageNumber="2">
+<Fields Count="56">
+<Field Name="P11-1"></Field>
+<Field Name="P12-1"></Field>
+<Field Name="P12_1-1"></Field>
+<Field Name="P30-1"></Field>
+<Field Name="P13-1"></Field>
+<Field Name="P14-1"></Field>
+<Field Name="P15-1"></Field>
+<Field Name="P16-1"></Field>
+<Field Name="P25-1"></Field>
+<Field Name="P26-1"></Field>
+<Field Name="P11-2"></Field>
+<Field Name="P12-2"></Field>
+<Field Name="P12_1-2"></Field>
+<Field Name="P30-2"></Field>
+<Field Name="P13-2"></Field>
+<Field Name="P14-2"></Field>
+<Field Name="P15-2"></Field>
+<Field Name="P16-2"></Field>
+<Field Name="P25-2"></Field>
+<Field Name="P26-2"></Field>
+<Field Name="P11-3"></Field>
+<Field Name="P12-3"></Field>
+<Field Name="P12_1-3"></Field>
+<Field Name="P30-3"></Field>
+<Field Name="P13-3"></Field>
+<Field Name="P14-3"></Field>
+<Field Name="P15-3"></Field>
+<Field Name="P16-3"></Field>
+<Field Name="P25-3"></Field>
+<Field Name="P26-3"></Field>
+<Field Name="P11-4"></Field>
+<Field Name="P12-4"></Field>
+<Field Name="P12_1-4"></Field>
+<Field Name="P30-4"></Field>
+<Field Name="P13-4"></Field>
+<Field Name="P14-4"></Field>
+<Field Name="P15-4"></Field>
+<Field Name="P16-4"></Field>
+<Field Name="P25-4"></Field>
+<Field Name="P26-4"></Field>
+<Field Name="P11-5"></Field>
+<Field Name="P12-5"></Field>
+<Field Name="P12_1-5"></Field>
+<Field Name="P30-5"></Field>
+<Field Name="P13-5"></Field>
+<Field Name="P14-5"></Field>
+<Field Name="P15-5"></Field>
+<Field Name="P16-5"></Field>
+<Field Name="P25-5"></Field>
+<Field Name="P26-5"></Field>
+<Field Name="P19"></Field>
+<Field Name="B_MM_ID"></Field>
+<Field Name="B_FormNr"></Field>
+<Field Name="B_FormVerNr"></Field>
+<Field Name="LapoNr">1</Field>
+<Field Name="B_ML_Metai"></Field>
+</Fields>
+</Page>
+</Pages>
+</Form>
+</FFData>

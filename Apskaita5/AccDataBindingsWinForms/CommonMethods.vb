@@ -90,6 +90,7 @@ Public Module CommonMethods
         _BusinessObjectsViews.Add(GetType(Workers.Contract), GetType(F_Contract))
         _BusinessObjectsViews.Add(GetType(Workers.ContractUpdate), GetType(F_ContractUpdate))
         _BusinessObjectsViews.Add(GetType(Workers.PayOutNaturalPerson), GetType(F_PayOutNaturalPerson))
+        _BusinessObjectsViews.Add(GetType(Workers.PayOutNaturalPersonWithoutTaxesList), GetType(F_PayOutNaturalPersonWithoutTaxesList))
         _BusinessObjectsViews.Add(GetType(Workers.WageSheet), GetType(F_WageSheet))
         _BusinessObjectsViews.Add(GetType(Workers.WorkTimeClassList), GetType(F_WorkTimeClassList))
         _BusinessObjectsViews.Add(GetType(Workers.WorkTimeSheet), GetType(F_WorkTimeSheet))

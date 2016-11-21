@@ -296,8 +296,6 @@ Partial Friend Class F_UnsettledPersonInfoList
         Me.UnsettledPersonInfoListDataTreeView.HasCollapsibleGroups = False
         Me.UnsettledPersonInfoListDataTreeView.HeaderWordWrap = True
         Me.UnsettledPersonInfoListDataTreeView.HideSelection = False
-        Me.UnsettledPersonInfoListDataTreeView.HighlightBackgroundColor = System.Drawing.Color.Empty
-        Me.UnsettledPersonInfoListDataTreeView.HighlightForegroundColor = System.Drawing.Color.Empty
         Me.UnsettledPersonInfoListDataTreeView.IncludeColumnHeadersInCopy = True
         Me.UnsettledPersonInfoListDataTreeView.Location = New System.Drawing.Point(0, 61)
         Me.UnsettledPersonInfoListDataTreeView.Name = "UnsettledPersonInfoListDataTreeView"

@@ -670,8 +670,6 @@ Partial Friend Class F_HolidayPayReserve
         Me.ItemsDataListView.HasCollapsibleGroups = False
         Me.ItemsDataListView.HeaderWordWrap = True
         Me.ItemsDataListView.HideSelection = False
-        Me.ItemsDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.ItemsDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.ItemsDataListView.IncludeColumnHeadersInCopy = True
         Me.ItemsDataListView.Location = New System.Drawing.Point(0, 177)
         Me.ItemsDataListView.Name = "ItemsDataListView"

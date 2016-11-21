@@ -947,6 +947,12 @@
     <Compile Include="Workers\F_PayOutNaturalPersonInfoList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Workers\F_PayOutNaturalPersonWithoutTaxesList.Designer.vb">
+      <DependentUpon>F_PayOutNaturalPersonWithoutTaxesList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Workers\F_PayOutNaturalPersonWithoutTaxesList.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Workers\F_WageSheet.Designer.vb">
       <DependentUpon>F_WageSheet.vb</DependentUpon>
     </Compile>
@@ -1393,6 +1399,9 @@
     <EmbeddedResource Include="Workers\F_PayOutNaturalPersonInfoList.resx">
       <DependentUpon>F_PayOutNaturalPersonInfoList.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Workers\F_PayOutNaturalPersonWithoutTaxesList.resx">
+      <DependentUpon>F_PayOutNaturalPersonWithoutTaxesList.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Workers\F_WageSheet.resx">
       <DependentUpon>F_WageSheet.vb</DependentUpon>
     </EmbeddedResource>
@@ -1714,7 +1723,26 @@
     <None Include="Resources\typicalaccountsgeneral.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="My Project\DataSources\ApskaitaObjects.Workers.PayOutNaturalPersonWithoutTaxesList.datasource" />
     <None Include="Resources\book-add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attach_icon_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attach_icon_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attach_icon_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove_attachment_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove_attachment_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove_Attachment_32x32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

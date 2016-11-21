@@ -98,8 +98,6 @@ Partial Class F_TypicalAccountInfoDialog
         Me.ReportDataListView.HasCollapsibleGroups = False
         Me.ReportDataListView.HeaderWordWrap = True
         Me.ReportDataListView.HideSelection = False
-        Me.ReportDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.ReportDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.ReportDataListView.IncludeColumnHeadersInCopy = True
         Me.ReportDataListView.Location = New System.Drawing.Point(3, 23)
         Me.ReportDataListView.Name = "ReportDataListView"

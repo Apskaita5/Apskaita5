@@ -38,8 +38,6 @@ Partial Class InfoListControl
         Me.baseDataListView.HasCollapsibleGroups = False
         Me.baseDataListView.HeaderWordWrap = True
         Me.baseDataListView.HideSelection = False
-        Me.baseDataListView.HighlightBackgroundColor = System.Drawing.Color.Empty
-        Me.baseDataListView.HighlightForegroundColor = System.Drawing.Color.Empty
         Me.baseDataListView.IncludeColumnHeadersInCopy = True
         Me.baseDataListView.Location = New System.Drawing.Point(0, 0)
         Me.baseDataListView.Margin = New System.Windows.Forms.Padding(0)

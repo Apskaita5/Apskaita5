@@ -110,8 +110,6 @@ Partial Friend Class F_AssetSelectionList
         Me.LongTermAssetInfoListDataListView.HasCollapsibleGroups = False
         Me.LongTermAssetInfoListDataListView.HeaderWordWrap = True
         Me.LongTermAssetInfoListDataListView.HideSelection = False
-        Me.LongTermAssetInfoListDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.LongTermAssetInfoListDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.LongTermAssetInfoListDataListView.IncludeColumnHeadersInCopy = True
         Me.LongTermAssetInfoListDataListView.Location = New System.Drawing.Point(0, 0)
         Me.LongTermAssetInfoListDataListView.Name = "LongTermAssetInfoListDataListView"

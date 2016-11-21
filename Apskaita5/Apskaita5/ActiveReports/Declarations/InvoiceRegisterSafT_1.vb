@@ -2,6 +2,7 @@
 Imports System.Xml.Serialization
 Imports System.Xml
 Imports ApskaitaObjects.ActiveReports.Declarations.SafTTemplates.SafT_1_2
+Imports ApskaitaObjects.My.Resources
 
 Namespace ActiveReports.Declarations
 
@@ -80,6 +81,8 @@ Namespace ActiveReports.Declarations
             ElseIf invoiceRegister.Count < 1 Then
                 Throw New ArgumentException("List cannot be empty.")
             End If
+
+            ValidateInvoiceData(invoiceRegister)
 
             Dim result As New SafTTemplates.SafT_1_2.iSAFFile
 
@@ -372,6 +375,44 @@ Namespace ActiveReports.Declarations
             Next
 
             Return result.ToArray()
+
+        End Function
+
+        Private Sub ValidateInvoiceData(ByVal invoiceRegister As InvoiceInfoItemList)
+
+            Dim errors As String = ""
+            For Each item As InvoiceInfoItem In invoiceRegister
+                If item.SubtotalList.Count < 1 Then
+                    errors = AddWithNewLine(errors, String.Format(ActiveReports_Declarations_InvoiceRegisterSafT_1_VatSchemaNull, _
+                        item.Date.ToString("yyyy-MM-dd"), item.Number), False)
+                Else
+                    For Each o As InvoiceSubtotalItem In item.SubtotalList
+                        If StringIsNullOrEmpty(o.TaxCode) Then
+                            errors = AddWithNewLine(errors, String.Format(ActiveReports_Declarations_InvoiceRegisterSafT_1_VatSchemaWithoutVatCode, _
+                                item.Date.ToString("yyyy-MM-dd"), item.Number), False)
+                        ElseIf Not ValidateVatCode(o.TaxCode) Then
+                            errors = AddWithNewLine(errors, String.Format(ActiveReports_Declarations_InvoiceRegisterSafT_1_VatCodeInvalid, _
+                                item.Date.ToString("yyyy-MM-dd"), item.Number, o.TaxCode), False)
+                        End If
+                    Next
+                End If
+            Next
+
+            If Not String.IsNullOrEmpty(errors) Then
+                Throw New Exception(String.Format(ActiveReports_Declarations_InvoiceRegisterSafT_1_InvoiceDataInvalid, vbCrLf, errors))
+            End If
+
+        End Sub
+
+        Private Function ValidateVatCode(ByVal code As String) As Boolean
+
+            If code.Length < 4 OrElse code.Length > 6 OrElse Not code.ToUpper.StartsWith("PVM") Then Return False
+
+            For i As Integer = 3 To code.Length - 1
+                If Not Char.IsNumber(code(i)) Then Return False
+            Next
+
+            Return True
 
         End Function
 

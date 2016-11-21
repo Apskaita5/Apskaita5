@@ -60,7 +60,7 @@ Public Class BindingSourceNode
     ''' BindingSource objects related to the provided
     ''' root source.
     ''' </summary>
-    ''' <param name="container">
+    ''' <param name="parentForm">
     ''' Container for the components.
     ''' </param>
     ''' <param name="rootSource">

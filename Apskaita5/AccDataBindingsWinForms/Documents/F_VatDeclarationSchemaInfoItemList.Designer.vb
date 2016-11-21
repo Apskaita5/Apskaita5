@@ -111,8 +111,6 @@ Partial Class F_VatDeclarationSchemaInfoItemList
         Me.VatDeclarationSchemaInfoItemListDataListView.HasCollapsibleGroups = False
         Me.VatDeclarationSchemaInfoItemListDataListView.HeaderWordWrap = True
         Me.VatDeclarationSchemaInfoItemListDataListView.HideSelection = False
-        Me.VatDeclarationSchemaInfoItemListDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.VatDeclarationSchemaInfoItemListDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.VatDeclarationSchemaInfoItemListDataListView.IncludeColumnHeadersInCopy = True
         Me.VatDeclarationSchemaInfoItemListDataListView.Location = New System.Drawing.Point(0, 46)
         Me.VatDeclarationSchemaInfoItemListDataListView.Name = "VatDeclarationSchemaInfoItemListDataListView"

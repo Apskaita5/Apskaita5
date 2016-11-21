@@ -97,7 +97,9 @@
     <Compile Include="ActiveReports\CashOperationInfoList.vb" />
     <Compile Include="ActiveReports\ContractInfo.vb" />
     <Compile Include="ActiveReports\ContractInfoList.vb" />
+    <Compile Include="ActiveReports\Declarations\DeclarationFR0471_5.vb" />
     <Compile Include="ActiveReports\Declarations\XmlValidationErrorBuilder.vb" />
+    <Compile Include="ActiveReports\IPayOutsNaturalPersonsWithoutTaxesDeclaration.vb" />
     <Compile Include="ActiveReports\IVatDeclaration.vb" />
     <Compile Include="ActiveReports\DebtInfo.vb" />
     <Compile Include="ActiveReports\DebtInfoList.vb" />
@@ -246,6 +248,7 @@
     <Compile Include="Documents\VatDeclarationEntryProxy.vb" />
     <Compile Include="ActiveReports\VatDeclarationItem.vb" />
     <Compile Include="ActiveReports\VatDeclarationItemList.vb" />
+    <Compile Include="Documents\VatDeclarationEntryType.vb" />
     <Compile Include="Documents\VatDeclarationSchema.vb" />
     <Compile Include="Documents\VatDeclarationSchemaProxy.vb" />
     <Compile Include="ActiveReports\VatDeclarationSubtotal.vb" />
@@ -544,6 +547,8 @@
     <Compile Include="Workers\HolidayPayReserve.vb" />
     <Compile Include="Workers\HolidayPayReserveItem.vb" />
     <Compile Include="Workers\HolidayPayReserveItemList.vb" />
+    <Compile Include="Workers\PayOutNaturalPersonWithoutTaxes.vb" />
+    <Compile Include="Workers\PayOutNaturalPersonWithoutTaxesList.vb" />
     <Compile Include="Workers\SheetChronologicValidator.vb" />
     <Compile Include="ActiveReports\SodraRateInfo.vb" />
     <Compile Include="Workers\SpecialWorkTimeItem.vb" />
