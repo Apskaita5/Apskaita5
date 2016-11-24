@@ -43,10 +43,6 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.ApplyButton = New System.Windows.Forms.Button
         Me.nOkButton = New System.Windows.Forms.Button
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.AttachNewJournalEntryButton = New System.Windows.Forms.Button
-        Me.RefreshJournalEntryInfoListButton = New System.Windows.Forms.Button
-        Me.JournalEntryInfoListComboBox = New System.Windows.Forms.ComboBox
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
         Me.JournalEntryContentTextBox = New System.Windows.Forms.TextBox
@@ -54,10 +50,12 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.JournalEntryBookEntriesTextBox = New System.Windows.Forms.TextBox
         Me.JournalEntryDocumentNumberTextBox = New System.Windows.Forms.TextBox
         Me.JournalEntryPersonTextBox = New System.Windows.Forms.TextBox
-        Me.ViewJournalEntryButton = New System.Windows.Forms.Button
         Me.JournalEntryAmountAccTextBox = New AccControlsWinForms.AccTextBox
-        Me.JournalEntryIDTextBox = New System.Windows.Forms.TextBox
         Me.JournalEntryDocumentTypeTextBox = New System.Windows.Forms.TextBox
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel
+        Me.AttachNewJournalEntryButton = New System.Windows.Forms.Button
+        Me.ViewJournalEntryButton = New System.Windows.Forms.Button
+        Me.JournalEntryIDTextBox = New System.Windows.Forms.TextBox
         Me.ValueIncreasePerUnitAccTextBox = New AccControlsWinForms.AccTextBox
         Me.ContentTextBox = New System.Windows.Forms.TextBox
         Me.IDTextBox = New System.Windows.Forms.TextBox
@@ -88,10 +86,10 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         JournalEntryBookEntriesLabel = New System.Windows.Forms.Label
         Me.Panel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.OperationAcquisitionValueIncreaseBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel3.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -197,7 +195,7 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         JournalEntryIDLabel.Location = New System.Drawing.Point(3, 0)
         JournalEntryIDLabel.Name = "JournalEntryIDLabel"
         JournalEntryIDLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
-        JournalEntryIDLabel.Size = New System.Drawing.Size(86, 26)
+        JournalEntryIDLabel.Size = New System.Drawing.Size(86, 28)
         JournalEntryIDLabel.TabIndex = 7
         JournalEntryIDLabel.Text = "ID:"
         JournalEntryIDLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -210,7 +208,7 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         JournalEntryDocumentTypeLabel.Location = New System.Drawing.Point(253, 0)
         JournalEntryDocumentTypeLabel.Name = "JournalEntryDocumentTypeLabel"
         JournalEntryDocumentTypeLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
-        JournalEntryDocumentTypeLabel.Size = New System.Drawing.Size(73, 26)
+        JournalEntryDocumentTypeLabel.Size = New System.Drawing.Size(73, 28)
         JournalEntryDocumentTypeLabel.TabIndex = 8
         JournalEntryDocumentTypeLabel.Text = "Dok. Tipas:"
         JournalEntryDocumentTypeLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -220,7 +218,7 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         JournalEntryAmountLabel.AutoSize = True
         JournalEntryAmountLabel.Dock = System.Windows.Forms.DockStyle.Fill
         JournalEntryAmountLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        JournalEntryAmountLabel.Location = New System.Drawing.Point(3, 26)
+        JournalEntryAmountLabel.Location = New System.Drawing.Point(3, 28)
         JournalEntryAmountLabel.Name = "JournalEntryAmountLabel"
         JournalEntryAmountLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         JournalEntryAmountLabel.Size = New System.Drawing.Size(86, 26)
@@ -233,7 +231,7 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         JournalEntryDocumentNumberLabel.AutoSize = True
         JournalEntryDocumentNumberLabel.Dock = System.Windows.Forms.DockStyle.Fill
         JournalEntryDocumentNumberLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        JournalEntryDocumentNumberLabel.Location = New System.Drawing.Point(253, 26)
+        JournalEntryDocumentNumberLabel.Location = New System.Drawing.Point(253, 28)
         JournalEntryDocumentNumberLabel.Name = "JournalEntryDocumentNumberLabel"
         JournalEntryDocumentNumberLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         JournalEntryDocumentNumberLabel.Size = New System.Drawing.Size(73, 26)
@@ -246,10 +244,10 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         JournalEntryContentLabel.AutoSize = True
         JournalEntryContentLabel.Dock = System.Windows.Forms.DockStyle.Fill
         JournalEntryContentLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        JournalEntryContentLabel.Location = New System.Drawing.Point(3, 104)
+        JournalEntryContentLabel.Location = New System.Drawing.Point(3, 106)
         JournalEntryContentLabel.Name = "JournalEntryContentLabel"
         JournalEntryContentLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
-        JournalEntryContentLabel.Size = New System.Drawing.Size(86, 29)
+        JournalEntryContentLabel.Size = New System.Drawing.Size(86, 27)
         JournalEntryContentLabel.TabIndex = 7
         JournalEntryContentLabel.Text = "Turinys:"
         JournalEntryContentLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -259,7 +257,7 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         JournalEntryPersonLabel.AutoSize = True
         JournalEntryPersonLabel.Dock = System.Windows.Forms.DockStyle.Fill
         JournalEntryPersonLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        JournalEntryPersonLabel.Location = New System.Drawing.Point(3, 52)
+        JournalEntryPersonLabel.Location = New System.Drawing.Point(3, 54)
         JournalEntryPersonLabel.Name = "JournalEntryPersonLabel"
         JournalEntryPersonLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         JournalEntryPersonLabel.Size = New System.Drawing.Size(86, 26)
@@ -272,7 +270,7 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         JournalEntryBookEntriesLabel.AutoSize = True
         JournalEntryBookEntriesLabel.Dock = System.Windows.Forms.DockStyle.Fill
         JournalEntryBookEntriesLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        JournalEntryBookEntriesLabel.Location = New System.Drawing.Point(3, 78)
+        JournalEntryBookEntriesLabel.Location = New System.Drawing.Point(3, 80)
         JournalEntryBookEntriesLabel.Name = "JournalEntryBookEntriesLabel"
         JournalEntryBookEntriesLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         JournalEntryBookEntriesLabel.Size = New System.Drawing.Size(86, 26)
@@ -339,7 +337,6 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 0, 4)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox1, 0, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.ValueIncreasePerUnitAccTextBox, 7, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.ContentTextBox, 1, 2)
@@ -367,53 +364,6 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(788, 341)
         Me.TableLayoutPanel1.TabIndex = 0
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.BackColor = System.Drawing.SystemColors.Info
-        Me.TableLayoutPanel1.SetColumnSpan(Me.GroupBox2, 9)
-        Me.GroupBox2.Controls.Add(Me.AttachNewJournalEntryButton)
-        Me.GroupBox2.Controls.Add(Me.RefreshJournalEntryInfoListButton)
-        Me.GroupBox2.Controls.Add(Me.JournalEntryInfoListComboBox)
-        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 239)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(782, 47)
-        Me.GroupBox2.TabIndex = 3
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Pridėti Naują Susietą Dokumentą (Bendrojo Žurnalo Operaciją)"
-        '
-        'AttachNewJournalEntryButton
-        '
-        Me.AttachNewJournalEntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AttachNewJournalEntryButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AttachNewJournalEntryButton.Location = New System.Drawing.Point(704, 16)
-        Me.AttachNewJournalEntryButton.Name = "AttachNewJournalEntryButton"
-        Me.AttachNewJournalEntryButton.Size = New System.Drawing.Size(72, 24)
-        Me.AttachNewJournalEntryButton.TabIndex = 2
-        Me.AttachNewJournalEntryButton.Text = "Pridėti"
-        Me.AttachNewJournalEntryButton.UseVisualStyleBackColor = True
-        '
-        'RefreshJournalEntryInfoListButton
-        '
-        Me.RefreshJournalEntryInfoListButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.RefreshJournalEntryInfoListButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.Button_Reload_icon_16p
-        Me.RefreshJournalEntryInfoListButton.Location = New System.Drawing.Point(658, 16)
-        Me.RefreshJournalEntryInfoListButton.Margin = New System.Windows.Forms.Padding(0)
-        Me.RefreshJournalEntryInfoListButton.Name = "RefreshJournalEntryInfoListButton"
-        Me.RefreshJournalEntryInfoListButton.Size = New System.Drawing.Size(24, 24)
-        Me.RefreshJournalEntryInfoListButton.TabIndex = 1
-        Me.RefreshJournalEntryInfoListButton.UseVisualStyleBackColor = True
-        '
-        'JournalEntryInfoListComboBox
-        '
-        Me.JournalEntryInfoListComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.JournalEntryInfoListComboBox.FormattingEnabled = True
-        Me.JournalEntryInfoListComboBox.Location = New System.Drawing.Point(6, 19)
-        Me.JournalEntryInfoListComboBox.Name = "JournalEntryInfoListComboBox"
-        Me.JournalEntryInfoListComboBox.Size = New System.Drawing.Size(649, 21)
-        Me.JournalEntryInfoListComboBox.TabIndex = 0
         '
         'GroupBox1
         '
@@ -447,13 +397,12 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.TableLayoutPanel2.Controls.Add(JournalEntryDocumentNumberLabel, 3, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.JournalEntryPersonTextBox, 1, 2)
         Me.TableLayoutPanel2.Controls.Add(JournalEntryPersonLabel, 0, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.ViewJournalEntryButton, 2, 0)
         Me.TableLayoutPanel2.Controls.Add(JournalEntryIDLabel, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.JournalEntryAmountAccTextBox, 1, 1)
         Me.TableLayoutPanel2.Controls.Add(JournalEntryAmountLabel, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.JournalEntryIDTextBox, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(JournalEntryDocumentTypeLabel, 3, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.JournalEntryDocumentTypeTextBox, 4, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 1, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 16)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -471,7 +420,7 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.TableLayoutPanel2.SetColumnSpan(Me.JournalEntryContentTextBox, 7)
         Me.JournalEntryContentTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationAcquisitionValueIncreaseBindingSource, "JournalEntryContent", True))
         Me.JournalEntryContentTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JournalEntryContentTextBox.Location = New System.Drawing.Point(95, 107)
+        Me.JournalEntryContentTextBox.Location = New System.Drawing.Point(95, 109)
         Me.JournalEntryContentTextBox.Name = "JournalEntryContentTextBox"
         Me.JournalEntryContentTextBox.ReadOnly = True
         Me.JournalEntryContentTextBox.Size = New System.Drawing.Size(653, 20)
@@ -487,7 +436,7 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.TableLayoutPanel2.SetColumnSpan(Me.JournalEntryBookEntriesTextBox, 7)
         Me.JournalEntryBookEntriesTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationAcquisitionValueIncreaseBindingSource, "JournalEntryBookEntries", True))
         Me.JournalEntryBookEntriesTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JournalEntryBookEntriesTextBox.Location = New System.Drawing.Point(95, 81)
+        Me.JournalEntryBookEntriesTextBox.Location = New System.Drawing.Point(95, 83)
         Me.JournalEntryBookEntriesTextBox.Name = "JournalEntryBookEntriesTextBox"
         Me.JournalEntryBookEntriesTextBox.ReadOnly = True
         Me.JournalEntryBookEntriesTextBox.Size = New System.Drawing.Size(653, 20)
@@ -499,7 +448,7 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.TableLayoutPanel2.SetColumnSpan(Me.JournalEntryDocumentNumberTextBox, 4)
         Me.JournalEntryDocumentNumberTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationAcquisitionValueIncreaseBindingSource, "JournalEntryDocumentNumber", True))
         Me.JournalEntryDocumentNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JournalEntryDocumentNumberTextBox.Location = New System.Drawing.Point(332, 29)
+        Me.JournalEntryDocumentNumberTextBox.Location = New System.Drawing.Point(332, 31)
         Me.JournalEntryDocumentNumberTextBox.Name = "JournalEntryDocumentNumberTextBox"
         Me.JournalEntryDocumentNumberTextBox.ReadOnly = True
         Me.JournalEntryDocumentNumberTextBox.Size = New System.Drawing.Size(416, 20)
@@ -512,48 +461,25 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.TableLayoutPanel2.SetColumnSpan(Me.JournalEntryPersonTextBox, 7)
         Me.JournalEntryPersonTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationAcquisitionValueIncreaseBindingSource, "JournalEntryPerson", True))
         Me.JournalEntryPersonTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JournalEntryPersonTextBox.Location = New System.Drawing.Point(95, 55)
+        Me.JournalEntryPersonTextBox.Location = New System.Drawing.Point(95, 57)
         Me.JournalEntryPersonTextBox.Name = "JournalEntryPersonTextBox"
         Me.JournalEntryPersonTextBox.ReadOnly = True
         Me.JournalEntryPersonTextBox.Size = New System.Drawing.Size(653, 20)
         Me.JournalEntryPersonTextBox.TabIndex = 9
         Me.JournalEntryPersonTextBox.TabStop = False
         '
-        'ViewJournalEntryButton
-        '
-        Me.ViewJournalEntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ViewJournalEntryButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.lektuvelis_16
-        Me.ViewJournalEntryButton.Location = New System.Drawing.Point(226, 0)
-        Me.ViewJournalEntryButton.Margin = New System.Windows.Forms.Padding(0)
-        Me.ViewJournalEntryButton.Name = "ViewJournalEntryButton"
-        Me.ViewJournalEntryButton.Size = New System.Drawing.Size(24, 24)
-        Me.ViewJournalEntryButton.TabIndex = 22
-        Me.ViewJournalEntryButton.UseVisualStyleBackColor = True
-        '
         'JournalEntryAmountAccTextBox
         '
         Me.JournalEntryAmountAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationAcquisitionValueIncreaseBindingSource, "JournalEntryAmount", True))
         Me.JournalEntryAmountAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.JournalEntryAmountAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.JournalEntryAmountAccTextBox.Location = New System.Drawing.Point(95, 29)
+        Me.JournalEntryAmountAccTextBox.Location = New System.Drawing.Point(95, 31)
         Me.JournalEntryAmountAccTextBox.Name = "JournalEntryAmountAccTextBox"
         Me.JournalEntryAmountAccTextBox.ReadOnly = True
         Me.JournalEntryAmountAccTextBox.Size = New System.Drawing.Size(128, 20)
         Me.JournalEntryAmountAccTextBox.TabIndex = 10
         Me.JournalEntryAmountAccTextBox.TabStop = False
         Me.JournalEntryAmountAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'JournalEntryIDTextBox
-        '
-        Me.JournalEntryIDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationAcquisitionValueIncreaseBindingSource, "JournalEntryID", True))
-        Me.JournalEntryIDTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JournalEntryIDTextBox.Location = New System.Drawing.Point(95, 3)
-        Me.JournalEntryIDTextBox.Name = "JournalEntryIDTextBox"
-        Me.JournalEntryIDTextBox.ReadOnly = True
-        Me.JournalEntryIDTextBox.Size = New System.Drawing.Size(128, 20)
-        Me.JournalEntryIDTextBox.TabIndex = 8
-        Me.JournalEntryIDTextBox.TabStop = False
-        Me.JournalEntryIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'JournalEntryDocumentTypeTextBox
         '
@@ -567,6 +493,62 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.JournalEntryDocumentTypeTextBox.TabIndex = 9
         Me.JournalEntryDocumentTypeTextBox.TabStop = False
         Me.JournalEntryDocumentTypeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.TableLayoutPanel3.ColumnCount = 4
+        Me.TableLayoutPanel2.SetColumnSpan(Me.TableLayoutPanel3, 2)
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.AttachNewJournalEntryButton, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.ViewJournalEntryButton, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.JournalEntryIDTextBox, 2, 0)
+        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(92, 0)
+        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 1
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(158, 28)
+        Me.TableLayoutPanel3.TabIndex = 23
+        '
+        'AttachNewJournalEntryButton
+        '
+        Me.AttachNewJournalEntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AttachNewJournalEntryButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AttachNewJournalEntryButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.attach_icon_16x16
+        Me.AttachNewJournalEntryButton.Location = New System.Drawing.Point(0, 0)
+        Me.AttachNewJournalEntryButton.Margin = New System.Windows.Forms.Padding(0)
+        Me.AttachNewJournalEntryButton.Name = "AttachNewJournalEntryButton"
+        Me.AttachNewJournalEntryButton.Size = New System.Drawing.Size(24, 24)
+        Me.AttachNewJournalEntryButton.TabIndex = 2
+        Me.AttachNewJournalEntryButton.UseVisualStyleBackColor = True
+        '
+        'ViewJournalEntryButton
+        '
+        Me.ViewJournalEntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ViewJournalEntryButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.lektuvelis_16
+        Me.ViewJournalEntryButton.Location = New System.Drawing.Point(24, 0)
+        Me.ViewJournalEntryButton.Margin = New System.Windows.Forms.Padding(0)
+        Me.ViewJournalEntryButton.Name = "ViewJournalEntryButton"
+        Me.ViewJournalEntryButton.Size = New System.Drawing.Size(24, 24)
+        Me.ViewJournalEntryButton.TabIndex = 22
+        Me.ViewJournalEntryButton.UseVisualStyleBackColor = True
+        '
+        'JournalEntryIDTextBox
+        '
+        Me.JournalEntryIDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationAcquisitionValueIncreaseBindingSource, "JournalEntryID", True))
+        Me.JournalEntryIDTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.JournalEntryIDTextBox.Location = New System.Drawing.Point(51, 3)
+        Me.JournalEntryIDTextBox.Name = "JournalEntryIDTextBox"
+        Me.JournalEntryIDTextBox.ReadOnly = True
+        Me.JournalEntryIDTextBox.Size = New System.Drawing.Size(84, 20)
+        Me.JournalEntryIDTextBox.TabIndex = 8
+        Me.JournalEntryIDTextBox.TabStop = False
+        Me.JournalEntryIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'ValueIncreasePerUnitAccTextBox
         '
@@ -681,7 +663,7 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(794, 345)
+        Me.TabPage2.Size = New System.Drawing.Size(794, 347)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Turto duomenys"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -692,7 +674,7 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.BackgroundInfoPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BackgroundInfoPanel1.Location = New System.Drawing.Point(3, 3)
         Me.BackgroundInfoPanel1.Name = "BackgroundInfoPanel1"
-        Me.BackgroundInfoPanel1.Size = New System.Drawing.Size(788, 339)
+        Me.BackgroundInfoPanel1.Size = New System.Drawing.Size(788, 341)
         Me.BackgroundInfoPanel1.TabIndex = 0
         '
         'ProgressFiller1
@@ -735,11 +717,12 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.Panel2.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         CType(Me.OperationAcquisitionValueIncreaseBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.TableLayoutPanel3.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
@@ -774,12 +757,10 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
     Friend WithEvents JournalEntryBookEntriesTextBox As System.Windows.Forms.TextBox
     Friend WithEvents JournalEntryPersonTextBox As System.Windows.Forms.TextBox
     Friend WithEvents JournalEntryContentTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents AttachNewJournalEntryButton As System.Windows.Forms.Button
-    Friend WithEvents RefreshJournalEntryInfoListButton As System.Windows.Forms.Button
-    Friend WithEvents JournalEntryInfoListComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents BackgroundInfoPanel1 As AccDataBindingsWinForms.BackgroundInfoPanel
     Friend WithEvents ProgressFiller2 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ErrorWarnInfoProvider1 As AccControlsWinForms.ErrorWarnInfoProvider
+    Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel
 End Class

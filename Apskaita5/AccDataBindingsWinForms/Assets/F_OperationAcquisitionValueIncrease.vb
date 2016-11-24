@@ -149,51 +149,24 @@ Friend Class F_OperationAcquisitionValueIncrease
         OpenJournalEntryEditForm(_QueryManager, _FormManager.DataSource.JournalEntryID)
     End Sub
 
-    Private Sub RefreshJournalEntryInfoListButton_Click(ByVal sender As System.Object, _
-        ByVal e As System.EventArgs) Handles RefreshJournalEntryInfoListButton.Click
-
-        If _FormManager.DataSource Is Nothing OrElse _FormManager.IsChild Then Exit Sub
-
-        'ActiveReports.JournalEntryInfoList.GetList(_FormManager.DataSource.Date, _
-        '    _FormManager.DataSource.Date, "", -1, -1, DocumentType.None, False, "", "")
-        _QueryManager.InvokeQuery(Of ActiveReports.JournalEntryInfoList)(Nothing, "GetList", True, _
-            AddressOf OnJournalEntryInfoListFetched, _FormManager.DataSource.Date, _
-            _FormManager.DataSource.Date, "", -1, -1, DocumentType.None, False, "", "")
-
-    End Sub
-
-    Private Sub OnJournalEntryInfoListFetched(ByVal result As Object, ByVal exceptionHandled As Boolean)
-
-        If result Is Nothing Then Exit Sub
-
-        JournalEntryInfoListComboBox.DataSource = DirectCast(result, ActiveReports.JournalEntryInfoList)
-
-    End Sub
-
     Private Sub AttachNewJournalEntryButton_Click(ByVal sender As System.Object, _
         ByVal e As System.EventArgs) Handles AttachNewJournalEntryButton.Click
 
         If _FormManager.DataSource Is Nothing Then Exit Sub
 
-        Dim selectedEntry As ActiveReports.JournalEntryInfo = Nothing
+        Using dlg As New F_JournalEntryInfoList(_FormManager.DataSource.Date.AddMonths(-1), _
+            _FormManager.DataSource.Date.AddMonths(1), True)
 
-        Try
-            selectedEntry = DirectCast(JournalEntryInfoListComboBox.SelectedItem,  _
-                ActiveReports.JournalEntryInfo)
-        Catch ex As Exception
-        End Try
+            If dlg.ShowDialog() <> DialogResult.OK OrElse dlg.SelectedEntries Is Nothing _
+                OrElse dlg.SelectedEntries.Count < 1 Then Exit Sub
 
-        If selectedEntry Is Nothing Then
-            MsgBox("Klaida. Nepasirinktas dokumentas (bendrojo žurnalo operacija).", _
-                MsgBoxStyle.Exclamation, "Klaida.")
-            Exit Sub
-        End If
+            Try
+                _FormManager.DataSource.LoadAssociatedJournalEntry(dlg.SelectedEntries(0))
+            Catch ex As Exception
+                ShowError(ex)
+            End Try
 
-        Try
-            _FormManager.DataSource.LoadAssociatedJournalEntry(selectedEntry)
-        Catch ex As Exception
-            ShowError(ex)
-        End Try
+        End Using
 
     End Sub
 
@@ -280,7 +253,6 @@ Friend Class F_OperationAcquisitionValueIncrease
         ContentTextBox.ReadOnly = (_FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.ContentIsReadOnly)
         ValueIncreaseAccTextBox.ReadOnly = (_FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.ValueIncreaseIsReadOnly)
 
-        RefreshJournalEntryInfoListButton.Enabled = (Not _FormManager.DataSource Is Nothing AndAlso Not _FormManager.DataSource.AssociatedJournalEntryIsReadOnly)
         AttachNewJournalEntryButton.Enabled = (Not _FormManager.DataSource Is Nothing AndAlso Not _FormManager.DataSource.AssociatedJournalEntryIsReadOnly)
 
         nOkButton.Enabled = (Not _FormManager.DataSource Is Nothing)

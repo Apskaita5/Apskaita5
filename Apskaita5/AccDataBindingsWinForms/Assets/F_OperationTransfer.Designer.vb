@@ -46,25 +46,23 @@ Partial Friend Class F_OperationTransfer
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
-        Me.ViewJournalEntryButton = New System.Windows.Forms.Button
-        Me.JournalEntryIDTextBox = New System.Windows.Forms.TextBox
-        Me.OperationTransferBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.JournalEntryPersonTextBox = New System.Windows.Forms.TextBox
+        Me.OperationTransferBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.JournalEntryContentTextBox = New System.Windows.Forms.TextBox
         Me.JournalEntryDocumentNumberTextBox = New System.Windows.Forms.TextBox
         Me.JournalEntryDocumentTypeTextBox = New System.Windows.Forms.TextBox
         Me.JournalEntryAmountAccTextBox = New AccControlsWinForms.AccTextBox
         Me.JournalEntryBookEntriesTextBox = New System.Windows.Forms.TextBox
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel
+        Me.CreateNewJournalEntryButton = New System.Windows.Forms.Button
+        Me.JournalEntryIDTextBox = New System.Windows.Forms.TextBox
+        Me.AttachNewJournalEntryButton = New System.Windows.Forms.Button
+        Me.ViewJournalEntryButton = New System.Windows.Forms.Button
         Me.UpdateDateTextBox = New System.Windows.Forms.TextBox
         Me.ContentTextBox = New System.Windows.Forms.TextBox
         Me.IDTextBox = New System.Windows.Forms.TextBox
         Me.DateDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.InsertDateTextBox = New System.Windows.Forms.TextBox
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.AttachNewJournalEntryButton = New System.Windows.Forms.Button
-        Me.CreateNewJournalEntryButton = New System.Windows.Forms.Button
-        Me.RefreshJournalEntryInfoListButton = New System.Windows.Forms.Button
-        Me.JournalEntryInfoListComboBox = New System.Windows.Forms.ComboBox
         Me.AmountToTransferAccTextBox = New AccControlsWinForms.AccTextBox
         Me.IsComplexActCheckBox = New System.Windows.Forms.CheckBox
         Me.TabPage2 = New System.Windows.Forms.TabPage
@@ -92,7 +90,7 @@ Partial Friend Class F_OperationTransfer
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.OperationTransferBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox2.SuspendLayout()
+        Me.TableLayoutPanel3.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         CType(Me.ErrorWarnInfoProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -180,7 +178,7 @@ Partial Friend Class F_OperationTransfer
         JournalEntryAmountLabel.AutoSize = True
         JournalEntryAmountLabel.Dock = System.Windows.Forms.DockStyle.Fill
         JournalEntryAmountLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        JournalEntryAmountLabel.Location = New System.Drawing.Point(3, 26)
+        JournalEntryAmountLabel.Location = New System.Drawing.Point(3, 28)
         JournalEntryAmountLabel.Name = "JournalEntryAmountLabel"
         JournalEntryAmountLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         JournalEntryAmountLabel.Size = New System.Drawing.Size(86, 26)
@@ -193,7 +191,7 @@ Partial Friend Class F_OperationTransfer
         JournalEntryBookEntriesLabel.AutoSize = True
         JournalEntryBookEntriesLabel.Dock = System.Windows.Forms.DockStyle.Fill
         JournalEntryBookEntriesLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        JournalEntryBookEntriesLabel.Location = New System.Drawing.Point(3, 78)
+        JournalEntryBookEntriesLabel.Location = New System.Drawing.Point(3, 80)
         JournalEntryBookEntriesLabel.Name = "JournalEntryBookEntriesLabel"
         JournalEntryBookEntriesLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         JournalEntryBookEntriesLabel.Size = New System.Drawing.Size(86, 26)
@@ -206,10 +204,10 @@ Partial Friend Class F_OperationTransfer
         JournalEntryContentLabel.AutoSize = True
         JournalEntryContentLabel.Dock = System.Windows.Forms.DockStyle.Fill
         JournalEntryContentLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        JournalEntryContentLabel.Location = New System.Drawing.Point(3, 104)
+        JournalEntryContentLabel.Location = New System.Drawing.Point(3, 106)
         JournalEntryContentLabel.Name = "JournalEntryContentLabel"
         JournalEntryContentLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
-        JournalEntryContentLabel.Size = New System.Drawing.Size(86, 33)
+        JournalEntryContentLabel.Size = New System.Drawing.Size(86, 31)
         JournalEntryContentLabel.TabIndex = 18
         JournalEntryContentLabel.Text = "Turinys:"
         JournalEntryContentLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -219,7 +217,7 @@ Partial Friend Class F_OperationTransfer
         JournalEntryDocumentNumberLabel.AutoSize = True
         JournalEntryDocumentNumberLabel.Dock = System.Windows.Forms.DockStyle.Fill
         JournalEntryDocumentNumberLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        JournalEntryDocumentNumberLabel.Location = New System.Drawing.Point(254, 26)
+        JournalEntryDocumentNumberLabel.Location = New System.Drawing.Point(254, 28)
         JournalEntryDocumentNumberLabel.Name = "JournalEntryDocumentNumberLabel"
         JournalEntryDocumentNumberLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         JournalEntryDocumentNumberLabel.Size = New System.Drawing.Size(73, 26)
@@ -235,7 +233,7 @@ Partial Friend Class F_OperationTransfer
         JournalEntryDocumentTypeLabel.Location = New System.Drawing.Point(254, 0)
         JournalEntryDocumentTypeLabel.Name = "JournalEntryDocumentTypeLabel"
         JournalEntryDocumentTypeLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
-        JournalEntryDocumentTypeLabel.Size = New System.Drawing.Size(73, 26)
+        JournalEntryDocumentTypeLabel.Size = New System.Drawing.Size(73, 28)
         JournalEntryDocumentTypeLabel.TabIndex = 20
         JournalEntryDocumentTypeLabel.Text = "Dok. Tipas:"
         JournalEntryDocumentTypeLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -245,7 +243,7 @@ Partial Friend Class F_OperationTransfer
         JournalEntryPersonLabel.AutoSize = True
         JournalEntryPersonLabel.Dock = System.Windows.Forms.DockStyle.Fill
         JournalEntryPersonLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        JournalEntryPersonLabel.Location = New System.Drawing.Point(3, 52)
+        JournalEntryPersonLabel.Location = New System.Drawing.Point(3, 54)
         JournalEntryPersonLabel.Name = "JournalEntryPersonLabel"
         JournalEntryPersonLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         JournalEntryPersonLabel.Size = New System.Drawing.Size(86, 26)
@@ -261,7 +259,7 @@ Partial Friend Class F_OperationTransfer
         JournalEntryIDLabel.Location = New System.Drawing.Point(3, 0)
         JournalEntryIDLabel.Name = "JournalEntryIDLabel"
         JournalEntryIDLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
-        JournalEntryIDLabel.Size = New System.Drawing.Size(86, 26)
+        JournalEntryIDLabel.Size = New System.Drawing.Size(86, 28)
         JournalEntryIDLabel.TabIndex = 23
         JournalEntryIDLabel.Text = "ID:"
         JournalEntryIDLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -273,7 +271,7 @@ Partial Friend Class F_OperationTransfer
         Me.Panel2.Controls.Add(Me.ApplyButton)
         Me.Panel2.Controls.Add(Me.nOkButton)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 391)
+        Me.Panel2.Location = New System.Drawing.Point(0, 373)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Padding = New System.Windows.Forms.Padding(0, 0, 0, 4)
         Me.Panel2.Size = New System.Drawing.Size(798, 42)
@@ -321,7 +319,7 @@ Partial Friend Class F_OperationTransfer
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(798, 391)
+        Me.TabControl1.Size = New System.Drawing.Size(798, 373)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -331,7 +329,7 @@ Partial Friend Class F_OperationTransfer
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(790, 365)
+        Me.TabPage1.Size = New System.Drawing.Size(790, 347)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Operacijos Duomenys"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -359,7 +357,6 @@ Partial Friend Class F_OperationTransfer
         Me.TableLayoutPanel1.Controls.Add(DateLabel, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.InsertDateTextBox, 4, 0)
         Me.TableLayoutPanel1.Controls.Add(UpdateDateLabel, 6, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 0, 4)
         Me.TableLayoutPanel1.Controls.Add(Me.AmountToTransferAccTextBox, 4, 1)
         Me.TableLayoutPanel1.Controls.Add(AmountToTransferLabel, 3, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.IsComplexActCheckBox, 6, 1)
@@ -374,7 +371,7 @@ Partial Friend Class F_OperationTransfer
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(784, 359)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(784, 341)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'GroupBox1
@@ -403,8 +400,6 @@ Partial Friend Class F_OperationTransfer
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.ViewJournalEntryButton, 2, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.JournalEntryIDTextBox, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.JournalEntryPersonTextBox, 1, 2)
         Me.TableLayoutPanel2.Controls.Add(JournalEntryPersonLabel, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(JournalEntryIDLabel, 0, 0)
@@ -418,6 +413,7 @@ Partial Friend Class F_OperationTransfer
         Me.TableLayoutPanel2.Controls.Add(Me.JournalEntryAmountAccTextBox, 1, 1)
         Me.TableLayoutPanel2.Controls.Add(JournalEntryBookEntriesLabel, 0, 3)
         Me.TableLayoutPanel2.Controls.Add(Me.JournalEntryBookEntriesTextBox, 1, 3)
+        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 1, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 13)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -430,51 +426,28 @@ Partial Friend Class F_OperationTransfer
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(778, 137)
         Me.TableLayoutPanel2.TabIndex = 0
         '
-        'ViewJournalEntryButton
-        '
-        Me.ViewJournalEntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ViewJournalEntryButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.lektuvelis_16
-        Me.ViewJournalEntryButton.Location = New System.Drawing.Point(227, 0)
-        Me.ViewJournalEntryButton.Margin = New System.Windows.Forms.Padding(0)
-        Me.ViewJournalEntryButton.Name = "ViewJournalEntryButton"
-        Me.ViewJournalEntryButton.Size = New System.Drawing.Size(24, 24)
-        Me.ViewJournalEntryButton.TabIndex = 0
-        Me.ViewJournalEntryButton.UseVisualStyleBackColor = True
-        '
-        'JournalEntryIDTextBox
-        '
-        Me.JournalEntryIDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationTransferBindingSource, "JournalEntryID", True))
-        Me.JournalEntryIDTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JournalEntryIDTextBox.Location = New System.Drawing.Point(95, 3)
-        Me.JournalEntryIDTextBox.Name = "JournalEntryIDTextBox"
-        Me.JournalEntryIDTextBox.ReadOnly = True
-        Me.JournalEntryIDTextBox.Size = New System.Drawing.Size(129, 20)
-        Me.JournalEntryIDTextBox.TabIndex = 24
-        Me.JournalEntryIDTextBox.TabStop = False
-        Me.JournalEntryIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'OperationTransferBindingSource
-        '
-        Me.OperationTransferBindingSource.DataSource = GetType(ApskaitaObjects.Assets.OperationTransfer)
-        '
         'JournalEntryPersonTextBox
         '
         Me.TableLayoutPanel2.SetColumnSpan(Me.JournalEntryPersonTextBox, 7)
         Me.JournalEntryPersonTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationTransferBindingSource, "JournalEntryPerson", True))
         Me.JournalEntryPersonTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JournalEntryPersonTextBox.Location = New System.Drawing.Point(95, 55)
+        Me.JournalEntryPersonTextBox.Location = New System.Drawing.Point(95, 57)
         Me.JournalEntryPersonTextBox.Name = "JournalEntryPersonTextBox"
         Me.JournalEntryPersonTextBox.ReadOnly = True
         Me.JournalEntryPersonTextBox.Size = New System.Drawing.Size(657, 20)
         Me.JournalEntryPersonTextBox.TabIndex = 22
         Me.JournalEntryPersonTextBox.TabStop = False
         '
+        'OperationTransferBindingSource
+        '
+        Me.OperationTransferBindingSource.DataSource = GetType(ApskaitaObjects.Assets.OperationTransfer)
+        '
         'JournalEntryContentTextBox
         '
         Me.TableLayoutPanel2.SetColumnSpan(Me.JournalEntryContentTextBox, 7)
         Me.JournalEntryContentTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationTransferBindingSource, "JournalEntryContent", True))
         Me.JournalEntryContentTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JournalEntryContentTextBox.Location = New System.Drawing.Point(95, 107)
+        Me.JournalEntryContentTextBox.Location = New System.Drawing.Point(95, 109)
         Me.JournalEntryContentTextBox.Name = "JournalEntryContentTextBox"
         Me.JournalEntryContentTextBox.ReadOnly = True
         Me.JournalEntryContentTextBox.Size = New System.Drawing.Size(657, 20)
@@ -486,7 +459,7 @@ Partial Friend Class F_OperationTransfer
         Me.TableLayoutPanel2.SetColumnSpan(Me.JournalEntryDocumentNumberTextBox, 4)
         Me.JournalEntryDocumentNumberTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationTransferBindingSource, "JournalEntryDocumentNumber", True))
         Me.JournalEntryDocumentNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JournalEntryDocumentNumberTextBox.Location = New System.Drawing.Point(333, 29)
+        Me.JournalEntryDocumentNumberTextBox.Location = New System.Drawing.Point(333, 31)
         Me.JournalEntryDocumentNumberTextBox.Name = "JournalEntryDocumentNumberTextBox"
         Me.JournalEntryDocumentNumberTextBox.ReadOnly = True
         Me.JournalEntryDocumentNumberTextBox.Size = New System.Drawing.Size(419, 20)
@@ -512,7 +485,7 @@ Partial Friend Class F_OperationTransfer
         Me.JournalEntryAmountAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationTransferBindingSource, "JournalEntryAmount", True))
         Me.JournalEntryAmountAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.JournalEntryAmountAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.JournalEntryAmountAccTextBox.Location = New System.Drawing.Point(95, 29)
+        Me.JournalEntryAmountAccTextBox.Location = New System.Drawing.Point(95, 31)
         Me.JournalEntryAmountAccTextBox.Name = "JournalEntryAmountAccTextBox"
         Me.JournalEntryAmountAccTextBox.ReadOnly = True
         Me.JournalEntryAmountAccTextBox.Size = New System.Drawing.Size(129, 20)
@@ -525,13 +498,81 @@ Partial Friend Class F_OperationTransfer
         Me.TableLayoutPanel2.SetColumnSpan(Me.JournalEntryBookEntriesTextBox, 7)
         Me.JournalEntryBookEntriesTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationTransferBindingSource, "JournalEntryBookEntries", True))
         Me.JournalEntryBookEntriesTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JournalEntryBookEntriesTextBox.Location = New System.Drawing.Point(95, 81)
+        Me.JournalEntryBookEntriesTextBox.Location = New System.Drawing.Point(95, 83)
         Me.JournalEntryBookEntriesTextBox.Name = "JournalEntryBookEntriesTextBox"
         Me.JournalEntryBookEntriesTextBox.ReadOnly = True
         Me.JournalEntryBookEntriesTextBox.Size = New System.Drawing.Size(657, 20)
         Me.JournalEntryBookEntriesTextBox.TabIndex = 18
         Me.JournalEntryBookEntriesTextBox.TabStop = False
         Me.JournalEntryBookEntriesTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.ColumnCount = 5
+        Me.TableLayoutPanel2.SetColumnSpan(Me.TableLayoutPanel3, 2)
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.CreateNewJournalEntryButton, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.JournalEntryIDTextBox, 3, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.AttachNewJournalEntryButton, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.ViewJournalEntryButton, 2, 0)
+        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(92, 0)
+        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 1
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(159, 28)
+        Me.TableLayoutPanel3.TabIndex = 24
+        '
+        'CreateNewJournalEntryButton
+        '
+        Me.CreateNewJournalEntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CreateNewJournalEntryButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.Action_file_new_icon_16p
+        Me.CreateNewJournalEntryButton.Location = New System.Drawing.Point(24, 0)
+        Me.CreateNewJournalEntryButton.Margin = New System.Windows.Forms.Padding(0)
+        Me.CreateNewJournalEntryButton.Name = "CreateNewJournalEntryButton"
+        Me.CreateNewJournalEntryButton.Size = New System.Drawing.Size(24, 24)
+        Me.CreateNewJournalEntryButton.TabIndex = 2
+        Me.CreateNewJournalEntryButton.UseVisualStyleBackColor = True
+        '
+        'JournalEntryIDTextBox
+        '
+        Me.JournalEntryIDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationTransferBindingSource, "JournalEntryID", True))
+        Me.JournalEntryIDTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.JournalEntryIDTextBox.Location = New System.Drawing.Point(75, 3)
+        Me.JournalEntryIDTextBox.Name = "JournalEntryIDTextBox"
+        Me.JournalEntryIDTextBox.ReadOnly = True
+        Me.JournalEntryIDTextBox.Size = New System.Drawing.Size(61, 20)
+        Me.JournalEntryIDTextBox.TabIndex = 24
+        Me.JournalEntryIDTextBox.TabStop = False
+        Me.JournalEntryIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'AttachNewJournalEntryButton
+        '
+        Me.AttachNewJournalEntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AttachNewJournalEntryButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AttachNewJournalEntryButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.attach_icon_16x16
+        Me.AttachNewJournalEntryButton.Location = New System.Drawing.Point(0, 0)
+        Me.AttachNewJournalEntryButton.Margin = New System.Windows.Forms.Padding(0)
+        Me.AttachNewJournalEntryButton.Name = "AttachNewJournalEntryButton"
+        Me.AttachNewJournalEntryButton.Size = New System.Drawing.Size(24, 24)
+        Me.AttachNewJournalEntryButton.TabIndex = 3
+        Me.AttachNewJournalEntryButton.UseVisualStyleBackColor = True
+        '
+        'ViewJournalEntryButton
+        '
+        Me.ViewJournalEntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ViewJournalEntryButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.lektuvelis_16
+        Me.ViewJournalEntryButton.Location = New System.Drawing.Point(48, 0)
+        Me.ViewJournalEntryButton.Margin = New System.Windows.Forms.Padding(0)
+        Me.ViewJournalEntryButton.Name = "ViewJournalEntryButton"
+        Me.ViewJournalEntryButton.Size = New System.Drawing.Size(24, 24)
+        Me.ViewJournalEntryButton.TabIndex = 0
+        Me.ViewJournalEntryButton.UseVisualStyleBackColor = True
         '
         'UpdateDateTextBox
         '
@@ -590,64 +631,6 @@ Partial Friend Class F_OperationTransfer
         Me.InsertDateTextBox.TabStop = False
         Me.InsertDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'GroupBox2
-        '
-        Me.GroupBox2.BackColor = System.Drawing.SystemColors.Info
-        Me.TableLayoutPanel1.SetColumnSpan(Me.GroupBox2, 9)
-        Me.GroupBox2.Controls.Add(Me.AttachNewJournalEntryButton)
-        Me.GroupBox2.Controls.Add(Me.CreateNewJournalEntryButton)
-        Me.GroupBox2.Controls.Add(Me.RefreshJournalEntryInfoListButton)
-        Me.GroupBox2.Controls.Add(Me.JournalEntryInfoListComboBox)
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 237)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(773, 47)
-        Me.GroupBox2.TabIndex = 3
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Pridėti Naują Susietą Dokumentą (Bendrojo Žurnalo Operaciją)"
-        '
-        'AttachNewJournalEntryButton
-        '
-        Me.AttachNewJournalEntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AttachNewJournalEntryButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AttachNewJournalEntryButton.Location = New System.Drawing.Point(695, 16)
-        Me.AttachNewJournalEntryButton.Name = "AttachNewJournalEntryButton"
-        Me.AttachNewJournalEntryButton.Size = New System.Drawing.Size(72, 24)
-        Me.AttachNewJournalEntryButton.TabIndex = 3
-        Me.AttachNewJournalEntryButton.Text = "Pridėti"
-        Me.AttachNewJournalEntryButton.UseVisualStyleBackColor = True
-        '
-        'CreateNewJournalEntryButton
-        '
-        Me.CreateNewJournalEntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CreateNewJournalEntryButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.Action_file_new_icon_16p
-        Me.CreateNewJournalEntryButton.Location = New System.Drawing.Point(657, 16)
-        Me.CreateNewJournalEntryButton.Margin = New System.Windows.Forms.Padding(0)
-        Me.CreateNewJournalEntryButton.Name = "CreateNewJournalEntryButton"
-        Me.CreateNewJournalEntryButton.Size = New System.Drawing.Size(24, 24)
-        Me.CreateNewJournalEntryButton.TabIndex = 2
-        Me.CreateNewJournalEntryButton.UseVisualStyleBackColor = True
-        '
-        'RefreshJournalEntryInfoListButton
-        '
-        Me.RefreshJournalEntryInfoListButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.RefreshJournalEntryInfoListButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.Button_Reload_icon_16p
-        Me.RefreshJournalEntryInfoListButton.Location = New System.Drawing.Point(622, 16)
-        Me.RefreshJournalEntryInfoListButton.Margin = New System.Windows.Forms.Padding(0)
-        Me.RefreshJournalEntryInfoListButton.Name = "RefreshJournalEntryInfoListButton"
-        Me.RefreshJournalEntryInfoListButton.Size = New System.Drawing.Size(24, 24)
-        Me.RefreshJournalEntryInfoListButton.TabIndex = 1
-        Me.RefreshJournalEntryInfoListButton.UseVisualStyleBackColor = True
-        '
-        'JournalEntryInfoListComboBox
-        '
-        Me.JournalEntryInfoListComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.JournalEntryInfoListComboBox.FormattingEnabled = True
-        Me.JournalEntryInfoListComboBox.Location = New System.Drawing.Point(6, 19)
-        Me.JournalEntryInfoListComboBox.Name = "JournalEntryInfoListComboBox"
-        Me.JournalEntryInfoListComboBox.Size = New System.Drawing.Size(613, 21)
-        Me.JournalEntryInfoListComboBox.TabIndex = 0
-        '
         'AmountToTransferAccTextBox
         '
         Me.AmountToTransferAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationTransferBindingSource, "AmountToTransfer", True))
@@ -682,7 +665,7 @@ Partial Friend Class F_OperationTransfer
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(790, 363)
+        Me.TabPage2.Size = New System.Drawing.Size(790, 347)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Turto Duomenys"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -723,7 +706,7 @@ Partial Friend Class F_OperationTransfer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(798, 433)
+        Me.ClientSize = New System.Drawing.Size(798, 415)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.ProgressFiller2)
@@ -741,7 +724,8 @@ Partial Friend Class F_OperationTransfer
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         CType(Me.OperationTransferBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox2.ResumeLayout(False)
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.TableLayoutPanel3.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
         CType(Me.ErrorWarnInfoProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -774,13 +758,11 @@ Partial Friend Class F_OperationTransfer
     Friend WithEvents JournalEntryContentTextBox As System.Windows.Forms.TextBox
     Friend WithEvents JournalEntryBookEntriesTextBox As System.Windows.Forms.TextBox
     Friend WithEvents JournalEntryAmountAccTextBox As AccControlsWinForms.AccTextBox
-    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents JournalEntryInfoListComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents AttachNewJournalEntryButton As System.Windows.Forms.Button
     Friend WithEvents CreateNewJournalEntryButton As System.Windows.Forms.Button
-    Friend WithEvents RefreshJournalEntryInfoListButton As System.Windows.Forms.Button
     Friend WithEvents BackgroundInfoPanel1 As AccDataBindingsWinForms.BackgroundInfoPanel
     Friend WithEvents ProgressFiller2 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ErrorWarnInfoProvider1 As AccControlsWinForms.ErrorWarnInfoProvider
+    Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel
 End Class

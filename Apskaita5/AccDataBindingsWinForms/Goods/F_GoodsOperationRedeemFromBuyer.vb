@@ -121,41 +121,25 @@ Public Class F_GoodsOperationRedeemFromBuyer
     End Function
 
 
-    Private Sub RefreshJournalEntryInfoButton_Click(ByVal sender As System.Object, _
-        ByVal e As System.EventArgs) Handles RefreshJournalEntryInfoButton.Click
-
-        If _FormManager.DataSource Is Nothing OrElse _FormManager.IsChild Then Exit Sub
-
-        'ActiveReports.JournalEntryInfoList.GetList(_FormManager.DataSource.Date, _
-        '    _FormManager.DataSource.Date, "", -1, -1, DocumentType.None, False, "", "")
-        _QueryManager.InvokeQuery(Of ActiveReports.JournalEntryInfoList)(Nothing, "GetList", True, _
-            AddressOf OnJournalEntryInfoListFetched, _FormManager.DataSource.Date, _
-            _FormManager.DataSource.Date, "", -1, -1, DocumentType.None, False, "", "")
-
-    End Sub
-
-    Private Sub OnJournalEntryInfoListFetched(ByVal result As Object, ByVal exceptionHandled As Boolean)
-
-        If result Is Nothing Then Exit Sub
-
-        JournalEntryInfoComboBox.DataSource = DirectCast(result, ActiveReports.JournalEntryInfoList)
-
-    End Sub
-
     Private Sub AttachJournalEntryInfoButton_Click(ByVal sender As System.Object, _
         ByVal e As System.EventArgs) Handles AttachJournalEntryInfoButton.Click
 
         If _FormManager.DataSource Is Nothing OrElse _FormManager.IsChild Then Exit Sub
 
-        If JournalEntryInfoComboBox.SelectedItem Is Nothing Then Exit Sub
+        Using dlg As New F_JournalEntryInfoList(_FormManager.DataSource.Date.AddMonths(-1), _
+            _FormManager.DataSource.Date, True)
 
-        Try
-            _FormManager.DataSource.LoadAssociatedJournalEntry(CType(JournalEntryInfoComboBox.SelectedItem,  _
-                ActiveReports.JournalEntryInfo))
-        Catch ex As Exception
-            ShowError(ex)
-            Exit Sub
-        End Try
+            If dlg.ShowDialog() <> DialogResult.OK OrElse dlg.SelectedEntries Is Nothing _
+                OrElse dlg.SelectedEntries.Count < 1 Then Exit Sub
+
+            Try
+                _FormManager.DataSource.LoadAssociatedJournalEntry(dlg.SelectedEntries(0))
+            Catch ex As Exception
+                ShowError(ex)
+                Exit Sub
+            End Try
+
+        End Using
 
     End Sub
 
@@ -197,10 +181,6 @@ Public Class F_GoodsOperationRedeemFromBuyer
             OrElse Not _FormManager.DataSource.IsNew)
 
         AttachJournalEntryInfoButton.Enabled = Not _FormManager.DataSource Is Nothing AndAlso _
-            Not _FormManager.DataSource.AssociatedJournalEntryIsReadOnly
-        JournalEntryInfoComboBox.Enabled = Not _FormManager.DataSource Is Nothing AndAlso _
-            Not _FormManager.DataSource.AssociatedJournalEntryIsReadOnly
-        RefreshJournalEntryInfoButton.Enabled = Not _FormManager.DataSource Is Nothing AndAlso _
             Not _FormManager.DataSource.AssociatedJournalEntryIsReadOnly
 
         ViewJournalEntryButton.Visible = Not _FormManager.DataSource Is Nothing

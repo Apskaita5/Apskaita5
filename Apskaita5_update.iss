@@ -4,7 +4,7 @@
 [Setup]
 AppName=Apskaita5 update
 AppID=Apskaita5MD
-AppVerName=Apskaita5 v. 2013-10-22 update
+AppVerName=Apskaita 5 v. 2016-11-21 update
 AppPublisher=Marius Dagys
 AppPublisherURL=https://apskaita5.codeplex.com/
 AppSupportURL=http://www.tax.lt/temos/12748-nemokama-apskaitos-programa
@@ -91,9 +91,19 @@ Name: "{app}\UserReports"; Flags: uninsneveruninstall; Permissions: users-modify
 Filename: "{app}\Apskaita5.exe"; Description: "{cm:LaunchProgram,Apskaita5}"; Flags: nowait postinstall skipifsilent
 
 [Code]
+function IsUpgrade(): Boolean;
+var
+   sPrevPath: String;
+begin
+  sPrevPath := '';
+  if not RegQueryStringValue(HKEY_CURRENT_USER, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\Apskaita5MD_is1', 'UninstallString', sPrevpath) then
+    RegQueryStringValue(HKEY_LOCAL_MACHINE, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\Apskaita5MD_is1', 'UninstallString', sPrevpath);
+  Result := (sPrevPath <> '');
+end;
+
 function InitializeSetup: Boolean;
 begin
-    if Not RegValueExists(HKEY_LOCAL_MACHINE,'Software\Microsoft\Windows\CurrentVersion\Uninstall\Apskaita5MD_is1', 'UninstallString') then begin
+    if Not IsUpgrade() then begin
       MsgBox('The installation of Apskaita5 update requires Apskaita5 to be installed.' + #13#10 + 'Install Apskaita5 before installing this update.' + #13#10#13#10 + 'The setup of update will be terminated.', mbInformation, MB_OK);
       Result := False;
       end

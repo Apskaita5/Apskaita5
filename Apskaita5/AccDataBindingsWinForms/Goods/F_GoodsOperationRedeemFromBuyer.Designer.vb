@@ -60,8 +60,9 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.AmountAccTextBox = New AccControlsWinForms.AccTextBox
         Me.JournalEntryCorrespondenceTextBox = New System.Windows.Forms.TextBox
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel
-        Me.ViewJournalEntryButton = New System.Windows.Forms.Button
         Me.JournalEntryIDTextBox = New System.Windows.Forms.TextBox
+        Me.ViewJournalEntryButton = New System.Windows.Forms.Button
+        Me.AttachJournalEntryInfoButton = New System.Windows.Forms.Button
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
         Me.GoodsAccountingMethodTextBox = New System.Windows.Forms.TextBox
         Me.GoodsValuationMethodTextBox = New System.Windows.Forms.TextBox
@@ -81,10 +82,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.UnitCostAccTextBox = New AccControlsWinForms.AccTextBox
         Me.TotalValueInPurchasesAccTextBox = New AccControlsWinForms.AccTextBox
         Me.DescriptionTextBox = New System.Windows.Forms.TextBox
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.RefreshJournalEntryInfoButton = New System.Windows.Forms.Button
-        Me.JournalEntryInfoComboBox = New System.Windows.Forms.ComboBox
-        Me.AttachJournalEntryInfoButton = New System.Windows.Forms.Button
         Me.Panel2 = New System.Windows.Forms.Panel
         Me.nCancelButton = New System.Windows.Forms.Button
         Me.ApplyButton = New System.Windows.Forms.Button
@@ -121,7 +118,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         CType(Me.GoodsOperationRedeemFromBuyerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.ErrorWarnInfoProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -514,7 +510,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.TableLayoutPanel1.Controls.Add(Me.UnitCostAccTextBox, 7, 8)
         Me.TableLayoutPanel1.Controls.Add(Me.TotalValueInPurchasesAccTextBox, 4, 10)
         Me.TableLayoutPanel1.Controls.Add(Me.DescriptionTextBox, 1, 11)
-        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox1, 1, 12)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -533,7 +528,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(827, 369)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(827, 318)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'RedeemCostsAccountAccGridComboBox
@@ -646,13 +641,15 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         '
         'TableLayoutPanel3
         '
-        Me.TableLayoutPanel3.ColumnCount = 3
+        Me.TableLayoutPanel3.ColumnCount = 4
         Me.TableLayoutPanel1.SetColumnSpan(Me.TableLayoutPanel3, 2)
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.ViewJournalEntryButton, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.JournalEntryIDTextBox, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.JournalEntryIDTextBox, 2, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.ViewJournalEntryButton, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.AttachJournalEntryInfoButton, 0, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(164, 104)
         Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
@@ -662,11 +659,23 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(147, 26)
         Me.TableLayoutPanel3.TabIndex = 7
         '
+        'JournalEntryIDTextBox
+        '
+        Me.JournalEntryIDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GoodsOperationRedeemFromBuyerBindingSource, "JournalEntryID", True))
+        Me.JournalEntryIDTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.JournalEntryIDTextBox.Location = New System.Drawing.Point(51, 3)
+        Me.JournalEntryIDTextBox.Name = "JournalEntryIDTextBox"
+        Me.JournalEntryIDTextBox.ReadOnly = True
+        Me.JournalEntryIDTextBox.Size = New System.Drawing.Size(73, 20)
+        Me.JournalEntryIDTextBox.TabIndex = 2
+        Me.JournalEntryIDTextBox.TabStop = False
+        Me.JournalEntryIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'ViewJournalEntryButton
         '
         Me.ViewJournalEntryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ViewJournalEntryButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.lektuvelis_16
-        Me.ViewJournalEntryButton.Location = New System.Drawing.Point(0, 0)
+        Me.ViewJournalEntryButton.Location = New System.Drawing.Point(24, 0)
         Me.ViewJournalEntryButton.Margin = New System.Windows.Forms.Padding(0)
         Me.ViewJournalEntryButton.Name = "ViewJournalEntryButton"
         Me.ViewJournalEntryButton.Size = New System.Drawing.Size(24, 24)
@@ -674,17 +683,17 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.ViewJournalEntryButton.TabStop = False
         Me.ViewJournalEntryButton.UseVisualStyleBackColor = True
         '
-        'JournalEntryIDTextBox
+        'AttachJournalEntryInfoButton
         '
-        Me.JournalEntryIDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GoodsOperationRedeemFromBuyerBindingSource, "JournalEntryID", True))
-        Me.JournalEntryIDTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JournalEntryIDTextBox.Location = New System.Drawing.Point(27, 3)
-        Me.JournalEntryIDTextBox.Name = "JournalEntryIDTextBox"
-        Me.JournalEntryIDTextBox.ReadOnly = True
-        Me.JournalEntryIDTextBox.Size = New System.Drawing.Size(97, 20)
-        Me.JournalEntryIDTextBox.TabIndex = 2
-        Me.JournalEntryIDTextBox.TabStop = False
-        Me.JournalEntryIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.AttachJournalEntryInfoButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AttachJournalEntryInfoButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AttachJournalEntryInfoButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.attach_icon_16x16
+        Me.AttachJournalEntryInfoButton.Location = New System.Drawing.Point(0, 0)
+        Me.AttachJournalEntryInfoButton.Margin = New System.Windows.Forms.Padding(0)
+        Me.AttachJournalEntryInfoButton.Name = "AttachJournalEntryInfoButton"
+        Me.AttachJournalEntryInfoButton.Size = New System.Drawing.Size(24, 24)
+        Me.AttachJournalEntryInfoButton.TabIndex = 2
+        Me.AttachJournalEntryInfoButton.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel2
         '
@@ -920,51 +929,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.DescriptionTextBox.Size = New System.Drawing.Size(635, 20)
         Me.DescriptionTextBox.TabIndex = 7
         '
-        'GroupBox1
-        '
-        Me.TableLayoutPanel1.SetColumnSpan(Me.GroupBox1, 8)
-        Me.GroupBox1.Controls.Add(Me.RefreshJournalEntryInfoButton)
-        Me.GroupBox1.Controls.Add(Me.JournalEntryInfoComboBox)
-        Me.GroupBox1.Controls.Add(Me.AttachJournalEntryInfoButton)
-        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox1.Location = New System.Drawing.Point(167, 317)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(657, 40)
-        Me.GroupBox1.TabIndex = 9
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Prijungti Bendrojo Žurnalo Įrašą"
-        '
-        'RefreshJournalEntryInfoButton
-        '
-        Me.RefreshJournalEntryInfoButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.RefreshJournalEntryInfoButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.Button_Reload_icon_16p
-        Me.RefreshJournalEntryInfoButton.Location = New System.Drawing.Point(534, 11)
-        Me.RefreshJournalEntryInfoButton.Name = "RefreshJournalEntryInfoButton"
-        Me.RefreshJournalEntryInfoButton.Size = New System.Drawing.Size(24, 24)
-        Me.RefreshJournalEntryInfoButton.TabIndex = 1
-        Me.RefreshJournalEntryInfoButton.UseVisualStyleBackColor = True
-        '
-        'JournalEntryInfoComboBox
-        '
-        Me.JournalEntryInfoComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.JournalEntryInfoComboBox.FormattingEnabled = True
-        Me.JournalEntryInfoComboBox.Location = New System.Drawing.Point(6, 13)
-        Me.JournalEntryInfoComboBox.Name = "JournalEntryInfoComboBox"
-        Me.JournalEntryInfoComboBox.Size = New System.Drawing.Size(527, 21)
-        Me.JournalEntryInfoComboBox.TabIndex = 0
-        '
-        'AttachJournalEntryInfoButton
-        '
-        Me.AttachJournalEntryInfoButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AttachJournalEntryInfoButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AttachJournalEntryInfoButton.Location = New System.Drawing.Point(575, 11)
-        Me.AttachJournalEntryInfoButton.Name = "AttachJournalEntryInfoButton"
-        Me.AttachJournalEntryInfoButton.Size = New System.Drawing.Size(76, 23)
-        Me.AttachJournalEntryInfoButton.TabIndex = 2
-        Me.AttachJournalEntryInfoButton.Text = "Prijungti"
-        Me.AttachJournalEntryInfoButton.UseVisualStyleBackColor = True
-        '
         'Panel2
         '
         Me.Panel2.AutoSize = True
@@ -972,7 +936,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.Panel2.Controls.Add(Me.ApplyButton)
         Me.Panel2.Controls.Add(Me.nOkButton)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 369)
+        Me.Panel2.Location = New System.Drawing.Point(0, 318)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Padding = New System.Windows.Forms.Padding(0, 0, 0, 4)
         Me.Panel2.Size = New System.Drawing.Size(827, 37)
@@ -1040,7 +1004,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(827, 406)
+        Me.ClientSize = New System.Drawing.Size(827, 355)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.ProgressFiller2)
@@ -1056,7 +1020,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.TableLayoutPanel3.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         CType(Me.ErrorWarnInfoProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -1095,9 +1058,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
     Friend WithEvents TotalValueInPurchasesAccTextBox As AccControlsWinForms.AccTextBox
     Friend WithEvents RedeemCostsAccountAccGridComboBox As AccControlsWinForms.AccListComboBox
     Friend WithEvents DescriptionTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents RefreshJournalEntryInfoButton As System.Windows.Forms.Button
-    Friend WithEvents JournalEntryInfoComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents AttachJournalEntryInfoButton As System.Windows.Forms.Button
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents nCancelButton As System.Windows.Forms.Button
