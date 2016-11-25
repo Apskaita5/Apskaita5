@@ -25,6 +25,8 @@ Partial Class F_VatDeclarationSchemaInfoItemList
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_VatDeclarationSchemaInfoItemList))
         Me.Panel1 = New System.Windows.Forms.Panel
+        Me.OpenFileButton = New System.Windows.Forms.Button
+        Me.SaveFileButton = New System.Windows.Forms.Button
         Me.NewObjectButton = New System.Windows.Forms.Button
         Me.RefreshButton = New System.Windows.Forms.Button
         Me.VatDeclarationSchemaInfoItemListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -36,13 +38,13 @@ Partial Class F_VatDeclarationSchemaInfoItemList
         Me.OlvColumn7 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn8 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn5 = New BrightIdeasSoftware.OLVColumn
+        Me.OlvColumn9 = New BrightIdeasSoftware.OLVColumn
+        Me.OlvColumn10 = New BrightIdeasSoftware.OLVColumn
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ChangeItem_MenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.DeleteItem_MenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller
-        Me.SaveFileButton = New System.Windows.Forms.Button
-        Me.OpenFileButton = New System.Windows.Forms.Button
         Me.Panel1.SuspendLayout()
         CType(Me.VatDeclarationSchemaInfoItemListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VatDeclarationSchemaInfoItemListDataListView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -63,6 +65,28 @@ Partial Class F_VatDeclarationSchemaInfoItemList
         Me.Panel1.Padding = New System.Windows.Forms.Padding(0, 0, 0, 3)
         Me.Panel1.Size = New System.Drawing.Size(968, 46)
         Me.Panel1.TabIndex = 1
+        '
+        'OpenFileButton
+        '
+        Me.OpenFileButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.OpenFileButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OpenFileButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.folder_open_icon_24p
+        Me.OpenFileButton.Location = New System.Drawing.Point(771, 7)
+        Me.OpenFileButton.Name = "OpenFileButton"
+        Me.OpenFileButton.Size = New System.Drawing.Size(33, 33)
+        Me.OpenFileButton.TabIndex = 9
+        Me.OpenFileButton.UseVisualStyleBackColor = True
+        '
+        'SaveFileButton
+        '
+        Me.SaveFileButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SaveFileButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SaveFileButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.Actions_document_save_icon_24p
+        Me.SaveFileButton.Location = New System.Drawing.Point(824, 7)
+        Me.SaveFileButton.Name = "SaveFileButton"
+        Me.SaveFileButton.Size = New System.Drawing.Size(33, 33)
+        Me.SaveFileButton.TabIndex = 8
+        Me.SaveFileButton.UseVisualStyleBackColor = True
         '
         'NewObjectButton
         '
@@ -95,6 +119,8 @@ Partial Class F_VatDeclarationSchemaInfoItemList
         Me.VatDeclarationSchemaInfoItemListDataListView.AllColumns.Add(Me.OlvColumn1)
         Me.VatDeclarationSchemaInfoItemListDataListView.AllColumns.Add(Me.OlvColumn3)
         Me.VatDeclarationSchemaInfoItemListDataListView.AllColumns.Add(Me.OlvColumn4)
+        Me.VatDeclarationSchemaInfoItemListDataListView.AllColumns.Add(Me.OlvColumn10)
+        Me.VatDeclarationSchemaInfoItemListDataListView.AllColumns.Add(Me.OlvColumn9)
         Me.VatDeclarationSchemaInfoItemListDataListView.AllColumns.Add(Me.OlvColumn7)
         Me.VatDeclarationSchemaInfoItemListDataListView.AllColumns.Add(Me.OlvColumn8)
         Me.VatDeclarationSchemaInfoItemListDataListView.AllColumns.Add(Me.OlvColumn5)
@@ -103,7 +129,7 @@ Partial Class F_VatDeclarationSchemaInfoItemList
         Me.VatDeclarationSchemaInfoItemListDataListView.CausesValidation = False
         Me.VatDeclarationSchemaInfoItemListDataListView.CellEditUseWholeCell = False
         Me.VatDeclarationSchemaInfoItemListDataListView.CheckBoxes = True
-        Me.VatDeclarationSchemaInfoItemListDataListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumn2, Me.OlvColumn3, Me.OlvColumn4, Me.OlvColumn7, Me.OlvColumn8, Me.OlvColumn5})
+        Me.VatDeclarationSchemaInfoItemListDataListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumn2, Me.OlvColumn3, Me.OlvColumn4, Me.OlvColumn10, Me.OlvColumn9, Me.OlvColumn7, Me.OlvColumn8, Me.OlvColumn5})
         Me.VatDeclarationSchemaInfoItemListDataListView.Cursor = System.Windows.Forms.Cursors.Default
         Me.VatDeclarationSchemaInfoItemListDataListView.DataSource = Me.VatDeclarationSchemaInfoItemListBindingSource
         Me.VatDeclarationSchemaInfoItemListDataListView.Dock = System.Windows.Forms.DockStyle.Fill
@@ -111,6 +137,8 @@ Partial Class F_VatDeclarationSchemaInfoItemList
         Me.VatDeclarationSchemaInfoItemListDataListView.HasCollapsibleGroups = False
         Me.VatDeclarationSchemaInfoItemListDataListView.HeaderWordWrap = True
         Me.VatDeclarationSchemaInfoItemListDataListView.HideSelection = False
+        Me.VatDeclarationSchemaInfoItemListDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
+        Me.VatDeclarationSchemaInfoItemListDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.VatDeclarationSchemaInfoItemListDataListView.IncludeColumnHeadersInCopy = True
         Me.VatDeclarationSchemaInfoItemListDataListView.Location = New System.Drawing.Point(0, 46)
         Me.VatDeclarationSchemaInfoItemListDataListView.Name = "VatDeclarationSchemaInfoItemListDataListView"
@@ -210,6 +238,28 @@ Partial Class F_VatDeclarationSchemaInfoItemList
         Me.OlvColumn5.Text = "Istorinė"
         Me.OlvColumn5.Width = 29
         '
+        'OlvColumn9
+        '
+        Me.OlvColumn9.AspectName = "TaxCode"
+        Me.OlvColumn9.CellEditUseWholeCell = True
+        Me.OlvColumn9.HeaderFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OlvColumn9.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.OlvColumn9.IsEditable = False
+        Me.OlvColumn9.Text = "PVM Kodas"
+        Me.OlvColumn9.Width = 100
+        '
+        'OlvColumn10
+        '
+        Me.OlvColumn10.AspectName = "VatRateIsNull"
+        Me.OlvColumn10.CellEditUseWholeCell = True
+        Me.OlvColumn10.CheckBoxes = True
+        Me.OlvColumn10.HeaderFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OlvColumn10.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.OlvColumn10.IsEditable = False
+        Me.OlvColumn10.IsHeaderVertical = True
+        Me.OlvColumn10.Text = "Be PVM Tarifo"
+        Me.OlvColumn10.Width = 34
+        '
         'ProgressFiller1
         '
         Me.ProgressFiller1.Location = New System.Drawing.Point(177, 74)
@@ -244,28 +294,6 @@ Partial Class F_VatDeclarationSchemaInfoItemList
         Me.ProgressFiller2.TabIndex = 6
         Me.ProgressFiller2.Visible = False
         '
-        'SaveFileButton
-        '
-        Me.SaveFileButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SaveFileButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SaveFileButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.Actions_document_save_icon_24p
-        Me.SaveFileButton.Location = New System.Drawing.Point(824, 7)
-        Me.SaveFileButton.Name = "SaveFileButton"
-        Me.SaveFileButton.Size = New System.Drawing.Size(33, 33)
-        Me.SaveFileButton.TabIndex = 8
-        Me.SaveFileButton.UseVisualStyleBackColor = True
-        '
-        'OpenFileButton
-        '
-        Me.OpenFileButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OpenFileButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OpenFileButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.folder_open_icon_24p
-        Me.OpenFileButton.Location = New System.Drawing.Point(771, 7)
-        Me.OpenFileButton.Name = "OpenFileButton"
-        Me.OpenFileButton.Size = New System.Drawing.Size(33, 33)
-        Me.OpenFileButton.TabIndex = 9
-        Me.OpenFileButton.UseVisualStyleBackColor = True
-        '
         'F_VatDeclarationSchemaInfoItemList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -299,6 +327,8 @@ Partial Class F_VatDeclarationSchemaInfoItemList
     Friend WithEvents OlvColumn5 As BrightIdeasSoftware.OLVColumn
     Friend WithEvents OlvColumn7 As BrightIdeasSoftware.OLVColumn
     Friend WithEvents OlvColumn8 As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents OlvColumn9 As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents OlvColumn10 As BrightIdeasSoftware.OLVColumn
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ChangeItem_MenuItem As System.Windows.Forms.ToolStripMenuItem

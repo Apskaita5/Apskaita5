@@ -25,6 +25,8 @@ Namespace Documents
         Private _TradedType As TradedItemType = TradedItemType.All
         Private _TradedTypeHumanReadable As String = ConvertLocalizedName(TradedItemType.All)
         Private _ExternalCode As String = ""
+        Private _TaxCode As String = ""
+        Private _VatRateIsNull As Boolean = False
         Private _DeclarationEntries As VatDeclarationEntryList
 
 
@@ -107,7 +109,7 @@ Namespace Documents
         ''' Gets or sets a VAT rate for the declaration schema.
         ''' </summary>
         ''' <remarks>Value is stored in the database field VatDeclarationSchemas.VatRate.</remarks>
-        <TaxRateField(ValueRequiredLevel.Recommended, ApskaitaObjects.Settings.TaxRateType.Vat)> _
+        <TaxRateField(ValueRequiredLevel.Optional, ApskaitaObjects.Settings.TaxRateType.Vat)> _
         Public Property VatRate() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -119,6 +121,26 @@ Namespace Documents
                 If CRound(_VatRate) <> CRound(value) Then
                     _VatRate = CRound(value)
                     PropertyHasChanged()
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
+        ''' Gets or sets whether the VAT rate is null, i.e. should not be displayed in tax reports.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field VatDeclarationSchemas.VatRateIsNull.</remarks>
+        Public Property VatRateIsNull() As Boolean
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _VatRateIsNull
+            End Get
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Set(ByVal value As Boolean)
+                CanWriteProperty(True)
+                If _VatRateIsNull <> value Then
+                    _VatRateIsNull = value
+                    PropertyHasChanged()
+                    If _VatRateIsNull Then VatRate = 0
                 End If
             End Set
         End Property
@@ -189,10 +211,32 @@ Namespace Documents
         End Property
 
         ''' <summary>
-        ''' Gets or sets a code of the VAT declaration schema that is used for integration with external systems.
+        ''' Gets or sets a code of the VAT declaration schema as defined by the tax inspectorate.
         ''' </summary>
         ''' <remarks>Value is stored in the database field VatDeclarationSchemas.ExternalCode.</remarks>
         <CodeField(ValueRequiredLevel.Mandatory, ApskaitaObjects.Settings.CodeType.VmiVatType)> _
+        Public Property TaxCode() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _TaxCode.Trim
+            End Get
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Set(ByVal value As String)
+                CanWriteProperty(True)
+                If value Is Nothing Then value = ""
+                If _TaxCode.Trim <> value.Trim Then
+                    _TaxCode = value.Trim
+                    PropertyHasChanged()
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
+        ''' Gets or sets a user defined code of the VAT declaration schema that is used 
+        ''' for integration with external systems.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field VatDeclarationSchemas.ExternalCodeInt.</remarks>
+        <StringField(ValueRequiredLevel.Optional, 100)> _
         Public Property ExternalCode() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
@@ -348,10 +392,47 @@ Namespace Documents
                 New RuleArgs("Description"))
             ValidationRules.AddRule(AddressOf CommonValidation.StringFieldValidation, _
                 New RuleArgs("ExternalCode"))
-            ValidationRules.AddRule(AddressOf CommonValidation.DoubleFieldValidation, _
-                New RuleArgs("VatRate"))
+            ValidationRules.AddRule(AddressOf CommonValidation.StringFieldValidation, _
+                New RuleArgs("TaxCode"))
+
+            ValidationRules.AddRule(AddressOf VatRateValidation, New RuleArgs("VatRate"))
+
+            ValidationRules.AddDependantProperty("VatRateIsNull", "VatRate", False)
 
         End Sub
+
+        ''' <summary>
+        ''' Rule ensuring that a valid VAT rate is set.
+        ''' </summary>
+        ''' <param name="target">Object containing the data to validate</param>
+        ''' <param name="e">Arguments parameter specifying the name of the string
+        ''' property to validate</param>
+        ''' <returns><see langword="false" /> if the rule is broken</returns>
+        <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:ValidateArgumentsOfPublicMethods")> _
+        Private Shared Function VatRateValidation(ByVal target As Object, _
+            ByVal e As Validation.RuleArgs) As Boolean
+
+            If Not DoubleFieldValidation(target, e) Then Return False
+
+            Dim valObj As VatDeclarationSchema = DirectCast(target, VatDeclarationSchema)
+
+            If valObj._VatRateIsNull AndAlso valObj.VatRate > 0 Then
+
+                e.Description = Documents_VatDeclarationSchema_VatRateNotNull
+                e.Severity = Validation.RuleSeverity.Warning
+                Return False
+
+            ElseIf Not valObj._VatRateIsNull AndAlso Not valObj.VatRate > 0 Then
+
+                e.Description = Documents_VatDeclarationSchema_VatRateNull
+                e.Severity = Validation.RuleSeverity.Warning
+                Return False
+
+            End If
+
+            Return True
+
+        End Function
 
 #End Region
 
@@ -498,12 +579,14 @@ Namespace Documents
         Private Sub Create(ByVal xmlProxy As VatDeclarationSchemaProxy)
 
             _Description = xmlProxy.Description
-            _ExternalCode = xmlProxy.ExternalCode
+            _ExternalCode = xmlProxy.ExternalCodeInt
+            _TaxCode = xmlProxy.ExternalCode
             _IsObsolete = xmlProxy.IsObsolete
             _Name = xmlProxy.Name
             _TradedType = xmlProxy.TradedType
             _TradedTypeHumanReadable = ConvertLocalizedName(_TradedType)
             _VatRate = xmlProxy.VatRate
+            _VatRateIsNull = xmlProxy.VatRateIsNull
 
             _DeclarationEntries = VatDeclarationEntryList.NewVatDeclarationEntryList()
             If Not xmlProxy.DeclarationEntries Is Nothing Then
@@ -546,9 +629,11 @@ Namespace Documents
                 _IsObsolete = ConvertDbBoolean(CIntSafe(dr.Item(4), 0))
                 _TradedType = ConvertDatabaseID(Of TradedItemType)(CIntSafe(dr.Item(5), 0))
                 _TradedTypeHumanReadable = ConvertLocalizedName(_TradedType)
-                _ExternalCode = CStrSafe(dr.Item(6)).Trim
-                _InsertDate = CTimeStampSafe(dr.Item(7))
-                _UpdateDate = CTimeStampSafe(dr.Item(8))
+                _TaxCode = CStrSafe(dr.Item(6)).Trim
+                _ExternalCode = CStrSafe(dr.Item(7)).Trim
+                _VatRateIsNull = ConvertDbBoolean(CIntSafe(dr.Item(8), 0))
+                _InsertDate = CTimeStampSafe(dr.Item(9))
+                _UpdateDate = CTimeStampSafe(dr.Item(10))
 
                 _DeclarationEntries = VatDeclarationEntryList.GetVatDeclarationEntryList(_ID)
 
@@ -723,11 +808,13 @@ Namespace Documents
             myComm.AddParam("?AC", CRound(_VatRate))
             myComm.AddParam("?AD", ConvertDbBoolean(_IsObsolete))
             myComm.AddParam("?AE", ConvertDatabaseID(_TradedType))
-            myComm.AddParam("?AF", _ExternalCode.Trim)
+            myComm.AddParam("?AF", _TaxCode.Trim)
+            myComm.AddParam("?AG", _ExternalCode.Trim)
+            myComm.AddParam("?AH", ConvertDbBoolean(_VatRateIsNull))
 
             _UpdateDate = GetCurrentTimeStamp()
             If Me.IsNew Then _InsertDate = _UpdateDate
-            myComm.AddParam("?AG", _UpdateDate.ToUniversalTime)
+            myComm.AddParam("?AI", _UpdateDate.ToUniversalTime)
 
         End Sub
 

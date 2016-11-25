@@ -208,10 +208,14 @@ Namespace ActiveReports.Declarations
 
                         subtotal.Amount = Convert.ToDecimal(subitem.TaxAmount)
                         subtotal.TaxCode = subitem.TaxCode.Trim.ToUpper()
-                        If String.IsNullOrEmpty(subtotal.TaxCode) Then
+                        If StringIsNullOrEmpty(subtotal.TaxCode) Then
                             subtotal.TaxCode = "PVM1"
                         End If
-                        subtotal.TaxPercentage = Convert.ToDecimal(subitem.TaxPercentage)
+                        If subitem.VatRateIsNull Then
+                            subtotal.TaxPercentage = Nothing
+                        Else
+                            subtotal.TaxPercentage = Convert.ToDecimal(subitem.TaxPercentage)
+                        End If
                         subtotal.TaxableValue = Convert.ToDecimal(subitem.TaxableValue)
 
                         subtotals.Add(subtotal)
@@ -285,7 +289,11 @@ Namespace ActiveReports.Declarations
                         If String.IsNullOrEmpty(subtotal.TaxCode) Then
                             subtotal.TaxCode = "PVM1"
                         End If
-                        subtotal.TaxPercentage = Convert.ToDecimal(subitem.TaxPercentage)
+                        If subitem.VatRateIsNull Then
+                            subtotal.TaxPercentage = Nothing
+                        Else
+                            subtotal.TaxPercentage = Convert.ToDecimal(subitem.TaxPercentage)
+                        End If
                         subtotal.TaxableValue = Convert.ToDecimal(subitem.TaxableValue)
 
                         subtotals.Add(subtotal)

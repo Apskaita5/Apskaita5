@@ -11,9 +11,11 @@
         Private _Name As String = ""
         Private _Description As String = ""
         Private _VatRate As Double = 0
+        Private _VatRateIsNull As Boolean = False
         Private _IsObsolete As Boolean = False
         Private _TradedType As TradedItemType = TradedItemType.All
         Private _ExternalCode As String = ""
+        Private _ExternalCodeInt As String = ""
         Private _DeclarationEntries As New List(Of VatDeclarationEntryProxy)
 
 
@@ -68,6 +70,22 @@
         End Property
 
         ''' <summary>
+        ''' Value corresponds to <see cref="VatDeclarationSchema.VatRateIsNull">VatDeclarationSchema.VatRateIsNull</see>
+        ''' property.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Property VatRateIsNull() As Boolean
+            Get
+                Return _VatRateIsNull
+            End Get
+            Set(ByVal value As Boolean)
+                If _VatRateIsNull <> value Then
+                    _VatRateIsNull = value
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
         ''' Value corresponds to <see cref="VatDeclarationSchema.IsObsolete">VatDeclarationSchema.IsObsolete</see>
         ''' property.
         ''' </summary>
@@ -100,7 +118,7 @@
         End Property
 
         ''' <summary>
-        ''' Value corresponds to <see cref="VatDeclarationSchema.ExternalCode">VatDeclarationSchema.ExternalCode</see>
+        ''' Value corresponds to <see cref="VatDeclarationSchema.TaxCode">VatDeclarationSchema.TaxCode</see>
         ''' property.
         ''' </summary>
         ''' <remarks></remarks>
@@ -112,6 +130,23 @@
                 If value Is Nothing Then value = ""
                 If _ExternalCode.Trim <> value.Trim Then
                     _ExternalCode = value.Trim
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
+        ''' Value corresponds to <see cref="VatDeclarationSchema.ExternalCode">VatDeclarationSchema.ExternalCode</see>
+        ''' property.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Property ExternalCodeInt() As String
+            Get
+                Return _ExternalCodeInt.Trim
+            End Get
+            Set(ByVal value As String)
+                If value Is Nothing Then value = ""
+                If _ExternalCodeInt.Trim <> value.Trim Then
+                    _ExternalCodeInt = value.Trim
                 End If
             End Set
         End Property

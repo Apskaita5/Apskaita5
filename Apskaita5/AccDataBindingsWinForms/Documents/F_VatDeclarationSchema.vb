@@ -1,8 +1,6 @@
 ﻿Imports ApskaitaObjects.Documents
 Imports AccControlsWinForms
-Imports AccDataBindingsWinForms.Printing
 Imports AccDataBindingsWinForms.CachedInfoLists
-Imports ApskaitaObjects.Settings
 
 Friend Class F_VatDeclarationSchema
     Implements IObjectEditForm

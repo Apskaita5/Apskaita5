@@ -17,9 +17,11 @@ Namespace ActiveReports
         Private _Name As String = ""
         Private _Description As String = ""
         Private _VatRate As Double = 0
+        Private _VatRateIsNull As Boolean = False
         Private _IsObsolete As Boolean = False
         Private _TradedType As TradedItemType = Nothing
         Private _TradedTypeHumanReadable As String = ""
+        Private _TaxCode As String = ""
         Private _ExternalCode As String = ""
 
 
@@ -69,6 +71,17 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
+        ''' Gets whether the VAT rate is null, i.e. should not be displayed in tax reports.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field VatDeclarationSchemas.VatRateIsNull.</remarks>
+        Public ReadOnly Property VatRateIsNull() As Boolean
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _VatRateIsNull
+            End Get
+        End Property
+
+        ''' <summary>
         ''' Gets whether the declaration schema is obsolete, no longer in use.
         ''' </summary>
         ''' <remarks>Value is stored in the database field VatDeclarationSchemas.IsObsolete.</remarks>
@@ -103,9 +116,21 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' Gets a code of the VAT declaration schema that is used for integration with external systems.
+        ''' Gets a code of the VAT declaration schema as defined by the tax inspectorate.
         ''' </summary>
         ''' <remarks>Value is stored in the database field VatDeclarationSchemas.ExternalCode.</remarks>
+        <StringField(ValueRequiredLevel.Optional, 255)> _
+        Public ReadOnly Property TaxCode() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _TaxCode.Trim
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a code of the VAT declaration schema that is used for integration with external systems.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field VatDeclarationSchemas.ExternalCodeInt.</remarks>
         <StringField(ValueRequiredLevel.Optional, 255)> _
         Public ReadOnly Property ExternalCode() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
@@ -152,7 +177,9 @@ Namespace ActiveReports
             _IsObsolete = ConvertDbBoolean(CIntSafe(dr.Item(4), 0))
             _TradedType = ConvertDatabaseID(Of TradedItemType)(CIntSafe(dr.Item(5), 0))
             _TradedTypeHumanReadable = ConvertLocalizedName(_TradedType)
-            _ExternalCode = CStrSafe(dr.Item(6)).Trim
+            _TaxCode = CStrSafe(dr.Item(6)).Trim
+            _ExternalCode = CStrSafe(dr.Item(7)).Trim
+            _VatRateIsNull = ConvertDbBoolean(CIntSafe(dr.Item(8), 0))
 
         End Sub
 

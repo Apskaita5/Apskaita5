@@ -16,6 +16,7 @@
         Private _TaxPercentage As Double = 0
         Private _TaxAmount As Double = 0
         Private _VatIsVirtual As Boolean = False
+        Private _VatRateIsNull As Boolean = False
 
 
         ''' <summary>
@@ -77,6 +78,17 @@
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets whether the VAT rate is null, i.e. should not be displayed in tax reports.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field VatDeclarationSchemas.VatRateIsNull.</remarks>
+        Public ReadOnly Property VatRateIsNull() As Boolean
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _VatRateIsNull
+            End Get
+        End Property
+
 
         Protected Overrides Function GetIdValue() As Object
             Return _TaxCode
@@ -116,6 +128,7 @@
             _TaxableValue = CDblSafe(dr.Item(3), 2, 0)
             _TaxAmount = CDblSafe(dr.Item(4), 2, 0)
             _VatIsVirtual = ConvertDbBoolean(CIntSafe(dr.Item(5), 0))
+            _VatRateIsNull = ConvertDbBoolean(CIntSafe(dr.Item(6), 0))
 
         End Sub
 

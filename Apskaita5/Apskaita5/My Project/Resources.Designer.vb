@@ -23424,6 +23424,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to PVM kodas.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_TaxCode() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_TaxCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to {0}.
         '''</summary>
         Friend ReadOnly Property Documents_VatDeclarationSchema_ToString() As String
@@ -23474,6 +23483,33 @@ Namespace My.Resources
         Friend ReadOnly Property Documents_VatDeclarationSchema_VatRate() As String
             Get
                 Return ResourceManager.GetString("Documents_VatDeclarationSchema_VatRate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to be PVM tarifo.
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_VatRateIsNull() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_VatRateIsNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Kai nustatyta, kad schema neturi PVM tarifo, tarifo vertė turėtų būti lygi nuliui..
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_VatRateNotNull() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_VatRateNotNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodytas PVM tarifas..
+        '''</summary>
+        Friend ReadOnly Property Documents_VatDeclarationSchema_VatRateNull() As String
+            Get
+                Return ResourceManager.GetString("Documents_VatDeclarationSchema_VatRateNull", resourceCulture)
             End Get
         End Property
         

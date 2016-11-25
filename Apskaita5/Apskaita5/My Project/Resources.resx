@@ -14621,4 +14621,16 @@
   <data name="Documents_VatDeclarationEntryType_SubtractVat" xml:space="preserve">
     <value>minusuoti PVM</value>
   </data>
+  <data name="Documents_VatDeclarationSchema_VatRateNotNull" xml:space="preserve">
+    <value>Kai nustatyta, kad schema neturi PVM tarifo, tarifo vertė turėtų būti lygi nuliui.</value>
+  </data>
+  <data name="Documents_VatDeclarationSchema_VatRateNull" xml:space="preserve">
+    <value>Nenurodytas PVM tarifas.</value>
+  </data>
+  <data name="Documents_VatDeclarationSchema_TaxCode" xml:space="preserve">
+    <value>PVM kodas</value>
+  </data>
+  <data name="Documents_VatDeclarationSchema_VatRateIsNull" xml:space="preserve">
+    <value>be PVM tarifo</value>
+  </data>
 </root>

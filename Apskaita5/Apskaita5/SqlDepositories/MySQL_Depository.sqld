@@ -3394,17 +3394,17 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchVatDeclarationSchema</Key>
-    <Statement>SELECT V.ID, V.Name, V.Description, V.VatRate, V.IsObsolete, V.TradedType, V.ExternalCode, V.InsertDate, V.UpdateDate FROM VatDeclarationSchemas V WHERE V.ID=?CD</Statement>
+    <Statement>SELECT V.ID, V.Name, V.Description, V.VatRate, V.IsObsolete, V.TradedType, V.ExternalCode, V.ExternalCodeInt, V.VatRateIsNull, V.InsertDate, V.UpdateDate FROM VatDeclarationSchemas V WHERE V.ID=?CD</Statement>
     <Objects>Documents.VatDeclarationSchema</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>InsertVatDeclarationSchema</Key>
-    <Statement>INSERT INTO VatDeclarationSchemas(Name, Description, VatRate, IsObsolete, TradedType, ExternalCode, InsertDate, UpdateDate) VALUES(?AA, ?AB, ?AC, ?AD, ?AE, ?AF, ?AG, ?AG);</Statement>
+    <Statement>INSERT INTO VatDeclarationSchemas(Name, Description, VatRate, IsObsolete, TradedType, ExternalCode, ExternalCodeInt, VatRateIsNull, InsertDate, UpdateDate) VALUES(?AA, ?AB, ?AC, ?AD, ?AE, ?AF, ?AG, ?AH, ?AI, ?AI);</Statement>
     <Objects>Documents.VatDeclarationSchema</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>UpdateVatDeclarationSchema</Key>
-    <Statement>UPDATE VatDeclarationSchemas SET Name=?AA, Description=?AB, VatRate=?AC, IsObsolete=?AD, TradedType=?AE, ExternalCode=?AF, UpdateDate=?AG WHERE ID=?CD ;</Statement>
+    <Statement>UPDATE VatDeclarationSchemas SET Name=?AA, Description=?AB, VatRate=?AC, IsObsolete=?AD, TradedType=?AE, ExternalCode=?AF, ExternalCodeInt=?AG, VatRateIsNull=?AH, UpdateDate=?AI WHERE ID=?CD ;</Statement>
     <Objects>Documents.VatDeclarationSchema</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3419,7 +3419,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchVatDeclarationSchemaInfoItemList</Key>
-    <Statement>SELECT V.ID, V.Name, V.Description, V.VatRate, V.IsObsolete, V.TradedType, V.ExternalCode FROM VatDeclarationSchemas V ORDER BY V.Name;</Statement>
+    <Statement>SELECT V.ID, V.Name, V.Description, V.VatRate, V.IsObsolete, V.TradedType, V.ExternalCode, V.ExternalCodeInt, V.VatRateIsNull FROM VatDeclarationSchemas V ORDER BY V.Name;</Statement>
     <Objects>ActiveReports.VatDeclarationSchemaInfoItemList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3444,14 +3444,12 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchInvoiceSubtotalListForInvoiceReceived</Key>
-    <Statement>SELECT w.ID, w.VatCode, w.VatRate, w.BaseSum, w.TaxSum, w.VatIsVirtual FROM (SELECT O.ID AS ID, s.ExternalCode AS VatCode, I.Tarif AS VatRate, SUM(I.SumLTL) AS BaseSum, SUM(I.SumVatLTL) AS TaxSum, CASE WHEN O.ID &gt; 0 THEN 0 ELSE 1 END AS VatIsVirtual FROM bz b LEFT JOIN InvoicesReceived O ON O.ID=b.Op_ID LEFT JOIN VatDeclarationSchemas q ON q.ID=O.DeclarationSchemaID LEFT JOIN sfg as I ON I.BZ_ID=O.ID
-LEFT JOIN VatDeclarationSchemas s ON s.ID=I.DeclarationSchemaID WHERE b.Op_data&gt;=?DF AND b.Op_data&lt;=?DT AND NOT s.ID IS NULL AND (q.ID IS NULL OR TRIM(UPPER(s.ExternalCode))&lt;&gt;TRIM(UPPER(q.ExternalCode))) AND (?PD&lt;1 OR b.Op_analitika=?PD) GROUP BY O.ID, s.ExternalCode, s.VatRate ORDER BY O.ID) AS w UNION SELECT w.ID, w.VatCode, w.VatRate, w.BaseSum, w.TaxSum, w.VatIsVirtual FROM (SELECT O.ID AS ID, s.ExternalCode AS VatCode, s.VatRate AS VatRate, SUM(I.SumLTL) AS BaseSum, O.IndirectVatSum AS TaxSum, CASE WHEN O.ID &gt; 0 THEN 1 ELSE 0 END AS VatIsVirtual
-FROM bz b LEFT JOIN InvoicesReceived O ON O.ID=b.Op_ID LEFT JOIN VatDeclarationSchemas s ON s.ID=O.DeclarationSchemaID LEFT JOIN sfg as I ON I.BZ_ID=O.ID LEFT JOIN VatDeclarationSchemas q ON q.ID=I.DeclarationSchemaID WHERE b.Op_data&gt;=?DF AND b.Op_data&lt;=?DT AND NOT s.ID IS NULL AND NOT q.ID IS NULL AND TRIM(UPPER(s.ExternalCode))=TRIM(UPPER(q.ExternalCode)) AND CROUND(O.IndirectVatSum, 2) &gt; 0 AND (?PD&lt;1 OR b.Op_analitika=?PD) GROUP BY O.ID ORDER BY O.ID) AS w;</Statement>
+    <Statement>SELECT w.ID, w.VatCode, w.VatRate, w.BaseSum, w.TaxSum, w.VatIsVirtual, w.VatRateIsNull FROM (SELECT O.ID AS ID, s.ExternalCode AS VatCode, I.Tarif AS VatRate, SUM(I.SumLTL) AS BaseSum, SUM(I.SumVatLTL) AS TaxSum, CASE WHEN O.ID &gt; 0 THEN 0 ELSE 1 END AS VatIsVirtual, s.VatRateIsNull AS VatRateIsNull FROM bz b LEFT JOIN InvoicesReceived O ON O.ID=b.Op_ID LEFT JOIN VatDeclarationSchemas q ON q.ID=O.DeclarationSchemaID LEFT JOIN sfg as I ON I.BZ_ID=O.ID LEFT JOIN VatDeclarationSchemas s ON s.ID=I.DeclarationSchemaID WHERE b.Op_data&gt;=?DF AND b.Op_data&lt;=?DT AND NOT s.ID IS NULL AND (q.ID IS NULL OR TRIM(UPPER(s.ExternalCode))&lt;&gt;TRIM(UPPER(q.ExternalCode))) AND (?PD&lt;1 OR b.Op_analitika=?PD) GROUP BY O.ID, s.ExternalCode, s.VatRate, s.VatRateIsNull ORDER BY O.ID) AS w UNION SELECT w.ID, w.VatCode, w.VatRate, w.BaseSum, w.TaxSum, w.VatIsVirtual, w.VatRateIsNull FROM (SELECT O.ID AS ID, s.ExternalCode AS VatCode, s.VatRate AS VatRate, SUM(I.SumLTL) AS BaseSum, O.IndirectVatSum AS TaxSum, CASE WHEN O.ID &gt; 0 THEN 1 ELSE 0 END AS VatIsVirtual, q.VatRateIsNull AS VatRateIsNull FROM bz b LEFT JOIN InvoicesReceived O ON O.ID=b.Op_ID LEFT JOIN VatDeclarationSchemas s ON s.ID=O.DeclarationSchemaID LEFT JOIN sfg as I ON I.BZ_ID=O.ID LEFT JOIN VatDeclarationSchemas q ON q.ID=I.DeclarationSchemaID WHERE b.Op_data&gt;=?DF AND b.Op_data&lt;=?DT AND NOT s.ID IS NULL AND NOT q.ID IS NULL AND TRIM(UPPER(s.ExternalCode))=TRIM(UPPER(q.ExternalCode)) AND CROUND(O.IndirectVatSum, 2) &gt; 0 AND (?PD&lt;1 OR b.Op_analitika=?PD) GROUP BY O.ID ORDER BY O.ID) AS w;</Statement>
     <Objects>ActiveReports.InvoiceInfoItemList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchInvoiceSubtotalListForInvoiceMade</Key>
-    <Statement>SELECT O.ID, s.ExternalCode, s.VatRate, SUM(I.SumLTL - I.DiscountLTL), SUM(I.SumVatLTL - I.DiscountVatLTL), I.VatIsVirtual FROM bz b LEFT JOIN InvoicesMade O ON O.ID=b.Op_ID LEFT JOIN sfd as I ON I.SF_ID=O.ID LEFT JOIN VatDeclarationSchemas s ON s.ID=I.DeclarationSchemaID WHERE b.Op_data&gt;=?DF AND b.Op_data&lt;=?DT AND NOT O.ID IS NULL AND (?PD&lt;1 OR b.Op_analitika=?PD) GROUP BY O.ID, s.ExternalCode, s.VatRate ORDER BY O.ID;</Statement>
+    <Statement>SELECT O.ID, s.ExternalCode, s.VatRate, SUM(I.SumLTL - I.DiscountLTL), SUM(I.SumVatLTL - I.DiscountVatLTL), I.VatIsVirtual, s.VatRateIsNull FROM bz b LEFT JOIN InvoicesMade O ON O.ID=b.Op_ID LEFT JOIN sfd as I ON I.SF_ID=O.ID LEFT JOIN VatDeclarationSchemas s ON s.ID=I.DeclarationSchemaID WHERE b.Op_data&gt;=?DF AND b.Op_data&lt;=?DT AND NOT O.ID IS NULL AND (?PD&lt;1 OR b.Op_analitika=?PD) GROUP BY O.ID, s.ExternalCode, s.VatRate, s.VatRateIsNull ORDER BY O.ID;</Statement>
     <Objects>ActiveReports.InvoiceInfoItemList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
