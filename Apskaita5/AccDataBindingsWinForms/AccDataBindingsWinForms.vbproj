@@ -57,6 +57,10 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AccControls, Version=1.0.5486.29043, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Apskaita5\AccControls.dll</HintPath>
+    </Reference>
     <Reference Include="AccWebCrawler, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\AccWebCrawler\AccWebCrawler\bin\Release\AccWebCrawler.dll</HintPath>
@@ -107,6 +111,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core">
@@ -484,6 +490,12 @@
       <DependentUpon>F_Offset.vb</DependentUpon>
     </Compile>
     <Compile Include="Documents\F_Offset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documents\F_ProformaInvoiceMade.Designer.vb">
+      <DependentUpon>F_ProformaInvoiceMade.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Documents\F_ProformaInvoiceMade.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Documents\F_Service.Designer.vb">
@@ -1177,6 +1189,9 @@
     <EmbeddedResource Include="Documents\F_Offset.resx">
       <DependentUpon>F_Offset.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Documents\F_ProformaInvoiceMade.resx">
+      <DependentUpon>F_ProformaInvoiceMade.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Documents\F_Service.resx">
       <DependentUpon>F_Service.vb</DependentUpon>
     </EmbeddedResource>
@@ -1742,6 +1757,7 @@
     <None Include="Resources\Remove_attachment_24x24.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.ProformaInvoiceMade.datasource" />
     <None Include="Resources\Remove_Attachment_32x32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

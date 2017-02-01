@@ -113,7 +113,11 @@
 
             sd.Rows.Add()
 
-            sd.Rows(0).Item(0) = criteria.MunicipalityCode
+            If criteria.Year < 2017 Then
+                sd.Rows(0).Item(0) = criteria.MunicipalityCode
+            Else
+                sd.Rows(0).Item(0) = ""
+            End If
             sd.Rows(0).Item(1) = criteria.Date.ToShortDateString
             sd.Rows(0).Item(2) = criteria.Year
             sd.Rows(0).Item(3) = criteria.Month
@@ -131,109 +135,111 @@
 
             Try
 
-                sd.Rows(0).Item(4) = Declaration.GetEmployeesCount(New Date( _
-                    criteria.Year, criteria.Month, Date.DaysInMonth(criteria.Year, criteria.Month)))
-
-                Dim myComm As New SQLCommand("FetchDeclarationFR0572(3)_1")
+                Dim myComm As New SQLCommand("FetchDeclarationFR0572(4)_General")
                 myComm.AddParam("?MN", criteria.Month)
                 myComm.AddParam("?YR", criteria.Year)
+                myComm.AddParam("?DT", New Date(criteria.Year, criteria.Month, _
+                    Date.DaysInMonth(criteria.Year, criteria.Month)))
+
+                Dim psdBefore15, psdAfter15 As Double
+
                 Using myData As DataTable = myComm.Fetch
 
                     If myData.Rows.Count < 1 Then myData.Rows.Add()
-                    Declaration.ClearDatatable(myData, 0)
 
-                    sd.Rows(0).Item(7) = DblParser(CDbl(myData.Rows(0).Item(0)) + _
-                        CDbl(myData.Rows(0).Item(1)) + CDbl(myData.Rows(0).Item(4)))
-                    sd.Rows(0).Item(8) = DblParser(CDbl(myData.Rows(0).Item(2)))
-                    sd.Rows(0).Item(9) = DblParser(CDbl(myData.Rows(0).Item(3)))
+                    Dim dr As DataRow = myData.Rows(0)
+
+                    sd.Rows(0).Item(4) = CIntSafe(dr.item(0), 0)
+
+                    ' wage
+                    sd.Rows(0).Item(7) = CRound(CDblSafe(dr.Item(1), 2, 0) + _
+                        CDblSafe(dr.Item(2), 2, 0)) ' wage + imprest
+                    sd.Rows(0).Item(8) = Convert.ToInt32(CDblSafe(dr.Item(3), 2, 0)) ' GPM before 15
+                    sd.Rows(0).Item(9) = Convert.ToInt32(CDblSafe(dr.Item(4), 2, 0)) ' GPM after 15
+
+                    ' other
+                    sd.Rows(0).Item(10) = CDblSafe(dr.Item(5), 2, 0)
+                    sd.Rows(0).Item(11) = Convert.ToInt32(CDblSafe(dr.Item(6), 2, 0)) ' GPM before 15
+                    sd.Rows(0).Item(12) = Convert.ToInt32(CDblSafe(dr.Item(7), 2, 0)) ' GPM after 15
+
+                    ' sales
+                    sd.Rows(0).Item(13) = CDblSafe(dr.Item(8), 2, 0)
+                    sd.Rows(0).Item(14) = Convert.ToInt32(CDblSafe(dr.Item(9), 2, 0)) ' GPM before 15
+                    sd.Rows(0).Item(15) = Convert.ToInt32(CDblSafe(dr.Item(10), 2, 0)) ' GPM after 15
+
+                    ' PSD
+                    sd.Rows(0).Item(16) = 0 ' default 0
+                    sd.Rows(0).Item(17) = 0 ' default 0
+                    psdBefore15 = Convert.ToInt32(CDblSafe(dr.Item(11))) ' PSD before 15
+                    psdAfter15 = Convert.ToInt32(CDblSafe(dr.Item(12))) ' PSD after 15
 
                 End Using
 
-                Dim otherIncomeTotal, psdBefore15, psdAfter15 As Double
+                ' default appendix page and line counts defaults
+                sd.Rows(0).Item(5) = 0
+                sd.Rows(0).Item(6) = 0
+                ' appendix subtotals defaults
+                sd.Rows(0).Item(18) = 0
+                sd.Rows(0).Item(19) = 0
+                sd.Rows(0).Item(20) = 0
 
-                myComm = New SQLCommand("FetchDeclarationFR0572(3)_2")
-                myComm.AddParam("?MN", criteria.Month)
-                myComm.AddParam("?YR", criteria.Year)
-                Using myData As DataTable = myComm.Fetch
+                If criteria.Year < 2017 Then
 
-                    If myData.Rows.Count < 1 Then myData.Rows.Add()
-                    Declaration.ClearDatatable(myData, 0)
+                    Dim appendixIncomeTotal As Double = 0
+                    Dim appendixIncomeTaxTotal As Double = 0
+                    Dim appendixPSDTotal As Double = 0
+                    Dim i As Integer = 0
 
-                    otherIncomeTotal = CRound(CDbl(myData.Rows(0).Item(0)))
-                    sd.Rows(0).Item(11) = DblParser(CDbl(myData.Rows(0).Item(1)))
-                    sd.Rows(0).Item(12) = DblParser(CDbl(myData.Rows(0).Item(2)))
-                    psdBefore15 = CRound(CDbl(myData.Rows(0).Item(3)))
-                    psdAfter15 = CRound(CDbl(myData.Rows(0).Item(4)))
+                    myComm = New SQLCommand("FetchDeclarationFR0572(3)_3")
+                    myComm.AddParam("?MN", criteria.Month)
+                    myComm.AddParam("?YR", criteria.Year)
+                    Using myData As DataTable = myComm.Fetch
 
-                End Using
+                        Declaration.ClearDatatable(myData, 0)
 
-                Dim salesIncomeTotal As Double = 0
-                Dim salesIncomeTaxBefore15 As Double = 0
-                Dim salesIncomeTaxAfter15 As Double = 0
-                Dim appendixIncomeTotal As Double = 0
-                Dim appendixIncomeTaxTotal As Double = 0
-                Dim appendixPSDTotal As Double = 0
-                Dim i As Integer = 0
+                        For Each dr As DataRow In myData.Rows
+                            dd.Rows.Add()
+                            dd.Rows(i).Item(0) = i + 1
+                            dd.Rows(i).Item(1) = CStrSafe(dr.Item(0))
+                            dd.Rows(i).Item(2) = CStrSafe(dr.Item(1))
+                            dd.Rows(i).Item(3) = criteria.MunicipalityCode
+                            dd.Rows(i).Item(4) = CDblSafe(dr.Item(2), 2, 0)
+                            dd.Rows(i).Item(5) = CDblSafe(dr.Item(3), 2, 0)
+                            dd.Rows(i).Item(6) = Convert.ToInt32(CDblSafe(dr.Item(4), 2, 0))
+                            dd.Rows(i).Item(7) = GetMinLengthString(CStrSafe(dr.Item(5)), 2, "0"c)
+                            dd.Rows(i).Item(8) = CDblSafe(dr.Item(6), 2, 0)
 
-                myComm = New SQLCommand("FetchDeclarationFR0572(3)_3")
-                myComm.AddParam("?MN", criteria.Month)
-                myComm.AddParam("?YR", criteria.Year)
-                Using myData As DataTable = myComm.Fetch
+                            If CIntSafe(dr.Item(5), 0) = 3 Then
 
-                    Declaration.ClearDatatable(myData, 0)
+                                ' it's a sick leave tax code
+                                sd.Rows(0).Item(10) = CRound(DirectCast(sd.Rows(0).Item(10), Double) _
+                                    + CDblSafe(dr.Item(2), 2, 0), 2)
+                                If CIntSafe(dr.Item(4), 0) = 1 Then
+                                    psdBefore15 = psdBefore15 + CDblSafe(dr.Item(6), 2, 0)
+                                Else
+                                    psdAfter15 = psdAfter15 + CDblSafe(dr.Item(6), 2, 0)
+                                End If
 
-                    For Each dr As DataRow In myData.Rows
-                        dd.Rows.Add()
-                        dd.Rows(i).Item(0) = i + 1
-                        dd.Rows(i).Item(1) = dr.Item(0).ToString
-                        dd.Rows(i).Item(2) = dr.Item(1).ToString
-                        dd.Rows(i).Item(3) = criteria.MunicipalityCode
-                        dd.Rows(i).Item(4) = DblParser(CDbl(dr.Item(2)))
-                        dd.Rows(i).Item(5) = DblParser(CDbl(dr.Item(3)))
-                        dd.Rows(i).Item(6) = CInt(dr.Item(4))
-                        dd.Rows(i).Item(7) = GetMinLengthString(dr.Item(5).ToString, 2, "0"c)
-                        dd.Rows(i).Item(8) = DblParser(CDbl(dr.Item(6)))
-
-                        If CInt(dr.Item(5)) > 13 AndAlso CInt(dr.Item(5)) < 19 Then
-                            ' it's a sales income tax codes
-                            salesIncomeTotal = salesIncomeTotal + CDbl(dr.Item(2))
-                            If CInt(dr.Item(4)) = 1 Then
-                                salesIncomeTaxBefore15 = salesIncomeTaxBefore15 + CDbl(dr.Item(3))
-                            Else
-                                salesIncomeTaxAfter15 = salesIncomeTaxAfter15 + CDbl(dr.Item(3))
                             End If
 
-                        ElseIf CInt(dr.Item(5)) = 3 Then
-                            ' it's a sick leave tax code
-                            otherIncomeTotal = otherIncomeTotal + CDbl(dr.Item(2))
-                            If CInt(dr.Item(4)) = 1 Then
-                                psdBefore15 = psdBefore15 + CDbl(dr.Item(6))
-                            Else
-                                psdAfter15 = psdAfter15 + CDbl(dr.Item(6))
-                            End If
+                            appendixIncomeTotal = appendixIncomeTotal + CDblSafe(dr.Item(2), 2, 0)
+                            appendixIncomeTaxTotal = appendixIncomeTaxTotal + CDblSafe(dr.Item(3), 2, 0)
+                            appendixPSDTotal = appendixPSDTotal + Convert.ToInt32(CDblSafe(dr.Item(6), 2, 0))
 
-                        End If
+                            i += 1
+                        Next
 
-                        appendixIncomeTotal = appendixIncomeTotal + CDbl(dr.Item(2))
-                        appendixIncomeTaxTotal = appendixIncomeTaxTotal + CDbl(dr.Item(3))
-                        appendixPSDTotal = appendixPSDTotal + CDbl(dr.Item(6))
+                    End Using
 
-                        i += 1
-                    Next
+                    sd.Rows(0).Item(5) = Math.Ceiling(i / 4)
+                    sd.Rows(0).Item(6) = Math.Ceiling(i)
+                    sd.Rows(0).Item(16) = psdBefore15
+                    sd.Rows(0).Item(17) = psdAfter15
+                    sd.Rows(0).Item(18) = appendixIncomeTotal
+                    sd.Rows(0).Item(19) = appendixIncomeTaxTotal
+                    sd.Rows(0).Item(20) = appendixPSDTotal
 
-                End Using
-
-                sd.Rows(0).Item(5) = Math.Ceiling(i / 4)
-                sd.Rows(0).Item(6) = Math.Ceiling(i)
-                sd.Rows(0).Item(10) = DblParser(otherIncomeTotal)
-                sd.Rows(0).Item(13) = DblParser(salesIncomeTotal)
-                sd.Rows(0).Item(14) = DblParser(salesIncomeTaxBefore15)
-                sd.Rows(0).Item(15) = DblParser(salesIncomeTaxAfter15)
-                sd.Rows(0).Item(16) = DblParser(psdBefore15)
-                sd.Rows(0).Item(17) = DblParser(psdAfter15)
-                sd.Rows(0).Item(18) = DblParser(appendixIncomeTotal)
-                sd.Rows(0).Item(19) = DblParser(appendixIncomeTaxTotal)
-                sd.Rows(0).Item(20) = DblParser(appendixPSDTotal)
+                End If
 
                 result.Tables.Add(sd)
                 result.Tables.Add(dd)
@@ -368,23 +374,23 @@
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
                         CDbl(specificDataRow.Item(7)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E19" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = Convert.ToInt32(CDbl(specificDataRow.Item(8))).ToString()
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = specificDataRow.Item(8).ToString()
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E20" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = Convert.ToInt32(CDbl(specificDataRow.Item(9))).ToString()
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = specificDataRow.Item(9).ToString()
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E21" Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
                         CDbl(specificDataRow.Item(10)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E22" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = Convert.ToInt32(CDbl(specificDataRow.Item(11))).ToString()
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = specificDataRow.Item(11).ToString()
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E23" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = Convert.ToInt32(CDbl(specificDataRow.Item(12))).ToString()
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = specificDataRow.Item(12).ToString()
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E24" Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
                         CDbl(specificDataRow.Item(13)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E25" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = Convert.ToInt32(CDbl(specificDataRow.Item(14))).ToString()
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = specificDataRow.Item(14).ToString()
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E26" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = Convert.ToInt32(CDbl(specificDataRow.Item(15))).ToString()
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = specificDataRow.Item(15).ToString()
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "E27" _
                     AndAlso CInt(specificDataRow.Item(2)) = 2009 Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _

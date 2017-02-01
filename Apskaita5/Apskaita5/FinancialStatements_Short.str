@@ -4,38 +4,52 @@
     <Name>Finansinė atskaitomybė</Name>
     <IsCredit>0</IsCredit>
     <Type>4</Type>
+    <VisibleIndex>0</VisibleIndex>
+    <DisplayedNumber />
     <Children>
       <ConsolidatedReportItem>
         <Name>Balanso ataskaita</Name>
         <IsCredit>0</IsCredit>
         <Type>2</Type>
+        <VisibleIndex>0</VisibleIndex>
+        <DisplayedNumber />
         <Children>
           <ConsolidatedReportItem>
             <Name>TURTAS</Name>
             <IsCredit>0</IsCredit>
             <Type>0</Type>
+            <VisibleIndex>1</VisibleIndex>
+            <DisplayedNumber />
             <Children>
               <ConsolidatedReportItem>
                 <Name>ILGALAIKIS TURTAS</Name>
                 <IsCredit>0</IsCredit>
                 <Type>0</Type>
+                <VisibleIndex>2</VisibleIndex>
+                <DisplayedNumber>A.</DisplayedNumber>
                 <Children>
                   <ConsolidatedReportItem>
                     <Name>NEMATERIALUSIS TURTAS</Name>
                     <IsCredit>0</IsCredit>
                     <Type>0</Type>
+                    <VisibleIndex>3</VisibleIndex>
+                    <DisplayedNumber>I.</DisplayedNumber>
                     <Children />
                   </ConsolidatedReportItem>
                   <ConsolidatedReportItem>
                     <Name>MATERIALUSIS TURTAS</Name>
                     <IsCredit>0</IsCredit>
                     <Type>0</Type>
+                    <VisibleIndex>4</VisibleIndex>
+                    <DisplayedNumber>II.</DisplayedNumber>
                     <Children />
                   </ConsolidatedReportItem>
                   <ConsolidatedReportItem>
                     <Name>FINANSINIS TURTAS</Name>
                     <IsCredit>0</IsCredit>
                     <Type>0</Type>
+                    <VisibleIndex>5</VisibleIndex>
+                    <DisplayedNumber>III.</DisplayedNumber>
                     <Children />
                   </ConsolidatedReportItem>
                 </Children>
@@ -44,29 +58,39 @@
                 <Name>TRUMPALAIKIS TURTAS</Name>
                 <IsCredit>0</IsCredit>
                 <Type>0</Type>
+                <VisibleIndex>6</VisibleIndex>
+                <DisplayedNumber>B.</DisplayedNumber>
                 <Children>
                   <ConsolidatedReportItem>
                     <Name>ATSARGOS, IŠANKSTINIAI APMOKĖJIMAI IR NEBAIGTOS VYKDYTI SUTARTYS</Name>
                     <IsCredit>0</IsCredit>
                     <Type>0</Type>
+                    <VisibleIndex>7</VisibleIndex>
+                    <DisplayedNumber>I.</DisplayedNumber>
                     <Children />
                   </ConsolidatedReportItem>
                   <ConsolidatedReportItem>
                     <Name>PER VIENERIUS METUS GAUTINOS SUMOS</Name>
                     <IsCredit>0</IsCredit>
                     <Type>0</Type>
+                    <VisibleIndex>8</VisibleIndex>
+                    <DisplayedNumber>II.</DisplayedNumber>
                     <Children />
                   </ConsolidatedReportItem>
                   <ConsolidatedReportItem>
                     <Name>KITAS TRUMPALAIKIS TURTAS</Name>
                     <IsCredit>0</IsCredit>
                     <Type>0</Type>
+                    <VisibleIndex>9</VisibleIndex>
+                    <DisplayedNumber>III.</DisplayedNumber>
                     <Children />
                   </ConsolidatedReportItem>
                   <ConsolidatedReportItem>
                     <Name>PINIGAI IR PINIGŲ EKVIVALENTAI</Name>
                     <IsCredit>0</IsCredit>
                     <Type>0</Type>
+                    <VisibleIndex>10</VisibleIndex>
+                    <DisplayedNumber>IV.</DisplayedNumber>
                     <Children />
                   </ConsolidatedReportItem>
                 </Children>
@@ -77,34 +101,46 @@
             <Name>NUOSAVAS KAPITALAS IR ĮSIPAREIGOJIMAI</Name>
             <IsCredit>1</IsCredit>
             <Type>0</Type>
+            <VisibleIndex>11</VisibleIndex>
+            <DisplayedNumber />
             <Children>
               <ConsolidatedReportItem>
                 <Name>NUOSAVAS KAPITALAS</Name>
                 <IsCredit>1</IsCredit>
                 <Type>0</Type>
+                <VisibleIndex>12</VisibleIndex>
+                <DisplayedNumber>C.</DisplayedNumber>
                 <Children>
                   <ConsolidatedReportItem>
                     <Name>KAPITALAS</Name>
                     <IsCredit>1</IsCredit>
                     <Type>0</Type>
+                    <VisibleIndex>13</VisibleIndex>
+                    <DisplayedNumber>I.</DisplayedNumber>
                     <Children />
                   </ConsolidatedReportItem>
                   <ConsolidatedReportItem>
                     <Name>PERKAINOJIMO REZERVAS (REZULTATAI)</Name>
                     <IsCredit>1</IsCredit>
                     <Type>0</Type>
+                    <VisibleIndex>14</VisibleIndex>
+                    <DisplayedNumber>II.</DisplayedNumber>
                     <Children />
                   </ConsolidatedReportItem>
                   <ConsolidatedReportItem>
                     <Name>REZERVAI</Name>
                     <IsCredit>1</IsCredit>
                     <Type>0</Type>
+                    <VisibleIndex>15</VisibleIndex>
+                    <DisplayedNumber>III.</DisplayedNumber>
                     <Children />
                   </ConsolidatedReportItem>
                   <ConsolidatedReportItem>
                     <Name>NEPASKIRSTYTASIS PELNAS (NUOSTOLIAI)</Name>
                     <IsCredit>1</IsCredit>
                     <Type>0</Type>
+                    <VisibleIndex>16</VisibleIndex>
+                    <DisplayedNumber>IV.</DisplayedNumber>
                     <Children />
                   </ConsolidatedReportItem>
                 </Children>
@@ -113,23 +149,31 @@
                 <Name>DOTACIJOS, SUBSIDIJOS</Name>
                 <IsCredit>1</IsCredit>
                 <Type>0</Type>
+                <VisibleIndex>17</VisibleIndex>
+                <DisplayedNumber>D.</DisplayedNumber>
                 <Children />
               </ConsolidatedReportItem>
               <ConsolidatedReportItem>
                 <Name>MOKĖTINOS SUMOS IR ĮSIPAREIGOJIMAI</Name>
                 <IsCredit>1</IsCredit>
                 <Type>0</Type>
+                <VisibleIndex>18</VisibleIndex>
+                <DisplayedNumber>E.</DisplayedNumber>
                 <Children>
                   <ConsolidatedReportItem>
                     <Name>PO VIENERIŲ METŲ MOKĖTINOS SUMOS IR ILGALAIKIAI ĮSIPAREIGOJIMAI</Name>
                     <IsCredit>1</IsCredit>
                     <Type>0</Type>
+                    <VisibleIndex>19</VisibleIndex>
+                    <DisplayedNumber>I.</DisplayedNumber>
                     <Children />
                   </ConsolidatedReportItem>
                   <ConsolidatedReportItem>
                     <Name>PER VIENERIUS METUS MOKĖTINOS SUMOS IR TRUMPALAIKIAI ĮSIPAREIGOJIMAI</Name>
                     <IsCredit>1</IsCredit>
                     <Type>0</Type>
+                    <VisibleIndex>20</VisibleIndex>
+                    <DisplayedNumber>II.</DisplayedNumber>
                     <Children />
                   </ConsolidatedReportItem>
                 </Children>
@@ -142,74 +186,126 @@
         <Name>Pelno (nuostolio) ataskaita</Name>
         <IsCredit>1</IsCredit>
         <Type>3</Type>
+        <VisibleIndex>0</VisibleIndex>
+        <DisplayedNumber />
         <Children>
           <ConsolidatedReportItem>
             <Name>GRYNASIS PELNAS (NUOSTOLIAI)</Name>
             <IsCredit>1</IsCredit>
             <Type>1</Type>
+            <VisibleIndex>15</VisibleIndex>
+            <DisplayedNumber>XIII.</DisplayedNumber>
             <Children>
               <ConsolidatedReportItem>
                 <Name>PELNO MOKESTIS</Name>
                 <IsCredit>1</IsCredit>
                 <Type>1</Type>
+                <VisibleIndex>14</VisibleIndex>
+                <DisplayedNumber>XII.</DisplayedNumber>
                 <Children />
               </ConsolidatedReportItem>
               <ConsolidatedReportItem>
                 <Name>PELNAS (NUOSTOLIAI) PRIEŠ APMOKESTINIMĄ</Name>
                 <IsCredit>1</IsCredit>
                 <Type>1</Type>
+                <VisibleIndex>13</VisibleIndex>
+                <DisplayedNumber>XI.</DisplayedNumber>
                 <Children>
                   <ConsolidatedReportItem>
                     <Name>NETEKIMAI</Name>
-                    <IsCredit>1</IsCredit>
+                    <IsCredit>0</IsCredit>
                     <Type>1</Type>
+                    <VisibleIndex>12</VisibleIndex>
+                    <DisplayedNumber>X.</DisplayedNumber>
                     <Children />
                   </ConsolidatedReportItem>
                   <ConsolidatedReportItem>
                     <Name>PAGAUTĖ</Name>
                     <IsCredit>1</IsCredit>
                     <Type>1</Type>
+                    <VisibleIndex>11</VisibleIndex>
+                    <DisplayedNumber>IX.</DisplayedNumber>
                     <Children />
                   </ConsolidatedReportItem>
                   <ConsolidatedReportItem>
                     <Name>ĮPRASTINĖS VEIKLOS PELNAS (NUOSTOLIAI)</Name>
                     <IsCredit>1</IsCredit>
                     <Type>1</Type>
+                    <VisibleIndex>10</VisibleIndex>
+                    <DisplayedNumber>VIII.</DisplayedNumber>
                     <Children>
                       <ConsolidatedReportItem>
                         <Name>FINANSINĖ IR INVESTICINĖ VEIKLA</Name>
                         <IsCredit>1</IsCredit>
                         <Type>1</Type>
+                        <VisibleIndex>9</VisibleIndex>
+                        <DisplayedNumber>VII.</DisplayedNumber>
                         <Children />
                       </ConsolidatedReportItem>
                       <ConsolidatedReportItem>
                         <Name>KITA VEIKLA</Name>
                         <IsCredit>1</IsCredit>
                         <Type>1</Type>
-                        <Children />
-                      </ConsolidatedReportItem>
-                      <ConsolidatedReportItem>
-                        <Name>VEIKLOS SĄNAUDOS</Name>
-                        <IsCredit>1</IsCredit>
-                        <Type>1</Type>
-                        <Children />
+                        <VisibleIndex>6</VisibleIndex>
+                        <DisplayedNumber>VI.</DisplayedNumber>
+                        <Children>
+                          <ConsolidatedReportItem>
+                            <Name>Ilgalaikio turto pardavimai</Name>
+                            <IsCredit>1</IsCredit>
+                            <Type>1</Type>
+                            <VisibleIndex>7</VisibleIndex>
+                            <DisplayedNumber>VI.1.</DisplayedNumber>
+                            <Children />
+                          </ConsolidatedReportItem>
+                          <ConsolidatedReportItem>
+                            <Name>Kita veikla</Name>
+                            <IsCredit>1</IsCredit>
+                            <Type>1</Type>
+                            <VisibleIndex>8</VisibleIndex>
+                            <DisplayedNumber>VI.2.</DisplayedNumber>
+                            <Children />
+                          </ConsolidatedReportItem>
+                        </Children>
                       </ConsolidatedReportItem>
                       <ConsolidatedReportItem>
                         <Name>TIPINĖS VEIKLOS PELNAS (NUOSTOLIAI)</Name>
                         <IsCredit>1</IsCredit>
                         <Type>1</Type>
+                        <VisibleIndex>5</VisibleIndex>
+                        <DisplayedNumber>V.</DisplayedNumber>
                         <Children>
                           <ConsolidatedReportItem>
-                            <Name>PARDAVIMO SAVIKAINA</Name>
-                            <IsCredit>1</IsCredit>
+                            <Name>VEIKLOS SĄNAUDOS</Name>
+                            <IsCredit>0</IsCredit>
                             <Type>1</Type>
+                            <VisibleIndex>4</VisibleIndex>
+                            <DisplayedNumber>IV.</DisplayedNumber>
                             <Children />
                           </ConsolidatedReportItem>
                           <ConsolidatedReportItem>
-                            <Name>PARDAVIMO PAJAMOS</Name>
+                            <Name>BENDRASIS PELNAS (NUOSTOLIAI)</Name>
                             <IsCredit>1</IsCredit>
                             <Type>1</Type>
-                            <Children />
+                            <VisibleIndex>3</VisibleIndex>
+                            <DisplayedNumber>III.</DisplayedNumber>
+                            <Children>
+                              <ConsolidatedReportItem>
+                                <Name>PARDAVIMO SAVIKAINA</Name>
+                                <IsCredit>1</IsCredit>
+                                <Type>1</Type>
+                                <VisibleIndex>2</VisibleIndex>
+                                <DisplayedNumber>II.</DisplayedNumber>
+                                <Children />
+                              </ConsolidatedReportItem>
+                              <ConsolidatedReportItem>
+                                <Name>PARDAVIMO PAJAMOS</Name>
+                                <IsCredit>0</IsCredit>
+                                <Type>1</Type>
+                                <VisibleIndex>1</VisibleIndex>
+                                <DisplayedNumber>I.</DisplayedNumber>
+                                <Children />
+                              </ConsolidatedReportItem>
+                            </Children>
                           </ConsolidatedReportItem>
                         </Children>
                       </ConsolidatedReportItem>

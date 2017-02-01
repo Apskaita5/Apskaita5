@@ -14,20 +14,20 @@ Namespace ActiveReports
 #Region " Business Methods "
 
         Private ReadOnly _ID As Guid = Guid.NewGuid
-        Private _JournalEntryID As Integer
-        Private _JournalEntryDate As Date
-        Private _DocType As DocumentType
-        Private _DocTypeHumanReadable As String
-        Private _DocNumber As String
-        Private _Content As String
-        Private _DebetTurnover As Double
-        Private _CreditTurnover As Double
+        Private _JournalEntryID As Integer = 0
+        Private _JournalEntryDate As Date = Today
+        Private _DocType As DocumentType = DocumentType.None
+        Private _DocTypeHumanReadable As String = ""
+        Private _DocNumber As String = ""
+        Private _Content As String = ""
+        Private _DebetTurnover As Double = 0
+        Private _CreditTurnover As Double = 0
         Private _PersonID As Integer = 0
         Private _PersonName As String = ""
         Private _PersonCode As String = ""
         Private _PersonAddress As String = ""
 
-        Private _BookEntriesString As String
+        Private _BookEntriesString As String = ""
 
         ''' <summary>
         ''' Gets a GUID only for technical purposes.
@@ -235,27 +235,17 @@ Namespace ActiveReports
             _DocNumber = CStrSafe(dr.Item(2))
             _Content = CStrSafe(dr.Item(3))
 
-            _DocType = Utilities.ConvertDatabaseCharID(Of DocumentType)(CStrSafe(dr.Item(4)))
-            _DocTypeHumanReadable = Utilities.ConvertLocalizedName(_DocType)
+            _DocType = ConvertDatabaseCharID(Of DocumentType)(CStrSafe(dr.Item(4)))
+            _DocTypeHumanReadable = ConvertLocalizedName(_DocType)
 
-            If Not CIntSafe(dr.Item(5), 0) > 0 AndAlso Not CIntSafe(dr.Item(11), 0) > 0 Then
-                _PersonID = 0
-                _PersonName = ""
-                _PersonCode = ""
-                _PersonAddress = ""
-            ElseIf CIntSafe(dr.Item(5), 0) > 0 Then
-                _PersonID = CIntSafe(dr.Item(5), 0)
+            _PersonID = CIntSafe(dr.Item(5), 0)
+            If _PersonID > 0 Then
                 _PersonName = CStrSafe(dr.Item(6)).Trim
                 _PersonCode = CStrSafe(dr.Item(7)).Trim
                 _PersonAddress = CStrSafe(dr.Item(8)).Trim
-            Else
-                _PersonID = CIntSafe(dr.Item(11), 0)
-                _PersonName = CStrSafe(dr.Item(12)).Trim
-                _PersonCode = CStrSafe(dr.Item(13)).Trim
-                _PersonAddress = CStrSafe(dr.Item(14)).Trim
             End If
 
-            If CStrSafe(dr.Item(9)).Trim.ToLower = "debetas" Then
+            If ConvertDatabaseCharID(Of BookEntryType)(CStrSafe(dr.Item(9))) = BookEntryType.Debetas Then
                 _DebetTurnover = CDblSafe(dr.Item(10), 2, 0)
                 _CreditTurnover = 0
             Else
@@ -263,7 +253,7 @@ Namespace ActiveReports
                 _CreditTurnover = CDblSafe(dr.Item(10), 2, 0)
             End If
 
-            _BookEntriesString = CStrSafe(dr.Item(15))
+            _BookEntriesString = CStrSafe(dr.Item(11))
 
         End Sub
 

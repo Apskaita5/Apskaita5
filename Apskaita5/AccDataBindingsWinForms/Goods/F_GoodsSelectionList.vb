@@ -56,7 +56,6 @@ Friend Class F_GoodsSelectionList
             Exit Sub
         End If
 
-        Me.Hide()
         Me.Close()
 
     End Sub
@@ -64,7 +63,6 @@ Friend Class F_GoodsSelectionList
     Private Sub nCancelButton_Click(ByVal sender As System.Object, _
         ByVal e As System.EventArgs) Handles nCancelButton.Click
         _Result = Nothing
-        Me.Hide()
         Me.Close()
     End Sub
 

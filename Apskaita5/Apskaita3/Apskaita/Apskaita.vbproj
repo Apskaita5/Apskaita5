@@ -495,6 +495,12 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="Reports\R_ProformaInvoiceAltLng.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_ProformaInvoice.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Reports\R_Declaration_FR0600_2.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -601,9 +607,6 @@
     <Content Include="FFData\FR0572%284%29.ffdata">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="MXFD\FR0572%284%29.mxfd">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="FFData\SAM-v03.ffdata">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -647,6 +650,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="MXFD\FR0471%285%29.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\SAM-v06.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\FR0572%284%29.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\SAM-v06.mxfd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="My Project\DataSources\AccControlsWinForms.ReportData.datasource" />
@@ -710,6 +722,7 @@
     <None Include="My Project\DataSources\ApskaitaObjects.General.AccountList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.General.Company.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.General.CompanyRegionalData.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.General.ConsolidatedReportItem.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.General.ImportedPersonList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.General.JournalEntry.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.General.Persons.Person.datasource" />

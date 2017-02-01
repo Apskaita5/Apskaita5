@@ -6193,7 +6193,7 @@
     <value>Klaida atpažįstant banko operacijos duomenis.{0}Eilutė: "{1}".{2}{3}.</value>
   </data>
   <data name="Documents_BankDataExchangeProviders_ProprietaryBankAccountStatement_PasteColumns" xml:space="preserve">
-    <value>data&lt;BR&gt;dokumento numeris&lt;BR&gt;asmens kodas&lt;BR&gt;asmens pavadinimas&lt;BR&gt;turinys/aprašas&lt;BR&gt;pajamos("")/išlaidos("x")&lt;BR&gt;valiuta&lt;BR&gt;originali suma&lt;BR&gt;suma bazine valiuta&lt;BR&gt;unikalus kodas&lt;BR&gt;asmens (banko) sąskaitos numeris&lt;BR&gt;asmens banko pavadinimas</value>
+    <value>data&lt;BR&gt;dokumento numeris&lt;BR&gt;asmens kodas&lt;BR&gt;asmens pavadinimas&lt;BR&gt;turinys/aprašas&lt;BR&gt;pajamos("")/išlaidos("x")&lt;BR&gt;valiuta&lt;BR&gt;originali suma&lt;BR&gt;suma bazine valiuta&lt;BR&gt;suma sąskaitos valiuta&lt;BR&gt;unikalus kodas&lt;BR&gt;asmens (banko) sąskaitos numeris&lt;BR&gt;asmens banko pavadinimas</value>
   </data>
   <data name="Documents_BankDataExchangeProviders_ProprietaryBankAccountStatement_PasteColumnsDescription" xml:space="preserve">
     <value>Banko operacijos duomenys {0} stulpeliuose turi būti išdėstyti tokia seka: {1}.</value>
@@ -14632,5 +14632,260 @@
   </data>
   <data name="Documents_VatDeclarationSchema_VatRateIsNull" xml:space="preserve">
     <value>be PVM tarifo</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_Amount" xml:space="preserve">
+    <value>kiekis</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_AttachedObject" xml:space="preserve">
+    <value>susieta operacija</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_AttachedObjectValue" xml:space="preserve">
+    <value>susieta operacija</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_Discount" xml:space="preserve">
+    <value>nuolaida</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_DiscountNegative" xml:space="preserve">
+    <value>Nuolaida negali buti neigiama.</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_DiscountVat" xml:space="preserve">
+    <value>nuolaidos PVM</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_DiscountVatCorrection" xml:space="preserve">
+    <value>nuolaidos PVM korekcija</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_DiscountVatCorrectionInvalid" xml:space="preserve">
+    <value>Nuolaidos PVM sumos bazine valiuta korekcija negalima, kai nuolaidos PVM suma lygi nuliui.</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_DoomyMeasureUnit" xml:space="preserve">
+    <value>vnt.</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_DoomyMeasureUnitAltLng" xml:space="preserve">
+    <value>unit</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_DoomyNameInvoice" xml:space="preserve">
+    <value>Kakokios paslaugos {0}</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_DoomyNameInvoiceAltLng" xml:space="preserve">
+    <value>Some services {0} in alternative language</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_MeasureUnit" xml:space="preserve">
+    <value>mato vnt.</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_MeasureUnitAltLng" xml:space="preserve">
+    <value>mato vnt. kita kalba</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_NameInvoice" xml:space="preserve">
+    <value>prekiu/paslaugu pavadinimas</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_NameInvoiceAltLng" xml:space="preserve">
+    <value>prekiu/paslaugu pavadinimas kita kalba</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_Sum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_SumCorrection" xml:space="preserve">
+    <value>sumos korekcija</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_SumTotal" xml:space="preserve">
+    <value>suma viso</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_SumVat" xml:space="preserve">
+    <value>PVM suma</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_SumVatCorrection" xml:space="preserve">
+    <value>PVM sumos korekcija</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_SumVatCorrectionInvalid" xml:space="preserve">
+    <value>PVM sumos korekcija negalima, kai PVM tarifas lygus nuliui.</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_ToString" xml:space="preserve">
+    <value>{0}: {1} {2} po {3}</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_TradedItem" xml:space="preserve">
+    <value>parduodamas objektas</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_TradedItemContent" xml:space="preserve">
+    <value>parduodamas objektas</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_TypeName" xml:space="preserve">
+    <value>iraytos saskaitos eilute</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_UnitValue" xml:space="preserve">
+    <value>vnt. kaina</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_ValueExceedsLimits" xml:space="preserve">
+    <value>Laukelio {0} verte negali buti didesne nei laukelio {1} verte.</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_VatRate" xml:space="preserve">
+    <value>PVM tarifas</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_TradedItemContent_Services" xml:space="preserve">
+    <value>Paslauga: {0}</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_TradedItemContent_Goods" xml:space="preserve">
+    <value>Prekė: {0}</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_TradedItemContent_Undefined" xml:space="preserve">
+    <value>Nenustatytas tipas: {0}</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_TradedItemTypeNotImplemented" xml:space="preserve">
+    <value>Klaida. Nežinomas parduodamo objekto tipas {0}.</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMadeItem_TradedItemTypeCodeNotImplemented" xml:space="preserve">
+    <value>Klaida. Parduodamo objekto kodas {0} neimplementuotas.</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_AddDateToNumberOptionWasUsed" xml:space="preserve">
+    <value>data įtraukta į numerį</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_CommentsInternal" xml:space="preserve">
+    <value>vidiniai komentarai</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_Content" xml:space="preserve">
+    <value>turinys (aprašymas)</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_CurrencyCode" xml:space="preserve">
+    <value>valiuta</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_CustomInfo" xml:space="preserve">
+    <value>kita informacija</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_CustomInfoAltLng" xml:space="preserve">
+    <value>kita informacija kita kalba</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_DiscountSumInvalid" xml:space="preserve">
+    <value>Nuolaidos suma negali būti didesnė už sąskaitos sumą.</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_DoomyCommentsInternal" xml:space="preserve">
+    <value>Kažkokie vidiniai komentarai</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_DoomyContent" xml:space="preserve">
+    <value>Kažkoks turinys (aprašymas)</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_DoomyCustomInfo" xml:space="preserve">
+    <value>Kažkokia papildoma klientui matoma informacija</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_DoomyCustomInfoAltLng" xml:space="preserve">
+    <value>Some additional info for client in original invoice language</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_DoomyInvoiceCurrency" xml:space="preserve">
+    <value>USD</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_DoomyInvoiceLanguage" xml:space="preserve">
+    <value>EN</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_DoomySerial" xml:space="preserve">
+    <value>ORD</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_ExternalID" xml:space="preserve">
+    <value>išorinis ID (SKU)</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_ExternalIdNotUnique" xml:space="preserve">
+    <value>Klaida. Išorinis ID="{0}" jau egzistuoja duomenų bazėje.</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_FullNumber" xml:space="preserve">
+    <value>formatuotas numeris</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_InvalidSaveForDoomy" xml:space="preserve">
+    <value>Klaida. Pavyzdinės sąskaitos negalima išsaugoti duomenų bazėje.</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_InvoiceItemsSorted" xml:space="preserve">
+    <value>eilutės</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_IsDoomyInvoice" xml:space="preserve">
+    <value>pavyzdinė sąskaita</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_LanguageCode" xml:space="preserve">
+    <value>kalba</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_LanguageName" xml:space="preserve">
+    <value>kalba</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_NewAttachedOperationIsNull" xml:space="preserve">
+    <value>Klaida. Nenurodytas parduodamas objektas (prekė, paslauga ar pan.), kurį reikėtų pridėti prie sąskaitos.</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_NoItems" xml:space="preserve">
+    <value>Nenurodyta nė viena sąskaitos eilutė.</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_Number" xml:space="preserve">
+    <value>numeris</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_NumbersInInvoice" xml:space="preserve">
+    <value>skaitmenų numeryje</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_Payer" xml:space="preserve">
+    <value>pirkėjas</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_Serial" xml:space="preserve">
+    <value>serija</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_SerialNumberNotUnique" xml:space="preserve">
+    <value>Klaida. Sąskaita su tokia serija ir numeriu jau yra.</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_Sum" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_SumDiscount" xml:space="preserve">
+    <value>nuolaida</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_SumDiscountVat" xml:space="preserve">
+    <value>nuolaidos PVM</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_SumTotal" xml:space="preserve">
+    <value>suma viso</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_SumVat" xml:space="preserve">
+    <value>PVM suma</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_ToString" xml:space="preserve">
+    <value>{0} išrašyta avansinė sąskaita Nr. {1}{2} (ID={3}): {4}.</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_TypeName" xml:space="preserve">
+    <value>išrašyta avansinė sąskaita</value>
+  </data>
+  <data name="Documents_ProformaInvoiceMade_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="Settings_DocumentSerialType_ProformaInvoice" xml:space="preserve">
+    <value>avansinė sąskaita</value>
+  </data>
+  <data name="General_CompanyBinaryDataType_ProformaInvoiceForm" xml:space="preserve">
+    <value>įmonės avansinės sąskaitos forma (rdlc)</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoType_ProformaInvoiceMade" xml:space="preserve">
+    <value>gautų sąskaitų faktūrų registras</value>
+  </data>
+  <data name="ActiveReports_InvoiceInfoItemList_InvoiceTypesNotSpecified" xml:space="preserve">
+    <value>Klaida. Nepasirinktas nė vienas sąskaitų tipas.</value>
+  </data>
+  <data name="ActiveReports_Declarations_InvoiceRegisterSafT_1_MixedTypesNotSupported" xml:space="preserve">
+    <value>Klaida. Leidžiamas tik vieno tipo sąskaitų faktūrų (arba gautų, arba išrašytų) duomenų eksportas į SAF formatą.</value>
+  </data>
+  <data name="ActiveReports_Declarations_InvoiceRegisterSafT_1_InvalidInvoiceType" xml:space="preserve">
+    <value>Klaida. Leidžiamas tik gautų arba išrašytų sąskaitų faktūrų duomenų eksportas į SAF formatą.</value>
+  </data>
+  <data name="Documents_AdvanceReport_InvoiceListNull" xml:space="preserve">
+    <value>Nenurodyta nė viena pridėtina sąskaita faktūra.</value>
+  </data>
+  <data name="Documents_AdvanceReport_InvalidInvoiceType" xml:space="preserve">
+    <value>Sąskaitos tipas {0} negali būti pridėtas prie avanso apyskaitos ({1}).</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_DisplayedNumber" xml:space="preserve">
+    <value>eilutės numeris</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_VisibleIndex" xml:space="preserve">
+    <value>eilutės eilės numeris</value>
   </data>
 </root>

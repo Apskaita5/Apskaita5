@@ -66,6 +66,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml">
       <Private>True</Private>
@@ -97,6 +98,7 @@
     <Compile Include="ActiveReports\CashOperationInfoList.vb" />
     <Compile Include="ActiveReports\ContractInfo.vb" />
     <Compile Include="ActiveReports\ContractInfoList.vb" />
+    <Compile Include="ActiveReports\Declarations\DeclarationSAM_6.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationFR0471_5.vb" />
     <Compile Include="ActiveReports\Declarations\XmlValidationErrorBuilder.vb" />
     <Compile Include="ActiveReports\IPayOutsNaturalPersonsWithoutTaxesDeclaration.vb" />
@@ -240,7 +242,11 @@
     <Compile Include="CommonValidation\EmptyChronologicValidator.vb" />
     <Compile Include="Attributes\EnumValueAttribute.vb" />
     <Compile Include="CommonValidation\IChronologicValidator.vb" />
+    <Compile Include="Documents\BankDataExchangeProviders\ISO20022v053corruptBankAccountStatement.vb" />
     <Compile Include="Documents\CommandImportVatDeclarationSchemas.vb" />
+    <Compile Include="Documents\ProformaInvoiceMade.vb" />
+    <Compile Include="Documents\ProformaInvoiceMadeItemList.vb" />
+    <Compile Include="Documents\ProformaInvoiceMadeItem.vb" />
     <Compile Include="Documents\InvoiceAdapters\GoodsRedeemFromBuyerInvoiceAdapter.vb" />
     <Compile Include="ActiveReports\VatDeclaration.vb" />
     <Compile Include="Documents\VatDeclarationEntry.vb" />
@@ -255,8 +261,12 @@
     <Compile Include="ActiveReports\VatDeclarationSubtotalList.vb" />
     <Compile Include="Extensibility\Extensibility.vb" />
     <Compile Include="Extensibility\General\Extensibility.vb" />
+    <Compile Include="Extensibility\RestCredentials.vb" />
+    <Compile Include="Extensibility\RestCredentialsList.vb" />
+    <Compile Include="Extensibility\RestHandle.vb" />
     <Compile Include="Goods\OperationsSimple\GoodsOperationRedeemFromBuyer.vb" />
     <Compile Include="Goods\OperationsSimple\GoodsOperationRedeemToSupplier.vb" />
+    <Compile Include="HelperLists\ITradedItem.vb" />
     <Compile Include="HelperLists\UserReportInfo.vb" />
     <Compile Include="HelperLists\UserReportInfoList.vb" />
     <Compile Include="HelperLists\UserReportParamInfo.vb" />
@@ -267,6 +277,7 @@
     <Compile Include="HelperLists\VatDeclarationSchemaInfoList.vb" />
     <Compile Include="IClientEmailProvider.vb" />
     <Compile Include="Attributes\IntegerFieldAttribute.vb" />
+    <Compile Include="ISyncable.vb" />
     <Compile Include="IValidationMessageProvider.vb" />
     <Compile Include="Attributes\ValueRequiredLevel.vb" />
     <Compile Include="CommonValidation\SimpleChronologicValidator.vb" />
@@ -614,7 +625,6 @@
     <None Include="ActiveReports\ClassDiagrams\ActiveReports_Workers_Declarations.cd" />
     <None Include="ActiveReports\ClassDiagrams\DebtInfoList.cd" />
     <None Include="ActiveReports\ClassDiagrams\UnsettledPersonInfoList.cd" />
-    <None Include="ApskaitaService.asmx" />
     <Content Include="DbStructure\DatabaseStructureGauge.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -632,7 +642,6 @@
     <Content Include="CommonSettings.xmls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="web.config" />
     <Content Include="SqlDepositories\SQLite_Depository.sqld">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -668,4 +677,11 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(ProjectDir)DbStructure\DatabaseStructureGauge.xml" "$(SolutionDir)AccWebService\App_Data\DbStructure"
+copy "$(ProjectDir)DbStructure\RoleDatabaseAccessGauge.xml" "$(SolutionDir)AccWebService\App_Data\DbStructure"
+copy "$(ProjectDir)SqlDepositories\MySql_Depository.sqld" "$(SolutionDir)AccWebService\App_Data\SqlDepositories"
+copy "$(ProjectDir)SqlDepositories\SQLite_Depository.sqld" "$(SolutionDir)AccWebService\App_Data\SqlDepositories"
+copy "$(ProjectDir)CommonSettings.xmls" "$(SolutionDir)AccWebService\App_Data"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

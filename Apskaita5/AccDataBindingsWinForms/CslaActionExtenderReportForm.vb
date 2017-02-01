@@ -178,7 +178,8 @@ Public Class CslaActionExtenderReportForm(Of T)
 
     Private Sub Form_Activated(ByVal sender As Object, ByVal e As System.EventArgs)
 
-        If _ParentForm.WindowState = FormWindowState.Maximized AndAlso MyCustomSettings.AutoSizeForm Then
+        If _ParentForm.WindowState = FormWindowState.Maximized AndAlso (_ParentForm.Modal _
+            OrElse MyCustomSettings.AutoSizeForm) Then
             _ParentForm.WindowState = FormWindowState.Normal
         End If
 
@@ -205,7 +206,7 @@ Public Class CslaActionExtenderReportForm(Of T)
                 MyCustomSettings.GetListViewLayOut(listView)
             Next
         End If
-        MyCustomSettings.GetFormLayout(_ParentForm)
+        If Not _ParentForm.Modal Then MyCustomSettings.GetFormLayout(_ParentForm)
 
         _BindingSourceTree.Close()
 

@@ -36,6 +36,13 @@ Namespace Settings
         <EnumValue(1, "ds")> _
         LabourContract
 
+        ''' <summary>
+        ''' An <see cref="Documents.ProformaInvoiceMade">proforma invoice</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <EnumValue(4, "av")> _
+        ProformaInvoice
+
     End Enum
 
 End Namespace

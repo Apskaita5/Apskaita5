@@ -44,6 +44,8 @@
 
         Private Sub Fetch(ByVal invoiceID As Integer, ByVal myData As DataTable)
 
+            If myData Is Nothing Then Exit Sub
+
             RaiseListChangedEvents = False
             IsReadOnly = False
 

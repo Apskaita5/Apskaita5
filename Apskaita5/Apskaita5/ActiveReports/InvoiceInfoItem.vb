@@ -4,8 +4,9 @@ Imports ApskaitaObjects.Attributes
 Namespace ActiveReports
 
     ''' <summary>
-    ''' Represents report information about an <see cref="Documents.InvoiceMade">InvoiceMade</see>
-    ''' or an <see cref="Documents.InvoiceReceived">InvoiceReceived</see>.
+    ''' Represents report information about an <see cref="Documents.InvoiceMade">InvoiceMade</see>,
+    ''' an <see cref="Documents.InvoiceReceived">InvoiceReceived</see> 
+    ''' or a <see cref="Documents.ProformaInvoiceMade">ProformaInvoiceMade</see>.
     ''' </summary>
     ''' <remarks>Should only be used as a child of <see cref="InvoiceInfoItemList">InvoiceInfoItemList</see>.</remarks>
     <Serializable()> _

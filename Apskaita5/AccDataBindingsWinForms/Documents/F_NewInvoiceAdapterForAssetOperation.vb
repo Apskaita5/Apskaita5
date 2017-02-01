@@ -126,7 +126,6 @@ Friend Class F_NewInvoiceAdapterForAssetOperation(Of T)
 
         _Value = DirectCast(result, T)
 
-        Me.Hide()
         Me.Close()
 
     End Sub
@@ -134,7 +133,6 @@ Friend Class F_NewInvoiceAdapterForAssetOperation(Of T)
     Private Sub ICancelButton_Click(ByVal sender As System.Object, _
         ByVal e As System.EventArgs) Handles ICancelButton.Click
 
-        Me.Hide()
         Me.Close()
 
     End Sub

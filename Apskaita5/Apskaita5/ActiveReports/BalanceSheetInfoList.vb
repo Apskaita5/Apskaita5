@@ -108,54 +108,10 @@ Namespace ActiveReports
                     StatementOfFinancialPosition Then Add(BalanceSheetInfo.GetBalanceSheetInfo(dr))
             Next
 
-            SetNumbers()
-
             IsReadOnly = True
             RaiseListChangedEvents = True
 
         End Sub
-
-
-        ''' <summary>
-        ''' Recursively sets the balance items <see cref="BalanceSheetInfo.Number">Number</see> property.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Private Sub SetNumbers()
-
-            Dim MaxLevel As Integer = 0
-            For Each b As BalanceSheetInfo In Me
-                If b.Level > MaxLevel Then MaxLevel = b.Level
-            Next
-
-            Dim CurrentNumber As Integer
-            For i As Integer = 3 To MaxLevel
-                CurrentNumber = 1
-                For Each b As BalanceSheetInfo In Me
-                    If b.Level < i Then
-                        CurrentNumber = 1
-                    ElseIf b.Level = i Then
-                        b.SetNumber(GetDirectParentNumber(b), CurrentNumber)
-                        CurrentNumber += 1
-                    End If
-                Next
-            Next
-
-        End Sub
-
-        Private Function GetDirectParentNumber(ByVal child As BalanceSheetInfo) As String
-
-            Dim result As BalanceSheetInfo = Nothing
-
-            For Each b As BalanceSheetInfo In Me
-                If child.ID <> b.ID AndAlso child.Left > b.Left AndAlso child.Left < b.Right _
-                    AndAlso child.Right < b.Right AndAlso (result Is Nothing OrElse _
-                    (result.Right - result.Left) > (b.Right - b.Left)) Then result = b
-            Next
-
-            If result Is Nothing OrElse result.Level < 4 Then Return ""
-            Return result.Number & "."
-
-        End Function
 
 #End Region
 

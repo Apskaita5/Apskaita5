@@ -10,7 +10,7 @@ Namespace HelperLists
     <Serializable()> _
     Public NotInheritable Class ServiceInfo
         Inherits ReadOnlyBase(Of ServiceInfo)
-        Implements IComparable, IValueObject
+        Implements IComparable, IValueObject, ITradedItem, IRegionalDataObject
 
 #Region " Business Methods "
 
@@ -48,7 +48,8 @@ Namespace HelperLists
         ''' Gets an ID of the service that is assigned by a database (AUTOINCREMENT).
         ''' </summary>
         ''' <remarks>Value is stored in the database field paslaugos.ID.</remarks>
-        Public ReadOnly Property ID() As Integer
+        Public ReadOnly Property ID() As Integer _
+            Implements ITradedItem.ID, IRegionalDataObject.RegionalObjectID
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _ID
@@ -59,7 +60,8 @@ Namespace HelperLists
         ''' Gets how the service is used in trade operations (sale, purchase, etc.).
         ''' </summary>
         ''' <remarks>Value is stored in the database field paslaugos.Tip.</remarks>
-        Public ReadOnly Property [Type]() As Documents.TradedItemType
+        Public ReadOnly Property [Type]() As Documents.TradedItemType _
+            Implements ITradedItem.TradedType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _Type
@@ -223,6 +225,17 @@ Namespace HelperLists
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _MeasureUnit.Trim
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' a type of the regionalizable object
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property RegionalObjectType() As RegionalizedObjectType _
+            Implements IRegionalDataObject.RegionalObjectType
+            Get
+                Return RegionalizedObjectType.Service
             End Get
         End Property
 

@@ -82,13 +82,15 @@ Namespace ActiveReports.Declarations
                 Throw New ArgumentException("List cannot be empty.")
             End If
 
-            ValidateInvoiceData(invoiceRegister)
+            Dim invoiceType As InvoiceInfoType = GetRegisterType(invoiceRegister)
+
+            ValidateInvoiceData(invoiceRegister, selectedInvoicesIds)
 
             Dim result As New SafTTemplates.SafT_1_2.iSAFFile
 
             result.Header = New SafTTemplates.SafT_1_2.Header()
             result.Header.FileDescription = New SafTTemplates.SafT_1_2.FileDescription()
-            If invoiceRegister.InfoType = InvoiceInfoType.InvoiceMade Then
+            If invoiceType = InvoiceInfoType.InvoiceMade Then
                 result.Header.FileDescription.DataType = _
                     SafTTemplates.SafT_1_2.ISAFDataType.S
             Else
@@ -99,7 +101,7 @@ Namespace ActiveReports.Declarations
             result.Header.FileDescription.FileVersion = _
                 SafTTemplates.SafT_1_2.ISAFFileVersion.iSAF12
             result.Header.FileDescription.NumberOfParts = 2
-            result.Header.FileDescription.PartNumber = invoiceRegister.InfoType.ToString().ToUpper()
+            result.Header.FileDescription.PartNumber = invoiceType.ToString().ToUpper()
             result.Header.FileDescription.RegistrationNumber = _
                 Convert.ToUInt64(GetCurrentCompany.Code)
             result.Header.FileDescription.SoftwareCompanyName = "Marius Dagys"
@@ -116,7 +118,7 @@ Namespace ActiveReports.Declarations
             result.SourceDocuments = New SafTTemplates.SafT_1_2.SourceDocuments()
             result.MasterFiles = New SafTTemplates.SafT_1_2.MasterFiles()
 
-            If invoiceRegister.InfoType = InvoiceInfoType.InvoiceMade Then
+            If invoiceType = InvoiceInfoType.InvoiceMade Then
                 result.SourceDocuments.SalesInvoices = GetSalesInvoices(invoiceRegister, selectedInvoicesIds)
                 result.MasterFiles.Customers = GetCustomers( _
                     result.SourceDocuments.SalesInvoices)
@@ -386,23 +388,45 @@ Namespace ActiveReports.Declarations
 
         End Function
 
-        Private Sub ValidateInvoiceData(ByVal invoiceRegister As InvoiceInfoItemList)
+        Private Function GetRegisterType(ByVal invoiceRegister As InvoiceInfoItemList) As InvoiceInfoType
+
+            If invoiceRegister.InfoTypes.Length > 1 Then
+                Throw New Exception(ActiveReports_Declarations_InvoiceRegisterSafT_1_MixedTypesNotSupported)
+            End If
+
+            Dim result As InvoiceInfoType = invoiceRegister.InfoTypes(0)
+
+            If result <> InvoiceInfoType.InvoiceMade AndAlso result <> InvoiceInfoType.InvoiceReceived Then
+                Throw New Exception(ActiveReports_Declarations_InvoiceRegisterSafT_1_InvalidInvoiceType)
+            End If
+
+            Return result
+
+        End Function
+
+        Private Sub ValidateInvoiceData(ByVal invoiceRegister As InvoiceInfoItemList, _
+            ByVal selectedInvoicesIds As Integer())
 
             Dim errors As String = ""
             For Each item As InvoiceInfoItem In invoiceRegister
-                If item.SubtotalList.Count < 1 Then
-                    errors = AddWithNewLine(errors, String.Format(ActiveReports_Declarations_InvoiceRegisterSafT_1_VatSchemaNull, _
-                        item.Date.ToString("yyyy-MM-dd"), item.Number), False)
-                Else
-                    For Each o As InvoiceSubtotalItem In item.SubtotalList
-                        If StringIsNullOrEmpty(o.TaxCode) Then
-                            errors = AddWithNewLine(errors, String.Format(ActiveReports_Declarations_InvoiceRegisterSafT_1_VatSchemaWithoutVatCode, _
-                                item.Date.ToString("yyyy-MM-dd"), item.Number), False)
-                        ElseIf Not ValidateVatCode(o.TaxCode) Then
-                            errors = AddWithNewLine(errors, String.Format(ActiveReports_Declarations_InvoiceRegisterSafT_1_VatCodeInvalid, _
-                                item.Date.ToString("yyyy-MM-dd"), item.Number, o.TaxCode), False)
-                        End If
-                    Next
+                If selectedInvoicesIds Is Nothing OrElse selectedInvoicesIds.Length < 1 _
+                    OrElse Not Array.IndexOf(selectedInvoicesIds, item.ID) < 0 Then
+
+                    If item.SubtotalList.Count < 1 Then
+                        errors = AddWithNewLine(errors, String.Format(ActiveReports_Declarations_InvoiceRegisterSafT_1_VatSchemaNull, _
+                            item.Date.ToString("yyyy-MM-dd"), item.Number), False)
+                    Else
+                        For Each o As InvoiceSubtotalItem In item.SubtotalList
+                            If StringIsNullOrEmpty(o.TaxCode) Then
+                                errors = AddWithNewLine(errors, String.Format(ActiveReports_Declarations_InvoiceRegisterSafT_1_VatSchemaWithoutVatCode, _
+                                    item.Date.ToString("yyyy-MM-dd"), item.Number), False)
+                            ElseIf Not ValidateVatCode(o.TaxCode) Then
+                                errors = AddWithNewLine(errors, String.Format(ActiveReports_Declarations_InvoiceRegisterSafT_1_VatCodeInvalid, _
+                                    item.Date.ToString("yyyy-MM-dd"), item.Number, o.TaxCode), False)
+                            End If
+                        Next
+                    End If
+
                 End If
             Next
 

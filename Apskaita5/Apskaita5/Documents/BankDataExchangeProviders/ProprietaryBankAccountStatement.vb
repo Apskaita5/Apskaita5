@@ -11,7 +11,7 @@
     Public Class ProprietaryBankAccountStatement
         Implements IBankAccountStatement
 
-        Private Const PASTE_COLUMN_COUNT As Integer = 19
+        Private Const PASTE_COLUMN_COUNT As Integer = 13
 
         Private _Items As List(Of BankAccountStatementItem) = Nothing
         Private _Income As Double = 0
@@ -249,13 +249,12 @@
             Dim lineDelim As Char() = {ControlChars.Cr, ControlChars.Lf}
             Dim colDelim As Char() = {ControlChars.Tab}
 
-            Dim lines As String() = source.Split(lineDelim, StringSplitOptions.None)
+            Dim lines As String() = source.Split(lineDelim, StringSplitOptions.RemoveEmptyEntries)
 
             If lines(0).Split(colDelim, StringSplitOptions.None).Length <> PASTE_COLUMN_COUNT Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ProprietaryBankAccountStatement_InvalidColumnCountInPasteString, _
-                    BankOperationItem.GetPasteStringColumnCount().ToString(), _
-                    lines(0).Split(colDelim, StringSplitOptions.None).Length.ToString, vbCrLf, _
-                    BankOperationItem.GetPasteStringColumnsDescription()))
+                    PASTE_COLUMN_COUNT.ToString(), lines(0).Split(colDelim, StringSplitOptions.None).Length.ToString, _
+                    vbCrLf, GetPasteStringColumnsDescription()))
             End If
 
             _Items = New List(Of BankAccountStatementItem)

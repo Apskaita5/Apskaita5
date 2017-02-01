@@ -137,14 +137,12 @@ Public Class F_NewGoodsProductionOperation
 
         _Result = DirectCast(result, GoodsComplexOperationProduction)
 
-        Me.Hide()
         Me.Close()
 
     End Sub
 
     Private Sub nCancelButton_Click(ByVal sender As System.Object, _
         ByVal e As System.EventArgs) Handles nCancelButton.Click
-        Me.Hide()
         Me.Close()
     End Sub
 

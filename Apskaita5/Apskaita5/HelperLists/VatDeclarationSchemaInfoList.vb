@@ -131,6 +131,17 @@
             Return result
         End Function
 
+        ''' <summary>
+        ''' Gets a current VAT declaration schema info value object list from database bypassing dataportal.
+        ''' </summary>
+        ''' <returns></returns>
+        ''' <remarks>Should only be invoked server side.</remarks>
+        Public Shared Function GetListChild() As VatDeclarationSchemaInfoList
+            Dim result As New VatDeclarationSchemaInfoList
+            result.DataPortal_Fetch(New Criteria)
+            Return result
+        End Function
+
 
         Private Shared Function VatDeclarationSchemaInfoFilter(ByVal item As Object, ByVal filterValue As Object) As Boolean
 

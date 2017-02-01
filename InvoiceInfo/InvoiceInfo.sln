@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "InvoiceInfo", "InvoiceInfo\InvoiceInfo.vbproj", "{A8945646-8328-4402-98AF-FEEAC7AC9E04}"
 EndProject
 Global

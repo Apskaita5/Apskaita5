@@ -1710,11 +1710,29 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Leidžiamas tik gautų arba išrašytų sąskaitų faktūrų duomenų eksportas į SAF formatą..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_Declarations_InvoiceRegisterSafT_1_InvalidInvoiceType() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_Declarations_InvoiceRegisterSafT_1_InvalidInvoiceType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Pasirinktų sąskaitų faktūrų duomenyse yra trūkumų,, nesuderinamų su iSAF reikalavimais:{0}{1}.
         '''</summary>
         Friend ReadOnly Property ActiveReports_Declarations_InvoiceRegisterSafT_1_InvoiceDataInvalid() As String
             Get
                 Return ResourceManager.GetString("ActiveReports_Declarations_InvoiceRegisterSafT_1_InvoiceDataInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Leidžiamas tik vieno tipo sąskaitų faktūrų (arba gautų, arba išrašytų) duomenų eksportas į SAF formatą..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_Declarations_InvoiceRegisterSafT_1_MixedTypesNotSupported() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_Declarations_InvoiceRegisterSafT_1_MixedTypesNotSupported", resourceCulture)
             End Get
         End Property
         
@@ -2484,6 +2502,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nepasirinktas nė vienas sąskaitų tipas..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_InvoiceInfoItemList_InvoiceTypesNotSpecified() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_InvoiceInfoItemList_InvoiceTypesNotSpecified", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Klaida. Registre nėra nė vienos eilutės..
         '''</summary>
         Friend ReadOnly Property ActiveReports_InvoiceInfoItemList_ListIsEmpty() As String
@@ -2543,6 +2570,15 @@ Namespace My.Resources
         Friend ReadOnly Property ActiveReports_InvoiceInfoType_InvoiceReceived() As String
             Get
                 Return ResourceManager.GetString("ActiveReports_InvoiceInfoType_InvoiceReceived", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to gautų sąskaitų faktūrų registras.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_InvoiceInfoType_ProformaInvoiceMade() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_InvoiceInfoType_ProformaInvoiceMade", resourceCulture)
             End Get
         End Property
         
@@ -16350,6 +16386,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Sąskaitos tipas {0} negali būti pridėtas prie avanso apyskaitos ({1})..
+        '''</summary>
+        Friend ReadOnly Property Documents_AdvanceReport_InvalidInvoiceType() As String
+            Get
+                Return ResourceManager.GetString("Documents_AdvanceReport_InvalidInvoiceType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodyta nė viena pridėtina sąskaita faktūra..
+        '''</summary>
+        Friend ReadOnly Property Documents_AdvanceReport_InvoiceListNull() As String
+            Get
+                Return ResourceManager.GetString("Documents_AdvanceReport_InvoiceListNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to atskaitingas asmuo.
         '''</summary>
         Friend ReadOnly Property Documents_AdvanceReport_Person() As String
@@ -17240,7 +17294,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to data&lt;BR&gt;dokumento numeris&lt;BR&gt;asmens kodas&lt;BR&gt;asmens pavadinimas&lt;BR&gt;turinys/aprašas&lt;BR&gt;pajamos(&quot;&quot;)/išlaidos(&quot;x&quot;)&lt;BR&gt;valiuta&lt;BR&gt;originali suma&lt;BR&gt;suma bazine valiuta&lt;BR&gt;unikalus kodas&lt;BR&gt;asmens (banko) sąskaitos numeris&lt;BR&gt;asmens banko pavadinimas.
+        '''  Looks up a localized string similar to data&lt;BR&gt;dokumento numeris&lt;BR&gt;asmens kodas&lt;BR&gt;asmens pavadinimas&lt;BR&gt;turinys/aprašas&lt;BR&gt;pajamos(&quot;&quot;)/išlaidos(&quot;x&quot;)&lt;BR&gt;valiuta&lt;BR&gt;originali suma&lt;BR&gt;suma bazine valiuta&lt;BR&gt;suma sąskaitos valiuta&lt;BR&gt;unikalus kodas&lt;BR&gt;asmens (banko) sąskaitos numeris&lt;BR&gt;asmens banko pavadinimas.
         '''</summary>
         Friend ReadOnly Property Documents_BankDataExchangeProviders_ProprietaryBankAccountStatement_PasteColumns() As String
             Get
@@ -22038,6 +22092,681 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to data įtraukta į numerį.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_AddDateToNumberOptionWasUsed() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_AddDateToNumberOptionWasUsed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vidiniai komentarai.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_CommentsInternal() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_CommentsInternal", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to turinys (aprašymas).
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_Content() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_Content", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to valiuta.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_CurrencyCode() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_CurrencyCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kita informacija.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_CustomInfo() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_CustomInfo", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kita informacija kita kalba.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_CustomInfoAltLng() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_CustomInfoAltLng", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to data.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_Date() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_Date", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nuolaidos suma negali būti didesnė už sąskaitos sumą..
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_DiscountSumInvalid() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_DiscountSumInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Kažkokie vidiniai komentarai.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_DoomyCommentsInternal() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_DoomyCommentsInternal", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Kažkoks turinys (aprašymas).
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_DoomyContent() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_DoomyContent", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Kažkokia papildoma klientui matoma informacija.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_DoomyCustomInfo() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_DoomyCustomInfo", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Some additional info for client in original invoice language.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_DoomyCustomInfoAltLng() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_DoomyCustomInfoAltLng", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to USD.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_DoomyInvoiceCurrency() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_DoomyInvoiceCurrency", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to EN.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_DoomyInvoiceLanguage() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_DoomyInvoiceLanguage", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ORD.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_DoomySerial() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_DoomySerial", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to išorinis ID (SKU).
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_ExternalID() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_ExternalID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Išorinis ID=&quot;{0}&quot; jau egzistuoja duomenų bazėje..
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_ExternalIdNotUnique() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_ExternalIdNotUnique", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to formatuotas numeris.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_FullNumber() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_FullNumber", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_ID() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įtraukta.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_InsertDate() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_InsertDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Pavyzdinės sąskaitos negalima išsaugoti duomenų bazėje..
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_InvalidSaveForDoomy() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_InvalidSaveForDoomy", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to eilutės.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_InvoiceItemsSorted() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_InvoiceItemsSorted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pavyzdinė sąskaita.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_IsDoomyInvoice() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_IsDoomyInvoice", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kalba.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_LanguageCode() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_LanguageCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kalba.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_LanguageName() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_LanguageName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodytas parduodamas objektas (prekė, paslauga ar pan.), kurį reikėtų pridėti prie sąskaitos..
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_NewAttachedOperationIsNull() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_NewAttachedOperationIsNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodyta nė viena sąskaitos eilutė..
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_NoItems() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_NoItems", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to numeris.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_Number() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_Number", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to skaitmenų numeryje.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_NumbersInInvoice() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_NumbersInInvoice", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pirkėjas.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_Payer() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_Payer", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to serija.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_Serial() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_Serial", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Sąskaita su tokia serija ir numeriu jau yra..
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_SerialNumberNotUnique() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_SerialNumberNotUnique", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_Sum() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_Sum", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nuolaida.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_SumDiscount() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_SumDiscount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nuolaidos PVM.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_SumDiscountVat() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_SumDiscountVat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma viso.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_SumTotal() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_SumTotal", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM suma.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_SumVat() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_SumVat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} išrašyta avansinė sąskaita Nr. {1}{2} (ID={3}): {4}..
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_ToString() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to išrašyta avansinė sąskaita.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pakeista.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMade_UpdateDate() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMade_UpdateDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kiekis.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_Amount() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_Amount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to susieta operacija.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_AttachedObject() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_AttachedObject", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to susieta operacija.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_AttachedObjectValue() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_AttachedObjectValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nuolaida.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_Discount() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_Discount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nuolaida negali buti neigiama..
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_DiscountNegative() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_DiscountNegative", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nuolaidos PVM.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_DiscountVat() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_DiscountVat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nuolaidos PVM korekcija.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_DiscountVatCorrection() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_DiscountVatCorrection", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nuolaidos PVM sumos bazine valiuta korekcija negalima, kai nuolaidos PVM suma lygi nuliui..
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_DiscountVatCorrectionInvalid() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_DiscountVatCorrectionInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vnt..
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_DoomyMeasureUnit() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_DoomyMeasureUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to unit.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_DoomyMeasureUnitAltLng() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_DoomyMeasureUnitAltLng", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Kakokios paslaugos {0}.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_DoomyNameInvoice() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_DoomyNameInvoice", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Some services {0} in alternative language.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_DoomyNameInvoiceAltLng() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_DoomyNameInvoiceAltLng", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_ID() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to mato vnt..
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_MeasureUnit() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_MeasureUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to mato vnt. kita kalba.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_MeasureUnitAltLng() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_MeasureUnitAltLng", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekiu/paslaugu pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_NameInvoice() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_NameInvoice", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to prekiu/paslaugu pavadinimas kita kalba.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_NameInvoiceAltLng() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_NameInvoiceAltLng", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_Sum() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_Sum", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sumos korekcija.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_SumCorrection() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_SumCorrection", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma viso.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_SumTotal() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_SumTotal", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM suma.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_SumVat() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_SumVat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM sumos korekcija.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_SumVatCorrection() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_SumVatCorrection", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM sumos korekcija negalima, kai PVM tarifas lygus nuliui..
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_SumVatCorrectionInvalid() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_SumVatCorrectionInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0}: {1} {2} po {3}.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_ToString() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to parduodamas objektas.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_TradedItem() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_TradedItem", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to parduodamas objektas.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_TradedItemContent() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_TradedItemContent", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Prekė: {0}.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_TradedItemContent_Goods() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_TradedItemContent_Goods", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Paslauga: {0}.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_TradedItemContent_Services() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_TradedItemContent_Services", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenustatytas tipas: {0}.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_TradedItemContent_Undefined() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_TradedItemContent_Undefined", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Parduodamo objekto kodas {0} neimplementuotas..
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_TradedItemTypeCodeNotImplemented() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_TradedItemTypeCodeNotImplemented", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nežinomas parduodamo objekto tipas {0}..
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_TradedItemTypeNotImplemented() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_TradedItemTypeNotImplemented", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to iraytos saskaitos eilute.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to vnt. kaina.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_UnitValue() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_UnitValue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Laukelio {0} verte negali buti didesne nei laukelio {1} verte..
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_ValueExceedsLimits() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_ValueExceedsLimits", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM tarifas.
+        '''</summary>
+        Friend ReadOnly Property Documents_ProformaInvoiceMadeItem_VatRate() As String
+            Get
+                Return ResourceManager.GetString("Documents_ProformaInvoiceMadeItem_VatRate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to pavadinimas.
         '''</summary>
         Friend ReadOnly Property Documents_RegionalContent_ContentInvoice() As String
@@ -24783,6 +25512,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to įmonės avansinės sąskaitos forma (rdlc).
+        '''</summary>
+        Friend ReadOnly Property General_CompanyBinaryDataType_ProformaInvoiceForm() As String
+            Get
+                Return ResourceManager.GetString("General_CompanyBinaryDataType_ProformaInvoiceForm", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to ID.
         '''</summary>
         Friend ReadOnly Property General_CompanyRate_ID() As String
@@ -25080,6 +25818,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to eilutės numeris.
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReportItem_DisplayedNumber() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReportItem_DisplayedNumber", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Finansinių ataskaitų rinkinys (finansinė atskaitomybė).
         '''</summary>
         Friend ReadOnly Property General_ConsolidatedReportItem_FinancialStatementsRootName() As String
@@ -25184,6 +25931,15 @@ Namespace My.Resources
         Friend ReadOnly Property General_ConsolidatedReportItem_TypeName() As String
             Get
                 Return ResourceManager.GetString("General_ConsolidatedReportItem_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to eilutės eilės numeris.
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReportItem_VisibleIndex() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReportItem_VisibleIndex", resourceCulture)
             End Get
         End Property
         
@@ -38348,6 +39104,15 @@ Namespace My.Resources
         Friend ReadOnly Property Settings_DocumentSerialType_LabourContract() As String
             Get
                 Return ResourceManager.GetString("Settings_DocumentSerialType_LabourContract", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to avansinė sąskaita.
+        '''</summary>
+        Friend ReadOnly Property Settings_DocumentSerialType_ProformaInvoice() As String
+            Get
+                Return ResourceManager.GetString("Settings_DocumentSerialType_ProformaInvoice", resourceCulture)
             End Get
         End Property
         

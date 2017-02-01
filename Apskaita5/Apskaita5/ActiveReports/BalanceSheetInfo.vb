@@ -189,22 +189,6 @@ Namespace ActiveReports
             End If
         End Sub
 
-        ''' <summary>
-        ''' Recursively sets the item <see cref="Number">Number</see>.
-        ''' </summary>
-        ''' <param name="parentNumber">Number of the parent balance item, that is included withing current item number.</param>
-        ''' <param name="n">Current running nuber within the current group of balance items.</param>
-        ''' <remarks></remarks>
-        Friend Sub SetNumber(ByVal parentNumber As String, ByVal n As Integer)
-            If _Level = 3 Then
-                _Number = GetNumberInLetter(n)
-            ElseIf _Level = 4 Then
-                _Number = GetRomanNumber(n)
-            Else
-                _Number = parentNumber & n.ToString
-            End If
-        End Sub
-
 
         Protected Overrides Function GetIdValue() As Object
             Return _ID
@@ -244,14 +228,15 @@ Namespace ActiveReports
         Private Sub Fetch(ByVal dr As DataRow)
 
             _ID = CIntSafe(dr.Item(1), 0)
-            _Name = CStrSafe(dr.Item(2)).Trim
-            _Left = CIntSafe(dr.Item(3), 0)
-            _Right = CIntSafe(dr.Item(4), 0)
-            _IsCreditBalance = ConvertDbBoolean(CIntSafe(dr.Item(5), 0))
-            _Level = CIntSafe(dr.Item(6), 0)
-            _RelatedAccounts = CStrSafe(dr.Item(7)).Trim
-            _ActualBalanceFormer = CDblSafe(dr.Item(8), 2, 0)
-            _ActualBalanceCurrent = CDblSafe(dr.Item(9), 2, 0)
+            _Number = CStrSafe(dr.Item(2)).Trim
+            _Name = CStrSafe(dr.Item(3)).Trim
+            _Left = CIntSafe(dr.Item(4), 0)
+            _Right = CIntSafe(dr.Item(5), 0)
+            _IsCreditBalance = ConvertDbBoolean(CIntSafe(dr.Item(6), 0))
+            _Level = CIntSafe(dr.Item(7), 0)
+            _RelatedAccounts = CStrSafe(dr.Item(8)).Trim
+            _ActualBalanceFormer = CDblSafe(dr.Item(9), 2, 0)
+            _ActualBalanceCurrent = CDblSafe(dr.Item(10), 2, 0)
 
             _OptimizedBalanceFormer = _ActualBalanceFormer
             _OptimizedBalanceCurrent = _ActualBalanceCurrent

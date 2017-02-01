@@ -28,12 +28,18 @@
             '
             Me.baseDataListView.AllColumns.Add(Me.OlvColumn1)
             Me.baseDataListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumn1})
+            Me.baseDataListView.ShowFilterMenuOnRightClick = False
+            Me.baseDataListView.ShowSortIndicators = False
             Me.baseDataListView.Size = New System.Drawing.Size(384, 355)
+            Me.baseDataListView.Sorting = System.Windows.Forms.SortOrder.None
             '
             'OlvColumn1
             '
             Me.OlvColumn1.AspectName = "Name"
             Me.OlvColumn1.FillsFreeSpace = True
+            Me.OlvColumn1.Groupable = False
+            Me.OlvColumn1.IsEditable = False
+            Me.OlvColumn1.Sortable = False
             Me.OlvColumn1.Text = "Finansinės Atskaitomybės Eilutė"
             Me.OlvColumn1.Width = 381
             '

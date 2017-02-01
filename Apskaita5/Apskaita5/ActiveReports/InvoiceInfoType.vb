@@ -22,6 +22,13 @@ Namespace ActiveReports
         <EnumValue(1)> _
         InvoiceMade
 
+        ''' <summary>
+        ''' A register of <see cref="Documents.ProformaInvoiceMade">proforma invoices made</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <EnumValue(2)> _
+        ProformaInvoiceMade
+
     End Enum
 
 End Namespace

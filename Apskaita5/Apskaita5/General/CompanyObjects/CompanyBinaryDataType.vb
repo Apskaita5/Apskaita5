@@ -22,6 +22,13 @@ Namespace General
         <EnumValue(1, "INV")> _
         InvoiceForm
 
+        ''' <summary>
+        ''' A company invoice form (rdlc).
+        ''' </summary>
+        ''' <remarks>Is stored as binary file stream.</remarks>
+        <EnumValue(2, "AVA")> _
+        ProformaInvoiceForm
+
     End Enum
 
 End Namespace

@@ -1,4 +1,6 @@
 Imports ApskaitaObjects.Goods
+Imports ApskaitaObjects.Documents
+
 Namespace HelperLists
 
     ''' <summary>
@@ -8,7 +10,7 @@ Namespace HelperLists
     <Serializable()> _
     Public NotInheritable Class GoodsInfo
         Inherits ReadOnlyBase(Of GoodsInfo)
-        Implements IValueObject, IComparable
+        Implements IValueObject, IComparable, ITradedItem, IRegionalDataObject
 
 #Region " Business Methods "
 
@@ -43,7 +45,8 @@ Namespace HelperLists
         ''' Gets an ID of the goods that is assigned by a database (AUTOINCREMENT).
         ''' </summary>
         ''' <remarks>Data is stored in database field goods.ID.</remarks>
-        Public ReadOnly Property ID() As Integer
+        Public ReadOnly Property ID() As Integer _
+            Implements ITradedItem.ID, IRegionalDataObject.RegionalObjectID
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _ID
@@ -80,7 +83,8 @@ Namespace HelperLists
         ''' Gets how the goods are used in trade operations (sale, purchase, etc.).
         ''' </summary>
         ''' <remarks>Value is stored in the database field goods.TradeItemType.</remarks>
-        Public ReadOnly Property TradeItemType() As Documents.TradedItemType
+        Public ReadOnly Property TradeItemType() As Documents.TradedItemType _
+            Implements ITradedItem.TradedType
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _TradeItemType
@@ -197,6 +201,17 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' a type of the regionalizable object
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property RegionalObjectType() As RegionalizedObjectType _
+            Implements IRegionalDataObject.RegionalObjectType
+            Get
+                Return RegionalizedObjectType.Goods
+            End Get
+        End Property
+
 
         Public Shared Operator =(ByVal a As GoodsInfo, ByVal b As GoodsInfo) As Boolean
 
@@ -308,6 +323,10 @@ Namespace HelperLists
             Return New GoodsInfo(dr, offset)
         End Function
 
+        Friend Shared Function GetGoodsInfo(ByVal goodsID As Integer) As GoodsInfo
+            Return New GoodsInfo(goodsID)
+        End Function
+
 
         Private Sub New()
             ' require use of factory methods
@@ -317,9 +336,30 @@ Namespace HelperLists
             Fetch(dr, offset)
         End Sub
 
+        Private Sub New(ByVal goodsID As Integer)
+            Fetch(goodsID)
+        End Sub
+
 #End Region
 
 #Region " Data Access "
+
+        Private Sub Fetch(ByVal goodsID As Integer)
+
+            Dim myComm As New SQLCommand("FetchGoodsInfo")
+            myComm.AddParam("?GD", goodsID)
+
+            Using myData As DataTable = myComm.Fetch()
+
+                If myData.Rows.Count < 1 Then Throw New Exception(String.Format( _
+                    My.Resources.Common_ObjectNotFound, My.Resources.Goods_GoodsItem_TypeName, _
+                    goodsID.ToString()))
+
+                Fetch(myData.Rows(0), 0)
+
+            End Using
+
+        End Sub
 
         Private Sub Fetch(ByVal dr As DataRow, ByVal offset As Integer)
 

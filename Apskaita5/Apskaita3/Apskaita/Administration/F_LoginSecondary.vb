@@ -25,7 +25,6 @@ Public Class F_LoginSecondary
         Try
             If AccPrincipal.Login(_Database.DatabaseName, New CustomCacheManager, PasswordTextBox.Text) Then
                 _IsLogonSuccesfull = True
-                Me.Hide()
                 Me.Close()
             End If
         Catch ex As Exception
@@ -36,7 +35,6 @@ Public Class F_LoginSecondary
 
     Private Sub CancelButton_Click(ByVal sender As System.Object, _
         ByVal e As System.EventArgs) Handles nCancelButton.Click
-        Me.Hide()
         Me.Close()
     End Sub
 

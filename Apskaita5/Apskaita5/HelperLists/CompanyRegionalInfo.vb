@@ -27,6 +27,8 @@ Namespace HelperLists
         Private _HeadTitle As String = ""
         Private _LogoImage As Byte() = Nothing
         Private _InvoiceForm As Byte() = Nothing
+        Private _ProformaInvoiceForm As Byte() = Nothing
+
 
         ''' <summary>
         ''' Whether an object is a palace holder (does not represent real data).
@@ -236,6 +238,19 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a proforma invoice form (.rdlc format) in <see cref="LanguageName">LanguageName</see>.
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="General.CompanyRegionalData.ProformaInvoiceForm">CompanyRegionalData.ProformaInvoiceForm</see>.
+        ''' Values are stored in the database table companyforms 
+        ''' where field FormToken equals <see cref="General.CompanyBinaryDataType.ProformaInvoiceForm">CompanyBinaryDataType.ProformaInvoiceForm</see>.</remarks>
+        Public ReadOnly Property ProformaInvoiceForm() As Byte()
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _ProformaInvoiceForm
+            End Get
+        End Property
+
 
         Public Shared Operator =(ByVal a As CompanyRegionalInfo, ByVal b As CompanyRegionalInfo) As Boolean
 
@@ -366,6 +381,7 @@ Namespace HelperLists
             _HeadTitle = CStrSafe(dr.Item(11)).Trim
             _InvoiceForm = CByteArraySafe(dr.Item(12), 50)
             _LogoImage = CByteArraySafe(dr.Item(13), 50)
+            _ProformaInvoiceForm = CByteArraySafe(dr.Item(14), 50)
 
         End Sub
 

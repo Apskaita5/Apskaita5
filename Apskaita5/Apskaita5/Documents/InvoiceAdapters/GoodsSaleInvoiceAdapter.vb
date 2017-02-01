@@ -1005,6 +1005,23 @@ Namespace Documents.InvoiceAdapters
         End Function
 
 
+        ''' <summary>
+        ''' Gets a new instance of GoodsSaleInvoiceAdapter to use it for creating a new invoice item
+        ''' bypassing data portal.
+        ''' </summary>
+        ''' <param name="goodsId">An ID of the goods to be used as the base.</param>
+        ''' <param name="warehouseId">An ID of the warehouse to be used in the encapsulated operation.</param>
+        ''' <param name="parentChronologyValidator">A parent invoice validator.</param>
+        ''' <param name="forInvoiceMade">Whether the object is ment fo adding to an InvoiceMade
+        ''' (otherwise InvoiceReceived).</param>
+        ''' <remarks></remarks>
+        Friend Shared Function NewGoodsSaleInvoiceAdapterOnServer(ByVal goodsId As Integer, _
+            ByVal warehouseId As Integer, ByVal parentChronologyValidator As IChronologicValidator, _
+            ByVal forInvoiceMade As Boolean) As GoodsSaleInvoiceAdapter
+            Return New GoodsSaleInvoiceAdapter(goodsId, warehouseId, parentChronologyValidator, forInvoiceMade)
+        End Function
+
+
         Private Sub New()
             ' require use of factory methods
             MarkAsChild()
@@ -1014,6 +1031,12 @@ Namespace Documents.InvoiceAdapters
             ByVal parentChronologyValidator As IChronologicValidator, ByVal forInvoiceMade As Boolean)
             MarkAsChild()
             Fetch(attachedObjectId, parentChronologyValidator, forInvoiceMade)
+        End Sub
+
+        Private Sub New(ByVal goodsId As Integer, ByVal warehouseId As Integer, _
+            ByVal parentChronologyValidator As IChronologicValidator, ByVal forInvoiceMade As Boolean)
+            MarkAsChild()
+            Create(goodsId, warehouseId, parentChronologyValidator, forInvoiceMade)
         End Sub
 
 #End Region
@@ -1061,10 +1084,18 @@ Namespace Documents.InvoiceAdapters
             If Not CanGetObject() Then Throw New System.Security.SecurityException( _
                 My.Resources.Common_SecuritySelectDenied)
 
-            _GoodsSale = GoodsOperationTransfer.NewGoodsOperationTransferChild( _
-                criteria.ID, criteria.WarehouseID, criteria.ParentChronologyValidator)
+            Create(criteria.ID, criteria.WarehouseID, criteria.ParentChronologyValidator, _
+                criteria.IsForInvoiceMade)
 
-            _IsForInvoiceMade = criteria.IsForInvoiceMade
+        End Sub
+
+        Private Sub Create(ByVal goodsId As Integer, ByVal warehouseId As Integer, _
+            ByVal parentChronologyValidator As IChronologicValidator, ByVal forInvoiceMade As Boolean)
+
+            _GoodsSale = GoodsOperationTransfer.NewGoodsOperationTransferChild( _
+                goodsId, warehouseId, parentChronologyValidator)
+
+            _IsForInvoiceMade = forInvoiceMade
 
         End Sub
 

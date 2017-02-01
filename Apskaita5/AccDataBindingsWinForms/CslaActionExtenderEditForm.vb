@@ -496,7 +496,6 @@ Public Class CslaActionExtenderEditForm(Of T)
                 MsgBoxStyle.Information, "Info")
 
             If _CloseFormAfterSave Then
-                _ParentForm.Hide()
                 _ParentForm.Close()
                 Exit Sub
             End If
@@ -523,7 +522,6 @@ Public Class CslaActionExtenderEditForm(Of T)
 
             If closeFormAfterSave Then
                 _CloseFormAfterSave = True
-                _ParentForm.Hide()
                 _ParentForm.Close()
             ElseIf _ProceedToNewDataSource Then
                 _ProceedToNewDataSource = False
@@ -538,7 +536,6 @@ Public Class CslaActionExtenderEditForm(Of T)
 
             If closeFormAfterSave Then
                 _CloseFormAfterSave = True
-                _ParentForm.Hide()
                 _ParentForm.Close()
             ElseIf _ProceedToNewDataSource Then
                 _ProceedToNewDataSource = False
@@ -613,7 +610,6 @@ Public Class CslaActionExtenderEditForm(Of T)
         If DataSourceIsChild() Then
 
             _CloseFormAfterSave = True
-            _ParentForm.Hide()
             _ParentForm.Close()
             Exit Sub
 
@@ -651,7 +647,6 @@ Public Class CslaActionExtenderEditForm(Of T)
 
             _ProceedToNewDataSource = False
             _CloseFormAfterSave = True
-            _ParentForm.Hide()
             _ParentForm.Close()
 
         Else
@@ -677,7 +672,6 @@ Public Class CslaActionExtenderEditForm(Of T)
 
             _CloseFormAfterSave = True
 
-            _ParentForm.Hide()
             _ParentForm.Close()
 
         Else
