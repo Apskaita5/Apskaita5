@@ -647,28 +647,6 @@ Public Module CommonMethods
             .GetEntryAssembly().Location)
     End Function
 
-    Friend Function FetchCurrencyRate(ByVal currencyCode As String, _
-        ByVal atDate As Date) As AccWebCrawler.CurrencyRateList
-
-        Dim paramList As New AccWebCrawler.CurrencyRateList
-        paramList.Add(atDate, currencyCode)
-
-        Return FetchCurrencyRate(paramList)
-
-    End Function
-
-    Friend Function FetchCurrencyRate(ByVal currencyList As AccWebCrawler.CurrencyRateList) _
-        As AccWebCrawler.CurrencyRateList
-
-        Using frm As New AccWebCrawler.F_LaunchWebCrawler(currencyList, GetCurrentCompany.BaseCurrency)
-            If frm.ShowDialog <> DialogResult.OK OrElse frm.result Is Nothing _
-                OrElse Not TypeOf frm.result Is AccWebCrawler.CurrencyRateList _
-                OrElse DirectCast(frm.result, AccWebCrawler.CurrencyRateList).Count < 1 Then Return Nothing
-            Return DirectCast(frm.result, AccWebCrawler.CurrencyRateList)
-        End Using
-
-    End Function
-
     ''' <summary>
     ''' a helper method to get an attribute of a property
     ''' </summary>

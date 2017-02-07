@@ -43,7 +43,6 @@ Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Releas
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ObjectListView.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\EPPlus.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ListViewPrinter.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccWebCrawler.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ApskaitaObjects.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccCommon.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\InvoiceInfo.dll"; DestDir: "{app}"; Flags: ignoreversion

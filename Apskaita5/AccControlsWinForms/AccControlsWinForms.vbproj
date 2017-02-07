@@ -88,6 +88,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core">
@@ -216,7 +217,38 @@
       <DependentUpon>ReportData.xsd</DependentUpon>
     </Compile>
     <Compile Include="StatusBusy.vb" />
+    <Compile Include="WebControls\ApplicationUpdater.vb" />
+    <Compile Include="WebControls\CurrencyRate.vb" />
+    <Compile Include="WebControls\CurrencyRateFactoryLbEur.vb" />
+    <Compile Include="WebControls\CurrencyRateFactoryLbLtl.vb" />
+    <Compile Include="WebControls\DownloadCurrencyRatesForm.Designer.vb">
+      <DependentUpon>DownloadCurrencyRatesForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\DownloadCurrencyRatesForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WebControls\DownloadDataForm.Designer.vb">
+      <DependentUpon>DownloadDataForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\DownloadDataForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WebControls\CommonMethods.vb" />
     <Compile Include="VisualSettings.vb" />
+    <Compile Include="WebControls\DownloadFileForm.Designer.vb">
+      <DependentUpon>DownloadFileForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\DownloadFileForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WebControls\CurrencyRateFactoryBase.vb" />
+    <Compile Include="WebControls\PersonInfo.vb" />
+    <Compile Include="WebControls\PersonInfoListDialog.Designer.vb">
+      <DependentUpon>PersonInfoListDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WebControls\PersonInfoListDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AsyncOperations\ProgressFiller.resx">
@@ -242,6 +274,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Printing\F_PrintReport.resx">
       <DependentUpon>F_PrintReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebControls\DownloadCurrencyRatesForm.resx">
+      <DependentUpon>DownloadCurrencyRatesForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebControls\DownloadDataForm.resx">
+      <DependentUpon>DownloadDataForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebControls\DownloadFileForm.resx">
+      <DependentUpon>DownloadFileForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebControls\PersonInfoListDialog.resx">
+      <DependentUpon>PersonInfoListDialog.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
