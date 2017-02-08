@@ -83,6 +83,16 @@ Namespace ActiveReports
             Return New BalanceSheetInfoList(myData)
         End Function
 
+        ''' <summary>
+        ''' Gets a balance sheet report by a list of items provided by the 
+        ''' <see cref="General.ConsolidatedReport.GetBalanceSheetInfoList">ConsolidatedReport.GetBalanceSheetInfoList</see> method.
+        ''' </summary>
+        ''' <param name="source">a list of items</param>
+        ''' <remarks></remarks>
+        Friend Shared Function GetBalanceSheetInfoList(ByVal source As List(Of BalanceSheetInfo)) As BalanceSheetInfoList
+            Return New BalanceSheetInfoList(source)
+        End Function
+
 
         Private Sub New()
             ' require use of factory methods
@@ -91,6 +101,11 @@ Namespace ActiveReports
         Private Sub New(ByVal myData As DataTable)
             ' require use of factory methods
             Fetch(myData)
+        End Sub
+
+        Private Sub New(ByVal source As List(Of BalanceSheetInfo))
+            ' require use of factory methods
+            Fetch(source)
         End Sub
 
 #End Region
@@ -106,6 +121,20 @@ Namespace ActiveReports
                 If Utilities.ConvertDatabaseID(Of General.FinancialStatementItemType) _
                     (CIntSafe(dr.Item(0), 4)) = General.FinancialStatementItemType. _
                     StatementOfFinancialPosition Then Add(BalanceSheetInfo.GetBalanceSheetInfo(dr))
+            Next
+
+            IsReadOnly = True
+            RaiseListChangedEvents = True
+
+        End Sub
+
+        Private Sub Fetch(ByVal source As List(Of BalanceSheetInfo))
+
+            RaiseListChangedEvents = False
+            IsReadOnly = False
+
+            For Each statementItem As BalanceSheetInfo In source
+                Add(statementItem)
             Next
 
             IsReadOnly = True

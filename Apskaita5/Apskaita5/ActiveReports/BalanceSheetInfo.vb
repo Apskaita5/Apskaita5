@@ -212,6 +212,17 @@ Namespace ActiveReports
             Return New BalanceSheetInfo(dr)
         End Function
 
+        ''' <summary>
+        ''' Gets a balance sheet statement info by a consolidated report item.
+        ''' </summary>
+        ''' <param name="item">a consolidated report item</param>
+        ''' <param name="level">a consolidated report item level in the consolidated report hierarchy</param>
+        ''' <remarks></remarks>
+        Friend Shared Function GetBalanceSheetInfo(ByVal item As General.ConsolidatedReportItem, _
+            ByVal level As Integer) As BalanceSheetInfo
+            Return New BalanceSheetInfo(item, level)
+        End Function
+
 
         Private Sub New()
             ' require use of factory methods
@@ -219,6 +230,10 @@ Namespace ActiveReports
 
         Private Sub New(ByVal dr As DataRow)
             Fetch(dr)
+        End Sub
+
+        Private Sub New(ByVal item As General.ConsolidatedReportItem, ByVal level As Integer)
+            Fetch(item, level)
         End Sub
 
 #End Region
@@ -240,6 +255,23 @@ Namespace ActiveReports
 
             _OptimizedBalanceFormer = _ActualBalanceFormer
             _OptimizedBalanceCurrent = _ActualBalanceCurrent
+
+        End Sub
+
+        Private Sub Fetch(ByVal item As General.ConsolidatedReportItem, ByVal level As Integer)
+
+            _ID = item.ID
+            _Number = item.DisplayedNumber
+            _Name = item.Name
+            _Left = item.Left
+            _Right = item.Right
+            _IsCreditBalance = item.IsCredit
+            _Level = level
+            _RelatedAccounts = item.GetRelatedAccounts
+            _ActualBalanceFormer = item.GetFormerPeriodValue()
+            _ActualBalanceCurrent = item.GetCurrentPeriodValue()
+            _OptimizedBalanceFormer = item.GetOptimizedFormerPeriodValue()
+            _OptimizedBalanceCurrent = item.GetOptimizedCurrentPeriodValue()
 
         End Sub
 

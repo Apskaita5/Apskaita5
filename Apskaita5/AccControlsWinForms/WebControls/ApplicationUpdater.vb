@@ -7,7 +7,7 @@ Namespace WebControls
     ''' Represents a control that encapsulates application online update functionality.
     ''' </summary>
     ''' <remarks></remarks>
-    Public Class ApplicationUpdater
+    Public NotInheritable Class ApplicationUpdater
 
         Public Delegate Sub CloseApplicationForUpdate()
 
@@ -16,6 +16,7 @@ Namespace WebControls
         Private _IsPortableVersion As Boolean = False
         Private _UpdateFileUrl As String = ""
         Private _UpdateFileName As String = ""
+        Private _UpdateInstallFileName As String = ""
         Private _UpdateFileEncoding As Encoding = Nothing
         Private _CloseApplicationForUpdateMethod As CloseApplicationForUpdate = Nothing
         Private _WebClient As System.Net.WebClient = Nothing
@@ -104,6 +105,22 @@ Namespace WebControls
         End Property
 
         ''' <summary>
+        ''' Gets or sets a name of the update install file name as it is saved on the user machine.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Property UpdateInstallFileName() As String
+            Get
+                Return _UpdateInstallFileName.Trim
+            End Get
+            Set(ByVal value As String)
+                If value Is Nothing Then value = ""
+                If _UpdateInstallFileName.Trim <> value.Trim Then
+                    _UpdateInstallFileName = value.Trim
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
         ''' Gets or sets a text encoding of the file that contains update data (version, url's to download
         ''' the update files, description). (if null default UTF-8 is used)
         ''' </summary>
@@ -134,12 +151,15 @@ Namespace WebControls
         ''' (version, url's to download the update files, description)</param>
         ''' <param name="updateFileEncoding">a text encoding of the file that contains update 
         ''' data (version, url's to download the update files, description). (if null default UTF-8 is used)</param>
+        ''' <param name="updateInstallFileName">a name of the update install file name 
+        ''' as it is saved on the user machine</param>
         ''' <param name="closeApplicationForUpdateMethod">a method that closes the application 
         ''' in order to update it</param>
         ''' <remarks></remarks>
         Public Sub New(ByVal applicationName As String, ByVal applicationCurrentVersion As Date, _
             ByVal updateFileUrl As String, ByVal updateFileName As String, ByVal isPortableVersion As Boolean, _
-            ByVal updateFileEncoding As Encoding, ByVal closeApplicationForUpdateMethod As CloseApplicationForUpdate)
+            ByVal updateFileEncoding As Encoding, ByVal updateInstallFileName As String, _
+            ByVal closeApplicationForUpdateMethod As CloseApplicationForUpdate)
 
             If applicationName Is Nothing OrElse String.IsNullOrEmpty(applicationName.Trim) Then
                 Throw New ArgumentNullException("applicationName")
@@ -157,6 +177,7 @@ Namespace WebControls
             _UpdateFileUrl = updateFileUrl
             _UpdateFileName = updateFileName
             _UpdateFileEncoding = updateFileEncoding
+            _UpdateInstallFileName = updateInstallFileName
             _CloseApplicationForUpdateMethod = closeApplicationForUpdateMethod
 
             If _UpdateFileEncoding Is Nothing Then
@@ -170,7 +191,7 @@ Namespace WebControls
 
             Dim content As String = ""
 
-            Using frm As New DownloadDataForm(_UpdateFileUrl, _UpdateFileEncoding, False, "Ieškoma atnaujinimo...")
+            Using frm As New DownloadDataForm(GetFullUpdateUrl(), _UpdateFileEncoding, False, "Ieškoma atnaujinimo...")
                 Dim result As DialogResult
                 result = frm.ShowDialog()
                 If result = DialogResult.Cancel Then
@@ -207,7 +228,7 @@ Namespace WebControls
 
         Private Sub OnDataFetchedFromWeb(ByVal sender As Object, ByVal e As System.Net.DownloadDataCompletedEventArgs)
 
-            If e.Cancelled OrElse e.Result Is Nothing OrElse e.Result.Length < 1 Then Exit Sub
+            If e.Cancelled OrElse Not e.Error Is Nothing OrElse e.Result Is Nothing OrElse e.Result.Length < 1 Then Exit Sub
 
             Dim downloadedContent As String = ""
 
@@ -317,15 +338,20 @@ Namespace WebControls
                     msg = String.Format("Rastas naujas programos {0} atnaujinimas, paskelbtas {1}.{2}{3}Atnaujinti programą?", _
                         _ApplicationName, lastUpdateDate.ToString("yyyy-MM-dd"), vbCrLf, vbCrLf)
                 Else
-                    msg = String.Format("Rastas naujas programos {0} atnaujinimas, paskelbtas {1}.{2}Atnaujinimo aprašymas:{3}{4}{5}Atnaujinti programą?", _
-                        _ApplicationName, lastUpdateDate.ToString("yyyy-MM-dd"), vbCrLf, _
+                    msg = String.Format("Rastas naujas programos {0} atnaujinimas, paskelbtas {1}.{2}Atnaujinimo aprašymas:{3}{4}{5}{6}Atnaujinti programą?", _
+                        _ApplicationName, lastUpdateDate.ToString("yyyy-MM-dd"), vbCrLf, vbCrLf, _
                         updateDescription, vbCrLf, vbCrLf)
                 End If
 
                 If Not YesOrNo(msg) Then Exit Sub
 
+                Dim installName As String = _UpdateInstallFileName
+                If installName Is Nothing OrElse String.IsNullOrEmpty(installName.Trim) Then
+                    installName = "AccAppUpdate.exe"
+                End If
+
                 Dim updateFilePath As String = ""
-                Using fdf As New DownloadFileForm(updateUrl, _UpdateFileName, "Parsisiunčiamas atnaujinimas...")
+                Using fdf As New DownloadFileForm(updateUrl, installName, "Parsisiunčiamas atnaujinimas...")
 
                     Dim result As DialogResult = fdf.ShowDialog()
 

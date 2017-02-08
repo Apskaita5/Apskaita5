@@ -57,6 +57,10 @@ Namespace ActiveReports
             Return result
         End Function
 
+        Friend Shared Function GetIncomeStatementInfoList(ByVal source As List(Of IncomeStatementInfo)) As IncomeStatementInfoList
+            Return New IncomeStatementInfoList(source)
+        End Function
+
 
         Private Sub New()
             ' require use of factory methods
@@ -65,6 +69,11 @@ Namespace ActiveReports
         Private Sub New(ByVal myData As DataTable)
             ' require use of factory methods
             Fetch(myData)
+        End Sub
+
+        Private Sub New(ByVal source As List(Of IncomeStatementInfo))
+            ' require use of factory methods
+            Fetch(source)
         End Sub
 
 #End Region
@@ -81,6 +90,20 @@ Namespace ActiveReports
                     (CIntSafe(dr.Item(0), 4)) = General.FinancialStatementItemType.StatementOfComprehensiveIncome Then
                     Add(IncomeStatementInfo.GetIncomeStatementInfo(dr))
                 End If
+            Next
+
+            IsReadOnly = True
+            RaiseListChangedEvents = True
+
+        End Sub
+
+        Private Sub Fetch(ByVal source As List(Of IncomeStatementInfo))
+
+            RaiseListChangedEvents = False
+            IsReadOnly = False
+
+            For Each statementItem As IncomeStatementInfo In source
+                Add(statementItem)
             Next
 
             IsReadOnly = True

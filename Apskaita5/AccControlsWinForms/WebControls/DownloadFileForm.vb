@@ -48,7 +48,7 @@ Namespace WebControls
                 _DownloadedFilePath = GetFilePath()
 
                 _WebClient = New System.Net.WebClient
-                AddHandler _WebClient.DownloadDataCompleted, AddressOf OnDownloadComplete
+                AddHandler _WebClient.DownloadFileCompleted, AddressOf OnDownloadComplete
                 AddHandler _WebClient.DownloadProgressChanged, AddressOf OnDownloadProgressChanged
 
                 _WebClient.DownloadFileAsync(updateUrl, _DownloadedFilePath)
@@ -81,7 +81,7 @@ Namespace WebControls
 
         End Sub
 
-        Private Sub OnDownloadComplete(ByVal sender As Object, ByVal e As System.Net.DownloadDataCompletedEventArgs)
+        Private Sub OnDownloadComplete(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
 
             If _Canceled OrElse e.Cancelled Then Exit Sub
 

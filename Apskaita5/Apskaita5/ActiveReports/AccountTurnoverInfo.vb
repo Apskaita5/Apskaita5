@@ -14,6 +14,7 @@ Namespace ActiveReports
 
         Private _ID As Long = 0
         Private _Name As String = ""
+        Private _FinancialStatementItemId As Integer = 0
         Private _FinancialStatementItem As String = ""
         Private _FinancialStatementItemType As General.FinancialStatementItemType = General.FinancialStatementItemType.HeaderGeneral
         Private _DebitBalanceFormerPeriodStart As Double = 0
@@ -51,6 +52,18 @@ Namespace ActiveReports
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
                 Return _Name.Trim
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Account <see cref="General.Account.AssociatedReportItem">associated financial report item</see>.
+        ''' (a "line" of an income statement or a balance sheet)
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public ReadOnly Property FinancialStatementItemId() As Integer
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _FinancialStatementItemId
             End Get
         End Property
 
@@ -314,23 +327,24 @@ Namespace ActiveReports
 
             _ID = CLongSafe(dr.Item(0), 0)
             _Name = CStrSafe(dr.Item(1)).Trim
-            _FinancialStatementItem = CStrSafe(dr.Item(2)).Trim
+            _FinancialStatementItemId = CIntSafe(dr.Item(2), 0)
+            _FinancialStatementItem = CStrSafe(dr.Item(3)).Trim
             _FinancialStatementItemType = Utilities.ConvertDatabaseID(Of General.FinancialStatementItemType) _
-                (CIntSafe(dr.Item(3), 0))
+                (CIntSafe(dr.Item(4), 0))
 
-            If CDblSafe(dr.Item(4), 2, 0) > CDblSafe(dr.Item(5), 2, 0) Then
-                _DebitBalanceFormerPeriodStart = CRound(CDblSafe(dr.Item(4), 2, 0) _
-                    - CDblSafe(dr.Item(5), 2, 0))
+            If CDblSafe(dr.Item(5), 2, 0) > CDblSafe(dr.Item(6), 2, 0) Then
+                _DebitBalanceFormerPeriodStart = CRound(CDblSafe(dr.Item(5), 2, 0) _
+                    - CDblSafe(dr.Item(6), 2, 0))
                 _CreditBalanceFormerPeriodStart = 0
             Else
                 _DebitBalanceFormerPeriodStart = 0
-                _CreditBalanceFormerPeriodStart = CRound(CDblSafe(dr.Item(5), 2, 0) _
-                    - CDblSafe(dr.Item(4), 2, 0))
+                _CreditBalanceFormerPeriodStart = CRound(CDblSafe(dr.Item(6), 2, 0) _
+                    - CDblSafe(dr.Item(5), 2, 0))
             End If
-            _DebitTurnoverFormerPeriod = CDblSafe(dr.Item(6), 2, 0)
-            _CreditTurnoverFormerPeriod = CDblSafe(dr.Item(7), 2, 0)
-            _DebitClosingFormerPeriod = CDblSafe(dr.Item(8), 2, 0)
-            _CreditClosingFormerPeriod = CDblSafe(dr.Item(9), 2, 0)
+            _DebitTurnoverFormerPeriod = CDblSafe(dr.Item(7), 2, 0)
+            _CreditTurnoverFormerPeriod = CDblSafe(dr.Item(8), 2, 0)
+            _DebitClosingFormerPeriod = CDblSafe(dr.Item(9), 2, 0)
+            _CreditClosingFormerPeriod = CDblSafe(dr.Item(10), 2, 0)
 
             If CRound(_DebitBalanceFormerPeriodStart - _CreditBalanceFormerPeriodStart _
                 + _DebitTurnoverFormerPeriod - _CreditTurnoverFormerPeriod) > 0 Then
@@ -349,10 +363,10 @@ Namespace ActiveReports
 
             End If
 
-            _DebitTurnoverCurrentPeriod = CDblSafe(dr.Item(10), 2, 0)
-            _CreditTurnoverCurrentPeriod = CDblSafe(dr.Item(11), 2, 0)
-            _DebitClosingCurrentPeriod = CDblSafe(dr.Item(12), 2, 0)
-            _CreditClosingCurrentPeriod = CDblSafe(dr.Item(13), 2, 0)
+            _DebitTurnoverCurrentPeriod = CDblSafe(dr.Item(11), 2, 0)
+            _CreditTurnoverCurrentPeriod = CDblSafe(dr.Item(12), 2, 0)
+            _DebitClosingCurrentPeriod = CDblSafe(dr.Item(13), 2, 0)
+            _CreditClosingCurrentPeriod = CDblSafe(dr.Item(14), 2, 0)
 
             If CRound(_DebitBalanceCurrentPeriodStart - _CreditBalanceCurrentPeriodStart _
                 + _DebitTurnoverCurrentPeriod - _CreditTurnoverCurrentPeriod) > 0 Then
