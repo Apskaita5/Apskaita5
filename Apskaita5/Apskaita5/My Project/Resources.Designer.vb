@@ -25737,6 +25737,60 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Struktūros antraštės eilutės negalima niekur perkelti..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_CannotMoveHeader() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_CannotMoveHeader", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Motininės eilutės negalima perkelti į dukterinę eilutę (kelionių laike paradoksas gaunasi)..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_CannotMoveParentToChild() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_CannotMoveParentToChild", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Balanso eilutės negali būti perkeliamos į pelno (nuostolio) ataskaitos eilutes ir priešingai..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_CannotMoveToDifferentType() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_CannotMoveToDifferentType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Eilutės negalima priskirti struktūros antraštėms..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_CannotMoveToHeader() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_CannotMoveToHeader", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Eilutės negalima perkelti į pačią save..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_CannotMoveToItself() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_CannotMoveToItself", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Struktūros antraštės eilutės negalima pašalinti..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_CannotRemoveHeader() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_CannotRemoveHeader", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Klaida. Išsaugota finansinių ataskaitų rinkinio struktūra neatitinka reikalavimų bazinei struktūrai..
         '''</summary>
         Friend ReadOnly Property General_ConsolidatedReport_InvalidBaseStructureInXmlData() As String
@@ -25764,6 +25818,60 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodyta naikintina eilutė..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_ItemToRemoveNull() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_ItemToRemoveNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenustatyta naikintinos eilutės motininė eilutė..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_ItemToRemoveParentNotFound() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_ItemToRemoveParentNotFound", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodyta perkeliama eilutė..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_MoveSourceNull() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_MoveSourceNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodyta eilutė, į kurią perkeliama..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_MoveTargetNull() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_MoveTargetNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenustatyta perkeliamos eilutės motininė eilutė..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_SourceParentNotFound() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_SourceParentNotFound", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenustatyta eilutės, į kurią perkeliama, motininė eilutė..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_TargetParentNotFound() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_TargetParentNotFound", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to finansinių ataskaitų rinkinio struktūra.
         '''</summary>
         Friend ReadOnly Property General_ConsolidatedReport_ToString() As String
@@ -25778,6 +25886,15 @@ Namespace My.Resources
         Friend ReadOnly Property General_ConsolidatedReport_TypeName() As String
             Get
                 Return ResourceManager.GetString("General_ConsolidatedReport_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to DĖMESIO. Šiai eilutei yra priskirtų apskaitos sąskaitų. Ištrynus šią eilutę reikės pakeisti atitinkamų sąskaitų priskyrimą sąskaitų plane..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReport_WarningAssignedAccountsWillBeLostAfterRemovingItem() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReport_WarningAssignedAccountsWillBeLostAfterRemovingItem", resourceCulture)
             End Get
         End Property
         
@@ -25841,6 +25958,15 @@ Namespace My.Resources
         Friend ReadOnly Property General_ConsolidatedReportItem_HasAccountsAssigned() As String
             Get
                 Return ResourceManager.GetString("General_ConsolidatedReportItem_HasAccountsAssigned", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Pelno (nuostolio) ataskaitoje gali būti tik vienas root elementas - grynasis pelnas (nuostolis)..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReportItem_HeaderOfComprehensiveIncomeCanOnlyHaveOneRootItem() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReportItem_HeaderOfComprehensiveIncomeCanOnlyHaveOneRootItem", resourceCulture)
             End Get
         End Property
         
@@ -25935,11 +26061,30 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Antraščių pridėti neleidžiama..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReportItem_UserCannotAddHeaders() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReportItem_UserCannotAddHeaders", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to eilutės eilės numeris.
         '''</summary>
         Friend ReadOnly Property General_ConsolidatedReportItem_VisibleIndex() As String
             Get
                 Return ResourceManager.GetString("General_ConsolidatedReportItem_VisibleIndex", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to DĖMESIO. Šiai eilutei yra priskirtų apskaitos sąskaitų. Pridėjus subeilutę reikės pakeisti atitinkamų sąskaitų priskyrimą sąskaitų plane..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReportItem_WarningAssignedAccountsWillBeLostAfterAddingChildItems() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReportItem_WarningAssignedAccountsWillBeLostAfterAddingChildI"& _ 
+                        "tems", resourceCulture)
             End Get
         End Property
         
@@ -41372,6 +41517,15 @@ Namespace My.Resources
         Friend ReadOnly Property Workers_PayOutNaturalPerson_JournalEntryID() As String
             Get
                 Return ResourceManager.GetString("Workers_PayOutNaturalPerson_JournalEntryID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Dokumentas, kurio tipas {0}, negali pagrįsti pinigų išmokėjimo fiziniam asmeniui..
+        '''</summary>
+        Friend ReadOnly Property Workers_PayOutNaturalPerson_JournalEntryTypeInvalid() As String
+            Get
+                Return ResourceManager.GetString("Workers_PayOutNaturalPerson_JournalEntryTypeInvalid", resourceCulture)
             End Get
         End Property
         

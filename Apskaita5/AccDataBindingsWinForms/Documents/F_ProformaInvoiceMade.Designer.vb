@@ -48,15 +48,15 @@ Partial Class F_ProformaInvoiceMade
         Me.CopyInvoiceButton = New System.Windows.Forms.Button
         Me.PasteInvoiceButton = New System.Windows.Forms.Button
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel
-        Me.SumDiscountVatAccTextBox = New AccControls.AccTextBox
+        Me.SumDiscountVatAccTextBox = New AccControlsWinForms.AccTextBox
         Me.ProformaInvoiceMadeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.RefreshNumberButton = New System.Windows.Forms.Button
-        Me.SumDiscountAccTextBox = New AccControls.AccTextBox
+        Me.SumDiscountAccTextBox = New AccControlsWinForms.AccTextBox
         Me.CommentsInternalTextBox = New System.Windows.Forms.TextBox
         Me.IDTextBox = New System.Windows.Forms.TextBox
-        Me.SumVatAccTextBox = New AccControls.AccTextBox
+        Me.SumVatAccTextBox = New AccControlsWinForms.AccTextBox
         Me.SerialComboBox = New System.Windows.Forms.ComboBox
-        Me.SumAccTextBox = New AccControls.AccTextBox
+        Me.SumAccTextBox = New AccControlsWinForms.AccTextBox
         Me.InsertDateTextBox = New System.Windows.Forms.TextBox
         Me.ContentTextBox = New System.Windows.Forms.TextBox
         Me.PayerAccListComboBox = New AccControlsWinForms.AccListComboBox
@@ -64,9 +64,9 @@ Partial Class F_ProformaInvoiceMade
         Me.FullNumberTextBox = New System.Windows.Forms.TextBox
         Me.CurrencyCodeComboBox = New System.Windows.Forms.ComboBox
         Me.DateDateTimePicker = New System.Windows.Forms.DateTimePicker
-        Me.NumberAccTextBox = New AccControls.AccTextBox
+        Me.NumberAccTextBox = New AccControlsWinForms.AccTextBox
         Me.UpdateDateTextBox = New System.Windows.Forms.TextBox
-        Me.SumTotalAccTextBox = New AccControls.AccTextBox
+        Me.SumTotalAccTextBox = New AccControlsWinForms.AccTextBox
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
         Me.AddTradeItemButton = New System.Windows.Forms.Button
@@ -1203,7 +1203,7 @@ Partial Class F_ProformaInvoiceMade
     Friend WithEvents CustomInfoAltLngTextBox As System.Windows.Forms.TextBox
     Friend WithEvents ProformaInvoiceMadeBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents CustomInfoTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents NumberAccTextBox As AccControls.AccTextBox
+    Friend WithEvents NumberAccTextBox As AccControlsWinForms.AccTextBox
     Friend WithEvents UpdateDateTextBox As System.Windows.Forms.TextBox
     Friend WithEvents SerialComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents IDTextBox As System.Windows.Forms.TextBox
@@ -1214,12 +1214,12 @@ Partial Class F_ProformaInvoiceMade
     Friend WithEvents CurrencyCodeComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents FullNumberTextBox As System.Windows.Forms.TextBox
     Friend WithEvents CommentsInternalTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents SumDiscountAccTextBox As AccControls.AccTextBox
-    Friend WithEvents SumTotalAccTextBox As AccControls.AccTextBox
+    Friend WithEvents SumDiscountAccTextBox As AccControlsWinForms.AccTextBox
+    Friend WithEvents SumTotalAccTextBox As AccControlsWinForms.AccTextBox
     Friend WithEvents ContentTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents SumVatAccTextBox As AccControls.AccTextBox
-    Friend WithEvents SumAccTextBox As AccControls.AccTextBox
-    Friend WithEvents SumDiscountVatAccTextBox As AccControls.AccTextBox
+    Friend WithEvents SumVatAccTextBox As AccControlsWinForms.AccTextBox
+    Friend WithEvents SumAccTextBox As AccControlsWinForms.AccTextBox
+    Friend WithEvents SumDiscountVatAccTextBox As AccControlsWinForms.AccTextBox
     Friend WithEvents RefreshNumberButton As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel

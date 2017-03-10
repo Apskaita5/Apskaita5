@@ -57,10 +57,6 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AccControls, Version=1.0.5486.29043, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Apskaita5\AccControls.dll</HintPath>
-    </Reference>
     <Reference Include="Csla, Version=2.1.4.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\csla20vb\csla20vb\Csla\bin\Release\Csla.dll</HintPath>
@@ -571,6 +567,12 @@
       <DependentUpon>F_CompanyRegionalData.vb</DependentUpon>
     </Compile>
     <Compile Include="General\F_CompanyRegionalData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\F_ConsolidatedReport.Designer.vb">
+      <DependentUpon>F_ConsolidatedReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="General\F_ConsolidatedReport.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="General\F_DebtInfoList.Designer.vb">
@@ -1226,6 +1228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="General\F_CompanyRegionalData.resx">
       <DependentUpon>F_CompanyRegionalData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\F_ConsolidatedReport.resx">
+      <DependentUpon>F_ConsolidatedReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="General\F_DebtInfoList.resx">
       <DependentUpon>F_DebtInfoList.vb</DependentUpon>

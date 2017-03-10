@@ -48,11 +48,11 @@ Partial Friend Class F_UnsettledPersonInfoList
         Me.OlvColumn11 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn12 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn1 = New BrightIdeasSoftware.OLVColumn
+        Me.OlvColumn6 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn2 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn3 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn4 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn5 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn6 = New BrightIdeasSoftware.OLVColumn
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
         Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller
         Me.Panel1.SuspendLayout()
@@ -296,6 +296,8 @@ Partial Friend Class F_UnsettledPersonInfoList
         Me.UnsettledPersonInfoListDataTreeView.HasCollapsibleGroups = False
         Me.UnsettledPersonInfoListDataTreeView.HeaderWordWrap = True
         Me.UnsettledPersonInfoListDataTreeView.HideSelection = False
+        Me.UnsettledPersonInfoListDataTreeView.HighlightBackgroundColor = System.Drawing.Color.Empty
+        Me.UnsettledPersonInfoListDataTreeView.HighlightForegroundColor = System.Drawing.Color.Empty
         Me.UnsettledPersonInfoListDataTreeView.IncludeColumnHeadersInCopy = True
         Me.UnsettledPersonInfoListDataTreeView.Location = New System.Drawing.Point(0, 61)
         Me.UnsettledPersonInfoListDataTreeView.Name = "UnsettledPersonInfoListDataTreeView"
@@ -380,6 +382,18 @@ Partial Friend Class F_UnsettledPersonInfoList
         Me.OlvColumn1.ToolTipText = ""
         Me.OlvColumn1.Width = 100
         '
+        'OlvColumn6
+        '
+        Me.OlvColumn6.AspectName = "SumInDocument"
+        Me.OlvColumn6.AspectToStringFormat = "{0:##,0.00}"
+        Me.OlvColumn6.CellEditUseWholeCell = True
+        Me.OlvColumn6.HeaderFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OlvColumn6.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.OlvColumn6.IsEditable = False
+        Me.OlvColumn6.Text = "Dok. Suma"
+        Me.OlvColumn6.ToolTipText = ""
+        Me.OlvColumn6.Width = 100
+        '
         'OlvColumn2
         '
         Me.OlvColumn2.AspectName = "DocTypeHumanReadable"
@@ -424,18 +438,6 @@ Partial Friend Class F_UnsettledPersonInfoList
         Me.OlvColumn5.Text = "Turinys"
         Me.OlvColumn5.ToolTipText = ""
         Me.OlvColumn5.Width = 235
-        '
-        'OlvColumn6
-        '
-        Me.OlvColumn6.AspectName = "SumInDocument"
-        Me.OlvColumn6.AspectToStringFormat = "{0:##,0.00}"
-        Me.OlvColumn6.CellEditUseWholeCell = True
-        Me.OlvColumn6.HeaderFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OlvColumn6.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.OlvColumn6.IsEditable = False
-        Me.OlvColumn6.Text = "Dok. Suma"
-        Me.OlvColumn6.ToolTipText = ""
-        Me.OlvColumn6.Width = 100
         '
         'ProgressFiller1
         '

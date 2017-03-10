@@ -591,7 +591,7 @@ Namespace ActiveReports
             _InvoiceType = ConvertDatabaseID(Of Documents.InvoiceType) _
                 (CIntSafe(dr.Item(27), 0))
             _InvoiceTypeHumanReadable = ConvertLocalizedName(_InvoiceType)
-            _ActualDate = CDateSafe(dr.Item(28), Today)
+            _ActualDate = CDateSafe(dr.Item(28), _Date)
 
 
             _SubtotalList = InvoiceSubtotalItemList.GetInvoiceSubtotalItemList( _

@@ -162,7 +162,7 @@
         Private Sub Fetch(ByVal dr As DataRow, ByVal offset As Integer)
 
             _ID = CIntSafe(dr.Item(0 + offset), 0)
-            _Name = CStrSafe(dr.Item(1 + offset)).Trim
+            _Name = CStrSafe(dr.Item(2 + offset)).Trim & "\" & CStrSafe(dr.Item(1 + offset)).Trim
 
         End Sub
 

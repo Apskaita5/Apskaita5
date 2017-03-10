@@ -15,11 +15,11 @@ Namespace Documents.BankDataExchangeProviders
 
         Protected Overrides Sub LoadDataFromStringInt(ByVal source As String)
 
-            If source.ToLower.Contains("iso:std:iso:20022") Then
-                ' if not the current version then downgrade to previous version
-                MyBase.LoadDataFromStringInt(source)
-                Exit Sub
-            End If
+            'If Not source.ToLower.Contains("urn:iso:std:iso:20022:tech:xsd:camt.053.001.05") Then
+            '    ' if not the current version then downgrade to previous version
+            '    MyBase.LoadDataFromStringInt(source)
+            '    Exit Sub
+            'End If
 
             Dim document As System.Xml.XmlDocument = New System.Xml.XmlDocument()
             document.LoadXml(StripNamespaces(source))

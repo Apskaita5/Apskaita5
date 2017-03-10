@@ -12,6 +12,8 @@ Namespace General
 
 #Region " Business Methods "
 
+#Region " Old interface "
+
         Friend Function MoveUp(ByVal childToMove As ConsolidatedReportItem) As ConsolidatedReportItem
 
             Dim rowToSwap1 As Integer = Me.IndexOf(childToMove)
@@ -65,35 +67,41 @@ Namespace General
 
         End Function
 
-        Private Sub SwapPositions(ByVal rowToSwap1 As Integer, ByVal rowToSwap2 As Integer)
+#End Region
 
-            Dim swapItem1 As ConsolidatedReportItem
-            Dim swapItem2 As ConsolidatedReportItem
 
-            If rowToSwap1 < 0 OrElse rowToSwap1 >= Me.Count OrElse rowToSwap2 < 0 _
-               OrElse rowToSwap2 >= Me.Count Then
+        Friend Sub MoveToIndex(ByVal child As ConsolidatedReportItem, ByVal indexToMove As Integer)
 
-                Throw New IndexOutOfRangeException(String.Format( _
-                    My.Resources.General_ConsolidatedReportItemList_InvalidSwapOperation, _
-                    (Me.Count - 1).ToString(), rowToSwap1.ToString(), rowToSwap2.ToString()))
-
+            If child Is Nothing Then
+                Throw New ArgumentNullException("child")
             End If
 
-            Me.RaiseListChangedEvents = False
+            If Not Me.Contains(child) Then
+                Throw New ArgumentException("Child is not a child.")
+            End If
 
-            swapItem1 = Items(rowToSwap1).Clone
-            swapItem2 = Items(rowToSwap2).Clone
+            If indexToMove < 0 OrElse indexToMove + 1 > Me.Count Then
+                Throw New IndexOutOfRangeException()
+            End If
 
-            Me.RemoveAt(rowToSwap1)
-            Me.Insert(rowToSwap1, swapItem2)
-            Me.RemoveAt(rowToSwap2)
-            Me.Insert(rowToSwap2, swapItem1)
-            Me.DeletedList.Remove(swapItem1)
-            Me.DeletedList.Remove(swapItem2)
+            Dim indexToInsert As Integer = indexToMove
+            If indexToInsert > Me.IndexOf(child) Then indexToInsert -= 1
 
-            Me.RaiseListChangedEvents = True
-            Me.ResetBindings()
+            Me.Remove(child)
+            Me.DeletedList.Remove(child)
+            Me.Insert(indexToInsert, child)
 
+        End Sub
+
+        Friend Sub MoveToNewList(ByVal child As ConsolidatedReportItem, ByVal targetList As ConsolidatedReportItemList, _
+            ByVal insertIndex As Integer)
+            Me.Remove(child)
+            Me.DeletedList.Remove(child)
+            If insertIndex < 0 Then
+                targetList.Add(child)
+            Else
+                targetList.Insert(insertIndex, child)
+            End If
         End Sub
 
 
@@ -158,16 +166,25 @@ Namespace General
 
         Private Sub New()
             MarkAsChild()
+            Me.AllowEdit = True
+            Me.AllowNew = True
+            Me.AllowRemove = True
         End Sub
 
         Private Sub New(ByVal nodeList As Xml.XmlNodeList, ByRef level As Integer)
             MarkAsChild()
+            Me.AllowEdit = True
+            Me.AllowNew = True
+            Me.AllowRemove = True
             Create(nodeList, level)
         End Sub
 
         Private Sub New(ByVal myData As DataTable, ByRef index As Integer, _
             ByVal parentLevel As Integer)
             MarkAsChild()
+            Me.AllowEdit = True
+            Me.AllowNew = True
+            Me.AllowRemove = True
             Fetch(myData, index, parentLevel)
         End Sub
 

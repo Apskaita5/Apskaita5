@@ -264,6 +264,7 @@
     <Compile Include="Extensibility\RestCredentials.vb" />
     <Compile Include="Extensibility\RestCredentialsList.vb" />
     <Compile Include="Extensibility\RestHandle.vb" />
+    <Compile Include="General\FinancialStatementsStructure\MoveItemType.vb" />
     <Compile Include="Goods\OperationsSimple\GoodsOperationRedeemFromBuyer.vb" />
     <Compile Include="Goods\OperationsSimple\GoodsOperationRedeemToSupplier.vb" />
     <Compile Include="HelperLists\ITradedItem.vb" />
@@ -625,6 +626,9 @@
     <None Include="ActiveReports\ClassDiagrams\ActiveReports_Workers_Declarations.cd" />
     <None Include="ActiveReports\ClassDiagrams\DebtInfoList.cd" />
     <None Include="ActiveReports\ClassDiagrams\UnsettledPersonInfoList.cd" />
+    <Content Include="SaskaituPlanai.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="DbStructure\DatabaseStructureGauge.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -635,9 +639,6 @@
     <Content Include="Info\HowToAddNewRole.txt" />
     <Content Include="Info\KnownBugz.txt" />
     <Content Include="Info\SQLServerTypeUnsafeObjects.txt" />
-    <Content Include="FinancialStatements_Short.str">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Info\TestUpgradeSuccess.txt" />
     <Content Include="CommonSettings.xmls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -646,9 +647,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="WTClasses.dat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="tipinis_saskaitu_planas.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

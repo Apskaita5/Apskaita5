@@ -51,8 +51,7 @@ Source: "D:\My Documents\My Projects\Apskaita5\AccMigration\bin\x86\Release\AccM
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Reports\*"; DestDir: "{app}\Reports"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\SqlDepositories\*"; DestDir: "{app}\SqlDepositories"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\DbStructure\*"; DestDir: "{app}\DbStructure"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\tipinis_saskaitu_planas.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FinancialStatements_Short.str"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\SaskaituPlanai.zip"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\WTClasses.dat"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\LastUpdateA5.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MySQL_accsecurity.sql"; DestDir: "{app}"; Flags: ignoreversion

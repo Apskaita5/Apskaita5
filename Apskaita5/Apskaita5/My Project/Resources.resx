@@ -14888,4 +14888,55 @@
   <data name="General_ConsolidatedReportItem_VisibleIndex" xml:space="preserve">
     <value>eilutės eilės numeris</value>
   </data>
+  <data name="General_ConsolidatedReportItem_UserCannotAddHeaders" xml:space="preserve">
+    <value>Klaida. Antraščių pridėti neleidžiama.</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_HeaderOfComprehensiveIncomeCanOnlyHaveOneRootItem" xml:space="preserve">
+    <value>Klaida. Pelno (nuostolio) ataskaitoje gali būti tik vienas root elementas - grynasis pelnas (nuostolis).</value>
+  </data>
+  <data name="General_ConsolidatedReportItem_WarningAssignedAccountsWillBeLostAfterAddingChildItems" xml:space="preserve">
+    <value>DĖMESIO. Šiai eilutei yra priskirtų apskaitos sąskaitų. Pridėjus subeilutę reikės pakeisti atitinkamų sąskaitų priskyrimą sąskaitų plane.</value>
+  </data>
+  <data name="General_ConsolidatedReport_WarningAssignedAccountsWillBeLostAfterRemovingItem" xml:space="preserve">
+    <value>DĖMESIO. Šiai eilutei yra priskirtų apskaitos sąskaitų. Ištrynus šią eilutę reikės pakeisti atitinkamų sąskaitų priskyrimą sąskaitų plane.</value>
+  </data>
+  <data name="General_ConsolidatedReport_MoveSourceNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta perkeliama eilutė.</value>
+  </data>
+  <data name="General_ConsolidatedReport_MoveTargetNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta eilutė, į kurią perkeliama.</value>
+  </data>
+  <data name="General_ConsolidatedReport_CannotMoveHeader" xml:space="preserve">
+    <value>Klaida. Struktūros antraštės eilutės negalima niekur perkelti.</value>
+  </data>
+  <data name="General_ConsolidatedReport_CannotMoveToHeader" xml:space="preserve">
+    <value>Klaida. Eilutės negalima priskirti struktūros antraštėms.</value>
+  </data>
+  <data name="General_ConsolidatedReport_CannotMoveToItself" xml:space="preserve">
+    <value>Klaida. Eilutės negalima perkelti į pačią save.</value>
+  </data>
+  <data name="General_ConsolidatedReport_SourceParentNotFound" xml:space="preserve">
+    <value>Klaida. Nenustatyta perkeliamos eilutės motininė eilutė.</value>
+  </data>
+  <data name="General_ConsolidatedReport_TargetParentNotFound" xml:space="preserve">
+    <value>Klaida. Nenustatyta eilutės, į kurią perkeliama, motininė eilutė.</value>
+  </data>
+  <data name="General_ConsolidatedReport_CannotMoveToDifferentType" xml:space="preserve">
+    <value>Klaida. Balanso eilutės negali būti perkeliamos į pelno (nuostolio) ataskaitos eilutes ir priešingai.</value>
+  </data>
+  <data name="General_ConsolidatedReport_CannotMoveParentToChild" xml:space="preserve">
+    <value>Klaida. Motininės eilutės negalima perkelti į dukterinę eilutę (kelionių laike paradoksas gaunasi).</value>
+  </data>
+  <data name="General_ConsolidatedReport_ItemToRemoveNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta naikintina eilutė.</value>
+  </data>
+  <data name="General_ConsolidatedReport_ItemToRemoveParentNotFound" xml:space="preserve">
+    <value>Klaida. Nenustatyta naikintinos eilutės motininė eilutė.</value>
+  </data>
+  <data name="General_ConsolidatedReport_CannotRemoveHeader" xml:space="preserve">
+    <value>Klaida. Struktūros antraštės eilutės negalima pašalinti.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPerson_JournalEntryTypeInvalid" xml:space="preserve">
+    <value>Dokumentas, kurio tipas {0}, negali pagrįsti pinigų išmokėjimo fiziniam asmeniui.</value>
+  </data>
 </root>

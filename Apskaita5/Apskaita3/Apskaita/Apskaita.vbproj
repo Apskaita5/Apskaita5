@@ -214,12 +214,6 @@
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="CommonMethods.vb" />
-    <Compile Include="F_ConsolidatedReportsStructure.Designer.vb">
-      <DependentUpon>F_ConsolidatedReportsStructure.vb</DependentUpon>
-    </Compile>
-    <Compile Include="F_ConsolidatedReportsStructure.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -470,9 +464,6 @@
     <Content Include="Reports\R_ImprestSheet.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="F_ConsolidatedReportsStructure.resx">
-      <DependentUpon>F_ConsolidatedReportsStructure.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Helpai\Apie.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Apie.vb</DependentUpon>

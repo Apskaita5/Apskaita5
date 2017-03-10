@@ -37,7 +37,7 @@
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>GetAccountList</Key>
-    <Statement>SELECT s.Saskaitosnr, s.Saskaita, s.Rusis, f.ID, f.Name FROM saskaitupl s LEFT JOIN FinancialStatementsStructure f ON f.ID = s.fs_id ORDER BY CAST(s.Saskaitosnr AS CHAR);</Statement>
+    <Statement>SELECT s.Saskaitosnr, s.Saskaita, s.Rusis, f.ID, f.Name, (SELECT g.Name FROM FinancialStatementsStructure g WHERE g.Rgt &gt; f.Rgt AND g.Lft &lt; f.Lft ORDER BY g.Rgt - g.Lft LIMIT 1) AS ParentName FROM saskaitupl s LEFT JOIN FinancialStatementsStructure f ON f.ID = s.fs_id ORDER BY CAST(s.Saskaitosnr AS CHAR);</Statement>
     <Objects>HelperLists.AccountInfoList, General.AccountList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -1240,7 +1240,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchInvoiceInfoItemListForInvoiceReceived</Key>
-    <Statement>SELECT O.ID, C.ID, C.Pavad, C.Kodas, C.SP_kodas, C.E_Mail, b.Op_data, b.Op_Dok, b.Op_turinys, O.CurrencyCode, O.CurrencyRate, 'LT', O.CommentsInternal, MAX(I.Tarif), SUM(I.SumOriginal), SUM(I.SumVatOriginal), SUM(I.SumLTL), SUM(I.SumVatLTL), 0, 0, 0, 0, O.AccountSupplier, 0, O.IndirectVatSum, C.StateCode, C.CodeIsNotReal, O.InvoiceType, CASE WHEN O.ActualDate IS NULL THEN b.Op_data ELSE O.ActualDate END FROM bz b LEFT JOIN InvoicesReceived O ON O.ID=b.Op_ID LEFT JOIN sfg as I ON I.BZ_ID=O.ID LEFT JOIN asmenys C ON C.ID=b.Op_analitika WHERE b.Op_data&gt;=$DF AND b.Op_data&lt;=$DT AND NOT O.ID IS NULL AND ($PD &lt; 1 OR B.Op_analitika=$PD) GROUP BY O.ID ORDER BY b.Op_data, b.Op_Dok;</Statement>
+    <Statement>SELECT O.ID, C.ID, C.Pavad, C.Kodas, C.SP_kodas, C.E_Mail, b.Op_data, b.Op_Dok, b.Op_turinys, O.CurrencyCode, O.CurrencyRate, 'LT', O.CommentsInternal, MAX(I.Tarif), SUM(I.SumOriginal), SUM(I.SumVatOriginal), SUM(I.SumLTL), SUM(I.SumVatLTL), 0, 0, 0, 0, O.AccountSupplier, 0, O.IndirectVatSum, C.StateCode, C.CodeIsNotReal, O.InvoiceType, IFNULL(O.ActualDate, b.Op_data) FROM bz b LEFT JOIN InvoicesReceived O ON O.ID=b.Op_ID LEFT JOIN sfg as I ON I.BZ_ID=O.ID LEFT JOIN asmenys C ON C.ID=b.Op_analitika WHERE b.Op_data&gt;=$DF AND b.Op_data&lt;=$DT AND NOT O.ID IS NULL AND ($PD &lt; 1 OR B.Op_analitika=$PD) GROUP BY O.ID ORDER BY b.Op_data, b.Op_Dok;</Statement>
     <Objects>ActiveReports.InvoiceInfoItemList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -1585,7 +1585,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchConsolidatedReport</Key>
-    <Statement>SELECT node.ID, node.Name, (COUNT(parent.name) - 1) AS depth, node.StatementType, node.IsCredit, (SELECT COUNT(*) FROM SaskaituPl s WHERE UPPER(TRIM(s.Rusis)) = UPPER(TRIM(node.Name))), node.Lft, node.Rgt, node.VisibleIndex, node.DisplayedNumber FROM FinancialStatementsStructure AS node, FinancialStatementsStructure AS parent WHERE node.lft BETWEEN parent.lft AND parent.rgt GROUP BY node.ID ORDER BY node.lft;</Statement>
+    <Statement>SELECT node.ID, node.Name, (COUNT(parent.name) - 1) AS depth, node.StatementType, node.IsCredit, (SELECT COUNT(*) FROM SaskaituPl s WHERE s.fs_id = node.ID), node.Lft, node.Rgt, node.VisibleIndex, node.DisplayedNumber FROM FinancialStatementsStructure AS node, FinancialStatementsStructure AS parent WHERE node.lft BETWEEN parent.lft AND parent.rgt GROUP BY node.ID ORDER BY node.lft;</Statement>
     <Objects>General.ConsolidatedReport</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -1600,7 +1600,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchAssignableCRItemList</Key>
-    <Statement>SELECT ID, Name FROM FinancialStatementsStructure WHERE Rgt = lft + 1 ORDER BY Lft;</Statement>
+    <Statement>SELECT f.ID, f.Name, (SELECT g.Name FROM FinancialStatementsStructure g WHERE g.Rgt &gt; f.Rgt AND g.Lft &lt; f.Lft ORDER BY g.Rgt - g.Lft LIMIT 1) AS ParentName FROM FinancialStatementsStructure f WHERE f.Rgt = f.Lft + 1 ORDER BY f.Lft;</Statement>
     <Objects>HelperLists.AssignableCRItemList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
