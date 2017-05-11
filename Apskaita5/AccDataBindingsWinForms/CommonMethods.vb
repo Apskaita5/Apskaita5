@@ -54,6 +54,7 @@ Public Module CommonMethods
         _BusinessObjectsViews.Add(GetType(General.ConsolidatedReport), GetType(F_ConsolidatedReport))
         _BusinessObjectsViews.Add(GetType(ActiveReports.BookEntryInfoListParent), GetType(F_BookEntryInfoListParent))
         _BusinessObjectsViews.Add(GetType(ActiveReports.DebtInfoList), GetType(F_DebtInfoList))
+        _BusinessObjectsViews.Add(GetType(ActiveReports.DebtStatementItemList), GetType(F_DebtStatementItemList))
         _BusinessObjectsViews.Add(GetType(ActiveReports.FinancialStatementsInfo), GetType(F_FinancialStatementsInfo))
         _BusinessObjectsViews.Add(GetType(ActiveReports.JournalEntryInfoList), GetType(F_JournalEntryInfoList))
         _BusinessObjectsViews.Add(GetType(ActiveReports.PersonInfoItemList), GetType(F_PersonInfoItemList))

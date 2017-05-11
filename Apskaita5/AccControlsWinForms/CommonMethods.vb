@@ -80,6 +80,8 @@ Public Module CommonMethods
 
         msgBox.Show()
 
+        msgBox.Dispose()
+
     End Sub
 
     Private Function GetBaseException(ByVal ex As Exception) As Exception

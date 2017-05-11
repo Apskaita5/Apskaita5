@@ -14,9 +14,13 @@ Namespace Extensibility
 
         Private ReadOnly AllowedObjectTypes As String() = New String() {ObjectType_Invoice.ToLower}
 
+
+        Private _invoiceLock As New Object
+
+
         Public Function ProcessRestRequest(ByVal request As HttpRequest) As String
 
-            If request.ContentType = "GET" Then
+            If request.HttpMethod.ToUpper.Trim() = "GET" Then
 
                 Return ProcessGetRequest(request)
 
@@ -64,12 +68,9 @@ Namespace Extensibility
                 Else
                     Throw New NotImplementedException(String.Format("ObjectType value {0} is not implemented.", objectType))
                 End If
-            Catch ex As Exception
+            Finally
                 AccDataAccessLayer.Security.AccPrincipal.Logout(New CustomCacheManager)
-                Throw
             End Try
-
-            AccDataAccessLayer.Security.AccPrincipal.Logout(New CustomCacheManager)
 
             Return result
 
@@ -100,12 +101,9 @@ Namespace Extensibility
                 Else
                     Throw New NotImplementedException(String.Format("ObjectType value {0} is not implemented.", objectType))
                 End If
-            Catch ex As Exception
+            Finally
                 AccDataAccessLayer.Security.AccPrincipal.Logout(New CustomCacheManager)
-                Throw
             End Try
-
-            AccDataAccessLayer.Security.AccPrincipal.Logout(New CustomCacheManager)
 
             Return result
 
@@ -118,7 +116,7 @@ Namespace Extensibility
 
             Try
 
-                proxy = FromXmlString(Of InvoiceInfo.InvoiceInfo)(content)
+                proxy = InvoiceInfo.FromXmlString(Of InvoiceInfo.InvoiceInfo)(content)
 
             Catch ex As Exception
                 Throw New Exception(String.Format("Invalid payload data for invoice: {0}{1}------InvoiceData------{2}{3}", _
@@ -147,15 +145,26 @@ Namespace Extensibility
                     vbCrLf, vbCrLf, content))
             End If
 
+            SyncLock _invoiceLock
+                SyncInvoice(proxy, content)
+            End SyncLock
+
+            Return String.Format("Invoice has been succesfully imported: {0} No. {1}", _
+                proxy.Date.ToString("yyyy-MM-dd"), proxy.FullNumber)
+
+        End Function
+
+        Private Sub SyncInvoice(ByVal proxy As InvoiceInfo.InvoiceInfo, ByVal content As String)
+
             Dim newClientInfo As InvoiceInfo.ClientInfo = Nothing
             Dim result As Documents.InvoiceMade
 
             Try
                 Dim clientList As PersonInfoList = PersonInfoList.GetListChild()
                 Dim accountList As AccountInfoList = AccountInfoList.GetListChild()
-                Dim vatSchemaList As VatDeclarationSchemaInfoList = VatDeclarationSchemaInfoList.GetList()
+                Dim vatSchemaList As VatDeclarationSchemaInfoList = VatDeclarationSchemaInfoList.GetListChild()
                 result = Documents.InvoiceMade.GetOrCreateInvoiceMadeChild(proxy, False, _
-                    clientList, AccountList, vatSchemaList, newClientInfo)
+                    clientList, accountList, vatSchemaList, newClientInfo)
             Catch ex As Exception
                 Throw New Exception(String.Format("Error while mapping invoice data:{0}{1}.{2}------InvoiceData------{3}{4}", _
                     vbCrLf, ex.Message, vbCrLf, vbCrLf, content))
@@ -206,11 +215,13 @@ Namespace Extensibility
                     Try
 
                         If Not newClient Is Nothing Then
-                            newClient.SaveChild()
-                            result.Payer = PersonInfo.GetPersonInfo(newClient)
+                            newClient = newClient.SaveChild()
+                            result.SetImportedPayer(PersonInfo.GetPersonInfo(newClient))
                         End If
 
                         result.SaveChild()
+
+                        transaction.Commit()
 
                     Catch ex As Exception
                         transaction.SetNonSqlException(ex)
@@ -220,20 +231,20 @@ Namespace Extensibility
 
             Catch ex As Exception
                 Throw New Exception(String.Format("Failed to save an invoice:{0}{1}{2}------InvoiceData------{3}{4}", _
-                    vbCrLf, ex.Message, vbCrLf, vbCrLf, content))
+                    vbCrLf, ex.Message, vbCrLf, vbCrLf, content), ex)
             End Try
 
-            Return String.Format("Invoice has been succesfully imported:{0}{1}", vbCrLf, result.ToString)
-
-        End Function
+        End Sub
 
         Private Function DeleteInvoice(ByVal objectId As String) As String
 
             Try
-                Documents.InvoiceMade.DeleteInvoiceByExternalID(objectId)
+                SyncLock _invoiceLock
+                    Documents.InvoiceMade.DeleteInvoiceByExternalID(objectId)
+                End SyncLock
             Catch ex As Exception
                 Throw New Exception(String.Format("Error while deleting invoice No. {0}:{1}{2}", _
-                    objectId, vbCrLf, ex.Message))
+                    objectId, vbCrLf, ex.Message), ex)
             End Try
 
             Return String.Format("Invoice has been succesfully deleted:{0}.", objectId)

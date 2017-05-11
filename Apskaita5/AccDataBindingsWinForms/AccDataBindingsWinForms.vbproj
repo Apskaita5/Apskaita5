@@ -400,6 +400,7 @@
     <Compile Include="CslaActionExtenderQueryObject.vb" />
     <Compile Include="CslaActionExtenderReportForm.vb" />
     <Compile Include="DataListViewEditControlManager.vb" />
+    <Compile Include="Documents\DebtStatementItemListPrintView.vb" />
     <Compile Include="Documents\F_AccumulativeCosts.Designer.vb">
       <DependentUpon>F_AccumulativeCosts.vb</DependentUpon>
     </Compile>
@@ -440,6 +441,18 @@
       <DependentUpon>F_CashOperationInfoList.vb</DependentUpon>
     </Compile>
     <Compile Include="Documents\F_CashOperationInfoList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documents\F_DebtStatementItemList.Designer.vb">
+      <DependentUpon>F_DebtStatementItemList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Documents\F_DebtStatementItemList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Documents\F_DebtStatementPersonDialog.Designer.vb">
+      <DependentUpon>F_DebtStatementPersonDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Documents\F_DebtStatementPersonDialog.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Documents\F_InvoiceInfoList.Designer.vb">
@@ -1166,6 +1179,12 @@
     <EmbeddedResource Include="Documents\F_CashOperationInfoList.resx">
       <DependentUpon>F_CashOperationInfoList.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Documents\F_DebtStatementItemList.resx">
+      <DependentUpon>F_DebtStatementItemList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Documents\F_DebtStatementPersonDialog.resx">
+      <DependentUpon>F_DebtStatementPersonDialog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Documents\F_InvoiceInfoList.resx">
       <DependentUpon>F_InvoiceInfoList.vb</DependentUpon>
     </EmbeddedResource>
@@ -1758,6 +1777,8 @@
     <None Include="Resources\Remove_attachment_24x24.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.DebtStatementItemList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.DebtStatementPerson.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Documents.ProformaInvoiceMade.datasource" />
     <None Include="Resources\Remove_Attachment_32x32.png" />
   </ItemGroup>

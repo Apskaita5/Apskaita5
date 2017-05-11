@@ -29,27 +29,33 @@ Namespace DatabaseAccess
 
         Friend Sub GetSQLDepository(Optional ByVal ReLoad As Boolean = False)
             If _SQLdictionary Is Nothing OrElse ReLoad Then
-                Dim tmp As New DataSet
-                tmp.ReadXml(GetSqlCommandManager.GetSqlDepositoryFileName())
-                Dim tre As New Dictionary(Of String, String)
-                For i As Integer = 1 To tmp.Tables(0).Rows.Count
-                    tre.Add(tmp.Tables(0).Rows(i - 1).Item(0).ToString, _
-                        tmp.Tables(0).Rows(i - 1).Item(1).ToString)
-                Next
-                _SQLdictionary = tre
+
+                Dim result As New Dictionary(Of String, String)(StringComparer.OrdinalIgnoreCase)
+                Using data As New DataSet
+                    data.ReadXml(GetSqlCommandManager.GetSqlDepositoryFileName())
+                    For Each row As DataRow In data.Tables(0).Rows
+                        Try
+                            result.Add(row(0).ToString, row(1).ToString)
+                        Catch ex As Exception
+                            Dim kl As Integer = 0
+                        End Try
+                    Next
+                End Using
+                _SQLdictionary = result
+
             End If
         End Sub
 
         Friend Sub GetSQLDepository(ByVal nCurrentSqlServerType As SqlServerType)
-            Dim tmp As New DataSet
-            tmp.ReadXml(GetSqlCommandManager(nCurrentSqlServerType).GetSqlDepositoryFileName)
-            Dim tre As New Dictionary(Of String, String)
-            For i As Integer = 1 To tmp.Tables(0).Rows.Count
-                tre.Add(tmp.Tables(0).Rows(i - 1).Item(0).ToString, _
-                    tmp.Tables(0).Rows(i - 1).Item(1).ToString)
-            Next
 
-            _SQLdictionary = tre
+            Dim result As New Dictionary(Of String, String)(StringComparer.OrdinalIgnoreCase)
+            Using data As New DataSet
+                data.ReadXml(GetSqlCommandManager(nCurrentSqlServerType).GetSqlDepositoryFileName)
+                For Each row As DataRow In data.Tables(0).Rows
+                    result.Add(row(0).ToString, row(1).ToString)
+                Next
+            End Using
+            _SQLdictionary = result
 
         End Sub
 

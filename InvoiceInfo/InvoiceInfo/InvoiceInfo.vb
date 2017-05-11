@@ -1,3 +1,5 @@
+Imports System.Xml.Serialization
+
 <Serializable()> _
 Public Class InvoiceInfo
 
@@ -71,6 +73,7 @@ Public Class InvoiceInfo
         End Set
     End Property
 
+    <XmlIgnore()> _
     Public Property [Date]() As DateTime
         Get
             Return _Date
@@ -78,6 +81,19 @@ Public Class InvoiceInfo
         Set(ByVal value As DateTime)
             If _Date <> value Then
                 _Date = value
+            End If
+        End Set
+    End Property
+
+    Public Property DateString() As String
+        Get
+            Return _Date.ToString(Globalization.CultureInfo.InvariantCulture)
+        End Get
+        Set(ByVal value As String)
+            If value Is Nothing OrElse String.IsNullOrEmpty(value.Trim) Then Exit Property
+            Dim newDate As Date = Date.Parse(value, Globalization.CultureInfo.InvariantCulture)
+            If _Date <> newDate Then
+                _Date = newDate
             End If
         End Set
     End Property
@@ -379,6 +395,7 @@ Public Class InvoiceInfo
         End Set
     End Property
 
+    <XmlIgnore()> _
     Public Property UpdateDate() As DateTime
         Get
             Return _UpdateDate
@@ -386,6 +403,19 @@ Public Class InvoiceInfo
         Set(ByVal value As DateTime)
             If _UpdateDate <> value Then
                 _UpdateDate = value
+            End If
+        End Set
+    End Property
+
+    Public Property UpdateDateString() As String
+        Get
+            Return _UpdateDate.ToString(Globalization.CultureInfo.InvariantCulture)
+        End Get
+        Set(ByVal value As String)
+            If value Is Nothing OrElse String.IsNullOrEmpty(value.Trim) Then Exit Property
+            Dim newDate As Date = Date.Parse(value, Globalization.CultureInfo.InvariantCulture)
+            If _UpdateDate <> newDate Then
+                _UpdateDate = newDate
             End If
         End Set
     End Property

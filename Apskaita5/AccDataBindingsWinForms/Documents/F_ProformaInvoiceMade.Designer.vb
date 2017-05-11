@@ -489,7 +489,7 @@ Partial Class F_ProformaInvoiceMade
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(883, 214)
-        Me.TableLayoutPanel3.TabIndex = 1
+        Me.TableLayoutPanel3.TabIndex = 0
         '
         'SumDiscountVatAccTextBox
         '
@@ -500,6 +500,7 @@ Partial Class F_ProformaInvoiceMade
         Me.SumDiscountVatAccTextBox.ReadOnly = True
         Me.SumDiscountVatAccTextBox.Size = New System.Drawing.Size(183, 20)
         Me.SumDiscountVatAccTextBox.TabIndex = 10
+        Me.SumDiscountVatAccTextBox.TabStop = False
         Me.SumDiscountVatAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'ProformaInvoiceMadeBindingSource
@@ -526,6 +527,7 @@ Partial Class F_ProformaInvoiceMade
         Me.SumDiscountAccTextBox.ReadOnly = True
         Me.SumDiscountAccTextBox.Size = New System.Drawing.Size(156, 20)
         Me.SumDiscountAccTextBox.TabIndex = 8
+        Me.SumDiscountAccTextBox.TabStop = False
         Me.SumDiscountAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'CommentsInternalTextBox
@@ -536,7 +538,7 @@ Partial Class F_ProformaInvoiceMade
         Me.CommentsInternalTextBox.Location = New System.Drawing.Point(66, 136)
         Me.CommentsInternalTextBox.Name = "CommentsInternalTextBox"
         Me.CommentsInternalTextBox.Size = New System.Drawing.Size(789, 20)
-        Me.CommentsInternalTextBox.TabIndex = 4
+        Me.CommentsInternalTextBox.TabIndex = 8
         '
         'IDTextBox
         '
@@ -547,6 +549,7 @@ Partial Class F_ProformaInvoiceMade
         Me.IDTextBox.ReadOnly = True
         Me.IDTextBox.Size = New System.Drawing.Size(156, 20)
         Me.IDTextBox.TabIndex = 2
+        Me.IDTextBox.TabStop = False
         Me.IDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'SumVatAccTextBox
@@ -558,6 +561,7 @@ Partial Class F_ProformaInvoiceMade
         Me.SumVatAccTextBox.ReadOnly = True
         Me.SumVatAccTextBox.Size = New System.Drawing.Size(183, 20)
         Me.SumVatAccTextBox.TabIndex = 4
+        Me.SumVatAccTextBox.TabStop = False
         Me.SumVatAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'SerialComboBox
@@ -568,7 +572,7 @@ Partial Class F_ProformaInvoiceMade
         Me.SerialComboBox.Location = New System.Drawing.Point(345, 29)
         Me.SerialComboBox.Name = "SerialComboBox"
         Me.SerialComboBox.Size = New System.Drawing.Size(183, 21)
-        Me.SerialComboBox.TabIndex = 4
+        Me.SerialComboBox.TabIndex = 1
         '
         'SumAccTextBox
         '
@@ -579,6 +583,7 @@ Partial Class F_ProformaInvoiceMade
         Me.SumAccTextBox.ReadOnly = True
         Me.SumAccTextBox.Size = New System.Drawing.Size(156, 20)
         Me.SumAccTextBox.TabIndex = 2
+        Me.SumAccTextBox.TabStop = False
         Me.SumAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'InsertDateTextBox
@@ -590,6 +595,7 @@ Partial Class F_ProformaInvoiceMade
         Me.InsertDateTextBox.ReadOnly = True
         Me.InsertDateTextBox.Size = New System.Drawing.Size(183, 20)
         Me.InsertDateTextBox.TabIndex = 4
+        Me.InsertDateTextBox.TabStop = False
         Me.InsertDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'ContentTextBox
@@ -600,7 +606,7 @@ Partial Class F_ProformaInvoiceMade
         Me.ContentTextBox.Location = New System.Drawing.Point(66, 110)
         Me.ContentTextBox.Name = "ContentTextBox"
         Me.ContentTextBox.Size = New System.Drawing.Size(789, 20)
-        Me.ContentTextBox.TabIndex = 2
+        Me.ContentTextBox.TabIndex = 7
         '
         'PayerAccListComboBox
         '
@@ -614,7 +620,7 @@ Partial Class F_ProformaInvoiceMade
         Me.PayerAccListComboBox.Location = New System.Drawing.Point(66, 56)
         Me.PayerAccListComboBox.Name = "PayerAccListComboBox"
         Me.PayerAccListComboBox.Size = New System.Drawing.Size(462, 21)
-        Me.PayerAccListComboBox.TabIndex = 2
+        Me.PayerAccListComboBox.TabIndex = 4
         '
         'LanguageNameComboBox
         '
@@ -625,7 +631,7 @@ Partial Class F_ProformaInvoiceMade
         Me.LanguageNameComboBox.Location = New System.Drawing.Point(345, 83)
         Me.LanguageNameComboBox.Name = "LanguageNameComboBox"
         Me.LanguageNameComboBox.Size = New System.Drawing.Size(510, 21)
-        Me.LanguageNameComboBox.TabIndex = 2
+        Me.LanguageNameComboBox.TabIndex = 6
         '
         'FullNumberTextBox
         '
@@ -636,6 +642,7 @@ Partial Class F_ProformaInvoiceMade
         Me.FullNumberTextBox.ReadOnly = True
         Me.FullNumberTextBox.Size = New System.Drawing.Size(183, 20)
         Me.FullNumberTextBox.TabIndex = 4
+        Me.FullNumberTextBox.TabStop = False
         Me.FullNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'CurrencyCodeComboBox
@@ -646,7 +653,7 @@ Partial Class F_ProformaInvoiceMade
         Me.CurrencyCodeComboBox.Location = New System.Drawing.Point(66, 83)
         Me.CurrencyCodeComboBox.Name = "CurrencyCodeComboBox"
         Me.CurrencyCodeComboBox.Size = New System.Drawing.Size(156, 21)
-        Me.CurrencyCodeComboBox.TabIndex = 2
+        Me.CurrencyCodeComboBox.TabIndex = 5
         '
         'DateDateTimePicker
         '
@@ -656,7 +663,7 @@ Partial Class F_ProformaInvoiceMade
         Me.DateDateTimePicker.Location = New System.Drawing.Point(66, 29)
         Me.DateDateTimePicker.Name = "DateDateTimePicker"
         Me.DateDateTimePicker.Size = New System.Drawing.Size(156, 20)
-        Me.DateDateTimePicker.TabIndex = 2
+        Me.DateDateTimePicker.TabIndex = 0
         '
         'NumberAccTextBox
         '
@@ -667,7 +674,7 @@ Partial Class F_ProformaInvoiceMade
         Me.NumberAccTextBox.Name = "NumberAccTextBox"
         Me.NumberAccTextBox.NegativeValue = False
         Me.NumberAccTextBox.Size = New System.Drawing.Size(183, 20)
-        Me.NumberAccTextBox.TabIndex = 6
+        Me.NumberAccTextBox.TabIndex = 3
         Me.NumberAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'UpdateDateTextBox
@@ -680,6 +687,7 @@ Partial Class F_ProformaInvoiceMade
         Me.UpdateDateTextBox.ReadOnly = True
         Me.UpdateDateTextBox.Size = New System.Drawing.Size(207, 20)
         Me.UpdateDateTextBox.TabIndex = 6
+        Me.UpdateDateTextBox.TabStop = False
         Me.UpdateDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'SumTotalAccTextBox
@@ -692,6 +700,7 @@ Partial Class F_ProformaInvoiceMade
         Me.SumTotalAccTextBox.ReadOnly = True
         Me.SumTotalAccTextBox.Size = New System.Drawing.Size(207, 20)
         Me.SumTotalAccTextBox.TabIndex = 6
+        Me.SumTotalAccTextBox.TabStop = False
         Me.SumTotalAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'GroupBox1
@@ -858,7 +867,7 @@ Partial Class F_ProformaInvoiceMade
         Me.Panel2.Location = New System.Drawing.Point(0, 578)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(897, 32)
-        Me.Panel2.TabIndex = 3
+        Me.Panel2.TabIndex = 2
         '
         'NewButton
         '
@@ -957,7 +966,7 @@ Partial Class F_ProformaInvoiceMade
         Me.ItemsDataListView.ShowItemCountOnGroups = True
         Me.ItemsDataListView.ShowItemToolTips = True
         Me.ItemsDataListView.Size = New System.Drawing.Size(897, 276)
-        Me.ItemsDataListView.TabIndex = 4
+        Me.ItemsDataListView.TabIndex = 1
         Me.ItemsDataListView.UnfocusedSelectedBackColor = System.Drawing.Color.PaleGreen
         Me.ItemsDataListView.UnfocusedSelectedForeColor = System.Drawing.Color.Black
         Me.ItemsDataListView.UseCellFormatEvents = True

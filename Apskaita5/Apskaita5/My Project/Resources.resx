@@ -14939,4 +14939,118 @@
   <data name="Workers_PayOutNaturalPerson_JournalEntryTypeInvalid" xml:space="preserve">
     <value>Dokumentas, kurio tipas {0}, negali pagrįsti pinigų išmokėjimo fiziniam asmeniui.</value>
   </data>
+  <data name="General_ConsolidatedReportItem_VisibleIndexesNotSet" xml:space="preserve">
+    <value>Klaida. Nenustatyta finansinės atskaitomybės eilučių eiliškumas (eilės numeriai).</value>
+  </data>
+  <data name="ActiveReports_DebtStatementPerson_PersonDescriptionFormat" xml:space="preserve">
+    <value>{0} ({1}) - {2}</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_ToStringTransaction" xml:space="preserve">
+    <value>{0:yyyy-MM-dd} Nr. {1}: {2} -&gt; {3:##,0.00}D, {4:##,0.00}K</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_ToString" xml:space="preserve">
+    <value>{0} -&gt; {1:##,0.00}D, {2:##,0.00}K</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItemList_DebtAccountNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta skolų apskaitos sąskaita.</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_ContentBalanceEnd" xml:space="preserve">
+    <value>Likutis laikotapio pabaigai:</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_ContentTurnover" xml:space="preserve">
+    <value>Apyvarta per laikotarpį:</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_ContentBalanceStart" xml:space="preserve">
+    <value>Likutis laikotarpio pradžiai:</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItemList_DebtAccount" xml:space="preserve">
+    <value>skolų apskaitos sąskaita</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItemList_PeriodEnd" xml:space="preserve">
+    <value>periodo pabaiga</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItemList_PeriodStart" xml:space="preserve">
+    <value>periodo pradžia</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItemList_TypeName" xml:space="preserve">
+    <value>skolų suderinimo aktai</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_Content" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_DocumentNo" xml:space="preserve">
+    <value>dokumento Nr.</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_DocumentType" xml:space="preserve">
+    <value>dokumento tipas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_ItemType" xml:space="preserve">
+    <value>eilutės tipas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_JournalEntryId" xml:space="preserve">
+    <value>dokumento BŽ ID</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_PersonAddress" xml:space="preserve">
+    <value>kontrahento adresas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_PersonCode" xml:space="preserve">
+    <value>kontrahento kodas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_PersonData" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_PersonDescription" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_PersonEmail" xml:space="preserve">
+    <value>kontrahento e-paštas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_PersonId" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_PersonName" xml:space="preserve">
+    <value>kontrahento pavadinimas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_PersonVatCode" xml:space="preserve">
+    <value>kontrahento PVM kodas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_TransactionCredit" xml:space="preserve">
+    <value>kreditas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_TransactionDebit" xml:space="preserve">
+    <value>debetas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementItem_TypeName" xml:space="preserve">
+    <value>skolų suderinimo akto eilutė</value>
+  </data>
+  <data name="ActiveReports_DebtStatementPerson_PersonAddress" xml:space="preserve">
+    <value>kontrahento adresas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementPerson_PersonCode" xml:space="preserve">
+    <value>kontrahento kodas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementPerson_PersonDescription" xml:space="preserve">
+    <value>kontrahentas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementPerson_PersonEmail" xml:space="preserve">
+    <value>kontrahento e-paštas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementPerson_PersonId" xml:space="preserve">
+    <value>kontrahento ID</value>
+  </data>
+  <data name="ActiveReports_DebtStatementPerson_PersonName" xml:space="preserve">
+    <value>kontrahento pavadinimas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementPerson_PersonVatCode" xml:space="preserve">
+    <value>kontrahento PVM kodas</value>
+  </data>
+  <data name="ActiveReports_DebtStatementPerson_ToString" xml:space="preserve">
+    <value>{0} ({1})</value>
+  </data>
+  <data name="ActiveReports_DebtStatementPerson_TypeName" xml:space="preserve">
+    <value>kontrahentas skolų suderinimo akte</value>
+  </data>
 </root>

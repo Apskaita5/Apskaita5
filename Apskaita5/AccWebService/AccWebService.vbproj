@@ -92,6 +92,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="A5RestService.ashx" />
+    <Content Include="App_Data\SqlDepositories\MySQL_Depository.sqld">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\SqlDepositories\SQLite_Depository.sqld">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -103,6 +109,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AccCommon\AccCommon.vbproj">
+      <Project>{380B0551-D15D-4072-A72C-406274CCB50E}</Project>
+      <Name>AccCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Apskaita5\ApskaitaObjects.vbproj">
       <Project>{5F12CA52-9B64-42A3-B168-7861C44FD24E}</Project>
       <Name>ApskaitaObjects</Name>
@@ -110,7 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\DbStructure\" />
-    <Folder Include="App_Data\SqlDepositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />

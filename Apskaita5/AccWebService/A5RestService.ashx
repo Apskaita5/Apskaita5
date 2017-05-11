@@ -5,6 +5,7 @@ Imports System.Web
 Imports System.xml
 Imports ApskaitaObjects
 Imports InvoiceInfo
+Imports AccCommon
 
 Public Class AccRestService : Implements IHttpHandler
     
@@ -28,7 +29,7 @@ Public Class AccRestService : Implements IHttpHandler
                     context.Response.StatusDescription = "Not Found"
                 End If
                 context.Response.ContentEncoding = Encoding.UTF8
-                Dim exceptionBytes As Byte() = Encoding.UTF8.GetBytes(ex.Message)
+                Dim exceptionBytes As Byte() = Encoding.UTF8.GetBytes(FormatExceptionString(ex))
                 context.Response.ContentType = "text/plain"
                 context.Response.Charset = Encoding.UTF8.WebName
                 context.Response.OutputStream.Write(exceptionBytes, 0, exceptionBytes.Length)
@@ -58,20 +59,8 @@ Public Class AccRestService : Implements IHttpHandler
     
     Private Function GetResponseBytes(ByVal result As String, ByVal e As Exception) As Byte()
         
-        Dim response As New RestResponse(result, e)
-        Dim serializer As New Xml.Serialization.XmlSerializer(GetType(RestResponse))
-        Dim settings As New XmlWriterSettings
-
-        settings.Indent = True
-        settings.IndentChars = " "
-        settings.Encoding = New System.Text.UnicodeEncoding()
-
-        Using ms As New IO.MemoryStream
-            Using writer As XmlWriter = XmlWriter.Create(ms, settings)
-                serializer.Serialize(writer, response)
-                Return ms.ToArray()
-            End Using
-        End Using
+        Dim enc As New UTF8Encoding(False)
+        Return enc.GetBytes(Factory.ToXmlString(New RestResponse(result, e)))
                
     End Function
 

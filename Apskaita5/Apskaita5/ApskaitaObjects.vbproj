@@ -98,6 +98,10 @@
     <Compile Include="ActiveReports\CashOperationInfoList.vb" />
     <Compile Include="ActiveReports\ContractInfo.vb" />
     <Compile Include="ActiveReports\ContractInfoList.vb" />
+    <Compile Include="ActiveReports\DebtStatementItem.vb" />
+    <Compile Include="ActiveReports\DebtStatementItemList.vb" />
+    <Compile Include="ActiveReports\DebtStatementItemType.vb" />
+    <Compile Include="ActiveReports\DebtStatementPerson.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationSAM_6.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationFR0471_5.vb" />
     <Compile Include="ActiveReports\Declarations\XmlValidationErrorBuilder.vb" />

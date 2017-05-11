@@ -482,6 +482,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="Reports\R_DebtStatementItemList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Reports\R_ProformaInvoiceAltLng.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

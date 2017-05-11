@@ -1494,6 +1494,339 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to aprašymas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_Content() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_Content", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Likutis laikotapio pabaigai:.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_ContentBalanceEnd() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_ContentBalanceEnd", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Likutis laikotarpio pradžiai:.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_ContentBalanceStart() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_ContentBalanceStart", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Apyvarta per laikotarpį:.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_ContentTurnover() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_ContentTurnover", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to data.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_Date() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_Date", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to dokumento Nr..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_DocumentNo() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_DocumentNo", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to dokumento tipas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_DocumentType() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_DocumentType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to eilutės tipas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_ItemType() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_ItemType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to dokumento BŽ ID.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_JournalEntryId() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_JournalEntryId", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento adresas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_PersonAddress() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_PersonAddress", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento kodas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_PersonCode() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_PersonCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahentas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_PersonData() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_PersonData", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahentas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_PersonDescription() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_PersonDescription", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento e-paštas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_PersonEmail() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_PersonEmail", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento ID.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_PersonId() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_PersonId", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_PersonName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_PersonName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento PVM kodas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_PersonVatCode() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_PersonVatCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} -&gt; {1:##,0.00}D, {2:##,0.00}K.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_ToString() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0:yyyy-MM-dd} Nr. {1}: {2} -&gt; {3:##,0.00}D, {4:##,0.00}K.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_ToStringTransaction() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_ToStringTransaction", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kreditas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_TransactionCredit() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_TransactionCredit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to debetas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_TransactionDebit() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_TransactionDebit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to skolų suderinimo akto eilutė.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItem_TypeName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItem_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to skolų apskaitos sąskaita.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItemList_DebtAccount() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItemList_DebtAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodyta skolų apskaitos sąskaita..
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItemList_DebtAccountNull() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItemList_DebtAccountNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to periodo pabaiga.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItemList_PeriodEnd() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItemList_PeriodEnd", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to periodo pradžia.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItemList_PeriodStart() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItemList_PeriodStart", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to skolų suderinimo aktai.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementItemList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementItemList_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento adresas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementPerson_PersonAddress() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementPerson_PersonAddress", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento kodas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementPerson_PersonCode() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementPerson_PersonCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahentas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementPerson_PersonDescription() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementPerson_PersonDescription", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} ({1}) - {2}.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementPerson_PersonDescriptionFormat() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementPerson_PersonDescriptionFormat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento e-paštas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementPerson_PersonEmail() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementPerson_PersonEmail", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento ID.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementPerson_PersonId() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementPerson_PersonId", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementPerson_PersonName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementPerson_PersonName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahento PVM kodas.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementPerson_PersonVatCode() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementPerson_PersonVatCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0} ({1}).
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementPerson_ToString() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementPerson_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to kontrahentas skolų suderinimo akte.
+        '''</summary>
+        Friend ReadOnly Property ActiveReports_DebtStatementPerson_TypeName() As String
+            Get
+                Return ResourceManager.GetString("ActiveReports_DebtStatementPerson_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Klaida. Nėra suformuotos deklaracijos..
         '''</summary>
         Friend ReadOnly Property ActiveReports_Declaration_DeclarationDataSetNull() As String
@@ -26075,6 +26408,15 @@ Namespace My.Resources
         Friend ReadOnly Property General_ConsolidatedReportItem_VisibleIndex() As String
             Get
                 Return ResourceManager.GetString("General_ConsolidatedReportItem_VisibleIndex", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenustatyta finansinės atskaitomybės eilučių eiliškumas (eilės numeriai)..
+        '''</summary>
+        Friend ReadOnly Property General_ConsolidatedReportItem_VisibleIndexesNotSet() As String
+            Get
+                Return ResourceManager.GetString("General_ConsolidatedReportItem_VisibleIndexesNotSet", resourceCulture)
             End Get
         End Property
         
