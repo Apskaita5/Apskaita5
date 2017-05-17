@@ -135,8 +135,6 @@ Partial Class F_ConsolidatedReport
         Me.ConsolidatedReportTreeListView.HasCollapsibleGroups = False
         Me.ConsolidatedReportTreeListView.HeaderWordWrap = True
         Me.ConsolidatedReportTreeListView.HideSelection = False
-        Me.ConsolidatedReportTreeListView.HighlightBackgroundColor = System.Drawing.Color.Empty
-        Me.ConsolidatedReportTreeListView.HighlightForegroundColor = System.Drawing.Color.Empty
         Me.ConsolidatedReportTreeListView.IncludeColumnHeadersInCopy = True
         Me.ConsolidatedReportTreeListView.IncludeHiddenColumnsInDataTransfer = True
         Me.ConsolidatedReportTreeListView.IsSimpleDragSource = True

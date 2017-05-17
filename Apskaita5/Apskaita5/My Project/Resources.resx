@@ -7909,7 +7909,7 @@
     <value>Nuolaidos negalimos kreditinėse ir debetinėse sąskaitose.</value>
   </data>
   <data name="Documents_InvoiceMade_DiscountSumInvalid" xml:space="preserve">
-    <value>Nuolaidos suma negali būti didesnė už sąskaitos sumą.</value>
+    <value>Nuolaidos suma negali būti neigiama.</value>
   </data>
   <data name="Documents_InvoiceMade_ExternalIdNotUnique" xml:space="preserve">
     <value>Klaida. Išorinis ID="{0}" jau egzistuoja duomenų bazėje.</value>

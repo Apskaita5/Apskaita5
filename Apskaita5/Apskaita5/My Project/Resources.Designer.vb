@@ -20121,7 +20121,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Nuolaidos suma negali būti didesnė už sąskaitos sumą..
+        '''  Looks up a localized string similar to Nuolaidos suma negali būti neigiama..
         '''</summary>
         Friend ReadOnly Property Documents_InvoiceMade_DiscountSumInvalid() As String
             Get

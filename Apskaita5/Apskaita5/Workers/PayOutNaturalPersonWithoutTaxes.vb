@@ -456,7 +456,7 @@ Namespace Workers
 
             myComm.Execute()
 
-            _ID = myComm.LastInsertID
+            _ID = Convert.ToInt32(myComm.LastInsertID)
 
             MarkOld()
 

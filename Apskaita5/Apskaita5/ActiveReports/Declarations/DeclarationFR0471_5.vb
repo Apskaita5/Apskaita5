@@ -169,7 +169,7 @@ Namespace ActiveReports.Declarations
 
             result.Add(firstPage)
 
-            For i As Integer = 1 To Math.Ceiling((payouts.Count - 2) / 5)
+            For i As Integer = 1 To Convert.ToInt32(Math.Ceiling((payouts.Count - 2) / 5))
 
                 Dim page As New List(Of Subtotal)
 

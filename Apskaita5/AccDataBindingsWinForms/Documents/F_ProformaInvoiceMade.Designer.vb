@@ -951,8 +951,6 @@ Partial Class F_ProformaInvoiceMade
         Me.ItemsDataListView.HasCollapsibleGroups = False
         Me.ItemsDataListView.HeaderWordWrap = True
         Me.ItemsDataListView.HideSelection = False
-        Me.ItemsDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.ItemsDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.ItemsDataListView.IncludeColumnHeadersInCopy = True
         Me.ItemsDataListView.Location = New System.Drawing.Point(0, 302)
         Me.ItemsDataListView.Name = "ItemsDataListView"

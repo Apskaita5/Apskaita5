@@ -40,7 +40,7 @@ Namespace ActiveReports
         ''' <summary>
         ''' Gets the number of the income statement item.
         ''' </summary>
-        ''' <remarks>Is calculated by the method <see cref="SetNumber">SetNumber</see>.</remarks>
+        ''' <remarks>Corresponds to <see cref="General.ConsolidatedReportItem.DisplayedNumber">ConsolidatedReportItem.DisplayedNumber</see>.</remarks>
         Public ReadOnly Property Number() As String
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get

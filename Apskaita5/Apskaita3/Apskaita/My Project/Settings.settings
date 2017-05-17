@@ -93,7 +93,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="UpdateUrl" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://88.119.26.208:8088/files/</Value>
+      <Value Profile="(Default)">https://hg.codeplex.com/apskaita5/raw-file/tip/</Value>
     </Setting>
     <Setting Name="AlwaysUseExternalIdInvoicesMade" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

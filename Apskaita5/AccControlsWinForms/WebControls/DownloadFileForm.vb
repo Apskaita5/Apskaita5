@@ -59,7 +59,7 @@ Namespace WebControls
 
                 CleanUp()
 
-                Me.DialogResult = DialogResult.Retry
+                Me.DialogResult = System.Windows.Forms.DialogResult.Retry
                 Me.Close()
 
             End Try
@@ -76,7 +76,7 @@ Namespace WebControls
 
             CleanUp()
 
-            Me.DialogResult = DialogResult.Cancel
+            Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
             Me.Close()
 
         End Sub
@@ -86,10 +86,10 @@ Namespace WebControls
             If _Canceled OrElse e.Cancelled Then Exit Sub
 
             If e.Error Is Nothing Then
-                Me.DialogResult = DialogResult.OK
+                Me.DialogResult = System.Windows.Forms.DialogResult.OK
             Else
                 _DownloadException = e.Error
-                Me.DialogResult = DialogResult.Retry
+                Me.DialogResult = System.Windows.Forms.DialogResult.Retry
             End If
 
             CleanUp()

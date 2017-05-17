@@ -385,8 +385,6 @@ Partial Friend Class F_VatDeclarationSchema
         Me.DeclarationEntriesDataListView.HasCollapsibleGroups = False
         Me.DeclarationEntriesDataListView.HeaderWordWrap = True
         Me.DeclarationEntriesDataListView.HideSelection = False
-        Me.DeclarationEntriesDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.DeclarationEntriesDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.DeclarationEntriesDataListView.IncludeColumnHeadersInCopy = True
         Me.DeclarationEntriesDataListView.Location = New System.Drawing.Point(0, 214)
         Me.DeclarationEntriesDataListView.Name = "DeclarationEntriesDataListView"

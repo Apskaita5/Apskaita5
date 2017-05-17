@@ -199,8 +199,6 @@ Partial Class F_DebtStatementItemList
         Me.ReportDataListView.FullRowSelect = True
         Me.ReportDataListView.HeaderWordWrap = True
         Me.ReportDataListView.HideSelection = False
-        Me.ReportDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.ReportDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.ReportDataListView.IncludeColumnHeadersInCopy = True
         Me.ReportDataListView.Location = New System.Drawing.Point(0, 56)
         Me.ReportDataListView.Name = "ReportDataListView"
