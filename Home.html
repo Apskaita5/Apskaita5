@@ -1,0 +1,345 @@
+<div class="wikidoc">
+<p><strong>Projekto apra&scaron;ymas</strong><br>
+&nbsp;</p>
+<p>Apskaita5 - atvirojo kodo apskaitos programa para&scaron;yta pagal Lietuvos verslo apskaitos standartus.</p>
+<p>Be jokių abejonių, &scaron;i programa nepretenduoja į Rivilės ar Exaptos lygį. Jos tikslas yra tik smulkių ir vidutinių įmonių buhalterinė apskaita. Todėl jokių labai specializuotų ir sudėtingo vartojimo formų joje nėra ir nebus. Galbūt, jei bus tautos palaikymas,
+ programoje atsiras ir keletas paprastų vadybos modulių.&nbsp;<br>
+Mano idėja buvo tokia, kad bet koks buhalteris galėtų dirbti &scaron;ia programa be papildomų apmokymų, prie&scaron;ingai nei su daugeliu komercinių variantų. O tai rei&scaron;kia minimalią formų specializaciją.</p>
+<p>Programos forumas -&nbsp;<a title="tax.lt" href="http://www.tax.lt/temos/12748-nemokama-apskaitos-programa" target="_blank">tax.lt</a></p>
+<p>Programos apra&scaron;ymas (nei&scaron;baigtas) čia: <a href="https://www.dropbox.com/s/4vcf1t56e352pa5/Apskaita5%20vartotojo%20vadovas.epub?dl=1" target="_blank">
+Apskaita 5 vartotojo vadovas pdf formatu</a>.</p>
+<p>&nbsp;</p>
+<p><strong>Galimybės</strong></p>
+<p>Programoje i&scaron;skiriami penki stambūs moduliai (pagal pagrindinio meniu skyrius pagrindinio lango vir&scaron;uje):</p>
+<ol>
+<li>Duomenys - apima įmonės duomenis, naudojamas įmonės dokumentų serijas, sąskaitų planą, kontrahentų sąra&scaron;ą (pirkėjai/tiekėjai/kiti) ir bendrojo žurnalo operacijas.
+</li><li>Dokumentai - apima kasos dokumentus, piniginių lė&scaron;ų apyvartos ataskaitą (be kita ko pateikiamą ir kasos knygos formatu), sąskaitų - faktūrų registravimą\i&scaron;ra&scaron;ymą, sąskaitų - faktūrų registrą, paslaugų katalogą ir formą banko sąskaitos
+ duomenų importui i&scaron; e-bankų formatais LITAS, ISO arba copy/paste būdu i&scaron; bet kokių kitų &scaron;altinių. &Scaron;iame modulyje palaikomos valiutos.
+</li><li>Turto apskaita - apima ilgalaikio turto įsigijimą, katalogą, operacijas, masines operacijas, trumpalaikio turto (atsargų\prekių) katalogą, operacijas, masines operacijas, gamybos kalkuliacijas.
+</li><li>Darbuotojai - apima darbuotojų, darbo sutarčių, jų pakeitimų sąra&scaron;us, jų statuso istoriją, darbo laiko, avanso ir darbo užmokesčio žiniara&scaron;čius, kitų i&scaron;mokų gyventojams sąra&scaron;ą ir SODROS bei GPM deklaracijas.
+</li><li>Ataskaitos - kol kas apima tik fin. atskaitomybę (generuojama automati&scaron;kai i&scaron; BŽ duomenų), skolų žiniara&scaron;čius (su ir be nepadengtų dokumentų), paslaugų pirkimo/pardavimo ataskaitą ir PVM deklaraciją (pastaroji meniu randasi prie dokumentų).&nbsp;Taip
+ pat yra galimybė patiems susikurti reikalingas ataskaitas ir jas įkelti į programą (rdl formatu, reikalingos SQL ir grafinio dizaino aplinkų žinios).
+</li></ol>
+<p>&nbsp;</p>
+<p><strong>Apribojimai</strong></p>
+<ul>
+<li>Tai i&scaron;imtinai buhalterinės apskaitos programa, joje nėra jokių verslo valdymo funkcijų. I&scaron; kitos pusės, yra principinė galimybė integruoti programą su trečiųjų &scaron;alių verslo valdymo sistemomis.
+</li><li>Neturi darbo laiko planavimo funkcionalumo (tik &quot;tabelį&quot;), t.y. nėra grafikų, užduočių valdymo ir pan.
+</li><li>Nepalaiko logistikos (važtara&scaron;čiai ir pan.). </li><li>Teigtina, nebūtų prasminga naudoti, jei apskaitos operacijų kiekis vienoje įmonėje vir&scaron;ija 20.000 per metus. Tokiais atvejais reikalingos papildomos duomenų apdorojimo&nbsp;technologijos, kurios neproporcingai apsunkintų bazinį variantą.
+</li></ul>
+<p>&nbsp;</p>
+<p><strong>Programos techninės charakteristikos</strong></p>
+<p>&nbsp;<br>
+Programa yra para&scaron;yta .NET 3.5 (serveris - 2.0)&nbsp;ir <a title="CSLA.NET" href="http://www.lhotka.net/cslanet/" target="_blank">
+CSLA.NET</a> (v. 3.5 kol kas) bazėje ir atitinkamai palaiko visas &scaron;io framework'o komunikacijos technologijas:</p>
+<ul>
+<li>Be jokio serverio (naudojamas integruotas SQLite failinis serveris); </li><li>Tiesiogiai su MySQL serveriu; </li><li>Enterprise Services; </li><li>Remoting; </li><li>Webservice. </li></ul>
+<p>Praktiniais tikslais rekomenduotina naudoti programą be serverio arba per webservice, instaliuojamą serveryje ASP.NET aplinkoje (i&scaron; esmės taip pat, kaip įmonės internetinis puslapis).</p>
+<p>&nbsp;</p>
+<p><strong>Programos techninis palaikymas</strong>&nbsp;</p>
+<p>Programos autorius (esantis viename fiziniame egzemplioriuje) neteikia bendro pobūdžio IT paslaugų, įskaitant programos instaliavimą, perkėlimą, duomenų perkėlimą ir t.t.</p>
+<p>Jei norite pagalbos komerciniais pagrindais, tokią pagalbą tikrai gali suteikti bet kokia IT priežiūros ir konsultavimo paslaugas teikianti įmonė. Visi specifiniai techniniai programos klausimai (o jų yra labai labai nedaug) yra aptarti &scaron;iame puslapyje.</p>
+<p>&nbsp;</p>
+<p><strong>Parama</strong></p>
+<p>Norintys paremti programą gali pervesti paramą:&nbsp;</p>
+<p><a title="Nacionalinė Buhalterių Asociacija" href="http://www.nbasociacija.lt" target="_blank">Nacionalinė Buhalterių Asociacija</a></p>
+<p>Į.k. 302317842</p>
+<p>LT613500010001845330,&nbsp;EVP International UAB</p>
+<p><em><strong>Mokėjimo paskirtyje būtinai nurodykite Apskaita5.</strong></em></p>
+<p>&nbsp;</p>
+<p><strong>Instaliacija</strong></p>
+<p>Parsisiųskite instaliacinį failą ir jį paleiskite, kelis kartus paspauskite NEXT.</p>
+<p>Taip pat galite naudoti standalone versiją, kuri nereikalauja jokio instaliavimo. Pateikiams failas yra 7zip selfextracting archyvas, kuris paprasčiausiai i&scaron;archyvuos programos failus jūsų pasirinktoje vietoje.</p>
+<p>Jei instaliuojama Win XP aplinkoje, papildomai gali tekti instaliuoti <a title=".NET" href="https://www.microsoft.com/en-us/download/details.aspx?id=21" target="_blank">
+.NET</a> &nbsp;platformą.</p>
+<p>&nbsp;</p>
+<p><strong>Darbo pradžia</strong></p>
+<p>Pirmą kartą pasileidę programą, jei neketinama jungtis prie jokių nutolusių serverių, spauskite mygtuką &quot;Be Serverio&quot;. Norint, kad programa ateityje neberodytų login formos ją paleidžiant, nueikite Bendras\Programos nustatymai ir uždėkite varnelę &quot;Nerodyti
+ nuotolinio prisijungimo&quot;.</p>
+<p>Jei ketinate naudotis nutolusiu serveriu, prisijungimo duomenis jums turi pasakyti atitinkamo serverio administratorius.&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Pagrindiniai programos valdymo principai tokie:</strong></p>
+<ul>
+<li>Beveik visose lentelėse su de&scaron;iniu pelės mygtuku paspaudę ant bet kurio stulpelio pavadinimo galėsite pasirikti matomus/paslėptus stulpelius. Taip pat leidžiama su pele keisti stulpelių i&scaron;sidėstymą (drag &amp; drop metodu) bei plotį (<em>jei
+ &nbsp;Bendras\Programos nustatymai neuždėta varnelė ant automati&scaron;kai keisti stulpelių plotį</em>):
+</li></ul>
+<p><img src="http://i64.tinypic.com/ej61z.jpg" alt="Su dešiniu pelės mygtuku paclickinus ant lentelės antraštės" width="600" height="437"></p>
+<p><img src="http://i64.tinypic.com/ftocx5.jpg" alt="Su dešiniu pelės mygtuku &quot;nešant&quot; stulpelį" width="600" height="436"></p>
+<ul>
+<li>Beveik visose lentelėse su de&scaron;iniu pelės mygtuku paspaudę ant bet kurio stulpelio pavadinimo galėsite: pažiūrėti lentelėje esančių skaičių sumas (ar kitokius agreguotus duomenis); eksportuoti lentelės duomenis į excelį, clipboardą, csv ar html failus;
+ spausdinti lentelę. </li><li>Norėdami atidaryti, keisti, i&scaron;trinti ir pan. bet kokioje readonly lentelėje (pvz., bendrojo žurnalo ataskaitoje) matomus įra&scaron;us/dokumentus, juos paclickinkite.
+</li><li>Norėdami i&scaron;trinti tiesiogiai redaguojamoje lentelėje (pvz., eilučių lentelė sąskaitos faktūros formoje, sąskaitų plano forma) eilutę, ją pasirinkite (galite pasirinkti ir kelias eilutes, jei renkantis su pele laikysite paspaustą Ctrl mygtuką) ir
+ spauskite mygtuką Del (arba &quot;-&quot;). </li><li>Norėdami tiesiogiai redaguojamoje lentelėje pridėti naują eilutę, pasirinkite lentelę (pvz., bet kurioje vietoje paspaudę pele) ir spauskite mygtuką Ins arba &#43;. Nauja eilutė bus pridėta lentelės gale.
+</li><li>Tiesiogiai redaguojamų lentelių redagavimas standarti&scaron;kai pradedamas vieną kartą pele paspaudus norimą redaguoti laukelį. Jei kam nepatogu, prie programos nustatymų yra varnelė redaguoti po doubleclick. Taip pat pradėti redaguoti galima klaviatūros
+ F2 mygtuku. </li></ul>
+<p><br>
+<strong>Pradedant dirbti su įmone veiksmų seka tokia: </strong></p>
+<ol>
+<li>Susikuriat įmonę (detaliau nėra ką ai&scaron;kinti, forma visi&scaron;kai ai&scaron;ki);
+<strong>Atkreiptinas dėmesys į bazinę valiutą - jos vėliau keisti nebus leidžiama.</strong>
+</li><li>Einate Ataskaitos\Fin. atskaitomybės struktūra, čia galite arba susikurti savo balanso bei pelno (nuostolio) ataskaitų struktūras, arba įkrauti esamus struktūros &scaron;ablonus (jie yra programos instaliacijos vietoje). Jei norite susikurti savo fin. atskaitomybės
+ struktūrą, atsidarote mano minėtus &scaron;ablonų failus, pasižiūrite kokiu principu konstruojama &scaron;ių ataskaitų struktūra ir ją koreguojate arba perdarote nuo nulio.
+</li><li>Einate Duomenys\Sąskaitų planas, čia galite susivesti savo sąskaitų planą, importuoti sąskaitų plano duomenis copy/paste būdu arba įkelti esamus sąskaitų plano &scaron;ablonus (jie yra programos instaliacijos vietoje).&nbsp;
+</li><li>Jei įkėlėte&nbsp;sąskaitų planą i&scaron; &scaron;ablono failo, dauguma darbui reikalingų nustatymų jau bus nustatyti automati&scaron;kai. Jei sąskaitų planą kūrėte rankiniu būdu ar importavote, nustatymus būtina suvesti formoje Duomenys\Įmonės duomenys.&nbsp;
+</li></ol>
+<p>&nbsp;</p>
+<p><strong>Likučių perkėlimo seka</strong></p>
+<ol>
+<li>Ataskaitos\Fin. atskaitomybės struktūra : pasidaryti fin atskaitomybės struktūrą. Jei ji tipinė, tada įsikelti esamą &scaron;abloną.&nbsp;
+</li><li>Duomenys\Sąskaitų planas : persikelti sąskaitų planą, rekomenduotina, copy/paste būdu, priskirti kiekvienai sąskaitai reikiamą finansinės atskaitomybės eilutę.&nbsp;
+</li><li>Duomenys\Įmonės duomenys : susivesti įmonės bendrus duomenis (ypač sąskaitų prefiksus, standartines sąskaitas ir tarifus), jei reikia, taip pat regioninius.&nbsp;
+</li><li>Duomenys\Analitikos duomenys\Kontrahentų importas : persikelti kontrahentus, rekomenduotina, copy/paste būdu.&nbsp;
+</li><li>Duomenys\Bendras\Likučių perkėlimas : persikelti BŽ likučius&nbsp;bazine valiuta.&nbsp;
+</li><li>Dokumentai\Piniginės lė&scaron;os\Piniginių lė&scaron;ų sąskaitos : susivesti lė&scaron;ų apskaitos sąskaitas (banko, kasos, kortelių ir pan.) nurodant jų likučius atitinkamos sąskaitos valiuta. Likutį privalu nurodyti ir tai atvejais, kai sąskaitos valiuta
+ sutampa su bazine valiuta. </li><li>Turto apskaita\Ilgalaikio turto&nbsp;likučių perkėlimas: importuoti&nbsp;IT pradinius duomenis copy/paste būdu.&nbsp;
+</li><li>Turto apskaita\Atsargų (prekių) sandėliai : susivesti prekių sandėlius.&nbsp;
+</li><li>Turto apskaita\Prekių duomenų importas : persikelti prekių bendrus duomenis, rekomenduotina, copy/paste būdu.&nbsp;
+</li><li>Turto apskaita\Prekių likučių perkėlimas : persikelti prekių likučius bazine valiuta pgl sandėlius, rekomenduotina, copy/paste būdu.&nbsp;<br>
+<br>
+Kontrahentų copy/paste instrukcija su paveiksliukais rasite&nbsp;<a title="Kontrahentų duomenų perkėlimo instrukcija" href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=apskaita5&DownloadId=1408071" target="_blank">čia</a>. Visur kitur copy/paste
+ principas yra identi&scaron;kas, skirsis tik stulpelių kiekiai, eili&scaron;kumas ir turiniai.&nbsp;
+</li></ol>
+<p>Atkreiptinas dėmesys, kad programoje paspaudus mygtuką (ar drop down mygtuko meniu), kuriuo prane&scaron;ama informacija apie reikalingą duomenų formatą, stulpelių seka taip pat yra nukopijuojama į clipboard'ą, t.y. atidarę excel ir paspaudus Paste gausite
+ paruo&scaron;tą duomenų įkėlimui lentelę.</p>
+<p>&nbsp;</p>
+<p><strong>Web hostingas</strong></p>
+<p>Programą galima hostinti web serveryje, atitinkančiame &scaron;iuos esminius reikalavimus:</p>
+<ul>
+<li>ASP.NET aplinka, versija 2; </li><li>MySQL serveris nejautrus didžiosioms mažosioms raidėms (case insensitive). </li><li>Prieinama mažiausiai dvi MySQL duomenų bazės (viena programos vidinėms reikmėms, viena įmonės);
+</li><li>MySQL duomenų bazių pavadinimų ribojimai turi leisti naudoti visoms duomenų bazėms vienodą pradžią ir laisvai pasirenkamą galūnę, e.g. &nbsp;user014698_apskasec, user014698_apskaita01,&nbsp; user014698_apskaita02 ir t.t. Naudotinas pavadinimo &scaron;ablonas
+ nustatomas web.config faile, eilutė naming convention. Auk&scaron;čiau nurodyto pavyzdžio atveju &scaron;io nustatymo reik&scaron;mė bus &quot;user014698_apskaita&quot;. Sisteminės (saugumo) duomenų bazės scriptas yra instaliaciniame pakete. Įmonės duomenų bazės scriptą
+ galima gauti i&scaron; programos Bendras\Sistemos redaktoriai\DB struktūros redaktorius.
+</li><li>Prie visų MySQL duomenų bazių turi būti prieiga per viena connectionString (web.config faile ).
+</li></ul>
+<p>&Scaron;iuo metu mano patikrinti komerciniai hostingo tiekėjai (pageidaujantys būti įtrauktais gali kreiptis):</p>
+<p>- windowshostingas.lt - &scaron;itie pasiruo&scaron;ę teikti mano programos hostinimą &quot;out of the box&quot;, t.y. patys viską paruo&scaron;ia naudojimui ir rūpinasi atnaujinimu. Kainodaros nežinau, bet kokiu atveju, mano supratimu, jų kaina neturėtų vir&scaron;yti
+ keliolikos eurų mėnesiui.&nbsp;<br>
+- balticservers.com - &scaron;itie tiesiog nuomuoja web serverius, neteikia programos instaliavimo ir priežiūros, taip pat, mano akimis, pobrangiai, nori apie 40 eurų mėnesiui. Manyčiau, kad jų pasiūlymas svarstytinas, jei serverį ketinate naudoti ne tik buh
+ programai, bet ir kitais tikslais (įmonės web puslapis, ftp serveris ir pan.). Pliusas - laisvė ir didelės galimybės, minusas - kaina ir palaikymo trūkumas. Programai su labai labai dideliu kaupu pakanka pačios paprasčiausios (ir atitinkamai pigiausios) jų
+ siūlomo serverio konfiguracijos.</p>
+<p>-&nbsp;viphost.lt - &scaron;itie teikia originalią paslaugą - virtualų kompiuterį - prie kurio galima prisijungti inetu (remote desktop) ir dirbti kaip paprastame kompiuteryje. Jame be kita ko gali būti ir Apskaita5. Tik &scaron;iuo atveju kaip ir paprasto
+ kompiuterio atveju nebus galimybės dirbti keletui vartotojų vienu metu. Mokestis abonentinis mėnesinis apie 7,5 EUR.</p>
+<p>&nbsp;</p>
+<p><strong>Įmonės duomenų bazės perkėlimas i&scaron; senos versijos</strong></p>
+<div><em><strong>Perkelti visus įmonės duomenis i&scaron; senos į naują versiją įmanoma tik jei nebuvo naudota prekių apskaita.</strong></em></div>
+<div>&nbsp;</div>
+<div>Atkreiptinas dėmesys, kad ry&scaron;ium su euru nuo 2015&nbsp;metų reikės naujos įmonės (duomenų bazės), kurioje bus nauja bazinė valiuta ir į kurią bus perkeliama tik konvertuoti likučiai.</div>
+<div>&nbsp;</div>
+<div>Duomenų perkėlimui bus reikalingas MySQL serveris, kurį galite atsisiųsti <a title="MySQL serverio parsisiuntimas" href="http://dev.mysql.com/downloads/windows/installer/5.6.html" target="_blank">
+čia</a> (jei neturite instaliuoto su sena programos versija).</div>
+<div>&nbsp;</div>
+<div>Atkreiptinas dėmesys, kad bandant konvertuoti duomenis į naują versiją pagal žemiau apra&scaron;ytus žingsnius MySQL serveryje turi būti I&Scaron;JUNGTAS strict mode. Kaip i&scaron;jungti strict mode, galite paskaityti&nbsp;<a title="kaip išjungti mysql strict mode" href="https://support.realtyna.com/index.php?/Knowledgebase/Article/View/535/0/how-can-i-turn-off-mysql-strict-mode" target="_blank">čia</a>.</div>
+<div>&nbsp;</div>
+<div>
+<div>Jei norit pereiti prie darbo be serverio ir kartu i&scaron;saugoti nepaliestus duomenis senoje versijoje, tada žingsniai sekantys:</div>
+</div>
+<ol>
+<li>
+<div>Pasidarot atsarginę kopiją senoje versijoje;</div>
+</li><li>
+<div>Naujoje versijoje login formoje pasirenkate naujas vartotojas ir i&scaron;siskleidusioje formoje užpildote prisijungimo prie sql serverio duomenis kaip senoje versijoje: Ry&scaron;io technologija - Tiesioginis ry&scaron;ys; SQL serverio adresas - teigtina
+ localhost; SQL serveio portas - teigtina 3306; SQL serverio tipas - MySql Serveris; DB pavadinimo bazė - financial (daugmaž bet koks angli&scaron;komis raidėmis žodis, ilgesnis nei 5 simboliai ir ne 'apskaita', prie&scaron;ingu atveju nauja versija įsibraus
+ į senos daržą); Vartotojo vardas - teigtina root; Slaptažodis - koks yra.</div>
+</li><li>
+<div>Prisiloginę nauja versija prie sql serverio atkuriate i&scaron; atsarginės kopijos duomenis.</div>
+</li><li>
+<div>Bendras\DB struktūra -&gt; Tikrinti -&gt; Taisyti; &Scaron;i operacija esant dideliam duomenų kiekiui gali užtrukti keliolika minučių. Nepavykus operacijai (&quot;i&scaron;metus&quot; klaidą) duomenų bazė dažniausiai sugadinama, todėl pakartotinis bandymas neturi
+ jokios prasmės ir baigsis nieko nesakančia klaida. Prie&scaron; bandant pakartoti &scaron;į žingsnį būtina i&scaron;trinti atitinkamą įmonę ir i&scaron; naujo ją įkrauti i&scaron; atsarginės kopijos.</div>
+</li><li>
+<div>Pažiūrėkite, koks yra atkurtos įmonės duomenų bazės pavadinimas, tas matosi Bendras\Naikinti įmones formoje.</div>
+</li><li>
+<div>Uždarote programą ir pasileidžiate kitą programą - AccMigration; Pastaroji turėtų būti meniu, o jei nebus, rasite program files folderyje prie kitų Apskaita5 failų.</div>
+</li><li>
+<div>&Scaron;ioje programoje skyriuje MySQL prisijungimo duomenis vėl suvedate tuos pačius duomenis, kaip prie&scaron; tai kuriant naują vartotoją Apskaita5 (serverio adresas, portas, vartotojo vardas, slaptažodis), grafoje duomenų bazėje įra&scaron;ote pavadinimą,
+ kurį pažiūrėjot 5 žingsnyje. Skyriuje SQLite prisijungimo duomenys spaudžiate mygtuką su daugta&scaron;kiu ir sugalvojate, kaip užvadinti failą ir kur jį pasidėti (ir po to neužmir&scaron;ti).</div>
+</li><li>
+<div>Įsitikinate, kad ta&scaron;kas yra ant pasirinkimo MySQL -&gt; SQLite ir spaudžiate mygtuką Migruoti. &Scaron;i operacija esant dideliam duomenų kiekiui gali užtrukti iki pusvalandžio.</div>
+</li><li>
+<div>Gautą failą perkeliame į program files Apskaita5 folderyje esantį folderį Data.</div>
+</li><li>
+<div>Pasileidžiate Apskaita5 be serverio ir matote savo įmonę.</div>
+</li></ol>
+<p>&nbsp;</p>
+<p><strong>Kontrahentų importas i&scaron; senos versijos</strong></p>
+<p>Instrukcija, kaip importuoti kontrahentų duomenis i&scaron; senos programos versijos, rasite&nbsp;<a title="Kontrahentų duomenų perkėlimo instrukcija" href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=apskaita5&DownloadId=1408071" target="_blank">čia</a></p>
+<p>&nbsp;</p>
+<p><strong>Kaip pasidaryti savo sąskaitos faktūros &scaron;abloną</strong></p>
+<p>Įmanoma įsidėti bet kokį &scaron;abloną per Duomenys\Įmonės duomenys, tabas Regioniniai nustatymai, tabas Sąskaitos forma.
+<br>
+Tik duomenys turi būti reikiamai sumap'inti. <br>
+Įmonės duomenų map'ą galima rasti source: Apskaita5\Apskaita3\Apskaita\Helpers\PrintingMethods\GetDataSetForReport
+<br>
+Faktūros duomenų map'ą galima rasti source: Apskaita5\Apskaita3\Apskaita\Helpers\PrintingMethods\MapObjectDetailsToReport su R_Obj parametro tipu Documents.InvoiceMade.
+<br>
+Darant &scaron;ablona per visual studio galima reference'inti dll'ą AccControls ir naudoti jo dataset'ą ReportData.
+<br>
+Programa naudoja Report Viewer 2008 v. 2, taigi redaguoti galima tik su Visual Studio 2005 arba 2008, bet ne vėlesnėmis.</p>
+<p>Nemokama (express) versija, kuria galima redaguoti &scaron;ablonus yra <a title="Visual Web Developer 2008 Express Edition SP1" href="http://www.asp.net/downloads/essential" target="_blank">
+Visual Web Developer 2008 Express Edition SP1</a> kartu su <a title="Reporting Add-on for Visual Web Developer 2008 Express Edition" href="http://www.microsoft.com/en-us/download/details.aspx?id=16682" target="_blank">
+Reporting Add-on for Visual Web Developer 2008 Express Edition</a></p>
+<p>Be kita ko, microsoftas nepasirūpino žmogi&scaron;ku rdlc failų upgrade'u į naują reportviewer'į (2010 v. 3). Jei kas užsiimtų rankine visų reportų konversija, būčiau dėkingas.&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Darbas linux aplinkoje</strong>&nbsp;</p>
+<p>Programa veikia linux aplinkoje naudojant pagalbinę&nbsp;<a href="https://www.winehq.org" target="_blank">wine programą</a>.&nbsp;</p>
+<p>Linux aplinkoje su wine programa instaliuojama taip:</p>
+<ul>
+<li>įdiegti MS .NET 2.0&nbsp;konsolės komandiniame lange įvykdžius:&nbsp;<code>winetricks dotnet20</code>&nbsp;;
+</li><li>įdiegti MS GDI&#43;&nbsp;konsolės komandiniame lange įvykdžius: <code>winetricks gdiplus_winxp</code>;
+</li><li>įdiegti programą Apskaita5 per wine emuliatorių. </li></ul>
+<p>P.S. Dirbant linux aplinkoje blogai veikia dokumentų print preview forma, i&scaron;darkomas vaizdas, bet spausdina teisingai.</p>
+<p>P.P.S. Naudojant programą linux aplinkoje su MySql serveriu jo&nbsp;konfiguracijos faile&nbsp;/etc/my.cnf po [mysqld] reikia įterpti eilutę&nbsp;<code>lower_case_table_names = 1</code></p>
+<p>&nbsp;</p>
+<p><strong>Dažniausiai užduodami klausimai</strong></p>
+<ul>
+<li>Programa neatsinaujina, o bandant atnaujinti meta klaidą </li></ul>
+<p>Nueikite Bendras\Programos nustatymai<br>
+laukelyje Programos atnaujinimai Url turi būti&nbsp;https://hg.codeplex.com/apskaita5/raw-file/tip/</p>
+<p>Dar gali būti serveris laikinai lūžęs, tada po kurio laiko savaime susitvarkys.</p>
+<ul>
+<li>Po atnaujinimo programa meta klaidas,&nbsp;neleidžia prisijungti prie įmonės ir pan.
+</li></ul>
+<p>Kai programa atnaujinama pridedant papildomą funkcionalumą, būtina papildomai atnaujinti duomenų bazių struktūras, kad jos gebėtų saugoti naujus duomenis. Tai daroma per Bendras\DB struktūra pasirenkant po vieną įmonę ir spaudžiant tikrinti bei taisyti.
+ Jei dirbama be serverio, o įmonių duomenys yra apsaugoti slaptažodžiais, papildomai reikia įvesti tikrinamos įmonės slaptažodį.</p>
+<ul>
+<li>Kaip lentelės duomenis perkelti į excel ar kitus formatus? </li></ul>
+<p>Su pelės de&scaron;iniu mygtuku paspauskite ant bet kurio stulpelio pavadinimo ir pasirinkite atitinkamą meniu punktą.</p>
+<ul>
+<li>Kaip pažiūrėti lentelės sumas (vidurkius, min, max ir pan.)? </li></ul>
+<p>Su pelės de&scaron;iniu mygtuku paspauskite ant bet kurio stulpelio pavadinimo ir pasirinkite atitinkamą meniu punktą.</p>
+<ul>
+<li>Kaip i&scaron;spausdinti lentelę tokia tvarka, kokia ji yra sudaryta? </li></ul>
+<p>Su pelės de&scaron;iniu mygtuku paspauskite ant bet kurio stulpelio pavadinimo ir pasirinkite atitinkamą meniu punktą.</p>
+<ul>
+<li>Kopijuojant lenteles į excel dingsta lietuvi&scaron;kos raidės </li></ul>
+<p>Excelyje paste'inant pasirinkite opciją Paste Special ir tada Unicode Text.</p>
+<ul>
+<li>Ar galima kažkaip duomenis i&scaron;saugoti nedarant atsarginės kopijos? </li></ul>
+<p>Jei dirbama be serverio, duomenys saugomi failuose, tipi&scaron;kai C:\Program files\Apskaita5\Data. Failus galima paprasčiausiai kopijuoti.<br>
+Jei dirbama su serveriu, duomenų bazių kopijas galima daryti atitinkamo serverio administravimo įrankiais (mysqldump, phpadmin ir pan.).</p>
+<ul>
+<li>
+<p>Antivirusas sako, kad programoje yra virusas.</p>
+</li></ul>
+<p>Kai kurie <a title="antivirusai ir jų giminaičiai" href="https://www.virustotal.com/en/file/563db1a9c8b7078a678a2f2753b05359afd836d352d076122227eb96e6ae908f/analysis/1429782418/" target="_blank">
+antivirusai ir jų giminaičiai</a>&nbsp;traktuoja mano programą savaime kaip malware, tikėtina, dėl jos gebėjimo komunikuoti inetu. Tokiam antiviruse reikia padaryti i&scaron;imtį, kad neliestų. Jokio viruso tikrai nėra.<br>
+Taip pat, susidūrus su tokiu elgesiu, padarysit visiems paslaugą paspaudę ant &quot;Report as false positive.&quot;</p>
+<ul>
+<li>
+<p>Kaip susikurta saskaitų plana perkelti i&scaron; vienos įmonės į kitą.</p>
+</li></ul>
+<p>0. Persikelti fin atskaitomybės struktūrą. <br>
+1. Pirmoje įmonėje užeiti ant sąskaitų plano lentelės, spausti ctrl-a (pasirenka viską), ctrl-c (kopijuoja).
+<br>
+2. Excelyje ar jo analoge spausti ctrl-v (paste). (jei dingsta lietuvybė, excelyje&nbsp;pasirinkite opciją Paste Special ir tada Unicode Text)
+<br>
+3. Excelyje palikti tik tris stulpelius tokia seka: nr, pavadinimas ir fin atskaitomybės pavadinimas. Pažymėti visus duomenis, spausti ctrl-c (copy).
+<br>
+4. Antroje įmonėje sąskaitų plano formoje spausti mygtuką su paste ikonėle.</p>
+<ul>
+<li>
+<p>Ar reikia prie&scaron; persikeliant likučius sąskaitas sąnaudų ir pajamų uždaryti, ar uždarymą daryti programoje po likučių perkėlimo?</p>
+</li></ul>
+<p>Programai vienodai, supras abu variantus normaliai. O kaip geriau prakti&scaron;kai, pats nežinau.</p>
+<ul>
+<li>Kaip naudotis automatiniu PVM deklaravimu (deklaracijų paruo&scaron;imu i&scaron; programos turimų duomenų)?
+</li></ul>
+<p>Tam reikia: Duomenys\Įmonės duomenys uždėti varnelę ant Naudoti PVM deklaracijas; Dokumentai\PVM deklaravimo schemos susikurti PVM deklaravimo schemas pagal įmonėje pasitaikančių su PVM susijusių operacijų tipus (&quot;standartinis&quot;, importas, reprezentacinės
+ etc.); i&scaron;ra&scaron;omose ir gaunamose sąskaitose faktūrose bei avanso apyskaitose prie eilučių priskyrinėti susikurtas deklaravimo schemas. Atkreiptinas dėmesys, kad pasirinkus deklaravimo schemą (pvz, gautoje faktūroje) automati&scaron;kai nustatomas
+ toje schemoje numatytas PVM tarifas, t.y. deklaravimo schemos stulpelis gali būti naudojamas vietoje PVM tarifo stulpelio. I&scaron; kitos pusės, programa, esant reikalui, leidžia pasirinkti ir kitokį nei nurodyta deklaravimo schemoje tarifą, tik įspėja vartotoją
+ apie tokį neatitikimą.</p>
+<p>PVM deklaravimo schemų kūrimą paprasčiausią pavaizduoti pavyzdžiu. Palyginkite žemiau pridėtą paveiksliuką su PVM deklaracijos forma ir tikrai suprasite veikimo principą (jei ką, raidė E prie&scaron; laukelio numerį naudojama todėl, kad ji naudojama VMI
+ formos duomenų faile, o laukelis kodas skirtas integracijai su i&scaron;orinėmis sistemomis, t.y. vidutiniam piliečiui neaktualu).</p>
+<p><img src="http://i67.tinypic.com/xd8juf.jpg" alt="PVM deklaravimo schemos pvz" width="600" height="508"></p>
+<ul>
+<li>
+<p>Lė&scaron;ų apyvartos ataskaitoje spausdinant nerodo likučio perkėlimo, nors peržiūros lange eilutėje &quot;Suma EUR&quot; rodo pradinį (perkeltą) likutį ir gerą galutinį, o pirmame stulpelyje Suma pradžioje likusi nulis ir pabaigoje likutis mažesnis perkėlimo suma.</p>
+</li></ul>
+<p>Reikia Dokumentai\Piniginės lė&scaron;os\Piniginių lė&scaron;ų sąskaitos nurodyti jų pradinį likutį, net jei tų sąskaitų valiuta EUR.</p>
+<ul>
+<li>
+<p>Kur reikia suvesti Administruojančio banko duomenis, man neleidžia nieko suvesti vedant Lė&scaron;ų apskaitos sąskaitas.</p>
+</li></ul>
+<p>Banką reikia įvesti kaip kontrahentą tiekėją.</p>
+<ul>
+<li>
+<p>Ar kasos knygos nėra?</p>
+</li></ul>
+<p>Yra. Dokumentai\Piniginės lė&scaron;os\Piniginių lė&scaron;ų apyvarta prie print prieview paspaudus trikampiuką.</p>
+<ul>
+<li>
+<p>Avanso apyskaitoje nerodomas likutis pradžioj ir likutis pabaigoj.</p>
+</li></ul>
+<p>Ir neturi. <br>
+Vienintelė avanso apyskaitos paskirtis pgl. teisės aktus - pateikti įmonei i&scaron;laidas/įplaukas pagrindžiančius dokumentus vienu kartu, o ne po vieną. Jokie teisės aktai nenumato pareigos avanso apyskaitoje vesti kažkokį balansą. Forma yra paveldėta nuo
+ popieriaus laikų, teisės aktai jokios formos nenustato, tai įmonės reikalas. <br>
+Balansas yra fakto, o ne susitarimo klausimas. Tarkim, pamir&scaron;us formuojant apyskaitą įtraukti kokį ankstesnį banko pavedimą atskaitingam, balansas vien dėl dviejų para&scaron;ų apyskaitoje niekaip nepasikeistų. O pradėjus ra&scaron;yti apyskaitose balansus
+ tik laiko klausimas kada prisidarysi bėdų su &quot;klaidingu balansu&quot;. Ką tada daryti? Vėl rinkti du para&scaron;us?
+<br>
+P.S. Avanso apyskaita jokiu būdu ne kasos dokumentas. Įmonė i&scaron; vis kasos gali neturėti, o atskaitingam i&scaron;duoti kortelę atsiskaitymui ar pavedimą į atskaitingo sąskaitą padaryti.</p>
+<ul>
+<li>
+<p>Nepažymėjau, kad įmonė PVM mokėtoja, bet dabar prisiregistruos, kaip pakeisti? Ar užtenka prie rekvizitų įra&scaron;yti PVM kodą?</p>
+</li></ul>
+<p>Užtenka.</p>
+<ul>
+<li>
+<p>Kaip galima pataisyti PVM sumą, kai vedu gautą sąskaitą ir PVM neatitinka 1 ct?</p>
+</li></ul>
+<p>De&scaron;iniu pelės mygtuku ant bet kurio stulpelio pavadinimo.</p>
+<ul>
+<li>
+<p>Kaip nustatyti gautos SF apmokėjimo terminą?&nbsp;</p>
+</li></ul>
+<p>Programoje nėra specialaus apmokėjimo termino nurodymo. Galite &scaron;iuo tikslu naudoti papildomos informacijos laukelį arba įra&scaron;yti pastovią apmokėjimo termino sąlygą į įmonės naudojamą SF &scaron;abloną.</p>
+<ul>
+<li>
+<p>Kaip sąskaitoje faktūroje užpajamuoti prekes, IT, taip pat užregistruoti kitas i&scaron; faktūros kylančias operacijas su prekėmis ir IT?</p>
+</li></ul>
+<p>Yra plius (&ldquo;&#43;&rdquo;) mygtukas pridėti specialios paskirties eilutei, kuri leidžia pajamuoti ir t.t.<br>
+Taip pat yra stulpelis &ldquo;Susietas objektas&rdquo;, ant kurio paclickinus galėsite redaguoti specifinius atitinkamos operacijos duomenis.</p>
+<ul>
+<li>
+<p>Turiu klausimą dėl IT likučius esu suvedus 12.31d. todėl ilgalaikį suvedžiau tai dienai, bet kai skaičiuoju nusidėvėjimą už pirmą mėnesį man skaičiuoja už du mėn. Kaip reikia sutvarkyti ar suvesti kad gerai skaičiuotų nusidėvėjimą?</p>
+</li></ul>
+<p>Prie bendrų IT duomenų reikia nuimti varnelę nuo tęsiamas naudojimas ir 12.31 perduoti naudoti.</p>
+<ul>
+<li>
+<p>Ar neįmanoma koreguoti darbo užmokesčio priedus, pas mane kintantys priedai kiekvieną mėnesį.</p>
+</li></ul>
+<p>Priedas programoje gali būti tik santykinai pastovus, nepastovioms, kiekvieną mėnesį kintančioms i&scaron;mokom naudokit stulpelį Kitos i&scaron;mokos susijusios su atliktu darbu.</p>
+<ul>
+<li>
+<p>Niekur nerandu, kur reikia įvesti, kad darbuotojas papildomai kaupia 1 proc. pensijai?</p>
+</li></ul>
+<p>Niekur nereikia įvesti. Kai skaičiuojate darbo užmokestį pakeičiate tarifą, vietoj 3 % pataisote 4 %. Tokiems darbuotojams pildomas atskiras darbo užmokesčio žiniara&scaron;tis.</p>
+<ul>
+<li>
+<p>Kaip sukurti darbuotojui naują darbo sutartį ir suvesti būtiną informaciją apie jį (priėmimo data, darbo laikas, NPD ir t.t.)?</p>
+</li></ul>
+<p>Bendri darbuotojo duomenys įvedami per Duomenys\Analitikos duomenys\Naujas kontrahentas, nepamir&scaron;tant uždėti varnelės Darbuotojas.<br>
+Nauja darbo sutartis įvedama Darbuotojai\Darbuotojų duomenys paclickinus ant reikiamo darbuotojo ir pasirinkus Nauja sutartis. Norėdami matyti darbuotojus, su kuriais dar nėra registruota darbo sutarčių, uždėkite varnelę ant Įtraukti darbuotojus be darbo sutarčių.</p>
+<ul>
+<li>
+<p>Kaip įvesti darbuotojo atleidimą?</p>
+</li></ul>
+<p>1. Užpildyti atleidžiamam darbuotojui darbo laiko apskaitos žiniara&scaron;tį (jei naudojama);<br>
+2. Prie bendrų darbo sutarties duomenų įvesti atleidimo data;<br>
+3. Sukurti darbo užmokesčio žiniara&scaron;tį galutiniam atsiskaitymui.</p>
+<ul>
+<li>
+<p>Blogai skaičiuoja darbo užmokestį.</p>
+</li></ul>
+<p>DUŽ yra nurodoma, kiek faktinių d.d., d.v. ir kiek grafikinių d.d., d.v. Jei darbuotojas dėl kažkokių priežasčių nei&scaron;dirbo visų grafikinių valandų, rei&scaron;kiasi neuždirbo ir visos algos.
+<br>
+Programa grafikines dienas ir valandas skaičiuoja apytiksliai, &scaron;iuos du skaičius reikia prisižiūrėti pačiam.</p>
+<ul>
+<li>
+<p>Suvedinėju nauja darbo laiko apskaitos žiniara&scaron;tį, žmogus pradėjo dirbti nuo 2014 lapkričio 20 dienos.ir kai suvedu nulius iki 20 dienos man prie dienų raudonus &scaron;auktukus i&scaron;meta. Ką tokiu atveju man ten rinktis?</p>
+</li></ul>
+<p>Susikurkite laiko klasę &quot;be darbo sutarties&quot; su kodu, pvz., brūk&scaron;niuku (Darbuotojai\Darbo laiko klasės).</p>
+<ul>
+<li>
+<p>Pas mūsų įmonėje dažnai atlyginimas mokamas dalimis ir vėluoja. Ar nėra galimybės kai nurodoma, kad i&scaron;mokamas atlyginimas nurodyti sumą, kuri i&scaron;mokama, nes prie atlyginimų i&scaron;mokėjimų jos koreguoti neleidžia.</p>
+</li></ul>
+<p>Nėra galimybės.</p>
+</div><div class="ClearBoth"></div>
