@@ -248,6 +248,8 @@
     <Compile Include="CommonValidation\IChronologicValidator.vb" />
     <Compile Include="Documents\BankDataExchangeProviders\ISO20022v053corruptBankAccountStatement.vb" />
     <Compile Include="Documents\CommandImportVatDeclarationSchemas.vb" />
+    <Compile Include="Documents\CustomVatOperation.vb" />
+    <Compile Include="Documents\CustomVatOperationList.vb" />
     <Compile Include="Documents\ProformaInvoiceMade.vb" />
     <Compile Include="Documents\ProformaInvoiceMadeItemList.vb" />
     <Compile Include="Documents\ProformaInvoiceMadeItem.vb" />

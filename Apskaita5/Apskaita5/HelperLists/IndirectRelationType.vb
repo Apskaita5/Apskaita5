@@ -52,6 +52,13 @@ Namespace HelperLists
         <EnumValue(5)> _
         PayoutToResidentWithoutTaxes
 
+        ''' <summary>
+        ''' A <see cref="Documents.CustomVatOperation">custom VAT operation</see>.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <EnumValue(6)> _
+        CustomVatOperation
+
     End Enum
 
 End Namespace

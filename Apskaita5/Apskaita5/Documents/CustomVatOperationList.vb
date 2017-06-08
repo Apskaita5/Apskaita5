@@ -1,22 +1,21 @@
 ﻿Imports ApskaitaObjects.My.Resources
 
-Namespace Workers
+Namespace Documents
 
     ''' <summary>
-    ''' Represents a list of payments to natural persons when no taxes are deducted or payed by the company. 
-    ''' Used in tax declarations.
+    ''' Represents a list of custom VAT operations (not invoice based operations that affect VAT obligations).
     ''' </summary>
-    ''' <remarks>Values are stored in the database table PayOutNaturalPersonWithoutTaxes.</remarks>
+    ''' <remarks>Values are stored in the database table CustomVatOperations.</remarks>
     <Serializable()> _
-    Public NotInheritable Class PayOutNaturalPersonWithoutTaxesList
-        Inherits BusinessListBase(Of PayOutNaturalPersonWithoutTaxesList, PayOutNaturalPersonWithoutTaxes)
+    Public Class CustomVatOperationList
+        Inherits BusinessListBase(Of CustomVatOperationList, CustomVatOperation)
         Implements IIsDirtyEnough, IValidationMessageProvider
 
 #Region " Business Methods "
 
         Private _DateFrom As Date = Today
         Private _DateTo As Date = Today
-        Private _PersonFilter As PersonInfo = Nothing
+        Private _ByJournalEntry As Boolean = False
 
 
         ''' <summary>
@@ -42,13 +41,13 @@ Namespace Workers
         End Property
 
         ''' <summary>
-        ''' Gets a person that the list is filtered by.
+        ''' Gets whether the list period is applied to the associated journal entry dates (not operation dates).
         ''' </summary>
         ''' <remarks></remarks>
-        Public ReadOnly Property PersonFilter() As PersonInfo
+        Public ReadOnly Property ByJournalEntry() As Boolean
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                Return _PersonFilter
+                Return _ByJournalEntry
             End Get
         End Property
 
@@ -64,7 +63,7 @@ Namespace Workers
             Implements IIsDirtyEnough.IsDirtyEnough
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                For Each i As PayOutNaturalPersonWithoutTaxes In Me
+                For Each i As CustomVatOperation In Me
                     If i.IsNew OrElse i.IsDirty Then Return True
                 Next
                 Return False
@@ -95,28 +94,33 @@ Namespace Workers
 
         Public Function HasWarnings() As Boolean _
             Implements IValidationMessageProvider.HasWarnings
-            For Each i As PayOutNaturalPersonWithoutTaxes In Me
+            For Each i As CustomVatOperation In Me
                 If i.BrokenRulesCollection.WarningCount > 0 Then Return True
             Next
             Return False
         End Function
 
 
+        Protected Overrides Function AddNewCore() As Object
+            Dim newItem As CustomVatOperation = CustomVatOperation.NewCustomVatOperation
+            Me.Add(newItem)
+            Return newItem
+        End Function
+
         ''' <summary>
-        ''' Adds new payments to natural persons using the payment list provided (use 
-        ''' <see cref="CreatePayOutNaturalPersonWithoutTaxesList">CreatePayOutNaturalPersonWithoutTaxesList</see>
-        ''' method to create a new payment list for journal entries).
+        ''' Adds new operations to the list (use <see cref="NewCustomVatOperationList">NewCustomVatOperationList</see>
+        ''' method to create a new operation list for journal entries).
         ''' </summary>
-        ''' <param name="range">a range of new payments to add to the list</param>
+        ''' <param name="range">a range of new operations to add to the list</param>
         ''' <remarks></remarks>
-        Public Sub AddNewRange(ByVal range As PayOutNaturalPersonWithoutTaxesList)
+        Public Sub AddNewRange(ByVal range As CustomVatOperationList)
 
             If range Is Nothing OrElse range.Count < 1 Then
-                Throw New Exception(Workers_PayOutNaturalPersonWithoutTaxesList_RangeEmpty)
+                Throw New Exception(Documents_CustomVatOperationList_RangeNull)
             End If
 
             Me.RaiseListChangedEvents = False
-            For Each newItem As PayOutNaturalPersonWithoutTaxes In range
+            For Each newItem As CustomVatOperation In range
                 Me.Add(newItem)
             Next
             Me.RaiseListChangedEvents = True
@@ -125,7 +129,7 @@ Namespace Workers
         End Sub
 
 
-        Public Overrides Function Save() As PayOutNaturalPersonWithoutTaxesList
+        Public Overrides Function Save() As CustomVatOperationList
             Return MyBase.Save()
         End Function
 
@@ -134,19 +138,15 @@ Namespace Workers
 #Region " Authorization Rules "
 
         Public Shared Function CanGetObject() As Boolean
-            Return ApplicationContext.User.IsInRole("Workers.PayOutNaturalPersonWithoutTaxesList1")
+            Return ApplicationContext.User.IsInRole("Documents.CustomVatOperationList1")
         End Function
 
         Public Shared Function CanAddObject() As Boolean
-            Return ApplicationContext.User.IsInRole("Workers.PayOutNaturalPersonWithoutTaxesList2")
+            Return ApplicationContext.User.IsInRole("Documents.CustomVatOperationList2")
         End Function
 
         Public Shared Function CanEditObject() As Boolean
-            Return ApplicationContext.User.IsInRole("Workers.PayOutNaturalPersonWithoutTaxesList3")
-        End Function
-
-        Public Shared Function CanDeleteObject() As Boolean
-            Return ApplicationContext.User.IsInRole("Workers.PayOutNaturalPersonWithoutTaxesList3")
+            Return ApplicationContext.User.IsInRole("Documents.CustomVatOperationList3")
         End Function
 
 #End Region
@@ -154,41 +154,40 @@ Namespace Workers
 #Region " Factory Methods "
 
         ''' <summary>
-        ''' Gets a new empty list of payments to natural persons.
+        ''' Gets a new empty custom VAT operations list.
         ''' </summary>
         ''' <remarks></remarks>
-        Public Shared Function NewPayOutNaturalPersonWithoutTaxesList() As PayOutNaturalPersonWithoutTaxesList
-            Return New PayOutNaturalPersonWithoutTaxesList
+        Public Shared Function NewCustomVatOperationList() As CustomVatOperationList
+            Return New CustomVatOperationList
         End Function
 
         ''' <summary>
-        ''' Creates a new list of payments to natural persons for the journal entries provided.
+        ''' Gets a new custom VAT operations list for the journal entries requested.
         ''' </summary>
-        ''' <param name="journalEntriesIds">an array of <see cref="General.JournalEntry.ID">journal entries' id's</see>
-        ''' to create payments for</param>
+        ''' <param name="journalEntriesIds"><see cref="General.JournalEntry.ID">ID's of the journal entries</see>
+        ''' to create the VAT operations for</param>
         ''' <remarks></remarks>
-        Public Shared Function CreatePayOutNaturalPersonWithoutTaxesList(ByVal journalEntriesIds As Integer()) As PayOutNaturalPersonWithoutTaxesList
-            Return DataPortal.Create(Of PayOutNaturalPersonWithoutTaxesList)(New Criteria(journalEntriesIds))
+        Public Shared Function NewCustomVatOperationList(ByVal journalEntriesIds As Integer()) As CustomVatOperationList
+            Return DataPortal.Create(Of CustomVatOperationList)(New Criteria(journalEntriesIds))
         End Function
 
         ''' <summary>
-        ''' Gets existing payments to natural persons for a period requested.
+        ''' Gets a list of custom VAT operations for the specified period.
         ''' </summary>
         ''' <param name="dateFrom">a starting date of the list period</param>
         ''' <param name="dateTo">an ending date of the list period</param>
-        ''' <param name="personFilter">a person to filter the list by</param>
-        ''' <returns></returns>
+        ''' <param name="byJournalEntry">whether the list period is applied to 
+        ''' the associated journal entry dates (not operation dates)</param>
         ''' <remarks></remarks>
-        Public Shared Function GetPayOutNaturalPersonWithoutTaxesList(ByVal dateFrom As Date, _
-            ByVal dateTo As Date, ByVal personFilter As PersonInfo) As PayOutNaturalPersonWithoutTaxesList
-            Return DataPortal.Fetch(Of PayOutNaturalPersonWithoutTaxesList)(New Criteria(dateFrom, dateTo, personFilter))
+        Public Shared Function GetCustomVatOperationList(ByVal dateFrom As Date, _
+            ByVal dateTo As Date, ByVal byJournalEntry As Boolean) As CustomVatOperationList
+            Return DataPortal.Fetch(Of CustomVatOperationList)(New Criteria(dateFrom, dateTo, byJournalEntry))
         End Function
-
 
         Private Sub New()
             ' require use of factory methods
             Me.AllowEdit = True
-            Me.AllowNew = False
+            Me.AllowNew = True
             Me.AllowRemove = True
         End Sub
 
@@ -198,15 +197,10 @@ Namespace Workers
 
         <Serializable()> _
         Private Class Criteria
-            Private _JournalEntriesIds As Integer() = Nothing
             Private _DateFrom As Date = Today
             Private _DateTo As Date = Today
-            Private _PersonFilter As PersonInfo = Nothing
-            Public ReadOnly Property JournalEntriesIds() As Integer()
-                Get
-                    Return _JournalEntriesIds
-                End Get
-            End Property
+            Private _ByJournalEntry As Boolean = False
+            Private _JournalEntriesIds As Integer() = Nothing
             Public ReadOnly Property DateFrom() As Date
                 Get
                     Return _DateFrom
@@ -217,21 +211,25 @@ Namespace Workers
                     Return _DateTo
                 End Get
             End Property
-            Public ReadOnly Property PersonFilter() As PersonInfo
+            Public ReadOnly Property ByJournalEntry() As Boolean
                 Get
-                    Return _PersonFilter
+                    Return _ByJournalEntry
                 End Get
             End Property
+            Public ReadOnly Property JournalEntriesIds() As Integer()
+                Get
+                    Return _JournalEntriesIds
+                End Get
+            End Property
+            Public Sub New(ByVal nDateFrom As Date, ByVal nDateTo As Date, ByVal nByJournalEntry As Boolean)
+                _DateFrom = nDateFrom
+                _DateTo = nDateTo
+                _ByJournalEntry = nByJournalEntry
+            End Sub
             Public Sub New(ByVal nJournalEntriesIds As Integer())
                 _JournalEntriesIds = nJournalEntriesIds
             End Sub
-            Public Sub New(ByVal nDateFrom As Date, ByVal nDateTo As Date, ByVal nPersonFilter As PersonInfo)
-                _DateFrom = nDateFrom
-                _DateTo = nDateTo
-                _PersonFilter = nPersonFilter
-            End Sub
         End Class
-
 
         Private Overloads Sub DataPortal_Create(ByVal criteria As Criteria)
 
@@ -239,11 +237,11 @@ Namespace Workers
                 My.Resources.Common_SecurityInsertDenied)
 
             If criteria.JournalEntriesIds Is Nothing OrElse criteria.JournalEntriesIds.Length < 1 Then
-                Throw New Exception(Workers_PayOutNaturalPersonWithoutTaxesList_JournalEntriesIdsNull)
+                Throw New Exception(Documents_CustomVatOperationList_JournalEntriesIdsNull)
             End If
 
             For Each journalEntryId As Integer In criteria.JournalEntriesIds
-                Add(PayOutNaturalPersonWithoutTaxes.NewPayOutNaturalPersonWithoutTaxes(journalEntryId))
+                Add(CustomVatOperation.NewCustomVatOperation(journalEntryId))
             Next
 
         End Sub
@@ -253,26 +251,26 @@ Namespace Workers
             If Not CanGetObject() Then Throw New System.Security.SecurityException( _
                 My.Resources.Common_SecuritySelectDenied)
 
-            Dim myComm As New SQLCommand("FetchPayOutNaturalPersonWithoutTaxesList")
+            Dim myComm As SQLCommand
+            If criteria.ByJournalEntry Then
+                myComm = New SQLCommand("FetchCustomVatOperationListByJournalEntry")
+            Else
+                myComm = New SQLCommand("FetchCustomVatOperationList")
+            End If
             myComm.AddParam("?DF", criteria.DateFrom)
             myComm.AddParam("?DT", criteria.DateTo)
-            If criteria.PersonFilter = PersonInfo.Empty Then
-                myComm.AddParam("?PD", 0)
-            Else
-                myComm.AddParam("?PD", criteria.PersonFilter.ID)
-            End If
 
             Using myData As DataTable = myComm.Fetch
 
                 RaiseListChangedEvents = False
 
                 For Each dr As DataRow In myData.Rows
-                    Add(PayOutNaturalPersonWithoutTaxes.GetPayOutNaturalPersonWithoutTaxes(dr))
+                    Add(CustomVatOperation.GetCustomVatOperation(dr))
                 Next
 
                 _DateFrom = criteria.DateFrom
                 _DateTo = criteria.DateTo
-                _PersonFilter = criteria.PersonFilter
+                _ByJournalEntry = criteria.ByJournalEntry
 
                 RaiseListChangedEvents = True
 
@@ -285,13 +283,13 @@ Namespace Workers
             Dim potentialUpdatespending As Boolean = False
 
             If Not CanEditObject() Then
-                For Each i As PayOutNaturalPersonWithoutTaxes In Me
+                For Each i As CustomVatOperation In Me
                     If Not i.IsNew AndAlso i.IsDirty Then
                         If Not CanEditObject() Then Throw New System.Security.SecurityException( _
                             My.Resources.Common_SecurityUpdateDenied)
                     End If
                 Next
-                For Each i As PayOutNaturalPersonWithoutTaxes In Me.DeletedList
+                For Each i As CustomVatOperation In Me.DeletedList
                     If Not i.IsNew Then
                         If Not CanEditObject() Then Throw New System.Security.SecurityException( _
                             My.Resources.Common_SecurityUpdateDenied)
@@ -299,14 +297,14 @@ Namespace Workers
                 Next
             End If
 
-            For Each i As PayOutNaturalPersonWithoutTaxes In Me
+            For Each i As CustomVatOperation In Me
                 If i.IsNew OrElse i.IsDirty Then
                     potentialUpdatespending = True
                     Exit For
                 End If
             Next
             If Not potentialUpdatespending Then
-                For Each i As PayOutNaturalPersonWithoutTaxes In Me.DeletedList
+                For Each i As CustomVatOperation In Me.DeletedList
                     If Not i.IsNew Then
                         potentialUpdatespending = True
                         Exit For
@@ -315,7 +313,7 @@ Namespace Workers
             End If
 
             If Not potentialUpdatespending Then
-                Throw New Exception(Workers_PayOutNaturalPersonWithoutTaxesList_ListIsNotDirty)
+                Throw New Exception(Documents_CustomVatOperationList_ListIsNotDirty)
             End If
 
             If Not Me.IsValid Then
@@ -327,12 +325,12 @@ Namespace Workers
 
             RaiseListChangedEvents = False
 
-            For Each item As PayOutNaturalPersonWithoutTaxes In DeletedList
+            For Each item As CustomVatOperation In DeletedList
                 If Not item.IsNew Then item.DeleteSelf()
             Next
             DeletedList.Clear()
 
-            For Each item As PayOutNaturalPersonWithoutTaxes In Me
+            For Each item As CustomVatOperation In Me
                 If item.IsNew Then
                     item.Insert()
                 ElseIf item.IsDirty Then

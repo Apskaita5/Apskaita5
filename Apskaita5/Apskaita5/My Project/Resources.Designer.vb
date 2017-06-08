@@ -18826,6 +18826,231 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to operacijos data.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_Date() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_Date", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to aprašymas.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_Description() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_Description", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to ID.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_ID() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_ID", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to įtraukta.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_InsertDate() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_InsertDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendrojo žurnalo operacijos turinys.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_JournalEntryContent() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_JournalEntryContent", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendrojo žurnalo operacijos kontavimai.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_JournalEntryCorrespondence() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_JournalEntryCorrespondence", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendrojo žurnalo operacijos data.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_JournalEntryDate() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_JournalEntryDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendrojo žurnalo operacijos dokumento numeris.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_JournalEntryDocNo() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_JournalEntryDocNo", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to BŽ ID.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_JournalEntryId() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_JournalEntryId", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodyta bendrojo žurnalo operacija, kurios pagrindu būtų fiksuojamos PVM korekcijos..
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_JournalEntryNull() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_JournalEntryNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendrojo žurnalo operacijos kontrahentas.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_JournalEntryRelatedPerson() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_JournalEntryRelatedPerson", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendrojo žurnalo operacijos dokumento tipas.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_JournalEntryType() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_JournalEntryType", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to bendrojo žurnalo operacijos dokumento tipas.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_JournalEntryTypeHumanReadable() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_JournalEntryTypeHumanReadable", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Bendrojo žurnalo operacija, kurios dokumento tipas yra {0}, negali būti pagrindu PVM korekcijoms..
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_JournalEntryTypeInvalid() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_JournalEntryTypeInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to nepriskirta.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_NullSchemaName() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_NullSchemaName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {0:yyyy-MM-dd} operacija &quot;{1}&quot;, PVM schema - {2}.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_ToString() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_ToString", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM (korekcijos) operacija.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pakeista.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_UpdateDate() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_UpdateDate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_ValueBase() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_ValueBase", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM suma.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_ValueVat() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_ValueVat", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM deklaravimo schema.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperation_VatSchema() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperation_VatSchema", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodyta nė viena bendrojo žurnalo operacija, kuriai reikėtų sukurti PVM (korekcijos) operaciją..
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperationList_JournalEntriesIdsNull() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperationList_JournalEntriesIdsNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Operacijų sąraše nėra nei naujų, nei koreguotų PVM operacijų (korekcijų)..
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperationList_ListIsNotDirty() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperationList_ListIsNotDirty", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Klaida. Nenurodyta nė viena PVM operacija, kurią reikėtų pridėti..
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperationList_RangeNull() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperationList_RangeNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM (korekcijos) operacijos.
+        '''</summary>
+        Friend ReadOnly Property Documents_CustomVatOperationList_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Documents_CustomVatOperationList_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Nesutampa įsigijimo savikainos sąskaita nurodyta sąskaitos eilutėje ({0}) ir susietoje ilgalaikio turto įsigijimo operacijoje ({1})..
         '''</summary>
         Friend ReadOnly Property Documents_InvoiceAdapters_AssetAcquisitionInvoiceAdapter_AccountCostsInvalid() As String
@@ -36981,6 +37206,15 @@ Namespace My.Resources
         Friend ReadOnly Property HelperLists_IndirectRelationType_AdvanceReport() As String
             Get
                 Return ResourceManager.GetString("HelperLists_IndirectRelationType_AdvanceReport", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to (netipinė) PVM operacija.
+        '''</summary>
+        Friend ReadOnly Property HelperLists_IndirectRelationType_CustomVatOperation() As String
+            Get
+                Return ResourceManager.GetString("HelperLists_IndirectRelationType_CustomVatOperation", resourceCulture)
             End Get
         End Property
         

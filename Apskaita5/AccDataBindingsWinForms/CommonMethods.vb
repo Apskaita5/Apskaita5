@@ -110,6 +110,7 @@ Public Module CommonMethods
         _BusinessObjectsViews.Add(GetType(Documents.TillIncomeOrder), GetType(F_TillIncomeOrder))
         _BusinessObjectsViews.Add(GetType(Documents.TillSpendingsOrder), GetType(F_TillSpendingsOrder))
         _BusinessObjectsViews.Add(GetType(Documents.VatDeclarationSchema), GetType(F_VatDeclarationSchema))
+        _BusinessObjectsViews.Add(GetType(Documents.CustomVatOperationList), GetType(F_CustomVatOperationList))
         _BusinessObjectsViews.Add(GetType(Goods.GoodsComplexOperationDiscard), GetType(F_GoodsComplexOperationDiscard))
         _BusinessObjectsViews.Add(GetType(Goods.GoodsComplexOperationInternalTransfer), GetType(F_GoodsComplexOperationInternalTransfer))
         _BusinessObjectsViews.Add(GetType(Goods.GoodsComplexOperationInventorization), GetType(F_GoodsComplexOperationInventorization))

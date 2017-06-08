@@ -443,6 +443,12 @@
     <Compile Include="Documents\F_CashOperationInfoList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Documents\F_CustomVatOperationList.Designer.vb">
+      <DependentUpon>F_CustomVatOperationList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Documents\F_CustomVatOperationList.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Documents\F_DebtStatementItemList.Designer.vb">
       <DependentUpon>F_DebtStatementItemList.vb</DependentUpon>
     </Compile>
@@ -1179,6 +1185,9 @@
     <EmbeddedResource Include="Documents\F_CashOperationInfoList.resx">
       <DependentUpon>F_CashOperationInfoList.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Documents\F_CustomVatOperationList.resx">
+      <DependentUpon>F_CustomVatOperationList.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Documents\F_DebtStatementItemList.resx">
       <DependentUpon>F_DebtStatementItemList.vb</DependentUpon>
     </EmbeddedResource>
@@ -1779,6 +1788,7 @@
   <ItemGroup>
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.DebtStatementItemList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.DebtStatementPerson.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.CustomVatOperationList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Documents.ProformaInvoiceMade.datasource" />
     <None Include="Resources\Remove_Attachment_32x32.png" />
   </ItemGroup>

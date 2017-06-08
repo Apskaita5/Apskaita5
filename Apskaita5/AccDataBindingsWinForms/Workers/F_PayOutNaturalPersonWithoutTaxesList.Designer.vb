@@ -296,6 +296,8 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.ItemsDataListView.HasCollapsibleGroups = False
         Me.ItemsDataListView.HeaderWordWrap = True
         Me.ItemsDataListView.HideSelection = False
+        Me.ItemsDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
+        Me.ItemsDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.ItemsDataListView.IncludeColumnHeadersInCopy = True
         Me.ItemsDataListView.Location = New System.Drawing.Point(0, 73)
         Me.ItemsDataListView.Name = "ItemsDataListView"
@@ -492,7 +494,7 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.JournalEntry_MenuItem, Me.Receiver_MenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(190, 70)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(190, 48)
         '
         'JournalEntry_MenuItem
         '

@@ -801,7 +801,7 @@
     IsHelperList="true"
     ParentRoles="Workers.Declaration, Workers.PayOutNaturalPerson, General.Person" />
   <RoleDatabaseAccess
-    VisibleIndex="76"
+    VisibleIndex="77"
     RoleName="Documents.VatDeclarationSchema"
     RoleNameHumanReadable="PVM deklaravimo schema"
     DatabaseTableAccessList=""
@@ -809,7 +809,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="77"
+    VisibleIndex="78"
     RoleName="ActiveReports.VatDeclarationSchemaInfoItemList"
     RoleNameHumanReadable="PVM deklaravimo schemų suvestinė"
     DatabaseTableAccessList=""
@@ -823,9 +823,9 @@
     DatabaseTableAccessList=""
     DatabaseReadOnlyTableAccessList=""
     IsHelperList="true"
-    ParentRoles="Documents.InvoiceMade, Documents.InvoiceReceived, Documents.AdvanceReport, General.Company, Documents.Service, Goods.Goods" />
+    ParentRoles="Documents.InvoiceMade, Documents.InvoiceReceived, Documents.AdvanceReport, General.Company, Documents.Service, Goods.Goods, Documents.CustomVatOperationList" />
   <RoleDatabaseAccess
-    VisibleIndex="78"
+    VisibleIndex="79"
     RoleName="Documents.VatDeclaration"
     RoleNameHumanReadable="PVM deklaracija"
     DatabaseTableAccessList=""
@@ -833,7 +833,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="79"
+    VisibleIndex="80"
     RoleName="HelperLists.UserReportInfoList"
     RoleNameHumanReadable="vartotojų ataskaitos"
     DatabaseTableAccessList=""
@@ -868,6 +868,14 @@
     VisibleIndex="32"
     RoleName="Reports.DebtStatementItemList"
     RoleNameHumanReadable="skolų suderinimo aktai"
+    DatabaseTableAccessList=""
+    DatabaseReadOnlyTableAccessList=""
+    IsHelperList="false"
+    ParentRoles="" />
+  <RoleDatabaseAccess
+    VisibleIndex="76"
+    RoleName="Documents.CustomVatOperationList"
+    RoleNameHumanReadable="netipinės PVM operacijos"
     DatabaseTableAccessList=""
     DatabaseReadOnlyTableAccessList=""
     IsHelperList="false"
