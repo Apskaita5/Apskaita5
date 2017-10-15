@@ -1,0 +1,16 @@
+
+In order to add new user Role you need to change these methods:
+
+- Administration.UserRoleListParent.GrantTablePrivileges;
+- Administration.UserRole.RoleHumanReadable;
+- Security.AccIdentity.GetAllRolesList.
+
+Also you need to change WinForms methods:
+
+- BOMapper.LogInToGUI;
+- BOMapper.LogOffToGUI.
+
+New role name should follow these rules:
+
+- Structure of role name is RoleName & Level, e.g. "RoleName3";
+- The beginning of a RoleName should not be the same as of existing roles, e.g. "TillEur" is not a legal name.

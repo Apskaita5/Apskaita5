@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="AccDataAccessLayer.DatabaseAccess.SQLParam">
+    <Position X="7" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <FileName>DatabaseAccess\SQLParam.vb</FileName>
+      <HashCode>AAAAAAAAAAAAABAEAAAAIAQAAAAEAAAAAAAgEAAAEAA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Field Name="_Name" Hidden="true" />
+      <Field Name="_Value" Hidden="true" />
+      <Field Name="_ValueType" Hidden="true" />
+    </Members>
+  </Class>
+  <Class Name="AccDataAccessLayer.DatabaseAccess.SQLCommand">
+    <Position X="3.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>DatabaseAccess\SQLCommand.vb</FileName>
+      <HashCode>AiAIAAICAAAAAESEAAEAAAIAAAAAAAAAAgAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Params(System.Int32)" />
+      <Property Name="CommandType" />
+    </ShowAsAssociation>
+    <Members>
+      <Field Name="_Key" Hidden="true" />
+      <Field Name="_LastInsertID" Hidden="true" />
+      <Field Name="_Params" Hidden="true" />
+      <Field Name="_Sentence" Hidden="true" />
+    </Members>
+  </Class>
+  <Enum Name="AccDataAccessLayer.DatabaseAccess.SQLStatementType">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DatabaseAccess\SQLStatementType.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+  <Module Name="AccDataAccessLayer.DatabaseAccess.SQLUtilities">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>DatabaseAccess\SQLUtilities.vb</FileName>
+      <HashCode>BIAIJoAAIEIAQCQEBAmRAA50hAcgMBBAAAIiAgSACKA=</HashCode>
+    </TypeIdentifier>
+    <Members>
+      <Method Name="AddAdminUser" Hidden="true" />
+      <Method Name="EncodeStringToSQLite" Hidden="true" />
+      <Method Name="ExecuteCommand" Hidden="true" />
+      <Method Name="FetchCommand" Hidden="true" />
+      <Method Name="FetchPrimaryUserDatabase" Hidden="true" />
+      <Method Name="GetExecutedCommList" Hidden="true" />
+      <Method Name="GetWildcart" Hidden="true" />
+      <Method Name="IsSqlServerFileBased" Hidden="true" />
+      <Method Name="MySQLAddWithSqlCommand" Hidden="true" />
+      <Method Name="MySQLCreateUserDatabase" Hidden="true" />
+      <Method Name="MySQLExecuteCommand" Hidden="true" />
+      <Method Name="MySQLExecuteUsingConnection" Hidden="true" />
+      <Method Name="MySQLFetchCommand" Hidden="true" />
+      <Method Name="MySQLFetchUsingConnection" Hidden="true" />
+      <Method Name="MySqlGetCommand" Hidden="true" />
+      <Method Name="MySqlGetNewCommand" Hidden="true" />
+      <Method Name="MySQLOpenConnection" Hidden="true" />
+      <Method Name="MySQLTransactionBegin" Hidden="true" />
+      <Method Name="MySQLTransactionCommit" Hidden="true" />
+      <Method Name="MySQLTransactionEnd" Hidden="true" />
+      <Method Name="MySQLTransactionGetCommand" Hidden="true" />
+      <Method Name="MySQLTransactionGetConnection" Hidden="true" />
+      <Method Name="MySQLTransactionGetObject" Hidden="true" />
+      <Method Name="MySQLTransactionRollBack" Hidden="true" />
+      <Method Name="MySQLTryLogin" Hidden="true" />
+      <Method Name="SQLiteAddWithSqlCommand" Hidden="true" />
+      <Method Name="SQLiteExecuteCommand" Hidden="true" />
+      <Method Name="SQLiteExecuteUsingConnection" Hidden="true" />
+      <Method Name="SQLiteFetchCommand" Hidden="true" />
+      <Method Name="SQLiteFetchUsingConnection" Hidden="true" />
+      <Method Name="SQLiteGetCommand" Hidden="true" />
+      <Method Name="SQLiteGetNewCommand" Hidden="true" />
+      <Method Name="SQLiteOpenConnection" Hidden="true" />
+      <Method Name="SQLiteTransactionBegin" Hidden="true" />
+      <Method Name="SQLiteTransactionCommit" Hidden="true" />
+      <Method Name="SQLiteTransactionEnd" Hidden="true" />
+      <Method Name="SQLiteTransactionGetCommand" Hidden="true" />
+      <Method Name="SQLiteTransactionGetConnection" Hidden="true" />
+      <Method Name="SQLiteTransactionGetObject" Hidden="true" />
+      <Method Name="SQLiteTransactionRollBack" Hidden="true" />
+      <Method Name="SQLiteTryLogin" Hidden="true" />
+      <Method Name="SQLiteTryLoginLocal" Hidden="true" />
+      <Method Name="ToMySQLDBDateString" Hidden="true" />
+      <Method Name="TransactionRollBack" Hidden="true" />
+      <Method Name="TransactionSafeThrow" Hidden="true" />
+      <Method Name="TryLogin" Hidden="true" />
+    </Members>
+  </Module>
+</ClassDiagram>

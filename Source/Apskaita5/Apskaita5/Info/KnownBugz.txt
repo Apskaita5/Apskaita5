@@ -1,0 +1,9 @@
+
+1. Object "Workers.Declaration" DataAccess Methods "FetchSAM_1" and "FetchSAM_Aut_1":
+In the queries "FetchDeclarationSAM(1)_4" and FetchDeclarationSAM(1)_Aut_2 
+a journal entry that transfers sums between primary and secondary SODRA accounts
+is treated as affecting balance at the begining of the year. Bug appears when
+secondary account is not provided (not used anymore after transfering balance
+to the primary account).
+
+2. When fetching unused holiday days, annual work day coef should also be fetched.

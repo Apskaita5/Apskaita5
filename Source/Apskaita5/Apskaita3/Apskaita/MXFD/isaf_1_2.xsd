@@ -1,0 +1,1442 @@
+<?xml version="1.0"?>
+<xs:schema xmlns="http://www.vmi.lt/cms/imas/isaf" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:doc="https://www.vmi.lt/cms/isaf/dokumentacija" targetNamespace="http://www.vmi.lt/cms/imas/isaf"
+           elementFormDefault="qualified" attributeFormDefault="unqualified" version="iSAF1.2">
+
+  <xs:annotation>
+    <xs:documentation xml:lang="lt">
+      <doc:Title>VMI prie FM i.SAF duomenų rinkmena</doc:Title>
+      <doc:Subject>i.SAF duomenų rinkmenos XML struktūros aprašas</doc:Subject>
+      <doc:Version>
+        <doc:Number>iSAF1.2</doc:Number>
+        <doc:Status>galiojanti</doc:Status>
+      </doc:Version>
+      <doc:Author>VMI prie FM</doc:Author>
+      <doc:ModificationDate>2016-09-13</doc:ModificationDate>
+    </xs:documentation>
+    <xs:documentation xml:lang="en">
+      <doc:Title>STI under MF i.SAF data file</doc:Title>
+      <doc:Subject>Description of i.SAF data file</doc:Subject>
+      <doc:Version>
+        <doc:Number>iSAF1.2</doc:Number>
+        <doc:Status>current</doc:Status>
+      </doc:Version>
+      <doc:Author>STI under MF</doc:Author>
+      <doc:ModificationDate>2016-09-13</doc:ModificationDate>
+    </xs:documentation>
+  </xs:annotation>
+
+  <xs:element name="iSAFFile" type="iSAFFile"/>
+  <xs:complexType name="iSAFFile">
+    <xs:sequence>
+      <xs:element name="Header" type="Header">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Antraštinė dalis.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Heading.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MasterFiles" type="MasterFiles" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Pagrindinė duomenų byla.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Master data file.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SourceDocuments" type="SourceDocuments" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Pirminių dokumentų duomenys.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Data of primary documents.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Header">
+    <xs:sequence>
+      <xs:element name="FileDescription" type="FileDescription">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Rinkmenos apibūdinimas.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Description of the file.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FileDescription">
+    <xs:sequence>
+      <xs:element name="FileVersion" type="ISAFFileVersion">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Rinkmenos XML versija. Turi sutapti su atitinkamo rinkmenos XML struktūros aprašo (XSD) versija.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            XML version of the file. It should coincide with the version of the respective description of XML structure
+            of the file (XSD).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FileDateCreated" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Rinkmenos sukūrimo data ir laikas.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Date and time of creation of the file.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DataType" type="ISAFDataType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Nurodomas teikiamų duomenų tipas (F – pilnas failas (gaunamų ir išrašomų PVM sąskaitų faktūrų registrai), S
+            – išrašomų PVM sąskaitų faktūrų registras, P – gaunamų PVM sąskaitų faktūrų registras).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The type of provided data shall be indicated (F – full file (registers of received and issued VAT invoices),
+            S – register of issued VAT invoices, P – register of received VAT invoices).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SoftwareCompanyName" type="ISAFlongtextType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Programinės įrangos kūrėjo pavadinimas.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Name of the software company.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SoftwareName" type="ISAFlongtextType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Programinės įrangos pavadinimas.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Name of the software.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SoftwareVersion" type="ISAFmiddletextType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Programinės įrangos versija.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Software version.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="RegistrationNumber" type="ISAFRegistrationNumberType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Mokesčių mokėtojo identifikacinis numeris (kodas) Mokesčių mokėtojų registre.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Taxpayer identification number (code) in the Register of Taxpayers.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="NumberOfParts" type="xs:unsignedInt" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Mokestinio laikotarpio rinkmenos dalių skaičius. Jeigu rinkmena neskaidoma, nurodomas skaičius 1.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Number of parts of the file of the tax period. If the file is not divided into parts, the number 1 shall be
+            indicated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PartNumber" type="ISAFPartNumberType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Mokestinio laikotarpio rinkmenos dalies unikalus identifikatorius (pvz. SANDELIS1, SANDELIS2, KAUNO_DEP, 1).
+            Teikiant tikslinančią rinkmeną turi būti nurodamas tikslinamos rinkmenos identifikatorius.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The unique indicator of parts of file of the tax period (e. g. SANDELIS1, SANDELIS2, KAUNO_DEP, 1). If
+            adjusted file is provided, the identifier of adjusted file shall be indicated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SelectionCriteria" type="SelectionCriteria">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            PVM mokėtojo PVM deklaravimo laikotarpis, kurio registrų duomenys teikiami.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The period of declaration of VAT the register data of which is provided by the VAT payer.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SelectionCriteria">
+    <xs:sequence>
+      <xs:element name="SelectionStartDate" type="ISAFDateType3">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Mokestinio laikotarpio pradžios data.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Start date of the tax period.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SelectionEndDate" type="ISAFDateType1">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Mokestinio laikotarpio pabaigos data.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            End date of the tax period.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MasterFiles">
+    <xs:sequence>
+      <xs:element name="Customers" type="Customers" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Pirkėjų duomenys. Turėtų būti pildomi tik tų pirkėjų duomenys, kurie nurodyti rinkmenos III
+            (SourceDocuments) dalyje.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Details of the purchasers. Only the data of the purchasers indicated in Part III of the file
+            (SourceDocuments) should be filled in.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Suppliers" type="Suppliers" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Pardavėjų duomenys. Turėtų būti pildomi tik tų pardavėjų duomenys, kurie nurodyti rinkmenos III
+            (SourceDocuments) dalyje.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Details of the sellers. Only the data of the sellers listed in Part III of the file (SourceDocuments) shall
+            be completed.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Customers">
+    <xs:sequence>
+      <xs:element name="Customer" type="Customer" maxOccurs="500000">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Pirkėjo duomenys.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Details of the purchaser.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Customer">
+    <xs:sequence>
+      <xs:element name="CustomerID" type="ISAFmiddle2textTypeNotEmpty">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Unikalus pirkėjo numeris subjekto apskaitos sistemoje.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Unique purchaser’s number in the entity’s accounting system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VATRegistrationNumber" type="ISAFmiddle1textTypeNotEmpty">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Nurodomas pirkėjo PVM mokėtojo kodas su prefiksu (pildomas PVM sąskaitoje faktūroje nurodytas PVM mokėtojo
+            kodas). Jeigu asmuo nėra registruotas PVM mokėtoju (PVM mokėtojo kodas nežinomas) elementas pildomas reikšme
+            „ND“ (nėra duomenų).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The VAT identification number of the purchaser with a prefix shall be indicated (the VAT identification
+            number indicated in the VAT invoice shall be indicated). If the person is not registered as a VAT payer (the
+            VAT identification number is unknown), the element shall be completed with the value “ND” (data
+            unavailable).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="RegistrationNumber" type="ISAFmiddle1textType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Pirkėjo identifikacinis numeris (kodas) – mokesčių mokėtojo kodas pagal Mokesčių mokėtojų registrą arba
+            asmens identifikacinis numeris užsienio valstybėje. Pildomas, jeigu 2.1.1.2 (VATRegistrationNumber) pažymėta
+            „ND“, kitu atveju gali būti elementas tuščias. Jeigu pirkėjas neturi PVM mokėtojo kodo (2.1.1.2
+            (VATRegistrationNumber) reikšmė yra „ND“) ir nežinomas registracijos kodas, elementas pildomas reikšme „ND“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The purchaser’s identification number (code) shall be the taxpayer’s code according to the Register of
+            Taxpayers or personal identification number in a foreign state. To be filled in if “ND” is indicted in
+            element 2.1.1.2 (VATRegistrationNumber); otherwise the element may be empty. If the purchaser does not have
+            a VAT identification number (the value in element 2.1.1.2 (VATRegistrationNumber) is “ND”) and the
+            registration number is unknown, the element shall be filled in with the value “ND”.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Country" type="ISAFCountryCodeISO" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Valstybės kodas. Nurodomas šalies kodas iš dviejų raidžių pagal ISO 3166–1 alpha 2 standartą, pavyzdžiui, LV
+            - Latvija. Pildomas, jeigu 2.1.1.2 (VATRegistrationNumber) pažymėta „ND“ arba nurodytas ne ES valstybių
+            narių PVM mokėtojo kodas ir 2.1.1.3 (RegistrationNumber) nurodytas asmens identifikacinis numeris užsienio
+            valstybėje.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Country code. A two-letter country code according to the ISO 3166–1 alpha 2 standard, for example, LV for
+            Latvia, shall be indicated. To be filled in if the element 2.1.1.2 (VATRegistrationNumber) indicates “ND” or
+            a VAT identification number assigned not in the EU Member States and the identification number of the person
+            in a foreign state in element 2.1.1.3 (RegistrationNumber) is indicated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Name" type="ISAFlongtextTypeNotEmpty">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Pirkėjo pavadinimas. Jeigu pirkėjo pavadinimas PVM sąskaitoje faktūroje nenurodytas, elementas pildomas
+            reikšme „ND“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Name of the purchaser. If the name of the purchaser is not indicated in the VAT invoice, the element shall
+            be completed with the value “ND”.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Suppliers">
+    <xs:sequence>
+      <xs:element name="Supplier" type="Supplier" maxOccurs="500000">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Pardavėjo duomenys.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Details of the seller.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Supplier">
+    <xs:sequence>
+      <xs:element name="SupplierID" type="ISAFmiddle2textTypeNotEmpty">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Unikalus pardavėjo numeris subjekto apskaitos sistemoje.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Unique number of the seller in the entity’s accounting system.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VATRegistrationNumber" type="ISAFmiddle1textTypeNotEmpty">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Nurodomas pardavėjo PVM mokėtojo kodas su prefiksu (pildomas PVM sąskaitoje faktūroje nurodytas PVM mokėtojo
+            kodas). Jeigu asmuo nėra registruotas PVM mokėtoju (PVM mokėtojo kodas nežinomas) elementas pildomas reikšme
+            „ND“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The VAT identification number of the seller with a prefix shall be indicated (the VAT identification number
+            indicated in the VAT invoice shall be indicated). If the person is not registered as a VAT payer (the VAT
+            identification number is unknown), the element shall be completed with the value “ND” (data unavailable).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="RegistrationNumber" type="ISAFmiddle1textType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Pardavėjo identifikacinis numeris (kodas) — mokesčių mokėtojo kodas pagal Mokesčių mokėtojų registrą arba
+            ūkininko, kuriam taikoma kompensacinio PVM tarifo schema, kodas, arba asmens identifikacinis numeris
+            užsienio valstybėje. Pildomas, jeigu 2.2.1.2 (VATRegistrationNumber) pažymėta „ND“, kitu atveju gali būti
+            elementas tuščias. Jeigu pardavėjas neturi PVM mokėtojo kodo (2.2.1.2 (VATRegistrationNumber) reikšmė yra
+            „ND“) ir nežinomas registracijos kodas, elementas pildomas reikšme „ND“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The seller’s identification number (code) shall be the taxpayer’s code according to the Register of
+            Taxpayers or the registration number of the farmer who is eligible for compensatory VAT rate scheme or
+            personal identification number in a foreign state. To be filled in if “ND” is indicted in element 2.1.1.2
+            (VATRegistrationNumber); otherwise the element may be left empty. If the seller does not have a VAT
+            identification number (the value in element 2.1.1.2 (VATRegistrationNumber) is “ND”) and the registration
+            number is unknown, the element shall be filled in with the value “ND”.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Country" type="ISAFCountryCodeISO" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Valstybės kodas. Nurodomas šalies kodas iš dviejų raidžių pagal ISO 3166–1 alpha 2 standartą, pavyzdžiui, LV
+            - Latvija. Pildomas, jeigu 2.2.1.2 (VATRegistrationNumber) pažymėta „ND“ arba nurodytas ne ES valstybių
+            narių PVM mokėtojo kodas ir 2.2.1.3 (RegistrationNumber) nurodytas asmens identifikacinis numeris užsienio
+            valstybėje.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Country code. A two-letter country code according to the ISO 3166–1 alpha 2 standard, for example, LV for
+            Latvia, shall be indicated. To be filled in if the element 2.1.1.2 (VATRegistrationNumber) indicates “ND” or
+            a VAT identification number assigned not in the EU Member States and the identification number of the person
+            in a foreign state in element 2.1.1.3 (RegistrationNumber) is indicated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Name" type="ISAFlongtextTypeNotEmpty">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Pardavėjo pavadinimas. Jeigu pardavėjo pavadinimas PVM sąskaitoje faktūroje nenurodytas, elementas pildomas
+            reikšme „ND“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Name of the seller. If the name of the seller is not indicated in the VAT invoice, the element shall be
+            completed with the value “ND”.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SourceDocuments">
+    <xs:sequence>
+      <xs:element name="PurchaseInvoices" type="PurchaseInvoices" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Gaunamos PVM sąskaitos faktūros duomenys.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Data of the received VAT invoice.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SalesInvoices" type="SalesInvoices" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Išrašomos PVM sąskaitos faktūros duomenys.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Data of the issued VAT invoice.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SettlementsAndPayments" type="SettlementsAndPayments" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Atsiskaitymų/mokėjimų duomenys. Kai PVM sąskaitai faktūrai taikoma „Pinigų apskaitos sistema" (taikoma
+            speciali apmokestinamojo momento nustatymo tvarka pagal PVM įstatymo 14 str. 9 d.) papildomai teikiama
+            informacija apie atsiskaitymą (rekomenduojamas pildyti tiems, kas pageidauja gauti preliminarios PVM
+            deklaracijos parengimo paslaugą).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Details of settlements/payments. Where the VAT invoice is subject to the “monetary accounting system”)
+            (special procedure for establishing the chargeable event according to Article 14(9) of the VAT Law is
+            applicable), additional information on settlement shall be provided (the element should be filled in by the
+            persons willing to receive the service of drawing up of a preliminary VAT return).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PurchaseInvoices">
+    <xs:sequence>
+      <xs:element name="Invoice" type="PurchaseInvoice" maxOccurs="500000">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Duomenys apie PVM sąskaitą faktūrą.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Data on the VAT invoice.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PurchaseInvoice">
+    <xs:sequence>
+      <xs:element name="InvoiceNo" type="ISAFmiddle2textTypeNotEmpty">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            PVM sąskaitos faktūros serija ir numeris. Rekomenduojama pildyti be jokio atskyrimo, tarpo, brūkšnelio ar
+            kitokių ženklų, tačiau užpildžius kitaip, tai nebus klaida.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Series and number of the VAT invoice. It is recommended to fill in without any punctuation, space, dash or
+            other marks, but different completion shall not be deemed to be a mistake.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SupplierInfo" type="SupplierInfo">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Informacija apie pardavėją, nurodytą PVM sąskaitoje faktūroje.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Information on the seller indicated in the VAT invoice.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="InvoiceDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            PVM sąskaitos faktūros išrašymo data.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Date of issue of the VAT invoice.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="InvoiceType" type="ISAFshorttext2Type">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Žyma apie PVM sąskaitos faktūros tipą: SF (arba elementas tuščias) – PVM sąskaita faktūra, DS – debetinė PVM
+            sąskaita faktūra, KS – kreditinė PVM sąskaita faktūra, VS – viena (advokatų/notarų) PVM sąskaita faktūra, VD
+            – viena (advokatų/notarų) PVM sąskaita faktūra debetinė, VK – viena (advokatų/notarų) PVM sąskaita faktūra
+            kreditinė, AN – anuliuota. Jeigu elemento reikšmė neužpildyta, laikoma, kad pateikta informacija apie PVM
+            sąskaitą faktūrą (tipas SF).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Mark of the type of the VAT invoice: SF (or an empty element) – a VAT invoice, DS – a debit VAT invoice, KS
+            – a credit VAT invoice, VS – one summary VAT invoice (issued by attorneys-at-law / notaries public), VD –
+            one summary debit VAT invoice (issued by attorneys-at-law / notaries public), VK – one summary credit VAT
+            invoice (issued by attorneys-at-law / notaries public), AN – a cancelled VAT invoice. If the value of the
+            element is not completed, the provided information shall be deemed to refer to a VAT invoice (SF type).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SpecialTaxation" type="ISAFSpecialTaxationType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Žyma „T“, jei PVM sąskaitai faktūrai taikoma „Pinigų apskaitos sistema“ (taikoma speciali apmokestinamojo
+            momento nustatymo tvarka pagal PVM įstatymo 14 str. 9 d.).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Mark “T” if the VAT invoice is subject to the “monetary accounting system” (application of special procedure
+            for establishing the chargeable event according to Article 14(9) of the VAT Law).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="References" type="References">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Kreditinės/debetinės PVM sąskaitos faktūros nuorodos į tikslinamas sąskaitas. Jeigu kreditinėje/debetinėje
+            PVM sąskaitoje faktūroje nėra nuorodų į tikslinamas PVM sąskaitas faktūras, šios grupės elementų reikšmės
+            nepildomos.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            References in credit/debit VAT invoices to adjusted invoices. If the credit/debit VAT invoices contain no
+            references to adjusted VAT invoices, the values of the group elements shall not be filled in.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VATPointDate" type="ISAFDateType3" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Prekių gavimo arba paslaugų gavimo data, jeigu ji nesutampa su PVM sąskaitos faktūros išrašymo data.
+            Elemento reikšmė gali būti nepildoma, jei ši data nenurodyta PVM sąskaitoje faktūroje / nefiksuojama
+            apskaitoje / sutampa su PVM sąskaitos faktūros išrašymo data.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Date of receipt of goods or receipt of services if it does not coincide with the date of issue of the VAT
+            invoice. The element value may be not filled in if the date is not indicated in the VAT invoice/not record
+            in the accounts/coincides with the date of issue of the invoice.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="RegistrationAccountDate" type="ISAFDateType3" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            PVM sąskaitos faktūros gavimo arba registravimo apskaitoje data. Ši data turi patekti į rinkmenos mokestinį
+            laikotarpį, jeigu 3.1.1.3 (InvoiceDate) (PVM sąskaitos faktūros išrašymo data) nurodyta data nepatenka į
+            rinkmenos mokestinį laikotarpį (rinkmenos mokestinis laikotarpis nustatomas elementais 1.10.1
+            (SelectionStartDate) ir 1.10.2 (SelectionEndDate)).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Date of receipt of the VAT invoice or registration of the VAT invoice in the accounts. The date must fall
+            within the tax period of the file if the date indicated in element 3.1.1.3 (InvoiceDate) (date of issue of
+            the VAT invoice) does not fall within the file tax period (the tax period of the file is established in
+            elements 1.10.1 (SelectionStartDate) and 1.10.2 (SelectionEndDate)).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DocumentTotals" type="PurchaseDocumentTotals">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Dokumento suminiai rezultatai.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Totals of the documents.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SupplierInfo">
+    <xs:sequence>
+      <xs:element name="SupplierID" type="ISAFmiddle2textType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Unikalus pardavėjo, kliento numeris subjekto apskaitos sistemoje, kuris yra nurodytas Pagrindinėje duomenų
+            byloje. Pildomas, jeigu tokia reikšmė yra užpildyta rinkmenos II dalies (MasterFiles) „Pagrindinė duomenų
+            byla“ 2.1 (Customers) elemente / elementų grupėje (tuomet nepildomi 3.1.1.2.2 –3.1.1.2.5 elementai
+            (VATRegistrationNumber, RegistrationNumber, Country, Name)).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Unique customer number of the seller in the entity’s accounting system indicated in the master data file. To
+            be filled in if such value is indicated in element 2.1 (Customers) of Part II “Master data file” of the file
+            / group of elements (in such case, elements 3.1.1.2.2 – 3.1.1.2.5 (VATRegistrationNumber,
+            RegistrationNumber, Country, Name) shall not be filled in).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VATRegistrationNumber" type="ISAFmiddle1textType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Nurodomas pardavėjo PVM mokėtojo kodas su prefiksu (pildomas PVM sąskaitoje faktūroje nurodytas PVM mokėtojo
+            kodas). Jeigu asmuo nėra registruotas PVM mokėtoju (PVM mokėtojo kodas nežinomas), elementas pildomas
+            reikšme „ND“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The VAT identification number of the seller with a prefix shall be indicated (the VAT identification number
+            indicated in the VAT invoice shall be indicated). If the person is not registered as a VAT payer (the VAT
+            identification number is unknown), the element shall be completed with the value “ND”.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="RegistrationNumber" type="ISAFmiddle1textType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Pardavėjo identifikacinis numeris (kodas) – mokesčių mokėtojo kodas pagal Mokesčių mokėtojų registrą arba
+            ūkininko, kuriam taikoma kompensacinio PVM tarifo schema, kodas, arba asmens identifikacinis numeris
+            užsienio valstybėje. Pildomas, jeigu 3.1.1.2.2 (VATRegistrationNumber) pažymėta „ND“, kitu atveju gali būti
+            elementas tuščias. Jeigu pardavėjas neturi PVM mokėtojo kodo (3.1.1.2.2 (VATRegistrationNumber) reikšmė yra
+            „ND“) ir nežinomas registracijos kodas, elementas pildomas reikšme „ND“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The seller’s identification number (code) shall be the taxpayer’s code according to the Register of
+            Taxpayers or the registration number of the farmer who is eligible for compensatory VAT rate scheme or
+            personal identification number in a foreign state. Element should be filled in if “ND” is indicted in index
+            3.1.1.2.2 (VATRegistrationNumber); otherwise the element may be left empty. If the seller does not have a
+            VAT identification number (the value in index 3.1.1.2 (VATRegistrationNumber) is “ND” and the registration
+            number is unknown, the element shall be filled in with the value “ND”.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Country" type="ISAFCountryCodeISO" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Valstybės kodas. Nurodomas šalies kodas iš dviejų raidžių pagal ISO 3166–1 alpha 2 standartą, pavyzdžiui, LV
+            - Latvija. Pildomas, jeigu 3.1.1.2.2 (VATRegistrationNumber) pažymėta „ND“ arba nurodytas ne ES valstybių
+            narių PVM mokėtojo kodas ir 3.1.1.2.3 (RegistrationNumber) nurodytas asmens identifikacinis numeris užsienio
+            valstybėje.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Country code. A two-letter country code according to the ISO 3166–1 alpha 2 standard, for example, LV for
+            Latvia, shall be indicated. To be filled in if the element index 3.1.1.2.2 (VATRegistrationNumber) indicates
+            “ND” or a VAT identification number assigned not in the EU Member States and the identification number of
+            the person in a foreign state in element 3.1.1.2.3 (RegistrationNumber) is indicated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Name" type="ISAFlongtextType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Pardavėjo pavadinimas. Jeigu pardavėjo pavadinimas PVM sąskaitoje faktūroje nenurodytas, elementas pildomas
+            reikšme „ND“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Name of the seller. If the name of the seller is not indicated in the VAT invoice, the element shall be
+            completed with the value “ND”.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="References">
+    <xs:sequence>
+      <xs:element name="Reference" type="Reference" minOccurs="0" maxOccurs="1000">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Nuorodos duomenys.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            A reference to adjusted VAT invoice.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Reference">
+    <xs:sequence>
+      <xs:element name="ReferenceNo" type="ISAFmiddle2textTypeNotEmpty">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Kreditinės/debetinės PVM sąskaitos faktūros nuoroda į tikslinamos PVM sąskaitos faktūros seriją ir numerį
+            (nurodoma tikslinamos PVM sąskaitos faktūros serija ir numeris).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            A reference in a credit/debit VAT invoice to the series and number of the adjusted VAT invoice (the series
+            and number of the adjusted VAT invoice shall be indicated).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ReferenceDate" type="ISAFDateType2">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Tikslinamos PVM sąskaitos faktūros išrašymo data.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Date of issue of the adjusted VAT invoice.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PurchaseDocumentTotals">
+    <xs:sequence>
+      <xs:element name="DocumentTotal" type="PurchaseDocumentTotal" maxOccurs="100">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Dokumento rezultatai.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Totals of the documents.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PurchaseDocumentTotal">
+    <xs:sequence>
+      <xs:element name="TaxableValue" type="ISAFmonetaryType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Visų PVM sąskaitos faktūros eilučių, kurioms taikomos vienodos PVM apmokestinimo sąlygos pagal PVM
+            klasifikatoriaus vieną reikšmę (pagal vienodą PVM tarifą), apmokestinamųjų verčių suma.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Amount of the taxable amount of all VAT invoice lines subject to the same conditions for imposition of the
+            VAT according to the VAT classification value (according to one VAT rate).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TaxCode" type="ISAFTaxCodeType" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Mokesčio kodas pagal PVM klasifikatorių, patvirtintą Valstybinės mokesčių inspekcijos prie Lietuvos
+            Respublikos finansų ministerijos viršininko 2015 m. liepos 21 d. įsakymu Nr. VA-49 „Dėl standartinės
+            apskaitos duomenų rinkmenos techninės specifikacijos ir techninių reikalavimų patvirtinimo“. Elemento
+            reikšmė nepildoma, jeigu prekės (paslaugos) įsigyjamos iš Lietuvos PVM mokėtojo ir pirkėjui nėra prievolės
+            apskaičiuoti, deklaruoti ir/ar sumokėti pardavimo PVM.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The tax code according to the VAT classification approved by Order No VA-49 of the Head of the State Tax
+            Inspectorate under the Ministry of Finance of the Republic of Lithuania of 21 July 2015 "On the Approval of
+            the Technical Specification of and Technical Requirements for Standard Audit File for Tax Purposes”. The
+            element value shall not be completed if the goods (services) are purchased from a Lithuanian VAT payer and
+            the purchaser is not obliged to calculate, declare and/or pay the input VAT.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TaxPercentage" type="ISAFquantityType" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            PVM tarifas procentais. Gali būti neužpildytas (elementas tuščias), jeigu pagal PVM klasifikatoriaus reikšmę
+            nėra PVM tarifo (Pvz., PVM neapmokestinami tiekimai, nurodytas ne Lietuvos PVM tarifas). Jeigu PVM tarifas
+            yra 0 %, turi būti pildoma „0“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The VAT rate expressed in per cent. This element may be not filled in (empty element) if no VAT rate is
+            applicable according to the VAT classification (e.g. the supplies shall be exempt from VAT, the VAT rate
+            applicable not in Lithuania is indicated). If the VAT rate is equal to 0%, the value 0 shall be indicated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Amount" type="ISAFmonetaryType" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            PVM suma, apskaičiuota nuo pagal visų PVM sąskaitos faktūros eilučių, kurioms taikomos vienodos PVM
+            apmokestinimo sąlygos pagal PVM klasifikatoriaus vieną reikšmę (pagal vienodą PVM tarifą), apmokestinamųjų
+            verčių sumų. Elemento reikšmė gali būti nepildoma, jeigu PVM suma nėra fiksuojama apskaitoje.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            VAT amount calculated on the taxable amounts of all lines of the VAT invoice subject to the same conditions
+            for imposition of the VAT according to the value in the VAT classification (subject to the same VAT rate).
+            The element value may be not completed if the VAT amount is not recorded in the accounts.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SalesInvoices">
+    <xs:sequence>
+      <xs:element name="Invoice" type="SalesInvoice" maxOccurs="500000">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Duomenys apie PVM sąskaitą faktūrą.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Data on the VAT invoice.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SalesInvoice">
+    <xs:sequence>
+      <xs:element name="InvoiceNo" type="ISAFmiddle2textTypeNotEmpty">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            PVM sąskaitos faktūros serija ir numeris. Rekomenduojama pildyti be jokio atskyrimo, tarpo, brūkšnelio ar
+            kitokių ženklų, tačiau užpildžius kitaip, tai nebus klaida.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Series and number of the VAT invoice. It is recommended to fill in without any punctuation, space, dash or
+            other marks, but different completion shall not be deemed to be a mistake.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="CustomerInfo" type="CustomerInfo">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Informacija apie pirkėją, nurodytą PVM sąskaitoje faktūroje.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Information on the purchaser indicated in the VAT invoice.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="InvoiceDate" type="ISAFDateType3">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            PVM sąskaitos faktūros išrašymo data. Ši data turi patekti į rinkmenos mokestinį laikotarpį (rinkmenos
+            mokestinis laikotarpis nustatomas elementais 1.10.1 (SelectionStartDate) ir 1.10.2 (SelectionEndDate)).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Date of issue of the VAT invoice. This date must fall within the tax period of the file (the tax period of
+            the file is established in elements 1.10.1 (SelectionStartDate) and 1.10.2 (SelectionEndDate)).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="InvoiceType" type="ISAFshorttext2Type">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Žyma apie sąskaitos tipą: SF (arba elementas tuščias) – PVM sąskaita faktūra, DS – debetinė PVM sąskaita
+            faktūra, KS – kreditinė PVM sąskaita faktūra, VS – viena (advokatų/notarų) PVM sąskaita faktūra, VD – viena
+            (advokatų/notarų) PVM sąskaita faktūra debetinė, VK – viena (advokatų/notarų) PVM sąskaita faktūra
+            kreditinė, AN – anuliuota. Jeigu elemento reikšmė neužpildyta, laikoma, kad pateikta informacija apie PVM
+            sąskaitą faktūrą (tipas SF).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Mark of the type of the VAT invoice: SF (or an empty element) – a VAT invoice, DS – a debit VAT invoice, KS
+            – a credit VAT invoice, VS – one summary VAT invoice (issued by attorneys-at-law / notaries public), VD –
+            one summary debit VAT invoice (issued by attorneys-at-law / notaries public), VK – one summary credit VAT
+            invoice (issued by attorneys-at-law / notaries public), AN – a cancelled VAT invoice. If the value of the
+            element is not completed, the provided information shall be deemed to refer to a VAT invoice (SF type).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SpecialTaxation" type="ISAFSpecialTaxationType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Žyma „T“, jei PVM sąskaitai faktūrai taikoma „Pinigų apskaitos sistema“ (taikoma speciali apmokestinamojo
+            momento nustatymo tvarka pagal PVM įstatymo 14 str. 9 d.).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Mark “T” if the VAT invoice is subject to the “monetary accounting system” (application of special procedure
+            for establishing the chargeable event according to Article 14(9) of the VAT Law).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="References" type="References">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Kreditinės/debetinės PVM sąskaitos faktūros nuorodos į tikslinamas PVM sąskaitas faktūras sąskaitas. Jeigu
+            kreditinėje/debetinėje PVM sąskaitoje faktūroje nėra nuorodų į tikslinamas PVM sąskaitas faktūras, šios
+            grupės elementų reikšmės nepildomos.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            References in credit/debit VAT invoices to adjusted invoices. If the credit/debit VAT invoices contain no
+            references to adjusted VAT invoices, the values of the group elements shall not be filled in.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VATPointDate" type="ISAFDateType3" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Prekių tiekimo arba paslaugų teikimo data, jeigu ji nesutampa su PVM sąskaitos faktūros išrašymo data.
+            Avanso gavimo diena, kai ji nesutampa su PVM sąskaitos faktūros išrašymo data. Jeigu datos sutampa, elemento
+            reikšmės užpildyti nebūtina.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Date of receipt of goods or receipt of services if it does not coincide with the date of issue of the VAT
+            invoice. The element value may be not filled in if the date is not indicated in the VAT invoice/not record
+            in the accounts/coincides with the date of issue of the invoice.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DocumentTotals" type="SalesDocumentTotals">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Dokumento suminiai rezultatai.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Totals of the documents.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CustomerInfo">
+    <xs:sequence>
+      <xs:element name="CustomerID" type="ISAFmiddle2textType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Unikalus pirkėjo, kliento numeris subjekto apskaitos sistemoje, kuris yra nurodytas Pagrindinėje duomenų
+            byloje. Pildomas, jeigu tokia reikšmė yra užpildyta rinkmenos II dalies (MasterFiles) „Pagrindinė duomenų
+            byla“ 2.2 (Suppliers) elemente /elementų grupėje (tuomet nepildomi 3.2.1.2.2 — 3.2.1.2.5 elementai
+            (VATRegistrationNumber, RegistrationNumber, Country, Name)).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Unique customer number of the purchaser in the entity’s accounting system indicated in the master data file.
+            To be filled in if such value is indicated in element 2.2 (Suppliers) of Part II “Master data file” of the
+            file / group of elements (in such case, elements 3.2.1.2.2 – 3.2.1.2.5 (VATRegistrationNumber,
+            RegistrationNumber, Country, Name) shall not be filled in).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VATRegistrationNumber" type="ISAFmiddle1textType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Nurodomas pirkėjo PVM mokėtojo kodas su prefiksu (pildomas PVM sąskaitoje faktūroje nurodytas PVM mokėtojo
+            kodas). Jeigu asmuo nėra PVM mokėtojas, elementas pildomas reikšme „ND“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The VAT identification number of the purchaser with a prefix shall be indicated (the VAT identification
+            number indicated in the VAT invoice shall be indicated). If the person is not registered as a VAT payer (the
+            VAT identification number is unknown), the element shall be completed with the value “ND”.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="RegistrationNumber" type="ISAFmiddle1textType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Pirkėjo identifikacinis numeris (kodas) mokesčių mokėtojo kodas pagal Mokesčių mokėtojų registrą arba asmens
+            identifikacinis numeris užsienio valstybėje. Pildomas, jeigu 3.2.1.2.2 (VATRegistrationNumber) pažymėta
+            „ND“, kitu atveju gali būti elementas tuščias. Jeigu pirkėjas neturi PVM mokėtojo kodo (3.2.1.2.2
+            (VATRegistrationNumber) reikšmė yra „ND“) ir nežinomas registracijos kodas, elementas pildomas reikšme „ND“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The purchaser’s identification number (code) shall be the taxpayer’s code according to the Register of
+            Taxpayers or personal identification number in a foreign state. To be filled in if “ND” is indicted in
+            element 3.2.1.2.2 (VATRegistrationNumber); otherwise the element may be left empty. If the seller does not
+            have a VAT identification number (the value in element 3.2.1.2.2 (VATRegistrationNumber) is “ND” and the
+            registration number is unknown), the element shall be filled in with the value “ND”.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Country" type="ISAFCountryCodeISO" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Valstybės kodas. Nurodomas šalies kodas iš dviejų raidžių pagal ISO 3166–1 alpha 2 standartą, pavyzdžiui, LV
+            - Latvija. Pildomas, jeigu 3.2.1.2.2 (VATRegistrationNumber) pažymėta „ND“ arba nurodytas ne ES valstybių
+            narių PVM mokėtojo kodas ir 3.2.1.2.3 (RegistrationNumber) nurodytas asmens identifikacinis numeris užsienio
+            valstybėje.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Country code. A two-letter country code according to the ISO 3166–1 alpha 2 standard, for example, LV for
+            Latvia, shall be indicated. To be filled in if the element index 3.2.1.2.2 (VATRegistrationNumber) indicates
+            “ND” or a VAT identification number assigned not in the EU Member States and the identification number of
+            the person in a foreign state in element 3.2.1.2.3 (RegistrationNumber) is indicated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Name" type="ISAFlongtextType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Pirkėjo pavadinimas. Jeigu pirkėjo pavadinimas PVM sąskaitoje faktūroje nenurodytas, elementas pildomas
+            reikšme „ND“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Name of the purchaser. If the name of the purchaser is not indicated in the VAT invoice, the element shall
+            be completed with the value “ND”.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SalesDocumentTotals">
+    <xs:sequence>
+      <xs:element name="DocumentTotal" type="SalesDocumentTotal" maxOccurs="100">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Dokumento rezultatai.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Totals of the documents.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SalesDocumentTotal">
+    <xs:sequence>
+      <xs:element name="TaxableValue" type="ISAFmonetaryType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Visų PVM sąskaitos faktūros eilučių, kurioms taikomos vienodos PVM apmokestinimo sąlygos pagal PVM
+            klasifikatoriaus vieną reikšmę (pagal vienodą PVM tarifą), apmokestinamųjų verčių suma.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Amount of the taxable amount of all VAT invoice lines subject to the same conditions for imposition of the
+            VAT according to the VAT classification value (according to one VAT rate).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TaxCode" type="ISAFTaxCodeType" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Mokesčio kodas pagal PVM klasifikatorių, patvirtintą Valstybinės mokesčių inspekcijos prie Lietuvos
+            Respublikos finansų ministerijos viršininko 2015 m. liepos 21 d. įsakymu Nr. VA-49 „Dėl standartinės
+            apskaitos duomenų rinkmenos techninės specifikacijos ir techninių reikalavimų patvirtinimo“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The tax code according to the VAT classification approved by Order No VA-49 of the Head of the State Tax
+            Inspectorate under the Ministry of Finance of the Republic of Lithuania of 21 July 2015 “On the Approval of
+            the Technical Specification of and Technical Requirements for Standard Audit File for Tax Purposes”.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="TaxPercentage" type="ISAFquantityType" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            PVM tarifas procentais. Elemento reikšmė nepildoma, jeigu pagal PVM klasifikatoriaus reikšmę nėra PVM tarifo
+            (PVM neapmokestinami tiekimai, ne PVM objektas). Jeigu PVM tarifas yra 0 %, turi būti pildoma „0“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The VAT rate expressed in per cent. This element may be not filled in (empty element) if no VAT rate is
+            applicable according to the VAT classification (e.g. the supplies shall be exempt from VAT, the VAT rate
+            applicable not in Lithuania is indicated). If the VAT rate is equal to 0%, the value 0 shall be indicated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Amount" type="ISAFmonetaryType" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            PVM suma, apskaičiuota nuo pagal visų PVM sąskaitos faktūros eilučių, kurioms taikomos vienodos PVM
+            apmokestinimo sąlygos pagal PVM klasifikatoriaus vieną reikšmę (pagal vienodą PVM tarifą), apmokestinamųjų
+            verčių sumų.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            VAT amount calculated on the taxable amounts of all lines of the VAT invoice subject to the same conditions
+            for imposition of the VAT according to the value in the VAT classification (subject to the same VAT rate).
+            The element value may be not completed if the VAT amount is not recorded in the accounts.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VATPointDate2" type="ISAFDateType3" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Prekių tiekimo arba paslaugų teikimo data, jeigu ji nesutampa su PVM sąskaitos faktūros išrašymo data.
+            Avanso gavimo diena, kai ji nesutampa su PVM sąskaitos faktūros išrašymo data. Jeigu datos sutampa, elemento
+            reikšmės užpildyti nebūtina.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Date of receipt of goods or receipt of services if it does not coincide with the date of issue of the VAT
+            invoice. The element value may be not filled in if the date is not indicated in the VAT invoice/not record
+            in the accounts/coincides with the date of issue of the invoice.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SettlementsAndPayments">
+    <xs:sequence>
+      <xs:element name="SettlementAndPayment" type="SettlementAndPayment" maxOccurs="500000">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Duomenys apie mokėjimą arba gautą atsiskaitymą.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Data on payment or received settlement.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SettlementAndPayment">
+    <xs:sequence>
+      <xs:element name="SettlementType" type="ISAFshorttext1Type">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Žyma apie mokėjimo tipą (G – gautas apmokėjimas, V – įvykdytas mokėjimas).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Mark of the type of payment (G – received payment, V – made payment).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SettlementRefNo" type="ISAFmiddle2textType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Mokėjimo dokumento (nurodymo bankui, kasos dokumento) numeris. Jei mokėjimo dokumento numeris nežinomas
+            (gavimo atveju, mokėjimo tipas G), elementas pildomas reikšme „ND“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Number of the payment document (payment order to the bank, cash document). If the number of the payment
+            document is unknown (in case of receipt, the type of payment G), the filled in value of the element should
+            be “ND”.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SettlementDate" type="ISAFDateType3">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Faktinė pinigų gavimo/sumokėjimo data. Ši data turi patekti į rinkmenos mokestinį laikotarpį (rinkmenos
+            mokestinis laikotarpis nustatomas elementais 1.10.1 (SelectionStartDate) ir 1.10.2 (SelectionEndDate)).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Actual date of receipt/payment of money. The date must fall within the tax period of the file (the tax
+            period of the file is established in elements 1.10.1 (SelectionStartDate) and 1.10.2 (SelectionEndDate)).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Payment" type="Payment">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Duomenys apie pardavėją arba pirkėją. Informacija apie pirkėją pildoma, jeigu 3.3.1.1 (SettlementType) lauke
+            nurodytas tipas „G“ (gautas apmokėjimas). Informacija apie pardavėją (sumokėjimo atveju) pildoma, jeigu
+            3.3.1.1 (SettlementType) lauke nurodytas tipas „V“ (įvykdytas mokėjimas).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Details of the seller or the purchaser. Information on the purchaser shall be filled in if the type G
+            (received payment) is indicated in element 3.3.1.1 (SettlementType). Information on the seller (in case of
+            payment) is filled in if element 3.3.1.1 (SettlementType) indicates the type V.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ReferencesToInvoice" type="ReferencesToInvoice">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            PVM sąskaitų faktūrų informacija.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Information of VAT invoices.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Payment">
+    <xs:sequence>
+      <xs:element name="SupplierCustomerID" type="ISAFmiddle2textType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Unikalus pardavėjo arba pirkėjo, kliento numeris subjekto apskaitos sistemoje, kuris yra nurodytas
+            Pagrindinėje duomenų byloje. Pildomas, jeigu tokia reikšmė yra užpildyta rinkmenos II dalies (MasterFiles)
+            „Pagrindinė duomenų byla“ 2.1 (Customers) arba 2.2 (Suppliers) elemente /elementų grupėje (tuomet nepildomi
+            3.3.1.4.2—3.3.1.4.5 elementai (VATRegistrationNumber, RegistrationNumber, Country, Name)).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Unique customer number of the seller or the purchaser in the entity’s accounting system indicated in the
+            master data file. To be filled in if such value is indicated in element 2.1 (Customers) or 2.2 (Suppliers)
+            of Part II “Master data file” of the file / group of elements (in such case, elements 3.3.1.4.2 – 3.3.1.4.5
+            (VATRegistrationNumber, RegistrationNumber, Country, Name) shall not be filled in).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VATRegistrationNumber" type="ISAFmiddle1textType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Nurodomas pardavėjo arba pirkėjo PVM mokėtojo kodas su prefiksu (pildomas PVM sąskaitoje nurodytas PVM
+            mokėtojo kodas). Jeigu asmuo nėra PVM mokėtojas, elementas pildomas reikšme „ND“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The VAT identification number of the seller or the purchaser with a prefix shall be indicated (the VAT
+            identification number indicated in the VAT invoice shall be indicated). If the person is not registered as a
+            VAT payer, the element shall be completed with the value “ND”.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="RegistrationNumber" type="ISAFmiddle1textType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Pardavėjo arba pirkėjo identifikacinis numeris (kodas) — mokesčių mokėtojo kodas pagal Mokesčių mokėtojų
+            registrą arba asmens identifikacinis numeris užsienio valstybėje. Pildomas, jeigu 3.3.1.4.2
+            (VATRegistrationNumber) pažymėta „ND“, kitu atveju gali būti elementas tuščias. Jeigu pardavėjas / pirkėjas
+            neturi PVM mokėtojo kodo (3.3.1.4.2 (VATRegistrationNumber) reikšmė yra „ND“) ir nežinomas registracijos
+            kodas, elementas pildomas reikšme „ND“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            The identification number (code) of the seller or the purchaser shall be the taxpayer’s code according to
+            the Register of Taxpayers or personal identification number in a foreign state. To be filled in if “ND” is
+            indicted in element 3.3.1.4.2 (VATRegistrationNumber); otherwise the element may be left empty. If the
+            seller or the purchaser does not have a VAT identification number (the value in element 3.3.1.4.2
+            (VATRegistrationNumber) is “ND”) and the registration number is unknown, the element shall be filled in with
+            the value “ND”.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Country" type="ISAFCountryCodeISO" nillable="true">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Valstybės kodas. Nurodomas šalies kodas iš dviejų raidžių pagal ISO 3166–1 alpha 2 standartą, pavyzdžiui, LV
+            - Latvija. Pildomas, jeigu 3.3.1.4.2 (VATRegistrationNumber) pažymėta „ND“ arba nurodytas ne ES valstybių
+            narių PVM mokėtojo kodas ir 3.3.1.4.3 (RegistrationNumber) nurodytas asmens identifikacinis numeris užsienio
+            valstybėje.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Country code. A two-letter country code according to the ISO 3166–1 alpha 2 standard, for example, LV for
+            Latvia, shall be indicated. To be filled in if the element index 3.3.1.4.2 (VATRegistrationNumber) indicates
+            “ND” or a VAT identification number assigned not in the EU Member States and the identification number of
+            the person in a foreign state in element 3.3.1.4.3 (RegistrationNumber) is indicated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Name" type="ISAFlongtextType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Pardavėjo arba pirkėjo pavadinimas. Jeigu pirkėjo pavadinimas atsiskaitymo dokumente nenurodytas ir
+            apskaitoje nefiksuotas, pildoma reikšmė „ND“.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Name of the seller or purchaser. If the name of the purchaser is not indicated in the payment document and
+            not recorded in the accounts, the value “ND” shall be indicated.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ReferencesToInvoice">
+    <xs:sequence>
+      <xs:element name="ReferenceToInvoice" type="ReferenceToInvoice" maxOccurs="1000">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            PVM sąskaitos faktūros informacija.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Information of VAT invoices.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ReferenceToInvoice">
+    <xs:sequence>
+      <xs:element name="InvoiceNo" type="ISAFmiddle2textTypeNotEmpty">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            PVM sąskaitos faktūros serija ir numeris.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Series and number of the VAT invoice.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="InvoiceDate" type="ISAFDateType4">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            PVM sąskaitos faktūros išrašymo data.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Date of issue of the VAT invoice.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Amount" type="ISAFmonetaryType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Apmokėta apmokestinamoji vertė arba jos dalis (be PVM).
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Paid taxable amount or any part thereof (excluding VAT).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VATAmount" type="ISAFmonetaryType">
+        <xs:annotation>
+          <xs:documentation xml:lang="lt">
+            Apmokėta PVM suma arba jos dalis.
+          </xs:documentation>
+          <xs:documentation xml:lang="en">
+            Paid taxable amount or any part thereof.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ISAFPartNumberType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z0-9_]*"/>
+      <xs:minLength value="1"/>
+      <xs:maxLength value="20"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFDataType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="F"/>
+      <xs:enumeration value="S"/>
+      <xs:enumeration value="P"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFSpecialTaxationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="T"/>
+      <xs:enumeration value=""/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFshorttext1Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="G"/>
+      <xs:enumeration value="V"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFshorttext2Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SF"/>
+      <xs:enumeration value="DS"/>
+      <xs:enumeration value="KS"/>
+      <xs:enumeration value="VS"/>
+      <xs:enumeration value="VD"/>
+      <xs:enumeration value="VK"/>
+      <xs:enumeration value="AN"/>
+      <xs:enumeration value=""/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFmiddletextType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="24"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFFileVersion">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="iSAF1.2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFTaxCodeType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="PVM([0-9])*"/>
+      <xs:minLength value="4"/>
+      <xs:maxLength value="6"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFmiddle1textType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="35"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFmiddle1textTypeNotEmpty">
+    <xs:restriction base="ISAFmiddle1textType">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFmiddle2textType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="70"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFmiddle2textTypeNotEmpty">
+    <xs:restriction base="ISAFmiddle2textType">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFlongtextType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFlongtextTypeNotEmpty">
+    <xs:restriction base="ISAFlongtextType">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFRegistrationNumberType">
+    <xs:restriction base="xs:unsignedLong">
+      <xs:totalDigits value="11"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFmonetaryType">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="18"/>
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFquantityType">
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="5"/>
+      <xs:fractionDigits value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFCountryCodeISO">
+    <xs:restriction base="xs:string">
+      <xs:length value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFDateType1">
+    <xs:restriction base="xs:date">
+      <xs:minInclusive value="2016-09-01"/>
+      <xs:maxInclusive value="2100-01-01"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFDateType2">
+    <xs:restriction base="xs:date">
+      <xs:minInclusive value="1990-01-01"/>
+      <xs:maxInclusive value="2100-01-01"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFDateType3">
+    <xs:restriction base="xs:date">
+      <xs:minInclusive value="2016-07-01"/>
+      <xs:maxInclusive value="2100-01-01"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ISAFDateType4">
+    <xs:restriction base="xs:date">
+      <xs:minInclusive value="2011-01-01"/>
+      <xs:maxInclusive value="2100-01-01"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

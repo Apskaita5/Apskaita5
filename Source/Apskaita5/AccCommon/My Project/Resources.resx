@@ -1,0 +1,690 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Common_InvalidLanguageCode" xml:space="preserve">
+    <value>Klaida. Kalbos kodas {0} neatitinka nė vieno ISO 639-1 standarto kodo.</value>
+  </data>
+  <data name="Common_InvalidLanguageName" xml:space="preserve">
+    <value>Klaida. Kalba, kurios pavadinimas yra {0}, nežinoma.</value>
+  </data>
+  <data name="Common_localizedLanguageNameMissing" xml:space="preserve">
+    <value>Klaida. Kalbos kodui {0} nerastas pavadinimas (kultūra - {1}).</value>
+  </data>
+  <data name="LanguageCode_aa" xml:space="preserve">
+    <value>Afarų kalba</value>
+  </data>
+  <data name="LanguageCode_ab" xml:space="preserve">
+    <value>Abchazų kalba</value>
+  </data>
+  <data name="LanguageCode_ae" xml:space="preserve">
+    <value>Avestos kalba</value>
+  </data>
+  <data name="LanguageCode_af" xml:space="preserve">
+    <value>Afrikanų kalba</value>
+  </data>
+  <data name="LanguageCode_ak" xml:space="preserve">
+    <value>Akanų kalba</value>
+  </data>
+  <data name="LanguageCode_am" xml:space="preserve">
+    <value>Amherų kalba</value>
+  </data>
+  <data name="LanguageCode_an" xml:space="preserve">
+    <value>Aragoniečių kalba</value>
+  </data>
+  <data name="LanguageCode_ar" xml:space="preserve">
+    <value>Arabų kalba</value>
+  </data>
+  <data name="LanguageCode_as" xml:space="preserve">
+    <value>Asamų kalba</value>
+  </data>
+  <data name="LanguageCode_av" xml:space="preserve">
+    <value>Avarų kalba</value>
+  </data>
+  <data name="LanguageCode_ay" xml:space="preserve">
+    <value>Aimarų kalba</value>
+  </data>
+  <data name="LanguageCode_az" xml:space="preserve">
+    <value>Azerbaidžaniečių kalba</value>
+  </data>
+  <data name="LanguageCode_ba" xml:space="preserve">
+    <value>Baškirų kalba</value>
+  </data>
+  <data name="LanguageCode_be" xml:space="preserve">
+    <value>Baltarusių kalba</value>
+  </data>
+  <data name="LanguageCode_bg" xml:space="preserve">
+    <value>Bulgarų kalba</value>
+  </data>
+  <data name="LanguageCode_bh" xml:space="preserve">
+    <value>Biharų kalba</value>
+  </data>
+  <data name="LanguageCode_bi" xml:space="preserve">
+    <value>Bislama</value>
+  </data>
+  <data name="LanguageCode_bm" xml:space="preserve">
+    <value>Bambarų kalba</value>
+  </data>
+  <data name="LanguageCode_bn" xml:space="preserve">
+    <value>Bengalų kalba</value>
+  </data>
+  <data name="LanguageCode_bo" xml:space="preserve">
+    <value>Tibetiečių kalba</value>
+  </data>
+  <data name="LanguageCode_br" xml:space="preserve">
+    <value>Bretonų kalba</value>
+  </data>
+  <data name="LanguageCode_bs" xml:space="preserve">
+    <value>Bosnių kalba</value>
+  </data>
+  <data name="LanguageCode_ca" xml:space="preserve">
+    <value>Katalonų kalba</value>
+  </data>
+  <data name="LanguageCode_ce" xml:space="preserve">
+    <value>Čečėnų kalba</value>
+  </data>
+  <data name="LanguageCode_ch" xml:space="preserve">
+    <value>Čamorų kalba</value>
+  </data>
+  <data name="LanguageCode_co" xml:space="preserve">
+    <value>Korsikiečių kalba</value>
+  </data>
+  <data name="LanguageCode_cr" xml:space="preserve">
+    <value>Kri kalba</value>
+  </data>
+  <data name="LanguageCode_cs" xml:space="preserve">
+    <value>Čekų kalba</value>
+  </data>
+  <data name="LanguageCode_cu" xml:space="preserve">
+    <value>Bažnytinė slavų kalba</value>
+  </data>
+  <data name="LanguageCode_cv" xml:space="preserve">
+    <value>Čiuvašų kalba</value>
+  </data>
+  <data name="LanguageCode_cy" xml:space="preserve">
+    <value>Valų kalba</value>
+  </data>
+  <data name="LanguageCode_da" xml:space="preserve">
+    <value>Danų kalba</value>
+  </data>
+  <data name="LanguageCode_de" xml:space="preserve">
+    <value>Vokiečių kalba</value>
+  </data>
+  <data name="LanguageCode_dv" xml:space="preserve">
+    <value>Maldyviečių kalba</value>
+  </data>
+  <data name="LanguageCode_dz" xml:space="preserve">
+    <value>Botijų kalba</value>
+  </data>
+  <data name="LanguageCode_ee" xml:space="preserve">
+    <value>Eve kalba</value>
+  </data>
+  <data name="LanguageCode_el" xml:space="preserve">
+    <value>Graikų kalba</value>
+  </data>
+  <data name="LanguageCode_en" xml:space="preserve">
+    <value>Anglų kalba</value>
+  </data>
+  <data name="LanguageCode_eo" xml:space="preserve">
+    <value>Esperanto</value>
+  </data>
+  <data name="LanguageCode_es" xml:space="preserve">
+    <value>Ispanų kalba</value>
+  </data>
+  <data name="LanguageCode_et" xml:space="preserve">
+    <value>Estų kalba</value>
+  </data>
+  <data name="LanguageCode_eu" xml:space="preserve">
+    <value>Baskų kalba</value>
+  </data>
+  <data name="LanguageCode_fa" xml:space="preserve">
+    <value>Persų kalba</value>
+  </data>
+  <data name="LanguageCode_ff" xml:space="preserve">
+    <value>Fulų kalba</value>
+  </data>
+  <data name="LanguageCode_fi" xml:space="preserve">
+    <value>Suomių kalba</value>
+  </data>
+  <data name="LanguageCode_fj" xml:space="preserve">
+    <value>Fidžių kalba</value>
+  </data>
+  <data name="LanguageCode_fo" xml:space="preserve">
+    <value>Farerų kalba</value>
+  </data>
+  <data name="LanguageCode_fr" xml:space="preserve">
+    <value>Prancūzų kalba</value>
+  </data>
+  <data name="LanguageCode_fy" xml:space="preserve">
+    <value>Fryzų kalba</value>
+  </data>
+  <data name="LanguageCode_ga" xml:space="preserve">
+    <value>Airių kalba</value>
+  </data>
+  <data name="LanguageCode_gd" xml:space="preserve">
+    <value>Škotų gėlų kalba</value>
+  </data>
+  <data name="LanguageCode_gl" xml:space="preserve">
+    <value>Galisų kalba</value>
+  </data>
+  <data name="LanguageCode_gn" xml:space="preserve">
+    <value>Gvaranių kalba</value>
+  </data>
+  <data name="LanguageCode_gu" xml:space="preserve">
+    <value>Gudžaratų kalba</value>
+  </data>
+  <data name="LanguageCode_gv" xml:space="preserve">
+    <value>Menksiečių kalba</value>
+  </data>
+  <data name="LanguageCode_ha" xml:space="preserve">
+    <value>Hausų kalba</value>
+  </data>
+  <data name="LanguageCode_he" xml:space="preserve">
+    <value>Hebrajų kalba</value>
+  </data>
+  <data name="LanguageCode_hi" xml:space="preserve">
+    <value>Hindi</value>
+  </data>
+  <data name="LanguageCode_ho" xml:space="preserve">
+    <value>Hiri Motu</value>
+  </data>
+  <data name="LanguageCode_hr" xml:space="preserve">
+    <value>Kroatų kalba</value>
+  </data>
+  <data name="LanguageCode_ht" xml:space="preserve">
+    <value>Haičio kreolų kalba</value>
+  </data>
+  <data name="LanguageCode_hu" xml:space="preserve">
+    <value>Vengrų kalba</value>
+  </data>
+  <data name="LanguageCode_hy" xml:space="preserve">
+    <value>Armėnų kalba</value>
+  </data>
+  <data name="LanguageCode_hz" xml:space="preserve">
+    <value>Herero kalba</value>
+  </data>
+  <data name="LanguageCode_ia" xml:space="preserve">
+    <value>Interlingua</value>
+  </data>
+  <data name="LanguageCode_id" xml:space="preserve">
+    <value>Indoneziečių kalba</value>
+  </data>
+  <data name="LanguageCode_ie" xml:space="preserve">
+    <value>Interlingue</value>
+  </data>
+  <data name="LanguageCode_ig" xml:space="preserve">
+    <value>Igbų kalba</value>
+  </data>
+  <data name="LanguageCode_ii" xml:space="preserve">
+    <value>Ji kalba</value>
+  </data>
+  <data name="LanguageCode_ik" xml:space="preserve">
+    <value>Inupiakų kalba</value>
+  </data>
+  <data name="LanguageCode_io" xml:space="preserve">
+    <value>Ido</value>
+  </data>
+  <data name="LanguageCode_is" xml:space="preserve">
+    <value>Islandų kalba</value>
+  </data>
+  <data name="LanguageCode_it" xml:space="preserve">
+    <value>Italų kalba</value>
+  </data>
+  <data name="LanguageCode_iu" xml:space="preserve">
+    <value>Inuktitutas</value>
+  </data>
+  <data name="LanguageCode_ja" xml:space="preserve">
+    <value>Japonų kalba</value>
+  </data>
+  <data name="LanguageCode_jv" xml:space="preserve">
+    <value>Javiečių kalba</value>
+  </data>
+  <data name="LanguageCode_ka" xml:space="preserve">
+    <value>Gruzinų kalba</value>
+  </data>
+  <data name="LanguageCode_kg" xml:space="preserve">
+    <value>Kongo kalba</value>
+  </data>
+  <data name="LanguageCode_ki" xml:space="preserve">
+    <value>Kikujų kalba</value>
+  </data>
+  <data name="LanguageCode_kj" xml:space="preserve">
+    <value>Kvanjama kalba</value>
+  </data>
+  <data name="LanguageCode_kk" xml:space="preserve">
+    <value>Kazachų kalba</value>
+  </data>
+  <data name="LanguageCode_kl" xml:space="preserve">
+    <value>Grenlandų kalba</value>
+  </data>
+  <data name="LanguageCode_km" xml:space="preserve">
+    <value>Kmerų kalba</value>
+  </data>
+  <data name="LanguageCode_kn" xml:space="preserve">
+    <value>Kanadų kalba</value>
+  </data>
+  <data name="LanguageCode_ko" xml:space="preserve">
+    <value>Korėjiečių kalba</value>
+  </data>
+  <data name="LanguageCode_kr" xml:space="preserve">
+    <value>Kanurių kalba</value>
+  </data>
+  <data name="LanguageCode_ks" xml:space="preserve">
+    <value>Kašmyriečių kalba</value>
+  </data>
+  <data name="LanguageCode_ku" xml:space="preserve">
+    <value>Kurdų kalba</value>
+  </data>
+  <data name="LanguageCode_kv" xml:space="preserve">
+    <value>Komių kalba</value>
+  </data>
+  <data name="LanguageCode_kw" xml:space="preserve">
+    <value>Kornų kalba</value>
+  </data>
+  <data name="LanguageCode_ky" xml:space="preserve">
+    <value>Kirgizų kalba</value>
+  </data>
+  <data name="LanguageCode_la" xml:space="preserve">
+    <value>Lotynų kalba</value>
+  </data>
+  <data name="LanguageCode_lb" xml:space="preserve">
+    <value>Liuksemburgiečių kalba</value>
+  </data>
+  <data name="LanguageCode_lg" xml:space="preserve">
+    <value>Lugandų kalba</value>
+  </data>
+  <data name="LanguageCode_li" xml:space="preserve">
+    <value>Limburgieičių kalba</value>
+  </data>
+  <data name="LanguageCode_ln" xml:space="preserve">
+    <value>Lingalų kalba</value>
+  </data>
+  <data name="LanguageCode_lo" xml:space="preserve">
+    <value>Lao kalba</value>
+  </data>
+  <data name="LanguageCode_lt" xml:space="preserve">
+    <value>Lietuvių kalba</value>
+  </data>
+  <data name="LanguageCode_lu" xml:space="preserve">
+    <value>Lubų kalba</value>
+  </data>
+  <data name="LanguageCode_lv" xml:space="preserve">
+    <value>Latvių kalba</value>
+  </data>
+  <data name="LanguageCode_mg" xml:space="preserve">
+    <value>Malagasių kalba</value>
+  </data>
+  <data name="LanguageCode_mh" xml:space="preserve">
+    <value>Maršaliečių kalba</value>
+  </data>
+  <data name="LanguageCode_mi" xml:space="preserve">
+    <value>Maorių kalba</value>
+  </data>
+  <data name="LanguageCode_mk" xml:space="preserve">
+    <value>Makedonų kalba</value>
+  </data>
+  <data name="LanguageCode_ml" xml:space="preserve">
+    <value>Malajalių kalba</value>
+  </data>
+  <data name="LanguageCode_mn" xml:space="preserve">
+    <value>Mongolų kalba</value>
+  </data>
+  <data name="LanguageCode_mr" xml:space="preserve">
+    <value>Maratų kalba</value>
+  </data>
+  <data name="LanguageCode_ms" xml:space="preserve">
+    <value>Malajų kalba</value>
+  </data>
+  <data name="LanguageCode_mt" xml:space="preserve">
+    <value>Maltiečių kalba</value>
+  </data>
+  <data name="LanguageCode_my" xml:space="preserve">
+    <value>Mjanmų kalba</value>
+  </data>
+  <data name="LanguageCode_na" xml:space="preserve">
+    <value>Nauriečių kalba</value>
+  </data>
+  <data name="LanguageCode_nb" xml:space="preserve">
+    <value>Norvegų kalba bokmål</value>
+  </data>
+  <data name="LanguageCode_nd" xml:space="preserve">
+    <value>Šiaurės ndebelų kalba</value>
+  </data>
+  <data name="LanguageCode_ne" xml:space="preserve">
+    <value>Nepalų kalba</value>
+  </data>
+  <data name="LanguageCode_ng" xml:space="preserve">
+    <value>Ndongų kalba</value>
+  </data>
+  <data name="LanguageCode_nl" xml:space="preserve">
+    <value>Olandų kalba</value>
+  </data>
+  <data name="LanguageCode_nn" xml:space="preserve">
+    <value>Naujoji norvegų kalba Nynorsk</value>
+  </data>
+  <data name="LanguageCode_no" xml:space="preserve">
+    <value>Norvegų kalba</value>
+  </data>
+  <data name="LanguageCode_nr" xml:space="preserve">
+    <value>Pietų ndebelų kalba</value>
+  </data>
+  <data name="LanguageCode_nv" xml:space="preserve">
+    <value>Navachų kalba</value>
+  </data>
+  <data name="LanguageCode_ny" xml:space="preserve">
+    <value>Čičevų kalba</value>
+  </data>
+  <data name="LanguageCode_oc" xml:space="preserve">
+    <value>Oksitanų kalba</value>
+  </data>
+  <data name="LanguageCode_oj" xml:space="preserve">
+    <value>Odžibvių kalba</value>
+  </data>
+  <data name="LanguageCode_om" xml:space="preserve">
+    <value>Oromų kalba</value>
+  </data>
+  <data name="LanguageCode_or" xml:space="preserve">
+    <value>Orijų kalba</value>
+  </data>
+  <data name="LanguageCode_os" xml:space="preserve">
+    <value>Osetinų kalba</value>
+  </data>
+  <data name="LanguageCode_pa" xml:space="preserve">
+    <value>Pendžabų kalba</value>
+  </data>
+  <data name="LanguageCode_pi" xml:space="preserve">
+    <value>Pali kalba</value>
+  </data>
+  <data name="LanguageCode_pl" xml:space="preserve">
+    <value>Lenkų kalba</value>
+  </data>
+  <data name="LanguageCode_ps" xml:space="preserve">
+    <value>Puštūnų kalba</value>
+  </data>
+  <data name="LanguageCode_pt" xml:space="preserve">
+    <value>Portugalų kalba</value>
+  </data>
+  <data name="LanguageCode_qu" xml:space="preserve">
+    <value>Kečujų kalba</value>
+  </data>
+  <data name="LanguageCode_rm" xml:space="preserve">
+    <value>Retoromanų kalba</value>
+  </data>
+  <data name="LanguageCode_rn" xml:space="preserve">
+    <value>Kirundžių kalba</value>
+  </data>
+  <data name="LanguageCode_ro" xml:space="preserve">
+    <value>Rumunų kalba</value>
+  </data>
+  <data name="LanguageCode_ru" xml:space="preserve">
+    <value>Rusų kalba</value>
+  </data>
+  <data name="LanguageCode_rw" xml:space="preserve">
+    <value>Kinjaruanda</value>
+  </data>
+  <data name="LanguageCode_sa" xml:space="preserve">
+    <value>Sanskritas</value>
+  </data>
+  <data name="LanguageCode_sc" xml:space="preserve">
+    <value>Sardų kalba</value>
+  </data>
+  <data name="LanguageCode_sd" xml:space="preserve">
+    <value>Sindžų kalba</value>
+  </data>
+  <data name="LanguageCode_se" xml:space="preserve">
+    <value>Šiaurės samių kalba</value>
+  </data>
+  <data name="LanguageCode_sg" xml:space="preserve">
+    <value>Sangų kalba</value>
+  </data>
+  <data name="LanguageCode_sh" xml:space="preserve">
+    <value>Serbų kroatų kalba</value>
+  </data>
+  <data name="LanguageCode_si" xml:space="preserve">
+    <value>Sinhalų kalba</value>
+  </data>
+  <data name="LanguageCode_sk" xml:space="preserve">
+    <value>Slovakų kalba</value>
+  </data>
+  <data name="LanguageCode_sl" xml:space="preserve">
+    <value>Slovėnų kalba</value>
+  </data>
+  <data name="LanguageCode_sm" xml:space="preserve">
+    <value>Samoa kalba</value>
+  </data>
+  <data name="LanguageCode_sn" xml:space="preserve">
+    <value>Šonų kalba</value>
+  </data>
+  <data name="LanguageCode_so" xml:space="preserve">
+    <value>Somalių kalba</value>
+  </data>
+  <data name="LanguageCode_sq" xml:space="preserve">
+    <value>Albanų kalba</value>
+  </data>
+  <data name="LanguageCode_sr" xml:space="preserve">
+    <value>Serbų kalba</value>
+  </data>
+  <data name="LanguageCode_ss" xml:space="preserve">
+    <value>Svazių kalba</value>
+  </data>
+  <data name="LanguageCode_st" xml:space="preserve">
+    <value>Pietų sotų kalba</value>
+  </data>
+  <data name="LanguageCode_su" xml:space="preserve">
+    <value>Sundų kalba</value>
+  </data>
+  <data name="LanguageCode_sv" xml:space="preserve">
+    <value>Švedų kalba</value>
+  </data>
+  <data name="LanguageCode_sw" xml:space="preserve">
+    <value>Suahilių kalba</value>
+  </data>
+  <data name="LanguageCode_ta" xml:space="preserve">
+    <value>Tamilų kalba</value>
+  </data>
+  <data name="LanguageCode_te" xml:space="preserve">
+    <value>Telugų kalba</value>
+  </data>
+  <data name="LanguageCode_tg" xml:space="preserve">
+    <value>Tadžikų kalba</value>
+  </data>
+  <data name="LanguageCode_th" xml:space="preserve">
+    <value>Tajų kalba</value>
+  </data>
+  <data name="LanguageCode_ti" xml:space="preserve">
+    <value>Tigrinijų kalba</value>
+  </data>
+  <data name="LanguageCode_tk" xml:space="preserve">
+    <value>Turkmėnų kalba</value>
+  </data>
+  <data name="LanguageCode_tl" xml:space="preserve">
+    <value>Tagalų kalba</value>
+  </data>
+  <data name="LanguageCode_tn" xml:space="preserve">
+    <value>Tsvanų kalba</value>
+  </data>
+  <data name="LanguageCode_to" xml:space="preserve">
+    <value>Tongos kalba</value>
+  </data>
+  <data name="LanguageCode_tr" xml:space="preserve">
+    <value>Turkų kalba</value>
+  </data>
+  <data name="LanguageCode_ts" xml:space="preserve">
+    <value>Tsongų kalba</value>
+  </data>
+  <data name="LanguageCode_tt" xml:space="preserve">
+    <value>Totorių kalba</value>
+  </data>
+  <data name="LanguageCode_tw" xml:space="preserve">
+    <value>Tvi kalba</value>
+  </data>
+  <data name="LanguageCode_ty" xml:space="preserve">
+    <value>Taitiečių kalba</value>
+  </data>
+  <data name="LanguageCode_ug" xml:space="preserve">
+    <value>Uigūrų kalba</value>
+  </data>
+  <data name="LanguageCode_uk" xml:space="preserve">
+    <value>Ukrainiečių kalba</value>
+  </data>
+  <data name="LanguageCode_ur" xml:space="preserve">
+    <value>Urdu</value>
+  </data>
+  <data name="LanguageCode_uz" xml:space="preserve">
+    <value>Uzbekų kalba</value>
+  </data>
+  <data name="LanguageCode_ve" xml:space="preserve">
+    <value>Vendų kalba</value>
+  </data>
+  <data name="LanguageCode_vi" xml:space="preserve">
+    <value>Vietnamiečių kalba</value>
+  </data>
+  <data name="LanguageCode_vo" xml:space="preserve">
+    <value>Volapiukas</value>
+  </data>
+  <data name="LanguageCode_wa" xml:space="preserve">
+    <value>Valonų kalba</value>
+  </data>
+  <data name="LanguageCode_wo" xml:space="preserve">
+    <value>Volofų kalba</value>
+  </data>
+  <data name="LanguageCode_xh" xml:space="preserve">
+    <value>Kosų kalba</value>
+  </data>
+  <data name="LanguageCode_yi" xml:space="preserve">
+    <value>Jidiš</value>
+  </data>
+  <data name="LanguageCode_yo" xml:space="preserve">
+    <value>Jorubų kalba</value>
+  </data>
+  <data name="LanguageCode_za" xml:space="preserve">
+    <value>Džuangų kalba</value>
+  </data>
+  <data name="LanguageCode_zh_cn" xml:space="preserve">
+    <value>Kinų kalba (supaprastinta)</value>
+  </data>
+  <data name="LanguageCode_zh_tw" xml:space="preserve">
+    <value>Kinų kalba (tradicinė)</value>
+  </data>
+  <data name="LanguageCode_zu" xml:space="preserve">
+    <value>Zulų kalba</value>
+  </data>
+  <data name="CommonMethods_TheTypeMustBeSerializable" xml:space="preserve">
+    <value>The type must be serializable.</value>
+  </data>
+</root>
