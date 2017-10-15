@@ -250,6 +250,37 @@ Namespace CachedInfoLists
 
             AddHandler cntr.Disposed, AddressOf ComboBox_Disposed
 
+            If TypeOf dataSourceProvider Is DocumentSerialFieldAttribute Then
+                AddHandler cntr.KeyDown, AddressOf OnAddDocumentSerial
+            ElseIf TypeOf dataSourceProvider Is LanguageCodeFieldAttribute OrElse _
+                TypeOf dataSourceProvider Is LanguageNameFieldAttribute Then
+                AddHandler cntr.KeyDown, AddressOf OnAddRegion
+            ElseIf TypeOf dataSourceProvider Is NameFieldAttribute OrElse _
+                TypeOf dataSourceProvider Is TaxRateFieldAttribute Then
+                AddHandler cntr.KeyDown, AddressOf OnAddCommonSettings
+            End If
+
+        End Sub
+
+        Private Sub OnAddDocumentSerial(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs)
+            If e.Control AndAlso (e.KeyCode = Keys.Insert OrElse e.KeyCode = Keys.Add) Then
+                OpenNewForm(Of ApskaitaObjects.Settings.DocumentSerialList)()
+                e.Handled = True
+            End If
+        End Sub
+
+        Private Sub OnAddRegion(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs)
+            If e.Control AndAlso (e.KeyCode = Keys.Insert OrElse e.KeyCode = Keys.Add) Then
+                OpenNewForm(Of General.CompanyRegionalData)()
+                e.Handled = True
+            End If
+        End Sub
+
+        Private Sub OnAddCommonSettings(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs)
+            If e.Control AndAlso (e.KeyCode = Keys.Insert OrElse e.KeyCode = Keys.Add) Then
+                OpenNewForm(Of ApskaitaObjects.Settings.CommonSettings)()
+                e.Handled = True
+            End If
         End Sub
 
         ''' <summary>
@@ -574,6 +605,21 @@ Namespace CachedInfoLists
             End If
 
             Dim control As ComboBox = DirectCast(sender, ComboBox)
+
+            Try
+                RemoveHandler control.KeyDown, AddressOf OnAddDocumentSerial
+            Catch ex As Exception
+            End Try
+
+            Try
+                RemoveHandler control.KeyDown, AddressOf OnAddRegion
+            Catch ex As Exception
+            End Try
+
+            Try
+                RemoveHandler control.KeyDown, AddressOf OnAddCommonSettings
+            Catch ex As Exception
+            End Try
 
             Try
                 RemoveHandler control.Disposed, AddressOf ComboBox_Disposed

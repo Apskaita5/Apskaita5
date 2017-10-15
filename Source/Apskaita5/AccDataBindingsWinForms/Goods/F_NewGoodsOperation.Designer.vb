@@ -23,7 +23,6 @@ Partial Class F_NewGoodsOperation(Of T)
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.OperationDateDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.GoodsInfoListAccListComboBox = New AccControlsWinForms.AccListComboBox
         Me.WarehouseFromInfoListAccListComboBox = New AccControlsWinForms.AccListComboBox
         Me.WarehouseToInfoListAccListComboBox = New AccControlsWinForms.AccListComboBox
@@ -35,6 +34,7 @@ Partial Class F_NewGoodsOperation(Of T)
         Me.WarehouseFromLabel = New System.Windows.Forms.Label
         Me.WarehouseToLabel = New System.Windows.Forms.Label
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
+        Me.OperationDateAccDatePicker = New AccControlsWinForms.AccDatePicker
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
@@ -45,7 +45,6 @@ Partial Class F_NewGoodsOperation(Of T)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.OperationDateDateTimePicker, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.GoodsInfoListAccListComboBox, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.WarehouseFromInfoListAccListComboBox, 1, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.WarehouseToInfoListAccListComboBox, 1, 3)
@@ -54,6 +53,7 @@ Partial Class F_NewGoodsOperation(Of T)
         Me.TableLayoutPanel1.Controls.Add(Me.GoodsLabel, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.WarehouseFromLabel, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.WarehouseToLabel, 0, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.OperationDateAccDatePicker, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -65,15 +65,6 @@ Partial Class F_NewGoodsOperation(Of T)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(437, 142)
         Me.TableLayoutPanel1.TabIndex = 0
-        '
-        'OperationDateDateTimePicker
-        '
-        Me.OperationDateDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.OperationDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.OperationDateDateTimePicker.Location = New System.Drawing.Point(140, 3)
-        Me.OperationDateDateTimePicker.Name = "OperationDateDateTimePicker"
-        Me.OperationDateDateTimePicker.Size = New System.Drawing.Size(274, 20)
-        Me.OperationDateDateTimePicker.TabIndex = 0
         '
         'GoodsInfoListAccListComboBox
         '
@@ -211,6 +202,20 @@ Partial Class F_NewGoodsOperation(Of T)
         Me.ProgressFiller1.TabIndex = 1
         Me.ProgressFiller1.Visible = False
         '
+        'OperationDateAccDatePicker
+        '
+        Me.OperationDateAccDatePicker.BoldedDates = Nothing
+        Me.OperationDateAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.OperationDateAccDatePicker.Location = New System.Drawing.Point(140, 3)
+        Me.OperationDateAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.OperationDateAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.OperationDateAccDatePicker.Name = "OperationDateAccDatePicker"
+        Me.OperationDateAccDatePicker.ReadOnly = False
+        Me.OperationDateAccDatePicker.ShowWeekNumbers = True
+        Me.OperationDateAccDatePicker.Size = New System.Drawing.Size(274, 20)
+        Me.OperationDateAccDatePicker.TabIndex = 0
+        Me.OperationDateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
+        '
         'F_NewGoodsOperation
         '
         Me.AcceptButton = Me.nOkButton
@@ -234,7 +239,6 @@ Partial Class F_NewGoodsOperation(Of T)
 
     End Sub
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents OperationDateDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents GoodsInfoListAccListComboBox As AccControlsWinForms.AccListComboBox
     Friend WithEvents WarehouseFromInfoListAccListComboBox As AccControlsWinForms.AccListComboBox
     Friend WithEvents WarehouseToInfoListAccListComboBox As AccControlsWinForms.AccListComboBox
@@ -246,4 +250,5 @@ Partial Class F_NewGoodsOperation(Of T)
     Friend WithEvents WarehouseFromLabel As System.Windows.Forms.Label
     Friend WithEvents WarehouseToLabel As System.Windows.Forms.Label
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
+    Friend WithEvents OperationDateAccDatePicker As AccControlsWinForms.AccDatePicker
 End Class

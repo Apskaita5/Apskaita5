@@ -179,6 +179,7 @@ Public Class AccListComboBox
         myDropDown.Items.Add(myListView)
         myDropDown.Width = Math.Max(Me.Width, myListView.MinDropDownWidth)
         myDropDown.Height = myListView.Height
+        'AddHandler myListView.OnFilterStringChanged, AddressOf OnFilterChanged
 
     End Sub
 
@@ -234,7 +235,7 @@ Public Class AccListComboBox
 
             myListView.SetSelectedValue(_SelectedValue)
 
-            myDropDown.Show(Me, CalculatePoz) 'New Point(0, Me.Height)
+            myDropDown.Show(Me, CalculatePoz()) 'New Point(0, Me.Height)
 
             SendKeys.Send("{down}")
 
@@ -273,6 +274,8 @@ Public Class AccListComboBox
 
         End If
 
+        If Not myListView Is Nothing Then myListView.ClearFilter()
+
     End Sub
 
     Private Sub SetValue(ByVal value As Object)
@@ -292,6 +295,10 @@ Public Class AccListComboBox
         MyBase.OnSelectedValueChanged(New EventArgs)
 
     End Sub
+
+    'Private Sub OnFilterChanged(ByVal sender As Object, ByVal e As EventArgs)
+    '    Me.Text = myListView.FilterString
+    'End Sub
 
 
     Protected Overrides Sub WndProc(ByRef m As Message)
@@ -344,12 +351,26 @@ Public Class AccListComboBox
     End Sub
 
     Protected Overrides Sub OnKeyDown(ByVal e As System.Windows.Forms.KeyEventArgs)
-        If Not myDropDown.Visible AndAlso e.KeyCode <> Keys.Enter AndAlso e.KeyCode <> Keys.Tab _
-            AndAlso e.KeyCode <> Keys.Left AndAlso e.KeyCode <> Keys.Right Then
+
+        If e.Control AndAlso (e.KeyCode = Keys.Insert OrElse e.KeyCode = Keys.Add) Then
+            If Not myListView Is Nothing AndAlso Not myListView.Control Is Nothing Then
+                DirectCast(myListView.Control, InfoListControl).AddNewItem()
+                e.Handled = True
+            End If
+        ElseIf Not myDropDown.Visible AndAlso e.KeyCode <> Keys.Enter AndAlso e.KeyCode <> Keys.Tab _
+            AndAlso e.KeyCode <> Keys.Left AndAlso e.KeyCode <> Keys.Right AndAlso e.KeyCode <> Keys.ControlKey _
+            AndAlso e.KeyCode <> Keys.Control AndAlso e.KeyCode <> Keys.LControlKey _
+            AndAlso e.KeyCode <> Keys.RControlKey AndAlso e.KeyCode <> Keys.ShiftKey Then
             ShowDropDown()
+            Dim unicodeString As String = KeyCodeToUnicode(e.KeyCode)
+            If unicodeString.Length = 1 AndAlso Char.IsLetterOrDigit(Convert.ToChar(unicodeString)) Then
+                myListView.AppendFilter(Convert.ToChar(unicodeString))
+            End If
             e.Handled = True
         End If
+
         MyBase.OnKeyDown(e)
+
     End Sub
 
 
@@ -365,8 +386,13 @@ Public Class AccListComboBox
         If disposing Then
             If components IsNot Nothing Then components.Dispose()
             If Me.DisposeToolStripDropDown Then
-                If Not myListView Is Nothing AndAlso Not myListView.IsDisposed Then _
+                If Not myListView Is Nothing AndAlso Not myListView.IsDisposed Then
+                    'Try
+                    '    RemoveHandler myListView.OnFilterStringChanged, AddressOf OnFilterChanged
+                    'Catch ex As Exception
+                    'End Try
                     myListView.Dispose()
+                End If
                 If Not myDropDown Is Nothing AndAlso Not myDropDown.IsDisposed Then _
                     myDropDown.Dispose()
             End If

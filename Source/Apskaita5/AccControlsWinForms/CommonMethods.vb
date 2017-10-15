@@ -1,5 +1,7 @@
 ﻿Imports AccControlsWinForms.MessageBoxExLib
 Imports System.Windows.Forms
+Imports System.Runtime.InteropServices
+Imports System.Text
 
 Public Module CommonMethods
 
@@ -134,7 +136,7 @@ Public Module CommonMethods
             GetType(Windows.Forms.Timer), GetType(Windows.Forms.TableLayoutPanel), _
             GetType(Windows.Forms.FlowLayoutPanel), GetType(System.Windows.Forms.HScrollBar), _
             GetType(System.Windows.Forms.VScrollBar)}
-        For Each ctrl As Control In TargetForm.Controls
+        For Each ctrl As Control In targetForm.Controls
             If Array.IndexOf(ignoreTypes, ctrl.GetType) < 0 Then
                 Try
                     If TypeOf ctrl Is DataGridView Then
@@ -205,6 +207,47 @@ Public Module CommonMethods
         Else
             Return invoker.Invoke(instance, methodName, params)
         End If
+    End Function
+
+
+    Public Function KeyCodeToUnicode(ByVal key As Windows.Forms.Keys) As String
+
+        Dim keyboardState(255) As Byte
+        Dim keyboardStateStatus As Boolean = GetKeyboardState(keyboardState)
+        If Not keyboardStateStatus Then Return ""
+
+        Dim virtualKeyCode As UInt32 = CType(key, UInt32)
+        Dim scanCode As UInt32 = MapVirtualKey(virtualKeyCode, 0)
+        Dim inputLocaleIdentifier As IntPtr = GetKeyboardLayout(0)
+
+        Dim result As New StringBuilder()
+        Dim uint0 As UInteger = 0
+        ToUnicodeEx(virtualKeyCode, scanCode, keyboardState, result, DirectCast(5, Int32), uint0, inputLocaleIdentifier)
+
+        Return result.ToString()
+
+    End Function
+
+    <DllImport("User32.dll")> _
+    Private Function GetKeyboardState(ByVal pbKeyState As Byte()) As Boolean
+    End Function
+
+    <DllImport("User32.dll")> _
+    Private Function MapVirtualKey(ByVal uCode As UInt32, ByVal uMapType As UInt32) As UInt32
+    End Function
+
+    <DllImport("user32.dll")> _
+    Private Function GetKeyboardLayout(ByVal idThread As Long) As IntPtr
+    End Function
+
+    '<DllImport("user32.dll")> _
+    'static extern int ToUnicodeEx(uint wVirtKey, uint wScanCode, byte[] lpKeyState, [Out, MarshalAs(UnmanagedType.LPWStr)] StringBuilder pwszBuff, int cchBuff, uint wFlags, IntPtr dwhkl);
+
+    <DllImport("user32.dll", CharSet:=CharSet.Auto, ExactSpelling:=True, CallingConvention:=CallingConvention.Winapi)> _
+    Private Function ToUnicodeEx(ByVal wVirtKey As UInteger, ByVal wScanCode As UInteger, ByVal lpKeyState As Byte(), _
+        <Out(), MarshalAs(UnmanagedType.LPWStr)> _
+        ByVal pwszBuff As StringBuilder, _
+        ByVal cchBuff As Integer, ByVal wFlags As UInteger, ByVal dwhkl As IntPtr) As Integer
     End Function
 
 End Module

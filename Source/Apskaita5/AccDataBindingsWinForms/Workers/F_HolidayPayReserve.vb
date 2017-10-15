@@ -163,7 +163,7 @@ Friend Class F_HolidayPayReserve
 
         _QueryManager.InvokeQuery(Of HolidayPayReserve)(Nothing, _
             "NewHolidayPayReserve", False, AddressOf OnNewDocumentFetched, _
-            NewObjectDateDateTimePicker.Value)
+            NewObjectDateAccDatePicker.Value)
 
     End Sub
 
@@ -265,7 +265,7 @@ Friend Class F_HolidayPayReserve
         ICancelButton.Enabled = Not _FormManager.DataSource.IsNew
 
         NewButton.Enabled = HolidayPayReserve.CanAddObject
-        NewObjectDateDateTimePicker.Enabled = HolidayPayReserve.CanAddObject
+        NewObjectDateAccDatePicker.ReadOnly = Not HolidayPayReserve.CanAddObject
 
         _ListViewManager.SetColumnReadOnly("ApplicableVDUDaily", _
             Not _FormManager.DataSource.ChronologicValidator.FinancialDataCanChange)

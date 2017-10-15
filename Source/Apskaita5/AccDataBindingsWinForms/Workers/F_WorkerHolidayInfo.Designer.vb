@@ -45,9 +45,9 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.TableLayoutPanel13 = New System.Windows.Forms.TableLayoutPanel
         Me.ForCompensationCheckBox = New System.Windows.Forms.CheckBox
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.DateDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
+        Me.LabourContractAccListComboBox = New AccControlsWinForms.AccListComboBox
         Me.RefreshButton = New System.Windows.Forms.Button
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
         Me.TableLayoutPanel9 = New System.Windows.Forms.TableLayoutPanel
@@ -73,7 +73,6 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.PositionTextBox = New System.Windows.Forms.TextBox
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel
         Me.ContractNumberTextBox = New System.Windows.Forms.TextBox
-        Me.DateDateTimePicker1 = New System.Windows.Forms.DateTimePicker
         Me.ContractSerialTextBox = New System.Windows.Forms.TextBox
         Me.ContractDateDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.TableLayoutPanel10 = New System.Windows.Forms.TableLayoutPanel
@@ -100,7 +99,8 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.HolidaySpentListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
         Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller
-        Me.LabourContractAccListComboBox = New AccControlsWinForms.AccListComboBox
+        Me.DateDateTimePicker1 = New System.Windows.Forms.DateTimePicker
+        Me.AtDateAccDatePicker = New AccControlsWinForms.AccDatePicker
         DateLabel = New System.Windows.Forms.Label
         ContractDateLabel = New System.Windows.Forms.Label
         ContractSerialLabel = New System.Windows.Forms.Label
@@ -399,10 +399,10 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.DateDateTimePicker, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label3, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 3, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.LabourContractAccListComboBox, 4, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.AtDateAccDatePicker, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
@@ -411,15 +411,6 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(889, 29)
         Me.TableLayoutPanel1.TabIndex = 0
-        '
-        'DateDateTimePicker
-        '
-        Me.DateDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateDateTimePicker.Location = New System.Drawing.Point(47, 3)
-        Me.DateDateTimePicker.Name = "DateDateTimePicker"
-        Me.DateDateTimePicker.Size = New System.Drawing.Size(264, 20)
-        Me.DateDateTimePicker.TabIndex = 1
         '
         'Label3
         '
@@ -442,6 +433,18 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.Label1.Size = New System.Drawing.Size(79, 13)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Darbuotojas:"
+        '
+        'LabourContractAccListComboBox
+        '
+        Me.LabourContractAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabourContractAccListComboBox.EmptyValueString = ""
+        Me.LabourContractAccListComboBox.FilterString = ""
+        Me.LabourContractAccListComboBox.FormattingEnabled = True
+        Me.LabourContractAccListComboBox.InstantBinding = True
+        Me.LabourContractAccListComboBox.Location = New System.Drawing.Point(422, 3)
+        Me.LabourContractAccListComboBox.Name = "LabourContractAccListComboBox"
+        Me.LabourContractAccListComboBox.Size = New System.Drawing.Size(444, 21)
+        Me.LabourContractAccListComboBox.TabIndex = 4
         '
         'RefreshButton
         '
@@ -832,17 +835,6 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.ContractNumberTextBox.TabIndex = 12
         Me.ContractNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'DateDateTimePicker1
-        '
-        Me.DateDateTimePicker1.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.WorkerHolidayInfoBindingSource, "Date", True))
-        Me.DateDateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateDateTimePicker1.Enabled = False
-        Me.DateDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateDateTimePicker1.Location = New System.Drawing.Point(3, 3)
-        Me.DateDateTimePicker1.Name = "DateDateTimePicker1"
-        Me.DateDateTimePicker1.Size = New System.Drawing.Size(128, 20)
-        Me.DateDateTimePicker1.TabIndex = 9
-        '
         'ContractSerialTextBox
         '
         Me.ContractSerialTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkerHolidayInfoBindingSource, "ContractSerial", True))
@@ -920,6 +912,8 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.HolidayCalculatedListDataListView.HasCollapsibleGroups = False
         Me.HolidayCalculatedListDataListView.HeaderWordWrap = True
         Me.HolidayCalculatedListDataListView.HideSelection = False
+        Me.HolidayCalculatedListDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
+        Me.HolidayCalculatedListDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.HolidayCalculatedListDataListView.IncludeColumnHeadersInCopy = True
         Me.HolidayCalculatedListDataListView.Location = New System.Drawing.Point(0, 0)
         Me.HolidayCalculatedListDataListView.Name = "HolidayCalculatedListDataListView"
@@ -1053,6 +1047,8 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.HolidaySpentListDataListView.HasCollapsibleGroups = False
         Me.HolidaySpentListDataListView.HeaderWordWrap = True
         Me.HolidaySpentListDataListView.HideSelection = False
+        Me.HolidaySpentListDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
+        Me.HolidaySpentListDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.HolidaySpentListDataListView.IncludeColumnHeadersInCopy = True
         Me.HolidaySpentListDataListView.Location = New System.Drawing.Point(0, 0)
         Me.HolidaySpentListDataListView.Name = "HolidaySpentListDataListView"
@@ -1204,17 +1200,30 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.ProgressFiller2.TabIndex = 9
         Me.ProgressFiller2.Visible = False
         '
-        'LabourContractAccListComboBox
+        'DateDateTimePicker1
         '
-        Me.LabourContractAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabourContractAccListComboBox.EmptyValueString = ""
-        Me.LabourContractAccListComboBox.FilterString = ""
-        Me.LabourContractAccListComboBox.FormattingEnabled = True
-        Me.LabourContractAccListComboBox.InstantBinding = True
-        Me.LabourContractAccListComboBox.Location = New System.Drawing.Point(422, 3)
-        Me.LabourContractAccListComboBox.Name = "LabourContractAccListComboBox"
-        Me.LabourContractAccListComboBox.Size = New System.Drawing.Size(444, 21)
-        Me.LabourContractAccListComboBox.TabIndex = 4
+        Me.DateDateTimePicker1.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.WorkerHolidayInfoBindingSource, "Date", True))
+        Me.DateDateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateDateTimePicker1.Enabled = False
+        Me.DateDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateDateTimePicker1.Location = New System.Drawing.Point(3, 3)
+        Me.DateDateTimePicker1.Name = "DateDateTimePicker1"
+        Me.DateDateTimePicker1.Size = New System.Drawing.Size(128, 20)
+        Me.DateDateTimePicker1.TabIndex = 9
+        '
+        'AtDateAccDatePicker
+        '
+        Me.AtDateAccDatePicker.BoldedDates = Nothing
+        Me.AtDateAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AtDateAccDatePicker.Location = New System.Drawing.Point(47, 3)
+        Me.AtDateAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.AtDateAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.AtDateAccDatePicker.Name = "AtDateAccDatePicker"
+        Me.AtDateAccDatePicker.ReadOnly = False
+        Me.AtDateAccDatePicker.ShowWeekNumbers = True
+        Me.AtDateAccDatePicker.Size = New System.Drawing.Size(264, 23)
+        Me.AtDateAccDatePicker.TabIndex = 0
+        Me.AtDateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'F_WorkerHolidayInfo
         '
@@ -1268,7 +1277,6 @@ Partial Friend Class F_WorkerHolidayInfo
     Friend WithEvents TableLayoutPanel13 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents ForCompensationCheckBox As System.Windows.Forms.CheckBox
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents DateDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents RefreshButton As System.Windows.Forms.Button
@@ -1277,7 +1285,6 @@ Partial Friend Class F_WorkerHolidayInfo
     Friend WithEvents TableLayoutPanel5 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents ContractNumberTextBox As System.Windows.Forms.TextBox
     Friend WithEvents WorkerHolidayInfoBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents DateDateTimePicker1 As System.Windows.Forms.DateTimePicker
     Friend WithEvents ContractSerialTextBox As System.Windows.Forms.TextBox
     Friend WithEvents ContractDateDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents TableLayoutPanel6 As System.Windows.Forms.TableLayoutPanel
@@ -1324,4 +1331,6 @@ Partial Friend Class F_WorkerHolidayInfo
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ProgressFiller2 As AccControlsWinForms.ProgressFiller
     Friend WithEvents LabourContractAccListComboBox As AccControlsWinForms.AccListComboBox
+    Friend WithEvents AtDateAccDatePicker As AccControlsWinForms.AccDatePicker
+    Friend WithEvents DateDateTimePicker1 As System.Windows.Forms.DateTimePicker
 End Class

@@ -123,10 +123,30 @@
     <Compile Include="Controls\AccButton.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\AccDatePicker.Designer.vb">
+      <DependentUpon>AccDatePicker.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AccDatePicker.vb">
+    </Compile>
+    <Compile Include="Controls\AccDateTextBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\AccListComboBox.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\AccTextBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CalculatorToolStrip.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CalculatorUserControl.Designer.vb">
+      <DependentUpon>CalculatorUserControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CalculatorUserControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CalendarToolStrip.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\DataListViewToolStrip.vb">
@@ -138,7 +158,6 @@
     <Compile Include="Controls\InfoListControl.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\SmartDateTimePicker.vb" />
     <Compile Include="DataAggregator\AggregateFunctionAverage.vb" />
     <Compile Include="DataAggregator\AggregateFunctionCount.vb" />
     <Compile Include="DataAggregator\AggregateFunctionMax.vb" />
@@ -155,6 +174,12 @@
     <Compile Include="DataAggregator\IAggregateFunction.vb" />
     <Compile Include="ErrorWarnInfoProvider.vb" />
     <Compile Include="FormProperties.vb" />
+    <Compile Include="F_Calculator.Designer.vb">
+      <DependentUpon>F_Calculator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F_Calculator.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="F_OLVPrinter.Designer.vb">
       <DependentUpon>F_OLVPrinter.vb</DependentUpon>
     </Compile>
@@ -254,11 +279,20 @@
     <EmbeddedResource Include="AsyncOperations\ProgressFiller.resx">
       <DependentUpon>ProgressFiller.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AccDatePicker.resx">
+      <DependentUpon>AccDatePicker.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CalculatorUserControl.resx">
+      <DependentUpon>CalculatorUserControl.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\InfoListControl.resx">
       <DependentUpon>InfoListControl.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataAggregator\F_DataAggregator.resx">
       <DependentUpon>F_DataAggregator.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_Calculator.resx">
+      <DependentUpon>F_Calculator.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_OLVPrinter.resx">
       <DependentUpon>F_OLVPrinter.vb</DependentUpon>
@@ -357,6 +391,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\gears.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Accept_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlusMinus_18x18.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

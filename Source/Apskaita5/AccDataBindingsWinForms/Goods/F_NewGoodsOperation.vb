@@ -89,7 +89,7 @@ Public Class F_NewGoodsOperation(Of T)
         End Try
 
         OperationDateLabel.Visible = (GetType(T) Is GetType(Goods.GoodsComplexOperationInventorization))
-        OperationDateDateTimePicker.Visible = (GetType(T) Is GetType(Goods.GoodsComplexOperationInventorization))
+        OperationDateAccDatePicker.Visible = (GetType(T) Is GetType(Goods.GoodsComplexOperationInventorization))
         GoodsLabel.Visible = Not Array.IndexOf(_TypesThatRequireGoods, GetType(T)) < 0
         GoodsInfoListAccListComboBox.Visible = Not Array.IndexOf(_TypesThatRequireGoods, GetType(T)) < 0
         WarehouseFromLabel.Visible = Not Array.IndexOf(_TypesThatRequireWarehouseFrom, GetType(T)) < 0
@@ -205,7 +205,7 @@ Public Class F_NewGoodsOperation(Of T)
             '    OperationDateDateTimePicker.Value, warehouseFrom.ID)
             _QueryManager.InvokeQuery(Of GoodsComplexOperationInventorization)(Nothing, _
                 "NewGoodsComplexOperationInventorization", True, AddressOf OnNewOperationFetched, _
-                OperationDateDateTimePicker.Value, warehouseFrom.ID)
+                OperationDateAccDatePicker.Value, warehouseFrom.ID)
 
         ElseIf GetType(T) Is GetType(GoodsOperationAcquisition) Then
             'GoodsOperationAcquisition.NewGoodsOperationAcquisition(goodsInfo.ID, warehouseTo.ID)

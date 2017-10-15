@@ -51,7 +51,6 @@ Partial Friend Class F_WorkersVDUInfo
         Dim ApplicableVDUHourlyLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_WorkersVDUInfo))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.DateDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
         Me.LabourContractAccListComboBox = New AccControlsWinForms.AccListComboBox
@@ -117,6 +116,7 @@ Partial Friend Class F_WorkersVDUInfo
         Me.TableLayoutPanel14 = New System.Windows.Forms.TableLayoutPanel
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
         Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller
+        Me.AtDateAccDatePicker = New AccControlsWinForms.AccDatePicker
         DateLabel = New System.Windows.Forms.Label
         ContractSerialLabel = New System.Windows.Forms.Label
         ContractNumberLabel = New System.Windows.Forms.Label
@@ -417,7 +417,7 @@ Partial Friend Class F_WorkersVDUInfo
         '
         TotalScheduledHoursLabel.AutoSize = True
         TotalScheduledHoursLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        TotalScheduledHoursLabel.Location = New System.Drawing.Point(173, 5)
+        TotalScheduledHoursLabel.Location = New System.Drawing.Point(178, 5)
         TotalScheduledHoursLabel.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
         TotalScheduledHoursLabel.Name = "TotalScheduledHoursLabel"
         TotalScheduledHoursLabel.Size = New System.Drawing.Size(104, 13)
@@ -481,11 +481,11 @@ Partial Friend Class F_WorkersVDUInfo
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.DateDateTimePicker, 1, 0)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Label3, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 3, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.LabourContractAccListComboBox, 4, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.AtDateAccDatePicker, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
@@ -494,15 +494,6 @@ Partial Friend Class F_WorkersVDUInfo
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(835, 29)
         Me.TableLayoutPanel1.TabIndex = 0
-        '
-        'DateDateTimePicker
-        '
-        Me.DateDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateDateTimePicker.Location = New System.Drawing.Point(47, 3)
-        Me.DateDateTimePicker.Name = "DateDateTimePicker"
-        Me.DateDateTimePicker.Size = New System.Drawing.Size(193, 20)
-        Me.DateDateTimePicker.TabIndex = 1
         '
         'Label3
         '
@@ -535,7 +526,7 @@ Partial Friend Class F_WorkersVDUInfo
         Me.LabourContractAccListComboBox.InstantBinding = True
         Me.LabourContractAccListComboBox.Location = New System.Drawing.Point(351, 3)
         Me.LabourContractAccListComboBox.Name = "LabourContractAccListComboBox"
-        Me.LabourContractAccListComboBox.Size = New System.Drawing.Size(459, 21)
+        Me.LabourContractAccListComboBox.Size = New System.Drawing.Size(458, 21)
         Me.LabourContractAccListComboBox.TabIndex = 4
         '
         'RefreshButton
@@ -778,14 +769,14 @@ Partial Friend Class F_WorkersVDUInfo
         'TableLayoutPanel10
         '
         Me.TableLayoutPanel10.ColumnCount = 8
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334!))
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel10.Controls.Add(Me.TotalScheduledDaysTextBox, 0, 0)
         Me.TableLayoutPanel10.Controls.Add(TotalScheduledHoursLabel, 2, 0)
         Me.TableLayoutPanel10.Controls.Add(Me.TotalScheduledHoursAccTextBox, 3, 0)
@@ -805,7 +796,7 @@ Partial Friend Class F_WorkersVDUInfo
         Me.TotalScheduledDaysTextBox.Location = New System.Drawing.Point(3, 3)
         Me.TotalScheduledDaysTextBox.Name = "TotalScheduledDaysTextBox"
         Me.TotalScheduledDaysTextBox.ReadOnly = True
-        Me.TotalScheduledDaysTextBox.Size = New System.Drawing.Size(144, 20)
+        Me.TotalScheduledDaysTextBox.Size = New System.Drawing.Size(149, 20)
         Me.TotalScheduledDaysTextBox.TabIndex = 20
         Me.TotalScheduledDaysTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -815,10 +806,10 @@ Partial Friend Class F_WorkersVDUInfo
         Me.TotalScheduledHoursAccTextBox.DecimalLength = 4
         Me.TotalScheduledHoursAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TotalScheduledHoursAccTextBox.KeepBackColorWhenReadOnly = False
-        Me.TotalScheduledHoursAccTextBox.Location = New System.Drawing.Point(283, 3)
+        Me.TotalScheduledHoursAccTextBox.Location = New System.Drawing.Point(288, 3)
         Me.TotalScheduledHoursAccTextBox.Name = "TotalScheduledHoursAccTextBox"
         Me.TotalScheduledHoursAccTextBox.ReadOnly = True
-        Me.TotalScheduledHoursAccTextBox.Size = New System.Drawing.Size(145, 20)
+        Me.TotalScheduledHoursAccTextBox.Size = New System.Drawing.Size(150, 20)
         Me.TotalScheduledHoursAccTextBox.TabIndex = 22
         Me.TotalScheduledHoursAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -1240,6 +1231,8 @@ Partial Friend Class F_WorkersVDUInfo
         Me.WageListDataListView.HasCollapsibleGroups = False
         Me.WageListDataListView.HeaderWordWrap = True
         Me.WageListDataListView.HideSelection = False
+        Me.WageListDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
+        Me.WageListDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.WageListDataListView.IncludeColumnHeadersInCopy = True
         Me.WageListDataListView.Location = New System.Drawing.Point(0, 0)
         Me.WageListDataListView.Name = "WageListDataListView"
@@ -1367,6 +1360,8 @@ Partial Friend Class F_WorkersVDUInfo
         Me.BonusListListDataListView.HasCollapsibleGroups = False
         Me.BonusListListDataListView.HeaderWordWrap = True
         Me.BonusListListDataListView.HideSelection = False
+        Me.BonusListListDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
+        Me.BonusListListDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.BonusListListDataListView.IncludeColumnHeadersInCopy = True
         Me.BonusListListDataListView.Location = New System.Drawing.Point(0, 0)
         Me.BonusListListDataListView.Name = "BonusListListDataListView"
@@ -1472,6 +1467,20 @@ Partial Friend Class F_WorkersVDUInfo
         Me.ProgressFiller2.TabIndex = 7
         Me.ProgressFiller2.Visible = False
         '
+        'AtDateAccDatePicker
+        '
+        Me.AtDateAccDatePicker.BoldedDates = Nothing
+        Me.AtDateAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AtDateAccDatePicker.Location = New System.Drawing.Point(47, 3)
+        Me.AtDateAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.AtDateAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.AtDateAccDatePicker.Name = "AtDateAccDatePicker"
+        Me.AtDateAccDatePicker.ReadOnly = False
+        Me.AtDateAccDatePicker.ShowWeekNumbers = True
+        Me.AtDateAccDatePicker.Size = New System.Drawing.Size(193, 23)
+        Me.AtDateAccDatePicker.TabIndex = 0
+        Me.AtDateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
+        '
         'F_WorkersVDUInfo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1526,7 +1535,6 @@ Partial Friend Class F_WorkersVDUInfo
 
     End Sub
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents DateDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents RefreshButton As System.Windows.Forms.Button
@@ -1592,4 +1600,5 @@ Partial Friend Class F_WorkersVDUInfo
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ProgressFiller2 As AccControlsWinForms.ProgressFiller
     Friend WithEvents LabourContractAccListComboBox As AccControlsWinForms.AccListComboBox
+    Friend WithEvents AtDateAccDatePicker As AccControlsWinForms.AccDatePicker
 End Class

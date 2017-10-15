@@ -243,8 +243,7 @@ Public Class F_UserReportParamsDialog
 
         If param.Name.Trim.ToLower.EndsWith("Date".ToLower) Then
 
-            Dim result As New DateTimePicker
-            result.Format = DateTimePickerFormat.Short
+            Dim result As New AccDatePicker
             result.Tag = GetType(DateTime)
             Return result
 

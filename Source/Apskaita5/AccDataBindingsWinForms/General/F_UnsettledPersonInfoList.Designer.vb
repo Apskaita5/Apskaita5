@@ -37,7 +37,7 @@ Partial Friend Class F_UnsettledPersonInfoList
         Me.Label4 = New System.Windows.Forms.Label
         Me.ForBuyersRadioButton = New System.Windows.Forms.RadioButton
         Me.AccountAccGridComboBox = New AccControlsWinForms.AccListComboBox
-        Me.AsOfDateDateTimePicker = New System.Windows.Forms.DateTimePicker
+        Me.AsOfDateAccDatePicker = New AccControlsWinForms.AccDatePicker
         Me.Label2 = New System.Windows.Forms.Label
         Me.UnsettledPersonInfoListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UnsettledPersonInfoListDataTreeView = New BrightIdeasSoftware.TreeListView
@@ -111,7 +111,7 @@ Partial Friend Class F_UnsettledPersonInfoList
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.Label3, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.MarginOfErrorAccTextBox, 3, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.PersonGroupComboBox, 0, 0)
@@ -122,13 +122,13 @@ Partial Friend Class F_UnsettledPersonInfoList
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(774, 30)
-        Me.TableLayoutPanel3.TabIndex = 2
+        Me.TableLayoutPanel3.TabIndex = 1
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label3.Location = New System.Drawing.Point(485, 3)
+        Me.Label3.Location = New System.Drawing.Point(490, 3)
         Me.Label3.Margin = New System.Windows.Forms.Padding(3, 3, 3, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(60, 13)
@@ -139,12 +139,12 @@ Partial Friend Class F_UnsettledPersonInfoList
         '
         Me.MarginOfErrorAccTextBox.DecimalValue = 5
         Me.MarginOfErrorAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.MarginOfErrorAccTextBox.Location = New System.Drawing.Point(550, 1)
+        Me.MarginOfErrorAccTextBox.Location = New System.Drawing.Point(555, 1)
         Me.MarginOfErrorAccTextBox.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.MarginOfErrorAccTextBox.Name = "MarginOfErrorAccTextBox"
         Me.MarginOfErrorAccTextBox.NegativeValue = False
-        Me.MarginOfErrorAccTextBox.Size = New System.Drawing.Size(194, 20)
-        Me.MarginOfErrorAccTextBox.TabIndex = 6
+        Me.MarginOfErrorAccTextBox.Size = New System.Drawing.Size(196, 20)
+        Me.MarginOfErrorAccTextBox.TabIndex = 1
         Me.MarginOfErrorAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'PersonGroupComboBox
@@ -156,8 +156,8 @@ Partial Friend Class F_UnsettledPersonInfoList
         Me.PersonGroupComboBox.InstantBinding = True
         Me.PersonGroupComboBox.Location = New System.Drawing.Point(3, 3)
         Me.PersonGroupComboBox.Name = "PersonGroupComboBox"
-        Me.PersonGroupComboBox.Size = New System.Drawing.Size(456, 21)
-        Me.PersonGroupComboBox.TabIndex = 7
+        Me.PersonGroupComboBox.Size = New System.Drawing.Size(461, 21)
+        Me.PersonGroupComboBox.TabIndex = 0
         '
         'Label1
         '
@@ -187,7 +187,7 @@ Partial Friend Class F_UnsettledPersonInfoList
         Me.TableLayoutPanel2.Controls.Add(Me.Label4, 2, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.ForBuyersRadioButton, 5, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.AccountAccGridComboBox, 3, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.AsOfDateDateTimePicker, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.AsOfDateAccDatePicker, 0, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(51, 0)
         Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
@@ -195,7 +195,7 @@ Partial Friend Class F_UnsettledPersonInfoList
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(774, 30)
-        Me.TableLayoutPanel2.TabIndex = 1
+        Me.TableLayoutPanel2.TabIndex = 0
         '
         'ForSuppliersRadioButton
         '
@@ -204,7 +204,7 @@ Partial Friend Class F_UnsettledPersonInfoList
         Me.ForSuppliersRadioButton.Location = New System.Drawing.Point(680, 3)
         Me.ForSuppliersRadioButton.Name = "ForSuppliersRadioButton"
         Me.ForSuppliersRadioButton.Size = New System.Drawing.Size(70, 17)
-        Me.ForSuppliersRadioButton.TabIndex = 4
+        Me.ForSuppliersRadioButton.TabIndex = 3
         Me.ForSuppliersRadioButton.Text = "Tiekėjai"
         Me.ForSuppliersRadioButton.UseVisualStyleBackColor = True
         '
@@ -227,7 +227,7 @@ Partial Friend Class F_UnsettledPersonInfoList
         Me.ForBuyersRadioButton.Location = New System.Drawing.Point(607, 3)
         Me.ForBuyersRadioButton.Name = "ForBuyersRadioButton"
         Me.ForBuyersRadioButton.Size = New System.Drawing.Size(67, 17)
-        Me.ForBuyersRadioButton.TabIndex = 3
+        Me.ForBuyersRadioButton.TabIndex = 2
         Me.ForBuyersRadioButton.TabStop = True
         Me.ForBuyersRadioButton.Text = "Pirkėjai"
         Me.ForBuyersRadioButton.UseVisualStyleBackColor = True
@@ -243,17 +243,21 @@ Partial Friend Class F_UnsettledPersonInfoList
         Me.AccountAccGridComboBox.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.AccountAccGridComboBox.Name = "AccountAccGridComboBox"
         Me.AccountAccGridComboBox.Size = New System.Drawing.Size(245, 21)
-        Me.AccountAccGridComboBox.TabIndex = 7
+        Me.AccountAccGridComboBox.TabIndex = 1
         '
-        'AsOfDateDateTimePicker
+        'AsOfDateAccDatePicker
         '
-        Me.AsOfDateDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AsOfDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.AsOfDateDateTimePicker.Location = New System.Drawing.Point(2, 1)
-        Me.AsOfDateDateTimePicker.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
-        Me.AsOfDateDateTimePicker.Name = "AsOfDateDateTimePicker"
-        Me.AsOfDateDateTimePicker.Size = New System.Drawing.Size(245, 20)
-        Me.AsOfDateDateTimePicker.TabIndex = 8
+        Me.AsOfDateAccDatePicker.BoldedDates = Nothing
+        Me.AsOfDateAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AsOfDateAccDatePicker.Location = New System.Drawing.Point(3, 3)
+        Me.AsOfDateAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.AsOfDateAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.AsOfDateAccDatePicker.Name = "AsOfDateAccDatePicker"
+        Me.AsOfDateAccDatePicker.ReadOnly = False
+        Me.AsOfDateAccDatePicker.ShowWeekNumbers = True
+        Me.AsOfDateAccDatePicker.Size = New System.Drawing.Size(243, 24)
+        Me.AsOfDateAccDatePicker.TabIndex = 0
+        Me.AsOfDateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'Label2
         '
@@ -488,7 +492,6 @@ Partial Friend Class F_UnsettledPersonInfoList
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents MarginOfErrorAccTextBox As AccControlsWinForms.AccTextBox
     Friend WithEvents AccountAccGridComboBox As AccControlsWinForms.AccListComboBox
-    Friend WithEvents AsOfDateDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents ForBuyersRadioButton As System.Windows.Forms.RadioButton
     Friend WithEvents ForSuppliersRadioButton As System.Windows.Forms.RadioButton
     Friend WithEvents RefreshButton As System.Windows.Forms.Button
@@ -510,4 +513,5 @@ Partial Friend Class F_UnsettledPersonInfoList
     Friend WithEvents OlvColumn10 As BrightIdeasSoftware.OLVColumn
     Friend WithEvents OlvColumn11 As BrightIdeasSoftware.OLVColumn
     Friend WithEvents OlvColumn12 As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents AsOfDateAccDatePicker As AccControlsWinForms.AccDatePicker
 End Class

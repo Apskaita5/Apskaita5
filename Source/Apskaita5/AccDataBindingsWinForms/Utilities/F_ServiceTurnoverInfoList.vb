@@ -35,7 +35,7 @@ Friend Class F_ServiceTurnoverInfoList
             DisableAllControls(Me)
         End Try
 
-        DateFromDateTimePicker.Value = Today.Subtract(New TimeSpan(30, 0, 0, 0))
+        DateFromAccDatePicker.Value = Today.Subtract(New TimeSpan(30, 0, 0, 0))
 
     End Sub
 
@@ -49,7 +49,7 @@ Friend Class F_ServiceTurnoverInfoList
         Catch ex As Exception
         End Try
 
-        Return New Object() {DateFromDateTimePicker.Value.Date, DateToDateTimePicker.Value.Date, _
+        Return New Object() {DateFromAccDatePicker.Value.Date, DateToAccDatePicker.Value.Date, _
             ServicesWithoutTurnoverCheckBox.Checked, tradedType}
 
     End Function

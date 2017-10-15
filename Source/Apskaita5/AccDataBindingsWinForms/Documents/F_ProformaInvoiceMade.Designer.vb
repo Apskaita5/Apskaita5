@@ -63,10 +63,10 @@ Partial Class F_ProformaInvoiceMade
         Me.LanguageNameComboBox = New System.Windows.Forms.ComboBox
         Me.FullNumberTextBox = New System.Windows.Forms.TextBox
         Me.CurrencyCodeComboBox = New System.Windows.Forms.ComboBox
-        Me.DateDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.NumberAccTextBox = New AccControlsWinForms.AccTextBox
         Me.UpdateDateTextBox = New System.Windows.Forms.TextBox
         Me.SumTotalAccTextBox = New AccControlsWinForms.AccTextBox
+        Me.DateAccDatePicker = New AccControlsWinForms.AccDatePicker
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
         Me.AddTradeItemButton = New System.Windows.Forms.Button
@@ -359,7 +359,7 @@ Partial Class F_ProformaInvoiceMade
         SumDiscountLabel.Location = New System.Drawing.Point(0, 191)
         SumDiscountLabel.Margin = New System.Windows.Forms.Padding(0, 6, 0, 0)
         SumDiscountLabel.Name = "SumDiscountLabel"
-        SumDiscountLabel.Size = New System.Drawing.Size(63, 23)
+        SumDiscountLabel.Size = New System.Drawing.Size(63, 20)
         SumDiscountLabel.TabIndex = 7
         SumDiscountLabel.Text = "Nuolaida:"
         SumDiscountLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -372,7 +372,7 @@ Partial Class F_ProformaInvoiceMade
         SumDiscountVatLabel.Location = New System.Drawing.Point(245, 191)
         SumDiscountVatLabel.Margin = New System.Windows.Forms.Padding(0, 6, 0, 0)
         SumDiscountVatLabel.Name = "SumDiscountVatLabel"
-        SumDiscountVatLabel.Size = New System.Drawing.Size(97, 23)
+        SumDiscountVatLabel.Size = New System.Drawing.Size(97, 20)
         SumDiscountVatLabel.TabIndex = 9
         SumDiscountVatLabel.Text = "Nuolaidos PVM:"
         SumDiscountVatLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -471,11 +471,11 @@ Partial Class F_ProformaInvoiceMade
         Me.TableLayoutPanel3.Controls.Add(DateLabel, 0, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.CurrencyCodeComboBox, 1, 3)
         Me.TableLayoutPanel3.Controls.Add(CurrencyCodeLabel, 0, 3)
-        Me.TableLayoutPanel3.Controls.Add(Me.DateDateTimePicker, 1, 1)
         Me.TableLayoutPanel3.Controls.Add(NumberLabel, 6, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.NumberAccTextBox, 8, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.UpdateDateTextBox, 7, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.SumTotalAccTextBox, 7, 6)
+        Me.TableLayoutPanel3.Controls.Add(Me.DateAccDatePicker, 1, 1)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
@@ -488,7 +488,7 @@ Partial Class F_ProformaInvoiceMade
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(883, 214)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(883, 211)
         Me.TableLayoutPanel3.TabIndex = 0
         '
         'SumDiscountVatAccTextBox
@@ -568,6 +568,7 @@ Partial Class F_ProformaInvoiceMade
         '
         Me.SerialComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProformaInvoiceMadeBindingSource, "Serial", True))
         Me.SerialComboBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SerialComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SerialComboBox.FormattingEnabled = True
         Me.SerialComboBox.Location = New System.Drawing.Point(345, 29)
         Me.SerialComboBox.Name = "SerialComboBox"
@@ -655,16 +656,6 @@ Partial Class F_ProformaInvoiceMade
         Me.CurrencyCodeComboBox.Size = New System.Drawing.Size(156, 21)
         Me.CurrencyCodeComboBox.TabIndex = 5
         '
-        'DateDateTimePicker
-        '
-        Me.DateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ProformaInvoiceMadeBindingSource, "Date", True))
-        Me.DateDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateDateTimePicker.Location = New System.Drawing.Point(66, 29)
-        Me.DateDateTimePicker.Name = "DateDateTimePicker"
-        Me.DateDateTimePicker.Size = New System.Drawing.Size(156, 20)
-        Me.DateDateTimePicker.TabIndex = 0
-        '
         'NumberAccTextBox
         '
         Me.NumberAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.ProformaInvoiceMadeBindingSource, "Number", True))
@@ -702,6 +693,21 @@ Partial Class F_ProformaInvoiceMade
         Me.SumTotalAccTextBox.TabIndex = 6
         Me.SumTotalAccTextBox.TabStop = False
         Me.SumTotalAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'DateAccDatePicker
+        '
+        Me.DateAccDatePicker.BoldedDates = Nothing
+        Me.DateAccDatePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ProformaInvoiceMadeBindingSource, "Date", True))
+        Me.DateAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateAccDatePicker.Location = New System.Drawing.Point(66, 29)
+        Me.DateAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateAccDatePicker.Name = "DateAccDatePicker"
+        Me.DateAccDatePicker.ReadOnly = False
+        Me.DateAccDatePicker.ShowWeekNumbers = True
+        Me.DateAccDatePicker.Size = New System.Drawing.Size(156, 21)
+        Me.DateAccDatePicker.TabIndex = 0
+        Me.DateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'GroupBox1
         '
@@ -951,6 +957,8 @@ Partial Class F_ProformaInvoiceMade
         Me.ItemsDataListView.HasCollapsibleGroups = False
         Me.ItemsDataListView.HeaderWordWrap = True
         Me.ItemsDataListView.HideSelection = False
+        Me.ItemsDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
+        Me.ItemsDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.ItemsDataListView.IncludeColumnHeadersInCopy = True
         Me.ItemsDataListView.Location = New System.Drawing.Point(0, 302)
         Me.ItemsDataListView.Name = "ItemsDataListView"
@@ -1214,7 +1222,6 @@ Partial Class F_ProformaInvoiceMade
     Friend WithEvents UpdateDateTextBox As System.Windows.Forms.TextBox
     Friend WithEvents SerialComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents IDTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents DateDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents InsertDateTextBox As System.Windows.Forms.TextBox
     Friend WithEvents PayerAccListComboBox As AccControlsWinForms.AccListComboBox
     Friend WithEvents LanguageNameComboBox As System.Windows.Forms.ComboBox
@@ -1264,4 +1271,5 @@ Partial Class F_ProformaInvoiceMade
     Friend WithEvents OlvColumn19 As BrightIdeasSoftware.OLVColumn
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ProgressFiller2 As AccControlsWinForms.ProgressFiller
+    Friend WithEvents DateAccDatePicker As AccControlsWinForms.AccDatePicker
 End Class

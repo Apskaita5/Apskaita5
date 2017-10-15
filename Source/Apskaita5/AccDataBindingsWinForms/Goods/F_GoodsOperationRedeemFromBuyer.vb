@@ -171,7 +171,7 @@ Public Class F_GoodsOperationRedeemFromBuyer
         UnitCostAccTextBox.ReadOnly = _FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.UnitCostIsReadOnly
         AmountAccTextBox.ReadOnly = _FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.AmountIsReadOnly
         TotalCostAccTextBox.ReadOnly = _FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.TotalCostIsReadOnly
-        DateDateTimePicker.Enabled = Not _FormManager.DataSource Is Nothing AndAlso Not _FormManager.DataSource.DateIsReadOnly
+        DateAccDatePicker.ReadOnly = _FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.DateIsReadOnly
         DescriptionTextBox.ReadOnly = _FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.DescriptionIsReadOnly
         AmountInWarehouseAccTextBox.ReadOnly = _FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.AmountInWarehouseIsReadOnly
         RedeemCostsAccountAccGridComboBox.Enabled = Not _FormManager.DataSource Is Nothing AndAlso Not _FormManager.DataSource.RedeemCostsAccountIsReadOnly

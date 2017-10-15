@@ -61,10 +61,10 @@ Partial Friend Class F_OperationTransfer
         Me.UpdateDateTextBox = New System.Windows.Forms.TextBox
         Me.ContentTextBox = New System.Windows.Forms.TextBox
         Me.IDTextBox = New System.Windows.Forms.TextBox
-        Me.DateDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.InsertDateTextBox = New System.Windows.Forms.TextBox
         Me.AmountToTransferAccTextBox = New AccControlsWinForms.AccTextBox
         Me.IsComplexActCheckBox = New System.Windows.Forms.CheckBox
+        Me.DateAccDatePicker = New AccControlsWinForms.AccDatePicker
         Me.TabPage2 = New System.Windows.Forms.TabPage
         Me.BackgroundInfoPanel1 = New AccDataBindingsWinForms.BackgroundInfoPanel
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
@@ -353,13 +353,13 @@ Partial Friend Class F_OperationTransfer
         Me.TableLayoutPanel1.Controls.Add(ContentLabel, 0, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.IDTextBox, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(InsertDateLabel, 3, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.DateDateTimePicker, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(DateLabel, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.InsertDateTextBox, 4, 0)
         Me.TableLayoutPanel1.Controls.Add(UpdateDateLabel, 6, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.AmountToTransferAccTextBox, 4, 1)
         Me.TableLayoutPanel1.Controls.Add(AmountToTransferLabel, 3, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.IsComplexActCheckBox, 6, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.DateAccDatePicker, 1, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -609,16 +609,6 @@ Partial Friend Class F_OperationTransfer
         Me.IDTextBox.TabStop = False
         Me.IDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'DateDateTimePicker
-        '
-        Me.DateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.OperationTransferBindingSource, "Date", True))
-        Me.DateDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateDateTimePicker.Location = New System.Drawing.Point(80, 29)
-        Me.DateDateTimePicker.Name = "DateDateTimePicker"
-        Me.DateDateTimePicker.Size = New System.Drawing.Size(166, 20)
-        Me.DateDateTimePicker.TabIndex = 0
-        '
         'InsertDateTextBox
         '
         Me.InsertDateTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.OperationTransferBindingSource, "InsertDate", True))
@@ -658,6 +648,21 @@ Partial Friend Class F_OperationTransfer
         Me.IsComplexActCheckBox.TabStop = False
         Me.IsComplexActCheckBox.Text = "Kompleksinis Dok."
         Me.IsComplexActCheckBox.UseVisualStyleBackColor = True
+        '
+        'DateAccDatePicker
+        '
+        Me.DateAccDatePicker.BoldedDates = Nothing
+        Me.DateAccDatePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.OperationTransferBindingSource, "Date", True))
+        Me.DateAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateAccDatePicker.Location = New System.Drawing.Point(80, 29)
+        Me.DateAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateAccDatePicker.Name = "DateAccDatePicker"
+        Me.DateAccDatePicker.ReadOnly = False
+        Me.DateAccDatePicker.ShowWeekNumbers = True
+        Me.DateAccDatePicker.Size = New System.Drawing.Size(166, 20)
+        Me.DateAccDatePicker.TabIndex = 0
+        Me.DateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'TabPage2
         '
@@ -743,7 +748,6 @@ Partial Friend Class F_OperationTransfer
     Friend WithEvents IsComplexActCheckBox As System.Windows.Forms.CheckBox
     Friend WithEvents InsertDateTextBox As System.Windows.Forms.TextBox
     Friend WithEvents IDTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents DateDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents ContentTextBox As System.Windows.Forms.TextBox
     Friend WithEvents AmountToTransferAccTextBox As AccControlsWinForms.AccTextBox
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
@@ -765,4 +769,5 @@ Partial Friend Class F_OperationTransfer
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ErrorWarnInfoProvider1 As AccControlsWinForms.ErrorWarnInfoProvider
     Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents DateAccDatePicker As AccControlsWinForms.AccDatePicker
 End Class

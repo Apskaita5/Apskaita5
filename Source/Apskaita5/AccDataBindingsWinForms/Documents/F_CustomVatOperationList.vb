@@ -36,7 +36,7 @@ Public Class F_CustomVatOperationList
             Exit Sub
         End Try
 
-        Me.DateFromDateTimePicker.Value = Today.AddMonths(-4)
+        Me.DateFromAccDatePicker.Value = Today.AddMonths(-4)
 
     End Sub
 
@@ -70,7 +70,7 @@ Public Class F_CustomVatOperationList
             Return False
         End Try
 
-        DateFromDateTimePicker.Value = Today.AddYears(-1)
+        DateFromAccDatePicker.Value = Today.AddYears(-1)
 
         Return True
 
@@ -131,7 +131,7 @@ Public Class F_CustomVatOperationList
         '    DateToDateTimePicker.Value, ByJournalEntryCheckBox.Checked)
         _QueryManager.InvokeQuery(Of CustomVatOperationList)(Nothing, _
             "GetCustomVatOperationList", True, AddressOf OnNewListFetched, _
-            DateFromDateTimePicker.Value, DateToDateTimePicker.Value, ByJournalEntryCheckBox.Checked)
+            DateFromAccDatePicker.Value, DateToAccDatePicker.Value, ByJournalEntryCheckBox.Checked)
 
     End Sub
 

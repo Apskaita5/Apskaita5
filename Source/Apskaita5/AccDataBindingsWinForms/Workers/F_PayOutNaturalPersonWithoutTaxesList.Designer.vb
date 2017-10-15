@@ -34,9 +34,7 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.AddNewItemsButton = New System.Windows.Forms.Button
         Me.ExportFFDataButton = New AccControlsWinForms.AccButton
         Me.RefreshButton = New System.Windows.Forms.Button
-        Me.DateToDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.Label3 = New System.Windows.Forms.Label
-        Me.DateFromDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
         Me.PersonFilterAccListComboBox = New AccControlsWinForms.AccListComboBox
@@ -61,6 +59,8 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.JournalEntry_MenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.Receiver_MenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.DateFromAccDatePicker = New AccControlsWinForms.AccDatePicker
+        Me.DateToAccDatePicker = New AccControlsWinForms.AccDatePicker
         CType(Me.PayOutNaturalPersonWithoutTaxesListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -132,12 +132,12 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.DateToDateTimePicker, 4, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label3, 6, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.DateFromDateTimePicker, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label2, 3, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.PersonFilterAccListComboBox, 7, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.DateFromAccDatePicker, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.DateToAccDatePicker, 4, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -145,7 +145,7 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(916, 73)
-        Me.TableLayoutPanel1.TabIndex = 3
+        Me.TableLayoutPanel1.TabIndex = 0
         '
         'Panel1
         '
@@ -157,7 +157,7 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.Panel1.Location = New System.Drawing.Point(3, 30)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(910, 40)
-        Me.Panel1.TabIndex = 5
+        Me.Panel1.TabIndex = 3
         '
         'AddNewItemsButton
         '
@@ -168,7 +168,7 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.AddNewItemsButton.Location = New System.Drawing.Point(687, 8)
         Me.AddNewItemsButton.Name = "AddNewItemsButton"
         Me.AddNewItemsButton.Size = New System.Drawing.Size(96, 23)
-        Me.AddNewItemsButton.TabIndex = 4
+        Me.AddNewItemsButton.TabIndex = 2
         Me.AddNewItemsButton.Text = "Pridėti Naujas"
         Me.AddNewItemsButton.UseVisualStyleBackColor = True
         '
@@ -188,7 +188,7 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.ExportFFDataButton.Location = New System.Drawing.Point(850, 4)
         Me.ExportFFDataButton.Name = "ExportFFDataButton"
         Me.ExportFFDataButton.Size = New System.Drawing.Size(40, 33)
-        Me.ExportFFDataButton.TabIndex = 5
+        Me.ExportFFDataButton.TabIndex = 1
         Me.ExportFFDataButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.ExportFFDataButton.TextPadding = 2
         '
@@ -199,17 +199,8 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.RefreshButton.Location = New System.Drawing.Point(799, 4)
         Me.RefreshButton.Name = "RefreshButton"
         Me.RefreshButton.Size = New System.Drawing.Size(33, 33)
-        Me.RefreshButton.TabIndex = 2
+        Me.RefreshButton.TabIndex = 0
         Me.RefreshButton.UseVisualStyleBackColor = True
-        '
-        'DateToDateTimePicker
-        '
-        Me.DateToDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateToDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateToDateTimePicker.Location = New System.Drawing.Point(234, 3)
-        Me.DateToDateTimePicker.Name = "DateToDateTimePicker"
-        Me.DateToDateTimePicker.Size = New System.Drawing.Size(134, 20)
-        Me.DateToDateTimePicker.TabIndex = 5
         '
         'Label3
         '
@@ -221,15 +212,6 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.Label3.Size = New System.Drawing.Size(78, 18)
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "Filtruoti pgl.:"
-        '
-        'DateFromDateTimePicker
-        '
-        Me.DateFromDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateFromDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateFromDateTimePicker.Location = New System.Drawing.Point(43, 3)
-        Me.DateFromDateTimePicker.Name = "DateFromDateTimePicker"
-        Me.DateFromDateTimePicker.Size = New System.Drawing.Size(134, 20)
-        Me.DateFromDateTimePicker.TabIndex = 4
         '
         'Label2
         '
@@ -263,7 +245,7 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.PersonFilterAccListComboBox.Location = New System.Drawing.Point(478, 3)
         Me.PersonFilterAccListComboBox.Name = "PersonFilterAccListComboBox"
         Me.PersonFilterAccListComboBox.Size = New System.Drawing.Size(414, 21)
-        Me.PersonFilterAccListComboBox.TabIndex = 7
+        Me.PersonFilterAccListComboBox.TabIndex = 2
         '
         'ItemsDataListView
         '
@@ -298,7 +280,6 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.ItemsDataListView.HideSelection = False
         Me.ItemsDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
         Me.ItemsDataListView.HighlightForegroundColor = System.Drawing.Color.Black
-        Me.ItemsDataListView.IncludeColumnHeadersInCopy = True
         Me.ItemsDataListView.Location = New System.Drawing.Point(0, 73)
         Me.ItemsDataListView.Name = "ItemsDataListView"
         Me.ItemsDataListView.RenderNonEditableCheckboxesAsDisabled = True
@@ -311,7 +292,7 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.ItemsDataListView.ShowItemCountOnGroups = True
         Me.ItemsDataListView.ShowItemToolTips = True
         Me.ItemsDataListView.Size = New System.Drawing.Size(916, 339)
-        Me.ItemsDataListView.TabIndex = 4
+        Me.ItemsDataListView.TabIndex = 1
         Me.ItemsDataListView.UnfocusedSelectedBackColor = System.Drawing.Color.PaleGreen
         Me.ItemsDataListView.UnfocusedSelectedForeColor = System.Drawing.Color.Black
         Me.ItemsDataListView.UseCellFormatEvents = True
@@ -508,6 +489,34 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.Receiver_MenuItem.Size = New System.Drawing.Size(189, 22)
         Me.Receiver_MenuItem.Text = "Gavėjo duomenys"
         '
+        'DateFromAccDatePicker
+        '
+        Me.DateFromAccDatePicker.BoldedDates = Nothing
+        Me.DateFromAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateFromAccDatePicker.Location = New System.Drawing.Point(43, 3)
+        Me.DateFromAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateFromAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateFromAccDatePicker.Name = "DateFromAccDatePicker"
+        Me.DateFromAccDatePicker.ReadOnly = False
+        Me.DateFromAccDatePicker.ShowWeekNumbers = True
+        Me.DateFromAccDatePicker.Size = New System.Drawing.Size(134, 21)
+        Me.DateFromAccDatePicker.TabIndex = 0
+        Me.DateFromAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
+        '
+        'DateToAccDatePicker
+        '
+        Me.DateToAccDatePicker.BoldedDates = Nothing
+        Me.DateToAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateToAccDatePicker.Location = New System.Drawing.Point(234, 3)
+        Me.DateToAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateToAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateToAccDatePicker.Name = "DateToAccDatePicker"
+        Me.DateToAccDatePicker.ReadOnly = False
+        Me.DateToAccDatePicker.ShowWeekNumbers = True
+        Me.DateToAccDatePicker.Size = New System.Drawing.Size(134, 21)
+        Me.DateToAccDatePicker.TabIndex = 1
+        Me.DateToAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
+        '
         'F_PayOutNaturalPersonWithoutTaxesList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -544,8 +553,6 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents AddNewItemsButton As System.Windows.Forms.Button
-    Friend WithEvents DateToDateTimePicker As System.Windows.Forms.DateTimePicker
-    Friend WithEvents DateFromDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents RefreshButton As System.Windows.Forms.Button
     Friend WithEvents PersonFilterAccListComboBox As AccControlsWinForms.AccListComboBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
@@ -571,4 +578,6 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents JournalEntry_MenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Receiver_MenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DateFromAccDatePicker As AccControlsWinForms.AccDatePicker
+    Friend WithEvents DateToAccDatePicker As AccControlsWinForms.AccDatePicker
 End Class

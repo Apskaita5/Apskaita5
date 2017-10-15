@@ -31,8 +31,10 @@ Partial Class F_VatDeclaration
         Me.Label1 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.YearComboBox = New System.Windows.Forms.ComboBox
-        Me.DateDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.ExportFFDataButton = New AccControlsWinForms.AccButton
+        Me.CustomPeriodCheckBox = New System.Windows.Forms.CheckBox
+        Me.Label6 = New System.Windows.Forms.Label
+        Me.Label7 = New System.Windows.Forms.Label
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
         Me.SubtotalsDataListView = New BrightIdeasSoftware.DataListView
         Me.OlvColumn9 = New BrightIdeasSoftware.OLVColumn
@@ -55,11 +57,9 @@ Partial Class F_VatDeclaration
         Me.Label5 = New System.Windows.Forms.Label
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
         Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller
-        Me.CustomPeriodCheckBox = New System.Windows.Forms.CheckBox
-        Me.Label6 = New System.Windows.Forms.Label
-        Me.Label7 = New System.Windows.Forms.Label
-        Me.PeriodStartDateTimePicker = New System.Windows.Forms.DateTimePicker
-        Me.PeriodEndDateTimePicker = New System.Windows.Forms.DateTimePicker
+        Me.DateAccDatePicker = New AccControlsWinForms.AccDatePicker
+        Me.PeriodStartAccDatePicker = New AccControlsWinForms.AccDatePicker
+        Me.PeriodEndAccDatePicker = New AccControlsWinForms.AccDatePicker
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -95,13 +95,13 @@ Partial Class F_VatDeclaration
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label2, 3, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.YearComboBox, 4, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.DateDateTimePicker, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ExportFFDataButton, 11, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.CustomPeriodCheckBox, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Label6, 3, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Label7, 6, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.PeriodStartDateTimePicker, 4, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.PeriodEndDateTimePicker, 7, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.DateAccDatePicker, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.PeriodStartAccDatePicker, 4, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.PeriodEndAccDatePicker, 7, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -115,15 +115,15 @@ Partial Class F_VatDeclaration
         '
         Me.MonthComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MonthComboBox.FormattingEnabled = True
-        Me.MonthComboBox.Location = New System.Drawing.Point(454, 3)
+        Me.MonthComboBox.Location = New System.Drawing.Point(456, 3)
         Me.MonthComboBox.Name = "MonthComboBox"
-        Me.MonthComboBox.Size = New System.Drawing.Size(126, 21)
+        Me.MonthComboBox.Size = New System.Drawing.Size(127, 21)
         Me.MonthComboBox.TabIndex = 2
         '
         'RefreshButton
         '
         Me.RefreshButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.Button_Reload_icon_24p
-        Me.RefreshButton.Location = New System.Drawing.Point(606, 3)
+        Me.RefreshButton.Location = New System.Drawing.Point(609, 3)
         Me.RefreshButton.Name = "RefreshButton"
         Me.TableLayoutPanel1.SetRowSpan(Me.RefreshButton, 2)
         Me.RefreshButton.Size = New System.Drawing.Size(32, 32)
@@ -134,7 +134,7 @@ Partial Class F_VatDeclaration
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(399, 6)
+        Me.Label3.Location = New System.Drawing.Point(401, 6)
         Me.Label3.Margin = New System.Windows.Forms.Padding(3, 6, 3, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(49, 13)
@@ -156,7 +156,7 @@ Partial Class F_VatDeclaration
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(199, 6)
+        Me.Label2.Location = New System.Drawing.Point(200, 6)
         Me.Label2.Margin = New System.Windows.Forms.Padding(3, 6, 3, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(42, 13)
@@ -167,19 +167,10 @@ Partial Class F_VatDeclaration
         '
         Me.YearComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.YearComboBox.FormattingEnabled = True
-        Me.YearComboBox.Location = New System.Drawing.Point(247, 3)
+        Me.YearComboBox.Location = New System.Drawing.Point(248, 3)
         Me.YearComboBox.Name = "YearComboBox"
-        Me.YearComboBox.Size = New System.Drawing.Size(126, 21)
+        Me.YearComboBox.Size = New System.Drawing.Size(127, 21)
         Me.YearComboBox.TabIndex = 1
-        '
-        'DateDateTimePicker
-        '
-        Me.DateDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateDateTimePicker.Location = New System.Drawing.Point(47, 3)
-        Me.DateDateTimePicker.Name = "DateDateTimePicker"
-        Me.DateDateTimePicker.Size = New System.Drawing.Size(126, 20)
-        Me.DateDateTimePicker.TabIndex = 0
         '
         'ExportFFDataButton
         '
@@ -193,13 +184,54 @@ Partial Class F_VatDeclaration
         Me.ExportFFDataButton.Image = Global.AccDataBindingsWinForms.My.Resources.Resources.FromFillerIcon_24x24alt
         Me.ExportFFDataButton.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.ExportFFDataButton.ImagePadding = 2
-        Me.ExportFFDataButton.Location = New System.Drawing.Point(664, 3)
+        Me.ExportFFDataButton.Location = New System.Drawing.Point(667, 3)
         Me.ExportFFDataButton.Name = "ExportFFDataButton"
         Me.TableLayoutPanel1.SetRowSpan(Me.ExportFFDataButton, 2)
         Me.ExportFFDataButton.Size = New System.Drawing.Size(40, 32)
         Me.ExportFFDataButton.TabIndex = 7
         Me.ExportFFDataButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.ExportFFDataButton.TextPadding = 2
+        '
+        'CustomPeriodCheckBox
+        '
+        Me.CustomPeriodCheckBox.AutoSize = True
+        Me.CustomPeriodCheckBox.CheckAlign = System.Drawing.ContentAlignment.TopRight
+        Me.TableLayoutPanel1.SetColumnSpan(Me.CustomPeriodCheckBox, 2)
+        Me.CustomPeriodCheckBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CustomPeriodCheckBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CustomPeriodCheckBox.Location = New System.Drawing.Point(3, 30)
+        Me.CustomPeriodCheckBox.Name = "CustomPeriodCheckBox"
+        Me.CustomPeriodCheckBox.Size = New System.Drawing.Size(171, 24)
+        Me.CustomPeriodCheckBox.TabIndex = 3
+        Me.CustomPeriodCheckBox.Text = "Kitas periodas"
+        Me.CustomPeriodCheckBox.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.CustomPeriodCheckBox.UseVisualStyleBackColor = True
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(200, 33)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(3, 6, 3, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(42, 24)
+        Me.Label6.TabIndex = 9
+        Me.Label6.Text = "Nuo:"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(401, 33)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(3, 6, 3, 0)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(49, 24)
+        Me.Label7.TabIndex = 10
+        Me.Label7.Text = "Iki:"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'SplitContainer1
         '
@@ -487,66 +519,44 @@ Partial Class F_VatDeclaration
         Me.ProgressFiller2.TabIndex = 3
         Me.ProgressFiller2.Visible = False
         '
-        'CustomPeriodCheckBox
+        'DateAccDatePicker
         '
-        Me.CustomPeriodCheckBox.AutoSize = True
-        Me.CustomPeriodCheckBox.CheckAlign = System.Drawing.ContentAlignment.TopRight
-        Me.TableLayoutPanel1.SetColumnSpan(Me.CustomPeriodCheckBox, 2)
-        Me.CustomPeriodCheckBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CustomPeriodCheckBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CustomPeriodCheckBox.Location = New System.Drawing.Point(3, 30)
-        Me.CustomPeriodCheckBox.Name = "CustomPeriodCheckBox"
-        Me.CustomPeriodCheckBox.Size = New System.Drawing.Size(170, 24)
-        Me.CustomPeriodCheckBox.TabIndex = 3
-        Me.CustomPeriodCheckBox.Text = "Kitas periodas"
-        Me.CustomPeriodCheckBox.TextAlign = System.Drawing.ContentAlignment.TopRight
-        Me.CustomPeriodCheckBox.UseVisualStyleBackColor = True
+        Me.DateAccDatePicker.BoldedDates = Nothing
+        Me.DateAccDatePicker.Location = New System.Drawing.Point(47, 3)
+        Me.DateAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateAccDatePicker.Name = "DateAccDatePicker"
+        Me.DateAccDatePicker.ReadOnly = False
+        Me.DateAccDatePicker.ShowWeekNumbers = True
+        Me.DateAccDatePicker.Size = New System.Drawing.Size(127, 20)
+        Me.DateAccDatePicker.TabIndex = 0
+        Me.DateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
-        'Label6
+        'PeriodStartAccDatePicker
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(199, 33)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(3, 6, 3, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(42, 24)
-        Me.Label6.TabIndex = 9
-        Me.Label6.Text = "Nuo:"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.PeriodStartAccDatePicker.BoldedDates = Nothing
+        Me.PeriodStartAccDatePicker.Location = New System.Drawing.Point(248, 30)
+        Me.PeriodStartAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.PeriodStartAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.PeriodStartAccDatePicker.Name = "PeriodStartAccDatePicker"
+        Me.PeriodStartAccDatePicker.ReadOnly = False
+        Me.PeriodStartAccDatePicker.ShowWeekNumbers = True
+        Me.PeriodStartAccDatePicker.Size = New System.Drawing.Size(127, 20)
+        Me.PeriodStartAccDatePicker.TabIndex = 4
+        Me.PeriodStartAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
-        'Label7
+        'PeriodEndAccDatePicker
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(399, 33)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(3, 6, 3, 0)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(49, 24)
-        Me.Label7.TabIndex = 10
-        Me.Label7.Text = "Iki:"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'PeriodStartDateTimePicker
-        '
-        Me.PeriodStartDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PeriodStartDateTimePicker.Enabled = False
-        Me.PeriodStartDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.PeriodStartDateTimePicker.Location = New System.Drawing.Point(247, 30)
-        Me.PeriodStartDateTimePicker.Name = "PeriodStartDateTimePicker"
-        Me.PeriodStartDateTimePicker.Size = New System.Drawing.Size(126, 20)
-        Me.PeriodStartDateTimePicker.TabIndex = 4
-        '
-        'PeriodEndDateTimePicker
-        '
-        Me.PeriodEndDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PeriodEndDateTimePicker.Enabled = False
-        Me.PeriodEndDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.PeriodEndDateTimePicker.Location = New System.Drawing.Point(454, 30)
-        Me.PeriodEndDateTimePicker.Name = "PeriodEndDateTimePicker"
-        Me.PeriodEndDateTimePicker.Size = New System.Drawing.Size(126, 20)
-        Me.PeriodEndDateTimePicker.TabIndex = 5
+        Me.PeriodEndAccDatePicker.BoldedDates = Nothing
+        Me.PeriodEndAccDatePicker.Location = New System.Drawing.Point(456, 30)
+        Me.PeriodEndAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.PeriodEndAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.PeriodEndAccDatePicker.Name = "PeriodEndAccDatePicker"
+        Me.PeriodEndAccDatePicker.ReadOnly = False
+        Me.PeriodEndAccDatePicker.ShowWeekNumbers = True
+        Me.PeriodEndAccDatePicker.Size = New System.Drawing.Size(127, 20)
+        Me.PeriodEndAccDatePicker.TabIndex = 5
+        Me.PeriodEndAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'F_VatDeclaration
         '
@@ -583,7 +593,6 @@ Partial Class F_VatDeclaration
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents YearComboBox As System.Windows.Forms.ComboBox
-    Friend WithEvents DateDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents RefreshButton As System.Windows.Forms.Button
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents SubtotalsDataListView As BrightIdeasSoftware.DataListView
@@ -611,6 +620,7 @@ Partial Class F_VatDeclaration
     Friend WithEvents CustomPeriodCheckBox As System.Windows.Forms.CheckBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents PeriodStartDateTimePicker As System.Windows.Forms.DateTimePicker
-    Friend WithEvents PeriodEndDateTimePicker As System.Windows.Forms.DateTimePicker
+    Friend WithEvents DateAccDatePicker As AccControlsWinForms.AccDatePicker
+    Friend WithEvents PeriodStartAccDatePicker As AccControlsWinForms.AccDatePicker
+    Friend WithEvents PeriodEndAccDatePicker As AccControlsWinForms.AccDatePicker
 End Class

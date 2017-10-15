@@ -55,11 +55,11 @@ Partial Class Templates
         Me.EditableDataListView.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.SingleClickAlways
         Me.EditableDataListView.CellEditEnterChangesRows = True
         Me.EditableDataListView.CellEditTabChangesRows = True
+        Me.EditableDataListView.CellEditUseWholeCell = False
         Me.EditableDataListView.Cursor = System.Windows.Forms.Cursors.Default
         Me.EditableDataListView.DataSource = Nothing
         Me.EditableDataListView.FullRowSelect = True
         Me.EditableDataListView.HasCollapsibleGroups = False
-        Me.EditableDataListView.HeaderUsesThemes = True
         Me.EditableDataListView.HeaderWordWrap = True
         Me.EditableDataListView.HideSelection = False
         Me.EditableDataListView.IncludeColumnHeadersInCopy = True
@@ -91,11 +91,11 @@ Partial Class Templates
         Me.ReportDataListView.AllowColumnReorder = True
         Me.ReportDataListView.AutoGenerateColumns = False
         Me.ReportDataListView.CausesValidation = False
+        Me.ReportDataListView.CellEditUseWholeCell = False
         Me.ReportDataListView.Cursor = System.Windows.Forms.Cursors.Default
         Me.ReportDataListView.DataSource = Nothing
         Me.ReportDataListView.FullRowSelect = True
         Me.ReportDataListView.HasCollapsibleGroups = False
-        Me.ReportDataListView.HeaderUsesThemes = True
         Me.ReportDataListView.HeaderWordWrap = True
         Me.ReportDataListView.HideSelection = False
         Me.ReportDataListView.IncludeColumnHeadersInCopy = True
@@ -126,7 +126,7 @@ Partial Class Templates
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(747, 442)
+        Me.ClientSize = New System.Drawing.Size(747, 553)
         Me.Controls.Add(Me.ReportDataListView)
         Me.Controls.Add(Me.EditableDataListView)
         Me.Controls.Add(Me.Label2)

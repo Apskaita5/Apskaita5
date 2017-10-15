@@ -28,9 +28,7 @@ Partial Class F_CustomVatOperationList
         Me.AddByJournalEntriesButton = New System.Windows.Forms.Button
         Me.RefreshButton = New System.Windows.Forms.Button
         Me.ByJournalEntryCheckBox = New System.Windows.Forms.CheckBox
-        Me.DateToDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.Label2 = New System.Windows.Forms.Label
-        Me.DateFromDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.Label1 = New System.Windows.Forms.Label
         Me.ItemsDataListView = New BrightIdeasSoftware.DataListView
         Me.OlvColumn4 = New BrightIdeasSoftware.OLVColumn
@@ -59,6 +57,8 @@ Partial Class F_CustomVatOperationList
         Me.CalculateVat_MenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ShowDocument_MenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ShowJournalEntry_MenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.DateFromAccDatePicker = New AccControlsWinForms.AccDatePicker
+        Me.DateToAccDatePicker = New AccControlsWinForms.AccDatePicker
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.ItemsDataListView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CustomVatOperationListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,10 +83,10 @@ Partial Class F_CustomVatOperationList
         Me.TableLayoutPanel1.Controls.Add(Me.AddByJournalEntriesButton, 8, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.RefreshButton, 10, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ByJournalEntryCheckBox, 6, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.DateToDateTimePicker, 4, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label2, 3, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.DateFromDateTimePicker, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.DateFromAccDatePicker, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.DateToAccDatePicker, 4, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -127,15 +127,6 @@ Partial Class F_CustomVatOperationList
         Me.ByJournalEntryCheckBox.Text = "Pagal datą bendrajame žurnale"
         Me.ByJournalEntryCheckBox.UseVisualStyleBackColor = True
         '
-        'DateToDateTimePicker
-        '
-        Me.DateToDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateToDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateToDateTimePicker.Location = New System.Drawing.Point(355, 3)
-        Me.DateToDateTimePicker.Name = "DateToDateTimePicker"
-        Me.DateToDateTimePicker.Size = New System.Drawing.Size(226, 20)
-        Me.DateToDateTimePicker.TabIndex = 1
-        '
         'Label2
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -147,15 +138,6 @@ Partial Class F_CustomVatOperationList
         Me.Label2.Size = New System.Drawing.Size(25, 21)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Iki:"
-        '
-        'DateFromDateTimePicker
-        '
-        Me.DateFromDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateFromDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateFromDateTimePicker.Location = New System.Drawing.Point(72, 3)
-        Me.DateFromDateTimePicker.Name = "DateFromDateTimePicker"
-        Me.DateFromDateTimePicker.Size = New System.Drawing.Size(226, 20)
-        Me.DateFromDateTimePicker.TabIndex = 0
         '
         'Label1
         '
@@ -200,8 +182,6 @@ Partial Class F_CustomVatOperationList
         Me.ItemsDataListView.HasCollapsibleGroups = False
         Me.ItemsDataListView.HeaderWordWrap = True
         Me.ItemsDataListView.HideSelection = False
-        Me.ItemsDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.ItemsDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.ItemsDataListView.IncludeColumnHeadersInCopy = True
         Me.ItemsDataListView.Location = New System.Drawing.Point(0, 41)
         Me.ItemsDataListView.Name = "ItemsDataListView"
@@ -469,6 +449,34 @@ Partial Class F_CustomVatOperationList
         Me.ShowJournalEntry_MenuItem.Size = New System.Drawing.Size(173, 22)
         Me.ShowJournalEntry_MenuItem.Text = "Rodyti kontavimus"
         '
+        'DateFromAccDatePicker
+        '
+        Me.DateFromAccDatePicker.BoldedDates = Nothing
+        Me.DateFromAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateFromAccDatePicker.Location = New System.Drawing.Point(72, 3)
+        Me.DateFromAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateFromAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateFromAccDatePicker.Name = "DateFromAccDatePicker"
+        Me.DateFromAccDatePicker.ReadOnly = False
+        Me.DateFromAccDatePicker.ShowWeekNumbers = True
+        Me.DateFromAccDatePicker.Size = New System.Drawing.Size(226, 35)
+        Me.DateFromAccDatePicker.TabIndex = 0
+        Me.DateFromAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
+        '
+        'DateToAccDatePicker
+        '
+        Me.DateToAccDatePicker.BoldedDates = Nothing
+        Me.DateToAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateToAccDatePicker.Location = New System.Drawing.Point(355, 3)
+        Me.DateToAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateToAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateToAccDatePicker.Name = "DateToAccDatePicker"
+        Me.DateToAccDatePicker.ReadOnly = False
+        Me.DateToAccDatePicker.ShowWeekNumbers = True
+        Me.DateToAccDatePicker.Size = New System.Drawing.Size(226, 35)
+        Me.DateToAccDatePicker.TabIndex = 1
+        Me.DateToAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
+        '
         'F_CustomVatOperationList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -495,9 +503,7 @@ Partial Class F_CustomVatOperationList
     End Sub
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents ByJournalEntryCheckBox As System.Windows.Forms.CheckBox
-    Friend WithEvents DateToDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents DateFromDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents RefreshButton As System.Windows.Forms.Button
     Friend WithEvents AddByJournalEntriesButton As System.Windows.Forms.Button
@@ -528,4 +534,6 @@ Partial Class F_CustomVatOperationList
     Friend WithEvents CalculateVat_MenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ShowDocument_MenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ShowJournalEntry_MenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DateFromAccDatePicker As AccControlsWinForms.AccDatePicker
+    Friend WithEvents DateToAccDatePicker As AccControlsWinForms.AccDatePicker
 End Class

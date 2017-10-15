@@ -79,7 +79,7 @@ Friend Class F_WorkerHolidayInfo
         End Try
 
         ' WorkerHolidayInfo.GetWorkerHolidayInfo(DateDateTimePicker.Value, nSerial, nNumber, ForCompensationCheckBox.Checked)
-        Return New Object() {DateDateTimePicker.Value, nSerial, nNumber, ForCompensationCheckBox.Checked}
+        Return New Object() {AtDateAccDatePicker.Value, nSerial, nNumber, ForCompensationCheckBox.Checked}
 
     End Function
 

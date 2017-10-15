@@ -196,6 +196,7 @@ Public Class AccTextBox
 
     Public Event OnDecimalValueChanged As eventhandler
 
+
     <Category("Custom")> _
     <Description("Set/Get if keep backcolor when textbox is readonly.")> _
     <DefaultValue(True)> _
@@ -360,6 +361,11 @@ Public Class AccTextBox
         ElseIf keyData = DirectCast(Shortcut.CtrlC, Keys) Then
 
             Clipboard.SetText(Me.SelectedText)
+            Return True
+
+        ElseIf keyData = Keys.Down Then
+
+            ShowDropDown()
             Return True
 
         End If
@@ -567,6 +573,83 @@ Public Class AccTextBox
             Return result
         End If
     End Function
+
+#End Region
+
+#Region "Calculator Drop Down"
+
+    Private _Calculator As CalculatorToolStrip = Nothing
+    Private _DropDown As ToolStripDropDown = Nothing
+
+    Private Sub AccTextBox_MouseClick(ByVal sender As Object, _
+        ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseClick
+        If e.Button = MouseButtons.Middle Then ShowDropDown()
+    End Sub
+
+    Private Sub ShowDropDown()
+
+        If _Calculator Is Nothing Then
+            _Calculator = New CalculatorToolStrip(New CalculatorUserControl())
+        End If
+        If _DropDown Is Nothing Then
+
+            _DropDown = New ToolStripDropDown()
+            _DropDown.AutoSize = False
+            _DropDown.GripStyle = SizeGripStyle.Show
+            _DropDown.Margin = Padding.Empty
+            _DropDown.Padding = Padding.Empty
+            _DropDown.Size = _Calculator.Size
+
+            AddHandler _DropDown.Closed, AddressOf ToolStripDropDown_Closed
+            AddHandler _DropDown.Opened, AddressOf ToolStripDropDown_Opened
+
+        End If
+        If Not _DropDown.Items.Contains(_Calculator) Then
+            _DropDown.Items.Clear()
+            _DropDown.Items.Add(_Calculator)
+        End If
+
+        Dim currentValue As Double = 0.0
+        Double.TryParse(MyBase.Text.Trim, Globalization.NumberStyles.Any, _ApplicableCulture, currentValue)
+
+        _Calculator.SetSelectedValue(currentValue)
+
+        _DropDown.Show(Me, CalculatePoz()) 'New Point(0, Me.Height)
+
+    End Sub
+
+    Private Function CalculatePoz() As Point
+
+        Dim point As New Point(0, Me.Height)
+
+        If (Me.PointToScreen(New Point(0, 0)).Y + Me.Height + Me._Calculator.Height) _
+            > Screen.PrimaryScreen.WorkingArea.Height Then
+            point.Y = -Me._Calculator.Height - 7
+        End If
+
+        Return point
+
+    End Function
+
+    Private Sub ToolStripDropDown_Closed(ByVal sender As Object, _
+        ByVal e As ToolStripDropDownClosedEventArgs)
+
+        If e.CloseReason = ToolStripDropDownCloseReason.ItemClicked _
+            AndAlso Not _Calculator Is Nothing AndAlso Not _Calculator.SelectionCanceled Then
+
+            If Not MyBase.Focused Then MyBase.Focus()
+
+            _value = _Calculator.SelectedValue
+            MyBase.Text = _value.ToString
+            _isInEditMode = True
+
+        End If
+
+    End Sub
+
+    Private Sub ToolStripDropDown_Opened(ByVal sender As Object, ByVal e As EventArgs)
+        _Calculator.Focus()
+    End Sub
 
 #End Region
 

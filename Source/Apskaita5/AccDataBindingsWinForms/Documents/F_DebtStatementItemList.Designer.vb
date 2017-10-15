@@ -28,12 +28,10 @@ Partial Class F_DebtStatementItemList
         Me.RefreshButton = New System.Windows.Forms.Button
         Me.AccountAccGridComboBox = New AccControlsWinForms.AccListComboBox
         Me.Label2 = New System.Windows.Forms.Label
-        Me.DateFromDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
-        Me.DateToDateTimePicker = New System.Windows.Forms.DateTimePicker
-        Me.StatementDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.Label4 = New System.Windows.Forms.Label
+        Me.SignWithFacsimileCheckBox = New System.Windows.Forms.CheckBox
         Me.ReportDataListView = New BrightIdeasSoftware.DataListView
         Me.OlvColumn1 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn2 = New BrightIdeasSoftware.OLVColumn
@@ -44,7 +42,9 @@ Partial Class F_DebtStatementItemList
         Me.DebtStatementItemListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
         Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller
-        Me.SignWithFacsimileCheckBox = New System.Windows.Forms.CheckBox
+        Me.DateFromAccDatePicker = New AccControlsWinForms.AccDatePicker
+        Me.DateToAccDatePicker = New AccControlsWinForms.AccDatePicker
+        Me.StatementAccDatePicker = New AccControlsWinForms.AccDatePicker
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.ReportDataListView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DebtStatementItemListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,13 +66,13 @@ Partial Class F_DebtStatementItemList
         Me.TableLayoutPanel1.Controls.Add(Me.RefreshButton, 9, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.AccountAccGridComboBox, 7, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label2, 3, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.DateFromDateTimePicker, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label3, 6, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.DateToDateTimePicker, 4, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.StatementDateTimePicker, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Label4, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.SignWithFacsimileCheckBox, 4, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.DateFromAccDatePicker, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.DateToAccDatePicker, 4, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.StatementAccDatePicker, 1, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -116,15 +116,6 @@ Partial Class F_DebtStatementItemList
         Me.Label2.Text = "iki:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'DateFromDateTimePicker
-        '
-        Me.DateFromDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateFromDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateFromDateTimePicker.Location = New System.Drawing.Point(107, 3)
-        Me.DateFromDateTimePicker.Name = "DateFromDateTimePicker"
-        Me.DateFromDateTimePicker.Size = New System.Drawing.Size(214, 20)
-        Me.DateFromDateTimePicker.TabIndex = 0
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -149,24 +140,6 @@ Partial Class F_DebtStatementItemList
         Me.Label1.Text = "Laikotarpis nuo:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'DateToDateTimePicker
-        '
-        Me.DateToDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateToDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateToDateTimePicker.Location = New System.Drawing.Point(377, 3)
-        Me.DateToDateTimePicker.Name = "DateToDateTimePicker"
-        Me.DateToDateTimePicker.Size = New System.Drawing.Size(214, 20)
-        Me.DateToDateTimePicker.TabIndex = 1
-        '
-        'StatementDateTimePicker
-        '
-        Me.StatementDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.StatementDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.StatementDateTimePicker.Location = New System.Drawing.Point(107, 30)
-        Me.StatementDateTimePicker.Name = "StatementDateTimePicker"
-        Me.StatementDateTimePicker.Size = New System.Drawing.Size(214, 20)
-        Me.StatementDateTimePicker.TabIndex = 3
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -179,6 +152,19 @@ Partial Class F_DebtStatementItemList
         Me.Label4.TabIndex = 10
         Me.Label4.Text = "Aktų Data:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'SignWithFacsimileCheckBox
+        '
+        Me.SignWithFacsimileCheckBox.AutoSize = True
+        Me.TableLayoutPanel1.SetColumnSpan(Me.SignWithFacsimileCheckBox, 4)
+        Me.SignWithFacsimileCheckBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SignWithFacsimileCheckBox.Location = New System.Drawing.Point(377, 30)
+        Me.SignWithFacsimileCheckBox.Name = "SignWithFacsimileCheckBox"
+        Me.SignWithFacsimileCheckBox.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
+        Me.SignWithFacsimileCheckBox.Size = New System.Drawing.Size(136, 20)
+        Me.SignWithFacsimileCheckBox.TabIndex = 4
+        Me.SignWithFacsimileCheckBox.Text = "Pasirašyti Faksimile"
+        Me.SignWithFacsimileCheckBox.UseVisualStyleBackColor = True
         '
         'ReportDataListView
         '
@@ -323,18 +309,47 @@ Partial Class F_DebtStatementItemList
         Me.ProgressFiller2.TabIndex = 6
         Me.ProgressFiller2.Visible = False
         '
-        'SignWithFacsimileCheckBox
+        'DateFromAccDatePicker
         '
-        Me.SignWithFacsimileCheckBox.AutoSize = True
-        Me.TableLayoutPanel1.SetColumnSpan(Me.SignWithFacsimileCheckBox, 4)
-        Me.SignWithFacsimileCheckBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SignWithFacsimileCheckBox.Location = New System.Drawing.Point(377, 30)
-        Me.SignWithFacsimileCheckBox.Name = "SignWithFacsimileCheckBox"
-        Me.SignWithFacsimileCheckBox.Padding = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.SignWithFacsimileCheckBox.Size = New System.Drawing.Size(136, 20)
-        Me.SignWithFacsimileCheckBox.TabIndex = 4
-        Me.SignWithFacsimileCheckBox.Text = "Pasirašyti Faksimile"
-        Me.SignWithFacsimileCheckBox.UseVisualStyleBackColor = True
+        Me.DateFromAccDatePicker.BoldedDates = Nothing
+        Me.DateFromAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateFromAccDatePicker.Location = New System.Drawing.Point(107, 3)
+        Me.DateFromAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateFromAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateFromAccDatePicker.Name = "DateFromAccDatePicker"
+        Me.DateFromAccDatePicker.ReadOnly = False
+        Me.DateFromAccDatePicker.ShowWeekNumbers = True
+        Me.DateFromAccDatePicker.Size = New System.Drawing.Size(214, 21)
+        Me.DateFromAccDatePicker.TabIndex = 0
+        Me.DateFromAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
+        '
+        'DateToAccDatePicker
+        '
+        Me.DateToAccDatePicker.BoldedDates = Nothing
+        Me.DateToAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateToAccDatePicker.Location = New System.Drawing.Point(377, 3)
+        Me.DateToAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateToAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateToAccDatePicker.Name = "DateToAccDatePicker"
+        Me.DateToAccDatePicker.ReadOnly = False
+        Me.DateToAccDatePicker.ShowWeekNumbers = True
+        Me.DateToAccDatePicker.Size = New System.Drawing.Size(214, 21)
+        Me.DateToAccDatePicker.TabIndex = 1
+        Me.DateToAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
+        '
+        'StatementAccDatePicker
+        '
+        Me.StatementAccDatePicker.BoldedDates = Nothing
+        Me.StatementAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.StatementAccDatePicker.Location = New System.Drawing.Point(107, 30)
+        Me.StatementAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.StatementAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.StatementAccDatePicker.Name = "StatementAccDatePicker"
+        Me.StatementAccDatePicker.ReadOnly = False
+        Me.StatementAccDatePicker.ShowWeekNumbers = True
+        Me.StatementAccDatePicker.Size = New System.Drawing.Size(214, 23)
+        Me.StatementAccDatePicker.TabIndex = 3
+        Me.StatementAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'F_DebtStatementItemList
         '
@@ -358,9 +373,7 @@ Partial Class F_DebtStatementItemList
     End Sub
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents DateFromDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents DateToDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents AccountAccGridComboBox As AccControlsWinForms.AccListComboBox
     Friend WithEvents RefreshButton As System.Windows.Forms.Button
@@ -374,7 +387,9 @@ Partial Class F_DebtStatementItemList
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ProgressFiller2 As AccControlsWinForms.ProgressFiller
     Friend WithEvents DebtStatementItemListBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents StatementDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents SignWithFacsimileCheckBox As System.Windows.Forms.CheckBox
+    Friend WithEvents DateFromAccDatePicker As AccControlsWinForms.AccDatePicker
+    Friend WithEvents DateToAccDatePicker As AccControlsWinForms.AccDatePicker
+    Friend WithEvents StatementAccDatePicker As AccControlsWinForms.AccDatePicker
 End Class

@@ -60,6 +60,13 @@ Namespace My.Resources
             End Set
         End Property
         
+        Friend ReadOnly Property Accept_24x24() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Accept_24x24", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property buttonToolTipDefaultModifiers() As System.CodeDom.MemberAttributes
             Get
                 Dim obj As Object = ResourceManager.GetObject("buttonToolTipDefaultModifiers", resourceCulture)
@@ -78,6 +85,13 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("buttonToolTipModifiers", resourceCulture)
                 Return CType(obj,System.CodeDom.MemberAttributes)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property Cancel_24x24() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Cancel_24x24", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
         
@@ -252,6 +266,13 @@ Namespace My.Resources
         Friend ReadOnly Property Paste_icon_16p() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Paste_icon_16p", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property PlusMinus_18x18() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("PlusMinus_18x18", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

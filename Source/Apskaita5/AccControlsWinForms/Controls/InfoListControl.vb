@@ -16,6 +16,7 @@ Public Class InfoListControl
 
     Public Delegate Sub ValueSelectedEventHandler(ByVal sender As Object, ByVal e As ValueChangedEventArgs)
     Public Event ValueSelected As ValueSelectedEventHandler
+    Public Event OnFilterStringChanged As EventHandler
 
 
     ''' <summary>
@@ -72,6 +73,7 @@ Public Class InfoListControl
                 _FilterString = value
                 baseDataListView.AdditionalFilter = _
                     TextMatchFilter.Contains(baseDataListView, _FilterString)
+                RaiseEvent OnFilterStringChanged(Me, EventArgs.Empty)
             End If
         End Set
     End Property
@@ -203,7 +205,13 @@ Public Class InfoListControl
     Private Sub baseDataListView_KeyDown(ByVal sender As Object, _
         ByVal e As System.Windows.Forms.KeyEventArgs) Handles baseDataListView.KeyDown
 
-        If e.KeyData = Keys.Enter AndAlso Not baseDataListView.SelectedItem Is Nothing _
+        If e.Control AndAlso (e.KeyCode = Keys.Insert OrElse e.KeyCode = Keys.Add) Then
+
+            OnValueSelected(Nothing, True)
+            e.Handled = True
+            AddNewItem()
+
+        ElseIf e.KeyData = Keys.Enter AndAlso Not baseDataListView.SelectedItem Is Nothing _
             AndAlso Not baseDataListView.SelectedItem.RowObject Is Nothing Then
 
             OnValueSelected(baseDataListView.SelectedItem.RowObject, False)
@@ -212,19 +220,13 @@ Public Class InfoListControl
         ElseIf e.KeyData = Keys.Back Then
 
             If _FilterString <> "" Then
-                _FilterString = _FilterString.Substring(0, _FilterString.Length - 1)
-                baseDataListView.AdditionalFilter = _
-                    TextMatchFilter.Contains(baseDataListView, _FilterString)
+                Me.FilterString = _FilterString.Substring(0, _FilterString.Length - 1)
             End If
             e.Handled = True
 
         ElseIf e.KeyData = Keys.Delete Then
 
-            If _FilterString <> "" Then
-                _FilterString = ""
-                baseDataListView.AdditionalFilter = _
-                    TextMatchFilter.Contains(baseDataListView, _FilterString)
-            End If
+            ClearFilter(True)
             e.Handled = True
 
         ElseIf e.KeyData = Keys.Escape Then
@@ -240,14 +242,21 @@ Public Class InfoListControl
         ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles baseDataListView.KeyPress
 
         If Not Char.IsControl(e.KeyChar) AndAlso (Char.IsLetterOrDigit(e.KeyChar) _
-            OrElse Char.IsPunctuation(e.KeyChar)) Then
+            OrElse Char.IsPunctuation(e.KeyChar)) Then AppendFilter(e.KeyChar)
 
-            _FilterString = _FilterString & e.KeyChar
+    End Sub
+
+    Friend Sub AppendFilter(ByVal filterChar As Char)
+        Me.FilterString = _FilterString & filterChar
+    End Sub
+
+    Friend Sub ClearFilter(ByVal raiseFilterChangedEvent As Boolean)
+        If _FilterString <> "" Then
+            _FilterString = ""
             baseDataListView.AdditionalFilter = _
                 TextMatchFilter.Contains(baseDataListView, _FilterString)
-
+            If raiseFilterChangedEvent Then RaiseEvent OnFilterStringChanged(Me, EventArgs.Empty)
         End If
-
     End Sub
 
 
@@ -287,5 +296,13 @@ Public Class InfoListControl
         End Sub
 
     End Class
+
+    ''' <summary>
+    ''' Override the method to implement new item action when Ctrl-+ or Ctrl-Ins is pressed.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Overridable Sub AddNewItem()
+
+    End Sub
 
 End Class

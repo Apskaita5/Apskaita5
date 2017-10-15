@@ -249,7 +249,7 @@ Friend Class F_OperationAcquisitionValueIncrease
 
     Private Sub ConfigureButtons()
 
-        DateDateTimePicker.Enabled = (Not _FormManager.DataSource Is Nothing AndAlso Not _FormManager.DataSource.DateIsReadOnly)
+        DateAccDatePicker.ReadOnly = (_FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.DateIsReadOnly)
         ContentTextBox.ReadOnly = (_FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.ContentIsReadOnly)
         ValueIncreaseAccTextBox.ReadOnly = (_FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.ValueIncreaseIsReadOnly)
 

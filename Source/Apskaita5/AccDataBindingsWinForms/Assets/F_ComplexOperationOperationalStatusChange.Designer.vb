@@ -40,12 +40,12 @@ Partial Friend Class F_ComplexOperationOperationalStatusChange
         Me.ComplexOperationOperationalStatusChangeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DocumentNumberTextBox = New System.Windows.Forms.TextBox
         Me.UpdateDateTextBox = New System.Windows.Forms.TextBox
-        Me.DateDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.IDTextBox = New System.Windows.Forms.TextBox
         Me.InsertDateTextBox = New System.Windows.Forms.TextBox
         Me.ContentTextBox = New System.Windows.Forms.TextBox
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.AddItemsButton = New System.Windows.Forms.Button
+        Me.DateAccDatePicker = New AccControlsWinForms.AccDatePicker
         Me.ItemsSortedBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ItemsDataListView = New BrightIdeasSoftware.DataListView
         Me.OlvColumn4 = New BrightIdeasSoftware.OLVColumn
@@ -247,7 +247,6 @@ Partial Friend Class F_ComplexOperationOperationalStatusChange
         Me.TableLayoutPanel1.Controls.Add(DocumentNumberLabel, 3, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.UpdateDateTextBox, 7, 0)
         Me.TableLayoutPanel1.Controls.Add(UpdateDateLabel, 6, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.DateDateTimePicker, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(DateLabel, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(IDLabel, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.IDTextBox, 1, 0)
@@ -255,6 +254,7 @@ Partial Friend Class F_ComplexOperationOperationalStatusChange
         Me.TableLayoutPanel1.Controls.Add(InsertDateLabel, 3, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ContentTextBox, 1, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 6, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.DateAccDatePicker, 1, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -264,7 +264,7 @@ Partial Friend Class F_ComplexOperationOperationalStatusChange
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(779, 116)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(779, 129)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'TypeHumanReadableTextBox
@@ -306,16 +306,6 @@ Partial Friend Class F_ComplexOperationOperationalStatusChange
         Me.UpdateDateTextBox.TabIndex = 13
         Me.UpdateDateTextBox.TabStop = False
         Me.UpdateDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'DateDateTimePicker
-        '
-        Me.DateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ComplexOperationOperationalStatusChangeBindingSource, "Date", True))
-        Me.DateDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateDateTimePicker.Location = New System.Drawing.Point(80, 29)
-        Me.DateDateTimePicker.Name = "DateDateTimePicker"
-        Me.DateDateTimePicker.Size = New System.Drawing.Size(164, 20)
-        Me.DateDateTimePicker.TabIndex = 0
         '
         'IDTextBox
         '
@@ -376,6 +366,21 @@ Partial Friend Class F_ComplexOperationOperationalStatusChange
         Me.AddItemsButton.Text = "Pridėti"
         Me.AddItemsButton.UseVisualStyleBackColor = True
         '
+        'DateAccDatePicker
+        '
+        Me.DateAccDatePicker.BoldedDates = Nothing
+        Me.DateAccDatePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ComplexOperationOperationalStatusChangeBindingSource, "Date", True))
+        Me.DateAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateAccDatePicker.Location = New System.Drawing.Point(80, 29)
+        Me.DateAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateAccDatePicker.Name = "DateAccDatePicker"
+        Me.DateAccDatePicker.ReadOnly = False
+        Me.DateAccDatePicker.ShowWeekNumbers = True
+        Me.DateAccDatePicker.Size = New System.Drawing.Size(164, 20)
+        Me.DateAccDatePicker.TabIndex = 0
+        Me.DateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
+        '
         'ItemsSortedBindingSource
         '
         Me.ItemsSortedBindingSource.DataMember = "Items"
@@ -421,7 +426,7 @@ Partial Friend Class F_ComplexOperationOperationalStatusChange
         Me.ItemsDataListView.HeaderWordWrap = True
         Me.ItemsDataListView.HideSelection = False
         Me.ItemsDataListView.IncludeColumnHeadersInCopy = True
-        Me.ItemsDataListView.Location = New System.Drawing.Point(0, 116)
+        Me.ItemsDataListView.Location = New System.Drawing.Point(0, 129)
         Me.ItemsDataListView.Name = "ItemsDataListView"
         Me.ItemsDataListView.RenderNonEditableCheckboxesAsDisabled = True
         Me.ItemsDataListView.SelectColumnsOnRightClickBehaviour = BrightIdeasSoftware.ObjectListView.ColumnSelectBehaviour.Submenu
@@ -432,7 +437,7 @@ Partial Friend Class F_ComplexOperationOperationalStatusChange
         Me.ItemsDataListView.ShowImagesOnSubItems = True
         Me.ItemsDataListView.ShowItemCountOnGroups = True
         Me.ItemsDataListView.ShowItemToolTips = True
-        Me.ItemsDataListView.Size = New System.Drawing.Size(779, 307)
+        Me.ItemsDataListView.Size = New System.Drawing.Size(779, 294)
         Me.ItemsDataListView.TabIndex = 3
         Me.ItemsDataListView.UnfocusedSelectedBackColor = System.Drawing.Color.PaleGreen
         Me.ItemsDataListView.UnfocusedSelectedForeColor = System.Drawing.Color.Black
@@ -773,7 +778,6 @@ Partial Friend Class F_ComplexOperationOperationalStatusChange
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents ComplexOperationOperationalStatusChangeBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ContentTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents DateDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents DocumentNumberTextBox As System.Windows.Forms.TextBox
     Friend WithEvents IDTextBox As System.Windows.Forms.TextBox
     Friend WithEvents InsertDateTextBox As System.Windows.Forms.TextBox
@@ -809,4 +813,5 @@ Partial Friend Class F_ComplexOperationOperationalStatusChange
     Friend WithEvents ProgressFiller2 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ErrorWarnInfoProvider1 As AccControlsWinForms.ErrorWarnInfoProvider
+    Friend WithEvents DateAccDatePicker As AccControlsWinForms.AccDatePicker
 End Class

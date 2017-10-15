@@ -269,7 +269,7 @@ Friend Class F_OperationAmortization
 
     Private Sub ConfigureButtons()
 
-        DateDateTimePicker.Enabled = (Not _FormManager.DataSource Is Nothing AndAlso Not _FormManager.DataSource.DateIsReadOnly)
+        DateAccDatePicker.ReadOnly = (_FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.DateIsReadOnly)
         DocumentNumberTextBox.ReadOnly = (_FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.DocumentNumberIsReadOnly)
         AccountCostsAccGridComboBox.Enabled = (Not _FormManager.DataSource Is Nothing AndAlso Not _FormManager.DataSource.AccountCostsIsReadOnly)
         ContentTextBox.ReadOnly = (_FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.ContentIsReadOnly)

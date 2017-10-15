@@ -270,7 +270,7 @@ Friend Class F_ComplexOperationValueChange
 
     Private Sub ConfigureButtons()
 
-        DateDateTimePicker.Enabled = Not _FormManager.DataSource Is Nothing
+        DateAccDatePicker.ReadOnly = _FormManager.DataSource Is Nothing
         ContentTextBox.ReadOnly = _FormManager.DataSource Is Nothing
 
         AttachNewJournalEntryButton.Enabled = (Not _FormManager.DataSource Is Nothing AndAlso _

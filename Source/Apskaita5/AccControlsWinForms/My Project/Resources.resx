@@ -426,4 +426,13 @@
   <data name="gears" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gears.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Accept_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Accept_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cancel_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cancel_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlusMinus_18x18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlusMinus_18x18.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

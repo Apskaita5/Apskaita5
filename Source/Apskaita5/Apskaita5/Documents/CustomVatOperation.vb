@@ -415,7 +415,7 @@ Namespace Documents
         ''' <summary>
         ''' Creates a new CustomVatOperation instance with a journal entry attached.
         ''' </summary>
-        ''' <param name="entryInfo">a journal entry info object to attach</param>
+        ''' <param name="journalEntryID">an <see cref="General.JournalEntry.ID">ID of the journal entry</see> to attach</param>
         ''' <remarks></remarks>
         Friend Shared Function NewCustomVatOperation(ByVal journalEntryID As Integer) As CustomVatOperation
             Return New CustomVatOperation(journalEntryID)

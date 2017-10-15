@@ -68,7 +68,7 @@ Public Class F_PayOutNaturalPersonWithoutTaxesList
             Return False
         End Try
 
-        DateFromDateTimePicker.Value = Today.AddYears(-1)
+        DateFromAccDatePicker.Value = Today.AddYears(-1)
 
         Return True
 
@@ -112,7 +112,7 @@ Public Class F_PayOutNaturalPersonWithoutTaxesList
         '    DateFromDateTimePicker.Value, DateToDateTimePicker.Value, selectedPerson)
         _QueryManager.InvokeQuery(Of PayOutNaturalPersonWithoutTaxesList)(Nothing, _
             "GetPayOutNaturalPersonWithoutTaxesList", True, AddressOf OnNewListFetched, _
-            DateFromDateTimePicker.Value, DateToDateTimePicker.Value, selectedPerson)
+            DateFromAccDatePicker.Value, DateToAccDatePicker.Value, selectedPerson)
 
     End Sub
 

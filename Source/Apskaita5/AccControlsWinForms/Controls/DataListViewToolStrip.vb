@@ -12,6 +12,8 @@ Public Class DataListViewToolStrip
     Private _SelectedValue As Object = Nothing
     Private _SelectionCanceled As Boolean = False
 
+    Public Event OnFilterStringChanged As EventHandler
+
 
     ''' <summary>
     ''' Gets or sets a currently applyed filter string.
@@ -108,6 +110,24 @@ Public Class DataListViewToolStrip
         End If
         Return Nothing
     End Function
+
+    Friend Sub AddNewItem()
+        If Not Me.Control Is Nothing Then
+            DirectCast(Me.Control, InfoListControl).AddNewItem()
+        End If
+    End Sub
+
+    Friend Sub AppendFilter(ByVal filterChar As Char)
+        If Not Me.Control Is Nothing Then
+            DirectCast(Me.Control, InfoListControl).AppendFilter(filterChar)
+        End If
+    End Sub
+
+    Friend Sub ClearFilter()
+        If Not Me.Control Is Nothing Then
+            DirectCast(Me.Control, InfoListControl).ClearFilter(False)
+        End If
+    End Sub
 
 
     Private Sub OnDataListViewValueSelected(ByVal sender As Object, _

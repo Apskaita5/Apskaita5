@@ -78,13 +78,13 @@ Public Class F_VatDeclaration
 
             'VatDeclaration.GetVatDeclaration(DateDateTimePicker.Value, _
             '    PeriodStartDateTimePicker.Value, PeriodEndDateTimePicker.Value)
-            Return New Object() {DateDateTimePicker.Value.Date, _
-                PeriodStartDateTimePicker.Value, PeriodEndDateTimePicker.Value}
+            Return New Object() {DateAccDatePicker.Value.Date, _
+                PeriodStartAccDatePicker.Value, PeriodEndAccDatePicker.Value}
 
         Else
 
             ' VatDeclaration.GetVatDeclaration(DateDateTimePicker.Value, year, month)
-            Return New Object() {DateDateTimePicker.Value.Date, year, month}
+            Return New Object() {DateAccDatePicker.Value.Date, year, month}
 
         End If
 
@@ -157,8 +157,8 @@ Public Class F_VatDeclaration
 
         YearComboBox.Enabled = Not CustomPeriodCheckBox.Checked
         MonthComboBox.Enabled = Not CustomPeriodCheckBox.Checked
-        PeriodStartDateTimePicker.Enabled = CustomPeriodCheckBox.Checked
-        PeriodEndDateTimePicker.Enabled = CustomPeriodCheckBox.Checked
+        PeriodStartAccDatePicker.ReadOnly = Not CustomPeriodCheckBox.Checked
+        PeriodEndAccDatePicker.ReadOnly = Not CustomPeriodCheckBox.Checked
 
         If CustomPeriodCheckBox.Checked Then
             YearComboBox.SelectedIndex = -1

@@ -937,8 +937,7 @@ Public Class DataListViewEditControlManager(Of T)
             Throw New ArgumentNullException("curProp")
         End If
 
-        Dim control As New DateTimePicker
-        control.Format = DateTimePickerFormat.Short
+        Dim control As New AccDatePicker
 
         _ControlsDictionary.Add(curProp.Name, control)
 

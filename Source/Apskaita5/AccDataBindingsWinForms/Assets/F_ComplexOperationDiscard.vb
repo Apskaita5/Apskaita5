@@ -261,7 +261,7 @@ Friend Class F_ComplexOperationDiscard
 
     Private Sub ConfigureButtons()
 
-        DateDateTimePicker.Enabled = Not _FormManager.DataSource Is Nothing
+        DateAccDatePicker.ReadOnly = _FormManager.DataSource Is Nothing
         DocumentNumberTextBox.ReadOnly = _FormManager.DataSource Is Nothing
         ContentTextBox.ReadOnly = _FormManager.DataSource Is Nothing
 

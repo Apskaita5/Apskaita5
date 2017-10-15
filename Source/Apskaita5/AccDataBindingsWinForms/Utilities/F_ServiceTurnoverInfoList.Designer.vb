@@ -28,15 +28,13 @@ Partial Friend Class F_ServiceTurnoverInfoList
         Me.RefreshButton = New System.Windows.Forms.Button
         Me.ServicesWithoutTurnoverCheckBox = New System.Windows.Forms.CheckBox
         Me.TradedTypeComboBox = New System.Windows.Forms.ComboBox
-        Me.DateToDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.Label3 = New System.Windows.Forms.Label
-        Me.DateFromDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.Label1 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.ServiceTurnoverInfoListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ServiceTurnoverInfoListDataListView = New BrightIdeasSoftware.DataListView
-        Me.OlvColumn1 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn2 = New BrightIdeasSoftware.OLVColumn
+        Me.OlvColumn1 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn3 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn4 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn5 = New BrightIdeasSoftware.OLVColumn
@@ -57,6 +55,8 @@ Partial Friend Class F_ServiceTurnoverInfoList
         Me.OlvColumn20 = New BrightIdeasSoftware.OLVColumn
         Me.OlvColumn21 = New BrightIdeasSoftware.OLVColumn
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
+        Me.DateFromAccDatePicker = New AccControlsWinForms.AccDatePicker
+        Me.DateToAccDatePicker = New AccControlsWinForms.AccDatePicker
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.ServiceTurnoverInfoListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ServiceTurnoverInfoListDataListView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,11 +80,11 @@ Partial Friend Class F_ServiceTurnoverInfoList
         Me.TableLayoutPanel1.Controls.Add(Me.RefreshButton, 10, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ServicesWithoutTurnoverCheckBox, 9, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.TradedTypeComboBox, 7, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.DateToDateTimePicker, 4, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label3, 6, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.DateFromDateTimePicker, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label2, 3, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.DateFromAccDatePicker, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.DateToAccDatePicker, 4, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -123,15 +123,6 @@ Partial Friend Class F_ServiceTurnoverInfoList
         Me.TradedTypeComboBox.Size = New System.Drawing.Size(194, 21)
         Me.TradedTypeComboBox.TabIndex = 2
         '
-        'DateToDateTimePicker
-        '
-        Me.DateToDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateToDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateToDateTimePicker.Location = New System.Drawing.Point(214, 3)
-        Me.DateToDateTimePicker.Name = "DateToDateTimePicker"
-        Me.DateToDateTimePicker.Size = New System.Drawing.Size(114, 20)
-        Me.DateToDateTimePicker.TabIndex = 4
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -142,15 +133,6 @@ Partial Friend Class F_ServiceTurnoverInfoList
         Me.Label3.Size = New System.Drawing.Size(42, 13)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Tipas:"
-        '
-        'DateFromDateTimePicker
-        '
-        Me.DateFromDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateFromDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateFromDateTimePicker.Location = New System.Drawing.Point(43, 3)
-        Me.DateFromDateTimePicker.Name = "DateFromDateTimePicker"
-        Me.DateFromDateTimePicker.Size = New System.Drawing.Size(114, 20)
-        Me.DateFromDateTimePicker.TabIndex = 3
         '
         'Label1
         '
@@ -237,6 +219,17 @@ Partial Friend Class F_ServiceTurnoverInfoList
         Me.ServiceTurnoverInfoListDataListView.UseNotifyPropertyChanged = True
         Me.ServiceTurnoverInfoListDataListView.View = System.Windows.Forms.View.Details
         '
+        'OlvColumn2
+        '
+        Me.OlvColumn2.AspectName = "Name"
+        Me.OlvColumn2.CellEditUseWholeCell = True
+        Me.OlvColumn2.HeaderFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OlvColumn2.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.OlvColumn2.IsEditable = False
+        Me.OlvColumn2.Text = "Pavadinimas"
+        Me.OlvColumn2.ToolTipText = ""
+        Me.OlvColumn2.Width = 214
+        '
         'OlvColumn1
         '
         Me.OlvColumn1.AspectName = "ID"
@@ -249,17 +242,6 @@ Partial Friend Class F_ServiceTurnoverInfoList
         Me.OlvColumn1.Text = "ID"
         Me.OlvColumn1.ToolTipText = ""
         Me.OlvColumn1.Width = 100
-        '
-        'OlvColumn2
-        '
-        Me.OlvColumn2.AspectName = "Name"
-        Me.OlvColumn2.CellEditUseWholeCell = True
-        Me.OlvColumn2.HeaderFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OlvColumn2.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.OlvColumn2.IsEditable = False
-        Me.OlvColumn2.Text = "Pavadinimas"
-        Me.OlvColumn2.ToolTipText = ""
-        Me.OlvColumn2.Width = 214
         '
         'OlvColumn3
         '
@@ -506,6 +488,34 @@ Partial Friend Class F_ServiceTurnoverInfoList
         Me.ProgressFiller1.TabIndex = 5
         Me.ProgressFiller1.Visible = False
         '
+        'DateFromAccDatePicker
+        '
+        Me.DateFromAccDatePicker.BoldedDates = Nothing
+        Me.DateFromAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateFromAccDatePicker.Location = New System.Drawing.Point(43, 3)
+        Me.DateFromAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateFromAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateFromAccDatePicker.Name = "DateFromAccDatePicker"
+        Me.DateFromAccDatePicker.ReadOnly = False
+        Me.DateFromAccDatePicker.ShowWeekNumbers = True
+        Me.DateFromAccDatePicker.Size = New System.Drawing.Size(114, 32)
+        Me.DateFromAccDatePicker.TabIndex = 0
+        Me.DateFromAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
+        '
+        'DateToAccDatePicker
+        '
+        Me.DateToAccDatePicker.BoldedDates = Nothing
+        Me.DateToAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateToAccDatePicker.Location = New System.Drawing.Point(214, 3)
+        Me.DateToAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateToAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateToAccDatePicker.Name = "DateToAccDatePicker"
+        Me.DateToAccDatePicker.ReadOnly = False
+        Me.DateToAccDatePicker.ShowWeekNumbers = True
+        Me.DateToAccDatePicker.Size = New System.Drawing.Size(114, 32)
+        Me.DateToAccDatePicker.TabIndex = 1
+        Me.DateToAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
+        '
         'F_ServiceTurnoverInfoList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -531,8 +541,6 @@ Partial Friend Class F_ServiceTurnoverInfoList
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents ServicesWithoutTurnoverCheckBox As System.Windows.Forms.CheckBox
     Friend WithEvents TradedTypeComboBox As System.Windows.Forms.ComboBox
-    Friend WithEvents DateFromDateTimePicker As System.Windows.Forms.DateTimePicker
-    Friend WithEvents DateToDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents RefreshButton As System.Windows.Forms.Button
     Friend WithEvents ServiceTurnoverInfoListBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ServiceTurnoverInfoListDataListView As BrightIdeasSoftware.DataListView
@@ -558,4 +566,6 @@ Partial Friend Class F_ServiceTurnoverInfoList
     Friend WithEvents OlvColumn20 As BrightIdeasSoftware.OLVColumn
     Friend WithEvents OlvColumn21 As BrightIdeasSoftware.OLVColumn
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
+    Friend WithEvents DateFromAccDatePicker As AccControlsWinForms.AccDatePicker
+    Friend WithEvents DateToAccDatePicker As AccControlsWinForms.AccDatePicker
 End Class

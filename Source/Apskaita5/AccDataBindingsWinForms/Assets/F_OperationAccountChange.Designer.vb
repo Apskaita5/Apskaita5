@@ -52,12 +52,12 @@ Partial Friend Class F_OperationAccountChange
         Me.UpdateDateTextBox = New System.Windows.Forms.TextBox
         Me.CurrentAccountTextBox = New System.Windows.Forms.TextBox
         Me.DocumentNumberTextBox = New System.Windows.Forms.TextBox
-        Me.DateDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.TabPage2 = New System.Windows.Forms.TabPage
         Me.BackgroundInfoPanel1 = New AccDataBindingsWinForms.BackgroundInfoPanel
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
         Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller
         Me.ErrorWarnInfoProvider1 = New AccControlsWinForms.ErrorWarnInfoProvider(Me.components)
+        Me.DateAccDatePicker = New AccControlsWinForms.AccDatePicker
         ContentLabel = New System.Windows.Forms.Label
         CurrentAccountBalanceLabel = New System.Windows.Forms.Label
         DateLabel = New System.Windows.Forms.Label
@@ -294,7 +294,7 @@ Partial Friend Class F_OperationAccountChange
         Me.TableLayoutPanel1.Controls.Add(Me.DocumentNumberTextBox, 4, 1)
         Me.TableLayoutPanel1.Controls.Add(DocumentNumberLabel, 3, 1)
         Me.TableLayoutPanel1.Controls.Add(DateLabel, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.DateDateTimePicker, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.DateAccDatePicker, 1, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -444,23 +444,13 @@ Partial Friend Class F_OperationAccountChange
         Me.DocumentNumberTextBox.TabIndex = 1
         Me.DocumentNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'DateDateTimePicker
-        '
-        Me.DateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.OperationAccountChangeBindingSource, "Date", True))
-        Me.DateDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateDateTimePicker.Location = New System.Drawing.Point(107, 29)
-        Me.DateDateTimePicker.Name = "DateDateTimePicker"
-        Me.DateDateTimePicker.Size = New System.Drawing.Size(153, 20)
-        Me.DateDateTimePicker.TabIndex = 0
-        '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.BackgroundInfoPanel1)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(784, 350)
+        Me.TabPage2.Size = New System.Drawing.Size(784, 352)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Turto duomenys"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -471,7 +461,7 @@ Partial Friend Class F_OperationAccountChange
         Me.BackgroundInfoPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BackgroundInfoPanel1.Location = New System.Drawing.Point(3, 3)
         Me.BackgroundInfoPanel1.Name = "BackgroundInfoPanel1"
-        Me.BackgroundInfoPanel1.Size = New System.Drawing.Size(778, 344)
+        Me.BackgroundInfoPanel1.Size = New System.Drawing.Size(778, 346)
         Me.BackgroundInfoPanel1.TabIndex = 0
         '
         'ProgressFiller1
@@ -497,6 +487,21 @@ Partial Friend Class F_OperationAccountChange
         Me.ErrorWarnInfoProvider1.BlinkStyleWarning = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.ErrorWarnInfoProvider1.ContainerControl = Me
         Me.ErrorWarnInfoProvider1.DataSource = Me.OperationAccountChangeBindingSource
+        '
+        'DateAccDatePicker
+        '
+        Me.DateAccDatePicker.BoldedDates = Nothing
+        Me.DateAccDatePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.OperationAccountChangeBindingSource, "Date", True))
+        Me.DateAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateAccDatePicker.Location = New System.Drawing.Point(107, 29)
+        Me.DateAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateAccDatePicker.Name = "DateAccDatePicker"
+        Me.DateAccDatePicker.ReadOnly = False
+        Me.DateAccDatePicker.ShowWeekNumbers = True
+        Me.DateAccDatePicker.Size = New System.Drawing.Size(153, 20)
+        Me.DateAccDatePicker.TabIndex = 0
+        Me.DateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'F_OperationAccountChange
         '
@@ -537,7 +542,6 @@ Partial Friend Class F_OperationAccountChange
     Friend WithEvents InsertDateTextBox As System.Windows.Forms.TextBox
     Friend WithEvents IDTextBox As System.Windows.Forms.TextBox
     Friend WithEvents DocumentNumberTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents DateDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents CurrentAccountBalanceAccTextBox As AccControlsWinForms.AccTextBox
     Friend WithEvents CurrentAccountTextBox As System.Windows.Forms.TextBox
     Friend WithEvents ContentTextBox As System.Windows.Forms.TextBox
@@ -548,4 +552,5 @@ Partial Friend Class F_OperationAccountChange
     Friend WithEvents ProgressFiller2 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ErrorWarnInfoProvider1 As AccControlsWinForms.ErrorWarnInfoProvider
+    Friend WithEvents DateAccDatePicker As AccControlsWinForms.AccDatePicker
 End Class

@@ -43,7 +43,7 @@ Public Class F_DebtStatementItemList
             PrepareControl(AccountAccGridComboBox, New AccountFieldAttribute( _
                 ValueRequiredLevel.Optional, False, 1, 2, 3, 4))
 
-            DateFromDateTimePicker.Value = Today.AddYears(-1)
+            DateFromAccDatePicker.Value = Today.AddYears(-1)
             AccountAccGridComboBox.SelectedValue = GetCurrentCompany.GetDefaultAccount( _
                 General.DefaultAccountType.Buyers)
 
@@ -59,7 +59,7 @@ Public Class F_DebtStatementItemList
 
 
     Private Function GetReportParams() As Object()
-        Return New Object() {DateFromDateTimePicker.Value.Date, DateToDateTimePicker.Value.Date, _
+        Return New Object() {DateFromAccDatePicker.Value.Date, DateToAccDatePicker.Value.Date, _
             AccountAccGridComboBox.SelectedValue}
     End Function
 
@@ -126,12 +126,12 @@ Public Class F_DebtStatementItemList
         If GetSenderText(sender).ToLower.Contains("kontrahentams") Then
 
             DebtStatementItemListPrintView.EmailToPersons(_FormManager.DataSource, _
-                StatementDateTimePicker.Value, SignWithFacsimileCheckBox.Checked)
+                StatementAccDatePicker.Value, SignWithFacsimileCheckBox.Checked)
 
         Else
 
             DebtStatementItemListPrintView.Email(_FormManager.DataSource, _
-                StatementDateTimePicker.Value, SignWithFacsimileCheckBox.Checked)
+                StatementAccDatePicker.Value, SignWithFacsimileCheckBox.Checked)
 
         End If
 
@@ -140,13 +140,13 @@ Public Class F_DebtStatementItemList
     Public Sub OnPrintClick(ByVal sender As Object, ByVal e As System.EventArgs) _
         Implements ISupportsPrinting.OnPrintClick
         DebtStatementItemListPrintView.Print(_FormManager.DataSource, _
-            StatementDateTimePicker.Value, SignWithFacsimileCheckBox.Checked, Me, False)
+            StatementAccDatePicker.Value, SignWithFacsimileCheckBox.Checked, Me, False)
     End Sub
 
     Public Sub OnPrintPreviewClick(ByVal sender As Object, ByVal e As System.EventArgs) _
         Implements ISupportsPrinting.OnPrintPreviewClick
         DebtStatementItemListPrintView.Print(_FormManager.DataSource, _
-            StatementDateTimePicker.Value, SignWithFacsimileCheckBox.Checked, Me, True)
+            StatementAccDatePicker.Value, SignWithFacsimileCheckBox.Checked, Me, True)
     End Sub
 
     Public Function SupportsEmailing() As Boolean _

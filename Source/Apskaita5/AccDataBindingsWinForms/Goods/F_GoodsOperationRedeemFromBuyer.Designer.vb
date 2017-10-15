@@ -77,7 +77,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.GoodsNameTextBox = New System.Windows.Forms.TextBox
         Me.ComplexOperationIDTextBox = New System.Windows.Forms.TextBox
         Me.JournalEntryDocNoTextBox = New System.Windows.Forms.TextBox
-        Me.DateDateTimePicker = New System.Windows.Forms.DateTimePicker
         Me.TotalCostAccTextBox = New AccControlsWinForms.AccTextBox
         Me.UnitCostAccTextBox = New AccControlsWinForms.AccTextBox
         Me.TotalValueInPurchasesAccTextBox = New AccControlsWinForms.AccTextBox
@@ -89,6 +88,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
         Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller
         Me.ErrorWarnInfoProvider1 = New AccControlsWinForms.ErrorWarnInfoProvider(Me.components)
+        Me.DateAccDatePicker = New AccControlsWinForms.AccDatePicker
         IDLabel = New System.Windows.Forms.Label
         InsertDateLabel = New System.Windows.Forms.Label
         UpdateDateLabel = New System.Windows.Forms.Label
@@ -503,13 +503,13 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.TableLayoutPanel1.Controls.Add(GoodsMeasureUnitLabel, 6, 2)
         Me.TableLayoutPanel1.Controls.Add(JournalEntryDocNoLabel, 0, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.JournalEntryDocNoTextBox, 1, 5)
-        Me.TableLayoutPanel1.Controls.Add(Me.DateDateTimePicker, 1, 7)
         Me.TableLayoutPanel1.Controls.Add(TotalCostLabel, 3, 8)
         Me.TableLayoutPanel1.Controls.Add(Me.TotalCostAccTextBox, 4, 8)
         Me.TableLayoutPanel1.Controls.Add(UnitCostLabel, 6, 8)
         Me.TableLayoutPanel1.Controls.Add(Me.UnitCostAccTextBox, 7, 8)
         Me.TableLayoutPanel1.Controls.Add(Me.TotalValueInPurchasesAccTextBox, 4, 10)
         Me.TableLayoutPanel1.Controls.Add(Me.DescriptionTextBox, 1, 11)
+        Me.TableLayoutPanel1.Controls.Add(Me.DateAccDatePicker, 1, 7)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -528,7 +528,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(827, 318)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(827, 334)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'RedeemCostsAccountAccGridComboBox
@@ -542,7 +542,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.RedeemCostsAccountAccGridComboBox.Location = New System.Drawing.Point(681, 238)
         Me.RedeemCostsAccountAccGridComboBox.Name = "RedeemCostsAccountAccGridComboBox"
         Me.RedeemCostsAccountAccGridComboBox.Size = New System.Drawing.Size(121, 21)
-        Me.RedeemCostsAccountAccGridComboBox.TabIndex = 2
+        Me.RedeemCostsAccountAccGridComboBox.TabIndex = 7
         '
         'GoodsOperationRedeemFromBuyerBindingSource
         '
@@ -870,16 +870,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.JournalEntryDocNoTextBox.TabStop = False
         Me.JournalEntryDocNoTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'DateDateTimePicker
-        '
-        Me.DateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.GoodsOperationRedeemFromBuyerBindingSource, "Date", True))
-        Me.DateDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateDateTimePicker.Location = New System.Drawing.Point(167, 185)
-        Me.DateDateTimePicker.Name = "DateDateTimePicker"
-        Me.DateDateTimePicker.Size = New System.Drawing.Size(121, 20)
-        Me.DateDateTimePicker.TabIndex = 0
-        '
         'TotalCostAccTextBox
         '
         Me.TotalCostAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "TotalCost", True))
@@ -889,7 +879,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.TotalCostAccTextBox.Name = "TotalCostAccTextBox"
         Me.TotalCostAccTextBox.NegativeValue = False
         Me.TotalCostAccTextBox.Size = New System.Drawing.Size(121, 20)
-        Me.TotalCostAccTextBox.TabIndex = 4
+        Me.TotalCostAccTextBox.TabIndex = 3
         Me.TotalCostAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'UnitCostAccTextBox
@@ -902,7 +892,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.UnitCostAccTextBox.Name = "UnitCostAccTextBox"
         Me.UnitCostAccTextBox.NegativeValue = False
         Me.UnitCostAccTextBox.Size = New System.Drawing.Size(121, 20)
-        Me.UnitCostAccTextBox.TabIndex = 3
+        Me.UnitCostAccTextBox.TabIndex = 4
         Me.UnitCostAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'TotalValueInPurchasesAccTextBox
@@ -927,7 +917,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.DescriptionTextBox.Location = New System.Drawing.Point(167, 291)
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.Size = New System.Drawing.Size(635, 20)
-        Me.DescriptionTextBox.TabIndex = 7
+        Me.DescriptionTextBox.TabIndex = 8
         '
         'Panel2
         '
@@ -936,7 +926,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.Panel2.Controls.Add(Me.ApplyButton)
         Me.Panel2.Controls.Add(Me.nOkButton)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 318)
+        Me.Panel2.Location = New System.Drawing.Point(0, 334)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Padding = New System.Windows.Forms.Padding(0, 0, 0, 4)
         Me.Panel2.Size = New System.Drawing.Size(827, 37)
@@ -1000,11 +990,26 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.ErrorWarnInfoProvider1.ContainerControl = Me
         Me.ErrorWarnInfoProvider1.DataSource = Me.GoodsOperationRedeemFromBuyerBindingSource
         '
+        'DateAccDatePicker
+        '
+        Me.DateAccDatePicker.BoldedDates = Nothing
+        Me.DateAccDatePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.GoodsOperationRedeemFromBuyerBindingSource, "Date", True))
+        Me.DateAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateAccDatePicker.Location = New System.Drawing.Point(167, 185)
+        Me.DateAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateAccDatePicker.Name = "DateAccDatePicker"
+        Me.DateAccDatePicker.ReadOnly = False
+        Me.DateAccDatePicker.ShowWeekNumbers = True
+        Me.DateAccDatePicker.Size = New System.Drawing.Size(121, 21)
+        Me.DateAccDatePicker.TabIndex = 0
+        Me.DateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
+        '
         'F_GoodsOperationRedeemFromBuyer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(827, 355)
+        Me.ClientSize = New System.Drawing.Size(827, 371)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.ProgressFiller2)
@@ -1048,7 +1053,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
     Friend WithEvents JournalEntryCorrespondenceTextBox As System.Windows.Forms.TextBox
     Friend WithEvents JournalEntryContentTextBox As System.Windows.Forms.TextBox
     Friend WithEvents WarehouseAccGridComboBox As AccControlsWinForms.AccListComboBox
-    Friend WithEvents DateDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents TotalValueInWarehouseAccTextBox As AccControlsWinForms.AccTextBox
     Friend WithEvents AmountInPurchasesAccTextBox As AccControlsWinForms.AccTextBox
     Friend WithEvents AmountInWarehouseAccTextBox As AccControlsWinForms.AccTextBox
@@ -1066,4 +1070,5 @@ Partial Class F_GoodsOperationRedeemFromBuyer
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ProgressFiller2 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ErrorWarnInfoProvider1 As AccControlsWinForms.ErrorWarnInfoProvider
+    Friend WithEvents DateAccDatePicker As AccControlsWinForms.AccDatePicker
 End Class

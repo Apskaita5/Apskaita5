@@ -72,7 +72,7 @@ Friend Class F_WorkersVDUInfo
         End Try
 
         ' WorkersVDUInfo.GetWorkersVDUInfo(nSerial, nNumber, DateDateTimePicker.Value, IncludeCurrentCheckBox.Checked)
-        Return New Object() {nSerial, nNumber, DateDateTimePicker.Value, IncludeCurrentCheckBox.Checked}
+        Return New Object() {nSerial, nNumber, AtDateAccDatePicker.Value, IncludeCurrentCheckBox.Checked}
 
     End Function
 
