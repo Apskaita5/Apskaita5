@@ -27,7 +27,8 @@ Friend Class AccDateTextBox
     <Category("Custom")> _
     <Description("Gets or sets the current date value.")> _
     <Bindable(True)> _
-    <Browsable(True)> _
+    <Browsable(False)> _
+    <DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)> _
     Public Property Value() As Date
         Get
             Return _Value

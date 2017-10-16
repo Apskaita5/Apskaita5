@@ -415,7 +415,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("https://hg.codeplex.com/apskaita5/raw-file/tip/")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/Apskaita5/Apskaita5/master/Bin/")>  _
         Public Property UpdateUrl() As String
             Get
                 Return CType(Me("UpdateUrl"),String)

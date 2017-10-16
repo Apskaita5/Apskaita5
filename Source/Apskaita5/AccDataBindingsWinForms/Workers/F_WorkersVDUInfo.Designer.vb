@@ -1231,8 +1231,6 @@ Partial Friend Class F_WorkersVDUInfo
         Me.WageListDataListView.HasCollapsibleGroups = False
         Me.WageListDataListView.HeaderWordWrap = True
         Me.WageListDataListView.HideSelection = False
-        Me.WageListDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.WageListDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.WageListDataListView.IncludeColumnHeadersInCopy = True
         Me.WageListDataListView.Location = New System.Drawing.Point(0, 0)
         Me.WageListDataListView.Name = "WageListDataListView"
@@ -1360,8 +1358,6 @@ Partial Friend Class F_WorkersVDUInfo
         Me.BonusListListDataListView.HasCollapsibleGroups = False
         Me.BonusListListDataListView.HeaderWordWrap = True
         Me.BonusListListDataListView.HideSelection = False
-        Me.BonusListListDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.BonusListListDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.BonusListListDataListView.IncludeColumnHeadersInCopy = True
         Me.BonusListListDataListView.Location = New System.Drawing.Point(0, 0)
         Me.BonusListListDataListView.Name = "BonusListListDataListView"
@@ -1479,7 +1475,6 @@ Partial Friend Class F_WorkersVDUInfo
         Me.AtDateAccDatePicker.ShowWeekNumbers = True
         Me.AtDateAccDatePicker.Size = New System.Drawing.Size(193, 23)
         Me.AtDateAccDatePicker.TabIndex = 0
-        Me.AtDateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'F_WorkersVDUInfo
         '

@@ -461,7 +461,6 @@ Partial Class F_CustomVatOperationList
         Me.DateFromAccDatePicker.ShowWeekNumbers = True
         Me.DateFromAccDatePicker.Size = New System.Drawing.Size(226, 35)
         Me.DateFromAccDatePicker.TabIndex = 0
-        Me.DateFromAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'DateToAccDatePicker
         '
@@ -475,7 +474,6 @@ Partial Class F_CustomVatOperationList
         Me.DateToAccDatePicker.ShowWeekNumbers = True
         Me.DateToAccDatePicker.Size = New System.Drawing.Size(226, 35)
         Me.DateToAccDatePicker.TabIndex = 1
-        Me.DateToAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'F_CustomVatOperationList
         '

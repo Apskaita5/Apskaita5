@@ -214,7 +214,6 @@ Partial Class F_NewGoodsOperation(Of T)
         Me.OperationDateAccDatePicker.ShowWeekNumbers = True
         Me.OperationDateAccDatePicker.Size = New System.Drawing.Size(274, 20)
         Me.OperationDateAccDatePicker.TabIndex = 0
-        Me.OperationDateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'F_NewGoodsOperation
         '

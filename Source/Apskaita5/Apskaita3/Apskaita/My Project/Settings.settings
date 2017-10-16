@@ -93,7 +93,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="UpdateUrl" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://hg.codeplex.com/apskaita5/raw-file/tip/</Value>
+      <Value Profile="(Default)">https://raw.githubusercontent.com/Apskaita5/Apskaita5/master/Bin/</Value>
     </Setting>
     <Setting Name="AlwaysUseExternalIdInvoicesMade" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

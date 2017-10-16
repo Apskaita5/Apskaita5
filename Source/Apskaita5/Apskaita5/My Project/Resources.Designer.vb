@@ -17826,6 +17826,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Banko valiutos konversijos sąnaudų sąskaita negali sutapti su valiutos kurso pasikeitimo įtakos sąskaita..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_InvalidAccountBankCurrencyConversionCosts() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_InvalidAccountBankCurrencyConversionCosts", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Pasirinktos sąskaitos tipas - ne banko sąskaita, o {0}..
         '''</summary>
         Friend ReadOnly Property Documents_BankOperation_InvalidCashAccount() As String
@@ -17844,7 +17853,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Operacijos suma litais turi būti lygi korespondencijų sumai minus valiutos kurso pasikeitimo įtaka..
+        '''  Looks up a localized string similar to Operacijos suma bazine valiuta turi būti lygi korespondencijų sumai minus valiutos kurso pasikeitimo įtaka..
         '''</summary>
         Friend ReadOnly Property Documents_BankOperation_InvalidSumLtlForCredit() As String
             Get
@@ -17853,7 +17862,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Operacijos suma litais turi būti lygi korespondencijų sumai plius valiutos kurso pasikeitimo įtaka..
+        '''  Looks up a localized string similar to Operacijos suma bazine valiuta turi būti lygi korespondencijų sumai plius valiutos kurso pasikeitimo įtaka..
         '''</summary>
         Friend ReadOnly Property Documents_BankOperation_InvalidSumLtlForDebit() As String
             Get

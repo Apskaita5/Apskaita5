@@ -912,8 +912,6 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.HolidayCalculatedListDataListView.HasCollapsibleGroups = False
         Me.HolidayCalculatedListDataListView.HeaderWordWrap = True
         Me.HolidayCalculatedListDataListView.HideSelection = False
-        Me.HolidayCalculatedListDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.HolidayCalculatedListDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.HolidayCalculatedListDataListView.IncludeColumnHeadersInCopy = True
         Me.HolidayCalculatedListDataListView.Location = New System.Drawing.Point(0, 0)
         Me.HolidayCalculatedListDataListView.Name = "HolidayCalculatedListDataListView"
@@ -1047,8 +1045,6 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.HolidaySpentListDataListView.HasCollapsibleGroups = False
         Me.HolidaySpentListDataListView.HeaderWordWrap = True
         Me.HolidaySpentListDataListView.HideSelection = False
-        Me.HolidaySpentListDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.HolidaySpentListDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.HolidaySpentListDataListView.IncludeColumnHeadersInCopy = True
         Me.HolidaySpentListDataListView.Location = New System.Drawing.Point(0, 0)
         Me.HolidaySpentListDataListView.Name = "HolidaySpentListDataListView"
@@ -1223,7 +1219,6 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.AtDateAccDatePicker.ShowWeekNumbers = True
         Me.AtDateAccDatePicker.Size = New System.Drawing.Size(264, 23)
         Me.AtDateAccDatePicker.TabIndex = 0
-        Me.AtDateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'F_WorkerHolidayInfo
         '

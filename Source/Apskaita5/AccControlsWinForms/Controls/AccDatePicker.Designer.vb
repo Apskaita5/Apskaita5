@@ -47,7 +47,6 @@ Partial Class AccDatePicker
         Me.ValueTextBox.Name = "ValueTextBox"
         Me.ValueTextBox.Size = New System.Drawing.Size(109, 20)
         Me.ValueTextBox.TabIndex = 2
-        Me.ValueTextBox.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'AccDatePicker
         '

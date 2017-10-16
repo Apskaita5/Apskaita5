@@ -30,6 +30,7 @@ Public Class AccDatePicker
     <Description("Gets or sets the current date value.")> _
     <Bindable(True)> _
     <Browsable(True)> _
+    <DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)> _
     Public Property Value() As Date
         Get
             Return ValueTextBox.Value

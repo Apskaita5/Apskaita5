@@ -321,7 +321,6 @@ Partial Class F_DebtStatementItemList
         Me.DateFromAccDatePicker.ShowWeekNumbers = True
         Me.DateFromAccDatePicker.Size = New System.Drawing.Size(214, 21)
         Me.DateFromAccDatePicker.TabIndex = 0
-        Me.DateFromAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'DateToAccDatePicker
         '
@@ -335,7 +334,6 @@ Partial Class F_DebtStatementItemList
         Me.DateToAccDatePicker.ShowWeekNumbers = True
         Me.DateToAccDatePicker.Size = New System.Drawing.Size(214, 21)
         Me.DateToAccDatePicker.TabIndex = 1
-        Me.DateToAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'StatementAccDatePicker
         '
@@ -349,7 +347,6 @@ Partial Class F_DebtStatementItemList
         Me.StatementAccDatePicker.ShowWeekNumbers = True
         Me.StatementAccDatePicker.Size = New System.Drawing.Size(214, 23)
         Me.StatementAccDatePicker.TabIndex = 3
-        Me.StatementAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'F_DebtStatementItemList
         '

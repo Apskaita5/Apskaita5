@@ -1322,7 +1322,6 @@ Partial Friend Class F_ComplexOperationAmortization
         Me.DateAccDatePicker.ShowWeekNumbers = True
         Me.DateAccDatePicker.Size = New System.Drawing.Size(218, 20)
         Me.DateAccDatePicker.TabIndex = 0
-        Me.DateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'F_ComplexOperationAmortization
         '

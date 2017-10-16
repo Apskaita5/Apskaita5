@@ -662,7 +662,6 @@ Partial Friend Class F_OperationTransfer
         Me.DateAccDatePicker.ShowWeekNumbers = True
         Me.DateAccDatePicker.Size = New System.Drawing.Size(166, 20)
         Me.DateAccDatePicker.TabIndex = 0
-        Me.DateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'TabPage2
         '

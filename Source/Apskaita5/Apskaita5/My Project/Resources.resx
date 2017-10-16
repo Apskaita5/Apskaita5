@@ -6142,10 +6142,10 @@
     <value>Kredituojama sąskaita negali sutapti su debetuojama.</value>
   </data>
   <data name="Documents_BankOperation_InvalidSumLtlForCredit" xml:space="preserve">
-    <value>Operacijos suma litais turi būti lygi korespondencijų sumai minus valiutos kurso pasikeitimo įtaka.</value>
+    <value>Operacijos suma bazine valiuta turi būti lygi korespondencijų sumai minus valiutos kurso pasikeitimo įtaka.</value>
   </data>
   <data name="Documents_BankOperation_InvalidSumLtlForDebit" xml:space="preserve">
-    <value>Operacijos suma litais turi būti lygi korespondencijų sumai plius valiutos kurso pasikeitimo įtaka.</value>
+    <value>Operacijos suma bazine valiuta turi būti lygi korespondencijų sumai plius valiutos kurso pasikeitimo įtaka.</value>
   </data>
   <data name="Documents_BankOperationItemList_AccountInvalid" xml:space="preserve">
     <value>Klaida. Nurodyta lėšų apskaitos sąskaita nėra banko sąskaita.</value>
@@ -15130,5 +15130,8 @@
   </data>
   <data name="HelperLists_IndirectRelationType_CustomVatOperation" xml:space="preserve">
     <value>(netipinė) PVM operacija</value>
+  </data>
+  <data name="Documents_BankOperation_InvalidAccountBankCurrencyConversionCosts" xml:space="preserve">
+    <value>Banko valiutos konversijos sąnaudų sąskaita negali sutapti su valiutos kurso pasikeitimo įtakos sąskaita.</value>
   </data>
 </root>

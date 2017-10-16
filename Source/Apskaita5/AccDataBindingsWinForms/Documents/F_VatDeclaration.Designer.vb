@@ -530,7 +530,6 @@ Partial Class F_VatDeclaration
         Me.DateAccDatePicker.ShowWeekNumbers = True
         Me.DateAccDatePicker.Size = New System.Drawing.Size(127, 20)
         Me.DateAccDatePicker.TabIndex = 0
-        Me.DateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'PeriodStartAccDatePicker
         '
@@ -543,7 +542,6 @@ Partial Class F_VatDeclaration
         Me.PeriodStartAccDatePicker.ShowWeekNumbers = True
         Me.PeriodStartAccDatePicker.Size = New System.Drawing.Size(127, 20)
         Me.PeriodStartAccDatePicker.TabIndex = 4
-        Me.PeriodStartAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'PeriodEndAccDatePicker
         '
@@ -556,7 +554,6 @@ Partial Class F_VatDeclaration
         Me.PeriodEndAccDatePicker.ShowWeekNumbers = True
         Me.PeriodEndAccDatePicker.Size = New System.Drawing.Size(127, 20)
         Me.PeriodEndAccDatePicker.TabIndex = 5
-        Me.PeriodEndAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'F_VatDeclaration
         '

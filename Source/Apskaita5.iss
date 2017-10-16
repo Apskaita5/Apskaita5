@@ -4,11 +4,11 @@
 [Setup]
 AppName=Apskaita5
 AppID=Apskaita5MD
-AppVerName=Apskaita5 v. 2016-11-25
+AppVerName=Apskaita5 v. 2017-10-16
 AppPublisher=Marius Dagys
-AppPublisherURL=https://apskaita5.codeplex.com/
+AppPublisherURL=https://github.com/Apskaita5/Apskaita5/wiki
 AppSupportURL=http://www.tax.lt/temos/12748-nemokama-apskaitos-programa
-AppUpdatesURL=https://apskaita5.codeplex.com/
+AppUpdatesURL=https://github.com/Apskaita5/Apskaita5/wiki
 DefaultDirName={pf}\Apskaita5
 DisableDirPage=yes
 DefaultGroupName=Apskaita5

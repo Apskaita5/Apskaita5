@@ -278,8 +278,6 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.ItemsDataListView.HasCollapsibleGroups = False
         Me.ItemsDataListView.HeaderWordWrap = True
         Me.ItemsDataListView.HideSelection = False
-        Me.ItemsDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.ItemsDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.ItemsDataListView.Location = New System.Drawing.Point(0, 73)
         Me.ItemsDataListView.Name = "ItemsDataListView"
         Me.ItemsDataListView.RenderNonEditableCheckboxesAsDisabled = True
@@ -501,7 +499,6 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.DateFromAccDatePicker.ShowWeekNumbers = True
         Me.DateFromAccDatePicker.Size = New System.Drawing.Size(134, 21)
         Me.DateFromAccDatePicker.TabIndex = 0
-        Me.DateFromAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'DateToAccDatePicker
         '
@@ -515,7 +512,6 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.DateToAccDatePicker.ShowWeekNumbers = True
         Me.DateToAccDatePicker.Size = New System.Drawing.Size(134, 21)
         Me.DateToAccDatePicker.TabIndex = 1
-        Me.DateToAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'F_PayOutNaturalPersonWithoutTaxesList
         '

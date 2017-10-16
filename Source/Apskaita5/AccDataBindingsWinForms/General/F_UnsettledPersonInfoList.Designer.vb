@@ -257,7 +257,6 @@ Partial Friend Class F_UnsettledPersonInfoList
         Me.AsOfDateAccDatePicker.ShowWeekNumbers = True
         Me.AsOfDateAccDatePicker.Size = New System.Drawing.Size(243, 24)
         Me.AsOfDateAccDatePicker.TabIndex = 0
-        Me.AsOfDateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'Label2
         '

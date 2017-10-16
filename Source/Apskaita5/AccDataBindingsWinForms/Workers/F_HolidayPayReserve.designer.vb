@@ -532,7 +532,6 @@ Partial Friend Class F_HolidayPayReserve
         Me.DateAccDatePicker.ShowWeekNumbers = True
         Me.DateAccDatePicker.Size = New System.Drawing.Size(180, 19)
         Me.DateAccDatePicker.TabIndex = 0
-        Me.DateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'Panel1
         '
@@ -666,8 +665,6 @@ Partial Friend Class F_HolidayPayReserve
         Me.ItemsDataListView.HasCollapsibleGroups = False
         Me.ItemsDataListView.HeaderWordWrap = True
         Me.ItemsDataListView.HideSelection = False
-        Me.ItemsDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
-        Me.ItemsDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.ItemsDataListView.IncludeColumnHeadersInCopy = True
         Me.ItemsDataListView.Location = New System.Drawing.Point(0, 177)
         Me.ItemsDataListView.Name = "ItemsDataListView"
@@ -1259,7 +1256,6 @@ Partial Friend Class F_HolidayPayReserve
         Me.NewObjectDateAccDatePicker.ShowWeekNumbers = True
         Me.NewObjectDateAccDatePicker.Size = New System.Drawing.Size(113, 20)
         Me.NewObjectDateAccDatePicker.TabIndex = 0
-        Me.NewObjectDateAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'F_HolidayPayReserve
         '

@@ -500,7 +500,6 @@ Partial Friend Class F_ServiceTurnoverInfoList
         Me.DateFromAccDatePicker.ShowWeekNumbers = True
         Me.DateFromAccDatePicker.Size = New System.Drawing.Size(114, 32)
         Me.DateFromAccDatePicker.TabIndex = 0
-        Me.DateFromAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'DateToAccDatePicker
         '
@@ -514,7 +513,6 @@ Partial Friend Class F_ServiceTurnoverInfoList
         Me.DateToAccDatePicker.ShowWeekNumbers = True
         Me.DateToAccDatePicker.Size = New System.Drawing.Size(114, 32)
         Me.DateToAccDatePicker.TabIndex = 1
-        Me.DateToAccDatePicker.Value = New Date(2017, 10, 13, 0, 0, 0, 0)
         '
         'F_ServiceTurnoverInfoList
         '
