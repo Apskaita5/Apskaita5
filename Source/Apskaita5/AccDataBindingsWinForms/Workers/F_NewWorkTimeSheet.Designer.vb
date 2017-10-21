@@ -60,8 +60,6 @@ Partial Friend Class F_NewWorkTimeSheet
         Me.RestDayClassAccListComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RestDayClassAccListComboBox.EmptyValueString = ""
-        Me.RestDayClassAccListComboBox.FilterString = ""
-        Me.RestDayClassAccListComboBox.FormattingEnabled = True
         Me.RestDayClassAccListComboBox.InstantBinding = True
         Me.RestDayClassAccListComboBox.Location = New System.Drawing.Point(158, 12)
         Me.RestDayClassAccListComboBox.Name = "RestDayClassAccListComboBox"
@@ -73,8 +71,6 @@ Partial Friend Class F_NewWorkTimeSheet
         Me.PublicHolidayClassAccListComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PublicHolidayClassAccListComboBox.EmptyValueString = ""
-        Me.PublicHolidayClassAccListComboBox.FilterString = ""
-        Me.PublicHolidayClassAccListComboBox.FormattingEnabled = True
         Me.PublicHolidayClassAccListComboBox.InstantBinding = True
         Me.PublicHolidayClassAccListComboBox.Location = New System.Drawing.Point(158, 39)
         Me.PublicHolidayClassAccListComboBox.Name = "PublicHolidayClassAccListComboBox"

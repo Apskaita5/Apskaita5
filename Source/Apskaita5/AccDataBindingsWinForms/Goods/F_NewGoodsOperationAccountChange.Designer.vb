@@ -126,8 +126,6 @@ Partial Class F_NewGoodsOperationAccountChange
         '
         Me.GoodsInfoListAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GoodsInfoListAccListComboBox.EmptyValueString = ""
-        Me.GoodsInfoListAccListComboBox.FilterString = ""
-        Me.GoodsInfoListAccListComboBox.FormattingEnabled = True
         Me.GoodsInfoListAccListComboBox.InstantBinding = True
         Me.GoodsInfoListAccListComboBox.Location = New System.Drawing.Point(87, 3)
         Me.GoodsInfoListAccListComboBox.Name = "GoodsInfoListAccListComboBox"

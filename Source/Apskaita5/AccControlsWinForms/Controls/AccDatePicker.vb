@@ -1,6 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Drawing
 Imports System.Windows.Forms
+Imports System.Globalization
 
 
 ''' <summary>
@@ -12,9 +13,15 @@ Imports System.Windows.Forms
 <DefaultProperty("Value")> _
 <DefaultEvent("OnValueChanged")> _
 Public Class AccDatePicker
+    Inherits AccComboBoxBase
+
+    Private ReadOnly VALID_CHARS As Char() = New Char() {"0", "1", "2", "3", "4", "5", "6", "7", "8", _
+        "9", "/", "-", "+", ".", "\"}
 
     Private _Calendar As CalendarToolStrip = Nothing
-    Private _DropDown As ToolStripDropDown = Nothing
+
+    Private _Value As Date = Today
+    Private _Format As String = "yyyy-MM-dd"
     Private _BoldedDates As Date() = Nothing
     Private _MaxDate As Date = New Date(9998, 12, 31)
     Private _MinDate As Date = New Date(1753, 1, 1)
@@ -33,10 +40,14 @@ Public Class AccDatePicker
     <DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)> _
     Public Property Value() As Date
         Get
-            Return ValueTextBox.Value
+            Return _Value.Date
         End Get
         Set(ByVal value As Date)
-            ValueTextBox.Value = value
+            If value.Date <> _Value.Date Then
+                _Value = value.Date
+                ValueToText()
+                RaiseEvent OnValueChanged(Me, EventArgs.Empty)
+            End If
         End Set
     End Property
 
@@ -54,26 +65,11 @@ Public Class AccDatePicker
     <Localizable(True)> _
     Public Property Format() As String
         Get
-            Return ValueTextBox.Format
+            Return _Format
         End Get
         Set(ByVal value As String)
-            ValueTextBox.Format = value
-        End Set
-    End Property
-
-    ''' <summary>
-    ''' Gets or sets whether the control is readonly.
-    ''' </summary>
-    <Category("Behavior")> _
-    <Description("Gets or sets whether the control is readonly.")> _
-    <Browsable(True)> _
-    Public Property [ReadOnly]() As Boolean
-        Get
-            Return ValueTextBox.ReadOnly
-        End Get
-        Set(ByVal value As Boolean)
-            ValueTextBox.ReadOnly = value
-            DropdownButton.Enabled = Not value
+            _Format = value
+            ValueToText()
         End Set
     End Property
 
@@ -152,47 +148,57 @@ Public Class AccDatePicker
 
     Public Sub New()
 
-        ' This call is required by the Windows Form Designer.
-        InitializeComponent()
+        Me.TextAlign = HorizontalAlignment.Left
 
-        ' Add any initialization after the InitializeComponent() call.
-
+        ValueToText()
 
     End Sub
 
 
-    Private Sub ValueTextBox_MouseClick(ByVal sender As Object, _
-        ByVal e As System.Windows.Forms.MouseEventArgs) Handles ValueTextBox.MouseClick
-        If Not ValueTextBox.ReadOnly AndAlso e.Button = MouseButtons.Middle Then ShowDropDown()
+    ''' <summary>
+    ''' Force the control to update the value from the control text, 
+    ''' in case the entered value is required before the control looses focus.
+    ''' </summary>
+    Public Sub RefreshValue()
+        Me.Value = ParseDate()
     End Sub
 
-    Private Sub ValueTextBox_KeyDown(ByVal sender As Object, ByVal e As KeyEventArgs) Handles ValueTextBox.KeyDown
-        If Not ValueTextBox.ReadOnly AndAlso e.KeyCode = Keys.Down Then
-            e.Handled = True
-            ShowDropDown()
+
+    Protected Overrides Function GetMaxTextLength() As Integer
+        Return 10
+    End Function
+
+    Protected Overrides Function GetButtonImage() As Image
+        Return My.Resources.calendar_x16
+    End Function
+
+    Protected Overrides Sub OnPaste()
+
+        Dim clipboardText As String = Clipboard.GetText()
+        If clipboardText Is Nothing OrElse String.IsNullOrEmpty(clipboardText) Then Exit Sub
+
+        Dim result As Date
+        If TryParseDate(clipboardText, result) Then
+            Value = result
+        Else
+            MsgBox(String.Format("Clipboard text ""{0}"" is not a valid date.", clipboardText), MsgBoxStyle.Exclamation, "Error")
         End If
+
     End Sub
 
-    Private Sub DropdownButton_Click(ByVal sender As System.Object, _
-        ByVal e As System.EventArgs) Handles DropdownButton.Click
-        If Not ValueTextBox.ReadOnly Then ShowDropDown()
-        ValueTextBox.Focus()
+    Protected Overrides Function AcceptPaste() As Boolean
+        Return True
+    End Function
+
+    Protected Overridable Sub OnCopy()
+        Clipboard.SetText(Me.Text)
     End Sub
 
-    Private Sub ValueTextBox_OnValueChanged(ByVal sender As Object, _
-        ByVal e As System.EventArgs) Handles ValueTextBox.OnValueChanged
-        RaiseEvent OnValueChanged(Me, EventArgs.Empty)
+    Protected Overrides Sub OnCut()
+        Clipboard.SetText(Me.Text)
     End Sub
 
-
-    Protected Overrides Sub OnEnabledChanged(ByVal e As EventArgs)
-        MyBase.OnEnabledChanged(e)
-        Me.ValueTextBox.Enabled = Me.Enabled
-        Me.DropdownButton.Enabled = Me.Enabled AndAlso Not Me.ValueTextBox.ReadOnly
-    End Sub
-
-
-    Private Sub ShowDropDown()
+    Protected Overrides Function GetToolStripControlHost() As ToolStripControlHost
 
         If _Calendar Is Nothing Then
             _Calendar = New CalendarToolStrip()
@@ -201,59 +207,145 @@ Public Class AccDatePicker
             _Calendar.SetMinDate(_MinDate)
             _Calendar.SetShowWeekNumbers(_ShowWeekNumbers)
         End If
-        If _DropDown Is Nothing Then
 
-            _DropDown = New ToolStripDropDown()
-            _DropDown.AutoSize = False
-            _DropDown.GripStyle = SizeGripStyle.Show
-            _DropDown.Margin = Padding.Empty
-            _DropDown.Padding = Padding.Empty
-
-            AddHandler _DropDown.Closed, AddressOf ToolStripDropDown_Closed
-            AddHandler _DropDown.Opened, AddressOf ToolStripDropDown_Opened
-
-        End If
-        If Not _DropDown.Items.Contains(_Calendar) Then
-            _DropDown.Items.Clear()
-            _DropDown.Items.Add(_Calendar)
-        End If
-
-        _Calendar.SelectedValue = ValueTextBox.ParseDate()
-        _Calendar.SelectionCanceled = True
-
-        _DropDown.Show(Me, CalculatePoz()) 'New Point(0, Me.Height)
-
-        _DropDown.Size = _Calendar.Size
-
-    End Sub
-
-    Private Function CalculatePoz() As Point
-
-        Dim point As New Point(0, Me.Height)
-
-        If (Me.PointToScreen(New Point(0, 0)).Y + Me.Height + Me._Calendar.Height) _
-            > Screen.PrimaryScreen.WorkingArea.Height Then
-            point.Y = -Me._Calendar.Height - 7
-        End If
-
-        Return point
+        Return _Calendar
 
     End Function
 
-    Private Sub ToolStripDropDown_Closed(ByVal sender As Object, _
-        ByVal e As ToolStripDropDownClosedEventArgs)
+    Protected Overrides Sub BeforeDropDownOpen()
+        _Calendar.SelectedValue = ParseDate()
+        _Calendar.SelectionCanceled = True
+    End Sub
 
-        If e.CloseReason = ToolStripDropDownCloseReason.ItemClicked _
+    Protected Overrides Sub AfterDropDownOpen()
+        _Calendar.Focus()
+    End Sub
+
+    Protected Overrides Sub AfterDropDownClosed(ByVal reason As ToolStripDropDownCloseReason)
+        If reason = ToolStripDropDownCloseReason.ItemClicked _
             AndAlso Not _Calendar Is Nothing AndAlso Not _Calendar.SelectionCanceled Then
-            Me.ValueTextBox.Value = _Calendar.SelectedValue
-            If Not Me.ValueTextBox.Focused Then Me.ValueTextBox.Focus()
-            Me.ValueTextBox.SelectAll()
+            Me.Value = _Calendar.SelectedValue
+            If Not Me.Focused Then Me.Focus()
+            Me.SelectAll()
+        End If
+    End Sub
+
+
+    ''' <summary>
+    ''' Filter valid chars.
+    ''' </summary>
+    Protected Overrides Sub OnKeyPress(ByVal e As KeyPressEventArgs)
+
+        MyBase.OnKeyPress(e)
+
+        If Me.[ReadOnly] Then
+            Exit Sub
+        End If
+
+        If Not Char.IsControl(e.KeyChar) AndAlso Array.IndexOf(VALID_CHARS, e.KeyChar) < 0 Then
+            e.Handled = True
+            Exit Sub
         End If
 
     End Sub
 
-    Private Sub ToolStripDropDown_Opened(ByVal sender As Object, ByVal e As EventArgs)
-        _Calendar.Focus()
+    ''' <summary>
+    ''' reformat the base.Text
+    ''' </summary>
+    Protected Overrides Sub OnLeave(ByVal e As EventArgs)
+        Me.Value = ParseDate()
+        MyBase.OnLeave(e)
     End Sub
+
+    Private Delegate Sub SelectAllDelegate()
+
+    Protected Overrides Sub OnEnter(ByVal e As EventArgs)
+        BeginInvoke(New SelectAllDelegate(AddressOf Me.SelectAll))
+    End Sub
+
+
+    Private Sub ValueToText()
+        If _Format Is Nothing OrElse String.IsNullOrEmpty(_Format.Trim) Then
+            Me.Text = _Value.ToString()
+        Else
+            Me.Text = _Value.ToString(_Format)
+        End If
+    End Sub
+
+    Friend Function ParseDate() As Date
+        Return ParseDate(Me.Text)
+    End Function
+
+    Private Function ParseDate(ByVal dateString As String) As Date
+
+        Dim result As Date
+
+        If TryParseDate(dateString, result) Then
+            Return result.Date
+        End If
+
+        Return _Value.Date
+
+    End Function
+
+    Private Function TryParseDate(ByVal dateString As String, ByRef result As Date) As Boolean
+
+        If dateString Is Nothing OrElse String.IsNullOrEmpty(dateString.Trim) Then Return False
+
+        Dim currentFormat As String = _Format
+        If currentFormat Is Nothing OrElse String.IsNullOrEmpty(currentFormat.Trim) _
+            OrElse currentFormat.Trim.ToLower = "d" Then
+            currentFormat = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern
+        End If
+
+        Dim day As Integer = 0
+
+        If Date.TryParseExact(dateString, currentFormat, CultureInfo.InvariantCulture, _
+            DateTimeStyles.None, result) Then
+            Return True
+        ElseIf Date.TryParseExact(dateString, New String() {"yyyy-MM-dd", "yyyyMMdd", "yyMMdd", _
+            "yyyy/MM/dd", "yy/MM/dd", "yyyy.MM.dd", "yy.MM.dd"}, _
+            CultureInfo.InvariantCulture, DateTimeStyles.None, result) Then
+            Return True
+        ElseIf Integer.TryParse(dateString, day) Then
+            If dateString.Trim.Substring(0, 1) = "-" Then
+                Try
+                    result = New Date(Today.AddMonths(-1).Year, Today.AddMonths(-1).Month, -day)
+                    Return True
+                Catch ex As Exception
+                End Try
+            ElseIf dateString.Trim.Substring(0, 1) = "+" Then
+                Try
+                    result = New Date(Today.AddMonths(1).Year, Today.AddMonths(1).Month, day)
+                    Return True
+                Catch ex As Exception
+                End Try
+            Else
+                Try
+                    result = New Date(Today.Year, Today.Month, day)
+                    Return True
+                Catch ex As Exception
+                End Try
+            End If
+
+        ElseIf dateString.Split(New Char() {"."c, "-"c, "/"c}, StringSplitOptions.RemoveEmptyEntries).Length = 2 Then
+            Dim monthPart As String = dateString.Split(New Char() {"."c, "-"c, "/"c}, StringSplitOptions.RemoveEmptyEntries)(0).Trim()
+            Dim dayPart As String = dateString.Split(New Char() {"."c, "-"c, "/"c}, StringSplitOptions.RemoveEmptyEntries)(1).Trim()
+            Dim dayInt As Integer = 0
+            Dim monthInt As Integer = 0
+            If Integer.TryParse(monthPart, monthInt) Then
+                If Integer.TryParse(dayPart, dayInt) Then
+                    Try
+                        result = New Date(Today.Year, monthInt, dayInt)
+                        Return True
+                    Catch ex As Exception
+                    End Try
+                End If
+            End If
+        End If
+
+        Return False
+
+    End Function
 
 End Class

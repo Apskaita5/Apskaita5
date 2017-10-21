@@ -466,8 +466,6 @@ Partial Friend Class F_VatDeclarationSchema
         Me.TaxCodeAccListComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.VatDeclarationSchemaBindingSource, "TaxCode", True))
         Me.TaxCodeAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TaxCodeAccListComboBox.EmptyValueString = ""
-        Me.TaxCodeAccListComboBox.FilterString = ""
-        Me.TaxCodeAccListComboBox.FormattingEnabled = True
         Me.TaxCodeAccListComboBox.InstantBinding = True
         Me.TaxCodeAccListComboBox.Location = New System.Drawing.Point(111, 56)
         Me.TaxCodeAccListComboBox.Name = "TaxCodeAccListComboBox"

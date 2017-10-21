@@ -226,7 +226,7 @@ Public Class InfoListControl
 
         ElseIf e.KeyData = Keys.Delete Then
 
-            ClearFilter(True)
+            ResetFilter(True)
             e.Handled = True
 
         ElseIf e.KeyData = Keys.Escape Then
@@ -242,7 +242,10 @@ Public Class InfoListControl
         ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles baseDataListView.KeyPress
 
         If Not Char.IsControl(e.KeyChar) AndAlso (Char.IsLetterOrDigit(e.KeyChar) _
-            OrElse Char.IsPunctuation(e.KeyChar)) Then AppendFilter(e.KeyChar)
+            OrElse Char.IsPunctuation(e.KeyChar)) Then
+            AppendFilter(e.KeyChar)
+            e.Handled = True
+        End If
 
     End Sub
 
@@ -250,7 +253,7 @@ Public Class InfoListControl
         Me.FilterString = _FilterString & filterChar
     End Sub
 
-    Friend Sub ClearFilter(ByVal raiseFilterChangedEvent As Boolean)
+    Friend Sub ResetFilter(ByVal raiseFilterChangedEvent As Boolean)
         If _FilterString <> "" Then
             _FilterString = ""
             baseDataListView.AdditionalFilter = _

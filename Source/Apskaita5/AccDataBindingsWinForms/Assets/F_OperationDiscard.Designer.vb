@@ -361,8 +361,6 @@ Partial Friend Class F_OperationDiscard
         Me.AccountCostsAccGridComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.OperationDiscardBindingSource, "AccountCosts", True))
         Me.AccountCostsAccGridComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountCostsAccGridComboBox.EmptyValueString = ""
-        Me.AccountCostsAccGridComboBox.FilterString = ""
-        Me.AccountCostsAccGridComboBox.FormattingEnabled = True
         Me.AccountCostsAccGridComboBox.InstantBinding = True
         Me.AccountCostsAccGridComboBox.Location = New System.Drawing.Point(387, 55)
         Me.AccountCostsAccGridComboBox.Name = "AccountCostsAccGridComboBox"
@@ -374,7 +372,6 @@ Partial Friend Class F_OperationDiscard
         Me.AmountToDiscardAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationDiscardBindingSource, "AmountToDiscard", True))
         Me.AmountToDiscardAccTextBox.DecimalLength = 0
         Me.AmountToDiscardAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AmountToDiscardAccTextBox.KeepBackColorWhenReadOnly = False
         Me.AmountToDiscardAccTextBox.Location = New System.Drawing.Point(120, 55)
         Me.AmountToDiscardAccTextBox.Name = "AmountToDiscardAccTextBox"
         Me.AmountToDiscardAccTextBox.NegativeValue = False

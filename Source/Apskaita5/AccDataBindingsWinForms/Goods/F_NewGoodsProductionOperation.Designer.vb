@@ -73,8 +73,6 @@ Partial Class F_NewGoodsProductionOperation
         '
         Me.ProductionCalculationInfoListAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ProductionCalculationInfoListAccListComboBox.EmptyValueString = ""
-        Me.ProductionCalculationInfoListAccListComboBox.FilterString = ""
-        Me.ProductionCalculationInfoListAccListComboBox.FormattingEnabled = True
         Me.ProductionCalculationInfoListAccListComboBox.InstantBinding = True
         Me.ProductionCalculationInfoListAccListComboBox.Location = New System.Drawing.Point(153, 3)
         Me.ProductionCalculationInfoListAccListComboBox.Name = "ProductionCalculationInfoListAccListComboBox"
@@ -147,8 +145,6 @@ Partial Class F_NewGoodsProductionOperation
         '
         Me.GoodsInfoListAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GoodsInfoListAccListComboBox.EmptyValueString = ""
-        Me.GoodsInfoListAccListComboBox.FilterString = ""
-        Me.GoodsInfoListAccListComboBox.FormattingEnabled = True
         Me.GoodsInfoListAccListComboBox.InstantBinding = True
         Me.GoodsInfoListAccListComboBox.Location = New System.Drawing.Point(153, 30)
         Me.GoodsInfoListAccListComboBox.Name = "GoodsInfoListAccListComboBox"
@@ -159,8 +155,6 @@ Partial Class F_NewGoodsProductionOperation
         '
         Me.WarehouseFromInfoListAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WarehouseFromInfoListAccListComboBox.EmptyValueString = ""
-        Me.WarehouseFromInfoListAccListComboBox.FilterString = ""
-        Me.WarehouseFromInfoListAccListComboBox.FormattingEnabled = True
         Me.WarehouseFromInfoListAccListComboBox.InstantBinding = True
         Me.WarehouseFromInfoListAccListComboBox.Location = New System.Drawing.Point(153, 84)
         Me.WarehouseFromInfoListAccListComboBox.Name = "WarehouseFromInfoListAccListComboBox"
@@ -171,8 +165,6 @@ Partial Class F_NewGoodsProductionOperation
         '
         Me.WarehouseToInfoListAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WarehouseToInfoListAccListComboBox.EmptyValueString = ""
-        Me.WarehouseToInfoListAccListComboBox.FilterString = ""
-        Me.WarehouseToInfoListAccListComboBox.FormattingEnabled = True
         Me.WarehouseToInfoListAccListComboBox.InstantBinding = True
         Me.WarehouseToInfoListAccListComboBox.Location = New System.Drawing.Point(153, 57)
         Me.WarehouseToInfoListAccListComboBox.Name = "WarehouseToInfoListAccListComboBox"

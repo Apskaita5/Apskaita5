@@ -438,8 +438,6 @@ Partial Friend Class F_WorkerHolidayInfo
         '
         Me.LabourContractAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LabourContractAccListComboBox.EmptyValueString = ""
-        Me.LabourContractAccListComboBox.FilterString = ""
-        Me.LabourContractAccListComboBox.FormattingEnabled = True
         Me.LabourContractAccListComboBox.InstantBinding = True
         Me.LabourContractAccListComboBox.Location = New System.Drawing.Point(422, 3)
         Me.LabourContractAccListComboBox.Name = "LabourContractAccListComboBox"
@@ -530,7 +528,6 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.TotalHolidayDaysCorrectionAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkerHolidayInfoBindingSource, "TotalHolidayDaysCorrection", True))
         Me.TotalHolidayDaysCorrectionAccTextBox.DecimalLength = 4
         Me.TotalHolidayDaysCorrectionAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalHolidayDaysCorrectionAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalHolidayDaysCorrectionAccTextBox.Location = New System.Drawing.Point(326, 3)
         Me.TotalHolidayDaysCorrectionAccTextBox.Name = "TotalHolidayDaysCorrectionAccTextBox"
         Me.TotalHolidayDaysCorrectionAccTextBox.ReadOnly = True
@@ -579,7 +576,6 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.TotalWorkPeriodInYearsAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkerHolidayInfoBindingSource, "TotalWorkPeriodInYears", True))
         Me.TotalWorkPeriodInYearsAccTextBox.DecimalLength = 4
         Me.TotalWorkPeriodInYearsAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalWorkPeriodInYearsAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalWorkPeriodInYearsAccTextBox.Location = New System.Drawing.Point(613, 3)
         Me.TotalWorkPeriodInYearsAccTextBox.Name = "TotalWorkPeriodInYearsAccTextBox"
         Me.TotalWorkPeriodInYearsAccTextBox.ReadOnly = True
@@ -628,7 +624,6 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.TotalUnusedHolidayDaysAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkerHolidayInfoBindingSource, "TotalUnusedHolidayDays", True))
         Me.TotalUnusedHolidayDaysAccTextBox.DecimalLength = 4
         Me.TotalUnusedHolidayDaysAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalUnusedHolidayDaysAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalUnusedHolidayDaysAccTextBox.Location = New System.Drawing.Point(625, 3)
         Me.TotalUnusedHolidayDaysAccTextBox.Name = "TotalUnusedHolidayDaysAccTextBox"
         Me.TotalUnusedHolidayDaysAccTextBox.ReadOnly = True
@@ -641,7 +636,6 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.TotalCumulatedHolidayDaysAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkerHolidayInfoBindingSource, "TotalCumulatedHolidayDays", True))
         Me.TotalCumulatedHolidayDaysAccTextBox.DecimalLength = 4
         Me.TotalCumulatedHolidayDaysAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalCumulatedHolidayDaysAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalCumulatedHolidayDaysAccTextBox.Location = New System.Drawing.Point(3, 3)
         Me.TotalCumulatedHolidayDaysAccTextBox.Name = "TotalCumulatedHolidayDaysAccTextBox"
         Me.TotalCumulatedHolidayDaysAccTextBox.ReadOnly = True
@@ -654,7 +648,6 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.TotalHolidayDaysUsedAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkerHolidayInfoBindingSource, "TotalHolidayDaysUsed", True))
         Me.TotalHolidayDaysUsedAccTextBox.DecimalLength = 4
         Me.TotalHolidayDaysUsedAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalHolidayDaysUsedAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalHolidayDaysUsedAccTextBox.Location = New System.Drawing.Point(312, 3)
         Me.TotalHolidayDaysUsedAccTextBox.Name = "TotalHolidayDaysUsedAccTextBox"
         Me.TotalHolidayDaysUsedAccTextBox.ReadOnly = True
@@ -690,7 +683,6 @@ Partial Friend Class F_WorkerHolidayInfo
         Me.TotalHolidayDaysCompensatedAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkerHolidayInfoBindingSource, "TotalHolidayDaysCompensated", True))
         Me.TotalHolidayDaysCompensatedAccTextBox.DecimalLength = 4
         Me.TotalHolidayDaysCompensatedAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalHolidayDaysCompensatedAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalHolidayDaysCompensatedAccTextBox.Location = New System.Drawing.Point(403, 3)
         Me.TotalHolidayDaysCompensatedAccTextBox.Name = "TotalHolidayDaysCompensatedAccTextBox"
         Me.TotalHolidayDaysCompensatedAccTextBox.ReadOnly = True

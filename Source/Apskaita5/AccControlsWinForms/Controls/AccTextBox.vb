@@ -10,25 +10,17 @@ Imports System.Drawing
 <ToolboxBitmap(GetType(TextBox))> _
 <System.ComponentModel.DefaultBindingProperty("DecimalValue")> _
 Public Class AccTextBox
-    Inherits TextBox
-
-#Region "Member fields"
+    Inherits AccComboBoxBase
 
     Private Const _MaxDecimalLength As Integer = 10 ' max dot length
     Private Const _MaxValueLength As Integer = 27 ' decimal can be 28 bits.
 
     Private Const WM_CHAR As Integer = &H102 ' char key message
 
-    Private Const WM_CUT As Integer = &H300 ' mouse message in ContextMenu
-    Private Const WM_COPY As Integer = &H301
-    Private Const WM_PASTE As Integer = &H302
-    Private Const WM_CLEAR As Integer = &H303
-
     Private _decimalLength As Integer = 2
     Private _allowNegative As Boolean = True
     Private _valueFormatStr As String = String.Empty
     Private _value As Double = 0
-    Private _supressFormating As Boolean = False
 
     Private _ApplicableCulture As System.Globalization.CultureInfo
     Private _decimalSeparator As Char = "."c
@@ -36,259 +28,70 @@ Public Class AccTextBox
     Private _negativeSign As Char = "-"c
     Private _isInEditMode As Boolean = False
 
-    Private _keepBackColorWhenReadOnly As Boolean = True
-    Private _backColor As Color
-    Private _backColorWhenReadOnly As Color
+    Private _Calculator As CalculatorToolStrip = Nothing
 
-#End Region
-
-#Region "Class constructor"
-
-    Public Sub New()
-
-        MyBase.Multiline = False
-        MyBase.TextAlign = HorizontalAlignment.Right
-
-        _ApplicableCulture = System.Threading.Thread.CurrentThread.CurrentCulture
-        _decimalSeparator = _ApplicableCulture.NumberFormat.NumberDecimalSeparator(0)
-        If _decimalSeparator = "," Then
-            _alternateDecimalSeparator = "."
-        Else
-            _alternateDecimalSeparator = ","
-        End If
-        _negativeSign = _ApplicableCulture.NumberFormat.NegativeSign(0)
-
-        If MyBase.ReadOnly Then
-            _backColorWhenReadOnly = MyBase.BackColor
-            MyBase.ReadOnly = False
-            _backColor = MyBase.BackColor
-            MyBase.ReadOnly = True
-        Else
-            _backColor = MyBase.BackColor
-            MyBase.ReadOnly = True
-            _backColorWhenReadOnly = MyBase.BackColor
-            MyBase.ReadOnly = False
-        End If
-
-        Me.SetValueFormatStr()
-        MyBase.Text = _value.ToString(_valueFormatStr)
-
-    End Sub
-
-#End Region
-
-#Region "Disabled public properties"
-
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never)> _
-    Public Shadows ReadOnly Property Lines() As String()
-        Get
-            Return MyBase.Lines
-        End Get
-    End Property
-
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never)> _
-    Public Shadows ReadOnly Property ImeMode() As ImeMode
-        Get
-            Return MyBase.ImeMode
-        End Get
-    End Property
-
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never)> _
-    Public Shadows ReadOnly Property PasswordChar() As Char
-        Get
-            Return MyBase.PasswordChar
-        End Get
-    End Property
-
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never)> _
-    Public Shadows ReadOnly Property UseSystemPasswordChar() As Boolean
-        Get
-            Return MyBase.UseSystemPasswordChar
-        End Get
-    End Property
-
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never)> _
-    Public Shadows ReadOnly Property Multiline() As Boolean
-        Get
-            Return MyBase.Multiline
-        End Get
-    End Property
-
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never)> _
-    Public Shadows ReadOnly Property AutoCompleteCustomSource() As AutoCompleteStringCollection
-        Get
-            Return MyBase.AutoCompleteCustomSource
-        End Get
-    End Property
-
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never)> _
-    Public Shadows ReadOnly Property AutoCompleteMode() As AutoCompleteMode
-        Get
-            Return MyBase.AutoCompleteMode
-        End Get
-    End Property
-
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never)> _
-    Public Shadows ReadOnly Property AutoCompleteSource() As AutoCompleteSource
-        Get
-            Return MyBase.AutoCompleteSource
-        End Get
-    End Property
-
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never)> _
-    Public Shadows ReadOnly Property CharacterCasing() As CharacterCasing
-        Get
-            Return MyBase.CharacterCasing
-        End Get
-    End Property
-
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never)> _
-    Public Shadows ReadOnly Property MaxLength() As Integer
-        Get
-            Return MyBase.MaxLength
-        End Get
-    End Property
-
-    <Browsable(False), EditorBrowsable(EditorBrowsableState.Never), _
-    Bindable(False), [ReadOnly](True), _
-    DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)> _
-    Public Shadows Property Text() As String
-        Get
-            Return MyBase.Text
-        End Get
-        Set(ByVal value As String)
-
-        End Set
-    End Property
-
-#End Region
-
-#Region "Override public properties"
-
-    <DefaultValue(GetType(Color), "Window")> _
-    Public Shadows Property BackColor() As Color
-        Get
-            Return _backColor
-        End Get
-        Set(ByVal value As Color)
-            If _backColor <> value Then
-                _backColor = value
-                Me.OnBackColorChanged(EventArgs.Empty)
-            End If
-        End Set
-    End Property
-
-    Public Shadows Property [ReadOnly]() As Boolean
-        Get
-            Return MyBase.[ReadOnly]
-        End Get
-        Set(ByVal value As Boolean)
-            If MyBase.[ReadOnly] <> value Then
-                MyBase.[ReadOnly] = value
-                Me.OnBackColorChanged(EventArgs.Empty)
-            End If
-        End Set
-    End Property
-
-#End Region
-
-#Region "Custom public properties"
-
-    Public Event OnDecimalValueChanged As eventhandler
+    Public Event OnDecimalValueChanged As EventHandler
 
 
-    <Category("Custom")> _
-    <Description("Set/Get if keep backcolor when textbox is readonly.")> _
-    <DefaultValue(True)> _
-    Public Property KeepBackColorWhenReadOnly() As Boolean
-        Get
-            Return _keepBackColorWhenReadOnly
-        End Get
-        Set(ByVal value As Boolean)
-            If _keepBackColorWhenReadOnly <> value Then
-                _keepBackColorWhenReadOnly = value
-                Me.OnBackColorChanged(EventArgs.Empty)
-            End If
-        End Set
-    End Property
-
-    <Category("Custom")> _
-    <Description("Set/Get dot length(0 is integer, 10 is maximum).")> _
+    <Category("Behavior")> _
+    <Description("Get or set decimal precision. (0 - integer)")> _
+    <Browsable(True), EditorBrowsable(EditorBrowsableState.Always)> _
     <DefaultValue(2)> _
     Public Property DecimalLength() As Integer
         Get
             Return _decimalLength
         End Get
         Set(ByVal value As Integer)
+
             If _decimalLength <> value Then
+
                 If value < 0 OrElse value > _MaxDecimalLength Then
                     _decimalLength = 0
                 Else
                     _decimalLength = value
                 End If
+
                 _value = Math.Round(_value, _decimalLength)
+
                 Me.SetValueFormatStr()
-                If _isInEditMode OrElse _supressFormating Then
+
+                If _isInEditMode Then
                     MyBase.Text = _value.ToString
                 Else
                     MyBase.Text = _value.ToString(_valueFormatStr)
                 End If
+
                 RaiseEvent OnDecimalValueChanged(Me, New EventArgs)
+
             End If
         End Set
     End Property
 
-    <Category("Custom")> _
     <Description("Get decimal value of textbox.")> _
     <DefaultValue(GetType(Double), "0")> _
     <Bindable(True)> _
-    <Browsable(True)> _
+    <Browsable(True), EditorBrowsable(EditorBrowsableState.Always)> _
     Public Property DecimalValue() As Double
         Get
             Return _value
         End Get
         Set(ByVal value As Double)
+
             If value <> _value AndAlso Not (Not _allowNegative AndAlso value < 0) Then
                 _value = value
-                If Me._isInEditMode OrElse _supressFormating Then
+                If Me._isInEditMode Then
                     MyBase.Text = _value.ToString
                 Else
                     MyBase.Text = _value.ToString(_valueFormatStr)
                 End If
                 RaiseEvent OnDecimalValueChanged(Me, New EventArgs)
             End If
+
         End Set
     End Property
 
-    <Category("Custom")> _
-    <Description("Get decimal value of textbox.")> _
-    <DefaultValue(False)> _
-    Public Property SupressFormating() As Boolean
-        Get
-            Return _supressFormating
-        End Get
-        Set(ByVal value As Boolean)
-            If value <> _supressFormating Then
-                _supressFormating = value
-                If _supressFormating Then
-                    MyBase.Text = _value.ToString
-                Else
-                    MyBase.Text = _value.ToString(_valueFormatStr)
-                End If
-            End If
-        End Set
-    End Property
-
-    <Category("Custom")> _
-    <Description("Get integer value of textbox.")> _
-    Public ReadOnly Property IntValue() As Integer
-        Get
-            Return CInt(_value)
-        End Get
-    End Property
-
-    <Category("Custom")> _
-    <Description("Number can be negative or not.")> _
+    <Category("Behavior")> _
+    <Description("Gets or sets whether a negative value could be entered.")> _
     <DefaultValue(True)> _
     Public Property NegativeValue() As Boolean
         Get
@@ -301,49 +104,112 @@ Public Class AccTextBox
         End Set
     End Property
 
-#End Region
 
-#Region "Override events or methods"
+    Public Sub New()
 
-    Protected Overrides Sub OnBackColorChanged(ByVal e As EventArgs)
+        MyBase.New()
 
-        MyBase.OnBackColorChanged(e)
+        MyBase.ButtonVisible = False
+        MyBase.TextAlign = HorizontalAlignment.Right
 
-        If Me.ReadOnly Then
-            If _keepBackColorWhenReadOnly Then
-                MyBase.BackColor = _backColor
-            Else
-                MyBase.BackColor = _backColorWhenReadOnly
-            End If
+        _ApplicableCulture = System.Threading.Thread.CurrentThread.CurrentCulture
+        _decimalSeparator = _ApplicableCulture.NumberFormat.NumberDecimalSeparator(0)
+        If _decimalSeparator = "," Then
+            _alternateDecimalSeparator = "."
         Else
-            MyBase.BackColor = _backColor
+            _alternateDecimalSeparator = ","
         End If
+        _negativeSign = _ApplicableCulture.NumberFormat.NegativeSign(0)
 
-        Me.Invalidate()
+        Me.SetValueFormatStr()
+
+        MyBase.Text = _value.ToString(_valueFormatStr)
 
     End Sub
 
-    Protected Overrides Sub WndProc(ByRef m As Message)
-        If m.Msg = WM_PASTE Then
-            ' mouse paste
-            Me.ClearSelection()
-            SendKeys.Send(Clipboard.GetText())
-            MyBase.OnTextChanged(EventArgs.Empty)
-        ElseIf m.Msg = WM_COPY Then
-            ' mouse copy
-            Clipboard.SetText(Me.SelectedText)
-        ElseIf m.Msg = WM_CUT Then
-            ' mouse cut or ctrl+x shortcut
-            Clipboard.SetText(Me.SelectedText)
-            Me.ClearSelection()
-            MyBase.OnTextChanged(EventArgs.Empty)
-        ElseIf m.Msg = WM_CLEAR Then
-            Me.ClearSelection()
-            MyBase.OnTextChanged(EventArgs.Empty)
-        Else
-            MyBase.WndProc(m)
-        End If
+
+    Protected Overrides Function GetMaxTextLength() As Integer
+        Return 50
+    End Function
+
+    Protected Overrides Function GetButtonImage() As Image
+        Return My.Resources.calculator_x16
+    End Function
+
+    Protected Overrides Sub OnPaste()
+        Me.ClearSelection()
+        ' SendKeys.Send(Clipboard.GetText())
+        For Each c As Char In Clipboard.GetText()
+            SendCharKey(c)
+        Next
+        MyBase.OnTextChanged(EventArgs.Empty)
     End Sub
+
+    Protected Overrides Function AcceptPaste() As Boolean
+        Return True
+    End Function
+
+    Protected Overrides Sub OnCopy()
+        If Me.SelectedText Is Nothing OrElse String.IsNullOrEmpty(Me.SelectedText.Trim) Then Exit Sub
+        Clipboard.SetText(Me.SelectedText)
+    End Sub
+
+    Protected Overrides Sub OnCut()
+        If Me.SelectedText Is Nothing OrElse String.IsNullOrEmpty(Me.SelectedText.Trim) Then Exit Sub
+        Clipboard.SetText(Me.SelectedText)
+        Me.ClearSelection()
+        MyBase.OnTextChanged(EventArgs.Empty)
+    End Sub
+
+    Protected Overrides Function AcceptCut() As Boolean
+        Return True
+    End Function
+
+    Protected Overrides Sub OnClear()
+        Me.ClearSelection()
+        MyBase.OnTextChanged(EventArgs.Empty)
+    End Sub
+
+    Protected Overrides Function AcceptClear() As Boolean
+        Return True
+    End Function
+
+    Protected Overrides Function GetToolStripControlHost() As ToolStripControlHost
+        If _Calculator Is Nothing Then
+            _Calculator = New CalculatorToolStrip(New CalculatorUserControl())
+        End If
+        Return _Calculator
+    End Function
+
+    Protected Overrides Sub BeforeDropDownOpen()
+
+        Dim currentValue As Double = 0.0
+        Double.TryParse(MyBase.Text.Trim, Globalization.NumberStyles.Any, _ApplicableCulture, currentValue)
+
+        _Calculator.SetSelectedValue(currentValue)
+
+    End Sub
+
+    Protected Overrides Sub AfterDropDownOpen()
+        _Calculator.Focus()
+    End Sub
+
+    Protected Overrides Sub AfterDropDownClosed(ByVal reason As ToolStripDropDownCloseReason)
+
+        If reason = ToolStripDropDownCloseReason.ItemClicked _
+            AndAlso Not _Calculator Is Nothing AndAlso Not _Calculator.SelectionCanceled Then
+
+            If Not MyBase.Focused Then MyBase.Focus()
+
+            _value = _Calculator.SelectedValue
+            MyBase.Text = _value.ToString
+            _isInEditMode = True
+
+        End If
+
+    End Sub
+
+
 
     Protected Overrides Function ProcessCmdKey(ByRef msg As Message, ByVal keyData As Keys) As Boolean
 
@@ -461,8 +327,6 @@ Public Class AccTextBox
 
             End If
 
-            Return
-
         End If
 
     End Sub
@@ -479,11 +343,7 @@ Public Class AccTextBox
 
         If _value <> oldValue Then RaiseEvent OnDecimalValueChanged(Me, EventArgs.Empty)
 
-        If _supressFormating Then
-            MyBase.Text = _value.ToString()
-        Else
-            MyBase.Text = _value.ToString(_valueFormatStr)
-        End If
+        MyBase.Text = _value.ToString(_valueFormatStr)
 
         MyBase.OnLeave(e)
 
@@ -512,9 +372,6 @@ Public Class AccTextBox
 
     End Sub
 
-#End Region
-
-#Region "Custom private methods"
 
     Private Sub SendCharKey(ByVal c As Char)
 
@@ -573,84 +430,5 @@ Public Class AccTextBox
             Return result
         End If
     End Function
-
-#End Region
-
-#Region "Calculator Drop Down"
-
-    Private _Calculator As CalculatorToolStrip = Nothing
-    Private _DropDown As ToolStripDropDown = Nothing
-
-    Private Sub AccTextBox_MouseClick(ByVal sender As Object, _
-        ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseClick
-        If e.Button = MouseButtons.Middle Then ShowDropDown()
-    End Sub
-
-    Private Sub ShowDropDown()
-
-        If _Calculator Is Nothing Then
-            _Calculator = New CalculatorToolStrip(New CalculatorUserControl())
-        End If
-        If _DropDown Is Nothing Then
-
-            _DropDown = New ToolStripDropDown()
-            _DropDown.AutoSize = False
-            _DropDown.GripStyle = SizeGripStyle.Show
-            _DropDown.Margin = Padding.Empty
-            _DropDown.Padding = Padding.Empty
-            _DropDown.Size = _Calculator.Size
-
-            AddHandler _DropDown.Closed, AddressOf ToolStripDropDown_Closed
-            AddHandler _DropDown.Opened, AddressOf ToolStripDropDown_Opened
-
-        End If
-        If Not _DropDown.Items.Contains(_Calculator) Then
-            _DropDown.Items.Clear()
-            _DropDown.Items.Add(_Calculator)
-        End If
-
-        Dim currentValue As Double = 0.0
-        Double.TryParse(MyBase.Text.Trim, Globalization.NumberStyles.Any, _ApplicableCulture, currentValue)
-
-        _Calculator.SetSelectedValue(currentValue)
-
-        _DropDown.Show(Me, CalculatePoz()) 'New Point(0, Me.Height)
-
-    End Sub
-
-    Private Function CalculatePoz() As Point
-
-        Dim point As New Point(0, Me.Height)
-
-        If (Me.PointToScreen(New Point(0, 0)).Y + Me.Height + Me._Calculator.Height) _
-            > Screen.PrimaryScreen.WorkingArea.Height Then
-            point.Y = -Me._Calculator.Height - 7
-        End If
-
-        Return point
-
-    End Function
-
-    Private Sub ToolStripDropDown_Closed(ByVal sender As Object, _
-        ByVal e As ToolStripDropDownClosedEventArgs)
-
-        If e.CloseReason = ToolStripDropDownCloseReason.ItemClicked _
-            AndAlso Not _Calculator Is Nothing AndAlso Not _Calculator.SelectionCanceled Then
-
-            If Not MyBase.Focused Then MyBase.Focus()
-
-            _value = _Calculator.SelectedValue
-            MyBase.Text = _value.ToString
-            _isInEditMode = True
-
-        End If
-
-    End Sub
-
-    Private Sub ToolStripDropDown_Opened(ByVal sender As Object, ByVal e As EventArgs)
-        _Calculator.Focus()
-    End Sub
-
-#End Region
 
 End Class

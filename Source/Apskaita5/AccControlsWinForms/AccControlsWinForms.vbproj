@@ -123,13 +123,10 @@
     <Compile Include="Controls\AccButton.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\AccDatePicker.Designer.vb">
-      <DependentUpon>AccDatePicker.vb</DependentUpon>
+    <Compile Include="Controls\AccComboBoxBase.vb">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\AccDatePicker.vb">
-    </Compile>
-    <Compile Include="Controls\AccDateTextBox.vb">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\AccListComboBox.vb">
       <SubType>Component</SubType>
@@ -279,8 +276,8 @@
     <EmbeddedResource Include="AsyncOperations\ProgressFiller.resx">
       <DependentUpon>ProgressFiller.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\AccDatePicker.resx">
-      <DependentUpon>AccDatePicker.vb</DependentUpon>
+    <EmbeddedResource Include="Controls\AccComboBoxBase.resx">
+      <DependentUpon>AccComboBoxBase.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CalculatorUserControl.resx">
       <DependentUpon>CalculatorUserControl.vb</DependentUpon>
@@ -403,6 +400,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PlusMinus_18x18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_drop_down_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar_x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calculator_x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

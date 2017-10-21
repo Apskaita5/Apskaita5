@@ -340,7 +340,6 @@ Partial Friend Class F_ComplexOperationAmortization
         '
         Me.TotalValueChangeAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.ComplexOperationAmortizationBindingSource, "TotalValueChange", True))
         Me.TotalValueChangeAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalValueChangeAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalValueChangeAccTextBox.Location = New System.Drawing.Point(711, 29)
         Me.TotalValueChangeAccTextBox.Name = "TotalValueChangeAccTextBox"
         Me.TotalValueChangeAccTextBox.ReadOnly = True
@@ -465,8 +464,6 @@ Partial Friend Class F_ComplexOperationAmortization
         Me.CommonCostsAccountAccGridComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CommonCostsAccountAccGridComboBox.EmptyValueString = ""
-        Me.CommonCostsAccountAccGridComboBox.FilterString = ""
-        Me.CommonCostsAccountAccGridComboBox.FormattingEnabled = True
         Me.CommonCostsAccountAccGridComboBox.InstantBinding = True
         Me.CommonCostsAccountAccGridComboBox.Location = New System.Drawing.Point(9, 16)
         Me.CommonCostsAccountAccGridComboBox.Name = "CommonCostsAccountAccGridComboBox"

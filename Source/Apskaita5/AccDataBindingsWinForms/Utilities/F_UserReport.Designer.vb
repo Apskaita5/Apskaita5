@@ -112,8 +112,6 @@ Partial Class F_UserReport
         Me.UserReportInfoListAccListComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.UserReportInfoListAccListComboBox.EmptyValueString = ""
-        Me.UserReportInfoListAccListComboBox.FilterString = ""
-        Me.UserReportInfoListAccListComboBox.FormattingEnabled = True
         Me.UserReportInfoListAccListComboBox.InstantBinding = True
         Me.UserReportInfoListAccListComboBox.Location = New System.Drawing.Point(11, 7)
         Me.UserReportInfoListAccListComboBox.Name = "UserReportInfoListAccListComboBox"

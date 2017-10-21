@@ -123,9 +123,9 @@ Public Class DataListViewToolStrip
         End If
     End Sub
 
-    Friend Sub ClearFilter()
+    Friend Sub ResetFilter()
         If Not Me.Control Is Nothing Then
-            DirectCast(Me.Control, InfoListControl).ClearFilter(False)
+            DirectCast(Me.Control, InfoListControl).ResetFilter(False)
         End If
     End Sub
 
@@ -135,6 +135,10 @@ Public Class DataListViewToolStrip
         _SelectedValue = e.SelectedValue
         _SelectionCanceled = e.SelectionCanceled
         DirectCast(Me.Owner, ToolStripDropDown).Close(ToolStripDropDownCloseReason.ItemClicked)
+    End Sub
+
+    Private Sub OnFilterStringChangedInt(ByVal sender As Object, ByVal e As EventArgs)
+        RaiseEvent OnFilterStringChanged(Me, e)
     End Sub
 
 
@@ -148,6 +152,7 @@ Public Class DataListViewToolStrip
 
         ' Add the event.
         AddHandler nDataListView.ValueSelected, AddressOf OnDataListViewValueSelected
+        AddHandler nDataListView.OnFilterStringChanged, AddressOf OnFilterStringChangedInt
 
     End Sub
 
@@ -160,6 +165,7 @@ Public Class DataListViewToolStrip
 
         ' Remove the event.
         RemoveHandler nDataListView.ValueSelected, AddressOf OnDataListViewValueSelected
+        RemoveHandler nDataListView.OnFilterStringChanged, AddressOf OnFilterStringChangedInt
 
     End Sub
 

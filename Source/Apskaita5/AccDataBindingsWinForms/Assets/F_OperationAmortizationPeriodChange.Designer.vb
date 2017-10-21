@@ -310,7 +310,6 @@ Partial Friend Class F_OperationAmortizationPeriodChange
         Me.NewPeriodAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationAmortizationPeriodChangeBindingSource, "NewPeriod", True))
         Me.NewPeriodAccTextBox.DecimalLength = 0
         Me.NewPeriodAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.NewPeriodAccTextBox.KeepBackColorWhenReadOnly = False
         Me.NewPeriodAccTextBox.Location = New System.Drawing.Point(403, 55)
         Me.NewPeriodAccTextBox.Name = "NewPeriodAccTextBox"
         Me.NewPeriodAccTextBox.NegativeValue = False

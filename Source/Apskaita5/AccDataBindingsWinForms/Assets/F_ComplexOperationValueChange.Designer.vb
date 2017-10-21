@@ -571,7 +571,6 @@ Partial Friend Class F_ComplexOperationValueChange
         '
         Me.JournalEntryAmountAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.ComplexOperationValueChangeBindingSource, "JournalEntryAmount", True))
         Me.JournalEntryAmountAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JournalEntryAmountAccTextBox.KeepBackColorWhenReadOnly = False
         Me.JournalEntryAmountAccTextBox.Location = New System.Drawing.Point(95, 29)
         Me.JournalEntryAmountAccTextBox.Name = "JournalEntryAmountAccTextBox"
         Me.JournalEntryAmountAccTextBox.ReadOnly = True

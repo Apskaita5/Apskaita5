@@ -239,8 +239,6 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         '
         Me.PersonFilterAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PersonFilterAccListComboBox.EmptyValueString = ""
-        Me.PersonFilterAccListComboBox.FilterString = ""
-        Me.PersonFilterAccListComboBox.FormattingEnabled = True
         Me.PersonFilterAccListComboBox.InstantBinding = True
         Me.PersonFilterAccListComboBox.Location = New System.Drawing.Point(478, 3)
         Me.PersonFilterAccListComboBox.Name = "PersonFilterAccListComboBox"

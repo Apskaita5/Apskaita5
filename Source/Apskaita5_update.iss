@@ -4,7 +4,7 @@
 [Setup]
 AppName=Apskaita5 update
 AppID=Apskaita5MD
-AppVerName=Apskaita 5 v. 2017-10-16 update
+AppVerName=Apskaita 5 v. 2017-10-21 update
 AppPublisher=Marius Dagys
 AppPublisherURL=https://apskaita5.codeplex.com/
 AppSupportURL=http://www.tax.lt/temos/12748-nemokama-apskaitos-programa

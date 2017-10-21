@@ -67,6 +67,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property arrow_drop_down_16() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("arrow_drop_down_16", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property buttonToolTipDefaultModifiers() As System.CodeDom.MemberAttributes
             Get
                 Dim obj As Object = ResourceManager.GetObject("buttonToolTipDefaultModifiers", resourceCulture)
@@ -85,6 +92,20 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("buttonToolTipModifiers", resourceCulture)
                 Return CType(obj,System.CodeDom.MemberAttributes)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property calculator_x16() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("calculator_x16", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property calendar_x16() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("calendar_x16", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
         

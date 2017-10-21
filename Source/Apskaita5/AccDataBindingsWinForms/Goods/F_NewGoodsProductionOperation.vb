@@ -156,7 +156,7 @@ Public Class F_NewGoodsProductionOperation
     End Sub
 
     Private Sub ProductionCalculationInfoListAccListComboBox_SelectedValueChanged(ByVal sender As Object, _
-        ByVal e As System.EventArgs) Handles ProductionCalculationInfoListAccListComboBox.SelectedValueChanged
+        ByVal e As System.EventArgs) Handles ProductionCalculationInfoListAccListComboBox.OnSelectedValueChanged
 
         If ProductionCalculationInfoListAccListComboBox.SelectedValue Is Nothing Then Exit Sub
 

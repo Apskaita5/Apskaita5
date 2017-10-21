@@ -367,8 +367,6 @@ Partial Friend Class F_ComplexOperationDiscard
         Me.CostsAccountAccGridComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CostsAccountAccGridComboBox.EmptyValueString = ""
-        Me.CostsAccountAccGridComboBox.FilterString = ""
-        Me.CostsAccountAccGridComboBox.FormattingEnabled = True
         Me.CostsAccountAccGridComboBox.InstantBinding = True
         Me.CostsAccountAccGridComboBox.Location = New System.Drawing.Point(6, 19)
         Me.CostsAccountAccGridComboBox.Name = "CostsAccountAccGridComboBox"
@@ -379,7 +377,6 @@ Partial Friend Class F_ComplexOperationDiscard
         '
         Me.TotalDiscardCostsAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.ComplexOperationDiscardBindingSource, "TotalDiscardCosts", True))
         Me.TotalDiscardCostsAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalDiscardCostsAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalDiscardCostsAccTextBox.Location = New System.Drawing.Point(104, 81)
         Me.TotalDiscardCostsAccTextBox.Name = "TotalDiscardCostsAccTextBox"
         Me.TotalDiscardCostsAccTextBox.ReadOnly = True

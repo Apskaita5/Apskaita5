@@ -368,8 +368,6 @@ Partial Friend Class F_OperationAccountChange
         Me.NewAccountAccGridComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.OperationAccountChangeBindingSource, "NewAccount", True))
         Me.NewAccountAccGridComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.NewAccountAccGridComboBox.EmptyValueString = ""
-        Me.NewAccountAccGridComboBox.FilterString = ""
-        Me.NewAccountAccGridComboBox.FormattingEnabled = True
         Me.NewAccountAccGridComboBox.InstantBinding = True
         Me.NewAccountAccGridComboBox.Location = New System.Drawing.Point(107, 81)
         Me.NewAccountAccGridComboBox.Name = "NewAccountAccGridComboBox"
@@ -391,7 +389,6 @@ Partial Friend Class F_OperationAccountChange
         '
         Me.CurrentAccountBalanceAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationAccountChangeBindingSource, "CurrentAccountBalance", True))
         Me.CurrentAccountBalanceAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CurrentAccountBalanceAccTextBox.KeepBackColorWhenReadOnly = False
         Me.CurrentAccountBalanceAccTextBox.Location = New System.Drawing.Point(602, 55)
         Me.CurrentAccountBalanceAccTextBox.Name = "CurrentAccountBalanceAccTextBox"
         Me.CurrentAccountBalanceAccTextBox.ReadOnly = True

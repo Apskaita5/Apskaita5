@@ -365,7 +365,6 @@ Partial Friend Class F_HolidayPayReserve
         '
         Me.TaxRateAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.HolidayPayReserveBindingSource, "TaxRate", True))
         Me.TaxRateAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TaxRateAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TaxRateAccTextBox.Location = New System.Drawing.Point(670, 78)
         Me.TaxRateAccTextBox.Name = "TaxRateAccTextBox"
         Me.TaxRateAccTextBox.NegativeValue = False
@@ -406,7 +405,6 @@ Partial Friend Class F_HolidayPayReserve
         '
         Me.TotalSumChangeAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.HolidayPayReserveBindingSource, "TotalSumChange", True))
         Me.TotalSumChangeAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalSumChangeAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalSumChangeAccTextBox.Location = New System.Drawing.Point(670, 103)
         Me.TotalSumChangeAccTextBox.Name = "TotalSumChangeAccTextBox"
         Me.TotalSumChangeAccTextBox.ReadOnly = True
@@ -419,8 +417,6 @@ Partial Friend Class F_HolidayPayReserve
         Me.AccountCostsAccGridComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.HolidayPayReserveBindingSource, "AccountCosts", True))
         Me.AccountCostsAccGridComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountCostsAccGridComboBox.EmptyValueString = ""
-        Me.AccountCostsAccGridComboBox.FilterString = ""
-        Me.AccountCostsAccGridComboBox.FormattingEnabled = True
         Me.AccountCostsAccGridComboBox.InstantBinding = True
         Me.AccountCostsAccGridComboBox.Location = New System.Drawing.Point(412, 78)
         Me.AccountCostsAccGridComboBox.Name = "AccountCostsAccGridComboBox"
@@ -431,7 +427,6 @@ Partial Friend Class F_HolidayPayReserve
         '
         Me.TotalSumEvaluatedAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.HolidayPayReserveBindingSource, "TotalSumEvaluated", True))
         Me.TotalSumEvaluatedAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalSumEvaluatedAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalSumEvaluatedAccTextBox.Location = New System.Drawing.Point(412, 103)
         Me.TotalSumEvaluatedAccTextBox.Name = "TotalSumEvaluatedAccTextBox"
         Me.TotalSumEvaluatedAccTextBox.ReadOnly = True
@@ -455,7 +450,6 @@ Partial Friend Class F_HolidayPayReserve
         Me.TableLayoutPanel1.SetColumnSpan(Me.TotalSumCurrentAccTextBox, 2)
         Me.TotalSumCurrentAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.HolidayPayReserveBindingSource, "TotalSumCurrent", True))
         Me.TotalSumCurrentAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalSumCurrentAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalSumCurrentAccTextBox.Location = New System.Drawing.Point(103, 103)
         Me.TotalSumCurrentAccTextBox.Name = "TotalSumCurrentAccTextBox"
         Me.TotalSumCurrentAccTextBox.ReadOnly = True

@@ -829,7 +829,6 @@ Public Class DataListViewEditControlManager(Of T)
             GetAttribute(Of DoubleFieldAttribute)(curProp)
 
         Dim control As New AccTextBox
-        control.KeepBackColorWhenReadOnly = False
         control.TextAlign = HorizontalAlignment.Center
 
         If curAttribute Is Nothing Then
@@ -865,7 +864,6 @@ Public Class DataListViewEditControlManager(Of T)
             If curAttribute Is Nothing Then
 
                 Dim control As New AccTextBox
-                control.KeepBackColorWhenReadOnly = False
                 control.TextAlign = HorizontalAlignment.Center
                 control.DecimalLength = 0
                 control.NegativeValue = True
@@ -875,7 +873,6 @@ Public Class DataListViewEditControlManager(Of T)
             Else
 
                 Dim control As New AccTextBox
-                control.KeepBackColorWhenReadOnly = False
                 control.TextAlign = HorizontalAlignment.Center
                 control.DecimalLength = 0
                 control.NegativeValue = True
@@ -995,6 +992,11 @@ Public Class DataListViewEditControlManager(Of T)
             End If
         ElseIf TypeOf currentControl Is AccListComboBox Then
             e.NewValue = DirectCast(currentControl, AccListComboBox).SelectedValue
+        ElseIf TypeOf currentControl Is AccDatePicker Then
+            DirectCast(currentControl, AccDatePicker).RefreshValue()
+            e.NewValue = DirectCast(currentControl, AccDatePicker).Value
+        ElseIf TypeOf currentControl Is DateTimePicker Then
+            e.NewValue = DirectCast(currentControl, DateTimePicker).Value
         ElseIf TypeOf currentControl Is TextBox Then
             e.NewValue = DirectCast(currentControl, TextBox).Text
         ElseIf TypeOf currentControl Is ComboBox Then
@@ -1003,8 +1005,6 @@ Public Class DataListViewEditControlManager(Of T)
             Else
                 e.NewValue = DirectCast(currentControl, ComboBox).SelectedValue
             End If
-        ElseIf TypeOf currentControl Is DateTimePicker Then
-            e.NewValue = DirectCast(currentControl, DateTimePicker).Value
         Else
             Throw New NotImplementedException(String.Format("Control of type {0} is not implemented.", _
                 currentControl.GetType.FullName))
@@ -1033,7 +1033,8 @@ Public Class DataListViewEditControlManager(Of T)
                 DirectCast(currentControl, AccTextBox).DecimalValue = e.Value
             ElseIf TypeOf currentControl Is AccListComboBox Then
                 DirectCast(currentControl, AccListComboBox).SelectedValue = e.Value
-                DirectCast(currentControl, AccListComboBox).FilterString = ""
+            ElseIf TypeOf currentControl Is AccDatePicker Then
+                DirectCast(currentControl, AccDatePicker).Value = e.Value
             ElseIf TypeOf currentControl Is TextBox Then
                 DirectCast(currentControl, TextBox).Text = e.Value
             ElseIf TypeOf currentControl Is ComboBox Then

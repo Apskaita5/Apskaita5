@@ -34,8 +34,6 @@ Partial Friend Class F_NewInvoiceAdapterForServiceOperation
         Me.ServicesAccGridComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ServicesAccGridComboBox.EmptyValueString = ""
-        Me.ServicesAccGridComboBox.FilterString = ""
-        Me.ServicesAccGridComboBox.FormattingEnabled = True
         Me.ServicesAccGridComboBox.InstantBinding = True
         Me.ServicesAccGridComboBox.Location = New System.Drawing.Point(12, 12)
         Me.ServicesAccGridComboBox.Name = "ServicesAccGridComboBox"

@@ -51,6 +51,7 @@ Namespace CachedInfoLists
             Me.baseDataListView.AllColumns.Add(Me.OlvColumn10)
             Me.baseDataListView.AllColumns.Add(Me.OlvColumn11)
             Me.baseDataListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumn1, Me.OlvColumn2, Me.OlvColumn3})
+            Me.baseDataListView.IsSearchOnSortColumn = False
             '
             'OlvColumn1
             '

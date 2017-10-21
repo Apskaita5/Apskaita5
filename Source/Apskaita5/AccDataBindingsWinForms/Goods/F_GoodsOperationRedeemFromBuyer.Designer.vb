@@ -536,8 +536,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.RedeemCostsAccountAccGridComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "RedeemCostsAccount", True))
         Me.RedeemCostsAccountAccGridComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.RedeemCostsAccountAccGridComboBox.EmptyValueString = ""
-        Me.RedeemCostsAccountAccGridComboBox.FilterString = ""
-        Me.RedeemCostsAccountAccGridComboBox.FormattingEnabled = True
         Me.RedeemCostsAccountAccGridComboBox.InstantBinding = True
         Me.RedeemCostsAccountAccGridComboBox.Location = New System.Drawing.Point(681, 238)
         Me.RedeemCostsAccountAccGridComboBox.Name = "RedeemCostsAccountAccGridComboBox"
@@ -552,7 +550,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         '
         Me.TotalValueInWarehouseAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "TotalValueInWarehouse", True))
         Me.TotalValueInWarehouseAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalValueInWarehouseAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalValueInWarehouseAccTextBox.Location = New System.Drawing.Point(431, 238)
         Me.TotalValueInWarehouseAccTextBox.Name = "TotalValueInWarehouseAccTextBox"
         Me.TotalValueInWarehouseAccTextBox.NegativeValue = False
@@ -567,7 +564,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.AmountInPurchasesAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "AmountInPurchases", True))
         Me.AmountInPurchasesAccTextBox.DecimalLength = 6
         Me.AmountInPurchasesAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AmountInPurchasesAccTextBox.KeepBackColorWhenReadOnly = False
         Me.AmountInPurchasesAccTextBox.Location = New System.Drawing.Point(167, 265)
         Me.AmountInPurchasesAccTextBox.Name = "AmountInPurchasesAccTextBox"
         Me.AmountInPurchasesAccTextBox.NegativeValue = False
@@ -581,8 +577,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.WarehouseAccGridComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "Warehouse", True))
         Me.WarehouseAccGridComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WarehouseAccGridComboBox.EmptyValueString = ""
-        Me.WarehouseAccGridComboBox.FilterString = ""
-        Me.WarehouseAccGridComboBox.FormattingEnabled = True
         Me.WarehouseAccGridComboBox.InstantBinding = True
         Me.WarehouseAccGridComboBox.Location = New System.Drawing.Point(431, 185)
         Me.WarehouseAccGridComboBox.Name = "WarehouseAccGridComboBox"
@@ -594,7 +588,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.AmountInWarehouseAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "AmountInWarehouse", True))
         Me.AmountInWarehouseAccTextBox.DecimalLength = 6
         Me.AmountInWarehouseAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AmountInWarehouseAccTextBox.KeepBackColorWhenReadOnly = False
         Me.AmountInWarehouseAccTextBox.Location = New System.Drawing.Point(167, 238)
         Me.AmountInWarehouseAccTextBox.Name = "AmountInWarehouseAccTextBox"
         Me.AmountInWarehouseAccTextBox.NegativeValue = False
@@ -619,7 +612,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.AmountAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "Amount", True))
         Me.AmountAccTextBox.DecimalLength = 6
         Me.AmountAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AmountAccTextBox.KeepBackColorWhenReadOnly = False
         Me.AmountAccTextBox.Location = New System.Drawing.Point(167, 212)
         Me.AmountAccTextBox.Name = "AmountAccTextBox"
         Me.AmountAccTextBox.NegativeValue = False
@@ -874,7 +866,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         '
         Me.TotalCostAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "TotalCost", True))
         Me.TotalCostAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalCostAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalCostAccTextBox.Location = New System.Drawing.Point(431, 212)
         Me.TotalCostAccTextBox.Name = "TotalCostAccTextBox"
         Me.TotalCostAccTextBox.NegativeValue = False
@@ -887,7 +878,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.UnitCostAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "UnitCost", True))
         Me.UnitCostAccTextBox.DecimalLength = 6
         Me.UnitCostAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UnitCostAccTextBox.KeepBackColorWhenReadOnly = False
         Me.UnitCostAccTextBox.Location = New System.Drawing.Point(681, 212)
         Me.UnitCostAccTextBox.Name = "UnitCostAccTextBox"
         Me.UnitCostAccTextBox.NegativeValue = False
@@ -899,7 +889,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         '
         Me.TotalValueInPurchasesAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "TotalValueInPurchases", True))
         Me.TotalValueInPurchasesAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalValueInPurchasesAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalValueInPurchasesAccTextBox.Location = New System.Drawing.Point(431, 265)
         Me.TotalValueInPurchasesAccTextBox.Name = "TotalValueInPurchasesAccTextBox"
         Me.TotalValueInPurchasesAccTextBox.NegativeValue = False

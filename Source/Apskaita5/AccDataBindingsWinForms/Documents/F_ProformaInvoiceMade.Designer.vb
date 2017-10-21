@@ -615,8 +615,6 @@ Partial Class F_ProformaInvoiceMade
         Me.PayerAccListComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.ProformaInvoiceMadeBindingSource, "Payer", True))
         Me.PayerAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PayerAccListComboBox.EmptyValueString = ""
-        Me.PayerAccListComboBox.FilterString = ""
-        Me.PayerAccListComboBox.FormattingEnabled = True
         Me.PayerAccListComboBox.InstantBinding = True
         Me.PayerAccListComboBox.Location = New System.Drawing.Point(66, 56)
         Me.PayerAccListComboBox.Name = "PayerAccListComboBox"
@@ -761,8 +759,6 @@ Partial Class F_ProformaInvoiceMade
         '
         Me.GoodsToAddAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GoodsToAddAccListComboBox.EmptyValueString = ""
-        Me.GoodsToAddAccListComboBox.FilterString = ""
-        Me.GoodsToAddAccListComboBox.FormattingEnabled = True
         Me.GoodsToAddAccListComboBox.InstantBinding = True
         Me.GoodsToAddAccListComboBox.Location = New System.Drawing.Point(462, 3)
         Me.GoodsToAddAccListComboBox.Name = "GoodsToAddAccListComboBox"
@@ -785,8 +781,6 @@ Partial Class F_ProformaInvoiceMade
         '
         Me.ServicesToAddAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ServicesToAddAccListComboBox.EmptyValueString = ""
-        Me.ServicesToAddAccListComboBox.FilterString = ""
-        Me.ServicesToAddAccListComboBox.FormattingEnabled = True
         Me.ServicesToAddAccListComboBox.InstantBinding = True
         Me.ServicesToAddAccListComboBox.Location = New System.Drawing.Point(96, 3)
         Me.ServicesToAddAccListComboBox.Name = "ServicesToAddAccListComboBox"

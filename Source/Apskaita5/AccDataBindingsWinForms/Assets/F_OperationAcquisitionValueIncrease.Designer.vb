@@ -472,7 +472,6 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         '
         Me.JournalEntryAmountAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationAcquisitionValueIncreaseBindingSource, "JournalEntryAmount", True))
         Me.JournalEntryAmountAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JournalEntryAmountAccTextBox.KeepBackColorWhenReadOnly = False
         Me.JournalEntryAmountAccTextBox.Location = New System.Drawing.Point(95, 31)
         Me.JournalEntryAmountAccTextBox.Name = "JournalEntryAmountAccTextBox"
         Me.JournalEntryAmountAccTextBox.ReadOnly = True
@@ -555,7 +554,6 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         Me.ValueIncreasePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationAcquisitionValueIncreaseBindingSource, "ValueIncreasePerUnit", True))
         Me.ValueIncreasePerUnitAccTextBox.DecimalLength = 4
         Me.ValueIncreasePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ValueIncreasePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.ValueIncreasePerUnitAccTextBox.Location = New System.Drawing.Point(627, 29)
         Me.ValueIncreasePerUnitAccTextBox.Name = "ValueIncreasePerUnitAccTextBox"
         Me.ValueIncreasePerUnitAccTextBox.NegativeValue = False
@@ -592,7 +590,6 @@ Partial Friend Class F_OperationAcquisitionValueIncrease
         '
         Me.ValueIncreaseAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationAcquisitionValueIncreaseBindingSource, "ValueIncrease", True))
         Me.ValueIncreaseAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ValueIncreaseAccTextBox.KeepBackColorWhenReadOnly = False
         Me.ValueIncreaseAccTextBox.Location = New System.Drawing.Point(354, 29)
         Me.ValueIncreaseAccTextBox.Name = "ValueIncreaseAccTextBox"
         Me.ValueIncreaseAccTextBox.NegativeValue = False

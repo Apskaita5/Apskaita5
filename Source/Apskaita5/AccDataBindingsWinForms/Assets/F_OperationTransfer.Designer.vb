@@ -484,7 +484,6 @@ Partial Friend Class F_OperationTransfer
         '
         Me.JournalEntryAmountAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationTransferBindingSource, "JournalEntryAmount", True))
         Me.JournalEntryAmountAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JournalEntryAmountAccTextBox.KeepBackColorWhenReadOnly = False
         Me.JournalEntryAmountAccTextBox.Location = New System.Drawing.Point(95, 31)
         Me.JournalEntryAmountAccTextBox.Name = "JournalEntryAmountAccTextBox"
         Me.JournalEntryAmountAccTextBox.ReadOnly = True
@@ -626,7 +625,6 @@ Partial Friend Class F_OperationTransfer
         Me.AmountToTransferAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationTransferBindingSource, "AmountToTransfer", True))
         Me.AmountToTransferAccTextBox.DecimalLength = 0
         Me.AmountToTransferAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AmountToTransferAccTextBox.KeepBackColorWhenReadOnly = False
         Me.AmountToTransferAccTextBox.Location = New System.Drawing.Point(333, 29)
         Me.AmountToTransferAccTextBox.Name = "AmountToTransferAccTextBox"
         Me.AmountToTransferAccTextBox.NegativeValue = False

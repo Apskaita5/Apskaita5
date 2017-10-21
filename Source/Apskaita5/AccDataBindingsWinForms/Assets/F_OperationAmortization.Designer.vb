@@ -390,7 +390,6 @@ Partial Friend Class F_OperationAmortization
         Me.AmortizationCalculatedForMonthsAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationAmortizationBindingSource, "AmortizationCalculatedForMonths", True))
         Me.AmortizationCalculatedForMonthsAccTextBox.DecimalLength = 0
         Me.AmortizationCalculatedForMonthsAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AmortizationCalculatedForMonthsAccTextBox.KeepBackColorWhenReadOnly = False
         Me.AmortizationCalculatedForMonthsAccTextBox.Location = New System.Drawing.Point(729, 78)
         Me.AmortizationCalculatedForMonthsAccTextBox.Name = "AmortizationCalculatedForMonthsAccTextBox"
         Me.AmortizationCalculatedForMonthsAccTextBox.NegativeValue = False
@@ -414,7 +413,6 @@ Partial Friend Class F_OperationAmortization
         Me.RevaluedPortionUnitValueChangeAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationAmortizationBindingSource, "RevaluedPortionUnitValueChange", True))
         Me.RevaluedPortionUnitValueChangeAccTextBox.DecimalLength = 4
         Me.RevaluedPortionUnitValueChangeAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RevaluedPortionUnitValueChangeAccTextBox.KeepBackColorWhenReadOnly = False
         Me.RevaluedPortionUnitValueChangeAccTextBox.Location = New System.Drawing.Point(421, 103)
         Me.RevaluedPortionUnitValueChangeAccTextBox.Name = "RevaluedPortionUnitValueChangeAccTextBox"
         Me.RevaluedPortionUnitValueChangeAccTextBox.Size = New System.Drawing.Size(179, 20)
@@ -426,7 +424,6 @@ Partial Friend Class F_OperationAmortization
         Me.UnitValueChangeAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationAmortizationBindingSource, "UnitValueChange", True))
         Me.UnitValueChangeAccTextBox.DecimalLength = 4
         Me.UnitValueChangeAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UnitValueChangeAccTextBox.KeepBackColorWhenReadOnly = False
         Me.UnitValueChangeAccTextBox.Location = New System.Drawing.Point(421, 78)
         Me.UnitValueChangeAccTextBox.Name = "UnitValueChangeAccTextBox"
         Me.UnitValueChangeAccTextBox.Size = New System.Drawing.Size(179, 20)
@@ -437,7 +434,6 @@ Partial Friend Class F_OperationAmortization
         '
         Me.RevaluedPortionTotalValueChangeAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationAmortizationBindingSource, "RevaluedPortionTotalValueChange", True))
         Me.RevaluedPortionTotalValueChangeAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RevaluedPortionTotalValueChangeAccTextBox.KeepBackColorWhenReadOnly = False
         Me.RevaluedPortionTotalValueChangeAccTextBox.Location = New System.Drawing.Point(148, 103)
         Me.RevaluedPortionTotalValueChangeAccTextBox.Name = "RevaluedPortionTotalValueChangeAccTextBox"
         Me.RevaluedPortionTotalValueChangeAccTextBox.Size = New System.Drawing.Size(179, 20)
@@ -471,8 +467,6 @@ Partial Friend Class F_OperationAmortization
         Me.AccountCostsAccGridComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.OperationAmortizationBindingSource, "AccountCosts", True))
         Me.AccountCostsAccGridComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountCostsAccGridComboBox.EmptyValueString = ""
-        Me.AccountCostsAccGridComboBox.FilterString = ""
-        Me.AccountCostsAccGridComboBox.FormattingEnabled = True
         Me.AccountCostsAccGridComboBox.InstantBinding = True
         Me.AccountCostsAccGridComboBox.Location = New System.Drawing.Point(729, 28)
         Me.AccountCostsAccGridComboBox.Name = "AccountCostsAccGridComboBox"
@@ -516,7 +510,6 @@ Partial Friend Class F_OperationAmortization
         '
         Me.TotalValueChangeAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationAmortizationBindingSource, "TotalValueChange", True))
         Me.TotalValueChangeAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalValueChangeAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalValueChangeAccTextBox.Location = New System.Drawing.Point(148, 78)
         Me.TotalValueChangeAccTextBox.Name = "TotalValueChangeAccTextBox"
         Me.TotalValueChangeAccTextBox.Size = New System.Drawing.Size(179, 20)

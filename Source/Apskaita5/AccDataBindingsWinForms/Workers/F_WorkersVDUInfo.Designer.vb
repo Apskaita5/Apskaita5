@@ -521,8 +521,6 @@ Partial Friend Class F_WorkersVDUInfo
         '
         Me.LabourContractAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LabourContractAccListComboBox.EmptyValueString = ""
-        Me.LabourContractAccListComboBox.FilterString = ""
-        Me.LabourContractAccListComboBox.FormattingEnabled = True
         Me.LabourContractAccListComboBox.InstantBinding = True
         Me.LabourContractAccListComboBox.Location = New System.Drawing.Point(351, 3)
         Me.LabourContractAccListComboBox.Name = "LabourContractAccListComboBox"
@@ -608,7 +606,6 @@ Partial Friend Class F_WorkersVDUInfo
         '
         Me.ApplicableVDUHourlyAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkersVDUInfoBindingSource, "ApplicableVDUHourly", True))
         Me.ApplicableVDUHourlyAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ApplicableVDUHourlyAccTextBox.KeepBackColorWhenReadOnly = False
         Me.ApplicableVDUHourlyAccTextBox.Location = New System.Drawing.Point(565, 3)
         Me.ApplicableVDUHourlyAccTextBox.Name = "ApplicableVDUHourlyAccTextBox"
         Me.ApplicableVDUHourlyAccTextBox.ReadOnly = True
@@ -624,7 +621,6 @@ Partial Friend Class F_WorkersVDUInfo
         '
         Me.BonusVDUHourlyAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkersVDUInfoBindingSource, "BonusVDUHourly", True))
         Me.BonusVDUHourlyAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.BonusVDUHourlyAccTextBox.KeepBackColorWhenReadOnly = False
         Me.BonusVDUHourlyAccTextBox.Location = New System.Drawing.Point(3, 3)
         Me.BonusVDUHourlyAccTextBox.Name = "BonusVDUHourlyAccTextBox"
         Me.BonusVDUHourlyAccTextBox.ReadOnly = True
@@ -636,7 +632,6 @@ Partial Friend Class F_WorkersVDUInfo
         '
         Me.WageVDUHourlyAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkersVDUInfoBindingSource, "WageVDUHourly", True))
         Me.WageVDUHourlyAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WageVDUHourlyAccTextBox.KeepBackColorWhenReadOnly = False
         Me.WageVDUHourlyAccTextBox.Location = New System.Drawing.Point(321, 3)
         Me.WageVDUHourlyAccTextBox.Name = "WageVDUHourlyAccTextBox"
         Me.WageVDUHourlyAccTextBox.ReadOnly = True
@@ -673,7 +668,6 @@ Partial Friend Class F_WorkersVDUInfo
         '
         Me.BonusVDUDailyAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkersVDUInfoBindingSource, "BonusVDUDaily", True))
         Me.BonusVDUDailyAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.BonusVDUDailyAccTextBox.KeepBackColorWhenReadOnly = False
         Me.BonusVDUDailyAccTextBox.Location = New System.Drawing.Point(3, 3)
         Me.BonusVDUDailyAccTextBox.Name = "BonusVDUDailyAccTextBox"
         Me.BonusVDUDailyAccTextBox.ReadOnly = True
@@ -685,7 +679,6 @@ Partial Friend Class F_WorkersVDUInfo
         '
         Me.ApplicableVDUDailyAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkersVDUInfoBindingSource, "ApplicableVDUDaily", True))
         Me.ApplicableVDUDailyAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ApplicableVDUDailyAccTextBox.KeepBackColorWhenReadOnly = False
         Me.ApplicableVDUDailyAccTextBox.Location = New System.Drawing.Point(577, 3)
         Me.ApplicableVDUDailyAccTextBox.Name = "ApplicableVDUDailyAccTextBox"
         Me.ApplicableVDUDailyAccTextBox.ReadOnly = True
@@ -697,7 +690,6 @@ Partial Friend Class F_WorkersVDUInfo
         '
         Me.WageVDUDailyAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkersVDUInfoBindingSource, "WageVDUDaily", True))
         Me.WageVDUDailyAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WageVDUDailyAccTextBox.KeepBackColorWhenReadOnly = False
         Me.WageVDUDailyAccTextBox.Location = New System.Drawing.Point(327, 3)
         Me.WageVDUDailyAccTextBox.Name = "WageVDUDailyAccTextBox"
         Me.WageVDUDailyAccTextBox.ReadOnly = True
@@ -734,7 +726,6 @@ Partial Friend Class F_WorkersVDUInfo
         '
         Me.TotalWageAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkersVDUInfoBindingSource, "TotalWage", True))
         Me.TotalWageAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalWageAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalWageAccTextBox.Location = New System.Drawing.Point(3, 3)
         Me.TotalWageAccTextBox.Name = "TotalWageAccTextBox"
         Me.TotalWageAccTextBox.ReadOnly = True
@@ -758,7 +749,6 @@ Partial Friend Class F_WorkersVDUInfo
         Me.TotalWorkHoursAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkersVDUInfoBindingSource, "TotalWorkHours", True))
         Me.TotalWorkHoursAccTextBox.DecimalLength = 4
         Me.TotalWorkHoursAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalWorkHoursAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalWorkHoursAccTextBox.Location = New System.Drawing.Point(539, 3)
         Me.TotalWorkHoursAccTextBox.Name = "TotalWorkHoursAccTextBox"
         Me.TotalWorkHoursAccTextBox.ReadOnly = True
@@ -805,7 +795,6 @@ Partial Friend Class F_WorkersVDUInfo
         Me.TotalScheduledHoursAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkersVDUInfoBindingSource, "TotalScheduledHours", True))
         Me.TotalScheduledHoursAccTextBox.DecimalLength = 4
         Me.TotalScheduledHoursAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalScheduledHoursAccTextBox.KeepBackColorWhenReadOnly = False
         Me.TotalScheduledHoursAccTextBox.Location = New System.Drawing.Point(288, 3)
         Me.TotalScheduledHoursAccTextBox.Name = "TotalScheduledHoursAccTextBox"
         Me.TotalScheduledHoursAccTextBox.ReadOnly = True
@@ -856,7 +845,6 @@ Partial Friend Class F_WorkersVDUInfo
         '
         Me.WorkLoadAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkersVDUInfoBindingSource, "WorkLoad", True))
         Me.WorkLoadAccTextBox.DecimalLength = 4
-        Me.WorkLoadAccTextBox.KeepBackColorWhenReadOnly = False
         Me.WorkLoadAccTextBox.Location = New System.Drawing.Point(412, 3)
         Me.WorkLoadAccTextBox.Name = "WorkLoadAccTextBox"
         Me.WorkLoadAccTextBox.ReadOnly = True
@@ -869,7 +857,6 @@ Partial Friend Class F_WorkersVDUInfo
         Me.StandartHoursForTheCurrentMonthAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkersVDUInfoBindingSource, "StandartHoursForTheCurrentMonth", True))
         Me.StandartHoursForTheCurrentMonthAccTextBox.DecimalLength = 4
         Me.StandartHoursForTheCurrentMonthAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.StandartHoursForTheCurrentMonthAccTextBox.KeepBackColorWhenReadOnly = False
         Me.StandartHoursForTheCurrentMonthAccTextBox.Location = New System.Drawing.Point(222, 3)
         Me.StandartHoursForTheCurrentMonthAccTextBox.Name = "StandartHoursForTheCurrentMonthAccTextBox"
         Me.StandartHoursForTheCurrentMonthAccTextBox.ReadOnly = True
@@ -920,7 +907,6 @@ Partial Friend Class F_WorkersVDUInfo
         '
         Me.BonusYearlyAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkersVDUInfoBindingSource, "BonusYearly", True))
         Me.BonusYearlyAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.BonusYearlyAccTextBox.KeepBackColorWhenReadOnly = False
         Me.BonusYearlyAccTextBox.Location = New System.Drawing.Point(3, 3)
         Me.BonusYearlyAccTextBox.Name = "BonusYearlyAccTextBox"
         Me.BonusYearlyAccTextBox.ReadOnly = True
@@ -932,7 +918,6 @@ Partial Friend Class F_WorkersVDUInfo
         '
         Me.BonusQuarterlyAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkersVDUInfoBindingSource, "BonusQuarterly", True))
         Me.BonusQuarterlyAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.BonusQuarterlyAccTextBox.KeepBackColorWhenReadOnly = False
         Me.BonusQuarterlyAccTextBox.Location = New System.Drawing.Point(280, 3)
         Me.BonusQuarterlyAccTextBox.Name = "BonusQuarterlyAccTextBox"
         Me.BonusQuarterlyAccTextBox.ReadOnly = True
@@ -944,7 +929,6 @@ Partial Friend Class F_WorkersVDUInfo
         '
         Me.BonusBaseAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkersVDUInfoBindingSource, "BonusBase", True))
         Me.BonusBaseAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.BonusBaseAccTextBox.KeepBackColorWhenReadOnly = False
         Me.BonusBaseAccTextBox.Location = New System.Drawing.Point(555, 3)
         Me.BonusBaseAccTextBox.Name = "BonusBaseAccTextBox"
         Me.BonusBaseAccTextBox.ReadOnly = True
@@ -1097,7 +1081,6 @@ Partial Friend Class F_WorkersVDUInfo
         '
         Me.ConventionalWageAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkersVDUInfoBindingSource, "ConventionalWage", True))
         Me.ConventionalWageAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ConventionalWageAccTextBox.KeepBackColorWhenReadOnly = False
         Me.ConventionalWageAccTextBox.Location = New System.Drawing.Point(3, 3)
         Me.ConventionalWageAccTextBox.Name = "ConventionalWageAccTextBox"
         Me.ConventionalWageAccTextBox.ReadOnly = True
@@ -1120,7 +1103,6 @@ Partial Friend Class F_WorkersVDUInfo
         '
         Me.ConventionalExtraPayAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.WorkersVDUInfoBindingSource, "ConventionalExtraPay", True))
         Me.ConventionalExtraPayAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ConventionalExtraPayAccTextBox.KeepBackColorWhenReadOnly = False
         Me.ConventionalExtraPayAccTextBox.Location = New System.Drawing.Point(530, 3)
         Me.ConventionalExtraPayAccTextBox.Name = "ConventionalExtraPayAccTextBox"
         Me.ConventionalExtraPayAccTextBox.ReadOnly = True

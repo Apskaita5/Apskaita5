@@ -583,7 +583,6 @@ Partial Class BackgroundInfoPanel
         Me.CurrentAssetValueRevaluedPortionPerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "CurrentAssetValueRevaluedPortionPerUnit", True))
         Me.CurrentAssetValueRevaluedPortionPerUnitAccTextBox.DecimalLength = 4
         Me.CurrentAssetValueRevaluedPortionPerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CurrentAssetValueRevaluedPortionPerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.CurrentAssetValueRevaluedPortionPerUnitAccTextBox.Location = New System.Drawing.Point(150, 168)
         Me.CurrentAssetValueRevaluedPortionPerUnitAccTextBox.Name = "CurrentAssetValueRevaluedPortionPerUnitAccTextBox"
         Me.CurrentAssetValueRevaluedPortionPerUnitAccTextBox.ReadOnly = True
@@ -636,7 +635,6 @@ Partial Class BackgroundInfoPanel
         Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "AfterOperationAssetValueRevaluedPortionPerUnit", True))
         Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.DecimalLength = 4
         Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.Location = New System.Drawing.Point(570, 168)
         Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.Name = "AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox"
         Me.AfterOperationAssetValueRevaluedPortionPerUnitAccTextBox.ReadOnly = True
@@ -649,7 +647,6 @@ Partial Class BackgroundInfoPanel
         Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "ChangeAssetRevaluedPortionUnitValue", True))
         Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.DecimalLength = 4
         Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.KeepBackColorWhenReadOnly = False
         Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.Location = New System.Drawing.Point(360, 168)
         Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.Name = "ChangeAssetRevaluedPortionUnitValueAccTextBox"
         Me.ChangeAssetRevaluedPortionUnitValueAccTextBox.ReadOnly = True
@@ -682,7 +679,6 @@ Partial Class BackgroundInfoPanel
         Me.AfterOperationAssetValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "AfterOperationAssetValuePerUnit", True))
         Me.AfterOperationAssetValuePerUnitAccTextBox.DecimalLength = 4
         Me.AfterOperationAssetValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AfterOperationAssetValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.AfterOperationAssetValuePerUnitAccTextBox.Location = New System.Drawing.Point(570, 143)
         Me.AfterOperationAssetValuePerUnitAccTextBox.Name = "AfterOperationAssetValuePerUnitAccTextBox"
         Me.AfterOperationAssetValuePerUnitAccTextBox.ReadOnly = True
@@ -695,7 +691,6 @@ Partial Class BackgroundInfoPanel
         Me.CurrentValueIncreaseAmortizationAccountValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "CurrentValueIncreaseAmortizationAccountValuePerUnit", True))
         Me.CurrentValueIncreaseAmortizationAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.CurrentValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CurrentValueIncreaseAmortizationAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.CurrentValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(150, 118)
         Me.CurrentValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Name = "CurrentValueIncreaseAmortizationAccountValuePerUnitAccTextBox"
         Me.CurrentValueIncreaseAmortizationAccountValuePerUnitAccTextBox.ReadOnly = True
@@ -708,7 +703,6 @@ Partial Class BackgroundInfoPanel
         Me.CurrentValueIncreaseAccountValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "CurrentValueIncreaseAccountValuePerUnit", True))
         Me.CurrentValueIncreaseAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.CurrentValueIncreaseAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CurrentValueIncreaseAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.CurrentValueIncreaseAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(150, 93)
         Me.CurrentValueIncreaseAccountValuePerUnitAccTextBox.Name = "CurrentValueIncreaseAccountValuePerUnitAccTextBox"
         Me.CurrentValueIncreaseAccountValuePerUnitAccTextBox.ReadOnly = True
@@ -731,7 +725,6 @@ Partial Class BackgroundInfoPanel
         Me.ChangeAssetUnitValueAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "ChangeAssetUnitValue", True))
         Me.ChangeAssetUnitValueAccTextBox.DecimalLength = 4
         Me.ChangeAssetUnitValueAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ChangeAssetUnitValueAccTextBox.KeepBackColorWhenReadOnly = False
         Me.ChangeAssetUnitValueAccTextBox.Location = New System.Drawing.Point(360, 143)
         Me.ChangeAssetUnitValueAccTextBox.Name = "ChangeAssetUnitValueAccTextBox"
         Me.ChangeAssetUnitValueAccTextBox.ReadOnly = True
@@ -744,7 +737,6 @@ Partial Class BackgroundInfoPanel
         Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "AfterOperationValueIncreaseAmortizationAccountValuePerUnit", True))
         Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(570, 118)
         Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Name = "AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox"
         Me.AfterOperationValueIncreaseAmortizationAccountValuePerUnitAccTextBox.ReadOnly = True
@@ -767,7 +759,6 @@ Partial Class BackgroundInfoPanel
         Me.CurrentAssetValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "CurrentAssetValuePerUnit", True))
         Me.CurrentAssetValuePerUnitAccTextBox.DecimalLength = 4
         Me.CurrentAssetValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CurrentAssetValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.CurrentAssetValuePerUnitAccTextBox.Location = New System.Drawing.Point(150, 143)
         Me.CurrentAssetValuePerUnitAccTextBox.Name = "CurrentAssetValuePerUnitAccTextBox"
         Me.CurrentAssetValuePerUnitAccTextBox.ReadOnly = True
@@ -780,7 +771,6 @@ Partial Class BackgroundInfoPanel
         Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "AfterOperationAmortizationAccountValuePerUnit", True))
         Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(570, 43)
         Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.Name = "AfterOperationAmortizationAccountValuePerUnitAccTextBox"
         Me.AfterOperationAmortizationAccountValuePerUnitAccTextBox.ReadOnly = True
@@ -813,7 +803,6 @@ Partial Class BackgroundInfoPanel
         Me.CurrentAmortizationAccountValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "CurrentAmortizationAccountValuePerUnit", True))
         Me.CurrentAmortizationAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.CurrentAmortizationAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CurrentAmortizationAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.CurrentAmortizationAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(150, 43)
         Me.CurrentAmortizationAccountValuePerUnitAccTextBox.Name = "CurrentAmortizationAccountValuePerUnitAccTextBox"
         Me.CurrentAmortizationAccountValuePerUnitAccTextBox.ReadOnly = True
@@ -826,7 +815,6 @@ Partial Class BackgroundInfoPanel
         Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "AfterOperationValueIncreaseAccountValuePerUnit", True))
         Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(570, 93)
         Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.Name = "AfterOperationValueIncreaseAccountValuePerUnitAccTextBox"
         Me.AfterOperationValueIncreaseAccountValuePerUnitAccTextBox.ReadOnly = True
@@ -859,7 +847,6 @@ Partial Class BackgroundInfoPanel
         Me.CurrentValueDecreaseAccountValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "CurrentValueDecreaseAccountValuePerUnit", True))
         Me.CurrentValueDecreaseAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.CurrentValueDecreaseAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CurrentValueDecreaseAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.CurrentValueDecreaseAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(150, 68)
         Me.CurrentValueDecreaseAccountValuePerUnitAccTextBox.Name = "CurrentValueDecreaseAccountValuePerUnitAccTextBox"
         Me.CurrentValueDecreaseAccountValuePerUnitAccTextBox.ReadOnly = True
@@ -882,7 +869,6 @@ Partial Class BackgroundInfoPanel
         Me.CurrentAcquisitionAccountValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "CurrentAcquisitionAccountValuePerUnit", True))
         Me.CurrentAcquisitionAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.CurrentAcquisitionAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CurrentAcquisitionAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.CurrentAcquisitionAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(150, 18)
         Me.CurrentAcquisitionAccountValuePerUnitAccTextBox.Name = "CurrentAcquisitionAccountValuePerUnitAccTextBox"
         Me.CurrentAcquisitionAccountValuePerUnitAccTextBox.ReadOnly = True
@@ -925,7 +911,6 @@ Partial Class BackgroundInfoPanel
         Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "AfterOperationValueDecreaseAccountValuePerUnit", True))
         Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(570, 68)
         Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.Name = "AfterOperationValueDecreaseAccountValuePerUnitAccTextBox"
         Me.AfterOperationValueDecreaseAccountValuePerUnitAccTextBox.ReadOnly = True
@@ -948,7 +933,6 @@ Partial Class BackgroundInfoPanel
         Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "AfterOperationAcquisitionAccountValuePerUnit", True))
         Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(570, 18)
         Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.Name = "AfterOperationAcquisitionAccountValuePerUnitAccTextBox"
         Me.AfterOperationAcquisitionAccountValuePerUnitAccTextBox.ReadOnly = True
@@ -961,7 +945,6 @@ Partial Class BackgroundInfoPanel
         Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "ChangeValueIncreaseAmortizationAccountValuePerUnit", True))
         Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(360, 118)
         Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.Name = "ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox"
         Me.ChangeValueIncreaseAmortizationAccountValuePerUnitAccTextBox.ReadOnly = True
@@ -974,7 +957,6 @@ Partial Class BackgroundInfoPanel
         Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "ChangeValueIncreaseAccountValuePerUnit", True))
         Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(360, 93)
         Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.Name = "ChangeValueIncreaseAccountValuePerUnitAccTextBox"
         Me.ChangeValueIncreaseAccountValuePerUnitAccTextBox.ReadOnly = True
@@ -1027,7 +1009,6 @@ Partial Class BackgroundInfoPanel
         Me.ChangeAmortizationAccountValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "ChangeAmortizationAccountValuePerUnit", True))
         Me.ChangeAmortizationAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.ChangeAmortizationAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ChangeAmortizationAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.ChangeAmortizationAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(360, 43)
         Me.ChangeAmortizationAccountValuePerUnitAccTextBox.Name = "ChangeAmortizationAccountValuePerUnitAccTextBox"
         Me.ChangeAmortizationAccountValuePerUnitAccTextBox.ReadOnly = True
@@ -1060,7 +1041,6 @@ Partial Class BackgroundInfoPanel
         Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "ChangeAcquisitionAccountValuePerUnit", True))
         Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(360, 18)
         Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.Name = "ChangeAcquisitionAccountValuePerUnitAccTextBox"
         Me.ChangeAcquisitionAccountValuePerUnitAccTextBox.ReadOnly = True
@@ -1073,7 +1053,6 @@ Partial Class BackgroundInfoPanel
         Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationBackgroundBindingSource, "ChangeValueDecreaseAccountValuePerUnit", True))
         Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.DecimalLength = 4
         Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.Location = New System.Drawing.Point(360, 68)
         Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.Name = "ChangeValueDecreaseAccountValuePerUnitAccTextBox"
         Me.ChangeValueDecreaseAccountValuePerUnitAccTextBox.ReadOnly = True

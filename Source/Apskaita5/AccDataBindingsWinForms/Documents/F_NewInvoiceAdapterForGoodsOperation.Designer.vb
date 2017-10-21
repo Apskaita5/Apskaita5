@@ -49,8 +49,6 @@ Partial Friend Class F_NewInvoiceAdapterForGoodsOperation(Of T)
         Me.WarehouseInfoListAccGridComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.WarehouseInfoListAccGridComboBox.EmptyValueString = ""
-        Me.WarehouseInfoListAccGridComboBox.FilterString = ""
-        Me.WarehouseInfoListAccGridComboBox.FormattingEnabled = True
         Me.WarehouseInfoListAccGridComboBox.InstantBinding = True
         Me.WarehouseInfoListAccGridComboBox.Location = New System.Drawing.Point(69, 39)
         Me.WarehouseInfoListAccGridComboBox.Name = "WarehouseInfoListAccGridComboBox"
@@ -73,8 +71,6 @@ Partial Friend Class F_NewInvoiceAdapterForGoodsOperation(Of T)
         Me.GoodsInfoListAccGridComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GoodsInfoListAccGridComboBox.EmptyValueString = ""
-        Me.GoodsInfoListAccGridComboBox.FilterString = ""
-        Me.GoodsInfoListAccGridComboBox.FormattingEnabled = True
         Me.GoodsInfoListAccGridComboBox.InstantBinding = True
         Me.GoodsInfoListAccGridComboBox.Location = New System.Drawing.Point(12, 12)
         Me.GoodsInfoListAccGridComboBox.Name = "GoodsInfoListAccGridComboBox"

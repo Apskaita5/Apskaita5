@@ -151,8 +151,6 @@ Partial Friend Class F_UnsettledPersonInfoList
         '
         Me.PersonGroupComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PersonGroupComboBox.EmptyValueString = ""
-        Me.PersonGroupComboBox.FilterString = ""
-        Me.PersonGroupComboBox.FormattingEnabled = True
         Me.PersonGroupComboBox.InstantBinding = True
         Me.PersonGroupComboBox.Location = New System.Drawing.Point(3, 3)
         Me.PersonGroupComboBox.Name = "PersonGroupComboBox"
@@ -236,8 +234,6 @@ Partial Friend Class F_UnsettledPersonInfoList
         '
         Me.AccountAccGridComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountAccGridComboBox.EmptyValueString = ""
-        Me.AccountAccGridComboBox.FilterString = ""
-        Me.AccountAccGridComboBox.FormattingEnabled = True
         Me.AccountAccGridComboBox.InstantBinding = True
         Me.AccountAccGridComboBox.Location = New System.Drawing.Point(337, 1)
         Me.AccountAccGridComboBox.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)

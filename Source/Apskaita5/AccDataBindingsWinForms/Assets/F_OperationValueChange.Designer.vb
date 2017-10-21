@@ -496,7 +496,6 @@ Partial Friend Class F_OperationValueChange
         '
         Me.JournalEntryAmountAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationValueChangeBindingSource, "JournalEntryAmount", True))
         Me.JournalEntryAmountAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.JournalEntryAmountAccTextBox.KeepBackColorWhenReadOnly = False
         Me.JournalEntryAmountAccTextBox.Location = New System.Drawing.Point(95, 31)
         Me.JournalEntryAmountAccTextBox.Name = "JournalEntryAmountAccTextBox"
         Me.JournalEntryAmountAccTextBox.ReadOnly = True
@@ -591,7 +590,6 @@ Partial Friend Class F_OperationValueChange
         Me.ValueChangePerUnitAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationValueChangeBindingSource, "ValueChangePerUnit", True))
         Me.ValueChangePerUnitAccTextBox.DecimalLength = 4
         Me.ValueChangePerUnitAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ValueChangePerUnitAccTextBox.KeepBackColorWhenReadOnly = False
         Me.ValueChangePerUnitAccTextBox.Location = New System.Drawing.Point(607, 29)
         Me.ValueChangePerUnitAccTextBox.Name = "ValueChangePerUnitAccTextBox"
         Me.ValueChangePerUnitAccTextBox.Size = New System.Drawing.Size(152, 20)
@@ -614,7 +612,6 @@ Partial Friend Class F_OperationValueChange
         '
         Me.ValueChangeTotalAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.OperationValueChangeBindingSource, "ValueChangeTotal", True))
         Me.ValueChangeTotalAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ValueChangeTotalAccTextBox.KeepBackColorWhenReadOnly = False
         Me.ValueChangeTotalAccTextBox.Location = New System.Drawing.Point(344, 29)
         Me.ValueChangeTotalAccTextBox.Name = "ValueChangeTotalAccTextBox"
         Me.ValueChangeTotalAccTextBox.Size = New System.Drawing.Size(152, 20)

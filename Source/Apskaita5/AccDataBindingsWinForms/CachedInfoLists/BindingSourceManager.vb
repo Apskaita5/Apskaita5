@@ -527,7 +527,6 @@ Namespace CachedInfoLists
 
             cntr.ReadOnly = Not propInfo.CanWrite
             cntr.TextAlign = HorizontalAlignment.Center
-            cntr.KeepBackColorWhenReadOnly = False
 
             If Not GetAttribute(Of DoubleFieldAttribute)(propInfo) Is Nothing Then
 
@@ -736,18 +735,18 @@ Namespace CachedInfoLists
 
                 PrepareControl(DirectCast(ctrl, AccTextBox), propInfo)
 
-            ElseIf TypeOf ctrl Is TextBox Then
+            ElseIf TypeOf ctrl Is AccListComboBox Then
+
+                PrepareControl(DirectCast(ctrl, AccListComboBox), propInfo, _
+                    usedValueObjectIds)
+
+            ElseIf TypeOf ctrl Is TextBox AndAlso Not TypeOf ctrl Is AccComboBoxBase Then
 
                 PrepareControl(DirectCast(ctrl, TextBox), propInfo)
 
             ElseIf TypeOf ctrl Is NumericUpDown Then
 
                 PrepareControl(DirectCast(ctrl, NumericUpDown), propInfo)
-
-            ElseIf TypeOf ctrl Is AccListComboBox Then
-
-                PrepareControl(DirectCast(ctrl, AccListComboBox), propInfo, _
-                    usedValueObjectIds)
 
             ElseIf TypeOf ctrl Is ComboBox Then
 

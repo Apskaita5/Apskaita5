@@ -96,8 +96,6 @@ Partial Class F_DebtStatementItemList
         '
         Me.AccountAccGridComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountAccGridComboBox.EmptyValueString = ""
-        Me.AccountAccGridComboBox.FilterString = ""
-        Me.AccountAccGridComboBox.FormattingEnabled = True
         Me.AccountAccGridComboBox.InstantBinding = True
         Me.AccountAccGridComboBox.Location = New System.Drawing.Point(683, 3)
         Me.AccountAccGridComboBox.Name = "AccountAccGridComboBox"

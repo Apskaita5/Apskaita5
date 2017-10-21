@@ -1084,7 +1084,7 @@
                       </Style>
                       <ZIndex>5</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value />
+                      <Value>=Fields!Column68.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -1109,7 +1109,7 @@
                       </Style>
                       <ZIndex>4</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value />
+                      <Value>=Fields!Column66.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -1134,7 +1134,7 @@
                       </Style>
                       <ZIndex>3</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value />
+                      <Value>=Fields!Column67.Value</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -1669,7 +1669,7 @@
                       </Style>
                       <ZIndex>33</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>Suma</Value>
+                      <Value>Suma Sandėlyje</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -1721,7 +1721,7 @@
                       </Style>
                       <ZIndex>31</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>Suma</Value>
+                      <Value>Suma Sandėlyje</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>

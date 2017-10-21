@@ -88,7 +88,7 @@ Friend Class F_UnsettledPersonInfoList
     Private Function GetReportParams() As Object()
         Return New Object() {AsOfDateAccDatePicker.Value, ForBuyersRadioButton.Checked, _
             AccountAccGridComboBox.SelectedValue, MarginOfErrorAccTextBox.DecimalValue, _
-            PersonGroupComboBox.SelectedItem}
+            PersonGroupComboBox.SelectedValue}
     End Function
 
 
