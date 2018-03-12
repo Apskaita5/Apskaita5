@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FFData Version="1" CreatedByApp="ABBYY eFormFiller 2.5 v6 (build 190)" CreatedByLogin="Niemand" CreatedOn="2018-02-09">
+<Form FormDefId="{EB03E9EF-39B0-457F-8264-79E86F053009}" FormLocation="c:\users\niemand\desktop\deklaracijos\gpm313.mxfd">
+<DocumentPages>
+<Group Name="Visa forma">
+<ListPages>
+<ListPage>GPM313</ListPage>
+</ListPages>
+</Group>
+</DocumentPages>
+<Pages Count="1">
+<Page PageDefName="GPM313" PageNumber="1">
+<Fields Count="14">
+<Field Name="B_MM_ID"></Field>
+<Field Name="B_MM_Pavadinimas"></Field>
+<Field Name="B_ML_Metai">2018</Field>
+<Field Name="B_ML_Menuo"></Field>
+<Field Name="G5"></Field>
+<Field Name="G6"></Field>
+<Field Name="G7"></Field>
+<Field Name="G8"></Field>
+<Field Name="G9"></Field>
+<Field Name="G10"></Field>
+<Field Name="G11"></Field>
+<Field Name="G12"></Field>
+<Field Name="B_FormNr"></Field>
+<Field Name="B_FormVerNr"></Field>
+</Fields>
+</Page>
+</Pages>
+</Form>
+</FFData>

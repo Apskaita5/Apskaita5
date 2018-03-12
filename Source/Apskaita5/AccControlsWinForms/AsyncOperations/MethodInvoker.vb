@@ -58,9 +58,9 @@ Friend Class MethodInvoker(Of T)
 
 
     ''' <summary>
-    ''' Executes an arbitrary method of class <see cref="T">T</see> async.
+    ''' Executes an arbitrary method of class <see typeparamref="T">T</see> async.
     ''' </summary>
-    ''' <param name="instance">an instance of class <see cref="T">T</see>
+    ''' <param name="instance">an instance of class <see typeparamref="T">T</see>
     ''' to execute the method on (if the method is static then null)</param>
     ''' <param name="methodName">a name of the method to execute</param>
     ''' <param name="allowCancel">whether to allow the user to cancel 
@@ -85,9 +85,9 @@ Friend Class MethodInvoker(Of T)
     End Sub
 
     ''' <summary>
-    ''' Executes an arbitrary method of class <see cref="T">T</see> sync.
+    ''' Executes an arbitrary method of class <see typeparamref="T">T</see> sync.
     ''' </summary>
-    ''' <param name="instance">an instance of class <see cref="T">T</see>
+    ''' <param name="instance">an instance of class <see typeparamref="T">T</see>
     ''' to execute the method on (if the method is static then null)</param>
     ''' <param name="methodName">a name of the method to execute</param>
     ''' <param name="methodParams">params for the method to execute</param>

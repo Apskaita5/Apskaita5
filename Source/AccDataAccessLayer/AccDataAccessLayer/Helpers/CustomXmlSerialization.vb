@@ -439,7 +439,7 @@ Public Module CustomXmlSerialization
         If ObjType Is GetType(String) Then
             Return DirectCast("", String)
         ElseIf ObjType Is GetType(Double) Then
-            Return DirectCast(0.0, Double)
+            Return New Double
         ElseIf ObjType Is GetType(Byte()) Then
             Return Nothing
         ElseIf ObjType Is GetType(Boolean) Then

@@ -2,12 +2,12 @@
 
     ''' <summary>
     ''' Represents an interface required for a <see cref="InvoiceInfoItemList">InvoiceInfoItemList</see>.
-    ''' An object, that implements this interface, represents an invoice register in XMl format (SAF-T)
+    ''' An object, that implements this interface, represents an invoice register in XMl format (i.SAF)
     ''' (report to a state institution) of a certain version and holds methods 
     ''' that maps InvoiceInfoItemList data to an XML format.
     ''' </summary>
     ''' <remarks></remarks>
-    Public Interface IInvoiceRegisterSafT
+    Public Interface IInvoiceRegisterISaf
 
         ''' <summary>
         ''' Gets a name of the invoice register report.
@@ -43,8 +43,8 @@
         ''' <param name="warnings">an out parameter that returns
         ''' XML validation warnings</param>
         ''' <remarks></remarks>
-        Function GetXmlString(ByVal invoiceRegister As InvoiceInfoItemList, _
-            ByVal softwareVersion As String, ByVal selectedInvoicesIds As Integer(), _
+        Function GetXmlString(ByVal invoiceRegister As InvoiceInfoItemList,
+            ByVal softwareVersion As String, ByVal selectedInvoicesIds As Integer(),
             ByRef warnings As String) As String
 
     End Interface

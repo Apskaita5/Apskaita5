@@ -121,7 +121,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="16"
+    VisibleIndex="21"
     RoleName="Documents.InvoiceMadeInfolist"
     RoleNameHumanReadable="Išrašytų sąskaitų faktūrų registras"
     DatabaseTableAccessList=""
@@ -129,7 +129,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="17"
+    VisibleIndex="22"
     RoleName="Documents.InvoiceReceivedInfolist"
     RoleNameHumanReadable="Gautų sąskaitų faktūrų registras"
     DatabaseTableAccessList=""
@@ -137,7 +137,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="19"
+    VisibleIndex="24"
     RoleName="Documents.InvoiceMade"
     RoleNameHumanReadable="Išrašytos sąskaitos faktūros duomenys"
     DatabaseTableAccessList=""
@@ -145,7 +145,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="21"
+    VisibleIndex="26"
     RoleName="Documents.InvoiceReceived"
     RoleNameHumanReadable="Gautos sąskaitos faktūros duomenys"
     DatabaseTableAccessList=""
@@ -153,7 +153,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="22"
+    VisibleIndex="27"
     RoleName="Documents.Service"
     RoleNameHumanReadable="Paslaugos duomenys"
     DatabaseTableAccessList=""
@@ -161,7 +161,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="23"
+    VisibleIndex="28"
     RoleName="Documents.CashAccountList"
     RoleNameHumanReadable="Lėšų sąskaitų duomenys"
     DatabaseTableAccessList=""
@@ -169,7 +169,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="24"
+    VisibleIndex="29"
     RoleName="Documents.BankAccountsInfoList"
     RoleNameHumanReadable="Banko sąskaitų apyvarta"
     DatabaseTableAccessList=""
@@ -177,7 +177,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="25"
+    VisibleIndex="30"
     RoleName="Documents.BankOperation"
     RoleNameHumanReadable="Banko operacijos duomenys"
     DatabaseTableAccessList=""
@@ -185,7 +185,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="26"
+    VisibleIndex="31"
     RoleName="Documents.TillInfoList"
     RoleNameHumanReadable="Kasos apyvarta"
     DatabaseTableAccessList=""
@@ -193,7 +193,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="27"
+    VisibleIndex="32"
     RoleName="Documents.TillIncomeOrder"
     RoleNameHumanReadable="Kasos pajamų orderio duomenys"
     DatabaseTableAccessList=""
@@ -201,7 +201,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="28"
+    VisibleIndex="33"
     RoleName="Documents.TillSpendingsOrder"
     RoleNameHumanReadable="Kasos išlaidų orderio duomenys"
     DatabaseTableAccessList=""
@@ -209,7 +209,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="29"
+    VisibleIndex="34"
     RoleName="Documents.AdvanceReportInfoList"
     RoleNameHumanReadable="Avanso apyskaitų registras"
     DatabaseTableAccessList=""
@@ -217,7 +217,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="30"
+    VisibleIndex="35"
     RoleName="Documents.AdvanceReport"
     RoleNameHumanReadable="Avanso apyskaitos duomenys"
     DatabaseTableAccessList=""
@@ -225,7 +225,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="31"
+    VisibleIndex="36"
     RoleName="Documents.Offset"
     RoleNameHumanReadable="Užskaitos operacija"
     DatabaseTableAccessList=""
@@ -233,7 +233,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="33"
+    VisibleIndex="38"
     RoleName="Assets.LongTermAssetInfoList"
     RoleNameHumanReadable="Ilgalaikio turto registras"
     DatabaseTableAccessList=""
@@ -241,7 +241,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="34"
+    VisibleIndex="39"
     RoleName="Assets.LongTermAssetOperationInfoList"
     RoleNameHumanReadable="Ilgalaikio turto operacijų registras"
     DatabaseTableAccessList=""
@@ -249,7 +249,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="35"
+    VisibleIndex="40"
     RoleName="Assets.LongTermAssetCustomGroupList"
     RoleNameHumanReadable="Ilgalaikio turto grupių duomenys"
     DatabaseTableAccessList=""
@@ -257,7 +257,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="36"
+    VisibleIndex="41"
     RoleName="Assets.LongTermAsset"
     RoleNameHumanReadable="Ilgalaikio turto duomenys"
     DatabaseTableAccessList=""
@@ -265,7 +265,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="37"
+    VisibleIndex="42"
     RoleName="Assets.LongTermAssetOperation"
     RoleNameHumanReadable="Ilgalaikio turto operacija"
     DatabaseTableAccessList=""
@@ -273,7 +273,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="38"
+    VisibleIndex="43"
     RoleName="Goods.GoodsGroupList"
     RoleNameHumanReadable="Prekių grupių duomenys"
     DatabaseTableAccessList=""
@@ -281,7 +281,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="39"
+    VisibleIndex="44"
     RoleName="Goods.WarehouseList"
     RoleNameHumanReadable="Prekių sandėlių duomenys"
     DatabaseTableAccessList=""
@@ -289,7 +289,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="40"
+    VisibleIndex="45"
     RoleName="Goods.GoodsTurnoverInfoList"
     RoleNameHumanReadable="Prekių apyvartos ataskaita"
     DatabaseTableAccessList=""
@@ -297,7 +297,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="41"
+    VisibleIndex="46"
     RoleName="Goods.GoodsOperationInfoList"
     RoleNameHumanReadable="Prekių operacijų ataskaita"
     DatabaseTableAccessList=""
@@ -305,7 +305,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="42"
+    VisibleIndex="47"
     RoleName="Goods.Goods"
     RoleNameHumanReadable="Prekės duomenys"
     DatabaseTableAccessList=""
@@ -313,7 +313,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="43"
+    VisibleIndex="48"
     RoleName="Goods.GoodsOperationAcquisition"
     RoleNameHumanReadable="Prekės įsigijimo operacija"
     DatabaseTableAccessList=""
@@ -321,7 +321,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="44"
+    VisibleIndex="49"
     RoleName="Goods.GoodsOperationTransfer"
     RoleNameHumanReadable="Prekės perleidimo operacija"
     DatabaseTableAccessList=""
@@ -329,7 +329,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="45"
+    VisibleIndex="50"
     RoleName="Goods.GoodsOperationDiscard"
     RoleNameHumanReadable="Prekės nurašymo operacija"
     DatabaseTableAccessList=""
@@ -337,7 +337,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="46"
+    VisibleIndex="51"
     RoleName="Goods.GoodsOperationDiscount"
     RoleNameHumanReadable="Prekės gautos nuolaidos operacijos"
     DatabaseTableAccessList=""
@@ -345,7 +345,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="47"
+    VisibleIndex="52"
     RoleName="Goods.GoodsOperationAdditionalCosts"
     RoleNameHumanReadable="Prekės papildomų kaštų operacija"
     DatabaseTableAccessList=""
@@ -353,7 +353,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="48"
+    VisibleIndex="53"
     RoleName="Goods.GoodsOperationInternalTransfer"
     RoleNameHumanReadable="Prekės vidinis judėjimas"
     DatabaseTableAccessList=""
@@ -361,7 +361,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="49"
+    VisibleIndex="54"
     RoleName="Goods.GoodsOperationPriceCut"
     RoleNameHumanReadable="Prekės nukainojimo operacija"
     DatabaseTableAccessList=""
@@ -369,7 +369,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="50"
+    VisibleIndex="55"
     RoleName="Goods.GoodsOperationInventorization"
     RoleNameHumanReadable="Prekių inventorizacija"
     DatabaseTableAccessList=""
@@ -377,7 +377,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="51"
+    VisibleIndex="56"
     RoleName="Goods.GoodsOperationAccountChange"
     RoleNameHumanReadable="Prekės apskaitos sąskaitos pakeitimas"
     DatabaseTableAccessList=""
@@ -385,7 +385,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="52"
+    VisibleIndex="57"
     RoleName="Goods.GoodsOperationValuationMethod"
     RoleNameHumanReadable="Prekės įkainojimo metodo pakeitimas"
     DatabaseTableAccessList=""
@@ -393,7 +393,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="53"
+    VisibleIndex="58"
     RoleName="Goods.GoodsOperationProduction"
     RoleNameHumanReadable="Prekės gamybos operacija"
     DatabaseTableAccessList=""
@@ -401,7 +401,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="54"
+    VisibleIndex="59"
     RoleName="Goods.ProductionCalculationItemInfoList"
     RoleNameHumanReadable="Gamybos kalkuliacijų suvestinė"
     DatabaseTableAccessList=""
@@ -409,7 +409,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="55"
+    VisibleIndex="60"
     RoleName="Goods.ProductionCalculation"
     RoleNameHumanReadable="Gamybos kalkuliacijos duomenys"
     DatabaseTableAccessList=""
@@ -417,7 +417,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="56"
+    VisibleIndex="61"
     RoleName="Workers.ContractInfoList"
     RoleNameHumanReadable="Darbo sutarčių registras"
     DatabaseTableAccessList=""
@@ -425,7 +425,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="57"
+    VisibleIndex="62"
     RoleName="Workers.Contract"
     RoleNameHumanReadable="Darbo sutarties duomenys"
     DatabaseTableAccessList=""
@@ -433,7 +433,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="58"
+    VisibleIndex="63"
     RoleName="Workers.WageInfo"
     RoleNameHumanReadable="Pažyma apie darbo užmokestį"
     DatabaseTableAccessList=""
@@ -441,7 +441,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="59"
+    VisibleIndex="64"
     RoleName="Workers.ImprestSheetInfoList"
     RoleNameHumanReadable="Darbo užmokesčio avanso žiniaraščių suvestinė"
     DatabaseTableAccessList=""
@@ -449,7 +449,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="60"
+    VisibleIndex="65"
     RoleName="Workers.ImprestSheet"
     RoleNameHumanReadable="Darbo užmokesčio avanso žiniaraštis"
     DatabaseTableAccessList=""
@@ -457,7 +457,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="61"
+    VisibleIndex="66"
     RoleName="Workers.WageSheetInfoList"
     RoleNameHumanReadable="Darbo užmokesčio žiniaraščių suvestinė"
     DatabaseTableAccessList=""
@@ -465,7 +465,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="62"
+    VisibleIndex="67"
     RoleName="Workers.WageSheet"
     RoleNameHumanReadable="Darbo užmokesčio žiniaraštis"
     DatabaseTableAccessList=""
@@ -473,7 +473,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="63"
+    VisibleIndex="68"
     RoleName="Workers.WorkTimeClassList"
     RoleNameHumanReadable="Darbo laiko klasės"
     DatabaseTableAccessList=""
@@ -481,7 +481,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="64"
+    VisibleIndex="69"
     RoleName="Workers.WorkTimeSheetInfoList"
     RoleNameHumanReadable="Darbo laiko apskaitos žiniaraščių suvestinė"
     DatabaseTableAccessList=""
@@ -489,7 +489,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="65"
+    VisibleIndex="70"
     RoleName="Workers.WorkTimeSheet"
     RoleNameHumanReadable="Darbo laiko apskaitos žiniaraštis"
     DatabaseTableAccessList=""
@@ -497,7 +497,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="66"
+    VisibleIndex="71"
     RoleName="Workers.PayOutNaturalPersonInfoList"
     RoleNameHumanReadable="A klasės išmokų fiziniams asmens suvestinė"
     DatabaseTableAccessList=""
@@ -505,7 +505,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="67"
+    VisibleIndex="72"
     RoleName="Workers.PayOutNaturalPerson"
     RoleNameHumanReadable="A klasės išmoka fiziniam asmeniui"
     DatabaseTableAccessList=""
@@ -513,7 +513,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="69"
+    VisibleIndex="74"
     RoleName="Workers.Declaration"
     RoleNameHumanReadable="Išmokų fiziniams asmens deklaracijos"
     DatabaseTableAccessList=""
@@ -521,7 +521,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="70"
+    VisibleIndex="75"
     RoleName="Reports.DebtInfoList"
     RoleNameHumanReadable="Skolų ataskaita"
     DatabaseTableAccessList=""
@@ -607,7 +607,7 @@
     DatabaseTableAccessList=""
     DatabaseReadOnlyTableAccessList=""
     IsHelperList="true"
-    ParentRoles="Documents.AdvanceReportInfoList, General.GeneralLedger, Documents.BankAccountsInfoList, Documents.TillInfoList, Workers.ContractInfoList, Reports.DebtInfoList, Documents.InvoiceMadeInfolist, Documents.InvoiceReceivedInfolist, Workers.PayOutNaturalPersonInfoList, Workers.WageInfo, Documents.AdvanceReport, Documents.BankOperation, Documents.CashAccountList, Documents.InvoiceMade, Documents.InvoiceReceived, Documents.Offset, Documents.TillIncomeOrder, Documents.TillSpendingsOrder, General.JournalEntry, General.JournalEntryTemplate, General.TransferOfBalance, Workers.Contract, Workers.ImprestSheet, Workers.PayOutNaturalPerson, Workers.WagePayOut, Workers.WageSheet, Workers.WorkTimeSheet, Documents.ProformaInvoiceMade" />
+    ParentRoles="Documents.AdvanceReportInfoList, General.GeneralLedger, Documents.BankAccountsInfoList, Documents.TillInfoList, Workers.ContractInfoList, Reports.DebtInfoList, Documents.InvoiceMadeInfolist, Documents.InvoiceReceivedInfolist, Workers.PayOutNaturalPersonInfoList, Workers.WageInfo, Documents.AdvanceReport, Documents.BankOperation, Documents.CashAccountList, Documents.InvoiceMade, Documents.InvoiceReceived, Documents.Offset, Documents.TillIncomeOrder, Documents.TillSpendingsOrder, General.JournalEntry, General.JournalEntryTemplate, General.TransferOfBalance, Workers.Contract, Workers.ImprestSheet, Workers.PayOutNaturalPerson, Workers.WagePayOut, Workers.WageSheet, Workers.WorkTimeSheet, Documents.ProformaInvoiceMade, General.SharesOperation, Reports.SharesOperationInfoList, Reports.SharesAccountEntryList" />
   <RoleDatabaseAccess
     VisibleIndex="0"
     RoleName="HelperLists.ProductionCalculationInfoList"
@@ -721,7 +721,7 @@
     IsHelperList="true"
     ParentRoles="General.GeneralLedger" />
   <RoleDatabaseAccess
-    VisibleIndex="71"
+    VisibleIndex="76"
     RoleName="Reports.UnsettledPersonInfoList"
     RoleNameHumanReadable="neapmokėtų dokumentų ataskaita"
     DatabaseTableAccessList=""
@@ -737,7 +737,7 @@
     IsHelperList="true"
     ParentRoles="Documents.InvoiceMade, Documents.InvoiceReceived, Documents.ProformaInvoiceMade" />
   <RoleDatabaseAccess
-    VisibleIndex="72"
+    VisibleIndex="77"
     RoleName="ActiveReports.WorkersVDUInfo"
     RoleNameHumanReadable="darbuotojų VDU duomenys"
     DatabaseTableAccessList=""
@@ -745,7 +745,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="73"
+    VisibleIndex="78"
     RoleName="ActiveReports.WorkerHolidayInfo"
     RoleNameHumanReadable="darbuotojų atostogų duomenys"
     DatabaseTableAccessList=""
@@ -753,7 +753,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="74"
+    VisibleIndex="79"
     RoleName="Workers.HolidayPayReserve"
     RoleNameHumanReadable="atostogų rezervo pažyma"
     DatabaseTableAccessList=""
@@ -761,7 +761,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="75"
+    VisibleIndex="80"
     RoleName="ActiveReports.ServiceTurnoverInfoList"
     RoleNameHumanReadable="paslaugų pardavimų ataskaita"
     DatabaseTableAccessList=""
@@ -801,7 +801,7 @@
     IsHelperList="true"
     ParentRoles="Workers.Declaration, Workers.PayOutNaturalPerson, General.Person" />
   <RoleDatabaseAccess
-    VisibleIndex="77"
+    VisibleIndex="82"
     RoleName="Documents.VatDeclarationSchema"
     RoleNameHumanReadable="PVM deklaravimo schema"
     DatabaseTableAccessList=""
@@ -809,7 +809,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="78"
+    VisibleIndex="83"
     RoleName="ActiveReports.VatDeclarationSchemaInfoItemList"
     RoleNameHumanReadable="PVM deklaravimo schemų suvestinė"
     DatabaseTableAccessList=""
@@ -825,7 +825,7 @@
     IsHelperList="true"
     ParentRoles="Documents.InvoiceMade, Documents.InvoiceReceived, Documents.AdvanceReport, General.Company, Documents.Service, Goods.Goods, Documents.CustomVatOperationList" />
   <RoleDatabaseAccess
-    VisibleIndex="79"
+    VisibleIndex="84"
     RoleName="Documents.VatDeclaration"
     RoleNameHumanReadable="PVM deklaracija"
     DatabaseTableAccessList=""
@@ -833,7 +833,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="80"
+    VisibleIndex="85"
     RoleName="HelperLists.UserReportInfoList"
     RoleNameHumanReadable="vartotojų ataskaitos"
     DatabaseTableAccessList=""
@@ -841,7 +841,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="68"
+    VisibleIndex="73"
     RoleName="Workers.PayOutNaturalPersonWithoutTaxesList"
     RoleNameHumanReadable="B klasės išmokos fiziniams asmenims"
     DatabaseTableAccessList=""
@@ -849,7 +849,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="20"
+    VisibleIndex="25"
     RoleName="Documents.ProformaInvoiceMade"
     RoleNameHumanReadable="išankstinės sąskaitos duomenys"
     DatabaseTableAccessList=""
@@ -857,7 +857,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="18"
+    VisibleIndex="23"
     RoleName="Documents.ProformaInvoiceMadeInfolist"
     RoleNameHumanReadable="išankstinių sąskaitų registras"
     DatabaseTableAccessList=""
@@ -865,7 +865,7 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="32"
+    VisibleIndex="37"
     RoleName="Reports.DebtStatementItemList"
     RoleNameHumanReadable="skolų suderinimo aktai"
     DatabaseTableAccessList=""
@@ -873,11 +873,67 @@
     IsHelperList="false"
     ParentRoles="" />
   <RoleDatabaseAccess
-    VisibleIndex="76"
+    VisibleIndex="81"
     RoleName="Documents.CustomVatOperationList"
     RoleNameHumanReadable="netipinės PVM operacijos"
     DatabaseTableAccessList=""
     DatabaseReadOnlyTableAccessList=""
     IsHelperList="false"
     ParentRoles="" />
+  <RoleDatabaseAccess
+    VisibleIndex="16"
+    RoleName="General.SharesClassList"
+    RoleNameHumanReadable="akcijų klasės"
+    DatabaseTableAccessList=""
+    DatabaseReadOnlyTableAccessList=""
+    IsHelperList="false"
+    ParentRoles="" />
+  <RoleDatabaseAccess
+    VisibleIndex="17"
+    RoleName="General.SharesOperation"
+    RoleNameHumanReadable="operacija su akcijomis"
+    DatabaseTableAccessList=""
+    DatabaseReadOnlyTableAccessList=""
+    IsHelperList="false"
+    ParentRoles="" />
+  <RoleDatabaseAccess
+    VisibleIndex="18"
+    RoleName="Reports.SharesOperationInfoList"
+    RoleNameHumanReadable="operacijų su akcijomis suvestinė"
+    DatabaseTableAccessList=""
+    DatabaseReadOnlyTableAccessList=""
+    IsHelperList="false"
+    ParentRoles="" />
+  <RoleDatabaseAccess
+    VisibleIndex="19"
+    RoleName="Reports.SharesAccountEntryList"
+    RoleNameHumanReadable="akcininkų sąskaitos"
+    DatabaseTableAccessList=""
+    DatabaseReadOnlyTableAccessList=""
+    IsHelperList="false"
+    ParentRoles="" />
+  <RoleDatabaseAccess
+    VisibleIndex="20"
+    RoleName="Reports.ShareHolderInfoList"
+    RoleNameHumanReadable="akcininkų sąrašas"
+    DatabaseTableAccessList=""
+    DatabaseReadOnlyTableAccessList=""
+    IsHelperList="false"
+    ParentRoles="" />
+  <RoleDatabaseAccess
+    VisibleIndex="82"
+    RoleName="Reports.AuditFileSAFT"
+    RoleNameHumanReadable="SAF-T audito rinkmena"
+    DatabaseTableAccessList=""
+    DatabaseReadOnlyTableAccessList=""
+    IsHelperList="false"
+    ParentRoles="" />
+  <RoleDatabaseAccess
+    VisibleIndex="0"
+    RoleName="HelperLists.SharesClassInfoList"
+    RoleNameHumanReadable="akcijų klasės"
+    DatabaseTableAccessList=""
+    DatabaseReadOnlyTableAccessList=""
+    IsHelperList="true"
+    ParentRoles="General.SharesOperation, Reports.SharesOperationInfoList, Reports.SharesAccountEntryList" />
 </RoleDatabaseAccessList>

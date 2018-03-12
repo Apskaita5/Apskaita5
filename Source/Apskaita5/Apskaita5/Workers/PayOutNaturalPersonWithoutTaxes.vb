@@ -32,6 +32,9 @@ Namespace Workers
         Private _PaymentAmount As Double = 0
         Private _PaymentReceiver As PersonInfo = Nothing
         Private _TaxCode As Integer = 0
+        Private _TaxPayedOutDate As SmartDate = New SmartDate(False)
+        Private _TaxDeductedAndPayed As Double = 0
+        Private _TaxPayedByCompany As Double = 0
         Private _Remarks As String = ""
 
 
@@ -230,6 +233,72 @@ Namespace Workers
         End Property
 
         ''' <summary>
+        ''' Gets or sets a date that either a TaxDeductedAndPayed or TaxPayedByCompany was payed 
+        ''' to the state. Null if no tax was payed by the company.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field PayOutNaturalPersonWithoutTaxes.TaxPayedOutDate.</remarks>
+        <StringField(ValueRequiredLevel.Optional, 20)>
+        Public Property TaxPayedOutDate As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)>
+            Get
+                Return _TaxPayedOutDate.ToString("yyyy-MM-dd")
+            End Get
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)>
+            Set(ByVal value As String)
+                CanWriteProperty(True)
+                If value Is Nothing Then value = ""
+                Dim dateValue As SmartDate = New Csla.SmartDate(value.Trim, False)
+                If _TaxPayedOutDate <> dateValue Then
+                    _TaxPayedOutDate = dateValue
+                    PropertyHasChanged()
+                    PropertyHasChanged("TaxDeductedAndPayed")
+                    PropertyHasChanged("TaxPayedByCompany")
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
+        ''' Gets or sets an amount of taxes deducted from the payment due and payed by the company.
+        ''' due to the currency exchange rate effects.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field PayOutNaturalPersonWithoutTaxes.TaxDeductedAndPayed.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)>
+        Public Property TaxDeductedAndPayed As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)>
+            Get
+                Return CRound(_TaxDeductedAndPayed)
+            End Get
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)>
+            Set(ByVal value As Double)
+                CanWriteProperty(True)
+                If CRound(_TaxDeductedAndPayed) <> CRound(value) Then
+                    _TaxDeductedAndPayed = CRound(value)
+                    PropertyHasChanged()
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
+        ''' Gets or sets an amount of taxes payed by the company on it's own account.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field PayOutNaturalPersonWithoutTaxes.TaxPayedByCompany.</remarks>
+        <DoubleField(ValueRequiredLevel.Optional, False, 2)>
+        Public Property TaxPayedByCompany As Double
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)>
+            Get
+                Return CRound(_TaxPayedByCompany)
+            End Get
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)>
+            Set(ByVal value As Double)
+                CanWriteProperty(True)
+                If CRound(_TaxPayedByCompany) <> CRound(value) Then
+                    _TaxPayedByCompany = CRound(value)
+                    PropertyHasChanged()
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
         ''' Gets or sets accountant remarks regarding the payment.
         ''' </summary>
         ''' <remarks>Value is stored in the database field PayOutNaturalPersonWithoutTaxes.Remarks.</remarks>
@@ -287,6 +356,12 @@ Namespace Workers
 
             ValidationRules.AddRule(AddressOf PaymentAmountValidation, New RuleArgs("PaymentAmount"))
             ValidationRules.AddRule(AddressOf PaymentReceiverValidation, New RuleArgs("PaymentReceiver"))
+            ValidationRules.AddRule(AddressOf TaxDeductedAndPayedValidation, New RuleArgs("TaxDeductedAndPayed"))
+            ValidationRules.AddRule(AddressOf TaxPayedByCompanyValidation, New RuleArgs("TaxPayedByCompany"))
+
+            ValidationRules.AddDependantProperty("TaxPayedOutDate", "TaxDeductedAndPayed", False)
+            ValidationRules.AddDependantProperty("TaxPayedOutDate", "TaxPayedByCompany", False)
+            ValidationRules.AddDependantProperty("TaxDeductedAndPayed", "TaxPayedByCompany", True)
 
         End Sub
 
@@ -322,8 +397,8 @@ Namespace Workers
         ''' <param name="e">Arguments parameter specifying the name of the string
         ''' property to validate</param>
         ''' <returns><see langword="false" /> if the rule is broken</returns>
-        <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:ValidateArgumentsOfPublicMethods")> _
-        Private Shared Function PaymentReceiverValidation(ByVal target As Object, _
+        <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:ValidateArgumentsOfPublicMethods")>
+        Private Shared Function PaymentReceiverValidation(ByVal target As Object,
             ByVal e As Validation.RuleArgs) As Boolean
 
             If Not PersonFieldValidation(target, e) Then Return False
@@ -332,6 +407,62 @@ Namespace Workers
 
             If valObj._JournalEntryPersonID > 0 AndAlso valObj._JournalEntryPersonID <> valObj._PaymentReceiver.ID Then
                 e.Description = Workers_PayOutNaturalPersonWithoutTaxes_PaymentReceiverMismatch
+                e.Severity = Validation.RuleSeverity.Warning
+                Return False
+            End If
+
+            Return True
+
+        End Function
+
+        ''' <summary>
+        ''' Rule ensuring that the TaxDeductedAndPayed is valid.
+        ''' </summary>
+        ''' <param name="target">Object containing the data to validate</param>
+        ''' <param name="e">Arguments parameter specifying the name of the string
+        ''' property to validate</param>
+        ''' <returns><see langword="false" /> if the rule is broken</returns>
+        <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:ValidateArgumentsOfPublicMethods")>
+        Private Shared Function TaxDeductedAndPayedValidation(ByVal target As Object,
+            ByVal e As Validation.RuleArgs) As Boolean
+
+            Dim valObj As PayOutNaturalPersonWithoutTaxes = DirectCast(target, PayOutNaturalPersonWithoutTaxes)
+
+            If valObj._TaxPayedOutDate.IsEmpty AndAlso valObj._TaxDeductedAndPayed > 0 Then
+                e.Description = Workers_PayOutNaturalPersonWithoutTaxes_TaxPayedAmountInvalid
+                e.Severity = Validation.RuleSeverity.Warning
+                Return False
+            ElseIf Not valObj._TaxPayedOutDate.IsEmpty AndAlso Not valObj._TaxDeductedAndPayed > 0.0 _
+                AndAlso Not valObj._TaxPayedByCompany > 0.0 Then
+                e.Description = Workers_PayOutNaturalPersonWithoutTaxes_TaxPayedAmountNull
+                e.Severity = Validation.RuleSeverity.Warning
+                Return False
+            End If
+
+            Return True
+
+        End Function
+
+        ''' <summary>
+        ''' Rule ensuring that the TaxPayedByCompany is valid.
+        ''' </summary>
+        ''' <param name="target">Object containing the data to validate</param>
+        ''' <param name="e">Arguments parameter specifying the name of the string
+        ''' property to validate</param>
+        ''' <returns><see langword="false" /> if the rule is broken</returns>
+        <System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:ValidateArgumentsOfPublicMethods")>
+        Private Shared Function TaxPayedByCompanyValidation(ByVal target As Object,
+            ByVal e As Validation.RuleArgs) As Boolean
+
+            Dim valObj As PayOutNaturalPersonWithoutTaxes = DirectCast(target, PayOutNaturalPersonWithoutTaxes)
+
+            If valObj._TaxPayedOutDate.IsEmpty AndAlso valObj._TaxPayedByCompany > 0 Then
+                e.Description = Workers_PayOutNaturalPersonWithoutTaxes_TaxPayedAmountInvalid
+                e.Severity = Validation.RuleSeverity.Warning
+                Return False
+            ElseIf Not valObj._TaxPayedOutDate.IsEmpty AndAlso Not valObj._TaxDeductedAndPayed > 0.0 _
+                AndAlso Not valObj._TaxPayedByCompany > 0.0 Then
+                e.Description = Workers_PayOutNaturalPersonWithoutTaxes_TaxPayedAmountNull
                 e.Severity = Validation.RuleSeverity.Warning
                 Return False
             End If
@@ -399,10 +530,17 @@ Namespace Workers
             _JournalEntryDocType = ConvertDatabaseCharID(Of DocumentType)(CStrSafe(dr.Item(5)).Trim)
             _JournalEntryDocTypeHumanReadable = ConvertLocalizedName(_JournalEntryDocType)
             _BookEntries = CStrSafe(dr.Item(6)).Trim
-            _Remarks = CStrSafe(dr.Item(9)).Trim
-            _JournalEntryAmount = CDblSafe(dr.Item(10), 2, 0)
+            _PaymentAmount = CDblSafe(dr.Item(7), 2, 0)
+            _TaxCode = CIntSafe(dr.Item(8), 0)
+            If CDateSafe(dr.Item(9), Date.MaxValue) <> Date.MaxValue Then
+                _TaxPayedOutDate = New Csla.SmartDate(CDateSafe(dr.Item(9), Date.MinValue), False)
+            End If
+            _TaxDeductedAndPayed = CDblSafe(dr.Item(10), 2, 0)
+            _TaxPayedByCompany = CDblSafe(dr.Item(11), 2, 0)
+            _Remarks = CStrSafe(dr.Item(12)).Trim
+            _JournalEntryAmount = CDblSafe(dr.Item(13), 2, 0)
 
-            Dim journalEntryPerson As PersonInfo = PersonInfo.GetPersonInfo(dr, 11)
+            Dim journalEntryPerson As PersonInfo = PersonInfo.GetPersonInfo(dr, 14)
             If Not journalEntryPerson.IsEmpty Then
                 _JournalEntryPersonID = journalEntryPerson.ID
                 _JournalEntryPersonName = journalEntryPerson.Name
@@ -430,17 +568,22 @@ Namespace Workers
             _BookEntries = CStrSafe(dr.Item(6)).Trim
             _PaymentAmount = CDblSafe(dr.Item(7), 2, 0)
             _TaxCode = CIntSafe(dr.Item(8), 0)
-            _Remarks = CStrSafe(dr.Item(9)).Trim
-            _JournalEntryAmount = CDblSafe(dr.Item(10), 2, 0)
+            If CDateSafe(dr.Item(9), Date.MaxValue) <> Date.MaxValue Then
+                _TaxPayedOutDate = New Csla.SmartDate(CDateSafe(dr.Item(9), Date.MinValue), False)
+            End If
+            _TaxDeductedAndPayed = CDblSafe(dr.Item(10), 2, 0)
+            _TaxPayedByCompany = CDblSafe(dr.Item(11), 2, 0)
+            _Remarks = CStrSafe(dr.Item(12)).Trim
+            _JournalEntryAmount = CDblSafe(dr.Item(13), 2, 0)
 
-            Dim journalEntryPerson As PersonInfo = PersonInfo.GetPersonInfo(dr, 11)
+            Dim journalEntryPerson As PersonInfo = PersonInfo.GetPersonInfo(dr, 14)
             If Not journalEntryPerson.IsEmpty Then
                 _JournalEntryPersonID = journalEntryPerson.ID
                 _JournalEntryPersonName = journalEntryPerson.Name
                 _JournalEntryPersonCode = JournalEntryPersonCode
             End If
 
-            _PaymentReceiver = PersonInfo.GetPersonInfo(dr, 31)
+            _PaymentReceiver = PersonInfo.GetPersonInfo(dr, 34)
 
             MarkOld()
 
@@ -486,14 +629,27 @@ Namespace Workers
         End Sub
 
         Private Sub AddWithParams(ByRef myComm As SQLCommand)
+
             If _PaymentReceiver.IsEmpty Then
                 myComm.AddParam("?AB", 0)
             Else
                 myComm.AddParam("?AB", _PaymentReceiver.ID)
             End If
+
             myComm.AddParam("?AC", CRound(_PaymentAmount))
             myComm.AddParam("?AD", _TaxCode)
             myComm.AddParam("?AE", _Remarks.Trim)
+
+            If _TaxPayedOutDate.IsEmpty Then
+                myComm.AddParam("?AF", Nothing, GetType(Date))
+                myComm.AddParam("?AG", 0.0)
+                myComm.AddParam("?AH", 0.0)
+            Else
+                myComm.AddParam("?AF", _TaxPayedOutDate.Date)
+                myComm.AddParam("?AG", CRound(_TaxDeductedAndPayed))
+                myComm.AddParam("?AH", CRound(_TaxPayedByCompany))
+            End If
+
         End Sub
 
 #End Region

@@ -1,0 +1,981 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{650E821F-92C3-42F8-A052-E06E22462BEA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>ApskaitaWUI.My.MyApplication</StartupObject>
+    <RootNamespace>ApskaitaWUI</RootNamespace>
+    <AssemblyName>Apskaita5</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <ApplicationIcon>Resources\zalsva_maza.ico</ApplicationIcon>
+    <TargetZone>LocalIntranet</TargetZone>
+    <GenerateManifests>true</GenerateManifests>
+    <ExcludedPermissions>
+    </ExcludedPermissions>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>A9B68A62CC7A2E54E9DBF1285929203B78E878E4</ManifestCertificateThumbprint>
+    <ManifestKeyFile>Apskaita_TemporaryKey.pfx</ManifestKeyFile>
+    <SignManifests>false</SignManifests>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>http://www.tax.lt/temos/12748-nemokama-apskaitos-programa</SupportUrl>
+    <ProductName>Apskaita5</ProductName>
+    <PublisherName>Marius Dagys</PublisherName>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>2.0.2.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Apskaita5.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <WarningLevel>1</WarningLevel>
+    <WarningsAsErrors>41998,42004,42026,42105,42106,42107</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Apskaita5.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <WarningLevel>1</WarningLevel>
+    <WarningsAsErrors>41998,42004,42026,42105,42106,42107</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <WarningLevel>1</WarningLevel>
+    <DocumentationFile>Apskaita5.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41998,42004,42026,42105,42106,42107</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <WarningLevel>1</WarningLevel>
+    <DocumentationFile>Apskaita5.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41998,42004,42026,42105,42106,42107</WarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Csla, Version=2.1.4.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\csla20vb\csla20vb\Csla\bin\Release\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ReportViewer_libraries\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ReportViewer_libraries\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ReportViewer_libraries\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjectListView, Version=2.9.0.38611, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ObjectListView\ObjectListView\bin\Release\ObjectListView.dll</HintPath>
+    </Reference>
+    <Reference Include="RdlCri, Version=4.5.5482.20773, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MajorSilence binaries for NET 3.5\RdlCri.dll</HintPath>
+    </Reference>
+    <Reference Include="RdlDesign, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\RdlDesign\RdlDesign\bin\x86\Release\RdlDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="AccCommon" />
+    <Import Include="AccControlsWinForms" />
+    <Import Include="AccDataAccessLayer.DatabaseAccess" />
+    <Import Include="AccDataBindingsWinForms" />
+    <Import Include="ApskaitaObjects" />
+    <Import Include="ApskaitaWUI" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administration\F_BackUp.Designer.vb">
+      <DependentUpon>F_BackUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\F_BackUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\F_ChangePassword.Designer.vb">
+      <DependentUpon>F_ChangePassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\F_ChangePassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\F_DatabaseStructureEditor.Designer.vb">
+      <DependentUpon>F_DatabaseStructureEditor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\F_DatabaseStructureEditor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\F_DatabaseStructureError.Designer.vb">
+      <DependentUpon>F_DatabaseStructureError.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\F_DatabaseStructureError.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\F_DatabaseTableAccessRoleList.Designer.vb">
+      <DependentUpon>F_DatabaseTableAccessRoleList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\F_DatabaseTableAccessRoleList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\F_Login.designer.vb">
+      <DependentUpon>F_Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\F_Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\F_LoginSecondary.designer.vb">
+      <DependentUpon>F_LoginSecondary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\F_LoginSecondary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\F_RawSqlFetch.Designer.vb">
+      <DependentUpon>F_RawSqlFetch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\F_RawSqlFetch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\F_User.Designer.vb">
+      <DependentUpon>F_User.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\F_User.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\F_UserProfile.Designer.vb">
+      <DependentUpon>F_UserProfile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\F_UserProfile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="CommonMethods.vb" />
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\F_DeleteDatabase.Designer.vb">
+      <DependentUpon>F_DeleteDatabase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\F_DeleteDatabase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpai\Apie.Designer.vb">
+      <DependentUpon>Apie.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Helpai\Apie.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\F_NewCompany.Designer.vb">
+      <DependentUpon>F_NewCompany.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\F_NewCompany.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIParent1.Designer.vb">
+      <DependentUpon>MDIParent1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDIParent1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Administration\F_BackUp.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>F_BackUp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\F_ChangePassword.resx">
+      <DependentUpon>F_ChangePassword.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\F_DatabaseStructureEditor.resx">
+      <DependentUpon>F_DatabaseStructureEditor.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\F_DatabaseStructureError.resx">
+      <DependentUpon>F_DatabaseStructureError.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\F_DatabaseTableAccessRoleList.resx">
+      <DependentUpon>F_DatabaseTableAccessRoleList.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\F_DeleteDatabase.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>F_DeleteDatabase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\F_Login.resx">
+      <DependentUpon>F_Login.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\F_LoginSecondary.resx">
+      <DependentUpon>F_LoginSecondary.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\F_RawSqlFetch.resx">
+      <DependentUpon>F_RawSqlFetch.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\F_User.resx">
+      <DependentUpon>F_User.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\F_UserProfile.resx">
+      <DependentUpon>F_UserProfile.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="Reports\R_GoodsTurnoverInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_AccountTurnoverInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_UnsettledPersonInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_WorkersVDUInfo.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_GoodsComplexOperationDiscard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_WorkerHolidayInfo.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_LongTermAssetDiscard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_LongTermAssetUsingStart.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_LongTermAssetUsingEnd.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_HolidayPayReserve.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_ServiceTurnoverInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_WorkerWageInfoReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_PayOutNaturalPersonList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_WageSheetInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_WorkerInfoCard.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_WageSheet%281%29.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_WageSheet%282%29.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_LongTermAssetInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_LongTermAssetOperationInfoListParent.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_AdvanceReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_AdvanceReportList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_Invoice.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_TillBook.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_TillOrderIncome.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_TillOrderSpendings.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_PayChecks.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_DebtInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_InvoiceAltLng.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_WorkTimeSheet.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_InvoiceInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_CashOperationInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_LabourContractAmendment.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_LabourOrderOnHolidays.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_LabourContract.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_MemorandumNPD.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_WorkTimeSheetInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_JournalEntry.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_BookEntryInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_Persons.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_AccountList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_GeneralLedger.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_ConsolidatedReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_AccountTurnoverInfoList2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_BankTransferList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_BankTransfer.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_Declaration_SD13.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_Declaration_SAM_1.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_Declaration_FR0572_2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_Declaration_FR0572_3.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_Declaration_FR0573_3.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_Declaration_SAM_2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_LabourContractInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_WorkerStatusList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_ImprestSheetInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_ImprestSheet.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Helpai\Apie.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Apie.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\F_NewCompany.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>F_NewCompany.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIParent1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MDIParent1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <Content Include="Reports\R_DebtStatementItemList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_ProformaInvoiceAltLng.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_ProformaInvoice.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_Declaration_FR0600_2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <SubType>
+      </SubType>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BaseApplicationManifest Include="My Project\app.manifest" />
+    <None Include="Resources\Nusidevejimas.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FFData\13-SD-v01.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\FR0572%283%29.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\FR0572.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\FR0573%283%29.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\FR0573.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\FR0671%282%29.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\FR0671.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\FR0672%282%29.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\FR0672.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\SAM-v01.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\SAM-v02.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\13-SD-v02.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\zalsva.ico" />
+    <Content Include="Icons\zalsva_maza.ico" />
+    <Content Include="LastUpdateA5.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\13-SD-v01.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\13-SD-v02.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\FR0572%282%29.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\FR0572%283%29.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\FR0573%282%29.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\FR0573%283%29.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\FR0671%282%29.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\FR0671.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\FR0672%282%29.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\FR0672.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\SAM-v01.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\SAM-v02.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\FR0572%284%29.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\SAM-v03.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\SAM-v03.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\SAM-v04.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\SAM-v04.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\13-SD-v05.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\13-SD-v05.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\FR0573%284%29.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\FR0573%284%29.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\SAM-v05.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\SAM-v05.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\FR0600%282%29.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\FR0600%282%29.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\isaf_1_2.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\FR0471%285%29.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\FR0471%285%29.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FFData\SAM-v06.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\FR0572%284%29.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\SAM-v06.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="My Project\DataSources\AccControlsWinForms.ReportData.datasource" />
+    <None Include="My Project\DataSources\AccDataAccessLayer.DatabaseAccess.DatabaseStructure.DatabaseStructure.datasource" />
+    <None Include="My Project\DataSources\AccDataAccessLayer.Security.DatabaseInfoList.datasource" />
+    <None Include="My Project\DataSources\AccDataAccessLayer.Security.LocalUser.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.AdvanceReportInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.BookEntryInfoListParent.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.CashOperationInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.ContractInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.DebtInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.FinancialStatementsInfo.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.GoodsOperationInfoListParent.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.GoodsTurnoverInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.ImprestSheetInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.InvoiceInfoItemList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.JournalEntryInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.LongTermAssetInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.LongTermAssetOperationInfoListParent.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.PayOutNaturalPersonInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.PersonInfoItemList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.ProductionCalculationItemList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.ServiceTurnoverInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.UnsettledPersonInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.WageSheetInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.WorkerHolidayInfo.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.WorkersVDUInfo.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.WorkerWageInfoReport.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.WorkTimeSheetInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Administration.LevelData.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Administration.LevelDataList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Administration.User.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Administration.UserList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.ComplexOperationAmortization.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.ComplexOperationDiscard.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.ComplexOperationOperationalStatusChange.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.ComplexOperationValueChange.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAsset.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetCustomGroupList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.LongTermAssetsTransferOfBalance.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationAccountChange.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationAcquisitionValueIncrease.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationAmortization.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationAmortizationPeriodChange.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationBackground.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationDiscard.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationOperationalStatusChange.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationTransfer.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Assets.OperationValueChange.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.AccumulativeCosts.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.AdvanceReport.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.BankOperation.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.BankOperationItemList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.CashAccountList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.InvoiceMade.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.InvoiceReceived.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.Offset.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.Service.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.TillIncomeOrder.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.TillSpendingsOrder.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.General.AccountList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.General.Company.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.General.CompanyRegionalData.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.General.ConsolidatedReportItem.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.General.ImportedPersonList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.General.JournalEntry.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.General.Persons.Person.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.General.Persons.PersonGroup.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.General.Persons.PersonGroupAssignmentList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.General.Persons.PersonGroupList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.General.Persons.PersonInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.General.TransferOfBalance.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsComplexOperationDiscard.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsComplexOperationInternalTransfer.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsComplexOperationInventorization.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsComplexOperationPriceCut.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsComplexOperationProduction.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsComplexOperationTransferOfBalance.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsGroupList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsItem.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsOperationAccountChange.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsOperationAcquisition.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsOperationAdditionalCosts.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsOperationDiscard.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsOperationDiscount.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsOperationPriceCut.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsOperationRedeemFromBuyer.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsOperationTransfer.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.GoodsOperationValuationMethod.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.ImportedGoodsItemList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.ProductionCalculation.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Goods.WarehouseList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.CompanyRegionalInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.GoodsInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.IndirectRelationInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.ServiceInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.HelperLists.TemplateJournalEntryInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Settings.CommonSettings.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Settings.DocumentSerialList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Workers.Contract.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Workers.ContractUpdate.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Workers.ImprestSheet.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Workers.PayOutNaturalPerson.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Workers.WageSheet.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Workers.WorkTimeClassList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Workers.WorkTimeSheet.datasource" />
+    <None Include="Resources\FromFillerIcon_24x24alt.png" />
+    <None Include="Resources\FromFillerIcon_48x48.png" />
+    <None Include="Resources\FromFillerIcon_32x32.png" />
+    <None Include="Resources\FromFillerIcon_24x24.png" />
+    <None Include="Resources\FromFillerIcon_16x16.png" />
+    <None Include="Resources\FormFillerLight_32x32.ico" />
+    <None Include="Resources\FormFillerLight_24x24.ico" />
+    <None Include="Resources\FormFillerLight_16x16.ico" />
+    <None Include="Resources\FormFillerLight_48x48.ico" />
+    <None Include="Resources\Action_file_new_icon_32p.png" />
+    <None Include="Resources\Action_file_new_icon_24p.png" />
+    <None Include="Resources\Action_file_new_icon_16p.png" />
+    <None Include="Resources\Action_file_new_icon_48p.png" />
+    <None Include="Resources\Web_Database_icon_32p.png" />
+    <None Include="Resources\Web_Database_icon_24p.png" />
+    <None Include="Resources\Web_Database_icon_16p.png" />
+    <None Include="Resources\Paste_icon_48p.png" />
+    <None Include="Resources\Paste_icon_32p.png" />
+    <None Include="Resources\Paste_icon_24p.png" />
+    <None Include="Resources\Paste_icon_16p.png" />
+    <None Include="Resources\folder_open_icon_48p.png" />
+    <None Include="Resources\folder_open_icon_32p.png" />
+    <None Include="Resources\folder_open_icon_24p.png" />
+    <None Include="Resources\folder_open_icon_16p.png" />
+    <None Include="Resources\email_send_receive_icon_32p.png" />
+    <None Include="Resources\email_send_receive_icon_24p.png" />
+    <None Include="Resources\email_send_receive_icon_16p.png" />
+    <None Include="Resources\Actions_edit_copy_icon_48p.png" />
+    <None Include="Resources\Actions_edit_copy_icon_32p.png" />
+    <None Include="Resources\Actions_edit_copy_icon_24p.png" />
+    <None Include="Resources\Actions_edit_copy_icon_16p.png" />
+    <None Include="Resources\Actions_document_save_icon_48p.png" />
+    <None Include="Resources\Actions_document_save_icon_32p.png" />
+    <None Include="Resources\Actions_document_save_icon_24p.png" />
+    <None Include="Resources\Actions_document_save_icon_16p.png" />
+    <None Include="Resources\Web_Database_icon_48p.png" />
+    <None Include="Resources\Action_lock_icon_48p.png" />
+    <None Include="Resources\Action_lock_icon_32p.png" />
+    <None Include="Resources\Action_lock_icon_24p.png" />
+    <None Include="Resources\Action_lock_icon_16p.png" />
+    <None Include="Resources\Action_lock_full_icon_48p.png" />
+    <None Include="Resources\Action_lock_full_icon_32p.png" />
+    <None Include="Resources\Action_lock_full_icon_24p.png" />
+    <None Include="Resources\Action_lock_full_icon_16p.png" />
+    <None Include="Resources\Button_Reload_icon_32p.png" />
+    <None Include="Resources\Button_Reload_icon_24p.png" />
+    <None Include="Resources\Button_Reload_icon_16p.png" />
+    <None Include="Resources\1377706448_exclamation-circle_yellow.png" />
+    <None Include="Resources\1377706443_exclamation-circle_red.png" />
+    <None Include="Resources\Button_Reload_icon_48p.png" />
+    <None Include="Resources\disk.png" />
+    <None Include="Resources\database_save.png" />
+    <None Include="Resources\database_refresh.png" />
+    <None Include="Resources\Document-Blank-icon.png" />
+    <None Include="Resources\paste_plain.png" />
+    <None Include="Resources\46.png" />
+    <None Include="Resources\PreviewIcon.png" />
+    <None Include="Resources\icon_eye.png" />
+    <None Include="Resources\Lektuvelis.PNG" />
+    <None Include="Resources\12.png" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\loading6.gif" />
+    <None Include="Resources\web.png" />
+    <None Include="Resources\Button-Reload-24x24.png" />
+    <None Include="Resources\Button-Reload-32x32.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\refresh-48x48.png" />
+    <None Include="Resources\mail_replyall-32.png" />
+    <None Include="Resources\Excel-32x32.png" />
+    <None Include="Resources\Money_Safe1_32.png" />
+    <None Include="Resources\tabs_48.png" />
+    <None Include="Resources\paper_content_chart_48.png" />
+    <None Include="Resources\book_48.png" />
+    <None Include="Resources\my_documents.ico" />
+    <None Include="Resources\abacus-2.PNG" />
+    <None Include="Resources\abacus-48x48.png" />
+    <None Include="Resources\sz.JPG" />
+    <None Include="Resources\bz.JPG" />
+    <None Include="Resources\asmenys.JPG" />
+    <None Include="Resources\zalsva_maza.ico" />
+    <None Include="Resources\mail.JPG" />
+    <None Include="Resources\PrintAll.JPG" />
+    <None Include="Resources\Parasas.jpg" />
+    <None Include="Resources\lock.JPG" />
+    <None Include="Resources\Refresh.JPG" />
+    <None Include="Resources\FR0572.bmp" />
+    <None Include="Resources\doc.ico" />
+    <Content Include="Portable.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\bill.png" />
+    <None Include="Resources\books.png" />
+    <None Include="Resources\eta.png" />
+    <None Include="Resources\books32.png" />
+    <None Include="Resources\eta32.png" />
+    <None Include="Resources\pie32.png" />
+    <None Include="Resources\printer32.png" />
+    <None Include="Resources\prinprew32.png" />
+    <None Include="Resources\users32.png" />
+    <None Include="Resources\saskait32.png" />
+    <None Include="Resources\eile32.png" />
+    <None Include="Resources\regsasfakt32.png" />
+    <None Include="Resources\isirasytisask32.png" />
+    <None Include="Resources\orderis32.png" />
+    <None Include="Resources\bill32.png" />
+    <None Include="Resources\prekkatnew32.png" />
+    <None Include="Resources\service32.png" />
+    <None Include="Resources\servicenew32.png" />
+    <None Include="Resources\prekkat32.png" />
+    <None Include="Resources\filesaveas_32x32.png" />
+    <None Include="Resources\filesaveas_16x16.png" />
+    <None Include="Resources\filesaveas_22x22.png" />
+    <None Include="Resources\filesaveas_24x24.png" />
+    <None Include="Resources\sqlquery_16x16.png" />
+    <None Include="Resources\sql-16.png" />
+    <None Include="Resources\sql-20.png" />
+    <None Include="Resources\sql-24.png" />
+    <None Include="Resources\sql-32.png" />
+    <None Include="Resources\sql-48.png" />
+    <None Include="Resources\database-settings-icon_48.png" />
+    <None Include="Resources\database-search-icon_16.png" />
+    <None Include="Resources\database-search-icon_24.png" />
+    <None Include="Resources\database-search-icon_32.png" />
+    <None Include="Resources\database-search-icon_48.png" />
+    <None Include="Resources\database-settings-icon_16.png" />
+    <None Include="Resources\database-settings-icon_24.png" />
+    <None Include="Resources\database-settings-icon_32.png" />
+    <None Include="Resources\lektuvelis_48.png" />
+    <None Include="Resources\lektuvelis_16.png" />
+    <None Include="Resources\lektuvelis_24.png" />
+    <None Include="Resources\lektuvelis_32.png" />
+    <None Include="Resources\open_document_22.png" />
+    <None Include="Resources\link-go-icon_16.png" />
+    <None Include="Resources\link-go-icon_24.png" />
+    <None Include="Resources\link-go-icon_32.png" />
+    <None Include="Resources\open_document_16.png" />
+    <None Include="Resources\calculator_48.png" />
+    <None Include="Resources\calculator_16.png" />
+    <None Include="Resources\calculator_32.png" />
+    <None Include="Resources\usersadd32.png" />
+    <None Include="Resources\booksadd32.png" />
+    <None Include="Resources\refresh32.png" />
+    <None Include="Resources\searchIcon_16x16.png" />
+    <None Include="Resources\Apskaita5_LargeLogo.png" />
+    <None Include="Resources\icon_help_32x32.png" />
+    <None Include="Resources\TypicalAccountsGeneral.txt" />
+    <None Include="Resources\book-add-icon.png" />
+    <Content Include="UserReportExample.rdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RdlEngineConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sqlite3.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\AccDataAccessLayer\AccDataAccessLayer\AccDataAccessLayer.vbproj">
+      <Project>{13ADAA16-3D3A-4F2A-A5D4-D6DE94A31614}</Project>
+      <Name>AccDataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AccCommon\AccCommon.vbproj">
+      <Project>{380B0551-D15D-4072-A72C-406274CCB50E}</Project>
+      <Name>AccCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AccControlsWinForms\AccControlsWinForms.vbproj">
+      <Project>{FF0A84CB-84D9-4984-88C1-9035D4A5D7CC}</Project>
+      <Name>AccControlsWinForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AccDataBindingsWinForms\AccDataBindingsWinForms.vbproj">
+      <Project>{4F683A20-E3ED-4A04-9B13-C02AC23397A8}</Project>
+      <Name>AccDataBindingsWinForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AccDataProvider\AccDataProvider.vbproj">
+      <Project>{839E9F67-BE1A-4B6F-A42E-B8C0F1DCAB9F}</Project>
+      <Name>AccDataProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Apskaita5\ApskaitaObjects.vbproj">
+      <Project>{5F12CA52-9B64-42A3-B168-7861C44FD24E}</Project>
+      <Name>ApskaitaObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

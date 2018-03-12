@@ -1,4 +1,6 @@
 ﻿Imports System.IO
+Imports System.Net.Security
+Imports System.Security.Cryptography.X509Certificates
 
 Namespace WebControls
 
@@ -48,8 +50,13 @@ Namespace WebControls
                 _DownloadedFilePath = GetFilePath()
 
                 _WebClient = New System.Net.WebClient
+                _WebClient.Headers.Add(Net.HttpRequestHeader.UserAgent, "blahhhhhh")
                 AddHandler _WebClient.DownloadFileCompleted, AddressOf OnDownloadComplete
                 AddHandler _WebClient.DownloadProgressChanged, AddressOf OnDownloadProgressChanged
+
+                Net.ServicePointManager.SecurityProtocol = Net.SecurityProtocolType.Ssl3
+                Net.ServicePointManager.ServerCertificateValidationCallback =
+                    AddressOf ValidateServerCertificate
 
                 _WebClient.DownloadFileAsync(updateUrl, _DownloadedFilePath)
 
@@ -121,6 +128,11 @@ Namespace WebControls
 
         End Function
 
+        Private Shared Function ValidateServerCertificate(sender As Object,
+            certificate As X509Certificate, chain As X509Chain, sslPolicyErrors As SslPolicyErrors) As Boolean
+            Return True
+        End Function
+
         Private Sub CleanUp()
 
             If Not _WebClient Is Nothing Then
@@ -130,6 +142,10 @@ Namespace WebControls
                 End Try
                 Try
                     RemoveHandler _WebClient.DownloadProgressChanged, AddressOf OnDownloadProgressChanged
+                Catch eg As Exception
+                End Try
+                Try
+                    Net.ServicePointManager.ServerCertificateValidationCallback = Nothing
                 Catch eg As Exception
                 End Try
                 Try

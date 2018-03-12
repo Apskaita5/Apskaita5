@@ -170,17 +170,38 @@
         End Function
 
 
+        ''' <summary>
+        ''' Adds items to the current collection using imported data
+        ''' </summary>
+        ''' <param name="source">tab delimited string that contains long term asset data,
+        ''' see <see cref="LongTermAsset.GetPasteStringColumns()">LongTermAsset.GetPasteStringColumns</see> method</param>
         Public Sub ImportRange(ByVal source As String)
 
-            If Not CanEditObject() Then Throw New System.Security.SecurityException( _
+            If Not CanEditObject() Then Throw New System.Security.SecurityException(
                 My.Resources.Common_SecurityUpdateDenied)
 
             If StringIsNullOrEmpty(source) Then _
                 Throw New Exception(My.Resources.Assets_LongTermAssetsTransferOfBalance_PasteStringEmpty)
 
-            _Items.ImportRange(source.Split(New String() {vbCrLf}, _
-                StringSplitOptions.RemoveEmptyEntries), vbTab, _
+            _Items.ImportRange(source.Split(New String() {vbCrLf},
+                StringSplitOptions.RemoveEmptyEntries), vbTab,
                 _ChronologyValidator.BaseValidator)
+
+        End Sub
+
+        ''' <summary>
+        ''' Adds items to the current collection using imported data.
+        ''' </summary>
+        ''' <param name="table">template datatable containing the data to import, 
+        ''' see <see cref="LongTermAsset.GetDataTableSpecification()">LongTermAsset.GetDataTableSpecification</see> method</param>
+        Public Sub ImportRange(ByVal table As DataTable)
+
+            If table Is Nothing Then Throw New ArgumentNullException("table")
+
+            If Not CanEditObject() Then Throw New System.Security.SecurityException(
+                My.Resources.Common_SecurityUpdateDenied)
+
+            _Items.ImportRange(table, _ChronologyValidator.BaseValidator)
 
         End Sub
 

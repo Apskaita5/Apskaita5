@@ -37,22 +37,22 @@
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>GetAccountList</Key>
-    <Statement>SELECT s.Saskaitosnr, s.Saskaita, s.Rusis, f.ID, f.Name, (SELECT g.Name FROM FinancialStatementsStructure g WHERE g.Rgt &gt; f.Rgt AND g.Lft &lt; f.Lft ORDER BY g.Rgt - g.Lft LIMIT 1) AS ParentName FROM saskaitupl s LEFT JOIN FinancialStatementsStructure f ON f.ID = s.fs_id ORDER BY CAST(s.Saskaitosnr AS CHAR);</Statement>
+    <Statement>SELECT s.Saskaitosnr, s.Saskaita, s.Rusis, s.SaftCode, s.SaftDescription,  f.ID, f.Name, (SELECT g.Name FROM FinancialStatementsStructure g WHERE g.Rgt &gt; f.Rgt AND g.Lft &lt; f.Lft ORDER BY g.Rgt - g.Lft LIMIT 1) AS ParentName FROM saskaitupl s LEFT JOIN FinancialStatementsStructure f ON f.ID = s.fs_id ORDER BY CAST(s.Saskaitosnr AS CHAR);</Statement>
     <Objects>HelperLists.AccountInfoList, General.AccountList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>InsertAccount</Key>
-    <Statement>INSERT INTO saskaitupl(Saskaitosnr, Saskaita, Rusis, fs_id) VALUES($SN, $SP, $CM, $FD);</Statement>
+    <Statement>INSERT INTO saskaitupl(Saskaitosnr, Saskaita, Rusis, fs_id, SaftCode, SaftDescription) VALUES($SN, $SP, $CM, $FD, $SC, $SD);</Statement>
     <Objects>General.Account</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>UpdateAccount</Key>
-    <Statement>UPDATE saskaitupl SET Saskaitosnr=$SN, Saskaita=$SP, fs_id=$FD, Rusis=$CM WHERE Saskaitosnr=$TN ;</Statement>
+    <Statement>UPDATE saskaitupl SET Saskaitosnr=$SN, Saskaita=$SP, fs_id=$FD, Rusis=$CM, SaftCode=$SC, SaftDescription=$SD WHERE Saskaitosnr=$TN ;</Statement>
     <Objects>General.Account</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>AccountWasUsed</Key>
-    <Statement>SELECT * FROM (SELECT 'AccumulativeCosts' AS RowType, 0 AS ObjectID, a.ID AS OperationID, b.Op_Data AS OperationDate FROM AccumulativeCosts a LEFT JOIN bz b ON b.Op_ID=a.ID WHERE a.AccountCosts=$CD OR a.AccountAccumulatedCosts=$CD OR a.AccountDistributedCosts=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'HolidayPayReserves' AS RowType, 0 AS ObjectID, a.ID AS OperationID, b.Op_Data AS OperationDate FROM HolidayPayReserves a LEFT JOIN bz b ON b.Op_ID=a.ID WHERE a.AccountCosts=$CD OR a.AccountReserve=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'AdvanceReports', 0, a.ID, b.Op_Data FROM AdvanceReports a LEFT JOIN bz b ON b.Op_ID=a.ID LEFT JOIN apyskaitos c ON c.BZ_ID=a.ID AND (c.Sask=$CD OR c.PVMSask=$CD OR c.AccountCurrencyRateChangeEffect=$CD) WHERE a.Account=$CD OR NOT c.ID IS NULL LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'Asmenys', a.ID, 0, null FROM asmenys a WHERE a.B_Kor=$CD OR a.B_Kor_Tiek=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'BankOperations', 0, a.ParentID, b.Op_data FROM BankOperations a LEFT JOIN bz b ON b.Op_ID=a.ParentID WHERE a.AccountCurrencyRateChangeImpact=$CD OR a.AccountBankCurrencyConversionCosts=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'bzdata', 0, a.Op_ID_BZ, b.Op_data FROM bzdata a LEFT JOIN bz b ON b.Op_ID=a.Op_ID_BZ WHERE a.Op_saskaita=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'CashAccounts', a.ID, 0, null FROM CashAccounts a WHERE a.Account=$CD OR a.BankFeeCostsAccount=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'CompanyAccounts', 0 AS ObjectID, 0, null FROM CompanyAccounts a WHERE a.AccountValue=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'du_ziniarastis', 0, a.ID, b.Op_data FROM du_ziniarastis a LEFT JOIN bz b ON b.Op_ID=a.ID WHERE a.Saskaita=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'goods', a.ID, 0, null FROM goods a WHERE a.AccountSalesNetCosts=$CD OR a.AccountPurchases=$CD OR a.AccountDiscounts=$CD OR a.AccountValueReduction=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'goodscomplexoperations', 0, a.ID, a.OperationDate FROM goodscomplexoperations a WHERE a.AccountOperation=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'goodsoperations', a.GoodsID, a.ID, a.OperationDate FROM goodsoperations a WHERE a.AccountOperation=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'goodsaccounts', a.GoodsID, a.ID, a.ChangeDate FROM goodsaccounts a WHERE a.AccountValue=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'InvoicesMade', 0, a.ID, b.Op_data FROM InvoicesMade a LEFT JOIN bz b ON b.Op_ID=a.ID LEFT JOIN sfd c ON c.SF_ID=a.ID AND (c.P_Sas=$CD OR c.A_Sas=$CD OR c.AccountDiscount=$CD) WHERE a.AccountPayer=$CD OR NOT c.ID IS NULL LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'InvoicesReceived', 0, a.ID, b.Op_data FROM InvoicesReceived a LEFT JOIN bz b ON b.Op_ID=a.ID LEFT JOIN sfg c ON c.BZ_ID=a.ID AND (c.PVM_S=$CD OR c.Sanaud=$CD) WHERE a.AccountSupplier=$CD OR a.IndirectVatAccount=$CD OR a.IndirectVatCostsAccount=$CD OR NOT c.ID IS NULL LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'kalkuliac_d', a.K_ID, 0, null FROM kalkuliac_d a WHERE a.Sask=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'kio', 0, a.BZ_ID, b.Op_data FROM kio a LEFT JOIN bz b ON b.Op_ID=a.BZ_ID WHERE a.AccountCurrencyRateChangeImpact=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'kpo', 0, a.BZ_ID, b.Op_data FROM kpo a LEFT JOIN bz b ON b.Op_ID=a.BZ_ID WHERE a.AccountCurrencyRateChangeImpact=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'OffsetItems', 0, a.ParentID, b.Op_data FROM OffsetItems a LEFT JOIN bz b ON b.Op_ID=a.ParentID WHERE a.Account=$CD OR a.AccountCurrencyRateChangeImpact=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'Paslaugos', a.ID, 0, null FROM Paslaugos a WHERE a.P_Sask=$CD OR a.S_Sask=$CD OR a.AccountPurchase=$CD OR a.AccountVatPurchase=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'Tipines_data', a.T_ID, 0, null FROM Tipines_data a WHERE a.T_saskaita=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'Turtas', a.ID, 0, null FROM Turtas a WHERE a.Saskaita=$CD OR a.AccountAmortization=$CD OR a.AccountValueIncrease=$CD OR a.AccountValueDecrease=$CD OR a.AccountRevaluedPortionAmmortization=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'Turtas_op', a.T_ID, a.ID, a.OperationDate FROM Turtas_op a WHERE a.AccountCorresponding=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'warehouses', a.ID, 0, null FROM warehouses a WHERE a.WarehouseAccount=$CD LIMIT 1) AS Used;</Statement>
+    <Statement>SELECT * FROM (SELECT 'AccumulativeCosts' AS RowType, 0 AS ObjectID, a.ID AS OperationID, b.Op_Data AS OperationDate FROM AccumulativeCosts a LEFT JOIN bz b ON b.Op_ID=a.ID WHERE a.AccountCosts=$CD OR a.AccountAccumulatedCosts=$CD OR a.AccountDistributedCosts=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'HolidayPayReserves' AS RowType, 0 AS ObjectID, a.ID AS OperationID, b.Op_Data AS OperationDate FROM HolidayPayReserves a LEFT JOIN bz b ON b.Op_ID=a.ID WHERE a.AccountCosts=$CD OR a.AccountReserve=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'AdvanceReports', 0, a.ID, b.Op_Data FROM AdvanceReports a LEFT JOIN bz b ON b.Op_ID=a.ID LEFT JOIN apyskaitos c ON c.BZ_ID=a.ID AND (c.Sask=$CD OR c.PVMSask=$CD OR c.AccountCurrencyRateChangeEffect=$CD) WHERE a.Account=$CD OR NOT c.ID IS NULL LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'Asmenys', a.ID, 0, null FROM asmenys a WHERE a.B_Kor=$CD OR a.B_Kor_Tiek=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'BankOperations', 0, a.ParentID, b.Op_data FROM BankOperations a LEFT JOIN bz b ON b.Op_ID=a.ParentID WHERE a.AccountCurrencyRateChangeImpact=$CD OR a.AccountBankCurrencyConversionCosts=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'bzdata', 0, a.Op_ID_BZ, b.Op_data FROM bzdata a LEFT JOIN bz b ON b.Op_ID=a.Op_ID_BZ WHERE a.Op_saskaita=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'CashAccounts', a.ID, 0, null FROM CashAccounts a WHERE a.Account=$CD OR a.BankFeeCostsAccount=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'CompanyAccounts', 0 AS ObjectID, 0, null FROM CompanyAccounts a WHERE a.AccountValue=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'du_ziniarastis', 0, a.ID, b.Op_data FROM du_ziniarastis a LEFT JOIN bz b ON b.Op_ID=a.ID WHERE a.Saskaita=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'goods', a.ID, 0, null FROM goods a WHERE a.AccountSalesNetCosts=$CD OR a.AccountPurchases=$CD OR a.AccountDiscounts=$CD OR a.AccountValueReduction=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'goodscomplexoperations', 0, a.ID, a.OperationDate FROM goodscomplexoperations a WHERE a.AccountOperation=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'goodsoperations', a.GoodsID, a.ID, a.OperationDate FROM goodsoperations a WHERE a.AccountOperation=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'goodsaccounts', a.GoodsID, a.ID, a.ChangeDate FROM goodsaccounts a WHERE a.AccountValue=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'InvoicesMade', 0, a.ID, b.Op_data FROM InvoicesMade a LEFT JOIN bz b ON b.Op_ID=a.ID LEFT JOIN sfd c ON c.SF_ID=a.ID AND (c.P_Sas=$CD OR c.A_Sas=$CD OR c.AccountDiscount=$CD) WHERE a.AccountPayer=$CD OR NOT c.ID IS NULL LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'InvoicesReceived', 0, a.ID, b.Op_data FROM InvoicesReceived a LEFT JOIN bz b ON b.Op_ID=a.ID LEFT JOIN sfg c ON c.BZ_ID=a.ID AND (c.PVM_S=$CD OR c.Sanaud=$CD) WHERE a.AccountSupplier=$CD OR a.IndirectVatAccount=$CD OR a.IndirectVatCostsAccount=$CD OR NOT c.ID IS NULL LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'kalkuliac_d', a.K_ID, 0, null FROM kalkuliac_d a WHERE a.Sask=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'kio', 0, a.BZ_ID, b.Op_data FROM kio a LEFT JOIN bz b ON b.Op_ID=a.BZ_ID WHERE a.AccountCurrencyRateChangeImpact=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'kpo', 0, a.BZ_ID, b.Op_data FROM kpo a LEFT JOIN bz b ON b.Op_ID=a.BZ_ID WHERE a.AccountCurrencyRateChangeImpact=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'OffsetItems', 0, a.ParentID, b.Op_data FROM OffsetItems a LEFT JOIN bz b ON b.Op_ID=a.ParentID WHERE a.Account=$CD OR a.AccountCurrencyRateChangeImpact=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'Paslaugos', a.ID, 0, null FROM Paslaugos a WHERE a.P_Sask=$CD OR a.S_Sask=$CD OR a.AccountPurchase=$CD OR a.AccountVatPurchase=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'Tipines_data', a.T_ID, 0, null FROM Tipines_data a WHERE a.T_saskaita=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'Turtas', a.ID, 0, null FROM Turtas a WHERE a.Saskaita=$CD OR a.AccountAmortization=$CD OR a.AccountValueIncrease=$CD OR a.AccountValueDecrease=$CD OR a.AccountRevaluedPortionAmmortization=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'Turtas_op', a.T_ID, a.ID, a.OperationDate FROM Turtas_op a WHERE a.AccountCorresponding=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'warehouses', a.ID, 0, null FROM warehouses a WHERE a.WarehouseAccount=$CD LIMIT 1) AS Used UNION SELECT * FROM (SELECT 'sharesclasses', a.ID, 0, null FROM sharesclasses a WHERE a.Account=$CD LIMIT 1) AS Used;</Statement>
     <Objects>General.Account</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3255,7 +3255,7 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchCodeInfoList</Key>
-    <Statement>SELECT w.TypeID AS TypeID, w.CodeValue AS CodeValue FROM (SELECT DISTINCT 3 AS TypeID, d.StateCode AS CodeValue FROM asmenys d) AS w WHERE NOT CodeValue IS NULL AND TRIM(CodeValue) &lt;&gt; '' UNION SELECT v.TypeID AS TypeID, v.CodeValue AS CodeValue FROM (SELECT DISTINCT 4 AS TypeID, d.ExternalCode AS CodeValue FROM VatDeclarationSchemas d) AS v WHERE NOT CodeValue IS NULL AND TRIM(CodeValue) &lt;&gt; '' UNION SELECT b.TypeID AS TypeID, CAST(b.CodeValue AS CHAR) AS CodeValue FROM (SELECT DISTINCT 0 AS TypeID, d.Kodas AS CodeValue FROM d_kitos d) b WHERE NOT CodeValue IS NULL AND CodeValue&gt;0 UNION SELECT c.TypeID AS TypeID, CAST(c.CodeValue AS CHAR) AS CodeValue FROM (SELECT DISTINCT 1 AS TypeID, d.KodasSD AS CodeValue FROM d_kitos d) AS c WHERE NOT CodeValue IS NULL AND CodeValue&gt;0 ORDER BY TypeID, CodeValue;</Statement>
+    <Statement>SELECT w.TypeID AS TypeID, w.CodeValue AS CodeValue, '' AS CodeName FROM (SELECT DISTINCT 3 AS TypeID, d.StateCode AS CodeValue FROM asmenys d) AS w WHERE NOT CodeValue IS NULL AND TRIM(CodeValue) &lt;&gt; '' UNION SELECT v.TypeID AS TypeID, v.CodeValue AS CodeValue, '' AS CodeName FROM (SELECT DISTINCT 4 AS TypeID, d.ExternalCode AS CodeValue FROM VatDeclarationSchemas d) AS v WHERE NOT CodeValue IS NULL AND TRIM(CodeValue) &lt;&gt; '' UNION SELECT b.TypeID AS TypeID, CAST(b.CodeValue AS CHAR) AS CodeValue, '' AS CodeName FROM (SELECT DISTINCT 0 AS TypeID, d.Kodas AS CodeValue FROM d_kitos d) b WHERE NOT CodeValue IS NULL AND CodeValue&gt;0 UNION SELECT c.TypeID AS TypeID, CAST(c.CodeValue AS CHAR) AS CodeValue, '' AS CodeName FROM (SELECT DISTINCT 1 AS TypeID, d.KodasSD AS CodeValue FROM d_kitos d) AS c WHERE NOT CodeValue IS NULL AND CodeValue&gt;0 UNION SELECT y.TypeID AS TypeID, y.CodeValue AS CodeValue, y.CodeName AS CodeName FROM (SELECT DISTINCT 6 AS TypeID, d.SaftCode AS CodeValue, d.SaftDescription AS CodeName FROM SharesClasses d) AS y WHERE NOT CodeValue IS NULL AND TRIM(CodeValue) &lt;&gt; '' UNION SELECT z.TypeID AS TypeID, z.CodeValue AS CodeValue, z.CodeName AS CodeName FROM (SELECT DISTINCT 5 AS TypeID, d.SaftCode AS CodeValue, d.SaftDescription AS CodeName FROM saskaitupl d) AS z WHERE NOT CodeValue IS NULL AND TRIM(CodeValue) &lt;&gt; '' ORDER BY TypeID, CodeValue, CodeName;</Statement>
     <Objects>HelperLists.CodeInfoList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3395,12 +3395,12 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>InsertPayOutNaturalPersonWithoutTaxes</Key>
-    <Statement>INSERT INTO PayOutNaturalPersonWithoutTaxes(JournalEntryID, PersonID, Amount, TaxCode, Remarks) VALUES($AA, $AB, $AC, $AD, $AE);</Statement>
+    <Statement>INSERT INTO PayOutNaturalPersonWithoutTaxes(JournalEntryID, PersonID, Amount, TaxCode, Remarks, TaxPayedOutDate, TaxDeductedAndPayed, TaxPayedByCompany) VALUES($AA, $AB, $AC, $AD, $AE, $AF, $AG, $AH);</Statement>
     <Objects>Workers.PayOutNaturalPersonWithoutTaxes</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>UpdatePayOutNaturalPersonWithoutTaxes</Key>
-    <Statement>UPDATE PayOutNaturalPersonWithoutTaxes SET PersonID = $AB, Amount = $AC, TaxCode = $AD, Remarks = $AE WHERE ID=$CD ;</Statement>
+    <Statement>UPDATE PayOutNaturalPersonWithoutTaxes SET PersonID = $AB, Amount = $AC, TaxCode = $AD, Remarks = $AE, TaxPayedOutDate=$AF, TaxDeductedAndPayed=$AG, TaxPayedByCompany=$AH WHERE ID=$CD ;</Statement>
     <Objects>Workers.PayOutNaturalPersonWithoutTaxes</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3410,12 +3410,12 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>CreatePayOutNaturalPersonWithoutTaxes</Key>
-    <Statement>SELECT p.ID, b.Op_ID AS JournalEntryID, b.Op_Data AS JournalEntryDate, b.Op_Dok AS JournalEntryDocNo, b.Op_turinys AS JournalEntryContent, b.Op_dok_rusis AS JournalEntryDocumentType, b.Op_korespond AS BookEntries, p.Amount, p.TaxCode, p.Remarks, (SELECT SUM(d.Op_suma) FROM bzdata d WHERE d.Op_ID_BZ=b.Op_ID AND d.Op_tipas='Kreditas') AS JournalEntryAmount, a.ID, a.Pavad, a.Kodas, a.Adresas, a.SP_kodas, a.B_Sask, a.Bank, a.B_Kor, a.B_Kor_Tiek, a.E_Mail, a.SD_kodas, a.ContactInfo, a.InternalCode, a.IsObsolete, a.IsNaturalPerson, a.LanguageCode, a.CurrencyCode, a.IsClient, a.IsSupplier, a.IsWorker, c.ID, c.Pavad, c.Kodas, c.Adresas, c.SP_kodas, c.B_Sask, c.Bank, c.B_Kor, c.B_Kor_Tiek, c.E_Mail, c.SD_kodas, c.ContactInfo, c.InternalCode, c.IsObsolete, c.IsNaturalPerson, c.LanguageCode, c.CurrencyCode, c.IsClient, c.IsSupplier, c.IsWorker FROM bz b LEFT JOIN PayOutNaturalPersonWithoutTaxes p ON p.JournalEntryID=b.Op_ID LEFT JOIN asmenys a ON a.ID=b.Op_analitika LEFT JOIN asmenys c ON c.ID=p.PersonID WHERE b.Op_ID=$CD;</Statement>
+    <Statement>SELECT p.ID, b.Op_ID AS JournalEntryID, b.Op_Data AS JournalEntryDate, b.Op_Dok AS JournalEntryDocNo, b.Op_turinys AS JournalEntryContent, b.Op_dok_rusis AS JournalEntryDocumentType, b.Op_korespond AS BookEntries, p.Amount, p.TaxCode, p.TaxPayedOutDate, p.TaxDeductedAndPayed, p.TaxPayedByCompany, p.Remarks, (SELECT SUM(d.Op_suma) FROM bzdata d WHERE d.Op_ID_BZ=b.Op_ID AND d.Op_tipas='Kreditas') AS JournalEntryAmount, a.ID, a.Pavad, a.Kodas, a.Adresas, a.SP_kodas, a.B_Sask, a.Bank, a.B_Kor, a.B_Kor_Tiek, a.E_Mail, a.SD_kodas, a.ContactInfo, a.InternalCode, a.IsObsolete, a.IsNaturalPerson, a.LanguageCode, a.CurrencyCode, a.IsClient, a.IsSupplier, a.IsWorker, c.ID, c.Pavad, c.Kodas, c.Adresas, c.SP_kodas, c.B_Sask, c.Bank, c.B_Kor, c.B_Kor_Tiek, c.E_Mail, c.SD_kodas, c.ContactInfo, c.InternalCode, c.IsObsolete, c.IsNaturalPerson, c.LanguageCode, c.CurrencyCode, c.IsClient, c.IsSupplier, c.IsWorker FROM bz b LEFT JOIN PayOutNaturalPersonWithoutTaxes p ON p.JournalEntryID=b.Op_ID LEFT JOIN asmenys a ON a.ID=b.Op_analitika LEFT JOIN asmenys c ON c.ID=p.PersonID WHERE b.Op_ID=$CD;</Statement>
     <Objects>Workers.PayOutNaturalPersonWithoutTaxes</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
     <Key>FetchPayOutNaturalPersonWithoutTaxesList</Key>
-    <Statement>SELECT p.ID, b.Op_ID AS JournalEntryID, b.Op_Data AS JournalEntryDate, b.Op_Dok AS JournalEntryDocNo, b.Op_turinys AS JournalEntryContent, b.Op_dok_rusis AS JournalEntryDocumentType, b.Op_korespond AS BookEntries, p.Amount, p.TaxCode, p.Remarks, (SELECT SUM(d.Op_suma) FROM bzdata d WHERE d.Op_ID_BZ=b.Op_ID AND d.Op_tipas='Kreditas') AS JournalEntryAmount, a.ID, a.Pavad, a.Kodas, a.Adresas, a.SP_kodas, a.B_Sask, a.Bank, a.B_Kor, a.B_Kor_Tiek, a.E_Mail, a.SD_kodas, a.ContactInfo, a.InternalCode, a.IsObsolete, a.IsNaturalPerson, a.LanguageCode, a.CurrencyCode, a.IsClient, a.IsSupplier, a.IsWorker, c.ID, c.Pavad, c.Kodas, c.Adresas, c.SP_kodas, c.B_Sask, c.Bank, c.B_Kor, c.B_Kor_Tiek, c.E_Mail, c.SD_kodas, c.ContactInfo, c.InternalCode, c.IsObsolete, c.IsNaturalPerson, c.LanguageCode, c.CurrencyCode, c.IsClient, c.IsSupplier, c.IsWorker FROM PayOutNaturalPersonWithoutTaxes p LEFT JOIN bz b ON b.Op_ID=p.JournalEntryID LEFT JOIN asmenys a ON a.ID=b.Op_analitika LEFT JOIN asmenys c ON c.ID=p.PersonID WHERE b.Op_data &gt;= $DF AND b.Op_data &lt;= $DT AND ($PD &lt; 1 OR b.Op_analitika=$PD OR p.PersonID=$PD) ORDER BY b.Op_data;</Statement>
+    <Statement>SELECT p.ID, b.Op_ID AS JournalEntryID, b.Op_Data AS JournalEntryDate, b.Op_Dok AS JournalEntryDocNo, b.Op_turinys AS JournalEntryContent, b.Op_dok_rusis AS JournalEntryDocumentType, b.Op_korespond AS BookEntries, p.Amount, p.TaxCode, p.TaxPayedOutDate, p.TaxDeductedAndPayed, p.TaxPayedByCompany, p.Remarks, (SELECT SUM(d.Op_suma) FROM bzdata d WHERE d.Op_ID_BZ=b.Op_ID AND d.Op_tipas='Kreditas') AS JournalEntryAmount, a.ID, a.Pavad, a.Kodas, a.Adresas, a.SP_kodas, a.B_Sask, a.Bank, a.B_Kor, a.B_Kor_Tiek, a.E_Mail, a.SD_kodas, a.ContactInfo, a.InternalCode, a.IsObsolete, a.IsNaturalPerson, a.LanguageCode, a.CurrencyCode, a.IsClient, a.IsSupplier, a.IsWorker, c.ID, c.Pavad, c.Kodas, c.Adresas, c.SP_kodas, c.B_Sask, c.Bank, c.B_Kor, c.B_Kor_Tiek, c.E_Mail, c.SD_kodas, c.ContactInfo, c.InternalCode, c.IsObsolete, c.IsNaturalPerson, c.LanguageCode, c.CurrencyCode, c.IsClient, c.IsSupplier, c.IsWorker FROM PayOutNaturalPersonWithoutTaxes p LEFT JOIN bz b ON b.Op_ID=p.JournalEntryID LEFT JOIN asmenys a ON a.ID=b.Op_analitika LEFT JOIN asmenys c ON c.ID=p.PersonID WHERE b.Op_data &gt;= $DF AND b.Op_data &lt;= $DT AND ($PD &lt; 1 OR b.Op_analitika=$PD OR p.PersonID=$PD) ORDER BY b.Op_data;</Statement>
     <Objects>Workers.PayOutNaturalPersonWithoutTaxesList</Objects>
   </MySQL_Statement>
   <MySQL_Statement>
@@ -3577,5 +3577,205 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
     <Key>CreateCustomVatOperation</Key>
     <Statement>SELECT o.ID, o.OperationDate, o.Description, o.ValueBase, o.ValueVat, o.InsertDate, o.UpdateDate, b.Op_ID, b.Op_data, b.Op_turinys, b.Op_dok_rusis, b.Op_Dok, b.Op_korespond, CONCAT(a.Pavad, ', ', a.Kodas), V.ID, V.Name, V.Description, V.VatRate, V.IsObsolete, V.TradedType, V.ExternalCodeInt FROM bz b LEFT JOIN CustomVatOperations o ON b.Op_ID = o.JournalEntryID LEFT JOIN asmenys a ON a.ID = b.Op_analitika LEFT JOIN VatDeclarationSchemas V ON V.ID = o.VatSchemaID WHERE b.Op_ID = $CD ;</Statement>
     <Objects>Documents.CustomVatOperation</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchDeclarationGPM313_1</Key>
+    <Statement>SELECT (SELECT SUM(CROUND(d.DU_pr - d.Avans + d.CalculatedSickLeave, 2)) FROM du_ziniarastis_d d WHERE d.Ismoketa IS NOT Null AND MONTH(d.Ismoketa)=$MN AND YEAR(d.Ismoketa)=$YR GROUP BY MONTH(d.Ismoketa)) As WagePayed, (SELECT SUM(c.Suma) FROM d_avansai_d c WHERE c.Ismok IS NOT NULL AND MONTH(c.Ismok)=$MN AND YEAR(c.Ismok)=$YR GROUP BY MONTH(c.Ismok)) AS ImprestPayed, (SELECT SUM(CROUND(d.DeductedGPM, 2)) FROM du_ziniarastis_d d WHERE d.Ismoketa IS NOT Null AND MONTH(d.Ismoketa)=$MN AND YEAR(d.Ismoketa)=$YR AND DAY(d.Ismoketa)&lt;=15 GROUP BY MONTH(d.Ismoketa)) AS WageGpmBefore15, (SELECT SUM(CROUND(d.DeductedGPM, 2)) FROM du_ziniarastis_d d WHERE d.Ismoketa IS NOT Null AND MONTH(d.Ismoketa)=$MN AND YEAR(d.Ismoketa)=$YR AND DAY(d.Ismoketa)&gt;15 GROUP BY MONTH(d.Ismoketa)) AS WageGpmAfter15, (SELECT SUM(CASE WHEN d.SumaBruto IS NULL OR d.SumaBruto=0 THEN CROUND(d.Suma/(1-d.Tar/100),2) ELSE d.SumaBruto END) FROM d_kitos d LEFT JOIN bz b ON d.BZ_ID = b.Op_ID WHERE MONTH(b.Op_data)=$MN AND YEAR(b.Op_data)=$YR GROUP BY MONTH(b.Op_data)) AS OtherPayed, (SELECT SUM(CASE WHEN d.SumaBruto IS NULL OR d.SumaBruto=0 THEN CROUND(d.Tar*d.Suma/(1-d.Tar/100)/100,2) ELSE CROUND(d.SumaBruto * d.Tar/100, 2) END) FROM d_kitos d LEFT JOIN bz b ON b.Op_ID = d.BZ_ID WHERE MONTH(b.Op_data) = $MN AND Year(b.Op_data) = $YR AND DAY(b.Op_data) &lt;= 15 GROUP BY MONTH(b.Op_data)) AS OtherGpmBefore15, (SELECT SUM(CASE WHEN d.SumaBruto IS NULL OR d.SumaBruto=0 THEN CROUND(d.Tar*d.Suma/(1-d.Tar/100)/100,2) ELSE CROUND(d.SumaBruto * d.Tar/100, 2) END) FROM d_kitos d LEFT JOIN bz b ON b.Op_ID = d.BZ_ID WHERE MONTH(b.Op_data) = $MN AND Year(b.Op_data) = $YR AND DAY(b.Op_data) &gt; 15 GROUP BY MONTH(b.Op_data)) AS OtherGpmAfter15, (SELECT SUM(p.Amount) FROM payoutnaturalpersonwithouttaxes p WHERE NOT p.TaxPayedOutDate IS NULL AND MONTH(p.TaxPayedOutDate) = $MN AND Year(p.TaxPayedOutDate) = $YR GROUP BY MONTH(p.TaxPayedOutDate)) AS ClassBPayed, (SELECT SUM(p.TaxDeductedAndPayed + p.TaxPayedByCompany) FROM payoutnaturalpersonwithouttaxes p WHERE NOT p.TaxPayedOutDate IS NULL AND MONTH(p.TaxPayedOutDate) = $MN AND Year(p.TaxPayedOutDate) = $YR GROUP BY MONTH(p.TaxPayedOutDate)) AS ClassBTaxesPayed;</Statement>
+    <Objects>ActiveReports.DeclarationGPM313_1</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSharesClassList</Key>
+    <Statement>SELECT c.ID, c.Name, c.ValuePerUnit, c.Description, c.SaftCode, c.SaftDescription, c.Account, COUNT(o.ID) AS IsInUse FROM SharesClasses c LEFT JOIN SharesOperationDetails o ON o.ClassID=c.ID GROUP BY c.ID ORDER BY c.SaftCode, c.Name, c.ValuePerUnit;</Statement>
+    <Objects>General.SharesClassList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>InsertSharesClass</Key>
+    <Statement>INSERT INTO SharesClasses(Name, ValuePerUnit, Description, SaftCode, SaftDescription, Account) VALUES($AA, $AB, $AC, $AD, $AE, $AF);</Statement>
+    <Objects>General.SharesClass</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>UpdateSharesClass</Key>
+    <Statement>UPDATE SharesClasses SET Name=$AA, ValuePerUnit=$AB, Description=$AC, SaftCode=$AD, SaftDescription=$AE, Account=$AF WHERE ID=$CD;</Statement>
+    <Objects>General.SharesClass</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>DeleteSharesClass</Key>
+    <Statement>DELETE FROM SharesClasses WHERE SharesClasses.ID=$CD;</Statement>
+    <Objects>General.SharesClass</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>CheckIfSharesClassUsed</Key>
+    <Statement>SELECT COUNT(o.ID) AS IsInUse FROM SharesOperationDetails o WHERE o.ClassID=$CD ;</Statement>
+    <Objects>General.SharesClass</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSharesClassInfoList</Key>
+    <Statement>SELECT s.ID, s.Name, s.ValuePerUnit, s.Description FROM SharesClasses s ORDER BY s.Name, s.ValuePerUnit;</Statement>
+    <Objects>HelperLists.SharesClassInfoList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSharesOperationItems</Key>
+    <Statement>SELECT d.ItemType, d.ID, d.Amount, d.IsInternal, d.Remarks, s.ID, s.Name, s.ValuePerUnit, s.Description, a.ID, a.Pavad, a.Kodas, a.Adresas, a.SP_kodas, a.B_Sask, a.Bank, a.B_Kor, a.B_Kor_Tiek, a.E_Mail, a.SD_kodas, a.ContactInfo, a.InternalCode, a.IsObsolete, a.IsNaturalPerson, a.LanguageCode, a.CurrencyCode, a.IsClient, a.IsSupplier, a.IsWorker FROM SharesOperationDetails d LEFT JOIN SharesClasses s ON s.ID=d.ClassID LEFT JOIN asmenys a ON a.ID=d.PersonID WHERE d.ParentID=$CD ;</Statement>
+    <Objects>General.SharesOperation</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>InsertSharesOperationItem</Key>
+    <Statement>INSERT INTO SharesOperationDetails(ItemType, ParentID, Amount, IsInternal, Remarks, ClassID, PersonID) VALUES($AA, $AB, $AC, $AD, $AE, $AF, $AG);</Statement>
+    <Objects>General.SharesDiscard, General.SharesAcquisition</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>UpdateSharesOperationItem</Key>
+    <Statement>UPDATE SharesOperationDetails SET Amount=$AC, IsInternal=$AD, Remarks=$AE, ClassID=$AF, PersonID=$AG WHERE ID=$CD ;</Statement>
+    <Objects>General.SharesDiscard, General.SharesAcquisition</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>DeleteSharesOperationItem</Key>
+    <Statement>DELETE FROM SharesOperationDetails WHERE SharesOperationDetails.ID=$CD ;</Statement>
+    <Objects>General.SharesDiscard, General.SharesAcquisition</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>DeleteSharesOperationItems</Key>
+    <Statement>DELETE FROM SharesOperationDetails WHERE SharesOperationDetails.ParentID=$CD ;</Statement>
+    <Objects>General.SharesOperation</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSharesOperation</Key>
+    <Statement>SELECT o.ID, o.RegistrationDate, o.DocumentDate, o.DocumentName, o.DocumentNo, o.Remarks, o.InsertDate, o.UpdateDate FROM SharesOperations o WHERE o.ID=$CD ;</Statement>
+    <Objects>General.SharesOperation</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>InsertSharesOperation</Key>
+    <Statement>INSERT INTO SharesOperations(RegistrationDate, DocumentDate, DocumentName, DocumentNo, Remarks, InsertDate, UpdateDate) VALUES ($AA, $AB, $AC, $AD, $AE, $AF, $AF);</Statement>
+    <Objects>General.SharesOperation</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>UpdateSharesOperation</Key>
+    <Statement>UPDATE SharesOperations SET RegistrationDate=$AA, DocumentDate=$AB, DocumentName=$AC, DocumentNo=$AD, Remarks=$AE, UpdateDate=$AF WHERE ID=$CD ;</Statement>
+    <Objects>General.SharesOperation</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>DeleteSharesOperation</Key>
+    <Statement>DELETE FROM SharesOperations WHERE SharesOperations.ID=$CD ;</Statement>
+    <Objects>General.SharesOperation</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>CheckIfSharesOperationUpdateDateChanged</Key>
+    <Statement>SELECT o.UpdateDate FROM SharesOperations o WHERE o.ID=$CD ;</Statement>
+    <Objects>General.SharesOperation</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchShareHolderInfoList</Key>
+    <Statement>SELECT a.ID, a.Pavad, a.Kodas, a.LanguageCode, a.Adresas, a.E_Mail, s.Name, s.Description, s.ValuePerUnit, CROUND(SUM(d.Amount), 2) AS Amount FROM SharesOperationDetails d LEFT JOIN asmenys a ON a.ID=d.PersonID LEFT JOIN SharesClasses s ON s.ID=d.ClassID LEFT JOIN SharesOperations o ON o.ID=d.ParentID WHERE o.RegistrationDate&lt;=$DT GROUP BY d.PersonID, d.ClassID HAVING Amount&lt;&gt;0 ORDER BY a.Pavad, s.Name, s.ValuePerUnit;</Statement>
+    <Objects>ActiveReports.ShareHolderInfoList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSharesOperationInfoList</Key>
+    <Statement>SELECT o.ID, o.RegistrationDate, o.DocumentDate, o.DocumentName, o.DocumentNo, o.Remarks, o.InsertDate, o.UpdateDate FROM SharesOperations o LEFT JOIN SharesOperationDetails d ON d.ParentID=o.ID WHERE o.RegistrationDate&gt;=$DF AND o.RegistrationDate&lt;=$DT AND ($CD&lt;1 OR d.ClassID=$CD) AND ($PD&lt;0 OR d.PersonID=$PD) GROUP BY o.ID;</Statement>
+    <Objects>ActiveReports.SharesOperationInfoList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSharesAccountEntryList</Key>
+    <Statement>SELECT o.ID, o.RegistrationDate, o.DocumentDate, o.DocumentName, o.DocumentNo, o.Remarks, d.Amount, (SELECT GROUP_CONCAT((g.ClassID || '-' || g.PersonID), ', ') FROM SharesOperationDetails g WHERE g.ParentID=o.ID AND g.ItemType&lt;&gt;d.ItemType AND (g.PersonID&lt;&gt;d.PersonID OR g.ClassID&lt;&gt;d.ClassID) GROUP BY g.ClassID, g.PersonID) AS CorrespondingAccounts FROM SharesOperations o LEFT JOIN SharesOperationDetails d ON d.ParentID=o.ID WHERE o.RegistrationDate&lt;=$DT AND d.ClassID=$CD AND d.PersonID=$PD ORDER BY o.RegistrationDate, o.DocumentDate, d.Amount;</Statement>
+    <Objects>ActiveReports.SharesAccountEntryList</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>UpdateAccountsInDocuments52</Key>
+    <Statement>UPDATE sharesclasses SET Account=$AA WHERE Account=$AB;</Statement>
+    <Objects>General.Account</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftGeneralLedgerAccounts_2_0</Key>
+    <Statement>SELECT s.Saskaitosnr, s.Saskaita, s.SaftCode, s.SaftDescription, SUM(CASE WHEN b.Op_data&lt;$DF THEN (CASE WHEN d.Op_tipas='Debetas' THEN d.Op_suma ELSE -d.Op_suma END) ELSE 0.0 END) AS BalanceBegin, SUM(CASE WHEN d.Op_tipas='Debetas' THEN d.Op_suma ELSE -d.Op_suma END) AS BalanceEnd FROM saskaitupl s LEFT JOIN bzdata d ON d.Op_saskaita=s.Saskaitosnr LEFT JOIN bz b ON b.Op_ID=d.Op_ID_BZ WHERE b.Op_data&lt;=$DT GROUP BY s.Saskaitosnr;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftCustomersAndSuppliers_2_0</Key>
+    <Statement>SELECT a.ID, a.Pavad, a.Kodas, a.CodeIsNotReal, a.StateCode, a.Adresas, a.SP_kodas, a.B_Sask, a.B_Kor, a.B_Kor_Tiek, SUM(CASE WHEN b.Op_data&lt;$DF THEN (CASE WHEN d.Op_tipas='Debetas' THEN d.Op_suma ELSE -d.Op_suma END) ELSE 0.0 END) AS BalanceBegin, SUM(CASE WHEN d.Op_tipas='Debetas' THEN d.Op_suma ELSE -d.Op_suma END) AS BalanceEnd, SUM(CASE WHEN d.Op_saskaita=a.B_Kor THEN 1 ELSE 0 END) AS HasClientTransactions, SUM(CASE WHEN d.Op_saskaita=a.B_Kor_Tiek THEN 1 ELSE 0 END) AS HasSupplierTransactions FROM bz b LEFT JOIN bzdata d ON d.Op_ID_BZ=b.Op_ID LEFT JOIN asmenys a ON (d.Op_ana = a.ID OR (d.Op_ana=0 AND b.Op_analitika=a.ID)) AND (d.Op_saskaita=a.B_Kor OR d.Op_saskaita=a.B_Kor_Tiek) WHERE b.Op_data&lt;=$DT AND NOT a.ID IS NULL GROUP BY a.ID;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftTaxTable_2_0</Key>
+    <Statement>SELECT ID, Name, VatRate, ExternalCode FROM VatDeclarationSchemas;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftGoodsAndServices_2_0</Key>
+    <Statement>SELECT 1 AS ProductType, g.ID AS ID, g.Name AS Name, (SELECT c.MeasureUnit FROM RegionalContents c WHERE TRIM(UPPER(c.LanguageCode))=TRIM(UPPER($LC)) AND c.ParentType=1 AND c.ParentID=g.ID LIMIT 1) AS MeasureUnit, d.Name AS GroupName, g.DeclarationSchemaIDPurchase As TaxIdpurchase, g.DeclarationSchemaIDSales AS TaxIdSales, IFNULL((SELECT v.MethodCode FROM GoodsValuationMethods v WHERE v.GoodsID=g.ID AND v.ChangeDate&lt;=$DT ORDER BY v.ChangeDate DESC LIMIT 1), g.DefaultValuationMethod) AS ValuationMethod FROM Goods g LEFT JOIN prekes_gr d ON d.ID=g.GroupID UNION SELECT 0 AS ProductType, s.ID AS ID, s.TrPav AS Name, (SELECT c.MeasureUnit FROM RegionalContents c WHERE TRIM(UPPER(c.LanguageCode))=TRIM(UPPER($LC)) AND c.ParentType=0 AND c.ParentID=s.ID LIMIT 1) AS MeasureUnit, '' AS GroupName, s.DeclarationSchemaIDPurchase As TaxIdpurchase, s.DeclarationSchemaIDSales AS TaxIdSales, 0 AS ValuationMethod FROM paslaugos s;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftOwners_2_0</Key>
+    <Statement>SELECT a.Pavad, a.Kodas, a.StateCode, a.Adresas, s.Account, s.SaftCode, s.ValuePerUnit, CROUND(SUM(d.Amount), 2) AS Amount, MAX(CASE WHEN d.ItemType=0 THEN o.RegistrationDate ELSE NULL END) AS AcquisitionDate FROM SharesOperationDetails d LEFT JOIN asmenys a ON a.ID=d.PersonID LEFT JOIN SharesClasses s ON s.ID=d.ClassID LEFT JOIN SharesOperations o ON o.ID=d.ParentID WHERE o.RegistrationDate&lt;=$DT GROUP BY d.PersonID, d.ClassID HAVING Amount&gt;0 ORDER BY a.Pavad, s.Name, s.ValuePerUnit;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftGeneralLedgerTransactions_2_0</Key>
+    <Statement>SELECT b.Op_ID, b.Op_data, b.Op_turinys, s.ActualDate, a.ID, a.IsClient FROM bz b LEFT JOIN InvoicesReceived s ON s.ID=b.Op_ID LEFT JOIN asmenys a ON a.ID=b.Op_analitika WHERE b.Op_data&gt;=$DF AND b.Op_data&lt;=$DT ORDER BY b.Op_data;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftGeneralLedgerTransactionLines_2_0</Key>
+    <Statement>SELECT d.Op_ID_BZ, d.Nr, d.Op_saskaita, d.Op_suma, d.Op_tipas, d.Op_ana, a.IsClient FROM bzdata d LEFT JOIN bz b on b.Op_ID=d.Op_ID_BZ LEFT JOIN asmenys a ON a.ID=d.Op_ana WHERE b.Op_data&gt;=$DF AND b.Op_data&lt;=$DT ORDER BY b.Op_ID;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftSalesInvoices_2_0</Key>
+    <Statement>SELECT i.ID, b.Op_data, b.Op_Dok, i.AccountPayer, i.InvoiceType, i.CurrencyCode, a.ID, a.StateCode, a.SP_kodas, a.Kodas, a.CodeIsNotReal FROM InvoicesMade i LEFT JOIN bz b ON b.Op_ID=i.ID LEFT JOIN asmenys a ON a.ID=b.Op_analitika WHERE b.Op_data&gt;=$DF AND b.Op_data&lt;=$DT ORDER BY b.Op_data;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftSalesInvoicesLines_2_0</Key>
+    <Statement>SELECT d.SF_ID, d.ID, d.Preke, d.Vnt, d.P_Sas, d.Kaina, d.Kiekis, d.Tar, d.VatIsVirtual, d.SumVatLTL, d.DiscountVatLTL, d.SumVatOriginal, d.DiscountVat, d.DeclarationSchemaID, d.SumLTL, d.DiscountLTL, d.SumOriginal, d.Discount, (CASE WHEN d.Rusis IN(1, 5, 7, 8, 9) THEN 'PR' ELSE (CASE WHEN d.Rusis IN(3, 4, 6) THEN 'IT' ELSE (CASE WHEN d.Rusis=2 THEN 'PS' ELSE 'KT' END) END) END) AS GoodsServicesID, IFNULL(g.GoodsID, IFNULL(t.T_ID, d.P_ID)) AS ProductCode FROM bz b LEFT JOIN InvoicesMade i ON i.ID=b.Op_ID LEFT JOIN sfd d ON d.SF_ID=i.ID LEFT JOIN GoodsOperations g ON d.Rusis IN(1, 5, 7, 8, 9) AND g.ID=d.P_ID LEFT JOIN turtas_op t ON d.Rusis IN(3, 6) AND t.ID=d.P_ID WHERE b.Op_data&gt;=$DF AND b.Op_data&lt;=$DT AND NOT d.ID IS NULL ORDER BY d.SF_ID;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftPurchaseInvoices_2_0</Key>
+    <Statement>SELECT i.ID, b.Op_data, b.Op_Dok, i.AccountSupplier, i.InvoiceType, i.CurrencyCode, a.ID, a.StateCode, a.SP_kodas, a.Kodas, a.CodeIsNotReal, i.ActualDate FROM InvoicesReceived i LEFT JOIN bz b ON b.Op_ID=i.ID LEFT JOIN asmenys a ON a.ID=b.Op_analitika WHERE b.Op_data&gt;=$DF AND b.Op_data&lt;=$DT ORDER BY b.Op_data;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftPurchaseInvoicesLines_2_0</Key>
+    <Statement>SELECT d.BZ_ID, d.ID, d.Preke, d.Vnt, d.Sanaud, d.V_KN, d.V_KK, d.Tarif, d.SumVatLTL, d.SumVatOriginal, d.DeclarationSchemaID, d.SumLTL, d.SumOriginal, (CASE WHEN d.Rus IN(1, 5, 7, 8, 9) THEN 'PR' ELSE (CASE WHEN d.Rus IN(3, 4, 6) THEN 'IT' ELSE (CASE WHEN d.Rus=2 THEN 'PS' ELSE 'KT' END) END) END) AS GoodsServicesID, IFNULL(g.GoodsID, IFNULL(t.T_ID, d.P_ID)) AS ProductCode FROM bz b LEFT JOIN InvoicesReceived i ON i.ID=b.Op_ID LEFT JOIN sfg d ON d.BZ_ID=i.ID LEFT JOIN GoodsOperations g ON d.Rus IN(1, 5, 7, 8, 9) AND g.ID=d.P_ID LEFT JOIN turtas_op t ON d.Rus IN(3, 6) AND t.ID=d.P_ID WHERE b.Op_data&gt;=$DF AND b.Op_data&lt;=$DT AND NOT d.ID IS NULL ORDER BY d.BZ_ID;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftPayments_2_0</Key>
+    <Statement>SELECT 'BP' AS PaymentType, b.Op_ID AS ID, b.Op_data AS OperationDate, b.Op_turinys AS Description, o.SumLTL AS AmountBase, o.SumOriginal AS Amount, o.CurrencyCode AS Currency, c.Account AS Account, b.Op_analitika AS PersonID, c.TypeID AS AccountType, c.BankAccountNumber AS AccountNumber FROM bankoperations o LEFT JOIN bz b ON b.Op_ID=o.ParentID LEFT JOIN CashAccounts c ON c.ID=o.CashAccountID WHERE b.Op_data&gt;=$DF AND b.Op_data&lt;=$DT UNION SELECT 'KIO' AS PaymentType, b.Op_ID AS ID, b.Op_data AS OperationDate, b.Op_turinys AS Description, o.SumLTL AS AmountBase, o.SumOriginal AS Amount, c.CurrencyCode AS Currency, c.Account AS Account, b.Op_analitika AS PersonID, 0 AS AccountType, '' AS AccountNumber FROM kio o LEFT JOIN bz b ON b.Op_ID=o.BZ_ID LEFT JOIN CashAccounts c ON c.ID=o.CashAccountID WHERE b.Op_data&gt;=$DF AND b.Op_data&lt;=$DT UNION SELECT 'KPO' AS PaymentType, b.Op_ID AS ID, b.Op_data AS OperationDate, b.Op_turinys AS Description, o.SumLTL AS AmountBase, o.SumOriginal AS Amount, c.CurrencyCode AS Currency, c.Account AS Account, b.Op_analitika AS PersonID, 0 AS AccountType, '' AS AccountNumber FROM kpo o LEFT JOIN bz b ON b.Op_ID=o.BZ_ID LEFT JOIN CashAccounts c ON c.ID=o.CashAccountID WHERE b.Op_data&gt;=$DF AND b.Op_data&lt;=$DT UNION SELECT 'U' AS PaymentType, b.Op_ID AS ID, b.Op_data AS OperationDate, b.Op_turinys AS Description, CROUND(o.SumOriginal * o.CurrencyRate, 2) AS AmountBase, 0.0 AS Amount, '' AS Currency, 0 AS Account, 0 AS PersonID, 0 AS AccountType, '' AS AccountNumber FROM offsetitems o LEFT JOIN bz b ON b.Op_ID=o.ParentID WHERE b.Op_data&gt;=$DF AND b.Op_data&lt;=$DT GROUP BY b.Op_ID;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftPaymentDetails_2_0</Key>
+    <Statement>SELECT o.ParentID, o.ID, CROUND(o.SumOriginal * o.CurrencyRate, 2) AS SumBase, o.SumOriginal, o.CurrencyCode, o.Account, o.Comments, o.OffsetType, o.PersonID FROM offsetitems o LEFT JOIN bz b ON b.Op_ID=o.ParentID WHERE b.Op_data&gt;=$DF AND b.Op_data&lt;=$DT ORDER BY o.ParentID;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftStockMovements_2_0</Key>
+    <Statement>SELECT ('C' || p.ID) AS ID, b.Op_ID AS JournalEntryID, IFNULL(b.Op_Dok, p.DocNo) As DocNo, b.Op_dok_rusis AS DocType, p.OperationDate AS OperationDate, 1 AS IsComplexDocument, p.OperationType AS OperationType, 0 AS GoodsID, 0 AS Account, 0.0 AS Quantity, 0.0 AS BookAmount, '' AS Comments, 0 AS PersonID FROM GoodsComplexOperations p LEFT JOIN bz b ON b.Op_ID=p.JournalEntryID WHERE p.OperationDate&gt;=$DF AND p.OperationDate&lt;=$DT AND p.OperationType IN(1, 2, 4) UNION SELECT ('S' || p.ID) AS ID, b.Op_ID AS JournalEntryID, IFNULL(b.Op_Dok, p.DocNo) As DocNo, b.Op_dok_rusis AS DocType, p.OperationDate AS OperationDate, 0 AS IsComplexDocument, p.OperationType AS OperationType, p.GoodsID AS GoodsID, w.WarehouseAccount AS Account, p.Amount AS Quantity, p.TotalValue AS BookAmount, p.Content AS Comments, b.Op_analitika AS PersonID FROM GoodsOperations p LEFT JOIN bz b ON b.Op_ID=p.JournalEntryID LEFT JOIN Warehouses w ON w.ID=p.WarehouseID WHERE p.OperationDate&gt;=$DF AND p.OperationDate&lt;=$DT AND p.ComplexOperationID&lt;1 AND p.OperationType IN(1, 2, 3, 15, 16);</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftStockMovementsDetails_2_0</Key>
+    <Statement>SELECT ('C' || p.ComplexOperationID) AS ParentID, ('S' || p.ID) AS ID, p.GoodsID AS GoodsID, w.WarehouseAccount AS Account, p.Amount AS Quantity, p.TotalValue AS BookAmount, p.Content AS Comments, p.OperationType AS OperationType FROM GoodsOperations p LEFT JOIN GoodsComplexOperations c ON c.ID=p.ComplexOperationID LEFT JOIN Warehouses w ON w.ID=p.WarehouseID WHERE c.OperationDate&gt;=$DF AND c.OperationDate&lt;=$DT AND c.OperationType IN(1, 2, 4);</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftAssetTransactions_2_0</Key>
+    <Statement>SELECT o.ID AS TransactionID, o.T_ID AS AssetID, o.OperationDate AS OperationDate, o.Content AS Description, o.OperationType AS OperationType, o.TotalValueChange as TransactionAmount, a.TotalValue AS AcquisitionAccountInitial, (SELECT SUM(d.AcquisitionAccountChange) FROM turtas_op d WHERE d.T_ID = o.T_ID AND d.OperationDate&lt;o.OperationDate GROUP BY d.T_ID) AS AcquisitionAccountChange, (a.TotalValue + a.AcquisitionRevaluedPortionTotalValue - a.AccumulatedAmortizationRevaluedPortionTotal - a.S_Amort) AS BookValueInitial, (SELECT SUM(d.AcquisitionAccountChange - d.AmortizationAccountChange - d.ValueDecreaseAccountChange + d.ValueIncreaseAccountChange - d.ValueIncreaseAmmortizationAccountChange) FROM turtas_op d WHERE d.T_ID = o.T_ID AND d.OperationDate&lt;o.OperationDate GROUP BY d.T_ID) AS BookValueChange FROM turtas_op o LEFT JOIN turtas a ON a.ID=o.T_ID WHERE o.OperationDate&gt;=$DF AND o.OperationDate&lt;=$DT UNION SELECT a.ID AS TransactionID, a.ID AS AssetID, b.Op_data AS OperationDate, b.Op_turinys AS Description, NULL AS OperationType, (a.TotalValue + a.AcquisitionRevaluedPortionTotalValue - a.AccumulatedAmortizationRevaluedPortionTotal - a.S_Amort) as TransactionAmount, 0.0 AS AcquisitionAccountInitial, 0.0 AS AcquisitionAccountChange, 0.0 AS BookValueInitial, 0.0 AS BookValueChange FROM turtas a LEFT JOIN bz b ON b.Op_ID=a.Isigijimo_dok WHERE b.Op_data&gt;=$DF AND b.Op_data&lt;=$DT ORDER BY AssetID;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftAssets_2_0</Key>
+    <Statement>SELECT t.ID, b.Op_data, t.Turtas, a.ID, a.Pavad, a.Adresas, a.StateCode, (t.TotalValue + t.AcquisitionRevaluedPortionTotalValue - t.AccumulatedAmortizationRevaluedPortionTotal - t.S_Amort) AS BookValueInitial, SUM(CASE WHEN d.OperationDate&lt;$DF THEN (d.AcquisitionAccountChange - d.AmortizationAccountChange - d.ValueDecreaseAccountChange + d.ValueIncreaseAccountChange - d.ValueIncreaseAmmortizationAccountChange) ELSE 0.0 END) AS BookValueChangePeriodStart, SUM(d.AcquisitionAccountChange - d.AmortizationAccountChange - d.ValueDecreaseAccountChange + d.ValueIncreaseAccountChange - d.ValueIncreaseAmmortizationAccountChange) BookValueChangePeriodEnd, Saskaita As AcquisitionAccount, t.TotalValue AS AcquisitionAccountInitial, SUM(CASE WHEN d.OperationDate&lt;$DF THEN d.AcquisitionAccountChange ELSE 0.0 END) AS AcquisitionAccountChangePeriodStart, SUM(d.AcquisitionAccountChange) AS AcquisitionAccountChangePeriodEnd, SUM(CASE WHEN d.OperationType='avi' THEN d.AcquisitionAccountChange ELSE 0.0 END) AS InvestmentSupport, t.AccountAmortization, t.Grupe, IFNULL((SELECT g.NewAmortizationPeriod FROM turtas_op g WHERE g.T_ID=t.ID AND g.OperationDate&lt;$DF AND g.OperationType='alk' ORDER BY g.OperationType DESC LIMIT 1), t.DefaultAmortPeriod) As AmortizationPeriod, SUM(d.AmortizationAccountChange) AS AccumulatedDepreciation, SUM(CASE WHEN d.OperationDate&gt;=$DF THEN d.AmortizationAccountChange ELSE 0.0 END) AS DepreciationForPeriod, (CASE WHEN t.ContinuedUsage&gt;0 THEN b.Op_data ELSE (SELECT MIN(g.OperationDate) FROM turtas_op g WHERE g.T_ID=d.T_ID AND g.OperationType='nau') END) AS StartUpDate, MAX(CASE WHEN d.OperationType='nur' THEN d.OperationDate ELSE NULL END) AS DisposalDate, SUM(CASE WHEN d.OperationType='nur' THEN -d.TotalValueChange ELSE NULL END) AS DisposalValue, MAX(CASE WHEN d.OperationType='per' THEN d.OperationDate ELSE NULL END) AS TransferDate, SUM(CASE WHEN d.OperationType='per' THEN -d.TotalValueChange ELSE NULL END) AS TransferValue, SUM(d.ValueIncreaseAmmortizationAccountChange) AS AccumulatedDepreciation, IFNULL(MAX(CASE WHEN d.OperationType='avd' AND d.OperationDate&lt;$DF AND d.TotalValueChange&gt;0.0 THEN d.OperationDate ELSE NULL END), CASE WHEN t.AcquisitionRevaluedPortionTotalValue + t.AccumulatedAmortizationRevaluedPortionTotal &gt;0 THEN b.Op_Data ELSE NULL END) AS AppreciationDate, t.AccountValueIncrease, (CASE WHEN t.AcquisitionRevaluedPortionTotalValue + t.AccumulatedAmortizationRevaluedPortionTotal &gt;0 THEN t.AcquisitionRevaluedPortionTotalValue + t.AccumulatedAmortizationRevaluedPortionTotal ELSE 0.0 END) AS AppreciationInitial, SUM(CASE WHEN d.OperationDate&lt;$DF THEN d.ValueIncreaseAccountChange ELSE 0.0 END) AS AppreciationChange, SUM(CASE WHEN d.OperationDate&gt;=$DF THEN d.ValueIncreaseAmmortizationAccountChange ELSE 0.0 END) AS AppreciationDepreciation, IFNULL(MAX(CASE WHEN d.OperationType='avd' AND d.OperationDate&lt;$DF AND d.TotalValueChange &lt; 0 THEN d.OperationDate ELSE NULL END), CASE WHEN t.AcquisitionRevaluedPortionTotalValue &lt; 0 THEN b.Op_Data ELSE NULL END) AS ImpairmentDate, t.AccountValueDecrease, (CASE WHEN t.AcquisitionRevaluedPortionTotalValue &lt; 0.0 THEN -t.AcquisitionRevaluedPortionTotalValue ELSE 0.0 END) AS ImpairmentInitial, SUM(CASE WHEN d.OperationDate&lt;$DF THEN d.ValueDecreaseAccountChange ELSE 0.0 END) AS ImpairmentChange, t.Kiekis AS InitialAmount, IFNULL(SUM(CASE WHEN d.OperationDate&lt;$DF THEN d.AmmountChange ELSE 0 END), 0) AmountChange FROM turtas t LEFT JOIN bz b ON b.Op_ID=t.Isigijimo_dok LEFT JOIN asmenys a ON a.ID=b.Op_analitika LEFT JOIN turtas_op d ON d.T_ID=t.ID WHERE b.Op_data&lt;$DF AND d.OperationDate&lt;=$DT GROUP BY t.ID HAVING InitialAmount-AmountChange&gt;0;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftGoodsBalance_2_0</Key>
+    <Statement>SELECT g.ID, (SELECT r.MeasureUnit FROM regionalcontents r WHERE r.ParentType=1 AND r.ParentID=g.ID AND TRIM(UPPER(r.LanguageCode))=TRIM(UPPER($LC)) LIMIT 1) AS MeasureUnit, (CASE WHEN g.DefaultAccountingMethod=0 THEN p.QuantityStart ELSE r.QuantityStart END) AS QuantityStart1, (CASE WHEN g.DefaultAccountingMethod=0 THEN p.ValueStart ELSE r.ValueStart END) AS ValueStart1, (CASE WHEN g.DefaultAccountingMethod=0 THEN p.QuantityEnd ELSE r.QuantityEnd END) AS QuantityEnd1, (CASE WHEN g.DefaultAccountingMethod=0 THEN p.ValueEnd ELSE r.ValueEnd END) AS ValueEnd1 FROM goods g LEFT JOIN (SELECT g.GoodsID AS ID, CROUND(SUM(CASE WHEN g.OperationDate&lt;$DF THEN g.Amount ELSE 0.0 END), 6) AS QuantityStart, CROUND(SUM(CASE WHEN g.OperationDate&lt;$DF THEN g.TotalValue ELSE 0.0 END), 2) AS ValueStart, CROUND(SUM(g.Amount), 6) AS QuantityEnd, CROUND(SUM(g.TotalValue), 2) AS ValueEnd FROM goodsoperations g LEFT JOIN goods d ON d.ID=g.GoodsID WHERE d.DefaultAccountingMethod=0 AND g.OperationDate&lt;=$DT GROUP BY g.GoodsID HAVING QuantityStart &gt; 0.0 OR QuantityEnd &gt; 0.0) AS p ON p.ID=g.ID LEFT JOIN (SELECT r.ID AS ID, CROUND(SUM(r.QuantityStart), 6) AS QuantityStart, CROUND(SUM(r.ValueStart), 2) AS ValueStart, CROUND(SUM(r.QuantityEnd), 6) AS QuantityEnd, CROUND(SUM(r.ValueEnd), 2) AS ValueEnd FROM (SELECT c.ParentID AS OperationID, o.GoodsID AS ID, ((CASE WHEN o.OperationDate&lt;$DF THEN c.Amount ELSE 0.0 END) - IFNULL(SUM(CASE WHEN w.OperationDate&lt;$DF THEN d.Amount ELSE 0.0 END), 0.0)) AS QuantityStart, ((CASE WHEN o.OperationDate&lt;$DF THEN c.TotalValue ELSE 0.0 END) - IFNULL(SUM(CASE WHEN w.OperationDate&lt;$DF THEN d.TotalValue ELSE 0.0 END), 0.0)) AS ValueStart, (c.Amount - IFNULL(SUM(d.Amount), 0.0)) AS QuantityEnd, (c.TotalValue - IFNULL(SUM(d.TotalValue), 0.0)) AS ValueEnd FROM consignments c LEFT JOIN goodsoperations o ON o.ID=c.ParentID LEFT JOIN consignmentdiscards d ON d.ConsignmentID=c.ID LEFT JOIN goodsoperations w ON w.ID=d.ParentID WHERE o.OperationDate&lt;=$DT AND w.OperationDate&lt;=$DT GROUP BY c.ID) AS r GROUP BY r.ID HAVING QuantityStart&gt;0 OR QuantityEnd&gt;0) AS r ON r.ID=g.ID GROUP BY g.ID HAVING QuantityStart1&gt;0 OR QuantityEnd1&gt;0;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
+  </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>FetchSaftGoodsAcquisitions_2_0</Key>
+    <Statement>SELECT a.GoodsID AS ID, a.OperationDate, IFNULL(k.Op_Dok, a.DocNo), q.Pavad, q.Kodas, c.Amount AS QuantityStart, CROUND((c.Amount - IFNULL(SUM(d.Amount), 0.0)), 6) AS QuantityEnd, CROUND((c.TotalValue - IFNULL(SUM(d.TotalValue), 0.0)), 2) AS ValueEnd FROM consignments c LEFT JOIN goodsoperations a ON a.ID=c.AcquisitionID LEFT JOIN bz k ON k.Op_ID=a.JournalEntryID LEFT JOIN asmenys q ON q.ID=k.Op_analitika LEFT JOIN goodsoperations o ON o.ID=c.ParentID LEFT JOIN consignmentdiscards d ON d.ConsignmentID=c.ID LEFT JOIN goodsoperations w ON w.ID=d.ParentID WHERE o.OperationDate&lt;$DF AND w.OperationDate&lt;$DF GROUP BY c.ID HAVING QuantityEnd&gt;0.0 ORDER BY ID;</Statement>
+    <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
   </MySQL_Statement>
 </NewDataSet>

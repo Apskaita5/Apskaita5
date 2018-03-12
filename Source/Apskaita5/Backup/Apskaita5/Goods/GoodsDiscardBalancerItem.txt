@@ -1,0 +1,30 @@
+
+Allows to compare periodic method discards with appropriate inventorization results:
+- redirect some of the goods costs to specific discard accounts;
+- balance contrary account sum in case of production.
+
+SELECT g.ID, g.Name, g.MeasureUnit, g.GoodsBarcode, g.GoodsCode,
+d.AccountOperation AS ContraryAccount, SUM(d.Amount) AS TotalAmountDiscarded,
+SUM(CASE WHEN d.TotalValue>0 THEN d.Amount ELSE 0 END) AS AmountDiscardedWithContrary,
+SUM(d.AccountOperationValue) AS ContraryAccountSum, i.UnitValue AS UnitValueAtInventorization
+
+FROM goodsoperations d
+
+LEFT JOIN goods g ON g.ID=d.GoodsID
+LEFT JOIN goodsoperations i ON i.ID=13 AND i.GoodsID=d.GoodsID
+WHERE d.OperationType=3 AND d.WarehouseID=15 AND g.DefaultAccountingMethod=1
+AND d.OperationDate>'2013-01-01' AND d.OperationDate<='2013-12-31' GROUP BY d.GoodsID, d.AccountOperation;
+
+Needs to know:
+- Inventorization ID;
+- Inventorization Period;
+- Inventorization Warehouse.
+
+Helper:
+
+SELECT d.ID, d.OperationDate, d.DocNo, d.Content, w.ID, w.Name, w.IsProduction, w.IsObsolete, w.WarehouseAccount,
+(SELECT p.OperationDate FROM goodscomplexoperations p WHERE p.OperationType=3 AND p.WarehouseID=d.WarehouseID
+AND p.OperationDate<d.OperationDate ORDER BY p.OperationDate DESC LIMIT 1) AS PreviousInventorizationDate
+FROM goodscomplexoperations d LEFT JOIN warehouses w ON w.ID=d.WarehouseID
+WHERE d.OperationType=3 ORDER BY w.Name, d.OperationDate;
+

@@ -4,20 +4,20 @@ Public Module CurrencyMethods
     ''' An array of all the legal ISO 4217 currency codes.
     ''' </summary>
     ''' <remarks></remarks>
-    Public CurrencyCodes As String() = {"LTL", "USD", "EUR", "RUB", "AFN", "ALL", _
-        "DZD", "AED", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT", _
-        "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYR", "BZD", _
-        "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUP", "CVE", "CYP", "CZK", "DJF", _
-        "DKK", "DOP", "DZD", "EEK", "EGP", "ERN", "ETB", "FJD", "FKP", "GBP", "GEL", "GGP", _
-        "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR", _
-        "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS", _
-        "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL", _
-        "LVL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRO", "MTL", "MUR", _
-        "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR", _
-        "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RWF", "SAR", _
-        "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STD", "SVC", _
-        "SYP", "SZL", "THB", "TJS", "TMM", "TND", "TOP", "TRY", "TTD", "TVD", "TWD", "TZS", _
-        "UAH", "UGX", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XAG", "XAU", "XCD", _
+    Public CurrencyCodes As String() = {"LTL", "USD", "EUR", "RUB", "AFN", "ALL",
+        "DZD", "AED", "AMD", "ANG", "AOA", "ARS", "AUD", "AWG", "AZN", "BAM", "BBD", "BDT",
+        "BGN", "BHD", "BIF", "BMD", "BND", "BOB", "BRL", "BSD", "BTN", "BWP", "BYN", "BYR", "BZD",
+        "CAD", "CDF", "CHF", "CLP", "CNY", "COP", "CRC", "CUP", "CVE", "CYP", "CZK", "DJF",
+        "DKK", "DOP", "DZD", "EEK", "EGP", "ERN", "ETB", "FJD", "FKP", "GBP", "GEL", "GGP",
+        "GHS", "GIP", "GMD", "GNF", "GTQ", "GYD", "HKD", "HNL", "HRK", "HTG", "HUF", "IDR",
+        "ILS", "IMP", "INR", "IQD", "IRR", "ISK", "JEP", "JMD", "JOD", "JPY", "KES", "KGS",
+        "KHR", "KMF", "KPW", "KRW", "KWD", "KYD", "KZT", "LAK", "LBP", "LKR", "LRD", "LSL",
+        "LVL", "LYD", "MAD", "MDL", "MGA", "MKD", "MMK", "MNT", "MOP", "MRO", "MTL", "MUR",
+        "MVR", "MWK", "MXN", "MYR", "MZN", "NAD", "NGN", "NIO", "NOK", "NPR", "NZD", "OMR",
+        "PAB", "PEN", "PGK", "PHP", "PKR", "PLN", "PYG", "QAR", "RON", "RSD", "RWF", "SAR",
+        "SBD", "SCR", "SDG", "SEK", "SGD", "SHP", "SLL", "SOS", "SPL", "SRD", "STD", "SVC",
+        "SYP", "SZL", "THB", "TJS", "TMM", "TND", "TOP", "TRY", "TTD", "TVD", "TWD", "TZS",
+        "UAH", "UGX", "UYU", "UZS", "VEF", "VND", "VUV", "WST", "XAF", "XAG", "XAU", "XCD",
         "XDR", "XOF", "XPD", "XPF", "XPT", "YER", "ZAR", "ZMK", "ZWD"}
 
     ''' <summary>
@@ -55,9 +55,8 @@ Public Module CurrencyMethods
     End Function
 
     ''' <summary>
-    ''' Checks if currencies <paramref name="currency1" /> and <paramref name="currency2" /> 
-    ''' identified by ISO 4217 codes represents the same currency assuming empty code string is 
-    ''' <paramref name="baseCurrency" />.
+    ''' Returns true if the currency <paramref name="currencyCode" /> identified by an ISO 4217 code 
+    ''' is the base company currency <paramref name="baseCurrency" />.
     ''' </summary>
     ''' <param name="currencyCode">Currency ISO 4217 code to check for equality with the <paramref name="baseCurrency" />.</param>
     ''' <param name="baseCurrency">Base currency identified by ISO 4217 code.</param>
@@ -185,12 +184,12 @@ Public Module CurrencyMethods
     End Function
 
     ''' <summary>
-    ''' Converts <paramref name="amountToConvert">amountToConvert</paramref> to the base currency.
+    ''' Converts <paramref name="amountToConvert">amountToConvert</paramref> to the target currency.
     ''' </summary>
-    ''' <param name="amountToConvert">Amount to convert accounted in <paramref name="currency" />.</param>
-    ''' <param name="targetCurrency">ISO 4217 code for the currency that the <paramref name="amountToConvert" /> is accounted in.</param>
+    ''' <param name="amountToConvert">Amount to convert accounted in <paramref name="baseCurrency" />.</param>
+    ''' <param name="targetCurrency">ISO 4217 code for the currency to convert the <paramref name="amountToConvert" /> to.</param>
     ''' <param name="currencyRate">Currency rate with respect to the <paramref name="baseCurrency" />
-    ''' for the currency that the <paramref name="amountToConvert" /> is accounted in.</param>
+    ''' for the currency to convert the <paramref name="amountToConvert" /> to.</param>
     ''' <param name="baseCurrency">Base currency identified by ISO 4217 code.</param>
     ''' <param name="amountSignificantDigits">Round order applied to the result.</param>
     ''' <param name="currencyRateSignificantDigits">Round order applied to <paramref name="currencyRate" />.</param>

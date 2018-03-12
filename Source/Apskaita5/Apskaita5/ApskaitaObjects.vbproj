@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -13,8 +13,9 @@
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <OldToolsVersion>2.0</OldToolsVersion>
+    <OldToolsVersion>3.5</OldToolsVersion>
     <ProjectGuid>{5F12CA52-9B64-42A3-B168-7861C44FD24E}</ProjectGuid>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,8 +24,7 @@
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>ApskaitaObjects.xml</DocumentationFile>
-    <NoWarn>
-    </NoWarn>
+    <NoWarn>42353,42354,42355</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,22 +33,21 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>ApskaitaObjects.xml</DocumentationFile>
-    <NoWarn>
-    </NoWarn>
+    <NoWarn>42353,42354,42355</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
     <OutputPath>bin\x86\Debug\</OutputPath>
     <DocumentationFile>ApskaitaObjects.xml</DocumentationFile>
-    <NoWarn>
-    </NoWarn>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <CodeAnalysisRuleSet>BasicDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
     <OutputPath>bin\x86\Release\</OutputPath>
     <DocumentationFile>ApskaitaObjects.xml</DocumentationFile>
-    <NoWarn>
-    </NoWarn>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <Optimize>true</Optimize>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Csla, Version=2.1.4.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
@@ -102,9 +101,14 @@
     <Compile Include="ActiveReports\DebtStatementItemList.vb" />
     <Compile Include="ActiveReports\DebtStatementItemType.vb" />
     <Compile Include="ActiveReports\DebtStatementPerson.vb" />
+    <Compile Include="ActiveReports\Declarations\DeclarationGPM313_1.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationSAM_6.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationFR0471_5.vb" />
+    <Compile Include="ActiveReports\Declarations\InvoiceRegisterISaf_1.vb" />
+    <Compile Include="ActiveReports\Declarations\ISafTemplates\ISaf_1_2.vb" />
+    <Compile Include="ActiveReports\Declarations\SafTTemplates\SAFT_2_0.vb" />
     <Compile Include="ActiveReports\Declarations\XmlValidationErrorBuilder.vb" />
+    <Compile Include="ActiveReports\IInvoiceRegisterSafT.vb" />
     <Compile Include="ActiveReports\IPayOutsNaturalPersonsWithoutTaxesDeclaration.vb" />
     <Compile Include="ActiveReports\IVatDeclaration.vb" />
     <Compile Include="ActiveReports\DebtInfo.vb" />
@@ -129,8 +133,7 @@
     <Compile Include="ActiveReports\Declarations\InvoiceRegisterFR0671_2.vb" />
     <Compile Include="ActiveReports\Declarations\InvoiceRegisterFR0672_1.vb" />
     <Compile Include="ActiveReports\Declarations\InvoiceRegisterFR0672_2.vb" />
-    <Compile Include="ActiveReports\Declarations\InvoiceRegisterSafT_1.vb" />
-    <Compile Include="ActiveReports\Declarations\SafTTemplates\SafT_1_2.vb" />
+    <Compile Include="ActiveReports\Declarations\AuditDataFileSAFT_2_0.vb" />
     <Compile Include="ActiveReports\FinancialStatementsInfo.vb" />
     <Compile Include="ActiveReports\GoodsOperationInfo.vb" />
     <Compile Include="ActiveReports\GoodsOperationInfoList.vb" />
@@ -143,7 +146,7 @@
     <Compile Include="ActiveReports\HolidaySpentItemList.vb" />
     <Compile Include="ActiveReports\HolidaySpentItemType.vb" />
     <Compile Include="ActiveReports\IInvoiceRegisterDeclaration.vb" />
-    <Compile Include="ActiveReports\IInvoiceRegisterSafT.vb" />
+    <Compile Include="ActiveReports\IAuditDataFileSAFT.vb" />
     <Compile Include="ActiveReports\IncomeStatementInfo.vb" />
     <Compile Include="ActiveReports\IncomeStatementInfoList.vb" />
     <Compile Include="ActiveReports\InvoiceInfoItem.vb" />
@@ -163,6 +166,12 @@
     <Compile Include="ActiveReports\ServiceInfoItemList.vb" />
     <Compile Include="ActiveReports\ServiceTurnoverInfo.vb" />
     <Compile Include="ActiveReports\ServiceTurnoverInfoList.vb" />
+    <Compile Include="ActiveReports\ShareHolderInfo.vb" />
+    <Compile Include="ActiveReports\ShareHolderInfoList.vb" />
+    <Compile Include="ActiveReports\SharesAccountEntry.vb" />
+    <Compile Include="ActiveReports\SharesAccountEntryList.vb" />
+    <Compile Include="ActiveReports\SharesOperationInfo.vb" />
+    <Compile Include="ActiveReports\SharesOperationInfoList.vb" />
     <Compile Include="ActiveReports\UnsettledDocumentInfo.vb" />
     <Compile Include="ActiveReports\UnsettledDocumentInfoList.vb" />
     <Compile Include="ActiveReports\UnsettledPersonInfo.vb" />
@@ -213,6 +222,7 @@
     <Compile Include="Attributes\AssignableCRItemFieldAttribute.vb" />
     <Compile Include="Attributes\BusinessFieldAttribute.vb" />
     <Compile Include="Attributes\CashAccountFieldAttribute.vb" />
+    <Compile Include="Attributes\CodeAndNameAttribute.vb" />
     <Compile Include="Attributes\CodeFieldAttribute.vb" />
     <Compile Include="Attributes\CompanyRegionalInfoFieldAttribute.vb" />
     <Compile Include="Attributes\CorrectionFieldAttribute.vb" />
@@ -232,6 +242,7 @@
     <Compile Include="Attributes\PersonGroupFieldAttribute.vb" />
     <Compile Include="Attributes\ProductionCalculationFieldAttribute.vb" />
     <Compile Include="Attributes\ServiceFieldAttribute.vb" />
+    <Compile Include="Attributes\SharesClassFieldAttribute.vb" />
     <Compile Include="Attributes\ShortLabourContractFieldAttribute.vb" />
     <Compile Include="Attributes\TaxRateFieldAttribute.vb" />
     <Compile Include="Attributes\UserReportFieldAttribute.vb" />
@@ -246,7 +257,8 @@
     <Compile Include="CommonValidation\EmptyChronologicValidator.vb" />
     <Compile Include="Attributes\EnumValueAttribute.vb" />
     <Compile Include="CommonValidation\IChronologicValidator.vb" />
-    <Compile Include="Documents\BankDataExchangeProviders\ISO20022v053corruptBankAccountStatement.vb" />
+    <Compile Include="Documents\BankDataExchangeProviders\camt_052_001_02.vb" />
+    <Compile Include="Documents\BankDataExchangeProviders\camt_053_001_02.vb" />
     <Compile Include="Documents\CommandImportVatDeclarationSchemas.vb" />
     <Compile Include="Documents\CustomVatOperation.vb" />
     <Compile Include="Documents\CustomVatOperationList.vb" />
@@ -271,9 +283,19 @@
     <Compile Include="Extensibility\RestCredentialsList.vb" />
     <Compile Include="Extensibility\RestHandle.vb" />
     <Compile Include="General\FinancialStatementsStructure\MoveItemType.vb" />
+    <Compile Include="General\SharesAcquisition.vb" />
+    <Compile Include="General\SharesAcquisitionList.vb" />
+    <Compile Include="General\SharesClass.vb" />
+    <Compile Include="General\SharesClassList.vb" />
+    <Compile Include="General\SharesDiscard.vb" />
+    <Compile Include="General\SharesDiscardList.vb" />
+    <Compile Include="General\SharesOperation.vb" />
+    <Compile Include="General\SharesOperationType.vb" />
     <Compile Include="Goods\OperationsSimple\GoodsOperationRedeemFromBuyer.vb" />
     <Compile Include="Goods\OperationsSimple\GoodsOperationRedeemToSupplier.vb" />
     <Compile Include="HelperLists\ITradedItem.vb" />
+    <Compile Include="HelperLists\SharesClassInfo.vb" />
+    <Compile Include="HelperLists\SharesClassInfoList.vb" />
     <Compile Include="HelperLists\UserReportInfo.vb" />
     <Compile Include="HelperLists\UserReportInfoList.vb" />
     <Compile Include="HelperLists\UserReportParamInfo.vb" />
@@ -465,6 +487,7 @@
     <Compile Include="HelperLists\WarehouseInfoList.vb" />
     <Compile Include="HelperLists\WorkTimeClassInfo.vb" />
     <Compile Include="HelperLists\WorkTimeClassInfoList.vb" />
+    <Compile Include="ActiveReports\CommandFetchAuditDataFileSAFT.vb" />
     <Compile Include="Settings\Code.vb" />
     <Compile Include="Settings\CodeList.vb" />
     <Compile Include="Settings\CodeType.vb" />

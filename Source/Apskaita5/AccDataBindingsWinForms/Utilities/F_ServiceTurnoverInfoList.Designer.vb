@@ -22,41 +22,41 @@ Partial Friend Class F_ServiceTurnoverInfoList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_ServiceTurnoverInfoList))
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.RefreshButton = New System.Windows.Forms.Button
-        Me.ServicesWithoutTurnoverCheckBox = New System.Windows.Forms.CheckBox
-        Me.TradedTypeComboBox = New System.Windows.Forms.ComboBox
-        Me.Label3 = New System.Windows.Forms.Label
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.Label2 = New System.Windows.Forms.Label
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.RefreshButton = New System.Windows.Forms.Button()
+        Me.ServicesWithoutTurnoverCheckBox = New System.Windows.Forms.CheckBox()
+        Me.TradedTypeComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.DateFromAccDatePicker = New AccControlsWinForms.AccDatePicker()
+        Me.DateToAccDatePicker = New AccControlsWinForms.AccDatePicker()
         Me.ServiceTurnoverInfoListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ServiceTurnoverInfoListDataListView = New BrightIdeasSoftware.DataListView
-        Me.OlvColumn2 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn1 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn3 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn4 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn5 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn6 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn7 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn8 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn9 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn10 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn11 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn12 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn13 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn14 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn15 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn16 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn17 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn18 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn19 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn20 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn21 = New BrightIdeasSoftware.OLVColumn
-        Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
-        Me.DateFromAccDatePicker = New AccControlsWinForms.AccDatePicker
-        Me.DateToAccDatePicker = New AccControlsWinForms.AccDatePicker
+        Me.ServiceTurnoverInfoListDataListView = New BrightIdeasSoftware.DataListView()
+        Me.OlvColumn2 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn1 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn3 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn4 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn5 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn6 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn7 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn8 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn9 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn10 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn11 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn12 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn13 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn14 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn15 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn16 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn17 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn18 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn19 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn20 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn21 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.ServiceTurnoverInfoListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ServiceTurnoverInfoListDataListView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,17 +65,17 @@ Partial Friend Class F_ServiceTurnoverInfoList
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 12
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.RefreshButton, 10, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.ServicesWithoutTurnoverCheckBox, 9, 0)
@@ -156,6 +156,30 @@ Partial Friend Class F_ServiceTurnoverInfoList
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Iki:"
         '
+        'DateFromAccDatePicker
+        '
+        Me.DateFromAccDatePicker.BoldedDates = Nothing
+        Me.DateFromAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateFromAccDatePicker.Location = New System.Drawing.Point(43, 3)
+        Me.DateFromAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateFromAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateFromAccDatePicker.Name = "DateFromAccDatePicker"
+        Me.DateFromAccDatePicker.ShowWeekNumbers = True
+        Me.DateFromAccDatePicker.Size = New System.Drawing.Size(114, 20)
+        Me.DateFromAccDatePicker.TabIndex = 0
+        '
+        'DateToAccDatePicker
+        '
+        Me.DateToAccDatePicker.BoldedDates = Nothing
+        Me.DateToAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateToAccDatePicker.Location = New System.Drawing.Point(214, 3)
+        Me.DateToAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateToAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateToAccDatePicker.Name = "DateToAccDatePicker"
+        Me.DateToAccDatePicker.ShowWeekNumbers = True
+        Me.DateToAccDatePicker.Size = New System.Drawing.Size(114, 20)
+        Me.DateToAccDatePicker.TabIndex = 1
+        '
         'ServiceTurnoverInfoListBindingSource
         '
         Me.ServiceTurnoverInfoListBindingSource.DataSource = GetType(ApskaitaObjects.ActiveReports.ServiceTurnoverInfo)
@@ -195,6 +219,8 @@ Partial Friend Class F_ServiceTurnoverInfoList
         Me.ServiceTurnoverInfoListDataListView.HasCollapsibleGroups = False
         Me.ServiceTurnoverInfoListDataListView.HeaderWordWrap = True
         Me.ServiceTurnoverInfoListDataListView.HideSelection = False
+        Me.ServiceTurnoverInfoListDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
+        Me.ServiceTurnoverInfoListDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.ServiceTurnoverInfoListDataListView.IncludeColumnHeadersInCopy = True
         Me.ServiceTurnoverInfoListDataListView.Location = New System.Drawing.Point(0, 38)
         Me.ServiceTurnoverInfoListDataListView.Name = "ServiceTurnoverInfoListDataListView"
@@ -487,32 +513,6 @@ Partial Friend Class F_ServiceTurnoverInfoList
         Me.ProgressFiller1.Size = New System.Drawing.Size(154, 57)
         Me.ProgressFiller1.TabIndex = 5
         Me.ProgressFiller1.Visible = False
-        '
-        'DateFromAccDatePicker
-        '
-        Me.DateFromAccDatePicker.BoldedDates = Nothing
-        Me.DateFromAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateFromAccDatePicker.Location = New System.Drawing.Point(43, 3)
-        Me.DateFromAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        Me.DateFromAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
-        Me.DateFromAccDatePicker.Name = "DateFromAccDatePicker"
-        Me.DateFromAccDatePicker.ReadOnly = False
-        Me.DateFromAccDatePicker.ShowWeekNumbers = True
-        Me.DateFromAccDatePicker.Size = New System.Drawing.Size(114, 32)
-        Me.DateFromAccDatePicker.TabIndex = 0
-        '
-        'DateToAccDatePicker
-        '
-        Me.DateToAccDatePicker.BoldedDates = Nothing
-        Me.DateToAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateToAccDatePicker.Location = New System.Drawing.Point(214, 3)
-        Me.DateToAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        Me.DateToAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
-        Me.DateToAccDatePicker.Name = "DateToAccDatePicker"
-        Me.DateToAccDatePicker.ReadOnly = False
-        Me.DateToAccDatePicker.ShowWeekNumbers = True
-        Me.DateToAccDatePicker.Size = New System.Drawing.Size(114, 32)
-        Me.DateToAccDatePicker.TabIndex = 1
         '
         'F_ServiceTurnoverInfoList
         '

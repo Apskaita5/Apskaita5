@@ -64,11 +64,6 @@ Friend Class F_LongTermAssetsTransferOfBalance
             Return False
         End Try
 
-        Dim cm As New ContextMenu()
-        Dim cmItem As New MenuItem("Informacija apie formatą", AddressOf PasteAccButton_Click)
-        cm.MenuItems.Add(cmItem)
-        PasteAccButton.ContextMenu = cm
-
         Return True
 
     End Function
@@ -139,16 +134,12 @@ Friend Class F_LongTermAssetsTransferOfBalance
 
         If _FormManager.DataSource Is Nothing OrElse Not LongTermAssetsTransferOfBalance.CanEditObject Then Exit Sub
 
-        If GetSenderText(sender).Trim.ToLower.Contains("informacija") Then
-            MsgBox(LongTermAsset.GetPasteStringColumnsDescription, _
-                MsgBoxStyle.Information, "Info")
-            Clipboard.SetText(String.Join(vbTab, LongTermAsset.GetPasteStringColumns))
-            Exit Sub
-        End If
+        Dim data As DataTable = F_DataImport.GetImportedData(LongTermAsset.GetDataTableSpecification)
+        If data Is Nothing Then Exit Sub
 
         Try
             Using busy As New StatusBusy
-                _FormManager.DataSource.ImportRange(Clipboard.GetText())
+                _FormManager.DataSource.ImportRange(data)
             End Using
         Catch ex As Exception
             ShowError(ex)

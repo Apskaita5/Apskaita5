@@ -1,0 +1,47 @@
+SELECT
+
+(SELECT COUNT(*) FROM apyskaitos a LEFT JOIN asmenys b ON b.ID=a.Analit WHERE b.ID IS NULL and a.Analit>0) AS LostPersonApysk,
+
+(SELECT COUNT(*) FROM bz a LEFT JOIN asmenys b ON b.ID=a.Op_analitika WHERE b.ID IS NULL and a.Op_analitika>0) AS LostPersonBZ,
+
+(SELECT COUNT(*) FROM bzdata a LEFT JOIN asmenys b ON b.ID=a.Op_ana WHERE b.ID IS NULL and a.Op_ana>0) AS LostPersonBZDATA,
+
+(SELECT COUNT(*) FROM d_avansai_d a LEFT JOIN asmenys b ON b.ID=a.AK WHERE b.ID IS NULL and a.AK>0) AS LostPersonAvansai,
+
+(SELECT COUNT(*) FROM darbuotojai_d a LEFT JOIN asmenys b ON b.ID=a.AK WHERE b.ID IS NULL and a.AK>0) AS LostPersonDarbuotojai,
+
+(SELECT COUNT(*) FROM du_ziniarastis_d a LEFT JOIN asmenys b ON b.ID=a.AK WHERE b.ID IS NULL and a.AK>0) AS LostPersonDUZ,
+
+(SELECT COUNT(*) FROM offsetitems a LEFT JOIN asmenys b ON b.ID=a.PersonID WHERE b.ID IS NULL and a.PersonID>0) AS LostPersonOffsets,
+
+(SELECT COUNT(*) FROM advancereports a WHERE NOT a.Account>0) AS AdvanceReportsWithoutAccount,
+
+(SELECT COUNT(*) FROM kio k WHERE NOT k.CashAccountID>0) AS KioWithoutCashAccount,
+
+(SELECT COUNT(*) FROM kpo k WHERE NOT k.CashAccountID>0) AS KpoWithoutCashAccount,
+
+(SELECT COUNT(*) FROM bankoperations b WHERE NOT b.CashAccountID>0) AS BankWithoutCashAccount,
+
+(SELECT COUNT(*) FROM bz b LEFT JOIN kio d ON d.BZ_ID=b.Op_ID WHERE b.Op_dok_rusis='kio' AND d.BZ_ID IS NULL) AS LostKio,
+
+(SELECT COUNT(*) FROM bz b LEFT JOIN kpo d ON d.BZ_ID=b.Op_ID WHERE b.Op_dok_rusis='kpo' AND d.BZ_ID IS NULL) AS LostKpo,
+
+(SELECT COUNT(*) FROM bz b LEFT JOIN bankoperations d ON d.ParentID=b.Op_ID WHERE b.Op_dok_rusis='b' AND d.ParentID IS NULL) AS LostBank,
+
+(SELECT COUNT(*) FROM bz b LEFT JOIN invoicesmade d ON d.ID=b.Op_ID WHERE b.Op_dok_rusis='sf' AND d.ID IS NULL) AS LostInvoicesMade,
+
+(SELECT COUNT(*) FROM bz b LEFT JOIN invoicesreceived d ON d.ID=b.Op_ID WHERE b.Op_dok_rusis='sg' AND d.ID IS NULL) AS LostInvoicesReceived,
+
+(SELECT COUNT(*) FROM bz b LEFT JOIN offsetitems d ON d.ParentID=b.Op_ID WHERE b.Op_dok_rusis='sk' AND d.ParentID IS NULL) AS LostOffsets,
+
+(SELECT COUNT(*) FROM invoicesmade i WHERE NOT i.InvoiceNumber>0 OR TRIM(i.InvoiceSerial)='') AS InvoicesWithoutNumber,
+
+(SELECT COUNT(*) FROM invoicesreceived i WHERE NOT i.AccountSupplier>0) AS InvoicesReceivedWithoutAccount,
+
+(SELECT COUNT(*) FROM bz b LEFT JOIN turtas_op d ON d.JE_ID=b.Op_ID WHERE (b.Op_dok_rusis='amo'
+OR b.Op_dok_rusis='t' OR b.Op_dok_rusis='tsp') AND d.JE_ID IS NULL) AS LostAssetOperations,
+
+(SELECT COUNT(*) FROM turtas_op d LEFT JOIN bz b ON b.Op_ID=d.JE_ID WHERE (d.OperationType='aac'
+OR d.OperationType='amo' OR d.OperationType='nur' OR d.OperationType='per') AND b.Op_ID IS NULL) AS LostAssetOperations2,
+
+(SELECT COUNT(*) FROM turtas t LEFT JOIN bz b ON b.OP_ID=t.ID WHERE b.Op_ID IS NULL) AS LostAssets;

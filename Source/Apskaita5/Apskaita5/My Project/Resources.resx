@@ -430,7 +430,7 @@
     <value>debetuojama suma</value>
   </data>
   <data name="General_JournalEntry_DebitNotEqualsCredit" xml:space="preserve">
-    <value>Debeto korespondencijų suma nelygi kredito korespondencijų sumai.</value>
+    <value>Debeto korespondencijų suma nelygi kredito korespondencijų sumai (skirtumas = {0}).</value>
   </data>
   <data name="General_JournalEntry_DocNumber" xml:space="preserve">
     <value>pagrindžiančio dokumento numeris</value>
@@ -901,10 +901,10 @@
     <value>nedarbingumo apmokėjimo</value>
   </data>
   <data name="General_ImportedPerson_AccountAgainstBankBuyer" xml:space="preserve">
-    <value>pirkėjų skolų apskaitos sąskaita (gaunamų banko įplaukų koresponduojanti (kredituojama) sąskaita)</value>
+    <value>pirkėjų skolų apskaitos sąskaita</value>
   </data>
   <data name="General_ImportedPerson_AccountAgainstBankSupplyer" xml:space="preserve">
-    <value>tiekėjų skolų apskaitos sąskaita (banko pervedimų koresponduojanti (debetuojama) sąskaita)</value>
+    <value>tiekėjų skolų apskaitos sąskaita</value>
   </data>
   <data name="General_ImportedPerson_Address" xml:space="preserve">
     <value>adresas</value>
@@ -916,7 +916,7 @@
     <value>banko sąskaitos numeris</value>
   </data>
   <data name="General_ImportedPerson_Code" xml:space="preserve">
-    <value>įmonės kodas, fizinio asmens kodas, PVM kodas, IV pažymos numeris arba gimimo data</value>
+    <value>įmonės ar fizinio asmens kodas</value>
   </data>
   <data name="General_ImportedPerson_CodeSODRA" xml:space="preserve">
     <value>SODROS kodas</value>
@@ -15133,5 +15133,401 @@
   </data>
   <data name="Documents_BankOperation_InvalidAccountBankCurrencyConversionCosts" xml:space="preserve">
     <value>Banko valiutos konversijos sąnaudų sąskaita negali sutapti su valiutos kurso pasikeitimo įtakos sąskaita.</value>
+  </data>
+  <data name="ActiveReports_ShareHolderInfoList_AsOfDate" xml:space="preserve">
+    <value>ataskaitos data</value>
+  </data>
+  <data name="ActiveReports_ShareHolderInfoList_ToString" xml:space="preserve">
+    <value>akcininkų sąrašas</value>
+  </data>
+  <data name="ActiveReports_ShareHolderInfoList_TypeName" xml:space="preserve">
+    <value>akcininkų sąrašas</value>
+  </data>
+  <data name="ActiveReports_ShareHolderInfo_Address" xml:space="preserve">
+    <value>adresas</value>
+  </data>
+  <data name="ActiveReports_ShareHolderInfo_Amount" xml:space="preserve">
+    <value>akcijų kiekis</value>
+  </data>
+  <data name="ActiveReports_ShareHolderInfo_Class" xml:space="preserve">
+    <value>akcijų klasė</value>
+  </data>
+  <data name="ActiveReports_ShareHolderInfo_Code" xml:space="preserve">
+    <value>kodas</value>
+  </data>
+  <data name="ActiveReports_ShareHolderInfo_Description" xml:space="preserve">
+    <value>akcijų klasės aprašymas</value>
+  </data>
+  <data name="ActiveReports_ShareHolderInfo_Email" xml:space="preserve">
+    <value>e-paštas</value>
+  </data>
+  <data name="ActiveReports_ShareHolderInfo_ID" xml:space="preserve">
+    <value>asmens ID</value>
+  </data>
+  <data name="ActiveReports_ShareHolderInfo_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="ActiveReports_ShareHolderInfo_StateCode" xml:space="preserve">
+    <value>valstybės kodas</value>
+  </data>
+  <data name="ActiveReports_ShareHolderInfo_ToString" xml:space="preserve">
+    <value>{0} ({1}): akcijų rūšis - {2}, akcijos vertė - {3}, akcijų kiekis - {4}</value>
+  </data>
+  <data name="ActiveReports_ShareHolderInfo_TypeName" xml:space="preserve">
+    <value>akcininko duomenys</value>
+  </data>
+  <data name="ActiveReports_ShareHolderInfo_ValuePerUnit" xml:space="preserve">
+    <value>vienos akcijos vertė</value>
+  </data>
+  <data name="ActiveReports_ShareHolderInfo_ValueTotal" xml:space="preserve">
+    <value>viso akcijų vertė</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntryList_AccountNo" xml:space="preserve">
+    <value>sąskaitos Nr.</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntryList_AsOfDate" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntryList_Class" xml:space="preserve">
+    <value>akcijų klasė</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntryList_ClassNull" xml:space="preserve">
+    <value>Klaida. Nenurodyta akcijų klasė.</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntryList_ShareHolder" xml:space="preserve">
+    <value>akcininkas</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntryList_ToString" xml:space="preserve">
+    <value>akcijų sąskaita</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntryList_TypeName" xml:space="preserve">
+    <value>akcijų sąskaita</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntry_AmountAcquired" xml:space="preserve">
+    <value>įsigyta</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntry_AmountAfterOperation" xml:space="preserve">
+    <value>likutis</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntry_AmountDiscarded" xml:space="preserve">
+    <value>perleista/nurašyta</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntry_CorrespondingAccounts" xml:space="preserve">
+    <value>koresponduojančios sąskaitos</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntry_Date" xml:space="preserve">
+    <value>operacijos data</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntry_Document" xml:space="preserve">
+    <value>dokumentas</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntry_DocumentFormat" xml:space="preserve">
+    <value>{0} {1} Nr. {2}</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntry_DocumentFormatWithoutNumber" xml:space="preserve">
+    <value>{0} {1}</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntry_ID" xml:space="preserve">
+    <value>operacijos ID</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntry_Remarks" xml:space="preserve">
+    <value>pastabos</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntry_ToString" xml:space="preserve">
+    <value>{0}: {1}</value>
+  </data>
+  <data name="ActiveReports_SharesAccountEntry_TypeName" xml:space="preserve">
+    <value>akcijų sąskaitos eilutė</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfoList_Class" xml:space="preserve">
+    <value>akcijų klasė</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfoList_CompanyShares" xml:space="preserve">
+    <value>nuosavos akcijos</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfoList_DateBegin" xml:space="preserve">
+    <value>laikotarpio pradžia</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfoList_DateEnd" xml:space="preserve">
+    <value>laikotarpio pabaiga</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfoList_ShareHolder" xml:space="preserve">
+    <value>akcininkas</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfoList_ToString" xml:space="preserve">
+    <value>operacijų su akcijomis suvestinė</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfoList_TypeName" xml:space="preserve">
+    <value>operacijų su akcijomis suvestinė</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfo_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfo_DocumentDate" xml:space="preserve">
+    <value>dok. data</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfo_DocumentName" xml:space="preserve">
+    <value>dok. pavadinimas</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfo_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfo_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfo_Remarks" xml:space="preserve">
+    <value>pastabos</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfo_ToString" xml:space="preserve">
+    <value>{0}: {1} {2} Nr. {3}</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfo_TypeName" xml:space="preserve">
+    <value>operacijų su akcijomis žiniaraščio eilutė</value>
+  </data>
+  <data name="ActiveReports_SharesOperationInfo_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="General_SharesAcquisitionList_ToString" xml:space="preserve">
+    <value>akcijų įsigijimai</value>
+  </data>
+  <data name="General_SharesAcquisitionList_TypeName" xml:space="preserve">
+    <value>akcijų įsigijimai</value>
+  </data>
+  <data name="General_SharesAcquisition_Amount" xml:space="preserve">
+    <value>kiekis</value>
+  </data>
+  <data name="General_SharesAcquisition_Class" xml:space="preserve">
+    <value>akcijų klasė</value>
+  </data>
+  <data name="General_SharesAcquisition_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="General_SharesAcquisition_IsCompanyShares" xml:space="preserve">
+    <value>nuosavos akcijos</value>
+  </data>
+  <data name="General_SharesAcquisition_IsEmission" xml:space="preserve">
+    <value>emisija</value>
+  </data>
+  <data name="General_SharesAcquisition_Remarks" xml:space="preserve">
+    <value>pastabos</value>
+  </data>
+  <data name="General_SharesAcquisition_ShareHolder" xml:space="preserve">
+    <value>akcininkas</value>
+  </data>
+  <data name="General_SharesAcquisition_ShareHolderInvalid" xml:space="preserve">
+    <value>Akcininkas negali būti nurodomas, kai pažymėta, kad įgyjamos nuosavos akcijos.</value>
+  </data>
+  <data name="General_SharesAcquisition_ToString" xml:space="preserve">
+    <value>{0} ({1}): klasė {2}, nominali vertė {3} {4} -&gt; {5} vnt.</value>
+  </data>
+  <data name="General_SharesAcquisition_TypeName" xml:space="preserve">
+    <value>akcijų įsigijimas</value>
+  </data>
+  <data name="General_SharesClassList_CannotRemove" xml:space="preserve">
+    <value>Klaida. Negalima pašalinti akcijų klasės, naudojamos akcijų operacijose (eilutė {0}).</value>
+  </data>
+  <data name="General_SharesClassList_ListEmpty" xml:space="preserve">
+    <value>Klaida. Neįvesta nei viena eilutė.</value>
+  </data>
+  <data name="General_SharesClassList_ToString" xml:space="preserve">
+    <value>akcijų klasės</value>
+  </data>
+  <data name="General_SharesClassList_TypeName" xml:space="preserve">
+    <value>akcijų klasės</value>
+  </data>
+  <data name="General_SharesClass_Description" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="General_SharesClass_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="General_SharesClass_IsInUse" xml:space="preserve">
+    <value>naudojama operacijose</value>
+  </data>
+  <data name="General_SharesClass_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="General_SharesClass_ToString" xml:space="preserve">
+    <value>{0}, {1} {2}</value>
+  </data>
+  <data name="General_SharesClass_TypeName" xml:space="preserve">
+    <value>akcijų klasė</value>
+  </data>
+  <data name="General_SharesClass_ValuePerUnit" xml:space="preserve">
+    <value>nominali vnt. vertė</value>
+  </data>
+  <data name="General_SharesDiscardList_ToString" xml:space="preserve">
+    <value>akcijų perleidimai/nurašymai</value>
+  </data>
+  <data name="General_SharesDiscardList_TypeName" xml:space="preserve">
+    <value>akcijų perleidimai/nurašymai</value>
+  </data>
+  <data name="General_SharesDiscard_Amount" xml:space="preserve">
+    <value>kiekis</value>
+  </data>
+  <data name="General_SharesDiscard_Class" xml:space="preserve">
+    <value>akcijų klasė</value>
+  </data>
+  <data name="General_SharesDiscard_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="General_SharesDiscard_IsCancellation" xml:space="preserve">
+    <value>anuliavimas</value>
+  </data>
+  <data name="General_SharesDiscard_IsCompanyShares" xml:space="preserve">
+    <value>nuosavos akcijos</value>
+  </data>
+  <data name="General_SharesDiscard_Remarks" xml:space="preserve">
+    <value>pastabos</value>
+  </data>
+  <data name="General_SharesDiscard_ShareHolder" xml:space="preserve">
+    <value>akcininkas</value>
+  </data>
+  <data name="General_SharesDiscard_ShareHolderInvalid" xml:space="preserve">
+    <value>Akcininkas negali būti nurodomas, kai pažymėta, kad perleidžiamos/nurašomos nuosavos akcijos.</value>
+  </data>
+  <data name="General_SharesDiscard_ToString" xml:space="preserve">
+    <value>{0} ({1}): klasė {2}, nominali vertė {3} {4} -&gt; {5} vnt.</value>
+  </data>
+  <data name="General_SharesDiscard_TypeName" xml:space="preserve">
+    <value>akcijų perleidimas/nurašymas</value>
+  </data>
+  <data name="General_SharesOperationType_Acquisition" xml:space="preserve">
+    <value>akcijų įsigijimas</value>
+  </data>
+  <data name="General_SharesOperationType_Discard" xml:space="preserve">
+    <value>akcijų perleidimas/nurašymas</value>
+  </data>
+  <data name="General_SharesOperation_Acquisitions" xml:space="preserve">
+    <value>įsigijimai</value>
+  </data>
+  <data name="General_SharesOperation_Date" xml:space="preserve">
+    <value>data</value>
+  </data>
+  <data name="General_SharesOperation_Discards" xml:space="preserve">
+    <value>perleidimai/nurašymas</value>
+  </data>
+  <data name="General_SharesOperation_DocumentDate" xml:space="preserve">
+    <value>dok. data</value>
+  </data>
+  <data name="General_SharesOperation_DocumentName" xml:space="preserve">
+    <value>dok. pavadinimas</value>
+  </data>
+  <data name="General_SharesOperation_DocumentNumber" xml:space="preserve">
+    <value>dok. Nr.</value>
+  </data>
+  <data name="General_SharesOperation_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="General_SharesOperation_InsertDate" xml:space="preserve">
+    <value>įtraukta</value>
+  </data>
+  <data name="General_SharesOperation_Remarks" xml:space="preserve">
+    <value>pastabos</value>
+  </data>
+  <data name="General_SharesOperation_ToString" xml:space="preserve">
+    <value>{0}: {1} {2} Nr. {3}</value>
+  </data>
+  <data name="General_SharesOperation_TypeName" xml:space="preserve">
+    <value>operacija su akcijomis</value>
+  </data>
+  <data name="General_SharesOperation_UpdateDate" xml:space="preserve">
+    <value>pakeista</value>
+  </data>
+  <data name="HelperLists_SharesClassInfoList_ToString" xml:space="preserve">
+    <value>akcijų klasės</value>
+  </data>
+  <data name="HelperLists_SharesClassInfoList_TypeName" xml:space="preserve">
+    <value>akcijų klasės</value>
+  </data>
+  <data name="HelperLists_SharesClassInfo_Description" xml:space="preserve">
+    <value>aprašymas</value>
+  </data>
+  <data name="HelperLists_SharesClassInfo_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HelperLists_SharesClassInfo_Name" xml:space="preserve">
+    <value>pavadinimas</value>
+  </data>
+  <data name="HelperLists_SharesClassInfo_ToString" xml:space="preserve">
+    <value>klasė: {0}; nominali vertė: {1}</value>
+  </data>
+  <data name="HelperLists_SharesClassInfo_TypeName" xml:space="preserve">
+    <value>akcijų klasė</value>
+  </data>
+  <data name="HelperLists_SharesClassInfo_ValuePerUnit" xml:space="preserve">
+    <value>akcijos (nominali) vertė</value>
+  </data>
+  <data name="Settings_CodeType_SaftAccountType" xml:space="preserve">
+    <value>SAF-T sąskaitos kodas</value>
+  </data>
+  <data name="Common_CodeTypeMismatch" xml:space="preserve">
+    <value>Laukelyje {0} klaidingai priskirtas kodo tipas, turi būti {1}, o yra {2}.</value>
+  </data>
+  <data name="General_Account_SaftCode" xml:space="preserve">
+    <value>SAF-T kodas</value>
+  </data>
+  <data name="General_SharesClass_SaftCode" xml:space="preserve">
+    <value>SAF-T kodas</value>
+  </data>
+  <data name="Settings_CodeType_SaftSharesType" xml:space="preserve">
+    <value>SAF-T akcijų kodas</value>
+  </data>
+  <data name="General_Account_WasUsedBySharesClass" xml:space="preserve">
+    <value>akcijų klasės duomenyse</value>
+  </data>
+  <data name="General_JournalEntry_CannotBalanceAlreadyBalanced" xml:space="preserve">
+    <value>Klaida. Debeto ir kredito sumos lygios, nėra ką balansuoti.</value>
+  </data>
+  <data name="General_JournalEntry_CannotBalanceCredit" xml:space="preserve">
+    <value>Klaida. Kredituojamų sąskaitų sąraše nėra eilutės be sumos, į kurią būtų galima įrašyti balansuojančią sumą.</value>
+  </data>
+  <data name="General_JournalEntry_CannotBalanceDebit" xml:space="preserve">
+    <value>Klaida. Debetuojamų sąskaitų sąraše nėra eilutės be sumos, į kurią būtų galima įrašyti balansuojančią sumą.</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_DeserializedNull" xml:space="preserve">
+    <value>Klaida. Dėl nežinomų priežasčių nepavyko deserializuoti camt.052.001.02 duomenų (FromXmlString returned null).</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ISO20022v053BankAccountStatement_DeserializedNull" xml:space="preserve">
+    <value>Klaida. Dėl nežinomų priežasčių nepavyko deserializuoti camt.053.001.02 duomenų (FromXmlString returned null).</value>
+  </data>
+  <data name="General_ImportedPerson_CodeIsNotReal" xml:space="preserve">
+    <value>asmens kodas netikras</value>
+  </data>
+  <data name="General_ImportedPerson_StateCode" xml:space="preserve">
+    <value>valstybės kodas (ISO 3166–1 alpha 2)</value>
+  </data>
+  <data name="General_Account_SaftCodeDescription" xml:space="preserve">
+    <value>SAF-T kodo aprašymas</value>
+  </data>
+  <data name="General_AccountList_FailedToFetchCodeInfoList" xml:space="preserve">
+    <value>Klaida. Nepavyko gauti SAF-T kodų duomenų.</value>
+  </data>
+  <data name="General_Account_DefaultAccountType" xml:space="preserve">
+    <value>įprastinės sąskaitos kodas</value>
+  </data>
+  <data name="General_Account_Comments" xml:space="preserve">
+    <value>pastabos</value>
+  </data>
+  <data name="General_TransferOfBalanceAnalytics_PersonCode" xml:space="preserve">
+    <value>įmonės / asmens kodas</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_TaxDeductedAndPayed" xml:space="preserve">
+    <value>GPM išskaičiuota ir sumokėta</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_TaxPayedByCompany" xml:space="preserve">
+    <value>GPM sumokėta įmonės lėšomis</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_TaxPayedOutDate" xml:space="preserve">
+    <value>GPM sumokėjimo data</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_TaxPayedAmountInvalid" xml:space="preserve">
+    <value>Sumokėto GPM suma negali būti nurodoma, jei nenurodyta GPM sumokėjimo data.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithoutTaxes_TaxPayedAmountNull" xml:space="preserve">
+    <value>Jei nenurodyta GPM sumokėjimo data, turi būti nurodyta ir sumokėto GPM suma.</value>
   </data>
 </root>

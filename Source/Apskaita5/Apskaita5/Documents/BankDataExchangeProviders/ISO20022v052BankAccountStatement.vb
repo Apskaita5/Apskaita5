@@ -1,13 +1,18 @@
-﻿Namespace Documents.BankDataExchangeProviders
+﻿Imports System.Text
+Imports System.IO
+
+Namespace Documents.BankDataExchangeProviders
 
     ''' <summary>
     ''' Represents a converter object that converts ISO20022 standard v. camt.052
     ''' bank account statement data to the canonical format suitable for import.
     ''' </summary>
     ''' <remarks>Is used as a parameter for <see cref="BankOperationItemList.GetBankOperationItemList">BankOperationItemList.GetBankOperationItemList</see> method.</remarks>
-    <Serializable()> _
+    <Serializable()>
     Public Class ISO20022v052BankAccountStatement
         Implements IBankAccountStatement
+
+        Protected Const NotProvidedPlaceHolder As String = "NOTPROVIDED"
 
         Protected _AccountCurrency As String = ""
         Protected _AccountIBAN As String = ""
@@ -178,9 +183,9 @@
         Public ReadOnly Property Description() As String _
             Implements IBankAccountStatement.Description
             Get
-                Return String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_Description, _
-                    vbCrLf, _PeriodStart.ToString("yyyy-MM-dd"), _PeriodEnd.ToString("yyyy-MM-dd"), _
-                    _AccountCurrency.Trim.ToUpper, vbCrLf, DblParser(_BalanceStart), _
+                Return String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_Description,
+                    vbCrLf, _PeriodStart.ToString("yyyy-MM-dd"), _PeriodEnd.ToString("yyyy-MM-dd"),
+                    _AccountCurrency.Trim.ToUpper, vbCrLf, DblParser(_BalanceStart),
                     vbCrLf, DblParser(_Income), vbCrLf, DblParser(_Spendings), vbCrLf, DblParser(_BalanceEnd))
             End Get
         End Property
@@ -207,7 +212,7 @@
         ''' <param name="fileName">A path to the file containing bank account statement data.</param>
         ''' <param name="encoding">A file encoding if it is known to be not standard (UTF-8) for a given file type.</param>
         ''' <remarks></remarks>
-        Public Sub LoadDataFromFile(ByVal fileName As String, _
+        Public Sub LoadDataFromFile(ByVal fileName As String,
             Optional ByVal encoding As System.Text.Encoding = Nothing) _
             Implements IBankAccountStatement.LoadDataFromFile
 
@@ -218,10 +223,10 @@
             End If
 
             If encoding Is Nothing Then
-                encoding = System.Text.Encoding.UTF8
+                encoding = Encoding.UTF8
             End If
 
-            Dim content As String = IO.File.ReadAllText(fileName, encoding)
+            Dim content As String = File.ReadAllText(fileName, encoding)
 
             If StringIsNullOrEmpty(content) Then
                 Throw New Exception(My.Resources.Documents_BankOperationItemList_FileEmpty)
@@ -251,7 +256,7 @@
                 If i.Inflow Then
                     _Income = CRound(_Income + i.SumInAccount, 2)
                 Else
-                    _Spendings = CRound(_Income + i.SumInAccount, 2)
+                    _Spendings = CRound(_Spendings + i.SumInAccount, 2)
                 End If
             Next
 
@@ -259,134 +264,212 @@
 
         Protected Overridable Sub LoadDataFromStringInt(ByVal source As String)
 
-            If Not source.ToLower.Contains("urn:iso:std:iso:20022:tech:xsd:camt.052.001.02") Then
-                ' minimum implemented version, no downgrade options available
-                Throw New Exception(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormat)
+            Dim data As camt_052_001_02.Document = Nothing
+            Try
+                data = FromXmlString(Of camt_052_001_02.Document)(source, New Text.UTF8Encoding(False))
+            Catch ex As Exception
+                Try
+                    data = FromXmlString(Of camt_052_001_02.Document)(source, New Text.UTF8Encoding(True))
+                Catch ex2 As Exception
+                    Throw New Exception(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormat, ex)
+                End Try
+            End Try
+            If data Is Nothing Then
+                Throw New Exception(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_DeserializedNull)
             End If
 
-            Dim document As System.Xml.XmlDocument = New System.Xml.XmlDocument()
-            document.LoadXml(StripNamespaces(source))
+            If data.BkToCstmrAcctRpt Is Nothing Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BkToCstmrAcctRpt"))
+            ElseIf data.BkToCstmrAcctRpt.Rpt Is Nothing OrElse data.BkToCstmrAcctRpt.Rpt.Length < 1 Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BkToCstmrAcctRpt.Rpt"))
+            ElseIf data.BkToCstmrAcctRpt.Rpt(0).Acct Is Nothing Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BkToCstmrAcctRpt.Rpt(0).Acct"))
+            ElseIf data.BkToCstmrAcctRpt.Rpt(0).Acct.Id Is Nothing Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BkToCstmrAcctRpt.Rpt(0).Acct.Id"))
+            ElseIf data.BkToCstmrAcctRpt.Rpt(0).Acct.Id.Item Is Nothing Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BkToCstmrAcctRpt.Rpt(0).Acct.Id.Item"))
+            ElseIf data.BkToCstmrAcctRpt.Rpt(0).FrToDt Is Nothing Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BkToCstmrAcctRpt.Rpt(0).FrToDt"))
+            ElseIf data.BkToCstmrAcctRpt.Rpt(0).Bal Is Nothing Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BkToCstmrAcctRpt.Rpt(0).Bal"))
+            ElseIf data.BkToCstmrAcctRpt.Rpt(0).Ntry Is Nothing OrElse data.BkToCstmrAcctRpt.Rpt(0).Ntry.Length < 1 Then
+                Throw New Exception(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_NoOperations)
+            End If
 
-            _AccountCurrency = GetISO20022ValueAsString(document, _
-                "/Document/BkToCstmrAcctRpt/Rpt/Acct/Ccy", True).Trim.ToUpper()
-            _AccountIBAN = GetISO20022ValueAsString(document, _
-                "/Document/BkToCstmrAcctRpt/Rpt/Acct/Id/IBAN", True).Trim.ToUpper()
-            _PeriodStart = GetISO20022ValueAsDate(document, _
-                "/Document/BkToCstmrAcctRpt/Rpt/FrToDt/FrDtTm", True)
-            _PeriodEnd = GetISO20022ValueAsDate(document, _
-                "/Document/BkToCstmrAcctRpt/Rpt/FrToDt/ToDtTm", True)
+            _AccountCurrency = data.BkToCstmrAcctRpt.Rpt(0).Acct.Ccy
+            _AccountIBAN = data.BkToCstmrAcctRpt.Rpt(0).Acct.Id.Item.ToString.Trim.ToUpper()
+            _PeriodStart = data.BkToCstmrAcctRpt.Rpt(0).FrToDt.FrDtTm
+            _PeriodEnd = data.BkToCstmrAcctRpt.Rpt(0).FrToDt.ToDtTm
 
-            For Each n As Xml.XmlNode In GetISO20022NodeList(document, "/Document/BkToCstmrAcctRpt/Rpt/Bal", True)
-                Dim balanceType As String = GetISO20022ValueAsString(n, "./Tp/CdOrPrtry/Cd", False).Trim.ToUpper
-                If balanceType = "ITBD" Then
-                    _BalanceEnd = GetISO20022ValueAsDouble(n, "./Amt", 2, True)
-                    If GetISO20022ValueAsEntryType(n, "./CdtDbtInd", True) = BookEntryType.Debetas Then
-                        _BalanceEnd = -_BalanceEnd
-                    End If
-                ElseIf balanceType = "OPBD" Then
-                    _BalanceStart = GetISO20022ValueAsDouble(n, "./Amt", 2, True)
-                    If GetISO20022ValueAsEntryType(n, "./CdtDbtInd", True) = BookEntryType.Debetas Then
-                        _BalanceStart = -_BalanceStart
+            For Each balance As camt_052_001_02.CashBalance3 In data.BkToCstmrAcctRpt.Rpt(0).Bal
+                If Not balance.Tp Is Nothing AndAlso Not balance.Tp.CdOrPrtry Is Nothing _
+                    AndAlso Not balance.Tp.CdOrPrtry.Item Is Nothing _
+                    AndAlso Not balance.Amt Is Nothing Then
+                    If balance.Tp.CdOrPrtry.Item.ToString.Trim.ToUpper = "ITBD" Then
+                        _BalanceEnd = balance.Amt.Value
+                        If balance.CdtDbtInd = camt_052_001_02.CreditDebitCode.DBIT Then
+                            _BalanceEnd = -_BalanceEnd
+                        End If
+                    ElseIf balance.Tp.CdOrPrtry.Item.ToString.Trim.ToUpper = "OPBD" Then
+                        _BalanceStart = balance.Amt.Value
+                        If balance.CdtDbtInd = camt_052_001_02.CreditDebitCode.DBIT Then
+                            _BalanceStart = -_BalanceEnd
+                        End If
                     End If
                 End If
             Next
 
-            Dim entries As New List(Of String)
-            For Each n As Xml.XmlNode In GetISO20022NodeList(document, "/Document/BkToCstmrAcctRpt/Rpt/Ntry", True)
-                entries.Add(n.OuterXml)
-            Next
-
-            If entries.Count < 1 Then
-                Throw New Exception(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_NoOperations)
-            End If
-
             _Items = New List(Of BankAccountStatementItem)
 
-            For Each s As String In entries
-                _Items.Add(GetBankAccountStatementItem(s))
+            For Each entry As camt_052_001_02.ReportEntry2 In data.BkToCstmrAcctRpt.Rpt(0).Ntry
+                _Items.Add(GetBankAccountStatementItem(entry))
             Next
 
         End Sub
 
-        Private Function GetBankAccountStatementItem(ByVal source As String) As BankAccountStatementItem
+        Private Function GetBankAccountStatementItem(entry As camt_052_001_02.ReportEntry2) As BankAccountStatementItem
+
+            If entry.NtryDtls Is Nothing OrElse entry.NtryDtls.Length < 1 Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls"))
+            ElseIf entry.NtryDtls(0).TxDtls Is Nothing OrElse entry.NtryDtls(0).TxDtls.Length < 1 Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls"))
+            ElseIf entry.NtryDtls(0).TxDtls(0).Refs Is Nothing Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.Refs"))
+            ElseIf entry.BookgDt Is Nothing Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BookgDt"))
+            ElseIf entry.NtryDtls(0).TxDtls(0).RmtInf Is Nothing Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.RmtInf"))
+            ElseIf entry.NtryDtls(0).TxDtls(0).RltdPties Is Nothing Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "entry.NtryDtls.TxDtls.RltdPties"))
+            ElseIf entry.NtryDtls(0).TxDtls(0).AmtDtls Is Nothing Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.AmtDtls"))
+            End If
 
             Dim result As New BankAccountStatementItem
 
-            Dim document As System.Xml.XmlDocument = New System.Xml.XmlDocument()
-            document.LoadXml(source)
-
-            result.DocumentNumber = GetISO20022ValueAsString(document, _
-                "/Ntry/NtryDtls/TxDtls/Refs/EndToEndId", False).Trim
-            If result.DocumentNumber.Trim.ToUpper() = "NOTPROVIDED" Then result.DocumentNumber = ""
-            If String.IsNullOrEmpty(result.DocumentNumber) Then
-                result.DocumentNumber = GetISO20022ValueAsString(document, _
-                "/Ntry/NtryDtls/TxDtls/Refs/InstrId", False).Trim
-                If result.DocumentNumber.Trim.ToUpper() = "NOTPROVIDED" Then result.DocumentNumber = ""
-                If String.IsNullOrEmpty(result.DocumentNumber) Then
-                    result.DocumentNumber = GetISO20022ValueAsString(document, _
-                        "/Ntry/NtryDtls/TxDtls/Refs/<PmtInfId", False).Trim
-                    If result.DocumentNumber.Trim.ToUpper() = "NOTPROVIDED" Then result.DocumentNumber = ""
+            result.DocumentNumber = entry.NtryDtls(0).TxDtls(0).Refs.EndToEndId
+            If result.DocumentNumber.Trim.ToUpper() = NotProvidedPlaceHolder Then _
+                result.DocumentNumber = String.Empty
+            If String.IsNullOrEmpty(result.DocumentNumber.Trim) Then
+                result.DocumentNumber = entry.NtryDtls(0).TxDtls(0).Refs.InstrId
+                If result.DocumentNumber.Trim.ToUpper() = NotProvidedPlaceHolder Then _
+                    result.DocumentNumber = String.Empty
+                If String.IsNullOrEmpty(result.DocumentNumber.Trim) Then
+                    result.DocumentNumber = entry.NtryDtls(0).TxDtls(0).Refs.PmtInfId
+                    If result.DocumentNumber.Trim.ToUpper() = NotProvidedPlaceHolder Then _
+                        result.DocumentNumber = String.Empty
                 End If
             End If
-            result.UniqueCode = GetISO20022ValueAsString( _
-                document, "/Ntry/NtryDtls/TxDtls/Refs/AcctSvcrRef", True)
-            result.Date = GetISO20022ValueAsDate(document, "/Ntry/BookgDt/Dt", True)
-            result.Inflow = (GetISO20022ValueAsEntryType(document, "/Ntry/CdtDbtInd", True) _
-                = BookEntryType.Kreditas)
-
-            result.Content = GetISO20022ValueAsString( _
-                document, "/Ntry/NtryDtls/TxDtls/RmtInf/Ustrd", False)
-            Dim paymentCode As String = GetISO20022ValueAsString( _
-                document, "/Ntry/NtryDtls/TxDtls/RmtInf/Strd/CdtrRefInf/Ref", False)
-            If Not StringIsNullOrEmpty(paymentCode) Then
-                result.Content = String.Format(My.Resources.Documents_BankOperationItem_ContentWithPaymentCode, _
-                    result.Content, paymentCode)
+            result.UniqueCode = entry.NtryDtls(0).TxDtls(0).Refs.AcctSvcrRef
+            result.Date = entry.BookgDt.Item
+            result.Inflow = (entry.CdtDbtInd = camt_052_001_02.CreditDebitCode.CRDT)
+            If Not entry.NtryDtls(0).TxDtls(0).AmtDtls.TxAmt Is Nothing AndAlso
+                Not entry.NtryDtls(0).TxDtls(0).AmtDtls.TxAmt.Amt Is Nothing Then
+                result.SumInAccount = entry.NtryDtls(0).TxDtls(0).AmtDtls.TxAmt.Amt.Value
+            ElseIf Not entry.NtryDtls(0).TxDtls(0).AmtDtls.PrtryAmt Is Nothing AndAlso
+                entry.NtryDtls(0).TxDtls(0).AmtDtls.PrtryAmt.Length > 0 AndAlso
+                Not entry.NtryDtls(0).TxDtls(0).AmtDtls.PrtryAmt(0).Amt Is Nothing Then
+                result.SumInAccount = entry.NtryDtls(0).TxDtls(0).AmtDtls.PrtryAmt(0).Amt.Value
+            Else
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.AmtDtls.TxAmt/NtryDtls.TxDtls.AmtDtls.PrtryAmt"))
             End If
+            If entry.NtryDtls(0).TxDtls(0).AmtDtls.InstdAmt Is Nothing OrElse
+                entry.NtryDtls(0).TxDtls(0).AmtDtls.InstdAmt.Amt Is Nothing Then
+                result.Currency = GetCurrentCompany.BaseCurrency
+                result.OriginalSum = result.SumInAccount
+            Else
+                result.Currency = entry.NtryDtls(0).TxDtls(0).AmtDtls.InstdAmt.Amt.Ccy
+                If StringIsNullOrEmpty(result.Currency) OrElse Not IsValidCurrency(result.Currency, True) Then
+                    result.Currency = GetCurrentCompany.BaseCurrency
+                End If
+                result.OriginalSum = entry.NtryDtls(0).TxDtls(0).AmtDtls.InstdAmt.Amt.Value
+            End If
+            ResolveSumBase(result)
+
+            If Not entry.NtryDtls(0).TxDtls(0).RmtInf.Ustrd Is Nothing _
+                AndAlso entry.NtryDtls(0).TxDtls(0).RmtInf.Ustrd.Length > 0 Then
+                result.Content = String.Join(" ", entry.NtryDtls(0).TxDtls(0).RmtInf.Ustrd)
+            End If
+            Try
+                Dim paymentCode As String = entry.NtryDtls(0).TxDtls(0).RmtInf.Strd(0).CdtrRefInf.Ref
+                If Not StringIsNullOrEmpty(paymentCode) Then
+                    result.Content = String.Format(My.Resources.Documents_BankOperationItem_ContentWithPaymentCode,
+                        result.Content, paymentCode)
+                End If
+            Catch ex As Exception
+            End Try
             result.Content = GetLimitedLengthString(result.Content, 255)
 
             If result.Inflow Then
 
-                result.PersonCode = GetISO20022ValueAsString(document, _
-                    "/Ntry/NtryDtls/TxDtls/RltdPties/Dbtr/Id/PrvtId/Othr/Id", False)
-                If StringIsNullOrEmpty(result.PersonCode) Then
-                    result.PersonCode = GetISO20022ValueAsString(document, _
-                        "/Ntry/NtryDtls/TxDtls/RltdPties/Dbtr/Id/OrgId/Othr/Id", False)
+                If Not entry.NtryDtls(0).TxDtls(0).RltdPties.Dbtr Is Nothing Then
+
+                    Try
+                        result.PersonCode = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.Dbtr.Id.Item,
+                            camt_052_001_02.PersonIdentification5).Othr(0).Id
+                        If StringIsNullOrEmpty(result.PersonCode) Then
+                            result.PersonCode = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.Dbtr.Id.Item,
+                                camt_052_001_02.OrganisationIdentification4).Othr(0).Id
+                        End If
+                    Catch ex As Exception
+                        Try
+                            result.PersonCode = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.Dbtr.Id.Item,
+                                camt_052_001_02.OrganisationIdentification4).Othr(0).Id
+                        Catch ex2 As Exception
+                        End Try
+                    End Try
+                    result.PersonName = entry.NtryDtls(0).TxDtls(0).RltdPties.Dbtr.Nm
+                    If Not entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct Is Nothing _
+                        AndAlso Not entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id Is Nothing _
+                        AndAlso Not entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item Is Nothing Then _
+                        result.PersonBankAccount = entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item.ToString
+                    If Not entry.NtryDtls(0).TxDtls(0).RltdAgts Is Nothing _
+                        AndAlso entry.NtryDtls(0).TxDtls(0).RltdAgts.DbtrAgt Is Nothing _
+                        AndAlso entry.NtryDtls(0).TxDtls(0).RltdAgts.DbtrAgt.FinInstnId Is Nothing Then _
+                        result.PersonBankName = entry.NtryDtls(0).TxDtls(0).RltdAgts.DbtrAgt.FinInstnId.Nm
+
                 End If
-                result.PersonName = GetISO20022ValueAsString(document, _
-                    "/Ntry/NtryDtls/TxDtls/RltdPties/Dbtr/Nm", False)
-                result.PersonBankAccount = GetISO20022ValueAsString(document, _
-                    "/Ntry/NtryDtls/TxDtls/RltdPties/DbtrAcct/Id/IBAN", False)
-                result.PersonBankName = GetISO20022ValueAsString(document, _
-                    "/Ntry/NtryDtls/TxDtls/RltdAgts/DbtrAgt/FinInstnId/Nm", False)
 
             Else
 
-                result.PersonCode = GetISO20022ValueAsString(document, _
-                    "/Ntry/NtryDtls/TxDtls/RltdPties/Cdtr/Id/PrvtId/Othr/Id", False)
-                If StringIsNullOrEmpty(result.PersonCode) Then
-                    result.PersonCode = GetISO20022ValueAsString(document, _
-                        "/Ntry/NtryDtls/TxDtls/RltdPties/Cdtr/Id/OrgId/Othr/Id", False)
+                If Not entry.NtryDtls(0).TxDtls(0).RltdPties.Cdtr Is Nothing Then
+
+                    Try
+                        result.PersonCode = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.Cdtr.Id.Item,
+                            camt_052_001_02.PersonIdentification5).Othr(0).Id
+                        If StringIsNullOrEmpty(result.PersonCode) Then
+                            result.PersonCode = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.Cdtr.Id.Item,
+                                camt_052_001_02.OrganisationIdentification4).Othr(0).Id
+                        End If
+                    Catch ex As Exception
+                        Try
+                            result.PersonCode = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.Cdtr.Id.Item,
+                                camt_052_001_02.OrganisationIdentification4).Othr(0).Id
+                        Catch ex2 As Exception
+                        End Try
+                    End Try
+
+                    result.PersonName = entry.NtryDtls(0).TxDtls(0).RltdPties.Cdtr.Nm
+                    If Not entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct Is Nothing AndAlso
+                        Not entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id Is Nothing AndAlso
+                        Not entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item Is Nothing Then _
+                    result.PersonBankAccount = entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item.ToString
+                    If Not entry.NtryDtls(0).TxDtls(0).RltdAgts Is Nothing AndAlso
+                        Not entry.NtryDtls(0).TxDtls(0).RltdAgts.CdtrAgt Is Nothing AndAlso
+                        Not entry.NtryDtls(0).TxDtls(0).RltdAgts.CdtrAgt.FinInstnId Is Nothing Then _
+                        result.PersonBankName = entry.NtryDtls(0).TxDtls(0).RltdAgts.CdtrAgt.FinInstnId.Nm
+
                 End If
-                result.PersonName = GetISO20022ValueAsString(document, _
-                    "/Ntry/NtryDtls/TxDtls/RltdPties/Cdtr/Nm", False)
-                result.PersonBankAccount = GetISO20022ValueAsString(document, _
-                    "/Ntry/NtryDtls/TxDtls/RltdPties/CdtrAcct/Id/IBAN", False)
-                result.PersonBankName = GetISO20022ValueAsString(document, _
-                    "/Ntry/NtryDtls/TxDtls/RltdAgts/CdtrAgt/FinInstnId/Nm", False)
 
             End If
 
-            result.Currency = GetISO20022AttributeAsString(document, _
-                "/Ntry/NtryDtls/TxDtls/AmtDtls/InstdAmt/Amt", "Ccy", False)
-            If StringIsNullOrEmpty(result.Currency) OrElse Not IsValidCurrency(result.Currency, True) Then
-                result.Currency = GetCurrentCompany.BaseCurrency
-            End If
-            result.OriginalSum = GetISO20022ValueAsDouble(document, _
-                "/Ntry/NtryDtls/TxDtls/AmtDtls/InstdAmt/Amt", 2, False)
-            result.SumInAccount = GetISO20022ValueAsDouble(document, _
-                "/Ntry/NtryDtls/TxDtls/AmtDtls/TxAmt/Amt", 2, False)
+            Return result
 
-            If Not CRound(result.OriginalSum) > 0 Then
+        End Function
+
+        Protected Sub ResolveSumBase(ByVal result As BankAccountStatementItem)
+
+            If Not result.OriginalSum > 0 Then
                 result.OriginalSum = result.SumInAccount
             End If
             If IsBaseCurrency(_AccountCurrency, GetCurrentCompany.BaseCurrency) Then
@@ -397,133 +480,7 @@
                 result.SumLTL = 0
             End If
 
-            Return result
-
-        End Function
-
-
-        Protected Shared Function GetISO20022ValueAsString(ByVal node As System.Xml.XmlNode, _
-            ByVal xpath As String, ByVal throwOnNotFound As Boolean) As String
-
-            Try
-                Return node.SelectSingleNode(xpath).InnerText
-            Catch ex As Exception
-                If throwOnNotFound Then
-                    Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, xpath), ex)
-                End If
-            End Try
-
-            Return ""
-
-        End Function
-
-        Protected Shared Function GetISO20022ValueAsDate(ByVal node As System.Xml.XmlNode, _
-            ByVal xpath As String, ByVal throwOnNotFound As Boolean) As Date
-
-            Try
-                Return DateTime.Parse(node.SelectSingleNode(xpath).InnerText, _
-                    System.Globalization.CultureInfo.InvariantCulture)
-            Catch ex As Exception
-                If throwOnNotFound Then
-                    Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, xpath), ex)
-                End If
-            End Try
-
-            Return Date.MinValue
-
-        End Function
-
-        Protected Shared Function GetISO20022ValueAsDouble(ByVal node As System.Xml.XmlNode, _
-            ByVal xpath As String, ByVal roundOrder As Integer, ByVal throwOnNotFound As Boolean) As Double
-
-            Try
-                Return CRound(Double.Parse(node.SelectSingleNode(xpath).InnerText, _
-                    System.Globalization.CultureInfo.InvariantCulture), roundOrder)
-            Catch ex As Exception
-                If throwOnNotFound Then
-                    Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, xpath), ex)
-                End If
-            End Try
-
-            Return 0
-
-        End Function
-
-        Protected Shared Function GetISO20022ValueAsEntryType(ByVal node As System.Xml.XmlNode, _
-            ByVal xpath As String, ByVal throwOnNotFound As Boolean) As BookEntryType
-
-            Try
-                Dim code As String = node.SelectSingleNode(xpath).InnerText
-                Dim result As BookEntryType = BookEntryType.Debetas
-                If code.Trim.ToUpper() = "CRDT" Then result = BookEntryType.Kreditas
-                Return result
-            Catch ex As Exception
-                If throwOnNotFound Then
-                    Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, xpath), ex)
-                End If
-            End Try
-
-            Return BookEntryType.Debetas
-
-        End Function
-
-        Protected Shared Function GetISO20022NodeList(ByVal node As System.Xml.XmlNode, _
-            ByVal xpath As String, ByVal throwOnNotFound As Boolean) As System.Xml.XmlNodeList
-
-            Try
-                Dim result As System.Xml.XmlNodeList = node.SelectNodes(xpath)
-                If result Is Nothing Then
-                    Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, xpath))
-                End If
-                Return result
-            Catch ex As Exception
-                If throwOnNotFound Then
-                    Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, xpath), ex)
-                End If
-            End Try
-
-            Return Nothing
-
-        End Function
-
-        Protected Shared Function GetISO20022AttributeAsString(ByVal node As System.Xml.XmlNode, _
-            ByVal xpath As String, ByVal attributeName As String, ByVal throwOnNotFound As Boolean) As String
-
-            Try
-                Dim result As System.Xml.XmlNode = node.SelectSingleNode(xpath)
-                If result Is Nothing Then
-                    Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, xpath))
-                End If
-                result = result.Attributes.GetNamedItem(attributeName)
-                If result Is Nothing Then
-                    Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, xpath & ":" & attributeName))
-                End If
-                Return result.Value
-            Catch ex As Exception
-                If throwOnNotFound Then
-                    Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, xpath & ":" & attributeName), ex)
-                End If
-            End Try
-
-            Return ""
-
-        End Function
-
-        Protected Shared Function StripNamespaces(ByVal source As String) As String
-            If source.ToLower.Contains("<ns2:document") Then
-                source = source.Replace("<ns2:", "<").Replace("</ns2:", "</")
-            End If
-            If Not source.ToLower.Contains("<document") Then
-                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "<Document>"))
-            End If
-            Dim result As String = source
-            result = result.Substring(result.ToLower.IndexOf("<document", System.StringComparison.Ordinal))
-            If Not result.Contains(">") Then
-                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "<Document>"))
-            End If
-            result = result.Substring(0, result.IndexOf(">", System.StringComparison.Ordinal) + 1)
-            Return source.Replace(result, "<Document>")
-        End Function
+        End Sub
 
     End Class
 

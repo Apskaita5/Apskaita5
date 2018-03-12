@@ -215,8 +215,10 @@ Namespace CachedInfoLists
                 GetType(WarehouseInfoListControl))
             _InfoListControlDictionary.Add(GetType(WorkTimeClassInfoList), _
                 GetType(WorkTimeClassInfoListControl))
-            _InfoListControlDictionary.Add(GetType(Security.LocalUserList), _
+            _InfoListControlDictionary.Add(GetType(Security.LocalUserList),
                 GetType(LocalUserListControl))
+            _InfoListControlDictionary.Add(GetType(SharesClassInfoList),
+                GetType(SharesClassInfoListControl))
 
         End Sub
 

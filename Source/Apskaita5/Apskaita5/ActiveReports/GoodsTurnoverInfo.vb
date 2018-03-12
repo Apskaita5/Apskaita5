@@ -26,6 +26,7 @@ Namespace ActiveReports
         Private _PriceSale As Double = 0
         Private _DefaultVatRateSales As Double = 0
         Private _AccountingMethod As String = ""
+        Private _AccountingMethodInt As GoodsAccountingMethod = GoodsAccountingMethod.Persistent
         Private _ValuationMethod As String = ""
         Private _TradeType As String = ""
         Private _Code As String = ""
@@ -239,9 +240,20 @@ Namespace ActiveReports
         ''' <remarks>Cannot be changed after the first operation with the goods.
         ''' Corresponds to <see cref="Goods.GoodsItem.AccountingMethod">GoodsItem.AccountingMethod</see>.</remarks>
         Public ReadOnly Property AccountingMethod() As String
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)>
             Get
                 Return _AccountingMethod.Trim
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a goods accounting method (periodic/persistent).
+        ''' </summary>
+        ''' <remarks>Corresponds to <see cref="Goods.GoodsItem.AccountingMethod">GoodsItem.AccountingMethod</see>.</remarks>
+        Public ReadOnly Property AccountingMethodInt() As GoodsAccountingMethod
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)>
+            Get
+                Return _AccountingMethodInt
             End Get
         End Property
 
@@ -889,8 +901,9 @@ Namespace ActiveReports
             _DefaultVatRatePurchase = CDblSafe(dr.Item(9), 2, 0)
             _PriceSale = CDblSafe(dr.Item(10), ROUNDUNITINVOICEMADE, 0)
             _DefaultVatRateSales = CDblSafe(dr.Item(11), 2, 0)
-            _AccountingMethod = ConvertLocalizedName(ConvertDatabaseID(Of GoodsAccountingMethod) _
-                (CIntSafe(dr.Item(12), 0)))
+            _AccountingMethodInt = ConvertDatabaseID(Of GoodsAccountingMethod) _
+                (CIntSafe(dr.Item(12), 0))
+            _AccountingMethod = ConvertLocalizedName(_AccountingMethodInt)
             _ValuationMethod = ConvertLocalizedName(ConvertDatabaseID(Of GoodsValuationMethod) _
                 (CIntSafe(dr.Item(13), 0)))
             _TradeType = ConvertLocalizedName(ConvertDatabaseID(Of Documents.TradedItemType) _

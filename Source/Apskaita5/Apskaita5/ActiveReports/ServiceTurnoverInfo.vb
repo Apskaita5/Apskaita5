@@ -204,11 +204,8 @@ Namespace ActiveReports
         ''' <summary>
         ''' Gets a total value of services 'returned' from clients over the report period (excluding VAT).
         ''' </summary>
-        ''' <remarks>''' <summary>
-        ''' Gets a total value of services refunded to clients over the report period.
-        ''' </summary>
         ''' <remarks>Services purchased could be 'returned to a supplier' 
-        ''' by a credit invoice received with a negative amount or a debit invoice made.</remarks></remarks>
+        ''' by a credit invoice received with a negative amount or a debit invoice made.</remarks>
         <DoubleField(ValueRequiredLevel.Optional, True, 2)> _
         Public ReadOnly Property PurchasedSumReturned() As Double
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _

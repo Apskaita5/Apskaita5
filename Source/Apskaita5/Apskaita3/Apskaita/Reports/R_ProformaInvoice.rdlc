@@ -842,7 +842,7 @@
       </Image>
       <Textbox Name="textbox47">
         <Visibility>
-          <Hidden>=Len(Trim(First(Fields!Column15.Value, "ReportData_TableGeneral")))&lt;2</Hidden>
+          <Hidden>=Len(Trim(First(Fields!Column14.Value, "ReportData_TableGeneral")))&lt;2</Hidden>
         </Visibility>
         <Top>16cm</Top>
         <Width>6.50081in</Width>

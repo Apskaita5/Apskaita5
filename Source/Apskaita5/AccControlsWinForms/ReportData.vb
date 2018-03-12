@@ -1,4 +1,16 @@
-﻿
+﻿Partial Class ReportData
+    Partial Public Class Table3DataTable
 
-Partial Public Class ReportData
+
+    End Class
+
+    Partial Public Class Table1DataTable
+
+
+    End Class
+
+    Partial Public Class TableCompanyDataTable
+
+
+    End Class
 End Class

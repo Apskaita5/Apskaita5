@@ -838,7 +838,7 @@
         <ZIndex>8</ZIndex>
         <CanGrow>true</CanGrow>
         <Height>1.75cm</Height>
-        <Value>="Other remarks: " &amp; vbcrlf &amp; First(Fields!Column16.Value, "ReportData_TableGeneral")</Value>
+        <Value>="Other remarks: " &amp; vbcrlf &amp; First(Fields!Column15.Value, "ReportData_TableGeneral")</Value>
       </Textbox>
       <Table Name="table5">
         <ZIndex>7</ZIndex>

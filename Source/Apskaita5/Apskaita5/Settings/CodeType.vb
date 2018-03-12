@@ -46,8 +46,22 @@ Namespace Settings
         ''' by the state tax inspectorate (VMI).
         ''' </summary>
         ''' <remarks></remarks>
-        <EnumValue(4)> _
+        <EnumValue(4)>
         VmiVatType
+
+        ''' <summary>
+        ''' An account type according to the state approved classification.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <EnumValue(5)>
+        SaftAccountType
+
+        ''' <summary>
+        ''' A shares type according to the state approved classification.
+        ''' </summary>
+        ''' <remarks></remarks>
+        <EnumValue(6)>
+        SaftSharesType
 
     End Enum
 

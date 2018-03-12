@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Reports that are associated with the Workers.Declarations namespace">
+    <Position X="0.5" Y="0.5" Height="0.313" Width="7.569" />
+  </Comment>
+  <Class Name="ApskaitaObjects.ActiveReports.Declaration">
+    <Position X="0.5" Y="1" Width="1.75" />
+    <Members>
+      <Field Name="_Criteria" Hidden="true" />
+      <Field Name="_DeclarationDataSet" Hidden="true" />
+      <Field Name="_DeclarationDateCulture" Hidden="true" />
+      <Field Name="_DeclarationString" Hidden="true" />
+      <Field Name="_ID" Hidden="true" />
+      <Field Name="_NumberDecimalSeparator" Hidden="true" />
+      <Field Name="_NumberGroupSeparator" Hidden="true" />
+      <Field Name="_Warning" Hidden="true" />
+      <Method Name="AddAuthorizationRules" Hidden="true" />
+      <Method Name="ClearDatatable" Hidden="true" />
+      <Method Name="DataPortal_Fetch" Hidden="true" />
+      <Field Name="EMPTY_TABLE_MARKER" Hidden="true" />
+      <Method Name="FetchGeneralDataTable" Hidden="true" />
+      <Method Name="GetEmployeesCount" Hidden="true" />
+      <Method Name="GetIdValue" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+      <Method Name="WriteDataSetToString" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>IAAAAEABAAAAhAAgAAAIABAAAAACAIABAAggAEQkgAA=</HashCode>
+      <FileName>ActiveReports\Declaration.vb</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Criteria" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.DeclarationCriteria">
+    <Position X="6" Y="1" Width="2" />
+    <Members>
+      <Field Name="_Date" Hidden="true" />
+      <Field Name="_DateFrom" Hidden="true" />
+      <Field Name="_DateTo" Hidden="true" />
+      <Field Name="_DeclarationType" Hidden="true" />
+      <Field Name="_Month" Hidden="true" />
+      <Field Name="_MunicipalityCode" Hidden="true" />
+      <Field Name="_Quarter" Hidden="true" />
+      <Field Name="_SodraAccount" Hidden="true" />
+      <Field Name="_SodraAccount2" Hidden="true" />
+      <Field Name="_SodraDepartment" Hidden="true" />
+      <Field Name="_SodraRate" Hidden="true" />
+      <Field Name="_Year" Hidden="true" />
+      <Method Name="New" Hidden="true" />
+      <Method Name="TryValidateMonth" Hidden="true" />
+      <Method Name="TryValidateMunicipalityCode" Hidden="true" />
+      <Method Name="TryValidateQuarter" Hidden="true" />
+      <Method Name="TryValidateSodraAccount" Hidden="true" />
+      <Method Name="TryValidateSodraAccount2" Hidden="true" />
+      <Method Name="TryValidateSodraDepartment" Hidden="true" />
+      <Method Name="TryValidateSodraRate" Hidden="true" />
+      <Method Name="TryValidateYear" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>IEAAQAEABAwAAAgIBAgAAAEIgQEQkDBFRCAhAAYEAAA=</HashCode>
+      <FileName>ActiveReports\DeclarationCriteria.vb</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DeclarationType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.Declarations.DeclarationFR0572_2" Collapsed="true">
+    <Position X="0.5" Y="6" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EEAEAAAAAAgAIBAEEAgAAAQAAAAAACAAACBFAAAAAAA=</HashCode>
+      <FileName>ActiveReports\Declarations\DeclarationFR0572_2.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.Declarations.DeclarationFR0572_3" Collapsed="true">
+    <Position X="2.5" Y="6" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EEAEAAAAAAgAQBAEEAgAAAQAAAAAACAAACBDAAAAAAA=</HashCode>
+      <FileName>ActiveReports\Declarations\DeclarationFR0572_3.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.Declarations.DeclarationFR0572_4" Collapsed="true">
+    <Position X="4.5" Y="6" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EEAEAAAAAAgAABAEEAgAAAQAAAAAACAAACBBAQCAAAA=</HashCode>
+      <FileName>ActiveReports\Declarations\DeclarationFR0572_4.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.Declarations.DeclarationFR0573_2" Collapsed="true">
+    <Position X="0.5" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EEAEAAAAAAgAIBAEEAgAAAQACAAAACAAACBBAAAAAAA=</HashCode>
+      <FileName>ActiveReports\Declarations\DeclarationFR0573_2.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.Declarations.DeclarationFR0573_3" Collapsed="true">
+    <Position X="2.5" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EEAEAAAAAAgAQBAEEAgAAAQAEAAAACAAACBBAAAAAAA=</HashCode>
+      <FileName>ActiveReports\Declarations\DeclarationFR0573_3.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.Declarations.DeclarationFR0573_4" Collapsed="true">
+    <Position X="4.5" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EEAEAAAAAAgAABAEEAgAAAQgAAAAACAAACBBAACAAAA=</HashCode>
+      <FileName>ActiveReports\Declarations\DeclarationFR0573_4.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.Declarations.DeclarationSAM_2" Collapsed="true">
+    <Position X="0.5" Y="8" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EEAkAAAAAAgAABAEEAgAAAQEAAAAACAAACBBAAAAAAA=</HashCode>
+      <FileName>ActiveReports\Declarations\DeclarationSAM_2.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.Declarations.DeclarationSAM_3" Collapsed="true">
+    <Position X="2.5" Y="8" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EEBEAAAAAAgAABAEEAgAAAQAAAAAACAAACBBAACAAAA=</HashCode>
+      <FileName>ActiveReports\Declarations\DeclarationSAM_3.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.Declarations.DeclarationSAM_4" Collapsed="true">
+    <Position X="4.5" Y="8" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EECEAAAAAAgAABAEEAgAAAQAAAAAECAAACBBAAAAAAA=</HashCode>
+      <FileName>ActiveReports\Declarations\DeclarationSAM_4.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.Declarations.DeclarationSAM_5" Collapsed="true">
+    <Position X="6.5" Y="8" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EEAEAQAAAAgAABAEEAgAAAQAAAAAACACACBBAAAAAAA=</HashCode>
+      <FileName>ActiveReports\Declarations\DeclarationSAM_5.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.Declarations.DeclarationSam1" Collapsed="true">
+    <Position X="0.5" Y="9" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EEAUAAAAAAgAABAEEAgAAAQAAAAAACAAACBBCAAAAAA=</HashCode>
+      <FileName>ActiveReports\Declarations\DeclarationSam1.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.Declarations.DeclarationSamAut1" Collapsed="true">
+    <Position X="2.5" Y="9" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EEAEAAAAAAggABAkEAgAAAQAAAAAACAAACBBAAAAAAA=</HashCode>
+      <FileName>ActiveReports\Declarations\DeclarationSamAut1.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.Declarations.DeclarationSD13_5" Collapsed="true">
+    <Position X="0.5" Y="10" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EEAEAAEAAAgAABAEEAgAAAQAAAAAACAAAChBAAAAAAA=</HashCode>
+      <FileName>ActiveReports\Declarations\DeclarationSD13_5.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.Declarations.DeclarationSD13_1" Collapsed="true">
+    <Position X="4.5" Y="9" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EEAEAAAAAAgAEBAEEAgAAAQAAAAAACAAAChBAAAAAAA=</HashCode>
+      <FileName>ActiveReports\Declarations\DeclarationSD13_1.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ApskaitaObjects.ActiveReports.Declarations.DeclarationSD13_2" Collapsed="true">
+    <Position X="6.5" Y="9" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EEAEAgAAAAgAABAEEAgAAAQAAAAAACAAAChBAAAAAAA=</HashCode>
+      <FileName>ActiveReports\Declarations\DeclarationSD13_2.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="ApskaitaObjects.ActiveReports.IDeclaration">
+    <Position X="3.25" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EEAEAAAAAAgAABAAEAgAAAQAAAAAACAAACABAAAAAAA=</HashCode>
+      <FileName>ActiveReports\IDeclaration.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

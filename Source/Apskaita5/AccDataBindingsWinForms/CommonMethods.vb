@@ -52,6 +52,8 @@ Public Module CommonMethods
         _BusinessObjectsViews.Add(GetType(General.TemplateJournalEntry), GetType(F_TemplateJournalEntry))
         _BusinessObjectsViews.Add(GetType(General.TransferOfBalance), GetType(F_TransferOfBalance))
         _BusinessObjectsViews.Add(GetType(General.ConsolidatedReport), GetType(F_ConsolidatedReport))
+        _BusinessObjectsViews.Add(GetType(General.SharesClassList), GetType(F_SharesClassList))
+        _BusinessObjectsViews.Add(GetType(General.SharesOperation), GetType(F_SharesOperation))
         _BusinessObjectsViews.Add(GetType(ActiveReports.BookEntryInfoListParent), GetType(F_BookEntryInfoListParent))
         _BusinessObjectsViews.Add(GetType(ActiveReports.DebtInfoList), GetType(F_DebtInfoList))
         _BusinessObjectsViews.Add(GetType(ActiveReports.DebtStatementItemList), GetType(F_DebtStatementItemList))
@@ -80,6 +82,10 @@ Public Module CommonMethods
         _BusinessObjectsViews.Add(GetType(ActiveReports.LongTermAssetInfoList), GetType(F_LongTermAssetInfoList))
         _BusinessObjectsViews.Add(GetType(ActiveReports.VatDeclaration), GetType(F_VatDeclaration))
         _BusinessObjectsViews.Add(GetType(ActiveReports.UserReport), GetType(F_UserReport))
+        _BusinessObjectsViews.Add(GetType(ActiveReports.ShareHolderInfoList), GetType(F_ShareHolderInfoList))
+        _BusinessObjectsViews.Add(GetType(ActiveReports.SharesAccountEntryList), GetType(F_SharesAccountEntryList))
+        _BusinessObjectsViews.Add(GetType(ActiveReports.SharesOperationInfoList), GetType(F_SharesOperationInfoList))
+        _BusinessObjectsViews.Add(GetType(ActiveReports.CommandFetchAuditDataFileSAFT), GetType(F_CommandFetchAuditDataFileSAFT))
         _BusinessObjectsViews.Add(GetType(HelperLists.IndirectRelationInfoList), GetType(F_IndirectRelationInfoList))
         _BusinessObjectsViews.Add(GetType(HelperLists.TemplateJournalEntryInfoList), GetType(F_TemplateJournalEntryInfoList))
         _BusinessObjectsViews.Add(GetType(HelperLists.UserReportInfoList), GetType(F_UserReportInfoList))
@@ -167,11 +173,12 @@ Public Module CommonMethods
                 businessType.FullName), "businessType")
         End If
 
+        Dim formType As Type = _BusinessObjectsViews(businessType)
+
         If params Is Nothing OrElse params.Length < 1 Then
-            Return DirectCast(Activator.CreateInstance(_BusinessObjectsViews(businessType)), Form)
+            Return DirectCast(Activator.CreateInstance(formType), Form)
         Else
-            Return DirectCast(Activator.CreateInstance(_BusinessObjectsViews(businessType), _
-                params), Form)
+            Return DirectCast(Activator.CreateInstance(formType, params), Form)
         End If
 
     End Function
@@ -572,6 +579,7 @@ Public Module CommonMethods
         _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationFR0572_2)
         _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationFR0572_3)
         _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationFR0572_4)
+        _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationGPM313_1)
         _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationFR0573_2)
         _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationFR0573_3)
         _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationFR0573_4)
@@ -585,6 +593,35 @@ Public Module CommonMethods
         _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationSD13_1)
         _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationSD13_2)
         _AvailableIDeclarationList.Add(New ActiveReports.Declarations.DeclarationSD13_5)
+
+    End Sub
+
+#End Region
+
+#Region " SAF-T "
+
+    Private _AvailableIAuditFileSAFTList As List(Of ActiveReports.IAuditFileSAFT)
+
+    ''' <summary>
+    ''' Gets a list of available <see cref="ApskaitaObjects.ActiveReports.IAuditFileSAFT">
+    ''' SAF-T audit file versions</see>, i.e. objects that implement IAuditFileSAFT.
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Function GetAvailableIAuditFileSAFTList() As List(Of ActiveReports.IAuditFileSAFT)
+
+        If _AvailableIAuditFileSAFTList Is Nothing Then
+            InitializeAvailableIAuditFileSAFTList()
+        End If
+
+        Return _AvailableIAuditFileSAFTList
+
+    End Function
+
+    Private Sub InitializeAvailableIAuditFileSAFTList()
+
+        _AvailableIAuditFileSAFTList = New List(Of ActiveReports.IAuditFileSAFT)
+
+        _AvailableIAuditFileSAFTList.Add(New ActiveReports.Declarations.AuditDataFileSAFT_2_0)
 
     End Sub
 

@@ -167,6 +167,16 @@ Namespace Settings
         End Function
 
 
+        ''' <summary>
+        ''' Gets a datatable which columns corresponds to the required imported data 
+        ''' (propert name, data type and regionalized caption).
+        ''' </summary>
+        ''' <returns></returns>
+        Public Shared Function GetDataTableSpecification() As DataTable
+            Return Utilities.GetDataTableSpecification(GetType(DefaultWorkTime), New String() {})
+        End Function
+
+
         Protected Overrides Function GetIdValue() As Object
             Return _Guid
         End Function
@@ -217,6 +227,10 @@ Namespace Settings
             Return result
         End Function
 
+        Friend Shared Function NewDefaultWorkTime(dr As DataRow) As DefaultWorkTime
+            Return New DefaultWorkTime(dr)
+        End Function
+
         Friend Shared Function GetDefaultWorkTime(ByVal proxy As DefaultWorkTimeProxy) As DefaultWorkTime
             Return New DefaultWorkTime(proxy)
         End Function
@@ -227,6 +241,11 @@ Namespace Settings
             MarkAsChild()
         End Sub
 
+        Private Sub New(ByVal dr As DataRow)
+            MarkAsChild()
+            Create(dr)
+        End Sub
+
         Private Sub New(ByVal proxy As DefaultWorkTimeProxy)
             MarkAsChild()
             Fetch(proxy)
@@ -235,6 +254,19 @@ Namespace Settings
 #End Region
 
 #Region " Data Access "
+
+        Private Sub Create(ByVal dr As DataRow)
+
+            _Year = DirectCast(dr.Item("Year"), Integer)
+            _Month = DirectCast(dr.Item("Month"), Integer)
+            _WorkDaysFor5WorkDayWeek = DirectCast(dr.Item("WorkDaysFor5WorkDayWeek"), Integer)
+            _WorkHoursFor5WorkDayWeek = CRound(DirectCast(dr.Item("WorkHoursFor5WorkDayWeek"), Double), ROUNDWORKHOURS)
+            _WorkDaysFor6WorkDayWeek = DirectCast(dr.Item("WorkDaysFor6WorkDayWeek"), Integer)
+            _WorkHoursFor6WorkDayWeek = CRound(DirectCast(dr.Item("WorkHoursFor6WorkDayWeek"), Double), ROUNDWORKHOURS)
+
+            MarkOld()
+
+        End Sub
 
         Private Sub Fetch(ByVal proxy As DefaultWorkTimeProxy)
 

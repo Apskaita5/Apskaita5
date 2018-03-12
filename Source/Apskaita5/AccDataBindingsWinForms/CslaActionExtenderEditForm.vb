@@ -31,7 +31,7 @@ Public Class CslaActionExtenderEditForm(Of T)
     Public Delegate Sub OnProgressChange()
 
     ''' <summary>
-    ''' Event is raised after the the datasource object is saved or canceled.
+    ''' Event is raised after the the datasource object is saved, canceled or a new datasource is fetched.
     ''' </summary>
     ''' <remarks>use the event to configure controls that are dependant on object state</remarks>
     Public Event DataSourceStateHasChanged As EventHandler
@@ -454,26 +454,19 @@ Public Class CslaActionExtenderEditForm(Of T)
 
         ElseIf Not _ProgressControl.Result Is Nothing Then
 
-            If _FetchingNewDataSource Then
+            Try
+                _DataSource = DirectCast(_ProgressControl.Result, T)
+                success = True
+                RaiseEvent DataSourceStateHasChanged(Me, New EventArgs)
+            Catch ex As Exception
+                ShowError(ex)
+            End Try
 
-                BindNewDataSource(DirectCast(_ProgressControl.Result, T))
-
-            ElseIf Not _NewDataSource Is Nothing Then
-
+            If Not _NewDataSource Is Nothing Then
                 _DataSource = _NewDataSource
                 _NewDataSource = Nothing
-
-            Else
-
-                Try
-                    _DataSource = DirectCast(_ProgressControl.Result, T)
-                    success = True
-                Catch ex As Exception
-                    ShowError(ex)
-                End Try
-
+                RaiseEvent DataSourceStateHasChanged(Me, New EventArgs)
             End If
-
 
         Else
 
@@ -482,25 +475,21 @@ Public Class CslaActionExtenderEditForm(Of T)
 
         End If
 
+        _BindingSourceTree.Bind(_DataSource)
+
         If _FetchingNewDataSource Then
             _FetchingNewDataSource = False
-            RaiseEvent DataSourceStateHasChanged(Me, New EventArgs)
             Exit Sub
         End If
 
-        _BindingSourceTree.Bind(_DataSource)
-
         If success Then
 
-            MsgBox("Duomenys sėkmingai išsaugoti.", _
-                MsgBoxStyle.Information, "Info")
+            MsgBox("Duomenys sėkmingai išsaugoti.", MsgBoxStyle.Information, "Info")
 
             If _CloseFormAfterSave Then
                 _ParentForm.Close()
                 Exit Sub
             End If
-
-            RaiseEvent DataSourceStateHasChanged(Me, New EventArgs)
 
             If _ProceedToNewDataSource Then
                 _ProceedToNewDataSource = False
@@ -609,6 +598,7 @@ Public Class CslaActionExtenderEditForm(Of T)
 
         If DataSourceIsChild() Then
 
+            RaiseEvent DataSourceStateHasChanged(Me, New EventArgs)
             _CloseFormAfterSave = True
             _ParentForm.Close()
             Exit Sub
@@ -635,11 +625,14 @@ Public Class CslaActionExtenderEditForm(Of T)
         End Try
 
         If Not _NewDataSource Is Nothing Then
+            RaiseEvent DataSourceStateHasChanged(Me, New EventArgs)
             _DataSource = _NewDataSource
             _NewDataSource = Nothing
         End If
 
         _BindingSourceTree.Bind(_DataSource)
+
+        RaiseEvent DataSourceStateHasChanged(Me, New EventArgs)
 
         MsgBox("Duomenys sėkmingai išsaugoti.", MsgBoxStyle.Information, "Info")
 
@@ -650,8 +643,6 @@ Public Class CslaActionExtenderEditForm(Of T)
             _ParentForm.Close()
 
         Else
-
-            RaiseEvent DataSourceStateHasChanged(Me, New EventArgs)
 
             If _ProceedToNewDataSource Then
                 _ProceedToNewDataSource = False
@@ -669,6 +660,8 @@ Public Class CslaActionExtenderEditForm(Of T)
         If DataSourceIsChild() Then
 
             _BindingSourceTree.CancelChild()
+
+            RaiseEvent DataSourceStateHasChanged(Me, New EventArgs)
 
             _CloseFormAfterSave = True
 
@@ -713,6 +706,8 @@ Public Class CslaActionExtenderEditForm(Of T)
             End Try
 
             BindNewDataSource(newDataSource)
+
+            RaiseEvent DataSourceStateHasChanged(Me, New EventArgs)
 
         End If
 

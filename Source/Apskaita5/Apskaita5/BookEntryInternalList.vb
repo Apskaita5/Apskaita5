@@ -75,7 +75,7 @@ Public NotInheritable Class BookEntryInternalList
     End Sub
 
     ''' <summary>
-    ''' Adds all the BookEntryInternal values in <paramref name="list">nBookEntryLists</paramref> to the current list.
+    ''' Adds all the BookEntryInternal values in <paramref name="nBookEntryLists">nBookEntryLists</paramref> to the current list.
     ''' </summary>
     ''' <param name="nBookEntryLists">A list of lists of BookEntryInternal values to be added.</param>
     ''' <remarks></remarks>

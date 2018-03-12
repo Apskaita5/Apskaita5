@@ -37,6 +37,31 @@ Namespace Settings
             Return False
         End Function
 
+
+        ''' <summary>
+        ''' Adds new DefaultWorkTime items using data in a template datatable,
+        ''' see <see cref="DefaultWorkTime.GetDataTableSpecification()">DefaultWorkTime.GetDataTableSpecification()</see>
+        ''' method.
+        ''' </summary>
+        ''' <param name="table">a template datatable that contains DefaultWorkTime data.</param>
+        Public Sub AddImportedItems(table As DataTable)
+
+            Me.RaiseListChangedEvents = False
+
+            Try
+                For Each dr As DataRow In table.Rows
+                    Me.Add(DefaultWorkTime.NewDefaultWorkTime(dr))
+                Next
+            Finally
+
+                Me.RaiseListChangedEvents = True
+
+                Me.ResetBindings()
+
+            End Try
+
+        End Sub
+
 #End Region
 
 #Region " Factory Methods "

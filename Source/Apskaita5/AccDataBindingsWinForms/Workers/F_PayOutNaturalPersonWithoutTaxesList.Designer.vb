@@ -22,45 +22,48 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_PayOutNaturalPersonWithoutTaxesList))
         Me.PayOutNaturalPersonWithoutTaxesListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Panel2 = New System.Windows.Forms.Panel
-        Me.ICancelButton = New System.Windows.Forms.Button
-        Me.IOkButton = New System.Windows.Forms.Button
-        Me.IApplyButton = New System.Windows.Forms.Button
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.AddNewItemsButton = New System.Windows.Forms.Button
-        Me.ExportFFDataButton = New AccControlsWinForms.AccButton
-        Me.RefreshButton = New System.Windows.Forms.Button
-        Me.Label3 = New System.Windows.Forms.Label
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.PersonFilterAccListComboBox = New AccControlsWinForms.AccListComboBox
-        Me.ItemsDataListView = New BrightIdeasSoftware.DataListView
-        Me.OlvColumn3 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn1 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn2 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn4 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn6 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn7 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn8 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn9 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn10 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn11 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn12 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn13 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn14 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn15 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn16 = New BrightIdeasSoftware.OLVColumn
-        Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
-        Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.ICancelButton = New System.Windows.Forms.Button()
+        Me.IOkButton = New System.Windows.Forms.Button()
+        Me.IApplyButton = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.AddNewItemsButton = New System.Windows.Forms.Button()
+        Me.ExportFFDataButton = New AccControlsWinForms.AccButton()
+        Me.RefreshButton = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PersonFilterAccListComboBox = New AccControlsWinForms.AccListComboBox()
+        Me.DateFromAccDatePicker = New AccControlsWinForms.AccDatePicker()
+        Me.DateToAccDatePicker = New AccControlsWinForms.AccDatePicker()
+        Me.ItemsDataListView = New BrightIdeasSoftware.DataListView()
+        Me.OlvColumn3 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn1 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn2 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn4 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn6 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn7 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn8 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn9 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn10 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn11 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn12 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn13 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn14 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn15 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn16 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller()
+        Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.JournalEntry_MenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.Receiver_MenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.DateFromAccDatePicker = New AccControlsWinForms.AccDatePicker
-        Me.DateToAccDatePicker = New AccControlsWinForms.AccDatePicker
+        Me.JournalEntry_MenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Receiver_MenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OlvColumn5 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn17 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn18 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
         CType(Me.PayOutNaturalPersonWithoutTaxesListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -122,13 +125,13 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 9
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 0, 1)
@@ -142,7 +145,7 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(916, 73)
         Me.TableLayoutPanel1.TabIndex = 0
@@ -154,9 +157,9 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.Panel1.Controls.Add(Me.ExportFFDataButton)
         Me.Panel1.Controls.Add(Me.RefreshButton)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(3, 30)
+        Me.Panel1.Location = New System.Drawing.Point(3, 29)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(910, 40)
+        Me.Panel1.Size = New System.Drawing.Size(910, 41)
         Me.Panel1.TabIndex = 3
         '
         'AddNewItemsButton
@@ -239,11 +242,34 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         '
         Me.PersonFilterAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PersonFilterAccListComboBox.EmptyValueString = ""
-        Me.PersonFilterAccListComboBox.InstantBinding = True
         Me.PersonFilterAccListComboBox.Location = New System.Drawing.Point(478, 3)
         Me.PersonFilterAccListComboBox.Name = "PersonFilterAccListComboBox"
-        Me.PersonFilterAccListComboBox.Size = New System.Drawing.Size(414, 21)
+        Me.PersonFilterAccListComboBox.Size = New System.Drawing.Size(414, 20)
         Me.PersonFilterAccListComboBox.TabIndex = 2
+        '
+        'DateFromAccDatePicker
+        '
+        Me.DateFromAccDatePicker.BoldedDates = Nothing
+        Me.DateFromAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateFromAccDatePicker.Location = New System.Drawing.Point(43, 3)
+        Me.DateFromAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateFromAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateFromAccDatePicker.Name = "DateFromAccDatePicker"
+        Me.DateFromAccDatePicker.ShowWeekNumbers = True
+        Me.DateFromAccDatePicker.Size = New System.Drawing.Size(134, 20)
+        Me.DateFromAccDatePicker.TabIndex = 0
+        '
+        'DateToAccDatePicker
+        '
+        Me.DateToAccDatePicker.BoldedDates = Nothing
+        Me.DateToAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DateToAccDatePicker.Location = New System.Drawing.Point(234, 3)
+        Me.DateToAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateToAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateToAccDatePicker.Name = "DateToAccDatePicker"
+        Me.DateToAccDatePicker.ShowWeekNumbers = True
+        Me.DateToAccDatePicker.Size = New System.Drawing.Size(134, 20)
+        Me.DateToAccDatePicker.TabIndex = 1
         '
         'ItemsDataListView
         '
@@ -262,13 +288,16 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.ItemsDataListView.AllColumns.Add(Me.OlvColumn14)
         Me.ItemsDataListView.AllColumns.Add(Me.OlvColumn15)
         Me.ItemsDataListView.AllColumns.Add(Me.OlvColumn16)
+        Me.ItemsDataListView.AllColumns.Add(Me.OlvColumn5)
+        Me.ItemsDataListView.AllColumns.Add(Me.OlvColumn17)
+        Me.ItemsDataListView.AllColumns.Add(Me.OlvColumn18)
         Me.ItemsDataListView.AllowColumnReorder = True
         Me.ItemsDataListView.AutoGenerateColumns = False
         Me.ItemsDataListView.CellEditActivation = BrightIdeasSoftware.ObjectListView.CellEditActivateMode.SingleClickAlways
         Me.ItemsDataListView.CellEditEnterChangesRows = True
         Me.ItemsDataListView.CellEditTabChangesRows = True
         Me.ItemsDataListView.CellEditUseWholeCell = False
-        Me.ItemsDataListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumn3, Me.OlvColumn4, Me.OlvColumn6, Me.OlvColumn7, Me.OlvColumn9, Me.OlvColumn11, Me.OlvColumn12, Me.OlvColumn13, Me.OlvColumn14, Me.OlvColumn15, Me.OlvColumn16})
+        Me.ItemsDataListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.OlvColumn3, Me.OlvColumn4, Me.OlvColumn6, Me.OlvColumn7, Me.OlvColumn9, Me.OlvColumn11, Me.OlvColumn12, Me.OlvColumn13, Me.OlvColumn14, Me.OlvColumn15, Me.OlvColumn16, Me.OlvColumn5, Me.OlvColumn17, Me.OlvColumn18})
         Me.ItemsDataListView.Cursor = System.Windows.Forms.Cursors.Default
         Me.ItemsDataListView.DataSource = Me.PayOutNaturalPersonWithoutTaxesListBindingSource
         Me.ItemsDataListView.Dock = System.Windows.Forms.DockStyle.Fill
@@ -276,6 +305,8 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.ItemsDataListView.HasCollapsibleGroups = False
         Me.ItemsDataListView.HeaderWordWrap = True
         Me.ItemsDataListView.HideSelection = False
+        Me.ItemsDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
+        Me.ItemsDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.ItemsDataListView.Location = New System.Drawing.Point(0, 73)
         Me.ItemsDataListView.Name = "ItemsDataListView"
         Me.ItemsDataListView.RenderNonEditableCheckboxesAsDisabled = True
@@ -485,31 +516,32 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
         Me.Receiver_MenuItem.Size = New System.Drawing.Size(189, 22)
         Me.Receiver_MenuItem.Text = "Gavėjo duomenys"
         '
-        'DateFromAccDatePicker
+        'OlvColumn5
         '
-        Me.DateFromAccDatePicker.BoldedDates = Nothing
-        Me.DateFromAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateFromAccDatePicker.Location = New System.Drawing.Point(43, 3)
-        Me.DateFromAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        Me.DateFromAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
-        Me.DateFromAccDatePicker.Name = "DateFromAccDatePicker"
-        Me.DateFromAccDatePicker.ReadOnly = False
-        Me.DateFromAccDatePicker.ShowWeekNumbers = True
-        Me.DateFromAccDatePicker.Size = New System.Drawing.Size(134, 21)
-        Me.DateFromAccDatePicker.TabIndex = 0
+        Me.OlvColumn5.AspectName = "TaxPayedOutDate"
+        Me.OlvColumn5.CellEditUseWholeCell = True
+        Me.OlvColumn5.HeaderFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OlvColumn5.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.OlvColumn5.Text = "GPM Sumokėjimo Data"
+        Me.OlvColumn5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'DateToAccDatePicker
+        'OlvColumn17
         '
-        Me.DateToAccDatePicker.BoldedDates = Nothing
-        Me.DateToAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateToAccDatePicker.Location = New System.Drawing.Point(234, 3)
-        Me.DateToAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        Me.DateToAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
-        Me.DateToAccDatePicker.Name = "DateToAccDatePicker"
-        Me.DateToAccDatePicker.ReadOnly = False
-        Me.DateToAccDatePicker.ShowWeekNumbers = True
-        Me.DateToAccDatePicker.Size = New System.Drawing.Size(134, 21)
-        Me.DateToAccDatePicker.TabIndex = 1
+        Me.OlvColumn17.AspectName = "TaxDeductedAndPayed"
+        Me.OlvColumn17.CellEditUseWholeCell = True
+        Me.OlvColumn17.HeaderFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OlvColumn17.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.OlvColumn17.Text = "GPM Išskaičiuota ir Sumokėta"
+        Me.OlvColumn17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'OlvColumn18
+        '
+        Me.OlvColumn18.AspectName = "TaxPayedByCompany"
+        Me.OlvColumn18.CellEditUseWholeCell = True
+        Me.OlvColumn18.HeaderFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OlvColumn18.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.OlvColumn18.Text = "GPM Sumokėta Įmonės Lėšomis"
+        Me.OlvColumn18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'F_PayOutNaturalPersonWithoutTaxesList
         '
@@ -574,4 +606,7 @@ Partial Class F_PayOutNaturalPersonWithoutTaxesList
     Friend WithEvents Receiver_MenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DateFromAccDatePicker As AccControlsWinForms.AccDatePicker
     Friend WithEvents DateToAccDatePicker As AccControlsWinForms.AccDatePicker
+    Friend WithEvents OlvColumn5 As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents OlvColumn17 As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents OlvColumn18 As BrightIdeasSoftware.OLVColumn
 End Class

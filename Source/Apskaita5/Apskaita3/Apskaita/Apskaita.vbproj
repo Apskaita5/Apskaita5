@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -24,7 +24,7 @@
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <OldToolsVersion>2.0</OldToolsVersion>
+    <OldToolsVersion>3.5</OldToolsVersion>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <PublishUrl>publish\</PublishUrl>
@@ -53,8 +53,7 @@
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>Apskaita5.xml</DocumentationFile>
-    <NoWarn>
-    </NoWarn>
+    <NoWarn>42353,42354,42355</NoWarn>
     <WarningLevel>1</WarningLevel>
     <WarningsAsErrors>41998,42004,42026,42105,42106,42107</WarningsAsErrors>
   </PropertyGroup>
@@ -65,8 +64,7 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>Apskaita5.xml</DocumentationFile>
-    <NoWarn>
-    </NoWarn>
+    <NoWarn>42353,42354,42355</NoWarn>
     <WarningLevel>1</WarningLevel>
     <WarningsAsErrors>41998,42004,42026,42105,42106,42107</WarningsAsErrors>
   </PropertyGroup>
@@ -75,9 +73,8 @@
     <OutputPath>bin\x86\Debug\</OutputPath>
     <WarningLevel>1</WarningLevel>
     <DocumentationFile>Apskaita5.xml</DocumentationFile>
-    <Optimize>true</Optimize>
-    <NoWarn>
-    </NoWarn>
+    <Optimize>false</Optimize>
+    <NoWarn>42353,42354,42355</NoWarn>
     <WarningsAsErrors>41998,42004,42026,42105,42106,42107</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
@@ -85,9 +82,9 @@
     <OutputPath>bin\x86\Release\</OutputPath>
     <WarningLevel>1</WarningLevel>
     <DocumentationFile>Apskaita5.xml</DocumentationFile>
-    <NoWarn>
-    </NoWarn>
+    <NoWarn>42353,42354,42355</NoWarn>
     <WarningsAsErrors>41998,42004,42026,42105,42106,42107</WarningsAsErrors>
+    <Optimize>true</Optimize>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Csla, Version=2.1.4.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
@@ -497,6 +494,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <Content Include="FFData\GPM313.ffdata">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="MXFD\GPM313.mxfd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MXFD\SAFT_2_0.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -511,6 +519,27 @@
   </ItemGroup>
   <ItemGroup>
     <BaseApplicationManifest Include="My Project\app.manifest" />
+    <Content Include="Reports\R_Declaration_GPM313_1.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_ShareHolderInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_SharesAccountEntryList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_SharesAccountEntryListExtract.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_SharesOperation.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_SharesOperationInfoList.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\R_LongTermAssetAmortization.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\Nusidevejimas.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -940,6 +969,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\AccDataAccessLayer\AccDataAccessLayer\AccDataAccessLayer.vbproj">
@@ -967,9 +997,7 @@
       <Name>ApskaitaObjects</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

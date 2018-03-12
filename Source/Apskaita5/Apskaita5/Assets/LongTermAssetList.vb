@@ -44,13 +44,29 @@
         ''' <param name="columnSeparator">a separator used to separate asset 
         ''' data columns within a line string</param>
         ''' <remarks></remarks>
-        Friend Sub ImportRange(ByVal lines As String(), ByVal columnSeparator As String, _
+        Friend Sub ImportRange(ByVal lines As String(), ByVal columnSeparator As String,
             ByVal parentValidator As IChronologicValidator)
             Dim accounList As AccountInfoList = AccountInfoList.GetList()
             Me.RaiseListChangedEvents = False
             For Each line As String In lines
                 Add(LongTermAsset.NewLongTermAssetChild(line.Split(New String() _
                     {columnSeparator}, StringSplitOptions.None), parentValidator, accounList))
+            Next
+            Me.RaiseListChangedEvents = True
+            Me.ResetBindings()
+        End Sub
+
+        ''' <summary>
+        ''' Adds items to the current collection using imported data.
+        ''' </summary>
+        ''' <param name="table">template datatable containing the data to import, 
+        ''' see <see cref="LongTermAsset.GetDataTableSpecification()">LongTermAsset.GetDataTableSpecification</see> method</param>
+        ''' <remarks></remarks>
+        Friend Sub ImportRange(ByVal table As DataTable, ByVal parentValidator As IChronologicValidator)
+            Dim accounList As AccountInfoList = AccountInfoList.GetList()
+            Me.RaiseListChangedEvents = False
+            For Each dr As DataRow In table.Rows
+                Add(LongTermAsset.NewLongTermAssetChild(dr, parentValidator, accounList))
             Next
             Me.RaiseListChangedEvents = True
             Me.ResetBindings()

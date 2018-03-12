@@ -1,4 +1,4 @@
-﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
   <PropertyGroup>
     <ReferencePath>C:\Documents and Settings\Marius\Desktop\TMP_PROG\</ReferencePath>
     <PublishUrlHistory>publish\|C:\Documents and Settings\Marius\Desktop\WebSite\</PublishUrlHistory>

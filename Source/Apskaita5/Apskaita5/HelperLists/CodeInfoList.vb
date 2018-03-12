@@ -47,6 +47,21 @@ Namespace HelperLists
         End Function
 
         ''' <summary>
+        ''' Gets a CodeInfo instance by requested code type, code value and code name.
+        ''' </summary>
+        ''' <param name="ofType">a type of code to look for</param>
+        ''' <param name="code">a code value to look for</param>
+        ''' <param name="name">a code name to look for</param>
+        ''' <remarks></remarks>
+        Public Function GetItemByCode(ByVal ofType As CodeType, ByVal code As String, name As String) As CodeInfo
+            For Each c As CodeInfo In Me
+                If c.Type = ofType AndAlso c.Code.Trim.ToLower = code.Trim.ToLower _
+                    AndAlso c.Name.Trim.ToLower = name.Trim.ToLower Then Return c
+            Next
+            Return Nothing
+        End Function
+
+        ''' <summary>
         ''' Gets a CodeInfo instance by requested code type and code value.
         ''' </summary>
         ''' <param name="ofType">a type of code to look for</param>
@@ -271,10 +286,18 @@ Namespace HelperLists
 
             If newItem.IsEmpty Then Exit Sub
 
-            For Each n As CodeInfo In Me
-                If n.Type = newItem.Type AndAlso n.Code.Trim.ToLower() _
-                    = newItem.Code.Trim.ToLower() Then Exit Sub
-            Next
+            If newItem.Type = CodeType.SaftAccountType OrElse newItem.Type = CodeType.SaftSharesType Then
+                For Each n As CodeInfo In Me
+                    If n.Type = newItem.Type AndAlso n.Code.Trim.ToLower() _
+                        = newItem.Code.Trim.ToLower() AndAlso n.Name.Trim.ToLower() _
+                        = newItem.Name.Trim.ToLower() Then Exit Sub
+                Next
+            Else
+                For Each n As CodeInfo In Me
+                    If n.Type = newItem.Type AndAlso n.Code.Trim.ToLower() _
+                        = newItem.Code.Trim.ToLower() Then Exit Sub
+                Next
+            End If
 
             Add(newItem)
 
