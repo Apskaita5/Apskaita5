@@ -1,9 +1,0 @@
-
-To implement new SQL server type:
-- Modify DataAccessTypes.SqlServerType enum;
-- Modify DataAccessTypes.ConvertSqlServerTypeHumanReadable
-- Implement ISqlCommandManager and ISqlGenerator for new server type
-- Modify DatabaseAccess.SQLUtilities.GetSqlGenerator and GetSqlCommandManager methods
-- May need to modify DatabaseAccess.SQLParam for param symbol handling, 
-	e.g. for SQLite default "?" needs to be replaced to "$"
-- Should look through Security.AccIdentity (just in case)

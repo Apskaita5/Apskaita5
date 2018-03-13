@@ -632,6 +632,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CommonSettings.xmls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -669,9 +672,6 @@
     <Content Include="Info\KnownBugz.txt" />
     <Content Include="Info\SQLServerTypeUnsafeObjects.txt" />
     <Content Include="Info\TestUpgradeSuccess.txt" />
-    <Content Include="CommonSettings.xmls">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="SqlDepositories\SQLite_Depository.sqld">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
