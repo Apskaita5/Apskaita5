@@ -12,6 +12,7 @@ Namespace ActiveReports.Declarations
     ''' </summary>
     ''' <remarks>Object is responsible for exporting the <see cref="InvoiceInfoItemList">
     ''' invoice register report</see> data to XML format.</remarks>
+    <Serializable()>
     Public NotInheritable Class AuditDataFileSAFT_2_0
         Implements IAuditFileSAFT
 

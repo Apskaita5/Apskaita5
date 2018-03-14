@@ -18038,6 +18038,26 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Banko komisinis mokestis.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_OperationContentBankFee() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_OperationCon"& _ 
+                        "tentBankFee", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Operacijos aprašymas išraše nenurodytas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_OperationContentNull() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_OperationCon"& _ 
+                        "tentNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to ISO20022 banko sąskaitos išrašas.
         '''</summary>
         Friend ReadOnly Property Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_SourceType() As String

@@ -15530,4 +15530,10 @@
   <data name="Workers_PayOutNaturalPersonWithoutTaxes_TaxPayedAmountNull" xml:space="preserve">
     <value>Jei nenurodyta GPM sumokėjimo data, turi būti nurodyta ir sumokėto GPM suma.</value>
   </data>
+  <data name="Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_OperationContentBankFee" xml:space="preserve">
+    <value>Banko komisinis mokestis</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_OperationContentNull" xml:space="preserve">
+    <value>Operacijos aprašymas išraše nenurodytas</value>
+  </data>
 </root>

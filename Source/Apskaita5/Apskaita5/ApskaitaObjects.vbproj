@@ -663,6 +663,7 @@
     </Content>
     <Content Include="DbStructure\DatabaseStructureGauge.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="DbStructure\RoleDatabaseAccessGauge.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -71,15 +71,23 @@ Namespace Documents.BankDataExchangeProviders
                 End If
             Next
 
+            ' to identify bank fee when no entry content set
+            Dim bankName As String = String.Empty
+            Try
+                bankName = data.BkToCstmrStmt.Stmt(0).Acct.Svcr.FinInstnId.Nm
+            Catch ex As Exception
+            End Try
+
             _Items = New List(Of BankAccountStatementItem)
 
             For Each entry As camt_053_001_02.ReportEntry2 In data.BkToCstmrStmt.Stmt(0).Ntry
-                _Items.Add(GetBankAccountStatementItem(entry))
+                _Items.Add(GetBankAccountStatementItem(entry, bankName))
             Next
 
         End Sub
 
-        Private Function GetBankAccountStatementItem(entry As camt_053_001_02.ReportEntry2) As BankAccountStatementItem
+        Private Function GetBankAccountStatementItem(entry As camt_053_001_02.ReportEntry2,
+            ByVal bankName As String) As BankAccountStatementItem
 
             If entry.NtryDtls Is Nothing OrElse entry.NtryDtls.Length < 1 Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls"))
@@ -89,8 +97,6 @@ Namespace Documents.BankDataExchangeProviders
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.Refs"))
             ElseIf entry.BookgDt Is Nothing Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BookgDt"))
-            ElseIf entry.NtryDtls(0).TxDtls(0).RmtInf Is Nothing Then
-                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.RmtInf"))
             ElseIf entry.NtryDtls(0).TxDtls(0).RltdPties Is Nothing Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "entry.NtryDtls.TxDtls.RltdPties"))
             ElseIf entry.NtryDtls(0).TxDtls(0).AmtDtls Is Nothing Then
@@ -140,9 +146,16 @@ Namespace Documents.BankDataExchangeProviders
             End If
             ResolveSumBase(result)
 
-            If Not entry.NtryDtls(0).TxDtls(0).RmtInf.Ustrd Is Nothing _
+            If Not entry.NtryDtls(0).TxDtls(0).RmtInf Is Nothing _
+                AndAlso Not entry.NtryDtls(0).TxDtls(0).RmtInf.Ustrd Is Nothing _
                 AndAlso entry.NtryDtls(0).TxDtls(0).RmtInf.Ustrd.Length > 0 Then
                 result.Content = String.Join(" ", entry.NtryDtls(0).TxDtls(0).RmtInf.Ustrd)
+            ElseIf Not entry.NtryDtls(0).TxDtls(0).RltdPties.Cdtr Is Nothing _
+                AndAlso Not StringIsNullOrEmpty(entry.NtryDtls(0).TxDtls(0).RltdPties.Cdtr.Nm) _
+                AndAlso entry.NtryDtls(0).TxDtls(0).RltdPties.Cdtr.Nm.Trim = bankName Then
+                result.Content = My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_OperationContentBankFee
+            Else
+                result.Content = My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_OperationContentNull
             End If
             Try
                 Dim paymentCode As String = entry.NtryDtls(0).TxDtls(0).RmtInf.Strd(0).CdtrRefInf.Ref
