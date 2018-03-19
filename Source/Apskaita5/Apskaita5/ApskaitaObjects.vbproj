@@ -50,13 +50,8 @@
     <Optimize>true</Optimize>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Csla, Version=2.1.4.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\csla20vb\csla20vb\Csla\bin\Release\Csla.dll</HintPath>
-    </Reference>
-    <Reference Include="InvoiceInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\InvoiceInfo\InvoiceInfo\bin\Release\InvoiceInfo.dll</HintPath>
+    <Reference Include="Csla">
+      <HintPath>..\..\ExternalReferencedLibraries\Csla.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>True</Private>
@@ -684,6 +679,10 @@
     <ProjectReference Include="..\..\AccDataAccessLayer\AccDataAccessLayer\AccDataAccessLayer.vbproj">
       <Project>{13ADAA16-3D3A-4F2A-A5D4-D6DE94A31614}</Project>
       <Name>AccDataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\InvoiceInfo\InvoiceInfo\InvoiceInfo.vbproj">
+      <Project>{a8945646-8328-4402-98af-feeac7ac9e04}</Project>
+      <Name>InvoiceInfo</Name>
     </ProjectReference>
     <ProjectReference Include="..\AccCommon\AccCommon.vbproj">
       <Project>{380B0551-D15D-4072-A72C-406274CCB50E}</Project>

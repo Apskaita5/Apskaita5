@@ -62,20 +62,18 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Csla, Version=2.1.4.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\csla20vb\csla20vb\Csla\bin\Release\Csla.dll</HintPath>
+    <Reference Include="Csla">
+      <HintPath>..\..\ExternalReferencedLibraries\Csla.dll</HintPath>
     </Reference>
-    <Reference Include="DataProviders, Version=4.8.5482.20772, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MajorSilence binaries for NET 3.5\DataProviders.dll</HintPath>
+    <Reference Include="DataProviders">
+      <HintPath>..\..\ExternalReferencedLibraries\DataProviders.dll</HintPath>
     </Reference>
-    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL" />
-    <Reference Include="InvoiceInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\InvoiceInfo\InvoiceInfo\bin\Release\InvoiceInfo.dll</HintPath>
+    <Reference Include="EPPlus">
+      <HintPath>..\..\ExternalReferencedLibraries\EPPlus.dll</HintPath>
     </Reference>
-    <Reference Include="ListViewPrinter, Version=2.5.0.31248, Culture=neutral, PublicKeyToken=21b031892bc54fb5, processorArchitecture=MSIL" />
+    <Reference Include="ListViewPrinter">
+      <HintPath>..\..\ExternalReferencedLibraries\ListViewPrinter.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ReportViewer_libraries\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -88,21 +86,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ReportViewer_libraries\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="ObjectListView, Version=2.9.0.23616, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ObjectListView\ObjectListView\bin\Release\ObjectListView.dll</HintPath>
+    <Reference Include="ObjectListView">
+      <HintPath>..\..\ExternalReferencedLibraries\ObjectListView.dll</HintPath>
     </Reference>
-    <Reference Include="RdlCri, Version=4.5.5482.20773, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MajorSilence binaries for NET 3.5\RdlCri.dll</HintPath>
+    <Reference Include="RdlCri">
+      <HintPath>..\..\ExternalReferencedLibraries\RdlCri.dll</HintPath>
     </Reference>
-    <Reference Include="RdlEngine, Version=4.8.5482.20772, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MajorSilence binaries for NET 3.5\RdlEngine.dll</HintPath>
+    <Reference Include="RdlEngine">
+      <HintPath>..\..\ExternalReferencedLibraries\RdlEngine.dll</HintPath>
     </Reference>
-    <Reference Include="RdlViewer, Version=4.8.5482.20773, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MajorSilence binaries for NET 3.5\RdlViewer.dll</HintPath>
+    <Reference Include="RdlViewer">
+      <HintPath>..\..\ExternalReferencedLibraries\RdlViewer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -1794,6 +1788,10 @@
     <ProjectReference Include="..\..\AccDataAccessLayer\AccDataAccessLayer\AccDataAccessLayer.vbproj">
       <Project>{13ADAA16-3D3A-4F2A-A5D4-D6DE94A31614}</Project>
       <Name>AccDataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\InvoiceInfo\InvoiceInfo\InvoiceInfo.vbproj">
+      <Project>{a8945646-8328-4402-98af-feeac7ac9e04}</Project>
+      <Name>InvoiceInfo</Name>
     </ProjectReference>
     <ProjectReference Include="..\AccCommon\AccCommon.vbproj">
       <Project>{380B0551-D15D-4072-A72C-406274CCB50E}</Project>
