@@ -76,11 +76,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Csla">
-      <HintPath>..\..\csla20vb\csla20vb\Csla\bin\Release\Csla.dll</HintPath>
+      <HintPath>..\..\ExternalReferencedLibraries\Csla.dll</HintPath>
     </Reference>
-    <Reference Include="DataProviders, Version=4.8.5482.20772, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MajorSilence binaries for NET 3.5\DataProviders.dll</HintPath>
+    <Reference Include="DataProviders">
+      <HintPath>..\..\ExternalReferencedLibraries\DataProviders.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
