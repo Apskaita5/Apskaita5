@@ -1,0 +1,101 @@
+ObjectListView.cs
+
+// implementation of custom menu items in header ToolStripDropDown
+
+New methods:
+
+private ToolStripItem[] _UserMenuItems;
+/// <summary>
+/// Sets user defined menu items to show in the header right click menu.
+/// </summary>
+/// <param name="userMenuItems"></param>
+public virtual void SetUserMenuItems(ToolStripItem[] userMenuItems)
+    {
+       _UserMenuItems = userMenuItems;
+    }
+
+
+/// <summary>
+/// Append the column selection menu items to the given menu strip.
+/// </summary>
+/// <param name="strip">The menu to which the items will be added.</param>
+/// <returns>Return the menu to which the items were added</returns>
+public virtual ToolStripDropDown MakeCustomMenu(ToolStripDropDown strip)
+    {
+
+     if (_UserMenuItems == null || _UserMenuItems.Length < 1) 
+         return strip;
+
+     // Append a separator if the menu isn't empty and the last item isn't already a separator
+     if (strip.Items.Count > 0 && (!(strip.Items[strip.Items.Count - 1] is ToolStripSeparator)))
+        strip.Items.Add(new ToolStripSeparator());
+
+     foreach (ToolStripItem item in _UserMenuItems)
+        {
+            strip.Items.Add(item);
+        }
+
+     return strip;
+
+}
+
+
+Modified methods:
+
+/// <summary>
+/// Create the menu that should be displayed when the user right clicks
+/// on the given column header.
+/// </summary>
+/// <param name="columnIndex">Index of the column that was right clicked.
+/// This can be negative, which indicates a click outside of any header.</param>
+/// <returns>The toolstrip that should be displayed</returns>
+protected virtual ToolStripDropDown MakeHeaderRightClickMenu(int columnIndex) {
+    ToolStripDropDown m = new ContextMenuStrip();
+
+    if (columnIndex >= 0 && this.UseFiltering && this.ShowFilterMenuOnRightClick)
+         m = this.MakeFilteringMenu(m, columnIndex);
+
+    if (columnIndex >= 0 && this.ShowCommandMenuOnRightClick) 
+         m = this.MakeColumnCommandMenu(m, columnIndex);
+
+    m = this.MakeCustomMenu(m);
+
+    if (this.SelectColumnsOnRightClickBehaviour != ColumnSelectBehaviour.None) {
+         m = this.MakeColumnSelectMenu(m);
+         }
+
+    return m;
+}
+
+
+CellEditKeyEngine.cs
+
+// fixed bug that return negative index for nested ObjectListView
+
+Modified method:
+
+/// <summary>
+/// Gets the row of the cell that is currently being edited
+/// </summary>
+protected OLVListItem ItemBeingEdited {
+    get {
+
+        OLVListItem olvi = this.ListView.CellEditEventArgs.ListViewItem;
+
+        if (olvi.Index < 0)
+          {
+              if (olvi.RowObject == null)
+                 return olvi;
+              for (int i = 0; i < this.ListView.Items.Count; i++)
+                 {
+                     if (this.ListView.GetItem(i).RowObject == olvi.RowObject)
+                        {
+                            olvi = this.ListView.GetItem(i);
+                            break;
+                        }
+                 }
+           }
+
+        return olvi;
+       }
+}

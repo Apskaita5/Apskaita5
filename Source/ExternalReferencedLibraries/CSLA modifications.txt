@@ -1,0 +1,20 @@
+WebServicesProxy.vb
+
+' Implemented web service timeout setting functionality (non essential)
+
+Modified method:
+
+Private Function GetPortal() As WebServiceHost.WebServicePortal
+
+      Dim wsvc As New WebServiceHost.WebServicePortal
+      wsvc.Url = ApplicationContext.DataPortalUrl.ToString
+      If Not ApplicationContext.LocalContext.Item("WebServiceTimeOut") Is Nothing _
+         AndAlso TypeOf ApplicationContext.LocalContext.Item("WebServiceTimeOut") Is Integer Then
+         wsvc.Timeout = DirectCast(ApplicationContext.LocalContext.Item("WebServiceTimeOut"), Integer)
+      Else
+         wsvc.Timeout = 1000 * 60 * 15
+      End If
+
+      Return wsvc
+
+End Function
