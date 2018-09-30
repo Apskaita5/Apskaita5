@@ -75,12 +75,13 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Csla">
-      <HintPath>..\..\csla20vb\csla20vb\Csla\bin\Release\Csla.dll</HintPath>
+    <Reference Include="Csla, Version=2.1.4.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ExternalReferencedLibraries\Csla.dll</HintPath>
     </Reference>
     <Reference Include="DataProviders, Version=4.8.5482.20772, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MajorSilence binaries for NET 3.5\DataProviders.dll</HintPath>
+      <HintPath>..\..\ExternalReferencedLibraries\DataProviders.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

@@ -250,6 +250,22 @@ Public Module CommonMethods
 
     End Function
 
+    ''' <summary>
+    ''' Gets an xml string that is stored in the XmlDocument.
+    ''' </summary>
+    ''' <param name="document">XmlDocument to save to xml string</param>
+    ''' <returns></returns>
+    Public Function ToXmlString(document As XmlDocument) As String
+
+        Using sw As New StringWriter()
+            Using xw As New XmlTextWriter(sw)
+                document.WriteTo(xw)
+                Return sw.ToString
+            End Using
+        End Using
+
+    End Function
+
 #Region " String manipulation methods "
 
     ''' <summary>

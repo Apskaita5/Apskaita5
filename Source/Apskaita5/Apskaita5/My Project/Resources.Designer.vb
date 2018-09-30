@@ -32413,6 +32413,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Klaida. Neįmanoma įtraukti naujos įsigijimo suboperacijos negalint nustatyti jos finansinių duomenų..
+        '''</summary>
+        Friend ReadOnly Property Goods_GoodsOperationAcquisition_InvalidChildSaveState() As String
+            Get
+                Return ResourceManager.GetString("Goods_GoodsOperationAcquisition_InvalidChildSaveState", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Klaida. Prekių &quot;0&quot; įsigijimo operacijos pašalinti negalima:{1}{2}.
         '''</summary>
         Friend ReadOnly Property Goods_GoodsOperationAcquisition_InvalidDelete() As String

@@ -46,7 +46,6 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
         Private _ComplexOperationID As Integer = 0
         Private _ComplexOperationType As GoodsComplexOperationType = GoodsComplexOperationType.InternalTransfer
         Private _ComplexOperationHumanReadable As String = ""
-        Private _Date As Date = Today
         Private _Description As String = ""
         Private _Amount As Double = 0
         Private _UnitCost As Double = 0
@@ -57,7 +56,6 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
         Private _TotalValueInPurchases As Double = 0
         Private _RedeemCostsAccount As Long = 0
         Private _Warehouse As WarehouseInfo = Nothing
-        Private _OldWarehouseID As Integer = 0
         Private _JournalEntryID As Integer = 0
         Private _JournalEntryDate As Date = Today
         Private _JournalEntryContent As String = ""
@@ -219,25 +217,6 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
             End Get
         End Property
 
-        ''' <summary>
-        ''' Gets or sets a date of the operation.
-        ''' </summary>
-        ''' <remarks>Corresponds to <see cref="OperationPersistenceObject.OperationDate">OperationPersistenceObject.OperationDate</see>.</remarks>
-        Public Property [Date]() As Date
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _Date
-            End Get
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Set(ByVal value As Date)
-                If DateIsReadOnly Then Exit Property
-                CanWriteProperty(True)
-                If _Date.Date <> value.Date Then
-                    _Date = value.Date
-                    PropertyHasChanged()
-                End If
-            End Set
-        End Property
 
         ''' <summary>
         ''' Gets or sets a content (description) of the operation.
@@ -447,13 +426,6 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
             End Set
         End Property
 
-        Public ReadOnly Property OldWarehouseID() As Integer
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return _OldWarehouseID
-            End Get
-        End Property
-
         ''' <summary>
         ''' Gets an <see cref="General.Account.ID">account</see> that the goods 
         ''' acquisition value is accounted in.
@@ -464,7 +436,7 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
         Public ReadOnly Property AcquisitionAccount() As Long
             <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
             Get
-                If Not _Warehouse Is Nothing AndAlso Not _Warehouse.IsEmpty Then
+                If _Warehouse <> WarehouseInfo.Empty Then
                     Return _Warehouse.WarehouseAccount
                 Else
                     Return 0
@@ -586,17 +558,6 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
             End Get
         End Property
 
-
-        ''' <summary>
-        ''' Whether the <see cref="Date">Date</see> property is readonly.
-        ''' </summary>
-        ''' <remarks></remarks>
-        Public ReadOnly Property DateIsReadOnly() As Boolean
-            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
-            Get
-                Return IsChild OrElse IsChildOperation
-            End Get
-        End Property
 
         ''' <summary>
         ''' Whether the <see cref="Description">Description</see> property is readonly.
@@ -851,9 +812,9 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
         ''' <param name="parentDate"></param>
         ''' <remarks></remarks>
         Friend Sub SetParentDate(ByVal parentDate As Date)
-            If _Date.Date <> parentDate.Date Then
-                _Date = parentDate.Date
-                PropertyHasChanged("Date")
+            If _JournalEntryDate.Date <> parentDate.Date Then
+                _JournalEntryDate = parentDate.Date
+                PropertyHasChanged("JournalEntryDate")
             End If
         End Sub
 
@@ -924,8 +885,8 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
             ValidationRules.AddRule(AddressOf CommonValidation.ValueObjectFieldValidation, _
                 New Csla.Validation.RuleArgs("Warehouse"))
 
-            ValidationRules.AddRule(AddressOf CommonValidation.ChronologyValidation, _
-                New CommonValidation.ChronologyRuleArgs("Date", "OperationLimitations"))
+            ValidationRules.AddRule(AddressOf CommonValidation.ChronologyValidation,
+                New CommonValidation.ChronologyRuleArgs("JournalEntryDate", "OperationLimitations"))
 
 
             ValidationRules.AddRule(AddressOf TotalCostValidation, New RuleArgs("TotalCost"))
@@ -933,9 +894,8 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
             ValidationRules.AddRule(AddressOf JournalEntryValidation, New RuleArgs("JournalEntryID"))
             ValidationRules.AddRule(AddressOf AmountInWarehouseValidation, New RuleArgs("AmountInWarehouse"))
 
-            ValidationRules.AddDependantProperty("OperationLimitations", "Date", False)
-            ValidationRules.AddDependantProperty("Date", "JournalEntryID", False)
-            ValidationRules.AddDependantProperty("Warehouse", "Date", False)
+            ValidationRules.AddDependantProperty("OperationLimitations", "JournalEntryDate", False)
+            ValidationRules.AddDependantProperty("Warehouse", "JournalEntryDate", False)
             ValidationRules.AddDependantProperty("UnitCost", "TotalCost", False)
             ValidationRules.AddDependantProperty("Amount", "TotalCost", False)
             ValidationRules.AddDependantProperty("Amount", "AmountInWarehouse", False)
@@ -998,10 +958,6 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
 
             If Not valObj._JournalEntryID > 0 Then
                 e.Description = Goods_GoodsOperationRedeemFromBuyer_JournalEntryNull
-                e.Severity = Validation.RuleSeverity.Error
-                Return False
-            ElseIf valObj._JournalEntryDate.Date <> valObj._Date.Date Then
-                e.Description = Goods_GoodsOperationRedeemFromBuyer_JournalEntryDateMismatch
                 e.Severity = Validation.RuleSeverity.Error
                 Return False
             End If
@@ -1324,7 +1280,6 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
             _ComplexOperationID = obj.ComplexOperationID
             _ComplexOperationType = obj.ComplexOperationType
             _ComplexOperationHumanReadable = obj.ComplexOperationHumanReadable
-            _Date = obj.OperationDate
             _Description = obj.Content
             _Amount = obj.Amount
             _UnitCost = obj.UnitValue
@@ -1332,7 +1287,6 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
             _AmountInWarehouse = obj.AmountInWarehouse
             _RedeemCostsAccount = obj.AccountOperation
             _Warehouse = obj.Warehouse
-            _OldWarehouseID = Warehouse.ID
             _JournalEntryID = obj.JournalEntryID
             _JournalEntryDate = obj.JournalEntryDate
             _JournalEntryContent = obj.JournalEntryContent
@@ -1347,8 +1301,8 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
 
             RecalculateValues(False)
 
-            _OperationLimitations = OperationalLimitList.GetOperationalLimitList( _
-                _GoodsInfo, GoodsOperationType.RedeemFromBuyer, _ID, _Date, _
+            _OperationLimitations = OperationalLimitList.GetOperationalLimitList(
+                _GoodsInfo, GoodsOperationType.RedeemFromBuyer, _ID, _JournalEntryDate,
                 obj.WarehouseID, parentValidator, limitationsDataSource)
 
             MarkOld()
@@ -1369,8 +1323,8 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
 
             DoSave(False)
 
-            _OperationLimitations = OperationalLimitList.GetOperationalLimitList( _
-                _GoodsInfo, GoodsOperationType.RedeemFromBuyer, _ID, _Date, _
+            _OperationLimitations = OperationalLimitList.GetOperationalLimitList(
+                _GoodsInfo, GoodsOperationType.RedeemFromBuyer, _ID, _JournalEntryDate,
                 _Warehouse.ID, Nothing, Nothing)
 
             ValidationRules.CheckRules()
@@ -1388,8 +1342,8 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
 
             DoSave(False)
 
-            _OperationLimitations = OperationalLimitList.GetOperationalLimitList( _
-                _GoodsInfo, GoodsOperationType.RedeemFromBuyer, _ID, _Date, _
+            _OperationLimitations = OperationalLimitList.GetOperationalLimitList(
+                _GoodsInfo, GoodsOperationType.RedeemFromBuyer, _ID, _JournalEntryDate,
                 _Warehouse.ID, Nothing, Nothing)
 
             ValidationRules.CheckRules()
@@ -1421,7 +1375,7 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
                 Try
 
                     obj = obj.Save(_OperationLimitations.FinancialDataCanChange _
-                        AndAlso Not financialDataReadOnly)
+                        AndAlso Not financialDataReadOnly, False)
 
                     If IsNew Then
                         _ID = obj.ID
@@ -1445,8 +1399,6 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
                 End Try
 
             End Using
-
-            _OldWarehouseID = _Warehouse.ID
 
             MarkOld()
 
@@ -1473,7 +1425,7 @@ Public NotInheritable Class GoodsOperationRedeemFromBuyer
             obj.Content = _Description
             obj.DocNo = ""
             obj.JournalEntryID = _JournalEntryID
-            obj.OperationDate = _Date
+            obj.OperationDate = _JournalEntryDate
             obj.TotalValue = _TotalCost
             obj.UnitValue = _UnitCost
             obj.WarehouseID = _Warehouse.ID

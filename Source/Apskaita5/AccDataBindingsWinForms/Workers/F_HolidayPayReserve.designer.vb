@@ -22,7 +22,7 @@ Partial Friend Class F_HolidayPayReserve
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim IDLabel As System.Windows.Forms.Label
         Dim InsertDateLabel As System.Windows.Forms.Label
         Dim UpdateDateLabel As System.Windows.Forms.Label
@@ -37,89 +37,89 @@ Partial Friend Class F_HolidayPayReserve
         Dim CommentsLabel As System.Windows.Forms.Label
         Dim TaxRateLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_HolidayPayReserve))
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.TaxRateAccTextBox = New AccControlsWinForms.AccTextBox
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TaxRateAccTextBox = New AccControlsWinForms.AccTextBox()
         Me.HolidayPayReserveBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ViewJournalEntryButton = New System.Windows.Forms.Button
-        Me.CommentsTextBox = New System.Windows.Forms.TextBox
-        Me.TotalSumChangeAccTextBox = New AccControlsWinForms.AccTextBox
-        Me.AccountCostsAccGridComboBox = New AccControlsWinForms.AccListComboBox
-        Me.TotalSumEvaluatedAccTextBox = New AccControlsWinForms.AccTextBox
-        Me.NumberTextBox = New System.Windows.Forms.TextBox
-        Me.TotalSumCurrentAccTextBox = New AccControlsWinForms.AccTextBox
-        Me.AccountReserveTextBox = New System.Windows.Forms.TextBox
-        Me.UpdateDateTextBox = New System.Windows.Forms.TextBox
-        Me.IDTextBox = New System.Windows.Forms.TextBox
-        Me.InsertDateTextBox = New System.Windows.Forms.TextBox
-        Me.ContentTextBox = New System.Windows.Forms.TextBox
-        Me.DateAccDatePicker = New AccControlsWinForms.AccDatePicker
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.NewButton = New System.Windows.Forms.Button
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.ICancelButton = New System.Windows.Forms.Button
-        Me.IApplyButton = New System.Windows.Forms.Button
-        Me.IOkButton = New System.Windows.Forms.Button
+        Me.ViewJournalEntryButton = New System.Windows.Forms.Button()
+        Me.CommentsTextBox = New System.Windows.Forms.TextBox()
+        Me.TotalSumChangeAccTextBox = New AccControlsWinForms.AccTextBox()
+        Me.AccountCostsAccGridComboBox = New AccControlsWinForms.AccListComboBox()
+        Me.TotalSumEvaluatedAccTextBox = New AccControlsWinForms.AccTextBox()
+        Me.NumberTextBox = New System.Windows.Forms.TextBox()
+        Me.TotalSumCurrentAccTextBox = New AccControlsWinForms.AccTextBox()
+        Me.AccountReserveTextBox = New System.Windows.Forms.TextBox()
+        Me.UpdateDateTextBox = New System.Windows.Forms.TextBox()
+        Me.IDTextBox = New System.Windows.Forms.TextBox()
+        Me.InsertDateTextBox = New System.Windows.Forms.TextBox()
+        Me.ContentTextBox = New System.Windows.Forms.TextBox()
+        Me.DateAccDatePicker = New AccControlsWinForms.AccDatePicker()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.NewObjectDateAccDatePicker = New AccControlsWinForms.AccDatePicker()
+        Me.NewButton = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ICancelButton = New System.Windows.Forms.Button()
+        Me.IApplyButton = New System.Windows.Forms.Button()
+        Me.IOkButton = New System.Windows.Forms.Button()
         Me.ItemsSortedBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ItemsDataListView = New BrightIdeasSoftware.DataListView
-        Me.OlvColumn3 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn2 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn1 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn4 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn5 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn6 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn7 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn8 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn9 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn10 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn11 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn12 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn13 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn14 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn15 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn16 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn17 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn18 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn19 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn20 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn21 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn22 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn23 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn24 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn25 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn26 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn27 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn28 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn29 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn30 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn31 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn32 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn33 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn34 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn35 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn36 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn37 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn38 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn39 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn40 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn41 = New BrightIdeasSoftware.OLVColumn
-        Me.OlvColumn42 = New BrightIdeasSoftware.OLVColumn
-        Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
-        Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller
+        Me.ItemsDataListView = New BrightIdeasSoftware.DataListView()
+        Me.OlvColumn3 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn2 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn1 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn4 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn5 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn6 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn7 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn8 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn9 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn10 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn11 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn12 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn13 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn14 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn15 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn16 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn17 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn18 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn19 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn20 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn21 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn22 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn23 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn24 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn25 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn26 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn27 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn28 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn29 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn30 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn31 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn32 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn33 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn34 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn35 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn36 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn37 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn38 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn39 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn40 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn41 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.OlvColumn42 = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller()
+        Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller()
         Me.ErrorWarnInfoProvider1 = New AccControlsWinForms.ErrorWarnInfoProvider(Me.components)
-        Me.NewObjectDateAccDatePicker = New AccControlsWinForms.AccDatePicker
-        IDLabel = New System.Windows.Forms.Label
-        InsertDateLabel = New System.Windows.Forms.Label
-        UpdateDateLabel = New System.Windows.Forms.Label
-        DateLabel = New System.Windows.Forms.Label
-        NumberLabel = New System.Windows.Forms.Label
-        AccountReserveLabel = New System.Windows.Forms.Label
-        AccountCostsLabel = New System.Windows.Forms.Label
-        ContentLabel = New System.Windows.Forms.Label
-        TotalSumCurrentLabel = New System.Windows.Forms.Label
-        TotalSumEvaluatedLabel = New System.Windows.Forms.Label
-        TotalSumChangeLabel = New System.Windows.Forms.Label
-        CommentsLabel = New System.Windows.Forms.Label
-        TaxRateLabel = New System.Windows.Forms.Label
+        IDLabel = New System.Windows.Forms.Label()
+        InsertDateLabel = New System.Windows.Forms.Label()
+        UpdateDateLabel = New System.Windows.Forms.Label()
+        DateLabel = New System.Windows.Forms.Label()
+        NumberLabel = New System.Windows.Forms.Label()
+        AccountReserveLabel = New System.Windows.Forms.Label()
+        AccountCostsLabel = New System.Windows.Forms.Label()
+        ContentLabel = New System.Windows.Forms.Label()
+        TotalSumCurrentLabel = New System.Windows.Forms.Label()
+        TotalSumEvaluatedLabel = New System.Windows.Forms.Label()
+        TotalSumChangeLabel = New System.Windows.Forms.Label()
+        CommentsLabel = New System.Windows.Forms.Label()
+        TaxRateLabel = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.HolidayPayReserveBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -131,7 +131,7 @@ Partial Friend Class F_HolidayPayReserve
         'IDLabel
         '
         IDLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         IDLabel.AutoSize = True
         IDLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         IDLabel.Location = New System.Drawing.Point(3, 0)
@@ -145,7 +145,7 @@ Partial Friend Class F_HolidayPayReserve
         'InsertDateLabel
         '
         InsertDateLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         InsertDateLabel.AutoSize = True
         InsertDateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         InsertDateLabel.Location = New System.Drawing.Point(309, 0)
@@ -159,10 +159,10 @@ Partial Friend Class F_HolidayPayReserve
         'UpdateDateLabel
         '
         UpdateDateLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         UpdateDateLabel.AutoSize = True
         UpdateDateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        UpdateDateLabel.Location = New System.Drawing.Point(596, 0)
+        UpdateDateLabel.Location = New System.Drawing.Point(595, 0)
         UpdateDateLabel.Name = "UpdateDateLabel"
         UpdateDateLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         UpdateDateLabel.Size = New System.Drawing.Size(68, 18)
@@ -173,7 +173,7 @@ Partial Friend Class F_HolidayPayReserve
         'DateLabel
         '
         DateLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         DateLabel.AutoSize = True
         DateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DateLabel.Location = New System.Drawing.Point(3, 25)
@@ -187,7 +187,7 @@ Partial Friend Class F_HolidayPayReserve
         'NumberLabel
         '
         NumberLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         NumberLabel.AutoSize = True
         NumberLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         NumberLabel.Location = New System.Drawing.Point(309, 25)
@@ -201,7 +201,7 @@ Partial Friend Class F_HolidayPayReserve
         'AccountReserveLabel
         '
         AccountReserveLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         AccountReserveLabel.AutoSize = True
         AccountReserveLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         AccountReserveLabel.Location = New System.Drawing.Point(3, 75)
@@ -215,7 +215,7 @@ Partial Friend Class F_HolidayPayReserve
         'AccountCostsLabel
         '
         AccountCostsLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         AccountCostsLabel.AutoSize = True
         AccountCostsLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         AccountCostsLabel.Location = New System.Drawing.Point(309, 75)
@@ -229,7 +229,7 @@ Partial Friend Class F_HolidayPayReserve
         'ContentLabel
         '
         ContentLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         ContentLabel.AutoSize = True
         ContentLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         ContentLabel.Location = New System.Drawing.Point(3, 50)
@@ -243,7 +243,7 @@ Partial Friend Class F_HolidayPayReserve
         'TotalSumCurrentLabel
         '
         TotalSumCurrentLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         TotalSumCurrentLabel.AutoSize = True
         TotalSumCurrentLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         TotalSumCurrentLabel.Location = New System.Drawing.Point(3, 100)
@@ -257,7 +257,7 @@ Partial Friend Class F_HolidayPayReserve
         'TotalSumEvaluatedLabel
         '
         TotalSumEvaluatedLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         TotalSumEvaluatedLabel.AutoSize = True
         TotalSumEvaluatedLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         TotalSumEvaluatedLabel.Location = New System.Drawing.Point(309, 100)
@@ -271,10 +271,10 @@ Partial Friend Class F_HolidayPayReserve
         'TotalSumChangeLabel
         '
         TotalSumChangeLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         TotalSumChangeLabel.AutoSize = True
         TotalSumChangeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        TotalSumChangeLabel.Location = New System.Drawing.Point(596, 100)
+        TotalSumChangeLabel.Location = New System.Drawing.Point(595, 100)
         TotalSumChangeLabel.Name = "TotalSumChangeLabel"
         TotalSumChangeLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         TotalSumChangeLabel.Size = New System.Drawing.Size(68, 18)
@@ -285,7 +285,7 @@ Partial Friend Class F_HolidayPayReserve
         'CommentsLabel
         '
         CommentsLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         CommentsLabel.AutoSize = True
         CommentsLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         CommentsLabel.Location = New System.Drawing.Point(3, 125)
@@ -300,7 +300,7 @@ Partial Friend Class F_HolidayPayReserve
         '
         TaxRateLabel.AutoSize = True
         TaxRateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        TaxRateLabel.Location = New System.Drawing.Point(596, 75)
+        TaxRateLabel.Location = New System.Drawing.Point(595, 75)
         TaxRateLabel.Name = "TaxRateLabel"
         TaxRateLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         TaxRateLabel.Size = New System.Drawing.Size(68, 18)
@@ -311,16 +311,16 @@ Partial Friend Class F_HolidayPayReserve
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 10
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.11258!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.44371!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.44371!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
         Me.TableLayoutPanel1.Controls.Add(TaxRateLabel, 7, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.TaxRateAccTextBox, 8, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.ViewJournalEntryButton, 2, 0)
@@ -357,18 +357,19 @@ Partial Friend Class F_HolidayPayReserve
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(853, 177)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'TaxRateAccTextBox
         '
+        Me.TaxRateAccTextBox.ButtonVisible = False
         Me.TaxRateAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.HolidayPayReserveBindingSource, "TaxRate", True))
         Me.TaxRateAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TaxRateAccTextBox.Location = New System.Drawing.Point(670, 78)
+        Me.TaxRateAccTextBox.Location = New System.Drawing.Point(669, 78)
         Me.TaxRateAccTextBox.Name = "TaxRateAccTextBox"
         Me.TaxRateAccTextBox.NegativeValue = False
-        Me.TaxRateAccTextBox.Size = New System.Drawing.Size(158, 20)
+        Me.TaxRateAccTextBox.Size = New System.Drawing.Size(157, 20)
         Me.TaxRateAccTextBox.TabIndex = 4
         Me.TaxRateAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -398,17 +399,18 @@ Partial Friend Class F_HolidayPayReserve
         Me.CommentsTextBox.Multiline = True
         Me.CommentsTextBox.Name = "CommentsTextBox"
         Me.CommentsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.CommentsTextBox.Size = New System.Drawing.Size(561, 46)
+        Me.CommentsTextBox.Size = New System.Drawing.Size(560, 46)
         Me.CommentsTextBox.TabIndex = 5
         '
         'TotalSumChangeAccTextBox
         '
+        Me.TotalSumChangeAccTextBox.ButtonVisible = False
         Me.TotalSumChangeAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.HolidayPayReserveBindingSource, "TotalSumChange", True))
         Me.TotalSumChangeAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalSumChangeAccTextBox.Location = New System.Drawing.Point(670, 103)
+        Me.TotalSumChangeAccTextBox.Location = New System.Drawing.Point(669, 103)
         Me.TotalSumChangeAccTextBox.Name = "TotalSumChangeAccTextBox"
         Me.TotalSumChangeAccTextBox.ReadOnly = True
-        Me.TotalSumChangeAccTextBox.Size = New System.Drawing.Size(158, 20)
+        Me.TotalSumChangeAccTextBox.Size = New System.Drawing.Size(157, 20)
         Me.TotalSumChangeAccTextBox.TabIndex = 6
         Me.TotalSumChangeAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -417,20 +419,20 @@ Partial Friend Class F_HolidayPayReserve
         Me.AccountCostsAccGridComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.HolidayPayReserveBindingSource, "AccountCosts", True))
         Me.AccountCostsAccGridComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountCostsAccGridComboBox.EmptyValueString = ""
-        Me.AccountCostsAccGridComboBox.InstantBinding = True
         Me.AccountCostsAccGridComboBox.Location = New System.Drawing.Point(412, 78)
         Me.AccountCostsAccGridComboBox.Name = "AccountCostsAccGridComboBox"
-        Me.AccountCostsAccGridComboBox.Size = New System.Drawing.Size(158, 21)
+        Me.AccountCostsAccGridComboBox.Size = New System.Drawing.Size(157, 20)
         Me.AccountCostsAccGridComboBox.TabIndex = 3
         '
         'TotalSumEvaluatedAccTextBox
         '
+        Me.TotalSumEvaluatedAccTextBox.ButtonVisible = False
         Me.TotalSumEvaluatedAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.HolidayPayReserveBindingSource, "TotalSumEvaluated", True))
         Me.TotalSumEvaluatedAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TotalSumEvaluatedAccTextBox.Location = New System.Drawing.Point(412, 103)
         Me.TotalSumEvaluatedAccTextBox.Name = "TotalSumEvaluatedAccTextBox"
         Me.TotalSumEvaluatedAccTextBox.ReadOnly = True
-        Me.TotalSumEvaluatedAccTextBox.Size = New System.Drawing.Size(158, 20)
+        Me.TotalSumEvaluatedAccTextBox.Size = New System.Drawing.Size(157, 20)
         Me.TotalSumEvaluatedAccTextBox.TabIndex = 4
         Me.TotalSumEvaluatedAccTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -441,12 +443,13 @@ Partial Friend Class F_HolidayPayReserve
         Me.NumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.NumberTextBox.Location = New System.Drawing.Point(412, 28)
         Me.NumberTextBox.Name = "NumberTextBox"
-        Me.NumberTextBox.Size = New System.Drawing.Size(416, 20)
+        Me.NumberTextBox.Size = New System.Drawing.Size(414, 20)
         Me.NumberTextBox.TabIndex = 1
         Me.NumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'TotalSumCurrentAccTextBox
         '
+        Me.TotalSumCurrentAccTextBox.ButtonVisible = False
         Me.TableLayoutPanel1.SetColumnSpan(Me.TotalSumCurrentAccTextBox, 2)
         Me.TotalSumCurrentAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.HolidayPayReserveBindingSource, "TotalSumCurrent", True))
         Me.TotalSumCurrentAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
@@ -473,10 +476,10 @@ Partial Friend Class F_HolidayPayReserve
         '
         Me.UpdateDateTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.HolidayPayReserveBindingSource, "UpdateDate", True))
         Me.UpdateDateTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UpdateDateTextBox.Location = New System.Drawing.Point(670, 3)
+        Me.UpdateDateTextBox.Location = New System.Drawing.Point(669, 3)
         Me.UpdateDateTextBox.Name = "UpdateDateTextBox"
         Me.UpdateDateTextBox.ReadOnly = True
-        Me.UpdateDateTextBox.Size = New System.Drawing.Size(158, 20)
+        Me.UpdateDateTextBox.Size = New System.Drawing.Size(157, 20)
         Me.UpdateDateTextBox.TabIndex = 7
         Me.UpdateDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -498,7 +501,7 @@ Partial Friend Class F_HolidayPayReserve
         Me.InsertDateTextBox.Location = New System.Drawing.Point(412, 3)
         Me.InsertDateTextBox.Name = "InsertDateTextBox"
         Me.InsertDateTextBox.ReadOnly = True
-        Me.InsertDateTextBox.Size = New System.Drawing.Size(158, 20)
+        Me.InsertDateTextBox.Size = New System.Drawing.Size(157, 20)
         Me.InsertDateTextBox.TabIndex = 5
         Me.InsertDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -509,7 +512,7 @@ Partial Friend Class F_HolidayPayReserve
         Me.ContentTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ContentTextBox.Location = New System.Drawing.Point(103, 53)
         Me.ContentTextBox.Name = "ContentTextBox"
-        Me.ContentTextBox.Size = New System.Drawing.Size(725, 20)
+        Me.ContentTextBox.Size = New System.Drawing.Size(723, 20)
         Me.ContentTextBox.TabIndex = 2
         '
         'DateAccDatePicker
@@ -522,9 +525,8 @@ Partial Friend Class F_HolidayPayReserve
         Me.DateAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.DateAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.DateAccDatePicker.Name = "DateAccDatePicker"
-        Me.DateAccDatePicker.ReadOnly = False
         Me.DateAccDatePicker.ShowWeekNumbers = True
-        Me.DateAccDatePicker.Size = New System.Drawing.Size(180, 19)
+        Me.DateAccDatePicker.Size = New System.Drawing.Size(180, 20)
         Me.DateAccDatePicker.TabIndex = 0
         '
         'Panel1
@@ -542,6 +544,17 @@ Partial Friend Class F_HolidayPayReserve
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(853, 34)
         Me.Panel1.TabIndex = 2
+        '
+        'NewObjectDateAccDatePicker
+        '
+        Me.NewObjectDateAccDatePicker.BoldedDates = Nothing
+        Me.NewObjectDateAccDatePicker.Location = New System.Drawing.Point(125, 8)
+        Me.NewObjectDateAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.NewObjectDateAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.NewObjectDateAccDatePicker.Name = "NewObjectDateAccDatePicker"
+        Me.NewObjectDateAccDatePicker.ShowWeekNumbers = True
+        Me.NewObjectDateAccDatePicker.Size = New System.Drawing.Size(113, 20)
+        Me.NewObjectDateAccDatePicker.TabIndex = 0
         '
         'NewButton
         '
@@ -659,6 +672,8 @@ Partial Friend Class F_HolidayPayReserve
         Me.ItemsDataListView.HasCollapsibleGroups = False
         Me.ItemsDataListView.HeaderWordWrap = True
         Me.ItemsDataListView.HideSelection = False
+        Me.ItemsDataListView.HighlightBackgroundColor = System.Drawing.Color.PaleGreen
+        Me.ItemsDataListView.HighlightForegroundColor = System.Drawing.Color.Black
         Me.ItemsDataListView.IncludeColumnHeadersInCopy = True
         Me.ItemsDataListView.Location = New System.Drawing.Point(0, 177)
         Me.ItemsDataListView.Name = "ItemsDataListView"
@@ -851,7 +866,7 @@ Partial Friend Class F_HolidayPayReserve
         Me.OlvColumn14.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.OlvColumn14.IsEditable = False
         Me.OlvColumn14.IsVisible = False
-        Me.OlvColumn14.Text = "Sukaupta atost. k.d."
+        Me.OlvColumn14.Text = "Sukaupta atost. d."
         Me.OlvColumn14.ToolTipText = ""
         Me.OlvColumn14.Width = 100
         '
@@ -864,7 +879,7 @@ Partial Friend Class F_HolidayPayReserve
         Me.OlvColumn15.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.OlvColumn15.IsEditable = False
         Me.OlvColumn15.IsVisible = False
-        Me.OlvColumn15.Text = "Panaudota atost. k.d."
+        Me.OlvColumn15.Text = "Panaudota atost. d."
         Me.OlvColumn15.ToolTipText = ""
         Me.OlvColumn15.Width = 100
         '
@@ -878,7 +893,7 @@ Partial Friend Class F_HolidayPayReserve
         Me.OlvColumn16.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.OlvColumn16.IsEditable = False
         Me.OlvColumn16.IsVisible = False
-        Me.OlvColumn16.Text = "Atost. Korekcijos k.d."
+        Me.OlvColumn16.Text = "Atost. Korekcijos d."
         Me.OlvColumn16.ToolTipText = ""
         Me.OlvColumn16.Width = 100
         '
@@ -892,7 +907,7 @@ Partial Friend Class F_HolidayPayReserve
         Me.OlvColumn17.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.OlvColumn17.IsEditable = False
         Me.OlvColumn17.IsVisible = False
-        Me.OlvColumn17.Text = "Viso panaudota atost. k.d."
+        Me.OlvColumn17.Text = "Viso panaudota atost. d."
         Me.OlvColumn17.ToolTipText = ""
         Me.OlvColumn17.Width = 100
         '
@@ -904,7 +919,7 @@ Partial Friend Class F_HolidayPayReserve
         Me.OlvColumn18.HeaderFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OlvColumn18.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.OlvColumn18.IsEditable = False
-        Me.OlvColumn18.Text = "Nepanaudota atost. k.d."
+        Me.OlvColumn18.Text = "Nepanaudota atost. d."
         Me.OlvColumn18.ToolTipText = ""
         Me.OlvColumn18.Width = 90
         '
@@ -1178,7 +1193,7 @@ Partial Friend Class F_HolidayPayReserve
         Me.OlvColumn39.CellEditUseWholeCell = True
         Me.OlvColumn39.HeaderFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OlvColumn39.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.OlvColumn39.Text = "Taikytina nepanaud. atost. k.d."
+        Me.OlvColumn39.Text = "Taikytina nepanaud. atost. d."
         Me.OlvColumn39.ToolTipText = ""
         Me.OlvColumn39.Width = 100
         '
@@ -1233,23 +1248,8 @@ Partial Friend Class F_HolidayPayReserve
         '
         'ErrorWarnInfoProvider1
         '
-        Me.ErrorWarnInfoProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
-        Me.ErrorWarnInfoProvider1.BlinkStyleInformation = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
-        Me.ErrorWarnInfoProvider1.BlinkStyleWarning = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.ErrorWarnInfoProvider1.ContainerControl = Me
         Me.ErrorWarnInfoProvider1.DataSource = Me.HolidayPayReserveBindingSource
-        '
-        'NewObjectDateAccDatePicker
-        '
-        Me.NewObjectDateAccDatePicker.BoldedDates = Nothing
-        Me.NewObjectDateAccDatePicker.Location = New System.Drawing.Point(125, 8)
-        Me.NewObjectDateAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        Me.NewObjectDateAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
-        Me.NewObjectDateAccDatePicker.Name = "NewObjectDateAccDatePicker"
-        Me.NewObjectDateAccDatePicker.ReadOnly = False
-        Me.NewObjectDateAccDatePicker.ShowWeekNumbers = True
-        Me.NewObjectDateAccDatePicker.Size = New System.Drawing.Size(113, 20)
-        Me.NewObjectDateAccDatePicker.TabIndex = 0
         '
         'F_HolidayPayReserve
         '

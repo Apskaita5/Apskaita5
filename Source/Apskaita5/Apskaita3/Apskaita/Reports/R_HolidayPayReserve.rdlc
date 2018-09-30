@@ -1487,7 +1487,7 @@
                       </Style>
                       <ZIndex>15</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>Nepan. atost. k.d.</Value>
+                      <Value>Nepan. atost. dienų</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>

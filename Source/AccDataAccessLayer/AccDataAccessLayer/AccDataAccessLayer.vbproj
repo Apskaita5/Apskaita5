@@ -51,16 +51,18 @@
   <ItemGroup>
     <Reference Include="Csla, Version=2.1.4.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\csla20vb\csla20vb\Csla\bin\Release\Csla.dll</HintPath>
+      <HintPath>..\..\ExternalReferencedLibraries\Csla.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=5.2.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\..\MySql.Data.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ExternalReferencedLibraries\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SQLite, Version=1.0.48.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
-      <HintPath>..\..\System.Data.SQLite.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ExternalReferencedLibraries\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Security" />
@@ -72,6 +74,7 @@
   <ItemGroup>
     <Import Include="AccCommon" />
     <Import Include="Csla" />
+    <Import Include="Csla.Core" />
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />

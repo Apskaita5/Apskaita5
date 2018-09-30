@@ -1191,7 +1191,7 @@ Namespace Goods
                 Try
 
                     obj = obj.Save(_OperationLimitations.FinancialDataCanChange _
-                        AndAlso Not financialDataReadOnly)
+                        AndAlso Not financialDataReadOnly, False)
 
                     If IsNew Then
                         _ID = obj.ID

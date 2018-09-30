@@ -99,8 +99,9 @@ Namespace Documents.BankDataExchangeProviders
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BookgDt"))
             ElseIf entry.NtryDtls(0).TxDtls(0).RltdPties Is Nothing Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "entry.NtryDtls.TxDtls.RltdPties"))
-            ElseIf entry.NtryDtls(0).TxDtls(0).AmtDtls Is Nothing Then
-                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.AmtDtls"))
+                ' workaround for paysera, they only provide amount in entry.Amt node
+            ElseIf entry.NtryDtls(0).TxDtls(0).AmtDtls Is Nothing AndAlso entry.Amt Is Nothing Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.AmtDtls/Amt"))
             End If
 
             Dim result As New BankAccountStatementItem
@@ -123,27 +124,53 @@ Namespace Documents.BankDataExchangeProviders
                 result.UniqueCode = entry.NtryDtls(0).TxDtls(0).Refs.TxId
             result.Date = entry.BookgDt.Item
             result.Inflow = (entry.CdtDbtInd = camt_053_001_02.CreditDebitCode.CRDT)
-            If Not entry.NtryDtls(0).TxDtls(0).AmtDtls.TxAmt Is Nothing AndAlso
+
+            If Not entry.NtryDtls(0).TxDtls(0).AmtDtls Is Nothing Then
+
+                If Not entry.NtryDtls(0).TxDtls(0).AmtDtls.TxAmt Is Nothing AndAlso
                     Not entry.NtryDtls(0).TxDtls(0).AmtDtls.TxAmt.Amt Is Nothing Then
-                result.SumInAccount = entry.NtryDtls(0).TxDtls(0).AmtDtls.TxAmt.Amt.Value
-            ElseIf Not entry.NtryDtls(0).TxDtls(0).AmtDtls.PrtryAmt Is Nothing AndAlso
-                    entry.NtryDtls(0).TxDtls(0).AmtDtls.PrtryAmt.Length > 0 AndAlso
-                    Not entry.NtryDtls(0).TxDtls(0).AmtDtls.PrtryAmt(0).Amt Is Nothing Then
-                result.SumInAccount = entry.NtryDtls(0).TxDtls(0).AmtDtls.PrtryAmt(0).Amt.Value
+                    result.SumInAccount = entry.NtryDtls(0).TxDtls(0).AmtDtls.TxAmt.Amt.Value
+                ElseIf Not entry.NtryDtls(0).TxDtls(0).AmtDtls.PrtryAmt Is Nothing AndAlso
+                        entry.NtryDtls(0).TxDtls(0).AmtDtls.PrtryAmt.Length > 0 AndAlso
+                        Not entry.NtryDtls(0).TxDtls(0).AmtDtls.PrtryAmt(0).Amt Is Nothing Then
+                    result.SumInAccount = entry.NtryDtls(0).TxDtls(0).AmtDtls.PrtryAmt(0).Amt.Value
+                Else
+                    Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.AmtDtls.TxAmt/NtryDtls.TxDtls.AmtDtls.PrtryAmt"))
+                End If
+
+                ' workaround for paysera, they only provide amount in entry.Amt node
+            ElseIf Not entry.Amt Is Nothing Then
+                result.SumInAccount = entry.Amt.Value
             Else
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.AmtDtls.TxAmt/NtryDtls.TxDtls.AmtDtls.PrtryAmt"))
+
             End If
-            If entry.NtryDtls(0).TxDtls(0).AmtDtls.InstdAmt Is Nothing OrElse
-                 entry.NtryDtls(0).TxDtls(0).AmtDtls.InstdAmt.Amt Is Nothing Then
-                result.Currency = GetCurrentCompany.BaseCurrency
-                result.OriginalSum = result.SumInAccount
-            Else
-                result.Currency = entry.NtryDtls(0).TxDtls(0).AmtDtls.InstdAmt.Amt.Ccy
+
+            If entry.NtryDtls(0).TxDtls(0).AmtDtls Is Nothing Then
+
+                ' workaround for paysera, they only provide amount in entry.Amt node
+                result.Currency = entry.Amt.Ccy
                 If StringIsNullOrEmpty(result.Currency) OrElse Not IsValidCurrency(result.Currency, True) Then
                     result.Currency = GetCurrentCompany.BaseCurrency
                 End If
-                result.OriginalSum = entry.NtryDtls(0).TxDtls(0).AmtDtls.InstdAmt.Amt.Value
+                result.OriginalSum = entry.Amt.Value
+
+            Else
+
+                If entry.NtryDtls(0).TxDtls(0).AmtDtls.InstdAmt Is Nothing OrElse
+                  entry.NtryDtls(0).TxDtls(0).AmtDtls.InstdAmt.Amt Is Nothing Then
+                    result.Currency = GetCurrentCompany.BaseCurrency
+                    result.OriginalSum = result.SumInAccount
+                Else
+                    result.Currency = entry.NtryDtls(0).TxDtls(0).AmtDtls.InstdAmt.Amt.Ccy
+                    If StringIsNullOrEmpty(result.Currency) OrElse Not IsValidCurrency(result.Currency, True) Then
+                        result.Currency = GetCurrentCompany.BaseCurrency
+                    End If
+                    result.OriginalSum = entry.NtryDtls(0).TxDtls(0).AmtDtls.InstdAmt.Amt.Value
+                End If
+
             End If
+
             ResolveSumBase(result)
 
             If Not entry.NtryDtls(0).TxDtls(0).RmtInf Is Nothing _

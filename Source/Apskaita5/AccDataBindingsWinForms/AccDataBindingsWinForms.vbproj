@@ -64,18 +64,24 @@
   <ItemGroup>
     <Reference Include="Csla, Version=2.1.4.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\csla20vb\csla20vb\Csla\bin\Release\Csla.dll</HintPath>
+      <HintPath>..\..\ExternalReferencedLibraries\Csla.dll</HintPath>
     </Reference>
     <Reference Include="DataProviders, Version=4.8.5482.20772, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MajorSilence binaries for NET 3.5\DataProviders.dll</HintPath>
+      <HintPath>..\..\ExternalReferencedLibraries\DataProviders.dll</HintPath>
     </Reference>
-    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL" />
+    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ExternalReferencedLibraries\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="InvoiceInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\InvoiceInfo\InvoiceInfo\bin\Release\InvoiceInfo.dll</HintPath>
     </Reference>
-    <Reference Include="ListViewPrinter, Version=2.5.0.31248, Culture=neutral, PublicKeyToken=21b031892bc54fb5, processorArchitecture=MSIL" />
+    <Reference Include="ListViewPrinter, Version=2.5.0.31248, Culture=neutral, PublicKeyToken=21b031892bc54fb5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ExternalReferencedLibraries\ListViewPrinter.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ReportViewer_libraries\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -88,21 +94,24 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ReportViewer_libraries\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="ObjectListView, Version=2.9.0.23616, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
+    <Reference Include="ObjectListView, Version=2.9.0.31248, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ObjectListView\ObjectListView\bin\Release\ObjectListView.dll</HintPath>
+      <HintPath>..\..\ExternalReferencedLibraries\ObjectListView.dll</HintPath>
     </Reference>
     <Reference Include="RdlCri, Version=4.5.5482.20773, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MajorSilence binaries for NET 3.5\RdlCri.dll</HintPath>
+      <HintPath>..\..\ExternalReferencedLibraries\RdlCri.dll</HintPath>
+    </Reference>
+    <Reference Include="RdlDesign">
+      <HintPath>..\..\ExternalReferencedLibraries\RdlDesign.dll</HintPath>
     </Reference>
     <Reference Include="RdlEngine, Version=4.8.5482.20772, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MajorSilence binaries for NET 3.5\RdlEngine.dll</HintPath>
+      <HintPath>..\..\ExternalReferencedLibraries\RdlEngine.dll</HintPath>
     </Reference>
     <Reference Include="RdlViewer, Version=4.8.5482.20773, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MajorSilence binaries for NET 3.5\RdlViewer.dll</HintPath>
+      <HintPath>..\..\ExternalReferencedLibraries\RdlViewer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -1792,15 +1801,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\AccDataAccessLayer\AccDataAccessLayer\AccDataAccessLayer.vbproj">
-      <Project>{13ADAA16-3D3A-4F2A-A5D4-D6DE94A31614}</Project>
+      <Project>{13adaa16-3d3a-4f2a-a5d4-d6de94a31614}</Project>
       <Name>AccDataAccessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\AccCommon\AccCommon.vbproj">
-      <Project>{380B0551-D15D-4072-A72C-406274CCB50E}</Project>
+      <Project>{380b0551-d15d-4072-a72c-406274ccb50e}</Project>
       <Name>AccCommon</Name>
     </ProjectReference>
     <ProjectReference Include="..\AccControlsWinForms\AccControlsWinForms.vbproj">
-      <Project>{FF0A84CB-84D9-4984-88C1-9035D4A5D7CC}</Project>
+      <Project>{ff0a84cb-84d9-4984-88c1-9035d4a5d7cc}</Project>
       <Name>AccControlsWinForms</Name>
     </ProjectReference>
     <ProjectReference Include="..\Apskaita5\ApskaitaObjects.vbproj">

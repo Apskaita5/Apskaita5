@@ -200,7 +200,7 @@
         ''' <param name="declarationDataSet">a declaration dataset fetched by the <see cref="GetBaseDataSet">GetBaseDataSet</see> method.</param>
         ''' <param name="preparatorName">a name of the person who prepared the declaration.</param>
         ''' <remarks></remarks>
-        Public Function GetFfDataDataSet(ByVal declarationDataSet As DataSet, _
+        Public Function GetFfDataDataSet(ByVal declarationDataSet As DataSet,
             ByVal preparatorName As String) As DataSet _
             Implements IDeclaration.GetFfDataDataSet
 
@@ -212,70 +212,24 @@
                 preparatorName = ""
             End If
 
-            Dim dds As DataSet = declarationDataSet
-            Dim i As Integer
-            Dim currentUser As AccDataAccessLayer.Security.AccIdentity = GetCurrentIdentity()
-
-            Dim declarationFilePath As String = IO.Path.Combine(AppPath(), FILENAMEFFDATASD13_5)
-            Dim tempPath As String = IO.Path.Combine(AppPath(), "temp.ffdata")
-            Try
-                If IO.File.Exists(tempPath) Then
-                    IO.File.Delete(tempPath)
-                End If
-            Catch ex As Exception
-            End Try
-
             Dim pageCount As Integer = 2
-            If dds.Tables("Details").Rows.Count > 6 Then
-
-                Dim myDoc As New Xml.XmlDocument
-                myDoc.Load(declarationFilePath)
-
-                pageCount = Convert.ToInt32(Math.Ceiling((dds.Tables("Details").Rows.Count - 6) / 5) + 2)
-                For i = 1 To pageCount - 2
-                    Dim addPg As Xml.XmlElement = DirectCast(myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0). _
-                        ChildNodes(0).ChildNodes(1).Clone, Xml.XmlElement)
-                    myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0).ChildNodes(0).AppendChild(addPg)
-                    Dim addTb As Xml.XmlElement = DirectCast(myDoc.ChildNodes(1).ChildNodes(0). _
-                        ChildNodes(1).ChildNodes(1).Clone, Xml.XmlElement)
-                    addTb.Attributes(1).Value = (i + 2).ToString
-                    myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).AppendChild(addTb)
-                Next
-                myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).Attributes(0).Value = pageCount.ToString
-
-                myDoc.Save(tempPath)
-
-            Else
-
-                IO.File.Copy(declarationFilePath, tempPath)
-
-            End If
+            If declarationDataSet.Tables("Details").Rows.Count > 6 Then _
+                pageCount = Convert.ToInt32(Math.Ceiling((declarationDataSet.Tables("Details").Rows.Count - 6) / 5) + 2)
 
             ' read ffdata xml structure to dataset
-            Dim formDataSet As New DataSet
-            Try
-                Using formFileStream As IO.FileStream = New IO.FileStream(tempPath, IO.FileMode.Open)
-                    formDataSet.ReadXml(formFileStream)
-                    formFileStream.Close()
-                End Using
-            Catch ex As Exception
-                Throw New Exception("Failed to prepare ffdata file.", ex)
-            End Try
+            Dim formDataSet As DataSet = GetFormDataSet(pageCount)
 
-            Try
-                IO.File.Delete(tempPath)
-            Catch ex As Exception
-            End Try
-
-            formDataSet.Tables(0).Rows(0).Item(3) = currentUser.Name
+            formDataSet.Tables(0).Rows(0).Item(3) = GetCurrentIdentity.Name
             formDataSet.Tables(0).Rows(0).Item(4) = GetDateInFFDataFormat(Today)
             formDataSet.Tables(1).Rows(0).Item(2) = IO.Path.Combine(AppPath(), FILENAMEMXFDSD13_5)
 
+            Dim dds As DataSet = declarationDataSet
             Dim specificDataRow As DataRow = dds.Tables("Specific").Rows(0)
+            Dim i As Integer
 
             For i = 1 To formDataSet.Tables(8).Rows.Count ' bendri duomenys
                 If formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "InsurerName" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString(
                         dds.Tables("General").Rows(0).Item(0).ToString, 68).ToUpper
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "InsurerCode" Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = dds.Tables("General").Rows(0).Item(3)
@@ -284,31 +238,31 @@
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "InsurerPhone" Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString(dds.Tables("General").Rows(0).Item(8).ToString, 15)
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "InsurerAddress" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString(
                         dds.Tables("General").Rows(0).Item(2).ToString, 68).ToUpper
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "RecipientDepName" Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = specificDataRow.Item(1).ToString
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "DocDate" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetDateInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetDateInFFDataFormat(
                         CDate(specificDataRow.Item(0)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "DocNumber" Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = "1"
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "TaxRateInsurer" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(6)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "TaxRatePerson" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(5)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "TaxRateTotal" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(7)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "PersonCountTotal" Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = specificDataRow.Item(2).ToString
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "InsIncomeTotal" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(3)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "PaymentTotal" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(4)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "ManagerJobPosition" Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = "DIREKTORIUS"
@@ -343,23 +297,23 @@
                 pagePayments = 0
                 For j = 1 To Math.Min(5, detailsDataTable.Rows.Count - (i - 1) * 5 - 1)
                     formDataSet.Tables(8).Rows(38 + (j - 1) * 10 + (i - 1) * 59).Item(1) = (i - 1) * 5 + j + 1
-                    formDataSet.Tables(8).Rows(39 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                    formDataSet.Tables(8).Rows(39 + (j - 1) * 10 + (i - 1) * 59).Item(1) =
                         detailsDataTable.Rows((i - 1) * 5 + j).Item(1)
-                    formDataSet.Tables(8).Rows(40 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                    formDataSet.Tables(8).Rows(40 + (j - 1) * 10 + (i - 1) * 59).Item(1) =
                         detailsDataTable.Rows((i - 1) * 5 + j).Item(2)
-                    formDataSet.Tables(8).Rows(41 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                    formDataSet.Tables(8).Rows(41 + (j - 1) * 10 + (i - 1) * 59).Item(1) =
                         detailsDataTable.Rows((i - 1) * 5 + j).Item(3)
-                    formDataSet.Tables(8).Rows(42 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                    formDataSet.Tables(8).Rows(42 + (j - 1) * 10 + (i - 1) * 59).Item(1) =
                         GetDateInFFDataFormat(CDate(detailsDataTable.Rows((i - 1) * 5 + j).Item(4)))
-                    formDataSet.Tables(8).Rows(43 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                    formDataSet.Tables(8).Rows(43 + (j - 1) * 10 + (i - 1) * 59).Item(1) =
                         GetNumberInFFDataFormat(CDbl(detailsDataTable.Rows((i - 1) * 5 + j).Item(5)))
-                    formDataSet.Tables(8).Rows(44 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                    formDataSet.Tables(8).Rows(44 + (j - 1) * 10 + (i - 1) * 59).Item(1) =
                         GetNumberInFFDataFormat(CDbl(detailsDataTable.Rows((i - 1) * 5 + j).Item(6)))
-                    formDataSet.Tables(8).Rows(45 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                    formDataSet.Tables(8).Rows(45 + (j - 1) * 10 + (i - 1) * 59).Item(1) =
                         detailsDataTable.Rows((i - 1) * 5 + j).Item(7)
-                    formDataSet.Tables(8).Rows(46 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                    formDataSet.Tables(8).Rows(46 + (j - 1) * 10 + (i - 1) * 59).Item(1) =
                         detailsDataTable.Rows((i - 1) * 5 + j).Item(8)
-                    formDataSet.Tables(8).Rows(47 + (j - 1) * 10 + (i - 1) * 59).Item(1) = _
+                    formDataSet.Tables(8).Rows(47 + (j - 1) * 10 + (i - 1) * 59).Item(1) =
                         detailsDataTable.Rows((i - 1) * 5 + j).Item(9)
                     pageIncome = pageIncome + CDbl(detailsDataTable.Rows((i - 1) * 5 + j).Item(5))
                     pagePayments = pagePayments + CDbl(detailsDataTable.Rows((i - 1) * 5 + j).Item(6))
@@ -369,6 +323,44 @@
             Next
 
             Return formDataSet
+
+        End Function
+
+        Private Function GetFormDataSet(ByVal pageCount As Integer) As DataSet
+
+            Dim myDoc As New Xml.XmlDocument
+            myDoc.Load(IO.Path.Combine(AppPath(), FILENAMEFFDATASD13_5))
+
+            If pageCount > 2 Then
+
+                For i As Integer = 1 To pageCount - 2
+                    Dim addPg As Xml.XmlElement = DirectCast(myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0).
+                        ChildNodes(0).ChildNodes(1).Clone, Xml.XmlElement)
+                    myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0).ChildNodes(0).AppendChild(addPg)
+                    Dim addTb As Xml.XmlElement = DirectCast(myDoc.ChildNodes(1).ChildNodes(0).
+                        ChildNodes(1).ChildNodes(1).Clone, Xml.XmlElement)
+                    addTb.Attributes(1).Value = (i + 2).ToString
+                    myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).AppendChild(addTb)
+                Next
+                myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).Attributes(0).Value = pageCount.ToString
+
+            End If
+
+            Dim formXml As String = ToXmlString(myDoc)
+
+            Using sr As New IO.StringReader(formXml)
+
+                Dim result As New DataSet
+                Try
+                    result.ReadXml(sr)
+                Catch ex As Exception
+                    result.Dispose()
+                    Throw
+                End Try
+
+                Return result
+
+            End Using
 
         End Function
 

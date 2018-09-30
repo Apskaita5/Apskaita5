@@ -2265,7 +2265,7 @@
                       </Style>
                       <ZIndex>15</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>(k.d./m.)</Value>
+                      <Value>(d./m.)</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -2286,7 +2286,7 @@
                       </Style>
                       <ZIndex>14</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>(k.d.)</Value>
+                      <Value>(d.)</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -2736,7 +2736,7 @@
                       </Style>
                       <ZIndex>7</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>Atostogų norma (k.d./m.):</Value>
+                      <Value>Atostogų norma (d./m.):</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -2833,7 +2833,7 @@
                       </Style>
                       <ZIndex>3</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value>Viso nepanaudota (k.d.):</Value>
+                      <Value>Viso nepanaudota (d.):</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>

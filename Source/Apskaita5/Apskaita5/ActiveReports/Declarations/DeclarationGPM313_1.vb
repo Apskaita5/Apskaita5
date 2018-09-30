@@ -172,44 +172,27 @@
                 preparatorName = ""
             End If
 
-            Dim dds As DataSet = declarationDataSet
-            Dim i As Integer
-            Dim currentUser As AccDataAccessLayer.Security.AccIdentity = GetCurrentIdentity()
-
-            Dim declarationFilePath As String = IO.Path.Combine(AppPath(), FILENAMEFFDATA)
-            Dim tempPath As String = IO.Path.Combine(AppPath(), "temp.ffdata")
-            Try
-                If IO.File.Exists(tempPath) Then
-                    IO.File.Delete(tempPath)
-                End If
-            Catch ex As Exception
-            End Try
-
-            IO.File.Copy(declarationFilePath, tempPath)
-
             ' read ffdata xml structure to dataset
             Dim formDataSet As New DataSet
             Try
-                Using formFileStream As IO.FileStream = New IO.FileStream(tempPath, IO.FileMode.Open)
+                Using formFileStream As IO.FileStream = New IO.FileStream(
+                    IO.Path.Combine(AppPath(), FILENAMEFFDATA), IO.FileMode.Open)
                     formDataSet.ReadXml(formFileStream)
                     formFileStream.Close()
                 End Using
             Catch ex As Exception
+                formDataSet.Dispose()
                 Throw New Exception("Failed to prepare ffdata file.", ex)
             End Try
 
-            Try
-                IO.File.Delete(tempPath)
-            Catch ex As Exception
-            End Try
-
-            formDataSet.Tables(0).Rows(0).Item(3) = currentUser.Name
+            formDataSet.Tables(0).Rows(0).Item(3) = GetCurrentIdentity.Name
             formDataSet.Tables(0).Rows(0).Item(4) = GetDateInFFDataFormat(Today)
             formDataSet.Tables(1).Rows(0).Item(2) = IO.Path.Combine(AppPath(), FILENAMEMXFD)
 
+            Dim dds As DataSet = declarationDataSet
             Dim specificDataRow As DataRow = dds.Tables("Specific").Rows(0)
 
-            For i = 1 To formDataSet.Tables(8).Rows.Count
+            For i As Integer = 1 To formDataSet.Tables(8).Rows.Count
                 If formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "B_MM_ID" Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = dds.Tables("General").Rows(0).Item(1)
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "B_MM_Pavadinimas" Then

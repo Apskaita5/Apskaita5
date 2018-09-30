@@ -3822,4 +3822,9 @@ t.AccumulatedAmortizationRevaluedPortionTotal, t.ContinuedUsage, t.WasUsedMonths
     <Statement>SELECT a.GoodsID AS ID, a.OperationDate, IFNULL(k.Op_Dok, a.DocNo), q.Pavad, q.Kodas, c.Amount AS QuantityStart, CROUND((c.Amount - IFNULL(SUM(d.Amount), 0.0)), 6) AS QuantityEnd, CROUND((c.TotalValue - IFNULL(SUM(d.TotalValue), 0.0)), 2) AS ValueEnd FROM consignments c LEFT JOIN goodsoperations a ON a.ID=c.AcquisitionID LEFT JOIN bz k ON k.Op_ID=a.JournalEntryID LEFT JOIN asmenys q ON q.ID=k.Op_analitika LEFT JOIN goodsoperations o ON o.ID=c.ParentID LEFT JOIN consignmentdiscards d ON d.ConsignmentID=c.ID LEFT JOIN goodsoperations w ON w.ID=d.ParentID WHERE o.OperationDate&lt;?DF AND w.OperationDate&lt;?DF GROUP BY c.ID HAVING QuantityEnd&gt;0.0 ORDER BY ID;</Statement>
     <Objects>ActiveReports.AuditDataFileSAFT_2_0</Objects>
   </MySQL_Statement>
+  <MySQL_Statement>
+    <Key>UpdateOperationPersistenceObjectGeneralAndWarehouse</Key>
+    <Statement>UPDATE goodsoperations SET OperationDate=?AA, JournalEntryID=?AB, DocNo=?AC, Content=?AD, UpdateDate=?AR, AccountOperation=?AT, WareHouseID=?AF WHERE ID=?CD ;</Statement>
+    <Objects>Goods.OperationPersistenceObject</Objects>
+  </MySQL_Statement>
 </NewDataSet>

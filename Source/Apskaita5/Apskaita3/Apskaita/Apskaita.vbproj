@@ -89,7 +89,7 @@
   <ItemGroup>
     <Reference Include="Csla, Version=2.1.4.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\csla20vb\csla20vb\Csla\bin\Release\Csla.dll</HintPath>
+      <HintPath>..\..\..\ExternalReferencedLibraries\Csla.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -103,33 +103,33 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\ReportViewer_libraries\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="ObjectListView, Version=2.9.0.38611, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
+    <Reference Include="ObjectListView, Version=2.9.0.31248, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\ObjectListView\ObjectListView\bin\Release\ObjectListView.dll</HintPath>
+      <HintPath>..\..\..\ExternalReferencedLibraries\ObjectListView.dll</HintPath>
     </Reference>
     <Reference Include="RdlCri, Version=4.5.5482.20773, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\MajorSilence binaries for NET 3.5\RdlCri.dll</HintPath>
+      <HintPath>..\..\..\ExternalReferencedLibraries\RdlCri.dll</HintPath>
     </Reference>
     <Reference Include="RdlDesign, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\RdlDesign\RdlDesign\bin\x86\Release\RdlDesign.dll</HintPath>
+      <HintPath>..\..\..\ExternalReferencedLibraries\RdlDesign.dll</HintPath>
     </Reference>
     <Reference Include="System">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.configuration" />
     <Reference Include="System.Data">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Drawing">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Windows.Forms">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Xml">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>

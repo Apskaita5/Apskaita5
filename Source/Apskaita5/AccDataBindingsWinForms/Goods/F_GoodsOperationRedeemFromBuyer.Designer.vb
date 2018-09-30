@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class F_GoodsOperationRedeemFromBuyer
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,9 @@ Partial Class F_GoodsOperationRedeemFromBuyer
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim IDLabel As System.Windows.Forms.Label
         Dim InsertDateLabel As System.Windows.Forms.Label
         Dim UpdateDateLabel As System.Windows.Forms.Label
@@ -37,7 +37,6 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Dim JournalEntryTypeHumanReadableLabel As System.Windows.Forms.Label
         Dim JournalEntryCorrespondenceLabel As System.Windows.Forms.Label
         Dim JournalEntryContentLabel As System.Windows.Forms.Label
-        Dim DateLabel As System.Windows.Forms.Label
         Dim WarehouseLabel As System.Windows.Forms.Label
         Dim AmountLabel As System.Windows.Forms.Label
         Dim UnitCostLabel As System.Windows.Forms.Label
@@ -49,71 +48,69 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Dim RedeemCostsAccountLabel As System.Windows.Forms.Label
         Dim DescriptionLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_GoodsOperationRedeemFromBuyer))
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.RedeemCostsAccountAccGridComboBox = New AccControlsWinForms.AccListComboBox
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.RedeemCostsAccountAccGridComboBox = New AccControlsWinForms.AccListComboBox()
         Me.GoodsOperationRedeemFromBuyerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TotalValueInWarehouseAccTextBox = New AccControlsWinForms.AccTextBox
-        Me.AmountInPurchasesAccTextBox = New AccControlsWinForms.AccTextBox
-        Me.WarehouseAccGridComboBox = New AccControlsWinForms.AccListComboBox
-        Me.AmountInWarehouseAccTextBox = New AccControlsWinForms.AccTextBox
-        Me.JournalEntryContentTextBox = New System.Windows.Forms.TextBox
-        Me.AmountAccTextBox = New AccControlsWinForms.AccTextBox
-        Me.JournalEntryCorrespondenceTextBox = New System.Windows.Forms.TextBox
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel
-        Me.JournalEntryIDTextBox = New System.Windows.Forms.TextBox
-        Me.ViewJournalEntryButton = New System.Windows.Forms.Button
-        Me.AttachJournalEntryInfoButton = New System.Windows.Forms.Button
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
-        Me.GoodsAccountingMethodTextBox = New System.Windows.Forms.TextBox
-        Me.GoodsValuationMethodTextBox = New System.Windows.Forms.TextBox
-        Me.JournalEntryTypeHumanReadableTextBox = New System.Windows.Forms.TextBox
-        Me.JournalEntryDateDateTimePicker = New System.Windows.Forms.DateTimePicker
-        Me.AcquisitionAccountTextBox = New System.Windows.Forms.TextBox
-        Me.ComplexOperationHumanReadableTextBox = New System.Windows.Forms.TextBox
-        Me.IDTextBox = New System.Windows.Forms.TextBox
-        Me.InsertDateTextBox = New System.Windows.Forms.TextBox
-        Me.GoodsMeasureUnitTextBox = New System.Windows.Forms.TextBox
-        Me.UpdateDateTextBox = New System.Windows.Forms.TextBox
-        Me.GoodsNameTextBox = New System.Windows.Forms.TextBox
-        Me.ComplexOperationIDTextBox = New System.Windows.Forms.TextBox
-        Me.JournalEntryDocNoTextBox = New System.Windows.Forms.TextBox
-        Me.TotalCostAccTextBox = New AccControlsWinForms.AccTextBox
-        Me.UnitCostAccTextBox = New AccControlsWinForms.AccTextBox
-        Me.TotalValueInPurchasesAccTextBox = New AccControlsWinForms.AccTextBox
-        Me.DescriptionTextBox = New System.Windows.Forms.TextBox
-        Me.Panel2 = New System.Windows.Forms.Panel
-        Me.nCancelButton = New System.Windows.Forms.Button
-        Me.ApplyButton = New System.Windows.Forms.Button
-        Me.nOkButton = New System.Windows.Forms.Button
-        Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
-        Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller
+        Me.TotalValueInWarehouseAccTextBox = New AccControlsWinForms.AccTextBox()
+        Me.AmountInPurchasesAccTextBox = New AccControlsWinForms.AccTextBox()
+        Me.WarehouseAccGridComboBox = New AccControlsWinForms.AccListComboBox()
+        Me.AmountInWarehouseAccTextBox = New AccControlsWinForms.AccTextBox()
+        Me.JournalEntryContentTextBox = New System.Windows.Forms.TextBox()
+        Me.AmountAccTextBox = New AccControlsWinForms.AccTextBox()
+        Me.JournalEntryCorrespondenceTextBox = New System.Windows.Forms.TextBox()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.JournalEntryIDTextBox = New System.Windows.Forms.TextBox()
+        Me.ViewJournalEntryButton = New System.Windows.Forms.Button()
+        Me.AttachJournalEntryInfoButton = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.GoodsAccountingMethodTextBox = New System.Windows.Forms.TextBox()
+        Me.GoodsValuationMethodTextBox = New System.Windows.Forms.TextBox()
+        Me.JournalEntryTypeHumanReadableTextBox = New System.Windows.Forms.TextBox()
+        Me.JournalEntryDateDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.AcquisitionAccountTextBox = New System.Windows.Forms.TextBox()
+        Me.ComplexOperationHumanReadableTextBox = New System.Windows.Forms.TextBox()
+        Me.IDTextBox = New System.Windows.Forms.TextBox()
+        Me.InsertDateTextBox = New System.Windows.Forms.TextBox()
+        Me.GoodsMeasureUnitTextBox = New System.Windows.Forms.TextBox()
+        Me.UpdateDateTextBox = New System.Windows.Forms.TextBox()
+        Me.GoodsNameTextBox = New System.Windows.Forms.TextBox()
+        Me.ComplexOperationIDTextBox = New System.Windows.Forms.TextBox()
+        Me.JournalEntryDocNoTextBox = New System.Windows.Forms.TextBox()
+        Me.TotalCostAccTextBox = New AccControlsWinForms.AccTextBox()
+        Me.UnitCostAccTextBox = New AccControlsWinForms.AccTextBox()
+        Me.TotalValueInPurchasesAccTextBox = New AccControlsWinForms.AccTextBox()
+        Me.DescriptionTextBox = New System.Windows.Forms.TextBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.nCancelButton = New System.Windows.Forms.Button()
+        Me.ApplyButton = New System.Windows.Forms.Button()
+        Me.nOkButton = New System.Windows.Forms.Button()
+        Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller()
+        Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller()
         Me.ErrorWarnInfoProvider1 = New AccControlsWinForms.ErrorWarnInfoProvider(Me.components)
-        Me.DateAccDatePicker = New AccControlsWinForms.AccDatePicker
-        IDLabel = New System.Windows.Forms.Label
-        InsertDateLabel = New System.Windows.Forms.Label
-        UpdateDateLabel = New System.Windows.Forms.Label
-        ComplexOperationIDLabel = New System.Windows.Forms.Label
-        GoodsNameLabel = New System.Windows.Forms.Label
-        GoodsMeasureUnitLabel = New System.Windows.Forms.Label
-        GoodsAccountingMethodLabel = New System.Windows.Forms.Label
-        AcquisitionAccountLabel = New System.Windows.Forms.Label
-        JournalEntryIDLabel = New System.Windows.Forms.Label
-        JournalEntryDateLabel = New System.Windows.Forms.Label
-        JournalEntryDocNoLabel = New System.Windows.Forms.Label
-        JournalEntryTypeHumanReadableLabel = New System.Windows.Forms.Label
-        JournalEntryCorrespondenceLabel = New System.Windows.Forms.Label
-        JournalEntryContentLabel = New System.Windows.Forms.Label
-        DateLabel = New System.Windows.Forms.Label
-        WarehouseLabel = New System.Windows.Forms.Label
-        AmountLabel = New System.Windows.Forms.Label
-        UnitCostLabel = New System.Windows.Forms.Label
-        TotalCostLabel = New System.Windows.Forms.Label
-        AmountInWarehouseLabel = New System.Windows.Forms.Label
-        TotalValueInWarehouseLabel = New System.Windows.Forms.Label
-        AmountInPurchasesLabel = New System.Windows.Forms.Label
-        TotalValueInPurchasesLabel = New System.Windows.Forms.Label
-        RedeemCostsAccountLabel = New System.Windows.Forms.Label
-        DescriptionLabel = New System.Windows.Forms.Label
+        IDLabel = New System.Windows.Forms.Label()
+        InsertDateLabel = New System.Windows.Forms.Label()
+        UpdateDateLabel = New System.Windows.Forms.Label()
+        ComplexOperationIDLabel = New System.Windows.Forms.Label()
+        GoodsNameLabel = New System.Windows.Forms.Label()
+        GoodsMeasureUnitLabel = New System.Windows.Forms.Label()
+        GoodsAccountingMethodLabel = New System.Windows.Forms.Label()
+        AcquisitionAccountLabel = New System.Windows.Forms.Label()
+        JournalEntryIDLabel = New System.Windows.Forms.Label()
+        JournalEntryDateLabel = New System.Windows.Forms.Label()
+        JournalEntryDocNoLabel = New System.Windows.Forms.Label()
+        JournalEntryTypeHumanReadableLabel = New System.Windows.Forms.Label()
+        JournalEntryCorrespondenceLabel = New System.Windows.Forms.Label()
+        JournalEntryContentLabel = New System.Windows.Forms.Label()
+        WarehouseLabel = New System.Windows.Forms.Label()
+        AmountLabel = New System.Windows.Forms.Label()
+        UnitCostLabel = New System.Windows.Forms.Label()
+        TotalCostLabel = New System.Windows.Forms.Label()
+        AmountInWarehouseLabel = New System.Windows.Forms.Label()
+        TotalValueInWarehouseLabel = New System.Windows.Forms.Label()
+        AmountInPurchasesLabel = New System.Windows.Forms.Label()
+        TotalValueInPurchasesLabel = New System.Windows.Forms.Label()
+        RedeemCostsAccountLabel = New System.Windows.Forms.Label()
+        DescriptionLabel = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.GoodsOperationRedeemFromBuyerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -304,28 +301,15 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         JournalEntryContentLabel.Text = "BŽ Turinys:"
         JournalEntryContentLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'DateLabel
-        '
-        DateLabel.AutoSize = True
-        DateLabel.Dock = System.Windows.Forms.DockStyle.Fill
-        DateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DateLabel.Location = New System.Drawing.Point(3, 182)
-        DateLabel.Name = "DateLabel"
-        DateLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
-        DateLabel.Size = New System.Drawing.Size(158, 27)
-        DateLabel.TabIndex = 1
-        DateLabel.Text = "Operacijos Data:"
-        DateLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
         'WarehouseLabel
         '
         WarehouseLabel.AutoSize = True
         WarehouseLabel.Dock = System.Windows.Forms.DockStyle.Fill
         WarehouseLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        WarehouseLabel.Location = New System.Drawing.Point(314, 182)
+        WarehouseLabel.Location = New System.Drawing.Point(3, 182)
         WarehouseLabel.Name = "WarehouseLabel"
         WarehouseLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
-        WarehouseLabel.Size = New System.Drawing.Size(111, 27)
+        WarehouseLabel.Size = New System.Drawing.Size(158, 26)
         WarehouseLabel.TabIndex = 3
         WarehouseLabel.Text = "Sandėlis:"
         WarehouseLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -335,7 +319,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         AmountLabel.AutoSize = True
         AmountLabel.Dock = System.Windows.Forms.DockStyle.Fill
         AmountLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        AmountLabel.Location = New System.Drawing.Point(3, 209)
+        AmountLabel.Location = New System.Drawing.Point(3, 208)
         AmountLabel.Name = "AmountLabel"
         AmountLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         AmountLabel.Size = New System.Drawing.Size(158, 26)
@@ -348,7 +332,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         UnitCostLabel.AutoSize = True
         UnitCostLabel.Dock = System.Windows.Forms.DockStyle.Fill
         UnitCostLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        UnitCostLabel.Location = New System.Drawing.Point(578, 209)
+        UnitCostLabel.Location = New System.Drawing.Point(578, 208)
         UnitCostLabel.Name = "UnitCostLabel"
         UnitCostLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         UnitCostLabel.Size = New System.Drawing.Size(97, 26)
@@ -361,7 +345,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         TotalCostLabel.AutoSize = True
         TotalCostLabel.Dock = System.Windows.Forms.DockStyle.Fill
         TotalCostLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        TotalCostLabel.Location = New System.Drawing.Point(314, 209)
+        TotalCostLabel.Location = New System.Drawing.Point(314, 208)
         TotalCostLabel.Name = "TotalCostLabel"
         TotalCostLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         TotalCostLabel.Size = New System.Drawing.Size(111, 26)
@@ -374,10 +358,10 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         AmountInWarehouseLabel.AutoSize = True
         AmountInWarehouseLabel.Dock = System.Windows.Forms.DockStyle.Fill
         AmountInWarehouseLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        AmountInWarehouseLabel.Location = New System.Drawing.Point(3, 235)
+        AmountInWarehouseLabel.Location = New System.Drawing.Point(3, 234)
         AmountInWarehouseLabel.Name = "AmountInWarehouseLabel"
         AmountInWarehouseLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
-        AmountInWarehouseLabel.Size = New System.Drawing.Size(158, 27)
+        AmountInWarehouseLabel.Size = New System.Drawing.Size(158, 26)
         AmountInWarehouseLabel.TabIndex = 1
         AmountInWarehouseLabel.Text = "Iš jų Sandėlyje Kiekis:"
         AmountInWarehouseLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -387,10 +371,10 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         TotalValueInWarehouseLabel.AutoSize = True
         TotalValueInWarehouseLabel.Dock = System.Windows.Forms.DockStyle.Fill
         TotalValueInWarehouseLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        TotalValueInWarehouseLabel.Location = New System.Drawing.Point(314, 235)
+        TotalValueInWarehouseLabel.Location = New System.Drawing.Point(314, 234)
         TotalValueInWarehouseLabel.Name = "TotalValueInWarehouseLabel"
         TotalValueInWarehouseLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
-        TotalValueInWarehouseLabel.Size = New System.Drawing.Size(111, 27)
+        TotalValueInWarehouseLabel.Size = New System.Drawing.Size(111, 26)
         TotalValueInWarehouseLabel.TabIndex = 3
         TotalValueInWarehouseLabel.Text = "Viso Vertė:"
         TotalValueInWarehouseLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -400,7 +384,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         AmountInPurchasesLabel.AutoSize = True
         AmountInPurchasesLabel.Dock = System.Windows.Forms.DockStyle.Fill
         AmountInPurchasesLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        AmountInPurchasesLabel.Location = New System.Drawing.Point(3, 262)
+        AmountInPurchasesLabel.Location = New System.Drawing.Point(3, 260)
         AmountInPurchasesLabel.Name = "AmountInPurchasesLabel"
         AmountInPurchasesLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         AmountInPurchasesLabel.Size = New System.Drawing.Size(158, 26)
@@ -413,7 +397,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         TotalValueInPurchasesLabel.AutoSize = True
         TotalValueInPurchasesLabel.Dock = System.Windows.Forms.DockStyle.Fill
         TotalValueInPurchasesLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        TotalValueInPurchasesLabel.Location = New System.Drawing.Point(314, 262)
+        TotalValueInPurchasesLabel.Location = New System.Drawing.Point(314, 260)
         TotalValueInPurchasesLabel.Name = "TotalValueInPurchasesLabel"
         TotalValueInPurchasesLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         TotalValueInPurchasesLabel.Size = New System.Drawing.Size(111, 26)
@@ -426,10 +410,10 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         RedeemCostsAccountLabel.AutoSize = True
         RedeemCostsAccountLabel.Dock = System.Windows.Forms.DockStyle.Fill
         RedeemCostsAccountLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        RedeemCostsAccountLabel.Location = New System.Drawing.Point(578, 235)
+        RedeemCostsAccountLabel.Location = New System.Drawing.Point(578, 182)
         RedeemCostsAccountLabel.Name = "RedeemCostsAccountLabel"
         RedeemCostsAccountLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
-        RedeemCostsAccountLabel.Size = New System.Drawing.Size(97, 27)
+        RedeemCostsAccountLabel.Size = New System.Drawing.Size(97, 26)
         RedeemCostsAccountLabel.TabIndex = 1
         RedeemCostsAccountLabel.Text = "Sąnaudų Sąsk.:"
         RedeemCostsAccountLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -439,7 +423,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         DescriptionLabel.AutoSize = True
         DescriptionLabel.Dock = System.Windows.Forms.DockStyle.Fill
         DescriptionLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DescriptionLabel.Location = New System.Drawing.Point(3, 288)
+        DescriptionLabel.Location = New System.Drawing.Point(3, 286)
         DescriptionLabel.Name = "DescriptionLabel"
         DescriptionLabel.Padding = New System.Windows.Forms.Padding(0, 5, 0, 0)
         DescriptionLabel.Size = New System.Drawing.Size(158, 26)
@@ -450,32 +434,27 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 9
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
         Me.TableLayoutPanel1.Controls.Add(DescriptionLabel, 0, 11)
-        Me.TableLayoutPanel1.Controls.Add(Me.RedeemCostsAccountAccGridComboBox, 7, 9)
-        Me.TableLayoutPanel1.Controls.Add(RedeemCostsAccountLabel, 6, 9)
         Me.TableLayoutPanel1.Controls.Add(TotalValueInPurchasesLabel, 3, 10)
         Me.TableLayoutPanel1.Controls.Add(Me.TotalValueInWarehouseAccTextBox, 4, 9)
         Me.TableLayoutPanel1.Controls.Add(TotalValueInWarehouseLabel, 3, 9)
         Me.TableLayoutPanel1.Controls.Add(Me.AmountInPurchasesAccTextBox, 1, 10)
         Me.TableLayoutPanel1.Controls.Add(AmountInPurchasesLabel, 0, 10)
-        Me.TableLayoutPanel1.Controls.Add(Me.WarehouseAccGridComboBox, 4, 7)
-        Me.TableLayoutPanel1.Controls.Add(WarehouseLabel, 3, 7)
         Me.TableLayoutPanel1.Controls.Add(Me.AmountInWarehouseAccTextBox, 1, 9)
         Me.TableLayoutPanel1.Controls.Add(AmountInWarehouseLabel, 0, 9)
         Me.TableLayoutPanel1.Controls.Add(Me.JournalEntryContentTextBox, 1, 6)
         Me.TableLayoutPanel1.Controls.Add(JournalEntryContentLabel, 0, 6)
         Me.TableLayoutPanel1.Controls.Add(Me.AmountAccTextBox, 1, 8)
         Me.TableLayoutPanel1.Controls.Add(AmountLabel, 0, 8)
-        Me.TableLayoutPanel1.Controls.Add(DateLabel, 0, 7)
         Me.TableLayoutPanel1.Controls.Add(Me.JournalEntryCorrespondenceTextBox, 4, 5)
         Me.TableLayoutPanel1.Controls.Add(JournalEntryCorrespondenceLabel, 3, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel3, 1, 4)
@@ -509,24 +488,27 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.TableLayoutPanel1.Controls.Add(Me.UnitCostAccTextBox, 7, 8)
         Me.TableLayoutPanel1.Controls.Add(Me.TotalValueInPurchasesAccTextBox, 4, 10)
         Me.TableLayoutPanel1.Controls.Add(Me.DescriptionTextBox, 1, 11)
-        Me.TableLayoutPanel1.Controls.Add(Me.DateAccDatePicker, 1, 7)
+        Me.TableLayoutPanel1.Controls.Add(WarehouseLabel, 0, 7)
+        Me.TableLayoutPanel1.Controls.Add(Me.WarehouseAccGridComboBox, 1, 7)
+        Me.TableLayoutPanel1.Controls.Add(RedeemCostsAccountLabel, 6, 7)
+        Me.TableLayoutPanel1.Controls.Add(Me.RedeemCostsAccountAccGridComboBox, 7, 7)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 14
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(827, 334)
         Me.TableLayoutPanel1.TabIndex = 0
@@ -536,10 +518,9 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.RedeemCostsAccountAccGridComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "RedeemCostsAccount", True))
         Me.RedeemCostsAccountAccGridComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.RedeemCostsAccountAccGridComboBox.EmptyValueString = ""
-        Me.RedeemCostsAccountAccGridComboBox.InstantBinding = True
-        Me.RedeemCostsAccountAccGridComboBox.Location = New System.Drawing.Point(681, 238)
+        Me.RedeemCostsAccountAccGridComboBox.Location = New System.Drawing.Point(681, 185)
         Me.RedeemCostsAccountAccGridComboBox.Name = "RedeemCostsAccountAccGridComboBox"
-        Me.RedeemCostsAccountAccGridComboBox.Size = New System.Drawing.Size(121, 21)
+        Me.RedeemCostsAccountAccGridComboBox.Size = New System.Drawing.Size(121, 20)
         Me.RedeemCostsAccountAccGridComboBox.TabIndex = 7
         '
         'GoodsOperationRedeemFromBuyerBindingSource
@@ -548,9 +529,10 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         '
         'TotalValueInWarehouseAccTextBox
         '
+        Me.TotalValueInWarehouseAccTextBox.ButtonVisible = False
         Me.TotalValueInWarehouseAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "TotalValueInWarehouse", True))
         Me.TotalValueInWarehouseAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalValueInWarehouseAccTextBox.Location = New System.Drawing.Point(431, 238)
+        Me.TotalValueInWarehouseAccTextBox.Location = New System.Drawing.Point(431, 237)
         Me.TotalValueInWarehouseAccTextBox.Name = "TotalValueInWarehouseAccTextBox"
         Me.TotalValueInWarehouseAccTextBox.NegativeValue = False
         Me.TotalValueInWarehouseAccTextBox.ReadOnly = True
@@ -561,10 +543,11 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         '
         'AmountInPurchasesAccTextBox
         '
+        Me.AmountInPurchasesAccTextBox.ButtonVisible = False
         Me.AmountInPurchasesAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "AmountInPurchases", True))
         Me.AmountInPurchasesAccTextBox.DecimalLength = 6
         Me.AmountInPurchasesAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AmountInPurchasesAccTextBox.Location = New System.Drawing.Point(167, 265)
+        Me.AmountInPurchasesAccTextBox.Location = New System.Drawing.Point(167, 263)
         Me.AmountInPurchasesAccTextBox.Name = "AmountInPurchasesAccTextBox"
         Me.AmountInPurchasesAccTextBox.NegativeValue = False
         Me.AmountInPurchasesAccTextBox.Size = New System.Drawing.Size(121, 20)
@@ -577,18 +560,18 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.WarehouseAccGridComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "Warehouse", True))
         Me.WarehouseAccGridComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WarehouseAccGridComboBox.EmptyValueString = ""
-        Me.WarehouseAccGridComboBox.InstantBinding = True
-        Me.WarehouseAccGridComboBox.Location = New System.Drawing.Point(431, 185)
+        Me.WarehouseAccGridComboBox.Location = New System.Drawing.Point(167, 185)
         Me.WarehouseAccGridComboBox.Name = "WarehouseAccGridComboBox"
-        Me.WarehouseAccGridComboBox.Size = New System.Drawing.Size(371, 21)
+        Me.WarehouseAccGridComboBox.Size = New System.Drawing.Size(385, 20)
         Me.WarehouseAccGridComboBox.TabIndex = 1
         '
         'AmountInWarehouseAccTextBox
         '
+        Me.AmountInWarehouseAccTextBox.ButtonVisible = False
         Me.AmountInWarehouseAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "AmountInWarehouse", True))
         Me.AmountInWarehouseAccTextBox.DecimalLength = 6
         Me.AmountInWarehouseAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AmountInWarehouseAccTextBox.Location = New System.Drawing.Point(167, 238)
+        Me.AmountInWarehouseAccTextBox.Location = New System.Drawing.Point(167, 237)
         Me.AmountInWarehouseAccTextBox.Name = "AmountInWarehouseAccTextBox"
         Me.AmountInWarehouseAccTextBox.NegativeValue = False
         Me.AmountInWarehouseAccTextBox.Size = New System.Drawing.Size(121, 20)
@@ -609,10 +592,11 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         '
         'AmountAccTextBox
         '
+        Me.AmountAccTextBox.ButtonVisible = False
         Me.AmountAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "Amount", True))
         Me.AmountAccTextBox.DecimalLength = 6
         Me.AmountAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AmountAccTextBox.Location = New System.Drawing.Point(167, 212)
+        Me.AmountAccTextBox.Location = New System.Drawing.Point(167, 211)
         Me.AmountAccTextBox.Name = "AmountAccTextBox"
         Me.AmountAccTextBox.NegativeValue = False
         Me.AmountAccTextBox.Size = New System.Drawing.Size(121, 20)
@@ -635,8 +619,8 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         '
         Me.TableLayoutPanel3.ColumnCount = 4
         Me.TableLayoutPanel1.SetColumnSpan(Me.TableLayoutPanel3, 2)
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.JournalEntryIDTextBox, 2, 0)
@@ -864,9 +848,10 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         '
         'TotalCostAccTextBox
         '
+        Me.TotalCostAccTextBox.ButtonVisible = False
         Me.TotalCostAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "TotalCost", True))
         Me.TotalCostAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalCostAccTextBox.Location = New System.Drawing.Point(431, 212)
+        Me.TotalCostAccTextBox.Location = New System.Drawing.Point(431, 211)
         Me.TotalCostAccTextBox.Name = "TotalCostAccTextBox"
         Me.TotalCostAccTextBox.NegativeValue = False
         Me.TotalCostAccTextBox.Size = New System.Drawing.Size(121, 20)
@@ -875,10 +860,11 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         '
         'UnitCostAccTextBox
         '
+        Me.UnitCostAccTextBox.ButtonVisible = False
         Me.UnitCostAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "UnitCost", True))
         Me.UnitCostAccTextBox.DecimalLength = 6
         Me.UnitCostAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UnitCostAccTextBox.Location = New System.Drawing.Point(681, 212)
+        Me.UnitCostAccTextBox.Location = New System.Drawing.Point(681, 211)
         Me.UnitCostAccTextBox.Name = "UnitCostAccTextBox"
         Me.UnitCostAccTextBox.NegativeValue = False
         Me.UnitCostAccTextBox.Size = New System.Drawing.Size(121, 20)
@@ -887,9 +873,10 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         '
         'TotalValueInPurchasesAccTextBox
         '
+        Me.TotalValueInPurchasesAccTextBox.ButtonVisible = False
         Me.TotalValueInPurchasesAccTextBox.DataBindings.Add(New System.Windows.Forms.Binding("DecimalValue", Me.GoodsOperationRedeemFromBuyerBindingSource, "TotalValueInPurchases", True))
         Me.TotalValueInPurchasesAccTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TotalValueInPurchasesAccTextBox.Location = New System.Drawing.Point(431, 265)
+        Me.TotalValueInPurchasesAccTextBox.Location = New System.Drawing.Point(431, 263)
         Me.TotalValueInPurchasesAccTextBox.Name = "TotalValueInPurchasesAccTextBox"
         Me.TotalValueInPurchasesAccTextBox.NegativeValue = False
         Me.TotalValueInPurchasesAccTextBox.ReadOnly = True
@@ -903,7 +890,7 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         Me.TableLayoutPanel1.SetColumnSpan(Me.DescriptionTextBox, 7)
         Me.DescriptionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GoodsOperationRedeemFromBuyerBindingSource, "Description", True))
         Me.DescriptionTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DescriptionTextBox.Location = New System.Drawing.Point(167, 291)
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(167, 289)
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.Size = New System.Drawing.Size(635, 20)
         Me.DescriptionTextBox.TabIndex = 8
@@ -973,25 +960,8 @@ Partial Class F_GoodsOperationRedeemFromBuyer
         '
         'ErrorWarnInfoProvider1
         '
-        Me.ErrorWarnInfoProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
-        Me.ErrorWarnInfoProvider1.BlinkStyleInformation = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
-        Me.ErrorWarnInfoProvider1.BlinkStyleWarning = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.ErrorWarnInfoProvider1.ContainerControl = Me
         Me.ErrorWarnInfoProvider1.DataSource = Me.GoodsOperationRedeemFromBuyerBindingSource
-        '
-        'DateAccDatePicker
-        '
-        Me.DateAccDatePicker.BoldedDates = Nothing
-        Me.DateAccDatePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.GoodsOperationRedeemFromBuyerBindingSource, "Date", True))
-        Me.DateAccDatePicker.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DateAccDatePicker.Location = New System.Drawing.Point(167, 185)
-        Me.DateAccDatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        Me.DateAccDatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
-        Me.DateAccDatePicker.Name = "DateAccDatePicker"
-        Me.DateAccDatePicker.ReadOnly = False
-        Me.DateAccDatePicker.ShowWeekNumbers = True
-        Me.DateAccDatePicker.Size = New System.Drawing.Size(121, 21)
-        Me.DateAccDatePicker.TabIndex = 0
         '
         'F_GoodsOperationRedeemFromBuyer
         '
@@ -1058,5 +1028,4 @@ Partial Class F_GoodsOperationRedeemFromBuyer
     Friend WithEvents ProgressFiller1 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ProgressFiller2 As AccControlsWinForms.ProgressFiller
     Friend WithEvents ErrorWarnInfoProvider1 As AccControlsWinForms.ErrorWarnInfoProvider
-    Friend WithEvents DateAccDatePicker As AccControlsWinForms.AccDatePicker
 End Class

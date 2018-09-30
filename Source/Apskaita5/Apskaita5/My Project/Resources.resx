@@ -15536,4 +15536,7 @@
   <data name="Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_OperationContentNull" xml:space="preserve">
     <value>Operacijos aprašymas išraše nenurodytas</value>
   </data>
+  <data name="Goods_GoodsOperationAcquisition_InvalidChildSaveState" xml:space="preserve">
+    <value>Klaida. Neįmanoma įtraukti naujos įsigijimo suboperacijos negalint nustatyti jos finansinių duomenų.</value>
+  </data>
 </root>

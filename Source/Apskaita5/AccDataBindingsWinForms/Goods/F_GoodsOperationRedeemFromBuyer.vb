@@ -126,8 +126,8 @@ Public Class F_GoodsOperationRedeemFromBuyer
 
         If _FormManager.DataSource Is Nothing OrElse _FormManager.IsChild Then Exit Sub
 
-        Using dlg As New F_JournalEntryInfoList(_FormManager.DataSource.Date.AddMonths(-1), _
-            _FormManager.DataSource.Date, True)
+        Using dlg As New F_JournalEntryInfoList(_FormManager.DataSource.JournalEntryDate.AddMonths(-1),
+            _FormManager.DataSource.JournalEntryDate, True)
 
             If dlg.ShowDialog() <> DialogResult.OK OrElse dlg.SelectedEntries Is Nothing _
                 OrElse dlg.SelectedEntries.Count < 1 Then Exit Sub
@@ -171,7 +171,6 @@ Public Class F_GoodsOperationRedeemFromBuyer
         UnitCostAccTextBox.ReadOnly = _FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.UnitCostIsReadOnly
         AmountAccTextBox.ReadOnly = _FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.AmountIsReadOnly
         TotalCostAccTextBox.ReadOnly = _FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.TotalCostIsReadOnly
-        DateAccDatePicker.ReadOnly = _FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.DateIsReadOnly
         DescriptionTextBox.ReadOnly = _FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.DescriptionIsReadOnly
         AmountInWarehouseAccTextBox.ReadOnly = _FormManager.DataSource Is Nothing OrElse _FormManager.DataSource.AmountInWarehouseIsReadOnly
         RedeemCostsAccountAccGridComboBox.Enabled = Not _FormManager.DataSource Is Nothing AndAlso Not _FormManager.DataSource.RedeemCostsAccountIsReadOnly

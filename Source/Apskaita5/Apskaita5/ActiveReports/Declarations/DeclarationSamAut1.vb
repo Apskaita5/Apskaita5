@@ -324,68 +324,31 @@
                 preparatorName = ""
             End If
 
-            Dim i As Integer
-            Dim dds As DataSet = declarationDataSet
-
-            Dim currentUser As AccDataAccessLayer.Security.AccIdentity = GetCurrentIdentity()
-
-            Dim declarationFilePath As String = IO.Path.Combine(AppPath(), FILENAMEFFDATASAMAUT01)
-            Dim tempPath As String = IO.Path.Combine(AppPath(), "temp.ffdata")
-            Try
-                If IO.File.Exists(tempPath) Then
-                    IO.File.Delete(tempPath)
-                End If
-            Catch ex As Exception
-            End Try
-
-            ' delete 3SD appendix
-            Dim myDoc As New Xml.XmlDocument
-            myDoc.Load(declarationFilePath)
-
-            myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).RemoveChild( _
-                myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).ChildNodes(2))
-            myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0).ChildNodes(0).RemoveChild( _
-                myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0).ChildNodes(0).ChildNodes(2))
-            myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).Attributes(0).Value = "2"
-
-            myDoc.Save(tempPath)
-
             ' read ffdata xml structure to dataset
-            Dim formDataSet As New DataSet
-            Try
-                Using formFileStream As IO.FileStream = New IO.FileStream(tempPath, IO.FileMode.Open)
-                    formDataSet.ReadXml(formFileStream)
-                    formFileStream.Close()
-                End Using
-            Catch ex As Exception
-                Throw New Exception("Failed to prepare ffdata file.", ex)
-            End Try
+            Dim formDataSet As DataSet = GetFormDataSet()
 
-            Try
-                IO.File.Delete(tempPath)
-            Catch ex As Exception
-            End Try
-
-            formDataSet.Tables(0).Rows(0).Item(3) = currentUser.Name
+            formDataSet.Tables(0).Rows(0).Item(3) = GetCurrentIdentity.Name
             formDataSet.Tables(0).Rows(0).Item(4) = GetDateInFFDataFormat(Today)
             formDataSet.Tables(1).Rows(0).Item(2) = IO.Path.Combine(AppPath(), FILENAMEMXFDSAMAUT01)
 
+            Dim dds As DataSet = declarationDataSet
             Dim specificDataRow As DataRow = dds.Tables("Specific").Rows(0)
-            For i = 1 To formDataSet.Tables(8).Rows.Count
+
+            For i As Integer = 1 To formDataSet.Tables(8).Rows.Count
                 If formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "InsurerName" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString(
                         dds.Tables("General").Rows(0).Item(0).ToString, 68).ToUpper
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "InsurerCode" Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = dds.Tables("General").Rows(0).Item(3)
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "PreparatorDetails" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString(
                         preparatorName, 68).ToUpper
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "InsurerPhone" Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString(dds.Tables("General").Rows(0).Item(8).ToString, 15)
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "JuridicalPersonCode" Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = dds.Tables("General").Rows(0).Item(1)
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "InsurerAddress" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString(
                         dds.Tables("General").Rows(0).Item(2).ToString, 68).ToUpper
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "RecipientDepName" Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = specificDataRow.Item(1).ToString.ToUpper
@@ -410,72 +373,102 @@
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "ManagerJobPosition" Then
                     formDataSet.Tables(8).Rows(i - 1).Item(1) = "DIREKTORIUS"
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "ManagerFullName" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetLimitedLengthString(
                         dds.Tables("General").Rows(0).Item(9).ToString, 68).ToUpper
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "IncomeSum" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(14)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "ChargedDebtYearStart" Then
                     If String.IsNullOrEmpty(specificDataRow.Item(15).ToString.Trim) Then
                         formDataSet.Tables(8).Rows(i - 1).Item(1) = ""
                     Else
-                        formDataSet.Tables(8).Rows(i - 1).Item(1) = _
+                        formDataSet.Tables(8).Rows(i - 1).Item(1) =
                             GetNumberInFFDataFormat(CDbl(specificDataRow.Item(15)))
                     End If
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "ChargedDebtQuarterEnd" Then
                     If String.IsNullOrEmpty(specificDataRow.Item(16).ToString.Trim) Then
                         formDataSet.Tables(8).Rows(i - 1).Item(1) = ""
                     Else
-                        formDataSet.Tables(8).Rows(i - 1).Item(1) = _
+                        formDataSet.Tables(8).Rows(i - 1).Item(1) =
                             GetNumberInFFDataFormat(CDbl(specificDataRow.Item(16)))
                     End If
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "ChargedMonthly" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(17)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "ChargedMonth1" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(18)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "ChargedMonth2" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(19)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "ChargedMonth3" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(20)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "ChargedYearTotal" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(21)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "ChargedTotal" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(22)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "TransferQuarterEnd" Then
                     If String.IsNullOrEmpty(specificDataRow.Item(23).ToString.Trim) Then
                         formDataSet.Tables(8).Rows(i - 1).Item(1) = ""
                     Else
-                        formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                        formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                             CDbl(specificDataRow.Item(23)))
                     End If
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "TransferMonthly" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(24)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "TransferMonth1" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(25)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "TransferMonth2" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(26)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "TransferMonth3" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(27)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "TransferYearTotal" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(28)))
                 ElseIf formDataSet.Tables(8).Rows(i - 1).Item(0).ToString = "DebtQuarterEnd" Then
-                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat( _
+                    formDataSet.Tables(8).Rows(i - 1).Item(1) = GetNumberInFFDataFormat(
                         CDbl(specificDataRow.Item(29)))
                 End If
             Next
 
             Return formDataSet
+
+        End Function
+
+        Private Function GetFormDataSet() As DataSet
+
+            ' delete 3SD appendix
+            Dim myDoc As New Xml.XmlDocument
+            myDoc.Load(IO.Path.Combine(AppPath(), FILENAMEFFDATASAMAUT01))
+
+            myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).RemoveChild(
+                myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).ChildNodes(2))
+            myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0).ChildNodes(0).RemoveChild(
+                myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(0).ChildNodes(0).ChildNodes(2))
+            myDoc.ChildNodes(1).ChildNodes(0).ChildNodes(1).Attributes(0).Value = "2"
+
+            Dim formXml As String = ToXmlString(myDoc)
+
+            Using sr As New IO.StringReader(formXml)
+
+                Dim result As New DataSet
+                Try
+                    result.ReadXml(sr)
+                Catch ex As Exception
+                    result.Dispose()
+                    Throw
+                End Try
+
+                Return result
+
+            End Using
 
         End Function
 
