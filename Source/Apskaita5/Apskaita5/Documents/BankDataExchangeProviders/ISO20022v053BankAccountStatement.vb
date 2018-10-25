@@ -215,8 +215,17 @@ Namespace Documents.BankDataExchangeProviders
                     result.PersonName = entry.NtryDtls(0).TxDtls(0).RltdPties.Dbtr.Nm
                     If Not entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct Is Nothing AndAlso
                         Not entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id Is Nothing AndAlso
-                        Not entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item Is Nothing Then _
-                        result.PersonBankAccount = entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item.ToString
+                        Not entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item Is Nothing Then
+
+                        If TypeOf entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item Is String Then
+                            result.PersonBankAccount = entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item.ToString
+                        ElseIf TypeOf entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item Is
+                            camt_053_001_02.GenericAccountIdentification1 Then
+                            result.PersonBankAccount = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item,
+                                camt_053_001_02.GenericAccountIdentification1).Id
+                        End If
+
+                    End If
                     If Not entry.NtryDtls(0).TxDtls(0).RltdAgts Is Nothing AndAlso
                         Not entry.NtryDtls(0).TxDtls(0).RltdAgts.DbtrAgt Is Nothing AndAlso
                         Not entry.NtryDtls(0).TxDtls(0).RltdAgts.DbtrAgt.FinInstnId Is Nothing Then _
@@ -246,8 +255,17 @@ Namespace Documents.BankDataExchangeProviders
                     result.PersonName = entry.NtryDtls(0).TxDtls(0).RltdPties.Cdtr.Nm
                     If Not entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct Is Nothing AndAlso
                         Not entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id Is Nothing AndAlso
-                        Not entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item Is Nothing Then _
-                        result.PersonBankAccount = entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item.ToString
+                        Not entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item Is Nothing Then
+
+                        If TypeOf entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item Is String Then
+                            result.PersonBankAccount = entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item.ToString
+                        ElseIf TypeOf entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item Is
+                            camt_053_001_02.GenericAccountIdentification1 Then
+                            result.PersonBankAccount = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item,
+                                camt_053_001_02.GenericAccountIdentification1).Id
+                        End If
+
+                    End If
                     If Not entry.NtryDtls(0).TxDtls(0).RltdAgts Is Nothing AndAlso
                         Not entry.NtryDtls(0).TxDtls(0).RltdAgts.CdtrAgt Is Nothing AndAlso
                         Not entry.NtryDtls(0).TxDtls(0).RltdAgts.CdtrAgt.FinInstnId Is Nothing Then _

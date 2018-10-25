@@ -337,8 +337,6 @@ Namespace Documents.BankDataExchangeProviders
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.Refs"))
             ElseIf entry.BookgDt Is Nothing Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BookgDt"))
-            ElseIf entry.NtryDtls(0).TxDtls(0).RmtInf Is Nothing Then
-                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.RmtInf"))
             ElseIf entry.NtryDtls(0).TxDtls(0).RltdPties Is Nothing Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "entry.NtryDtls.TxDtls.RltdPties"))
             ElseIf entry.NtryDtls(0).TxDtls(0).AmtDtls Is Nothing Then
@@ -386,18 +384,27 @@ Namespace Documents.BankDataExchangeProviders
             End If
             ResolveSumBase(result)
 
-            If Not entry.NtryDtls(0).TxDtls(0).RmtInf.Ustrd Is Nothing _
+            If entry.NtryDtls(0).TxDtls(0).RmtInf Is Nothing Then
+
+                result.Content = My.Resources.Documents_BankOperationItem_ContentNotSpecified
+
+            Else
+
+                If Not entry.NtryDtls(0).TxDtls(0).RmtInf.Ustrd Is Nothing _
                 AndAlso entry.NtryDtls(0).TxDtls(0).RmtInf.Ustrd.Length > 0 Then
-                result.Content = String.Join(" ", entry.NtryDtls(0).TxDtls(0).RmtInf.Ustrd)
-            End If
-            Try
-                Dim paymentCode As String = entry.NtryDtls(0).TxDtls(0).RmtInf.Strd(0).CdtrRefInf.Ref
-                If Not StringIsNullOrEmpty(paymentCode) Then
-                    result.Content = String.Format(My.Resources.Documents_BankOperationItem_ContentWithPaymentCode,
-                        result.Content, paymentCode)
+                    result.Content = String.Join(" ", entry.NtryDtls(0).TxDtls(0).RmtInf.Ustrd)
                 End If
-            Catch ex As Exception
-            End Try
+                Try
+                    Dim paymentCode As String = entry.NtryDtls(0).TxDtls(0).RmtInf.Strd(0).CdtrRefInf.Ref
+                    If Not StringIsNullOrEmpty(paymentCode) Then
+                        result.Content = String.Format(My.Resources.Documents_BankOperationItem_ContentWithPaymentCode,
+                            result.Content, paymentCode)
+                    End If
+                Catch ex As Exception
+                End Try
+
+            End If
+
             result.Content = GetLimitedLengthString(result.Content, 255)
 
             If result.Inflow Then
@@ -421,8 +428,17 @@ Namespace Documents.BankDataExchangeProviders
                     result.PersonName = entry.NtryDtls(0).TxDtls(0).RltdPties.Dbtr.Nm
                     If Not entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct Is Nothing _
                         AndAlso Not entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id Is Nothing _
-                        AndAlso Not entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item Is Nothing Then _
-                        result.PersonBankAccount = entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item.ToString
+                        AndAlso Not entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item Is Nothing Then
+
+                        If TypeOf entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item Is String Then
+                            result.PersonBankAccount = entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item.ToString
+                        ElseIf TypeOf entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item Is
+                                camt_052_001_02.GenericAccountIdentification1 Then
+                            result.PersonBankAccount = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item,
+                                camt_052_001_02.GenericAccountIdentification1).Id
+                        End If
+
+                    End If
                     If Not entry.NtryDtls(0).TxDtls(0).RltdAgts Is Nothing _
                         AndAlso entry.NtryDtls(0).TxDtls(0).RltdAgts.DbtrAgt Is Nothing _
                         AndAlso entry.NtryDtls(0).TxDtls(0).RltdAgts.DbtrAgt.FinInstnId Is Nothing Then _
@@ -452,8 +468,17 @@ Namespace Documents.BankDataExchangeProviders
                     result.PersonName = entry.NtryDtls(0).TxDtls(0).RltdPties.Cdtr.Nm
                     If Not entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct Is Nothing AndAlso
                         Not entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id Is Nothing AndAlso
-                        Not entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item Is Nothing Then _
-                    result.PersonBankAccount = entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item.ToString
+                        Not entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item Is Nothing Then
+
+                        If TypeOf entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item Is String Then
+                            result.PersonBankAccount = entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item.ToString
+                        ElseIf TypeOf entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item Is
+                                camt_052_001_02.GenericAccountIdentification1 Then
+                            result.PersonBankAccount = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item,
+                                camt_052_001_02.GenericAccountIdentification1).Id
+                        End If
+
+                    End If
                     If Not entry.NtryDtls(0).TxDtls(0).RltdAgts Is Nothing AndAlso
                         Not entry.NtryDtls(0).TxDtls(0).RltdAgts.CdtrAgt Is Nothing AndAlso
                         Not entry.NtryDtls(0).TxDtls(0).RltdAgts.CdtrAgt.FinInstnId Is Nothing Then _

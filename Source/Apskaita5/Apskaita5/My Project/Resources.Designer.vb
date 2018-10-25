@@ -18604,6 +18604,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to nenurodyta.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperationItem_ContentNotSpecified() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperationItem_ContentNotSpecified", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to {0}; įmokos kodas - {1}.
         '''</summary>
         Friend ReadOnly Property Documents_BankOperationItem_ContentWithPaymentCode() As String

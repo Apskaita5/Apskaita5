@@ -15539,4 +15539,7 @@
   <data name="Goods_GoodsOperationAcquisition_InvalidChildSaveState" xml:space="preserve">
     <value>Klaida. Neįmanoma įtraukti naujos įsigijimo suboperacijos negalint nustatyti jos finansinių duomenų.</value>
   </data>
+  <data name="Documents_BankOperationItem_ContentNotSpecified" xml:space="preserve">
+    <value>nenurodyta</value>
+  </data>
 </root>
