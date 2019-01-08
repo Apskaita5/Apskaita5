@@ -15542,4 +15542,46 @@
   <data name="Documents_BankOperationItem_ContentNotSpecified" xml:space="preserve">
     <value>nenurodyta</value>
   </data>
+  <data name="Documents_BankDataExchangeProviders_BankAccountStatementItem_Content" xml:space="preserve">
+    <value>turinys/aprašas</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_BankAccountStatementItem_Currency" xml:space="preserve">
+    <value>operacijos valiuta</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_BankAccountStatementItem_CurrencyRate" xml:space="preserve">
+    <value>banko pritaikytas valiutos kursas</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_BankAccountStatementItem_Date" xml:space="preserve">
+    <value>operacijos data</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_BankAccountStatementItem_DocumentNumber" xml:space="preserve">
+    <value>dok. nr.</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_BankAccountStatementItem_Inflow" xml:space="preserve">
+    <value>pajamos("x")/išlaidos("")</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_BankAccountStatementItem_OriginalSum" xml:space="preserve">
+    <value>suma originalia valiuta</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_BankAccountStatementItem_PersonBankAccount" xml:space="preserve">
+    <value>asmens banko sąskaitos nr.</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_BankAccountStatementItem_PersonBankName" xml:space="preserve">
+    <value>asmens banko pavadinimas</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_BankAccountStatementItem_PersonCode" xml:space="preserve">
+    <value>asmens kodas</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_BankAccountStatementItem_PersonName" xml:space="preserve">
+    <value>asmens pavadinimas</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_BankAccountStatementItem_SumInAccount" xml:space="preserve">
+    <value>suma sąskaitos valiuta</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_BankAccountStatementItem_SumLTL" xml:space="preserve">
+    <value>suma bazine valiuta</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_BankAccountStatementItem_UniqueCode" xml:space="preserve">
+    <value>operacijos unikalus nr.</value>
+  </data>
 </root>

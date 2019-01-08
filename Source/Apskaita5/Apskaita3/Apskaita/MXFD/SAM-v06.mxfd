@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MXFD Version="1.2" CreatedBy="ABBYY eFormDesigner 2.5 (build 181)" CreatedOn="2016-12-23">
-<FormDef Version="1" FormDefId="{167A85DA-AEA9-4793-94C8-D2F207B4EACD}" CreatedBy="" CreatedOn="2016-12-23" URLUpdateForm="http://draudejai.sodra.lt/PublicServiceREST" FFDataCollectServer="https://draudejai.sodra.lt/AuthServiceWS/services/AuthServiceWS" ServiceProvider="SODRA">
+<MXFD Version="1.2" CreatedBy="ABBYY eFormDesigner 2.5 (build 181)" CreatedOn="2017-12-06">
+<FormDef Version="1" FormDefId="{167A85DA-AEA9-4793-94C8-D2F207B4EACD}" CreatedBy="" CreatedOn="2017-12-06" URLUpdateForm="http://draudejai.sodra.lt/PublicServiceREST" FFDataCollectServer="https://draudejai.sodra.lt/AuthServiceWS/services/AuthServiceWS" ServiceProvider="SODRA">
 <FormDescription>PRANEŠIMAS APIE APDRAUSTUOSIUS UŽ ATASKAITINĮ KETVIRTĮ</FormDescription>
 <FormResolution>300</FormResolution>
 <FormAttributes>0</FormAttributes>
@@ -14899,11 +14899,12 @@ P8 - iš viso lape įmokų suma Eur</TextValue>
 <UseUppercase>true</UseUppercase>
 <ListItems>
 <ListItem DisplayName="valstybės tarnautojas/darbuotojas, gaunantis kompensaciją">01</ListItem>
-<ListItem DisplayName="krašto apsaugos savanoris">02</ListItem>
-<ListItem DisplayName="gaunantis darbo užmokestį nuteistasis/asmuo, esantis socialinės ir psichologinės reabilitacijos įstaigoje">03</ListItem>
+<ListItem DisplayName="karys savanoris ir aktyviojo rezervo karys">02</ListItem>
+<ListItem DisplayName="nuteistasis/asmuo, esantis social. ir psichol. reabil. įstaigoje">03</ListItem>
 <ListItem DisplayName="savivaldybės tarybos narys">04</ListItem>
 <ListItem DisplayName="asmuo, pašauktas į jaunesniųjų karininkų vadų mokymus">05</ListItem>
 <ListItem DisplayName="mažosios bendrijos vadovas">06</ListItem>
+<ListItem DisplayName="medicinos ekspertas/specialistas">07</ListItem>
 <ListItem DisplayName="kiti atvejai">99</ListItem>
 </ListItems>
 <UseListPropperties>UseListOnly</UseListPropperties>
@@ -15161,11 +15162,12 @@ P8 - iš viso lape įmokų suma Eur</TextValue>
 <UseUppercase>true</UseUppercase>
 <ListItems>
 <ListItem DisplayName="valstybės tarnautojas/darbuotojas, gaunantis kompensaciją">01</ListItem>
-<ListItem DisplayName="krašto apsaugos savanoris">02</ListItem>
-<ListItem DisplayName="gaunantis darbo užmokestį nuteistasis/asmuo, esantis socialinės ir psichologinės reabilitacijos įstaigoje">03</ListItem>
+<ListItem DisplayName="karys savanoris ir aktyviojo rezervo karys">02</ListItem>
+<ListItem DisplayName="nuteistasis/asmuo, esantis social. ir psichol. reabil. įstaigoje">03</ListItem>
 <ListItem DisplayName="savivaldybės tarybos narys">04</ListItem>
 <ListItem DisplayName="asmuo, pašauktas į jaunesniųjų karininkų vadų mokymus">05</ListItem>
 <ListItem DisplayName="mažosios bendrijos vadovas">06</ListItem>
+<ListItem DisplayName="medicinos ekspertas/specialistas">07</ListItem>
 <ListItem DisplayName="kiti atvejai">99</ListItem>
 </ListItems>
 <UseListPropperties>UseListOnly</UseListPropperties>
@@ -15423,11 +15425,12 @@ P8 - iš viso lape įmokų suma Eur</TextValue>
 <UseUppercase>true</UseUppercase>
 <ListItems>
 <ListItem DisplayName="valstybės tarnautojas/darbuotojas, gaunantis kompensaciją">01</ListItem>
-<ListItem DisplayName="krašto apsaugos savanoris">02</ListItem>
-<ListItem DisplayName="gaunantis darbo užmokestį nuteistasis/asmuo, esantis socialinės ir psichologinės reabilitacijos įstaigoje">03</ListItem>
+<ListItem DisplayName="karys savanoris ir aktyviojo rezervo karys">02</ListItem>
+<ListItem DisplayName="nuteistasis/asmuo, esantis social. ir psichol. reabil. įstaigoje">03</ListItem>
 <ListItem DisplayName="savivaldybės tarybos narys">04</ListItem>
 <ListItem DisplayName="asmuo, pašauktas į jaunesniųjų karininkų vadų mokymus">05</ListItem>
 <ListItem DisplayName="mažosios bendrijos vadovas">06</ListItem>
+<ListItem DisplayName="medicinos ekspertas/specialistas">07</ListItem>
 <ListItem DisplayName="kiti atvejai">99</ListItem>
 </ListItems>
 <UseListPropperties>UseListOnly</UseListPropperties>
@@ -15685,11 +15688,12 @@ P8 - iš viso lape įmokų suma Eur</TextValue>
 <UseUppercase>true</UseUppercase>
 <ListItems>
 <ListItem DisplayName="valstybės tarnautojas/darbuotojas, gaunantis kompensaciją">01</ListItem>
-<ListItem DisplayName="krašto apsaugos savanoris">02</ListItem>
-<ListItem DisplayName="gaunantis darbo užmokestį nuteistasis/asmuo, esantis socialinės ir psichologinės reabilitacijos įstaigoje">03</ListItem>
+<ListItem DisplayName="karys savanoris ir aktyviojo rezervo karys">02</ListItem>
+<ListItem DisplayName="nuteistasis/asmuo, esantis social. ir psichol. reabil. įstaigoje">03</ListItem>
 <ListItem DisplayName="savivaldybės tarybos narys">04</ListItem>
 <ListItem DisplayName="asmuo, pašauktas į jaunesniųjų karininkų vadų mokymus">05</ListItem>
 <ListItem DisplayName="mažosios bendrijos vadovas">06</ListItem>
+<ListItem DisplayName="medicinos ekspertas/specialistas">07</ListItem>
 <ListItem DisplayName="kiti atvejai">99</ListItem>
 </ListItems>
 <UseListPropperties>UseListOnly</UseListPropperties>
@@ -15914,11 +15918,12 @@ Sub InitValues()
 	&apos;-- ReasonList classificator values ------------------------------------
 	ReasonList = Array(_
 		Array(&quot;01&quot;,&quot;valstybės tarnautojas/darbuotojas, gaunantis kompensaciją&quot;,Array()),_
-		Array(&quot;02&quot;,&quot;krašto apsaugos savanoris&quot;,Array()),_
-		Array(&quot;03&quot;,&quot;gaunantis darbo užmokestį nuteistasis/asmuo, esantis socialinės ir psichologinės reabilitacijos įstaigoje&quot;,Array()),_
+		Array(&quot;02&quot;,&quot;karys savanoris ir aktyviojo rezervo karys&quot;,Array()),_
+		Array(&quot;03&quot;,&quot;nuteistasis/asmuo, esantis social. ir psichol. reabil. įstaigoje&quot;,Array()),_
 		Array(&quot;04&quot;,&quot;savivaldybės tarybos narys&quot;,Array()),_
 		Array(&quot;05&quot;,&quot;asmuo, pašauktas į jaunesniųjų karininkų vadų mokymus&quot;,Array()),_
-		Array(&quot;06&quot;,&quot;mažosios bendrijos vadovas&quot;,Array()),_		
+		Array(&quot;06&quot;,&quot;mažosios bendrijos vadovas&quot;,Array()),_
+		Array(&quot;07&quot;,&quot;medicinos ekspertas/specialistas&quot;,Array()),_		
 		Array(&quot;99&quot;,&quot;kiti atvejai&quot;,Array())_		
 	)	
 	ReasonMisc = &quot;99&quot;
@@ -16365,6 +16370,11 @@ Function ValidateReason(FormFields, PageNum, RowNum, RsnCode)
 	if trim(rsnTextExist) = &quot;&quot; then
 		form.setError &quot;Nenurodytas pranešimo pateikimo priežasties atvejis &quot;&amp;PageNum&amp;&quot; lapo &quot;&amp;RowNum&amp;&quot; eilutėje&quot;, Array(FormFields.ItemByName(&quot;ReasonText_&quot;&amp;RowNum)), EL_ERROR
 		exit function
+	end if
+	
+	if RsnCode = &quot;07&quot; and FormFields.ItemByName(&quot;PeriodStartDate_&quot;&amp;RowNum).todate &lt; DateValue(&quot;2017-12-01&quot;) then
+		form.setError &quot;07 pateikimo priežastį pasirinkti galima tik tada, kai laikotarpio pradžia yra 2017-12-01 ir vėlesnė &quot;&amp;PageNum&amp;&quot; lapo &quot;&amp;RowNum&amp;&quot; eilutėje&quot;, GetFieldObjects(FormFields, Array(&quot;PeriodStartDate_&quot;,&quot;ReasonCode_&quot;), RowNum), EL_ERROR
+		Exit Function
 	end if
 		
 	ValidateReason = true

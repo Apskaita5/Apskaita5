@@ -249,22 +249,35 @@
                 Throw New Exception(My.Resources.Documents_BankOperationItemList_SourceStringNull)
             End If
 
-            Dim readText() As String = source.Split(New String() {vbCrLf}, StringSplitOptions.RemoveEmptyEntries)
+            Dim readText() As String
+
+            If source.Contains(vbCrLf) Then
+                readText = source.Split(New String() {vbCrLf}, StringSplitOptions.RemoveEmptyEntries)
+            ElseIf source.Contains(vbCr) Then
+                readText = source.Split(New String() {vbCr}, StringSplitOptions.RemoveEmptyEntries)
+            ElseIf source.Contains(vbLf) Then
+                readText = source.Split(New String() {vbLf}, StringSplitOptions.RemoveEmptyEntries)
+            Else
+                Throw New Exception(My.Resources.Documents_BankDataExchangeProviders_LitasEsisBankAccountStatement_InvalidFileContent)
+            End If
 
             Dim operations As New List(Of String)
+            Dim lineCode As String
 
             For Each s As String In readText
 
-                If GetElement(s, 0).Trim = LITAS_ESIS_OPERATION_LINE_CODE Then
+                lineCode = GetElement(s, 0).Trim
+
+                If lineCode = LITAS_ESIS_OPERATION_LINE_CODE Then
 
                     operations.Add(s)
 
-                ElseIf GetElement(s, 0).Trim = LITAS_ESIS_HEADER_LINE_CODE Then
+                ElseIf lineCode = LITAS_ESIS_HEADER_LINE_CODE Then
 
                     _AccountCurrency = GetElement(s, 17).Trim.ToUpper
                     _AccountIBAN = GetElement(s, 16).Trim.ToUpper
 
-                ElseIf GetElement(s, 0).Trim = LITAS_ESIS_SUMMARY_LINE_CODE Then
+                ElseIf lineCode = LITAS_ESIS_SUMMARY_LINE_CODE Then
 
                     If GetElement(s, 1).Trim.ToLower = LITAS_ESIS_BALANCE_AT_START Then
 

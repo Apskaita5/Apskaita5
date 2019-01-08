@@ -88,10 +88,20 @@ Namespace Printing
             If numberOfCopies < 1 Then numberOfCopies = 1
 
             Using report As New LocalReport()
-                AddReportWithDatasource(report, _ReportDataSet, _NumberOfTablesInUse, _
+
+                AddReportWithDatasource(report, _ReportDataSet, _NumberOfTablesInUse,
                     _RdlcFileStream, _RdlcFileName)
-                Export(report)
+
+                Dim warnings() As Warning = Nothing
+                _Streams = New List(Of Stream)()
+                report.Render("Image", GetDeviceInfo("EMF"), AddressOf CreateStream, warnings)
+
+                For Each stream As Stream In _Streams
+                    stream.Position = 0
+                Next
+
                 DisposeLocalReportDatasources(report)
+
             End Using
 
             PrintInt(numberOfCopies, printerName)
@@ -112,12 +122,36 @@ Namespace Printing
             Dim encoding As String = Nothing
             Dim extension As String = Nothing
             Dim bytes As Byte() = Nothing
+            Dim deviceInfo As String = "<DeviceInfo>" & Environment.NewLine &
+                "<EmbedFonts>None</EmbedFonts>" & Environment.NewLine &
+                "</DeviceInfo>"
 
             Using report As New LocalReport
-                AddReportWithDatasource(report, _ReportDataSet, _NumberOfTablesInUse, _
+                AddReportWithDatasource(report, _ReportDataSet, _NumberOfTablesInUse,
                     _RdlcFileStream, _RdlcFileName)
-                bytes = report.Render("PDF", Nothing, mimeType, _
+                bytes = report.Render("PDF", deviceInfo, mimeType,
                     encoding, extension, streamids, warnings)
+                DisposeLocalReportDatasources(report)
+            End Using
+
+            Return bytes
+
+        End Function
+
+        ''' <summary>
+        ''' Prints the report to a tiff (file) stream.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Friend Function PrintToTiff() As Byte()
+
+            Dim bytes As Byte()
+
+            Using report As New LocalReport
+                AddReportWithDatasource(report, _ReportDataSet, _NumberOfTablesInUse,
+                    _RdlcFileStream, _RdlcFileName)
+                Dim warnings As Microsoft.Reporting.WinForms.Warning() = Nothing
+                Dim streams As String() = Nothing
+                bytes = report.Render("Image", GetDeviceInfo("TIFF"), "", "", "", streams, warnings)
                 DisposeLocalReportDatasources(report)
             End Using
 
@@ -138,14 +172,8 @@ Namespace Printing
 
         End Function
 
-        Private Sub Export(ByVal report As LocalReport)
 
-            Dim pgWidth As String
-            Dim pgHeight As String
-            Dim mgTop As String
-            Dim mgLeft As String
-            Dim mgRight As String
-            Dim mgBottom As String
+        Private Function GetDeviceInfo(format As String) As String
 
             Dim xmlReport As New Xml.XmlDocument()
             Dim ns As New Xml.XmlNamespaceManager(xmlReport.NameTable)
@@ -156,45 +184,36 @@ Namespace Printing
                 xmlReport.Load(New IO.MemoryStream(_RdlcFileStream))
             End If
 
-            ns.AddNamespace("ns", _
-                "http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition")
-            ns.AddNamespace("rd", _
-                "http://schemas.microsoft.com/SQLServer/reporting/reportdesigner")
+            ns.AddNamespace("ns", "http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition")
+            ns.AddNamespace("rd", "http://schemas.microsoft.com/SQLServer/reporting/reportdesigner")
 
-            pgWidth = GetInnerText(xmlReport, ns, "//ns:Report", "ns:PageWidth")
+            Dim pgWidth As String = GetInnerText(xmlReport, ns, "//ns:Report", "ns:PageWidth")
             _Landscape = (pgWidth.Trim = "11.69in")
-            pgHeight = GetInnerText(xmlReport, ns, "//ns:Report", "ns:PageHeight")
-            mgTop = GetInnerText(xmlReport, ns, "//ns:Report", "ns:TopMargin")
-            mgBottom = GetInnerText(xmlReport, ns, "//ns:Report", "ns:BottomMargin")
-            mgLeft = GetInnerText(xmlReport, ns, "//ns:Report", "ns:LeftMargin")
-            mgRight = GetInnerText(xmlReport, ns, "//ns:Report", "ns:RightMargin")
+            Dim pgHeight As String = GetInnerText(xmlReport, ns, "//ns:Report", "ns:PageHeight")
+            Dim mgTop As String = GetInnerText(xmlReport, ns, "//ns:Report", "ns:TopMargin")
+            Dim mgBottom As String = GetInnerText(xmlReport, ns, "//ns:Report", "ns:BottomMargin")
+            Dim mgLeft As String = GetInnerText(xmlReport, ns, "//ns:Report", "ns:LeftMargin")
+            Dim mgRight As String = GetInnerText(xmlReport, ns, "//ns:Report", "ns:RightMargin")
 
             xmlReport = Nothing
             ns = Nothing
 
-            Dim deviceInfo As String = _
-                "<DeviceInfo>" & _
-                "  <OutputFormat>EMF</OutputFormat>" & _
-                "  <PageWidth>" & pgWidth & "</PageWidth>" & _
-                "  <PageHeight>" & pgHeight & "</PageHeight>" & _
-                "  <MarginLeft>" & mgLeft & "</MarginLeft>" & _
-                "  <MarginRight>" & mgRight & "</MarginRight>" & _
-                "  <MarginTop>" & mgTop & "</MarginTop>" & _
-                "  <MarginBottom>" & mgBottom & "</MarginBottom>" & _
-                "  <DpiX>96</DpiX>" & _
-                "  <DpiY>96</DpiY>" & _
-                "</DeviceInfo>"
+            Dim builder As New StringBuilder()
+            builder.AppendLine("<DeviceInfo>")
+            builder.AppendLine(String.Format(" <OutputFormat>{0}</OutputFormat>", format))
+            builder.AppendLine(String.Format(" <PageWidth>{0}</PageWidth>", pgWidth))
+            builder.AppendLine(String.Format(" <PageHeight>{0}</PageHeight>", pgHeight))
+            builder.AppendLine(String.Format(" <MarginLeft>{0}</MarginLeft>", mgLeft))
+            builder.AppendLine(String.Format(" <MarginRight>{0}</MarginRight>", mgRight))
+            builder.AppendLine(String.Format(" <MarginTop>{0}</MarginTop>", mgTop))
+            builder.AppendLine(String.Format(" <MarginBottom>{0}</MarginBottom>", mgBottom))
+            builder.AppendLine(String.Format(" <DpiX>{0}</DpiX>", 96.ToString))
+            builder.AppendLine(String.Format(" <DpiY>{0}</DpiY>", 96.ToString))
+            builder.AppendLine("</DeviceInfo>")
 
-            Dim warnings() As Warning = Nothing
-            _Streams = New List(Of Stream)()
-            report.Render("Image", deviceInfo, AddressOf CreateStream, warnings)
+            Return builder.ToString
 
-            Dim stream As Stream
-            For Each stream In _Streams
-                stream.Position = 0
-            Next
-
-        End Sub
+        End Function
 
         Private Function GetInnerText(ByVal xmlReport As Xml.XmlDocument, _
             ByVal ns As Xml.XmlNamespaceManager, ByVal section As String, _
@@ -209,6 +228,7 @@ Namespace Printing
             End If
 
         End Function
+
 
         Private Sub PrintPage(ByVal sender As Object, ByVal ev As PrintPageEventArgs)
 
@@ -309,8 +329,7 @@ Namespace Printing
             If Not Me.disposedValue Then
                 If disposing Then
                     If Not (_Streams Is Nothing) Then
-                        Dim stream As Stream
-                        For Each stream In _Streams
+                        For Each stream As Stream In _Streams
                             stream.Close()
                         Next
                         _Streams = Nothing

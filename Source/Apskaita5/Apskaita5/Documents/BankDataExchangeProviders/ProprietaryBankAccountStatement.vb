@@ -234,6 +234,38 @@
 
         End Sub
 
+        Public Sub LoadDataFromTable(ByVal source As DataTable)
+
+            If source Is Nothing Then Throw New ArgumentNullException("source")
+
+            _Items = New List(Of BankAccountStatementItem)
+
+            For Each dr As DataRow In source.Rows
+                _Items.Add(GetBankAccountStatementItem(dr))
+            Next
+
+            _Income = 0
+            _Spendings = 0
+            For Each i As BankAccountStatementItem In _Items
+                If i.Inflow Then
+                    _Income = CRound(_Income + i.SumInAccount, 2)
+                Else
+                    _Spendings = CRound(_Income + i.SumInAccount, 2)
+                End If
+            Next
+
+        End Sub
+
+        ''' <summary>
+        ''' Gets a datatable which columns corresponds to the required imported data 
+        ''' (property name, data type and regionalized caption).
+        ''' </summary>
+        ''' <returns></returns>
+        Public Shared Function GetDataTableSpecification() As DataTable
+            Return Utilities.GetDataTableSpecification(GetType(BankAccountStatementItem),
+                New String() {})
+        End Function
+
         ''' <summary>
         ''' Loads data from a string.
         ''' </summary>
@@ -303,6 +335,29 @@
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ProprietaryBankAccountStatement_InvalidSourceString, _
                     vbCrLf, source, vbCrLf, GetPasteStringColumnsDescription()))
             End Try
+
+            Return result
+
+        End Function
+
+        Private Function GetBankAccountStatementItem(ByVal dr As DataRow) As BankAccountStatementItem
+
+            Dim result As New BankAccountStatementItem
+
+            result.Date = DirectCast(dr.Item("Date"), Date)
+            result.DocumentNumber = dr.Item("DocumentNumber").ToString
+            result.PersonCode = dr.Item("PersonCode").ToString
+            result.PersonName = dr.Item("PersonName").ToString
+            result.PersonBankAccount = dr.Item("PersonBankAccount").ToString
+            result.PersonBankName = dr.Item("PersonBankName").ToString
+            result.Content = dr.Item("Content").ToString
+            result.Inflow = DirectCast(dr.Item("Inflow"), Boolean)
+            result.Currency = dr.Item("Currency").ToString.ToUpper
+            result.CurrencyRate = DirectCast(dr.Item("CurrencyRate"), Double)
+            result.OriginalSum = DirectCast(dr.Item("OriginalSum"), Double)
+            result.SumInAccount = DirectCast(dr.Item("SumInAccount"), Double)
+            result.SumLTL = DirectCast(dr.Item("SumLTL"), Double)
+            result.UniqueCode = dr.Item("UniqueCode").ToString
 
             Return result
 

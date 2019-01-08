@@ -17979,6 +17979,132 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to turinys/aprašas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankDataExchangeProviders_BankAccountStatementItem_Content() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankDataExchangeProviders_BankAccountStatementItem_Content", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to operacijos valiuta.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankDataExchangeProviders_BankAccountStatementItem_Currency() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankDataExchangeProviders_BankAccountStatementItem_Currency", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to banko pritaikytas valiutos kursas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankDataExchangeProviders_BankAccountStatementItem_CurrencyRate() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankDataExchangeProviders_BankAccountStatementItem_CurrencyRate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to operacijos data.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankDataExchangeProviders_BankAccountStatementItem_Date() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankDataExchangeProviders_BankAccountStatementItem_Date", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to dok. nr..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankDataExchangeProviders_BankAccountStatementItem_DocumentNumber() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankDataExchangeProviders_BankAccountStatementItem_DocumentNumber", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pajamos(&quot;x&quot;)/išlaidos(&quot;&quot;).
+        '''</summary>
+        Friend ReadOnly Property Documents_BankDataExchangeProviders_BankAccountStatementItem_Inflow() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankDataExchangeProviders_BankAccountStatementItem_Inflow", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma originalia valiuta.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankDataExchangeProviders_BankAccountStatementItem_OriginalSum() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankDataExchangeProviders_BankAccountStatementItem_OriginalSum", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to asmens banko sąskaitos nr..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankDataExchangeProviders_BankAccountStatementItem_PersonBankAccount() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankDataExchangeProviders_BankAccountStatementItem_PersonBankAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to asmens banko pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankDataExchangeProviders_BankAccountStatementItem_PersonBankName() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankDataExchangeProviders_BankAccountStatementItem_PersonBankName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to asmens kodas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankDataExchangeProviders_BankAccountStatementItem_PersonCode() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankDataExchangeProviders_BankAccountStatementItem_PersonCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to asmens pavadinimas.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankDataExchangeProviders_BankAccountStatementItem_PersonName() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankDataExchangeProviders_BankAccountStatementItem_PersonName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma sąskaitos valiuta.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankDataExchangeProviders_BankAccountStatementItem_SumInAccount() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankDataExchangeProviders_BankAccountStatementItem_SumInAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to suma bazine valiuta.
+        '''</summary>
+        Friend ReadOnly Property Documents_BankDataExchangeProviders_BankAccountStatementItem_SumLTL() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankDataExchangeProviders_BankAccountStatementItem_SumLTL", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to operacijos unikalus nr..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankDataExchangeProviders_BankAccountStatementItem_UniqueCode() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankDataExchangeProviders_BankAccountStatementItem_UniqueCode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Duomenys įkrauti iš ISO20022 formato failo - banko išrašo.{0}Banko išrašo periodas nuo {1} iki {2}, valiuta - {3}.{4}Balansas pradžioje - {5}.{6}Įplaukos per išrašo laikotarpį - {7}.{8}Išlaidos per išrašo laikotarpį - {9}.{10}Balansas pabaigoje - {11}..
         '''</summary>
         Friend ReadOnly Property Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_Description() As String
