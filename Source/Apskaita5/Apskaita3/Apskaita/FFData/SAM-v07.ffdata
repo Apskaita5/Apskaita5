@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FFData Version="1" CreatedByApp="ABBYY eFormFiller 2.5 v6 (build 190)" CreatedByLogin="Niemand" CreatedOn="2019-02-10">
+<Form FormDefId="{963BF380-47C3-4B69-A7F7-1B4593572CFE}" FormLocation="d:\browserdownloads\sam-v07.mxfd">
+<DocumentPages>
+<Group Name="Forma">
+<ListPages>
+<ListPage>SAM</ListPage>
+</ListPages>
+<Group Name="Priedas SAM3SD">
+<ListPages>
+<ListPage>SAM3SD</ListPage>
+</ListPages>
+</Group>
+</Group>
+</DocumentPages>
+<Pages Count="2">
+<Page PageDefName="SAM" PageNumber="1">
+<Fields Count="27">
+<Field Name="InsurerName"></Field>
+<Field Name="InsurerCode"></Field>
+<Field Name="JuridicalPersonCode"></Field>
+<Field Name="InsurerPhone"></Field>
+<Field Name="InsurerAddress"></Field>
+<Field Name="DocDate">2019-02-10</Field>
+<Field Name="DocNumber"></Field>
+<Field Name="CycleYear"></Field>
+<Field Name="CycleMonth"></Field>
+<Field Name="RevisedDocument">0</Field>
+<Field Name="RevisedCycleYear"></Field>
+<Field Name="RevisedCycleMonth"></Field>
+<Field Name="Appendixes2">0</Field>
+<Field Name="Apdx2PageCount">1</Field>
+<Field Name="Apdx2PersonCount"></Field>
+<Field Name="Apdx2InsIncomeSum"></Field>
+<Field Name="Apdx2PaymentSum"></Field>
+<Field Name="Appendixes3">0</Field>
+<Field Name="Apdx3PageCount"></Field>
+<Field Name="Apdx3PersonCount"></Field>
+<Field Name="Apdx3InsIncomeSum"></Field>
+<Field Name="Apdx3PaymentSum"></Field>
+<Field Name="ApdxPageCountTotal">1</Field>
+<Field Name="ManagerFullName"></Field>
+<Field Name="PreparatorDetails"></Field>
+<Field Name="FormCode">SAM</Field>
+<Field Name="FormVersion">07</Field>
+</Fields>
+</Page>
+<Page PageDefName="SAM3SD" PageNumber="2">
+<Fields Count="63">
+<Field Name="RowNumber_1"></Field>
+<Field Name="PersonCode_1"></Field>
+<Field Name="InsuranceSeries_1"></Field>
+<Field Name="InsuranceNumber_1"></Field>
+<Field Name="InsIncomeSum_1"></Field>
+<Field Name="TaxRate_1"></Field>
+<Field Name="PaymentSum_1"></Field>
+<Field Name="PersonFirstName_1"></Field>
+<Field Name="PersonLastName_1"></Field>
+<Field Name="RowNumber_2"></Field>
+<Field Name="PersonCode_2"></Field>
+<Field Name="InsuranceSeries_2"></Field>
+<Field Name="InsuranceNumber_2"></Field>
+<Field Name="InsIncomeSum_2"></Field>
+<Field Name="TaxRate_2"></Field>
+<Field Name="PaymentSum_2"></Field>
+<Field Name="PersonFirstName_2"></Field>
+<Field Name="PersonLastName_2"></Field>
+<Field Name="RowNumber_3"></Field>
+<Field Name="PersonCode_3"></Field>
+<Field Name="InsuranceSeries_3"></Field>
+<Field Name="InsuranceNumber_3"></Field>
+<Field Name="InsIncomeSum_3"></Field>
+<Field Name="TaxRate_3"></Field>
+<Field Name="PaymentSum_3"></Field>
+<Field Name="PersonFirstName_3"></Field>
+<Field Name="PersonLastName_3"></Field>
+<Field Name="RowNumber_4"></Field>
+<Field Name="PersonCode_4"></Field>
+<Field Name="InsuranceSeries_4"></Field>
+<Field Name="InsuranceNumber_4"></Field>
+<Field Name="InsIncomeSum_4"></Field>
+<Field Name="TaxRate_4"></Field>
+<Field Name="PaymentSum_4"></Field>
+<Field Name="PersonFirstName_4"></Field>
+<Field Name="PersonLastName_4"></Field>
+<Field Name="RowNumber_5"></Field>
+<Field Name="PersonCode_5"></Field>
+<Field Name="InsuranceSeries_5"></Field>
+<Field Name="InsuranceNumber_5"></Field>
+<Field Name="InsIncomeSum_5"></Field>
+<Field Name="TaxRate_5"></Field>
+<Field Name="PaymentSum_5"></Field>
+<Field Name="PersonFirstName_5"></Field>
+<Field Name="PersonLastName_5"></Field>
+<Field Name="RowNumber_6"></Field>
+<Field Name="PersonCode_6"></Field>
+<Field Name="InsuranceSeries_6"></Field>
+<Field Name="InsuranceNumber_6"></Field>
+<Field Name="InsIncomeSum_6"></Field>
+<Field Name="TaxRate_6"></Field>
+<Field Name="PaymentSum_6"></Field>
+<Field Name="PersonFirstName_6"></Field>
+<Field Name="PersonLastName_6"></Field>
+<Field Name="InsIncomePage"></Field>
+<Field Name="PaymentPage"></Field>
+<Field Name="InsurerCode"></Field>
+<Field Name="PageNumber">1</Field>
+<Field Name="PageTotal">1</Field>
+<Field Name="DocDate">2019-02-10</Field>
+<Field Name="DocNumber"></Field>
+<Field Name="FormCode">SAM3SD</Field>
+<Field Name="FormVersion">07</Field>
+</Fields>
+</Page>
+</Pages>
+</Form>
+</FFData>

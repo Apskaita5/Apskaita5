@@ -101,9 +101,11 @@
     <Compile Include="ActiveReports\DebtStatementItemList.vb" />
     <Compile Include="ActiveReports\DebtStatementItemType.vb" />
     <Compile Include="ActiveReports\DebtStatementPerson.vb" />
+    <Compile Include="ActiveReports\Declarations\DeclarationGPM312_1.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationGPM313_1.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationSAM_6.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationFR0471_5.vb" />
+    <Compile Include="ActiveReports\Declarations\DeclarationSAM_7.vb" />
     <Compile Include="ActiveReports\Declarations\InvoiceRegisterISaf_1.vb" />
     <Compile Include="ActiveReports\Declarations\ISafTemplates\ISaf_1_2.vb" />
     <Compile Include="ActiveReports\Declarations\SafTTemplates\SAFT_2_0.vb" />

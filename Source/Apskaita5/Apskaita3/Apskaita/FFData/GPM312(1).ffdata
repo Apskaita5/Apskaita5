@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FFData Version="1" CreatedByApp="ABBYY eFormFiller 2.5 v6 (build 190)" CreatedByLogin="Niemand" CreatedOn="2019-02-08">
+<Form FormDefId="{DD0F88DD-A858-4595-AF2F-3643D0069A39}" FormLocation="c:\users\niemand\appdata\local\temp\temp1_gpm312_mxfd_04.zip\gpm312.mxfd">
+<DocumentPages>
+<Group Name="Visa forma">
+<ListPages>
+<ListPage>GPM312</ListPage>
+</ListPages>
+<Group Name="Priedas_GPM312L">
+<ListPages>
+<ListPage>GPM312L</ListPage>
+</ListPages>
+</Group>
+<Group Name="Priedas_GPM312U">
+<ListPages>
+<ListPage>GPM312U</ListPage>
+</ListPages>
+</Group>
+</Group>
+</DocumentPages>
+<Pages Count="3">
+<Page PageDefName="GPM312" PageNumber="1">
+<Fields Count="9">
+<Field Name="B_MM_ID"></Field>
+<Field Name="B_MM_Pavad"></Field>
+<Field Name="B_ML_Metai"></Field>
+<Field Name="G4">0,00</Field>
+<Field Name="G5">0,00</Field>
+<Field Name="G6">0,00</Field>
+<Field Name="G7">0,00</Field>
+<Field Name="B_FormNr"></Field>
+<Field Name="B_FormVerNr"></Field>
+</Fields>
+</Page>
+<Page PageDefName="GPM312L" PageNumber="2">
+<Fields Count="135">
+<Field Name="L1-1"></Field>
+<Field Name="L2-1"></Field>
+<Field Name="L3-1"></Field>
+<Field Name="L4-1"></Field>
+<Field Name="L5-1"></Field>
+<Field Name="L6-1"></Field>
+<Field Name="L7-1"></Field>
+<Field Name="L8-1"></Field>
+<Field Name="L9-1"></Field>
+<Field Name="L10-1"></Field>
+<Field Name="L11-1"></Field>
+<Field Name="L12-1"></Field>
+<Field Name="L13-1"></Field>
+<Field Name="L1-2"></Field>
+<Field Name="L2-2"></Field>
+<Field Name="L3-2"></Field>
+<Field Name="L4-2"></Field>
+<Field Name="L5-2"></Field>
+<Field Name="L6-2"></Field>
+<Field Name="L7-2"></Field>
+<Field Name="L8-2"></Field>
+<Field Name="L9-2"></Field>
+<Field Name="L10-2"></Field>
+<Field Name="L11-2"></Field>
+<Field Name="L12-2"></Field>
+<Field Name="L13-2"></Field>
+<Field Name="L1-3"></Field>
+<Field Name="L2-3"></Field>
+<Field Name="L3-3"></Field>
+<Field Name="L4-3"></Field>
+<Field Name="L5-3"></Field>
+<Field Name="L6-3"></Field>
+<Field Name="L7-3"></Field>
+<Field Name="L8-3"></Field>
+<Field Name="L9-3"></Field>
+<Field Name="L10-3"></Field>
+<Field Name="L11-3"></Field>
+<Field Name="L12-3"></Field>
+<Field Name="L13-3"></Field>
+<Field Name="L1-4"></Field>
+<Field Name="L2-4"></Field>
+<Field Name="L3-4"></Field>
+<Field Name="L4-4"></Field>
+<Field Name="L5-4"></Field>
+<Field Name="L6-4"></Field>
+<Field Name="L7-4"></Field>
+<Field Name="L8-4"></Field>
+<Field Name="L9-4"></Field>
+<Field Name="L10-4"></Field>
+<Field Name="L11-4"></Field>
+<Field Name="L12-4"></Field>
+<Field Name="L13-4"></Field>
+<Field Name="L1-5"></Field>
+<Field Name="L2-5"></Field>
+<Field Name="L3-5"></Field>
+<Field Name="L4-5"></Field>
+<Field Name="L5-5"></Field>
+<Field Name="L6-5"></Field>
+<Field Name="L7-5"></Field>
+<Field Name="L8-5"></Field>
+<Field Name="L9-5"></Field>
+<Field Name="L10-5"></Field>
+<Field Name="L11-5"></Field>
+<Field Name="L12-5"></Field>
+<Field Name="L13-5"></Field>
+<Field Name="L1-6"></Field>
+<Field Name="L2-6"></Field>
+<Field Name="L3-6"></Field>
+<Field Name="L4-6"></Field>
+<Field Name="L5-6"></Field>
+<Field Name="L6-6"></Field>
+<Field Name="L7-6"></Field>
+<Field Name="L8-6"></Field>
+<Field Name="L9-6"></Field>
+<Field Name="L10-6"></Field>
+<Field Name="L11-6"></Field>
+<Field Name="L12-6"></Field>
+<Field Name="L13-6"></Field>
+<Field Name="L1-7"></Field>
+<Field Name="L2-7"></Field>
+<Field Name="L3-7"></Field>
+<Field Name="L4-7"></Field>
+<Field Name="L5-7"></Field>
+<Field Name="L6-7"></Field>
+<Field Name="L7-7"></Field>
+<Field Name="L8-7"></Field>
+<Field Name="L9-7"></Field>
+<Field Name="L10-7"></Field>
+<Field Name="L11-7"></Field>
+<Field Name="L12-7"></Field>
+<Field Name="L13-7"></Field>
+<Field Name="L1-8"></Field>
+<Field Name="L2-8"></Field>
+<Field Name="L3-8"></Field>
+<Field Name="L4-8"></Field>
+<Field Name="L5-8"></Field>
+<Field Name="L6-8"></Field>
+<Field Name="L7-8"></Field>
+<Field Name="L8-8"></Field>
+<Field Name="L9-8"></Field>
+<Field Name="L10-8"></Field>
+<Field Name="L11-8"></Field>
+<Field Name="L12-8"></Field>
+<Field Name="L13-8"></Field>
+<Field Name="L1-9"></Field>
+<Field Name="L2-9"></Field>
+<Field Name="L3-9"></Field>
+<Field Name="L4-9"></Field>
+<Field Name="L5-9"></Field>
+<Field Name="L6-9"></Field>
+<Field Name="L7-9"></Field>
+<Field Name="L8-9"></Field>
+<Field Name="L9-9"></Field>
+<Field Name="L10-9"></Field>
+<Field Name="L11-9"></Field>
+<Field Name="L12-9"></Field>
+<Field Name="L13-9"></Field>
+<Field Name="L1-10"></Field>
+<Field Name="L2-10"></Field>
+<Field Name="L3-10"></Field>
+<Field Name="L4-10"></Field>
+<Field Name="L5-10"></Field>
+<Field Name="L6-10"></Field>
+<Field Name="L7-10"></Field>
+<Field Name="L8-10"></Field>
+<Field Name="L9-10"></Field>
+<Field Name="L10-10"></Field>
+<Field Name="L11-10"></Field>
+<Field Name="L12-10"></Field>
+<Field Name="L13-10"></Field>
+<Field Name="B_MM_ID"></Field>
+<Field Name="B_ML_Metai"></Field>
+<Field Name="B_FormNr"></Field>
+<Field Name="B_FormVerNr"></Field>
+<Field Name="LapoNr">1</Field>
+</Fields>
+</Page>
+<Page PageDefName="GPM312U" PageNumber="3">
+<Fields Count="80">
+<Field Name="U1-1"></Field>
+<Field Name="U2-1"></Field>
+<Field Name="U3-1"></Field>
+<Field Name="U4-1"></Field>
+<Field Name="U5-1"></Field>
+<Field Name="U6-1"></Field>
+<Field Name="U7-1"></Field>
+<Field Name="U8-1"></Field>
+<Field Name="U9-1"></Field>
+<Field Name="U10-1"></Field>
+<Field Name="U11-1"></Field>
+<Field Name="U12-1"></Field>
+<Field Name="U13-1"></Field>
+<Field Name="U14-1"></Field>
+<Field Name="U15-1"></Field>
+<Field Name="U1-2"></Field>
+<Field Name="U2-2"></Field>
+<Field Name="U3-2"></Field>
+<Field Name="U4-2"></Field>
+<Field Name="U5-2"></Field>
+<Field Name="U6-2"></Field>
+<Field Name="U7-2"></Field>
+<Field Name="U8-2"></Field>
+<Field Name="U9-2"></Field>
+<Field Name="U10-2"></Field>
+<Field Name="U11-2"></Field>
+<Field Name="U12-2"></Field>
+<Field Name="U13-2"></Field>
+<Field Name="U14-2"></Field>
+<Field Name="U15-2"></Field>
+<Field Name="U1-3"></Field>
+<Field Name="U2-3"></Field>
+<Field Name="U3-3"></Field>
+<Field Name="U4-3"></Field>
+<Field Name="U5-3"></Field>
+<Field Name="U6-3"></Field>
+<Field Name="U7-3"></Field>
+<Field Name="U8-3"></Field>
+<Field Name="U9-3"></Field>
+<Field Name="U10-3"></Field>
+<Field Name="U11-3"></Field>
+<Field Name="U12-3"></Field>
+<Field Name="U13-3"></Field>
+<Field Name="U14-3"></Field>
+<Field Name="U15-3"></Field>
+<Field Name="U1-4"></Field>
+<Field Name="U2-4"></Field>
+<Field Name="U3-4"></Field>
+<Field Name="U4-4"></Field>
+<Field Name="U5-4"></Field>
+<Field Name="U6-4"></Field>
+<Field Name="U7-4"></Field>
+<Field Name="U8-4"></Field>
+<Field Name="U9-4"></Field>
+<Field Name="U10-4"></Field>
+<Field Name="U11-4"></Field>
+<Field Name="U12-4"></Field>
+<Field Name="U13-4"></Field>
+<Field Name="U14-4"></Field>
+<Field Name="U15-4"></Field>
+<Field Name="U1-5"></Field>
+<Field Name="U2-5"></Field>
+<Field Name="U3-5"></Field>
+<Field Name="U4-5"></Field>
+<Field Name="U5-5"></Field>
+<Field Name="U6-5"></Field>
+<Field Name="U7-5"></Field>
+<Field Name="U8-5"></Field>
+<Field Name="U9-5"></Field>
+<Field Name="U10-5"></Field>
+<Field Name="U11-5"></Field>
+<Field Name="U12-5"></Field>
+<Field Name="U13-5"></Field>
+<Field Name="U14-5"></Field>
+<Field Name="U15-5"></Field>
+<Field Name="B_MM_ID"></Field>
+<Field Name="B_ML_Metai"></Field>
+<Field Name="B_FormNr"></Field>
+<Field Name="B_FormVerNr"></Field>
+<Field Name="LapoNr">1</Field>
+</Fields>
+</Page>
+</Pages>
+</Form>
+</FFData>

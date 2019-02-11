@@ -41,7 +41,7 @@
         ''' <remarks></remarks>
         Public ReadOnly Property ValidTo() As Date Implements IDeclaration.ValidTo
             Get
-                Return Date.MaxValue
+                Return New Date(2018, 12, 31)
             End Get
         End Property
 
