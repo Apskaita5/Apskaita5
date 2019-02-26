@@ -2018,14 +2018,12 @@
                         <FontFamily>Calibri</FontFamily>
                         <FontWeight>700</FontWeight>
                         <TextAlign>Center</TextAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                       <ZIndex>21</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value />
+                      <Value>=First(Fields!Column7.Value, "ReportData_TableGeneral")</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -2069,14 +2067,12 @@
                         <FontFamily>Calibri</FontFamily>
                         <FontWeight>700</FontWeight>
                         <TextAlign>Center</TextAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                       <ZIndex>19</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value />
+                      <Value>=First(Fields!Column8.Value, "ReportData_TableGeneral")</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -2119,14 +2115,12 @@
                         <FontFamily>Calibri</FontFamily>
                         <FontWeight>700</FontWeight>
                         <TextAlign>Center</TextAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                       <ZIndex>17</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value />
+                      <Value>=First(Fields!Column9.Value, "ReportData_TableGeneral")</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>
@@ -2194,14 +2188,13 @@
                         </BorderWidth>
                         <FontFamily>Calibri</FontFamily>
                         <FontWeight>700</FontWeight>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
+                        <TextAlign>Center</TextAlign>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                       <ZIndex>14</ZIndex>
                       <CanGrow>true</CanGrow>
-                      <Value />
+                      <Value>=First(Fields!Column10.Value, "ReportData_TableGeneral")</Value>
                     </Textbox>
                   </ReportItems>
                 </TableCell>

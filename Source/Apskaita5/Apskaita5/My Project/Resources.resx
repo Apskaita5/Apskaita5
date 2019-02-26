@@ -862,7 +862,7 @@
     <value>Klaida. Pasirinktame faile nėra saugomi finansinės atskaitomybės struktūros duomenys.</value>
   </data>
   <data name="General_DefaultRateType_GpmWage" xml:space="preserve">
-    <value>GPM</value>
+    <value>GPM darbo užmokesčiui</value>
   </data>
   <data name="General_DefaultRateType_GuaranteeFund" xml:space="preserve">
     <value>garant. fondo</value>
@@ -1156,7 +1156,7 @@
     <value>d. d. VDU skaičiavimui</value>
   </data>
   <data name="Workers_WageItem_DeductionGPM" xml:space="preserve">
-    <value>išskaičiuota GPM</value>
+    <value>išskaičiuota GPM viso</value>
   </data>
   <data name="Workers_WageItem_DeductionImprest" xml:space="preserve">
     <value>išskaičiuota avanso</value>
@@ -1198,7 +1198,7 @@
     <value>išmokėta</value>
   </data>
   <data name="Workers_WageItem_NPD" xml:space="preserve">
-    <value>pritaikytas NPD</value>
+    <value>pritaikytas NPD viso</value>
   </data>
   <data name="Workers_WageItem_ONHoursWorked" xml:space="preserve">
     <value>viršvalandžių ir naktį dirbtų val. skaičius</value>
@@ -15583,5 +15583,20 @@
   </data>
   <data name="Documents_BankDataExchangeProviders_BankAccountStatementItem_UniqueCode" xml:space="preserve">
     <value>operacijos unikalus nr.</value>
+  </data>
+  <data name="General_DefaultRateType_GpmSickLeave" xml:space="preserve">
+    <value>GPM ligos kompensacijai</value>
+  </data>
+  <data name="Workers_CompanyWageRates_ApplyNpdToSickLeave" xml:space="preserve">
+    <value>Taikyti NPD ligai</value>
+  </data>
+  <data name="Workers_CompanyWageRates_RateGPMSickLeave" xml:space="preserve">
+    <value>GPM tarifas nedarbingumui</value>
+  </data>
+  <data name="Workers_WageItem_DeductedGpmSickLeave" xml:space="preserve">
+    <value>išskaičiuota GPM ligai</value>
+  </data>
+  <data name="Workers_WageItem_NpdSickLeave" xml:space="preserve">
+    <value>pritaikyta NPD ligai</value>
   </data>
 </root>

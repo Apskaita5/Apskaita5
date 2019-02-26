@@ -1559,6 +1559,7 @@
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.SharesOperationInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.General.SharesClassList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.General.SharesOperation.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Workers.WageItem.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

@@ -318,8 +318,22 @@ Namespace WebControls
             End If
 
             Dim updateDescription As String = ""
+            Dim oldUpdateDescription As String = ""
+            Dim descriptionOld As Boolean = False
             For i As Integer = 4 To lines.Length
-                updateDescription = updateDescription & lines(i - 1) & vbCrLf
+
+                Try
+                    Dim currentUpdateDate As Date = Date.ParseExact(lines(i - 1), "yyyy-MM-dd", Globalization.CultureInfo.InvariantCulture)
+                    If _ApplicationCurrentVersion.Date >= currentUpdateDate.Date Then descriptionOld = True
+                Catch ex As Exception
+                End Try
+
+                If descriptionOld Then
+                    oldUpdateDescription = updateDescription & lines(i - 1) & vbCrLf
+                Else
+                    updateDescription = updateDescription & lines(i - 1) & vbCrLf
+                End If
+
             Next
             updateDescription = updateDescription.Trim
 

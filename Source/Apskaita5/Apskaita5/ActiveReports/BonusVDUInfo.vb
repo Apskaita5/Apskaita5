@@ -93,29 +93,30 @@ Namespace ActiveReports
 
 #Region " Factory Methods "
 
-        Friend Shared Function GetBonusVDUInfo(ByVal dr As DataRow) As BonusVDUInfo
-            Return New BonusVDUInfo(dr)
+        Friend Shared Function GetBonusVDUInfo(ByVal dr As DataRow, calculationDate As Date) As BonusVDUInfo
+            Return New BonusVDUInfo(dr, calculationDate)
         End Function
 
         Private Sub New()
             ' require use of factory methods
         End Sub
 
-        Private Sub New(ByVal dr As DataRow)
-            Fetch(dr)
+        Private Sub New(ByVal dr As DataRow, calculationDate As Date)
+            Fetch(dr, calculationDate)
         End Sub
 
 #End Region
 
 #Region " Data Access "
 
-        Private Sub Fetch(ByVal dr As DataRow)
+        Private Sub Fetch(ByVal dr As DataRow, calculationDate As Date)
 
             _Year = CIntSafe(dr.Item(0), 0)
             _Month = CIntSafe(dr.Item(1), 0)
             _BonusType = Utilities.ConvertDatabaseCharID(Of BonusType)(CStrSafe(dr.Item(2)))
             _BonusTypeHumanReadable = Utilities.ConvertLocalizedName(_BonusType)
             _BonusAmount = CDblSafe(dr.Item(3), 2, 0)
+            If calculationDate.Year > 2018 AndAlso _Year < 2019 Then _BonusAmount = CRound(_BonusAmount * 1.289, 2)
 
         End Sub
 

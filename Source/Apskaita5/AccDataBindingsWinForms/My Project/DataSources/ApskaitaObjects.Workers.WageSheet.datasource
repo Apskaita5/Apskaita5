@@ -6,13 +6,36 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="WageSheet" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <Children>
+      <GenericObjectDataSource DisplayName="WageRates" Version="1.0">
+         <TypeInfo>ApskaitaObjects.Workers.CompanyWageRates, ApskaitaObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+         <TypeUISetting>
+            <PropertyUISettings>
+               <PropertyUISetting Name="RateGPMSickLeave">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                        <BindableControlInfo Name="AccTextBox" Type="AccControlsWinForms.AccTextBox" AssemblyName="AccControlsWinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" AssemblyCodeBase="file:///D:/My Documents/My Projects/Apskaita5/AccControlsWinForms/obj/x86/Debug/AccControlsWinForms.dll" Frameworks=".NETFramework,Version=v3.5;.NETFramework,Version=v4.0;.NETFramework,Version=v4.5;.NETFramework,Version=v4.5.1;.NETFramework,Version=v4.5.2;.NETFramework,Version=v4.6;.NETFramework,Version=v4.6.1;.NETFramework,Version=v4.7" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+            </PropertyUISettings>
+         </TypeUISetting>
+      </GenericObjectDataSource>
+   </Children>
    <TypeInfo>ApskaitaObjects.Workers.WageSheet, ApskaitaObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
    <TypeUISetting>
       <PropertyUISettings>
          <PropertyUISetting Name="Date">
             <ControlSettings>
                <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
-                  <BindableControlInfo Name="AccDatePicker" Type="AccControlsWinForms.AccDatePicker" AssemblyName="AccControlsWinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" AssemblyCodeBase="file:///D:/My Documents/My Projects/Apskaita5/AccControlsWinForms/obj/x86/Debug/AccControlsWinForms.dll" />
+                  <BindableControlInfo Name="AccDatePicker" Type="AccControlsWinForms.AccDatePicker" AssemblyName="AccControlsWinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" AssemblyCodeBase="file:///D:/My Documents/My Projects/Apskaita5/AccControlsWinForms/obj/x86/Debug/AccControlsWinForms.dll" Frameworks=".NETFramework,Version=v3.5;.NETFramework,Version=v4.0;.NETFramework,Version=v4.5;.NETFramework,Version=v4.5.1;.NETFramework,Version=v4.5.2;.NETFramework,Version=v4.6;.NETFramework,Version=v4.6.1;.NETFramework,Version=v4.7" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
+         <PropertyUISetting Name="CostAccount">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                  <BindableControlInfo Name="AccListComboBox" Type="AccControlsWinForms.AccListComboBox" AssemblyName="AccControlsWinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" AssemblyCodeBase="file:///D:/My Documents/My Projects/Apskaita5/AccControlsWinForms/obj/x86/Debug/AccControlsWinForms.dll" Frameworks=".NETFramework,Version=v3.5;.NETFramework,Version=v4.0;.NETFramework,Version=v4.5;.NETFramework,Version=v4.5.1;.NETFramework,Version=v4.5.2;.NETFramework,Version=v4.6;.NETFramework,Version=v4.6.1;.NETFramework,Version=v4.7" />
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>

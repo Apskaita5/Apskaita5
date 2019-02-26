@@ -83,8 +83,14 @@ Namespace General
         ''' Sickness benefit rate as payed by an employer.
         ''' </summary>
         ''' <remarks></remarks>
-        <EnumValue(12)> _
+        <EnumValue(12)>
         WageRateSickLeave
+        ''' <summary>
+        ''' Personal income tax (GPM) rate for sick leave compensation (for year 2019 and later).
+        ''' </summary>
+        ''' <remarks></remarks>
+        <EnumValue(13)>
+        GpmSickLeave
     End Enum
 
 End Namespace

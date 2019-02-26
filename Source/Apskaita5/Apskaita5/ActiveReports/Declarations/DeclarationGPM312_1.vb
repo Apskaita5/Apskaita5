@@ -227,7 +227,7 @@
                 element.InnerText = dds.Tables("General").Rows(0).Item(1).ToString
             Next
             For Each element As System.Xml.XmlElement In myDoc.SelectNodes("//Field[@Name='B_MM_Pavad']")
-                element.InnerText = GetLimitedLengthString(dds.Tables("General").Rows(0).Item(0).ToString, 43).ToUpper
+                element.InnerText = GetLimitedLengthString(dds.Tables("General").Rows(0).Item(0).ToString, 116).ToUpper
             Next
             For Each element As System.Xml.XmlElement In myDoc.SelectNodes("//Field[@Name='B_ML_Metai']")
                 element.InnerText = dds.Tables("Specific").Rows(0).Item(1).ToString

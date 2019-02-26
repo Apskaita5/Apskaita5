@@ -134,7 +134,7 @@ Namespace ActiveReports
                 IsReadOnly = False
 
                 For Each dr As DataRow In myData.Rows
-                    Dim newItem As BonusVDUInfo = BonusVDUInfo.GetBonusVDUInfo(dr)
+                    Dim newItem As BonusVDUInfo = BonusVDUInfo.GetBonusVDUInfo(dr, calculationDate)
                     If newItem.BonusType <> BonusType.k OrElse Not ContainsQuarterBonus() Then
                         Add(newItem)
                     End If

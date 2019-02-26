@@ -319,15 +319,22 @@ Namespace Documents.BankDataExchangeProviders
                 End If
             Next
 
+            ' to identify bank fee when no entry content set
+            Dim bankName As String = String.Empty
+            Try
+                bankName = data.BkToCstmrAcctRpt.Rpt(0).Acct.Svcr.FinInstnId.Nm
+            Catch ex As Exception
+            End Try
+
             _Items = New List(Of BankAccountStatementItem)
 
             For Each entry As camt_052_001_02.ReportEntry2 In data.BkToCstmrAcctRpt.Rpt(0).Ntry
-                _Items.Add(GetBankAccountStatementItem(entry))
+                _Items.Add(GetBankAccountStatementItem(entry, bankName))
             Next
 
         End Sub
 
-        Private Function GetBankAccountStatementItem(entry As camt_052_001_02.ReportEntry2) As BankAccountStatementItem
+        Private Function GetBankAccountStatementItem(entry As camt_052_001_02.ReportEntry2, bankName As String) As BankAccountStatementItem
 
             If entry.NtryDtls Is Nothing OrElse entry.NtryDtls.Length < 1 Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls"))
@@ -337,158 +344,213 @@ Namespace Documents.BankDataExchangeProviders
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.Refs"))
             ElseIf entry.BookgDt Is Nothing Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BookgDt"))
-            ElseIf entry.NtryDtls(0).TxDtls(0).RltdPties Is Nothing Then
-                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "entry.NtryDtls.TxDtls.RltdPties"))
-            ElseIf entry.NtryDtls(0).TxDtls(0).AmtDtls Is Nothing Then
-                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.AmtDtls"))
+            ElseIf entry.NtryDtls(0).TxDtls(0).AmtDtls Is Nothing AndAlso entry.Amt Is Nothing Then
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.AmtDtls/Amt (nėra operacijos sumos)"))
             End If
 
             Dim result As New BankAccountStatementItem
 
-            result.DocumentNumber = entry.NtryDtls(0).TxDtls(0).Refs.EndToEndId
-            If result.DocumentNumber.Trim.ToUpper() = NotProvidedPlaceHolder Then _
-                result.DocumentNumber = String.Empty
-            If String.IsNullOrEmpty(result.DocumentNumber.Trim) Then
-                result.DocumentNumber = entry.NtryDtls(0).TxDtls(0).Refs.InstrId
-                If result.DocumentNumber.Trim.ToUpper() = NotProvidedPlaceHolder Then _
-                    result.DocumentNumber = String.Empty
-                If String.IsNullOrEmpty(result.DocumentNumber.Trim) Then
-                    result.DocumentNumber = entry.NtryDtls(0).TxDtls(0).Refs.PmtInfId
-                    If result.DocumentNumber.Trim.ToUpper() = NotProvidedPlaceHolder Then _
-                        result.DocumentNumber = String.Empty
-                End If
-            End If
+            result.DocumentNumber = ParseDocumentNumber(entry.NtryDtls(0).TxDtls(0).Refs)
             result.UniqueCode = entry.NtryDtls(0).TxDtls(0).Refs.AcctSvcrRef
+            If StringIsNullOrEmpty(result.UniqueCode) Then result.UniqueCode = entry.NtryDtls(0).TxDtls(0).Refs.TxId
             result.Date = entry.BookgDt.Item
+            result.Content = ParseContent(entry.NtryDtls(0).TxDtls(0), bankName)
             result.Inflow = (entry.CdtDbtInd = camt_052_001_02.CreditDebitCode.CRDT)
-            If Not entry.NtryDtls(0).TxDtls(0).AmtDtls.TxAmt Is Nothing AndAlso
-                Not entry.NtryDtls(0).TxDtls(0).AmtDtls.TxAmt.Amt Is Nothing Then
-                result.SumInAccount = entry.NtryDtls(0).TxDtls(0).AmtDtls.TxAmt.Amt.Value
-            ElseIf Not entry.NtryDtls(0).TxDtls(0).AmtDtls.PrtryAmt Is Nothing AndAlso
-                entry.NtryDtls(0).TxDtls(0).AmtDtls.PrtryAmt.Length > 0 AndAlso
-                Not entry.NtryDtls(0).TxDtls(0).AmtDtls.PrtryAmt(0).Amt Is Nothing Then
-                result.SumInAccount = entry.NtryDtls(0).TxDtls(0).AmtDtls.PrtryAmt(0).Amt.Value
-            Else
-                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.AmtDtls.TxAmt/NtryDtls.TxDtls.AmtDtls.PrtryAmt"))
-            End If
-            If entry.NtryDtls(0).TxDtls(0).AmtDtls.InstdAmt Is Nothing OrElse
-                entry.NtryDtls(0).TxDtls(0).AmtDtls.InstdAmt.Amt Is Nothing Then
-                result.Currency = GetCurrentCompany.BaseCurrency
-                result.OriginalSum = result.SumInAccount
-            Else
-                result.Currency = entry.NtryDtls(0).TxDtls(0).AmtDtls.InstdAmt.Amt.Ccy
-                If StringIsNullOrEmpty(result.Currency) OrElse Not IsValidCurrency(result.Currency, True) Then
-                    result.Currency = GetCurrentCompany.BaseCurrency
-                End If
-                result.OriginalSum = entry.NtryDtls(0).TxDtls(0).AmtDtls.InstdAmt.Amt.Value
-            End If
+
+            ParseSum(entry.NtryDtls(0).TxDtls(0).AmtDtls, entry.Amt, result)
             ResolveSumBase(result)
 
-            If entry.NtryDtls(0).TxDtls(0).RmtInf Is Nothing Then
+            ParseRelatedParties(entry.NtryDtls(0).TxDtls(0).RltdPties, result)
+            result.PersonBankName = ParsePersonBank(entry.NtryDtls(0).TxDtls(0).RltdAgts, result.Inflow)
 
-                result.Content = My.Resources.Documents_BankOperationItem_ContentNotSpecified
+            Return result
 
-            Else
+        End Function
 
-                If Not entry.NtryDtls(0).TxDtls(0).RmtInf.Ustrd Is Nothing _
-                AndAlso entry.NtryDtls(0).TxDtls(0).RmtInf.Ustrd.Length > 0 Then
-                    result.Content = String.Join(" ", entry.NtryDtls(0).TxDtls(0).RmtInf.Ustrd)
-                End If
-                Try
-                    Dim paymentCode As String = entry.NtryDtls(0).TxDtls(0).RmtInf.Strd(0).CdtrRefInf.Ref
-                    If Not StringIsNullOrEmpty(paymentCode) Then
-                        result.Content = String.Format(My.Resources.Documents_BankOperationItem_ContentWithPaymentCode,
-                            result.Content, paymentCode)
-                    End If
-                Catch ex As Exception
-                End Try
+        Private Function ParseDocumentNumber(data As camt_052_001_02.TransactionReferences2) As String
 
-            End If
+            Dim result As String = data.EndToEndId
+            If result Is Nothing Then result = String.Empty
 
-            result.Content = GetLimitedLengthString(result.Content, 255)
+            If result.Trim.ToUpper() = NotProvidedPlaceHolder Then result = String.Empty
 
-            If result.Inflow Then
+            If StringIsNullOrEmpty(result) Then
 
-                If Not entry.NtryDtls(0).TxDtls(0).RltdPties.Dbtr Is Nothing Then
+                result = data.InstrId
+                If result Is Nothing Then result = String.Empty
 
-                    Try
-                        result.PersonCode = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.Dbtr.Id.Item,
-                            camt_052_001_02.PersonIdentification5).Othr(0).Id
-                        If StringIsNullOrEmpty(result.PersonCode) Then
-                            result.PersonCode = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.Dbtr.Id.Item,
-                                camt_052_001_02.OrganisationIdentification4).Othr(0).Id
-                        End If
-                    Catch ex As Exception
-                        Try
-                            result.PersonCode = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.Dbtr.Id.Item,
-                                camt_052_001_02.OrganisationIdentification4).Othr(0).Id
-                        Catch ex2 As Exception
-                        End Try
-                    End Try
-                    result.PersonName = entry.NtryDtls(0).TxDtls(0).RltdPties.Dbtr.Nm
-                    If Not entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct Is Nothing _
-                        AndAlso Not entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id Is Nothing _
-                        AndAlso Not entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item Is Nothing Then
+                If result.Trim.ToUpper() = NotProvidedPlaceHolder Then result = String.Empty
 
-                        If TypeOf entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item Is String Then
-                            result.PersonBankAccount = entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item.ToString
-                        ElseIf TypeOf entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item Is
-                                camt_052_001_02.GenericAccountIdentification1 Then
-                            result.PersonBankAccount = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.DbtrAcct.Id.Item,
-                                camt_052_001_02.GenericAccountIdentification1).Id
-                        End If
+                If StringIsNullOrEmpty(result) Then
 
-                    End If
-                    If Not entry.NtryDtls(0).TxDtls(0).RltdAgts Is Nothing _
-                        AndAlso entry.NtryDtls(0).TxDtls(0).RltdAgts.DbtrAgt Is Nothing _
-                        AndAlso entry.NtryDtls(0).TxDtls(0).RltdAgts.DbtrAgt.FinInstnId Is Nothing Then _
-                        result.PersonBankName = entry.NtryDtls(0).TxDtls(0).RltdAgts.DbtrAgt.FinInstnId.Nm
+                    result = data.PmtInfId
+                    If result Is Nothing Then result = String.Empty
 
-                End If
-
-            Else
-
-                If Not entry.NtryDtls(0).TxDtls(0).RltdPties.Cdtr Is Nothing Then
-
-                    Try
-                        result.PersonCode = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.Cdtr.Id.Item,
-                            camt_052_001_02.PersonIdentification5).Othr(0).Id
-                        If StringIsNullOrEmpty(result.PersonCode) Then
-                            result.PersonCode = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.Cdtr.Id.Item,
-                                camt_052_001_02.OrganisationIdentification4).Othr(0).Id
-                        End If
-                    Catch ex As Exception
-                        Try
-                            result.PersonCode = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.Cdtr.Id.Item,
-                                camt_052_001_02.OrganisationIdentification4).Othr(0).Id
-                        Catch ex2 As Exception
-                        End Try
-                    End Try
-
-                    result.PersonName = entry.NtryDtls(0).TxDtls(0).RltdPties.Cdtr.Nm
-                    If Not entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct Is Nothing AndAlso
-                        Not entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id Is Nothing AndAlso
-                        Not entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item Is Nothing Then
-
-                        If TypeOf entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item Is String Then
-                            result.PersonBankAccount = entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item.ToString
-                        ElseIf TypeOf entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item Is
-                                camt_052_001_02.GenericAccountIdentification1 Then
-                            result.PersonBankAccount = DirectCast(entry.NtryDtls(0).TxDtls(0).RltdPties.CdtrAcct.Id.Item,
-                                camt_052_001_02.GenericAccountIdentification1).Id
-                        End If
-
-                    End If
-                    If Not entry.NtryDtls(0).TxDtls(0).RltdAgts Is Nothing AndAlso
-                        Not entry.NtryDtls(0).TxDtls(0).RltdAgts.CdtrAgt Is Nothing AndAlso
-                        Not entry.NtryDtls(0).TxDtls(0).RltdAgts.CdtrAgt.FinInstnId Is Nothing Then _
-                        result.PersonBankName = entry.NtryDtls(0).TxDtls(0).RltdAgts.CdtrAgt.FinInstnId.Nm
+                    If result.Trim.ToUpper() = NotProvidedPlaceHolder Then result = String.Empty
 
                 End If
 
             End If
 
             Return result
+
+        End Function
+
+        Private Function ParseContent(data As camt_052_001_02.EntryTransaction2, bankName As String) As String
+
+            Dim result As String = ""
+
+            If Not data.RmtInf Is Nothing AndAlso Not data.RmtInf.Ustrd Is Nothing _
+                AndAlso data.RmtInf.Ustrd.Length > 0 Then
+                result = String.Join(" ", data.RmtInf.Ustrd)
+            ElseIf Not data.RltdPties Is Nothing AndAlso Not data.RltdPties.Cdtr Is Nothing _
+                AndAlso Not StringIsNullOrEmpty(data.RltdPties.Cdtr.Nm) _
+                AndAlso data.RltdPties.Cdtr.Nm.Trim = bankName Then
+                result = My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_OperationContentBankFee
+            Else
+                result = My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_OperationContentNull
+            End If
+            Try
+                Dim paymentCode As String = data.RmtInf.Strd(0).CdtrRefInf.Ref
+                If Not StringIsNullOrEmpty(paymentCode) Then
+                    result = String.Format(My.Resources.Documents_BankOperationItem_ContentWithPaymentCode, result, paymentCode)
+                End If
+            Catch ex As Exception
+            End Try
+
+            Return GetLimitedLengthString(result, 255)
+
+        End Function
+
+        Private Sub ParseSum(data As camt_052_001_02.AmountAndCurrencyExchange3,
+            fallbackData As camt_052_001_02.ActiveOrHistoricCurrencyAndAmount, result As BankAccountStatementItem)
+
+            If data Is Nothing Then
+
+                ' workaround for paysera, they only provide amount in entry.Amt node
+                result.SumInAccount = fallbackData.Value
+                result.Currency = fallbackData.Ccy
+                If StringIsNullOrEmpty(result.Currency) OrElse Not IsValidCurrency(result.Currency, True) Then
+                    result.Currency = GetCurrentCompany.BaseCurrency
+                End If
+                result.OriginalSum = fallbackData.Value
+                Exit Sub
+
+            End If
+
+            If Not data.TxAmt Is Nothing AndAlso Not data.TxAmt.Amt Is Nothing Then
+                result.SumInAccount = data.TxAmt.Amt.Value
+            ElseIf Not data.PrtryAmt Is Nothing AndAlso data.PrtryAmt.Length > 0 AndAlso
+                Not data.PrtryAmt(0).Amt Is Nothing Then
+                result.SumInAccount = data.PrtryAmt(0).Amt.Value
+            Else
+                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing,
+                    "NtryDtls.TxDtls.AmtDtls.TxAmt/NtryDtls.TxDtls.AmtDtls.PrtryAmt (operacijos suma sąskaitoje)"))
+            End If
+
+            If Not data.InstdAmt Is Nothing AndAlso Not data.InstdAmt.Amt Is Nothing Then
+
+                result.Currency = data.InstdAmt.Amt.Ccy
+                If StringIsNullOrEmpty(result.Currency) OrElse Not IsValidCurrency(result.Currency, True) Then
+                    result.Currency = GetCurrentCompany.BaseCurrency
+                End If
+                result.OriginalSum = data.InstdAmt.Amt.Value
+                Exit Sub
+
+            End If
+
+            result.Currency = GetCurrentCompany.BaseCurrency
+            result.OriginalSum = result.SumInAccount
+
+        End Sub
+
+        Private Sub ParseRelatedParties(data As camt_052_001_02.TransactionParty2, result As BankAccountStatementItem)
+
+            If data Is Nothing Then Exit Sub
+
+            If result.Inflow Then
+
+                If Not data.Dbtr Is Nothing Then
+
+                    Try
+                        result.PersonCode = DirectCast(data.Dbtr.Id.Item, camt_052_001_02.PersonIdentification5).Othr(0).Id
+                        If StringIsNullOrEmpty(result.PersonCode) Then
+                            result.PersonCode = DirectCast(data.Dbtr.Id.Item, camt_052_001_02.OrganisationIdentification4).Othr(0).Id
+                        End If
+                    Catch ex As Exception
+                        Try
+                            result.PersonCode = DirectCast(data.Dbtr.Id.Item, camt_052_001_02.OrganisationIdentification4).Othr(0).Id
+                        Catch ex2 As Exception
+                        End Try
+                    End Try
+
+                    result.PersonName = data.Dbtr.Nm
+
+                    If Not data.DbtrAcct Is Nothing AndAlso Not data.DbtrAcct.Id Is Nothing _
+                        AndAlso Not data.DbtrAcct.Id.Item Is Nothing Then
+
+                        If TypeOf data.DbtrAcct.Id.Item Is String Then
+                            result.PersonBankAccount = data.DbtrAcct.Id.Item.ToString
+                        ElseIf TypeOf data.DbtrAcct.Id.Item Is camt_052_001_02.GenericAccountIdentification1 Then
+                            result.PersonBankAccount = DirectCast(data.DbtrAcct.Id.Item,
+                                camt_052_001_02.GenericAccountIdentification1).Id
+                        End If
+
+                    End If
+
+                End If
+
+            Else
+
+                If Not data.Cdtr Is Nothing Then
+
+                    Try
+                        result.PersonCode = DirectCast(data.Cdtr.Id.Item, camt_052_001_02.PersonIdentification5).Othr(0).Id
+                        If StringIsNullOrEmpty(result.PersonCode) Then
+                            result.PersonCode = DirectCast(data.Cdtr.Id.Item,
+                                camt_052_001_02.OrganisationIdentification4).Othr(0).Id
+                        End If
+                    Catch ex As Exception
+                        Try
+                            result.PersonCode = DirectCast(data.Cdtr.Id.Item,
+                                camt_052_001_02.OrganisationIdentification4).Othr(0).Id
+                        Catch ex2 As Exception
+                        End Try
+                    End Try
+
+                    result.PersonName = data.Cdtr.Nm
+
+                    If Not data.CdtrAcct Is Nothing AndAlso Not data.CdtrAcct.Id Is Nothing AndAlso
+                        Not data.CdtrAcct.Id.Item Is Nothing Then
+
+                        If TypeOf data.CdtrAcct.Id.Item Is String Then
+                            result.PersonBankAccount = data.CdtrAcct.Id.Item.ToString
+                        ElseIf TypeOf data.CdtrAcct.Id.Item Is camt_052_001_02.GenericAccountIdentification1 Then
+                            result.PersonBankAccount = DirectCast(data.CdtrAcct.Id.Item,
+                                camt_052_001_02.GenericAccountIdentification1).Id
+                        End If
+
+                    End If
+
+                End If
+
+            End If
+
+        End Sub
+
+        Private Function ParsePersonBank(data As camt_052_001_02.TransactionAgents2, inflow As Boolean) As String
+
+            If data Is Nothing Then Return ""
+
+            If inflow Then
+                If Not data.DbtrAgt Is Nothing AndAlso Not data.DbtrAgt.FinInstnId Is Nothing Then _
+                    Return data.DbtrAgt.FinInstnId.Nm
+            Else
+                If Not data.CdtrAgt Is Nothing AndAlso Not data.CdtrAgt.FinInstnId Is Nothing Then _
+                    Return data.CdtrAgt.FinInstnId.Nm
+            End If
+
+            Return ""
 
         End Function
 

@@ -16,6 +16,7 @@ Namespace ActiveReports.Declarations
         Implements IInvoiceRegisterISaf
 
         Private Const NullValueString As String = "ND"
+        Private Const DefaultTaxCode As String = "PVM1"
 
 
         ''' <summary>
@@ -203,22 +204,24 @@ Namespace ActiveReports.Declarations
                     End If
                     invoice.SupplierInfo.Country = item.StateCode.Trim.ToUpper()
 
+                    Dim multiplier As Integer = 1
+                    If item.InvoiceType = Documents.InvoiceType.Debit Then multiplier = -1
+
                     Dim subtotals As New List(Of ISafTemplates.ISaf_1_2.PurchaseDocumentTotal)
                     For Each subitem As InvoiceSubtotalItem In item.SubtotalList
 
                         Dim subtotal As New ISafTemplates.ISaf_1_2.PurchaseDocumentTotal
-
-                        subtotal.Amount = Convert.ToDecimal(subitem.TaxAmount)
+                        subtotal.Amount = Convert.ToDecimal(subitem.TaxAmount * multiplier)
                         subtotal.TaxCode = subitem.TaxCode.Trim.ToUpper()
                         If StringIsNullOrEmpty(subtotal.TaxCode) Then
-                            subtotal.TaxCode = "PVM1"
+                            subtotal.TaxCode = DefaultTaxCode
                         End If
                         If subitem.VatRateIsNull Then
                             subtotal.TaxPercentage = Nothing
                         Else
                             subtotal.TaxPercentage = Convert.ToDecimal(subitem.TaxPercentage)
                         End If
-                        subtotal.TaxableValue = Convert.ToDecimal(subitem.TaxableValue)
+                        subtotal.TaxableValue = Convert.ToDecimal(subitem.TaxableValue * multiplier)
 
                         subtotals.Add(subtotal)
 
@@ -289,7 +292,7 @@ Namespace ActiveReports.Declarations
                         subtotal.Amount = Convert.ToDecimal(subitem.TaxAmount)
                         subtotal.TaxCode = subitem.TaxCode.Trim.ToUpper()
                         If String.IsNullOrEmpty(subtotal.TaxCode) Then
-                            subtotal.TaxCode = "PVM1"
+                            subtotal.TaxCode = DefaultTaxCode
                         End If
                         If subitem.VatRateIsNull Then
                             subtotal.TaxPercentage = Nothing

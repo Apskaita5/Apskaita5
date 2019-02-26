@@ -142,7 +142,7 @@
                 IsReadOnly = False
 
                 For Each dr As DataRow In myData.Rows
-                    Add(WageVDUInfo.GetWageVDUInfo(dr))
+                    Add(WageVDUInfo.GetWageVDUInfo(dr, calculationDate))
                 Next
 
                 IsReadOnly = True

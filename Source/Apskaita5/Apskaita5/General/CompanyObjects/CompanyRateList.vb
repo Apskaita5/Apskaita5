@@ -92,6 +92,7 @@ Namespace General
 
                 AddRow(myData, DefaultRateType.Vat)
                 AddRow(myData, DefaultRateType.GpmWage)
+                AddRow(myData, DefaultRateType.GpmSickLeave)
                 AddRow(myData, DefaultRateType.PsdEmployee)
                 AddRow(myData, DefaultRateType.SodraEmployee)
                 AddRow(myData, DefaultRateType.PsdEmployer)

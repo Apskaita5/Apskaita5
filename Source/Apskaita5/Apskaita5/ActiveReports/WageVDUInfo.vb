@@ -122,8 +122,8 @@ Namespace ActiveReports
 
 #Region " Factory Methods "
 
-        Friend Shared Function GetWageVDUInfo(ByVal dr As DataRow) As WageVDUInfo
-            Return New WageVDUInfo(dr)
+        Friend Shared Function GetWageVDUInfo(ByVal dr As DataRow, calculationDate As Date) As WageVDUInfo
+            Return New WageVDUInfo(dr, calculationDate)
         End Function
 
 
@@ -131,15 +131,15 @@ Namespace ActiveReports
             ' require use of factory methods
         End Sub
 
-        Private Sub New(ByVal dr As DataRow)
-            Fetch(dr)
+        Private Sub New(ByVal dr As DataRow, calculationDate As Date)
+            Fetch(dr, calculationDate)
         End Sub
 
 #End Region
 
 #Region " Data Access "
 
-        Private Sub Fetch(ByVal dr As DataRow)
+        Private Sub Fetch(ByVal dr As DataRow, calculationDate As Date)
 
             _Year = CIntSafe(dr.Item(0), 0)
             _Month = CIntSafe(dr.Item(1), 0)
@@ -148,6 +148,7 @@ Namespace ActiveReports
             _Wage = CDblSafe(dr.Item(4), 2, 0)
             _ScheduledHours = CDblSafe(dr.Item(5), ROUNDWORKHOURS, 0)
             _ScheduledDays = CIntSafe(dr.Item(6), 0)
+            If calculationDate.Year > 2018 AndAlso _Year < 2019 Then _Wage = CRound(_Wage * 1.289, 2)
 
         End Sub
 

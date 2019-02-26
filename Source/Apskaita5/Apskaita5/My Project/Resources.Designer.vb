@@ -27605,7 +27605,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to GPM.
+        '''  Looks up a localized string similar to GPM ligos kompensacijai.
+        '''</summary>
+        Friend ReadOnly Property General_DefaultRateType_GpmSickLeave() As String
+            Get
+                Return ResourceManager.GetString("General_DefaultRateType_GpmSickLeave", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to GPM darbo užmokesčiui.
         '''</summary>
         Friend ReadOnly Property General_DefaultRateType_GpmWage() As String
             Get
@@ -41462,11 +41471,29 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Taikyti NPD ligai.
+        '''</summary>
+        Friend ReadOnly Property Workers_CompanyWageRates_ApplyNpdToSickLeave() As String
+            Get
+                Return ResourceManager.GetString("Workers_CompanyWageRates_ApplyNpdToSickLeave", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to GPM tarifas.
         '''</summary>
         Friend ReadOnly Property Workers_CompanyWageRates_RateGPM() As String
             Get
                 Return ResourceManager.GetString("Workers_CompanyWageRates_RateGPM", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to GPM tarifas nedarbingumui.
+        '''</summary>
+        Friend ReadOnly Property Workers_CompanyWageRates_RateGPMSickLeave() As String
+            Get
+                Return ResourceManager.GetString("Workers_CompanyWageRates_RateGPMSickLeave", resourceCulture)
             End Get
         End Property
         
@@ -44513,7 +44540,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to išskaičiuota GPM.
+        '''  Looks up a localized string similar to išskaičiuota GPM ligai.
+        '''</summary>
+        Friend ReadOnly Property Workers_WageItem_DeductedGpmSickLeave() As String
+            Get
+                Return ResourceManager.GetString("Workers_WageItem_DeductedGpmSickLeave", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to išskaičiuota GPM viso.
         '''</summary>
         Friend ReadOnly Property Workers_WageItem_DeductionGPM() As String
             Get
@@ -44657,7 +44693,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to pritaikytas NPD.
+        '''  Looks up a localized string similar to pritaikytas NPD viso.
         '''</summary>
         Friend ReadOnly Property Workers_WageItem_NPD() As String
             Get
@@ -44680,6 +44716,15 @@ Namespace My.Resources
         Friend ReadOnly Property Workers_WageItem_NpdFormulaNull() As String
             Get
                 Return ResourceManager.GetString("Workers_WageItem_NpdFormulaNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pritaikyta NPD ligai.
+        '''</summary>
+        Friend ReadOnly Property Workers_WageItem_NpdSickLeave() As String
+            Get
+                Return ResourceManager.GetString("Workers_WageItem_NpdSickLeave", resourceCulture)
             End Get
         End Property
         
