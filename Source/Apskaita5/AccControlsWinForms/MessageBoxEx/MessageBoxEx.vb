@@ -110,6 +110,12 @@ Namespace MessageBoxExLib
             End Set
         End Property
 
+        Public WriteOnly Property BusinessObject() As Object
+            Set(ByVal value As Object)
+                _msgBox.BusinessObject = value
+            End Set
+        End Property
+
         ''' <summary>
         ''' Sets or Gets wether the saved response if available should be used
         ''' </summary>

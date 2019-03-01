@@ -5,6 +5,10 @@ Imports System.Text
 
 Public Module CommonMethods
 
+
+    Public ApplicationVersion As String = ""
+
+
     ''' <summary>
     ''' A callback delegate that is invoked when an async operation finishes
     ''' execution.
@@ -71,14 +75,15 @@ Public Module CommonMethods
     ''' <summary>
     ''' Provides a dialog with short/full info about the exception provided.
     ''' </summary>
-    Public Sub ShowError(ByVal nException As Exception)
+    Public Sub ShowError(ByVal nException As Exception, Optional businessObject As Object = Nothing)
 
         Dim msgBox As MessageBoxEx = MessageBoxExManager.CreateMessageBox(Nothing)
 
-        msgBox.Caption = "Ir atleiskite nusidėjėliams už jų kaltes :)"
+        msgBox.Caption = "Ir atleiskite nusidėjeliams už jų kaltes :)"
 
         msgBox.BaseException = GetBaseException(nException)
         msgBox.Exception = nException
+        msgBox.BusinessObject = businessObject
 
         msgBox.Show()
 

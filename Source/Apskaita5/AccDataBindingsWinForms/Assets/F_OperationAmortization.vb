@@ -98,7 +98,7 @@ Friend Class F_OperationAmortization
                 (Me, BackgroundInfoPanel1.GetBindingSource(), _DocumentToEdit)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -117,7 +117,7 @@ Friend Class F_OperationAmortization
                 Nothing, ProgressFiller1)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -163,7 +163,7 @@ Friend Class F_OperationAmortization
                 _FormManager.DataSource.Date)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
         End Try
 
     End Sub
@@ -175,7 +175,7 @@ Friend Class F_OperationAmortization
         Try
             _FormManager.DataSource.SetAmortizationCalculation(DirectCast(result, LongTermAssetAmortizationCalculation))
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             Exit Sub
         End Try
 
@@ -223,7 +223,7 @@ Friend Class F_OperationAmortization
         Try
             PrintObject(_FormManager.DataSource, False, 0, "ITAmortizacija", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
 
     End Sub
@@ -236,7 +236,7 @@ Friend Class F_OperationAmortization
         Try
             PrintObject(_FormManager.DataSource, True, 0, "ITAmortizacija", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
 
     End Sub

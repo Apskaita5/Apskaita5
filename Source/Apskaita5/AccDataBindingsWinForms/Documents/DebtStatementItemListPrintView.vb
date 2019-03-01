@@ -65,7 +65,7 @@ Public Class DebtStatementItemListPrintView
                 PrintObject(New DebtStatementItemListPrintView(source, ids, statementDate, _
                     signWithFacsimile), preview, 0, "SkoluSuderinimoAktai", parentForm, "", New List(Of Integer)())
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, source)
             End Try
 
         End Using
@@ -136,7 +136,7 @@ Public Class DebtStatementItemListPrintView
 
             End Using
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, source)
             Exit Sub
         End Try
 

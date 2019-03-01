@@ -98,7 +98,7 @@ Friend Class F_OperationAcquisitionValueIncrease
                 (Me, BackgroundInfoPanel1.GetBindingSource(), _DocumentToEdit)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -115,7 +115,7 @@ Friend Class F_OperationAcquisitionValueIncrease
                 _RequiredCachedLists, nOkButton, ApplyButton, nCancelButton, _
                 Nothing, ProgressFiller1)
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -163,7 +163,7 @@ Friend Class F_OperationAcquisitionValueIncrease
             Try
                 _FormManager.DataSource.LoadAssociatedJournalEntry(dlg.SelectedEntries(0))
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, New Object() {_FormManager.DataSource, dlg.SelectedEntries})
             End Try
 
         End Using
@@ -203,7 +203,7 @@ Friend Class F_OperationAcquisitionValueIncrease
         Try
             PrintObject(_FormManager.DataSource, False, 0, "ITSavikainosPadidinimas", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
 
     End Sub
@@ -216,7 +216,7 @@ Friend Class F_OperationAcquisitionValueIncrease
         Try
             PrintObject(_FormManager.DataSource, True, 0, "ITSavikainosPadidinimas", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
 
     End Sub

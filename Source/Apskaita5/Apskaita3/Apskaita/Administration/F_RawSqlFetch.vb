@@ -17,7 +17,7 @@ Public Class F_RawSqlFetch
                 Obj = DatabaseStructure.GetDatabaseStructure()
             End Using
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try

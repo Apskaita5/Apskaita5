@@ -450,7 +450,7 @@ Public Class CslaActionExtenderEditForm(Of T)
 
         If Not _ProgressControl.Exception Is Nothing Then
 
-            ShowError(_ProgressControl.Exception)
+            ShowError(_ProgressControl.Exception, _DataSource)
 
         ElseIf Not _ProgressControl.Result Is Nothing Then
 
@@ -459,7 +459,7 @@ Public Class CslaActionExtenderEditForm(Of T)
                 success = True
                 RaiseEvent DataSourceStateHasChanged(Me, New EventArgs)
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, Nothing)
             End Try
 
             If Not _NewDataSource Is Nothing Then
@@ -619,7 +619,7 @@ Public Class CslaActionExtenderEditForm(Of T)
             End Using
         Catch ex As Exception
             _BindingSourceTree.Bind(_DataSource)
-            ShowError(ex)
+            ShowError(ex, _DataSource)
             _ProceedToNewDataSource = False
             Exit Sub
         End Try
@@ -701,7 +701,7 @@ Public Class CslaActionExtenderEditForm(Of T)
                         (Nothing, _NewDataSourceMethodName, _NewDataSourceMethodParams), T)
                 End Using
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, Nothing)
                 Exit Sub
             End Try
 

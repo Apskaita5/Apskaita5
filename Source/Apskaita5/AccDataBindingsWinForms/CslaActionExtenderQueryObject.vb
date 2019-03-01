@@ -64,7 +64,7 @@ Public Class CslaActionExtenderQueryObject
 
         If Not _ProgressControl.Exception Is Nothing Then
 
-            ShowError(_ProgressControl.Exception)
+            ShowError(_ProgressControl.Exception, Nothing)
 
             If Not _CallBackDelegate Is Nothing Then
                 _CallBackDelegate.Invoke(Nothing, True)
@@ -129,7 +129,7 @@ Public Class CslaActionExtenderQueryObject
                     result = InvokeMethod(Of T)(instance, methodName, params)
                 End Using
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, instance)
                 If Not callBackDelegate Is Nothing Then
                     callBackDelegate.Invoke(Nothing, True)
                 End If

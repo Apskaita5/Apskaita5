@@ -50,7 +50,7 @@ Public Class F_ConsolidatedReport
                 (Me.ConsolidatedReportTreeListView, Nothing, AddressOf DeleteItem, _
                 AddressOf AddItem, Nothing, Nothing)
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -131,7 +131,7 @@ Public Class F_ConsolidatedReport
         Try
             _DataSource.RemoveItem(item)
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, New Object() {_DataSource, item})
             Exit Sub
         End Try
 
@@ -168,7 +168,7 @@ Public Class F_ConsolidatedReport
         Try
             newChild = current.AddChild()
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, New Object() {_DataSource, current})
             Exit Sub
         End Try
 
@@ -195,7 +195,7 @@ Public Class F_ConsolidatedReport
                 _DataSource = ConsolidatedReport.GetConsolidatedReport()
             End Using
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             Exit Sub
         End Try
 
@@ -243,7 +243,7 @@ Public Class F_ConsolidatedReport
                 _DataSource = ConsolidatedReport.NewConsolidatedReport(fileName, Nothing)
             End Using
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             Exit Sub
         End Try
 
@@ -283,7 +283,7 @@ Public Class F_ConsolidatedReport
                 _DataSource.SaveToFile(fileName)
             End Using
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _DataSource)
             Exit Sub
         End Try
 
@@ -318,7 +318,7 @@ Public Class F_ConsolidatedReport
                 _DataSource = _DataSource.Clone.Save
             End Using
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _DataSource)
             Exit Sub
         End Try
 
@@ -413,7 +413,7 @@ Public Class F_ConsolidatedReport
             _DataSource.MoveItem(DirectCast(e.SourceModels(0), ConsolidatedReportItem), _
                 DirectCast(e.TargetModel, ConsolidatedReportItem), moveType)
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, New Object() {_DataSource, e.SourceModels, e.TargetModel})
             Exit Sub
         End Try
 
@@ -432,13 +432,13 @@ Public Class F_ConsolidatedReport
         If current Is Nothing Then Exit Sub
 
         For Each line As String In Clipboard.GetText(TextDataFormat.UnicodeText).Split(New String() {vbCrLf}, StringSplitOptions.RemoveEmptyEntries)
-            Dim newChild As ConsolidatedReportItem
+            Dim newChild As ConsolidatedReportItem = Nothing
             Try
                 newChild = current.AddChild()
                 newChild.DisplayedNumber = GetField(line, vbTab, 0)
                 newChild.Name = GetField(line, vbTab, 1)
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, New Object() {_DataSource, current, newChild})
                 Exit Sub
             End Try
         Next

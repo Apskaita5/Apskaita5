@@ -61,7 +61,7 @@ Friend Class F_UnsettledPersonInfoList
             BrightIdeasSoftware.TreeListView.IgnoreMissingAspects = True
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -170,7 +170,7 @@ Friend Class F_UnsettledPersonInfoList
             PrintObject(_FormManager.DataSource, False, 0, "NeapmoketiDokumentai", Me, _
                 "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 
@@ -181,7 +181,7 @@ Friend Class F_UnsettledPersonInfoList
             PrintObject(_FormManager.DataSource, True, 0, "NeapmoketiDokumentai", Me, _
                 "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 

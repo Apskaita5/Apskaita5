@@ -48,7 +48,7 @@ Public Class F_DebtStatementItemList
                 General.DefaultAccountType.Buyers)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try

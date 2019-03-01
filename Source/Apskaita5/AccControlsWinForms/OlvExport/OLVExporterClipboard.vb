@@ -27,7 +27,7 @@ Namespace OlvExport
                     Clipboard.SetText(exporter.ExportTo(OLVExporter.ExportFormat.TabSeparated), TextDataFormat.UnicodeText)
                 End Using
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, Nothing)
                 Exit Sub
             End Try
             MsgBox("Lentelės turinys buvo sėkmingai nukopijuotas į clipboard'ą.", MsgBoxStyle.Information, "Info")

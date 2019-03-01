@@ -70,7 +70,7 @@ Friend Class F_VatDeclarationSchema
             _FormManager.ManageDataListViewStates(DeclarationEntriesDataListView)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -91,7 +91,7 @@ Friend Class F_VatDeclarationSchema
                 VatDeclarationSchemaBindingSource, _DocumentToEdit)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try

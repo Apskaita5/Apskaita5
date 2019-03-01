@@ -51,7 +51,7 @@ Friend Class F_WorkersVDUInfo
                 New ShortLabourContractFieldAttribute(ValueRequiredLevel.Optional))
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -115,7 +115,7 @@ Friend Class F_WorkersVDUInfo
                 _WageListViewManager.GetDisplayOrderIndexes(), _
                 _BonusListViewManager.GetDisplayOrderIndexes())
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
 
     End Sub
@@ -132,7 +132,7 @@ Friend Class F_WorkersVDUInfo
                 _WageListViewManager.GetDisplayOrderIndexes(), _
                 _BonusListViewManager.GetDisplayOrderIndexes())
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
 
     End Sub

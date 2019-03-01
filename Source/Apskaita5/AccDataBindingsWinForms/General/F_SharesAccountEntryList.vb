@@ -58,7 +58,7 @@ Public Class F_SharesAccountEntryList
                 ValueRequiredLevel.Optional))
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -156,7 +156,7 @@ Public Class F_SharesAccountEntryList
                 "AkcijuSaskaita", Me, _ListViewManager.GetCurrentFilterDescription(),
                 _ListViewManager.GetDisplayOrderIndexes())
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 
@@ -168,7 +168,7 @@ Public Class F_SharesAccountEntryList
                 "AkcijuSaskaita", Me, _ListViewManager.GetCurrentFilterDescription(),
                 _ListViewManager.GetDisplayOrderIndexes())
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 

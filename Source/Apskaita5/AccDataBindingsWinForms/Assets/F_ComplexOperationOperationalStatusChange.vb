@@ -83,7 +83,7 @@ Friend Class F_ComplexOperationOperationalStatusChange
             _FormManager.ManageDataListViewStates(ItemsDataListView)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -106,7 +106,7 @@ Friend Class F_ComplexOperationOperationalStatusChange
                 (Me, ComplexOperationOperationalStatusChangeBindingSource, _DocumentToEdit)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -158,7 +158,7 @@ Friend Class F_ComplexOperationOperationalStatusChange
         Try
             _FormManager.DataSource.AddRange(DirectCast(result, OperationOperationalStatusChangeList))
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, New Object() {_FormManager.DataSource, result})
             Exit Sub
         End Try
 
@@ -196,7 +196,7 @@ Friend Class F_ComplexOperationOperationalStatusChange
         Try
             PrintObject(_FormManager.DataSource, False, 0, "ITEksploatacija", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 
@@ -206,7 +206,7 @@ Friend Class F_ComplexOperationOperationalStatusChange
         Try
             PrintObject(_FormManager.DataSource, True, 0, "ITEksploatacija", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 

@@ -197,7 +197,7 @@ Namespace WebControls
                 If result = DialogResult.Cancel Then
                     Exit Sub
                 ElseIf frm.DownloadException IsNot Nothing Then
-                    ShowError(frm.DownloadException)
+                    ShowError(frm.DownloadException, Nothing)
                     Exit Sub
                 Else
                     content = frm.DownloadedContent
@@ -269,8 +269,8 @@ Namespace WebControls
                 If isBackground Then
                     Exit Sub
                 Else
-                    ShowError(New Exception(String.Format("Failed to parse update file data:{0}----------------{1}{2}", _
-                        vbCrLf, vbCrLf, downloadedData)))
+                    ShowError(New Exception(String.Format("Failed to parse update file data:{0}----------------{1}{2}",
+                        vbCrLf, vbCrLf, downloadedData)), Nothing)
                     Exit Sub
                 End If
             End If
@@ -280,8 +280,8 @@ Namespace WebControls
                 If isBackground Then
                     Exit Sub
                 Else
-                    ShowError(New Exception(String.Format("Invalid line count in update file:{0}----------------{1}{2}", _
-                        vbCrLf, vbCrLf, downloadedData)))
+                    ShowError(New Exception(String.Format("Invalid line count in update file:{0}----------------{1}{2}",
+                        vbCrLf, vbCrLf, downloadedData)), Nothing)
                     Exit Sub
                 End If
 
@@ -296,8 +296,8 @@ Namespace WebControls
                 If isBackground Then
                     Exit Sub
                 Else
-                    ShowError(New Exception(String.Format("Failed to parse date in update file: {0}", _
-                        lines(0))))
+                    ShowError(New Exception(String.Format("Failed to parse date in update file: {0}",
+                        lines(0))), Nothing)
                     Exit Sub
                 End If
             End Try
@@ -311,8 +311,8 @@ Namespace WebControls
                 If isBackground Then
                     Exit Sub
                 Else
-                    ShowError(New Exception(String.Format("Failed to parse update file url:{0}----------------{1}{2}", _
-                        vbCrLf, vbCrLf, downloadedData)))
+                    ShowError(New Exception(String.Format("Failed to parse update file url:{0}----------------{1}{2}",
+                        vbCrLf, vbCrLf, downloadedData)), Nothing)
                     Exit Sub
                 End If
             End If
@@ -372,7 +372,7 @@ Namespace WebControls
                     If result = DialogResult.Cancel Then
                         Exit Sub
                     ElseIf Not fdf.DownloadException Is Nothing Then
-                        ShowError(fdf.DownloadException)
+                        ShowError(fdf.DownloadException, Nothing)
                         Exit Sub
                     Else
                         updateFilePath = fdf.DownloadedFilePath

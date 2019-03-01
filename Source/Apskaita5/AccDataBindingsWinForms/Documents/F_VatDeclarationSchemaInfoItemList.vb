@@ -41,7 +41,7 @@ Public Class F_VatDeclarationSchemaInfoItemList
             _FormManager.ManageDataListViewStates(VatDeclarationSchemaInfoItemListDataListView)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -114,7 +114,7 @@ Public Class F_VatDeclarationSchemaInfoItemList
                 xmlString = IO.File.ReadAllText(filePath, System.Text.Encoding.Unicode)
             End Using
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             Exit Sub
         End Try
 
@@ -130,7 +130,7 @@ Public Class F_VatDeclarationSchemaInfoItemList
             _QueryManager.InvokeQuery(Of CommandImportVatDeclarationSchemas)(Nothing, _
                 "TheCommand", True, AddressOf OnSchemasImportComplete, xmlString)
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
         End Try
 
     End Sub
@@ -167,7 +167,7 @@ Public Class F_VatDeclarationSchemaInfoItemList
                 "GetBusinessObjectCollection", True, AddressOf OnSchemasFetched, ids.ToArray())
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             Exit Sub
         End Try
 
@@ -197,7 +197,7 @@ Public Class F_VatDeclarationSchemaInfoItemList
                 IO.File.WriteAllText(filePath, VatDeclarationSchema.GetXmlString(list), System.Text.Encoding.Unicode)
             End Using
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             Exit Sub
         End Try
 

@@ -266,7 +266,7 @@ Public Class CslaActionExtenderReportForm(Of T)
                     result = DirectCast(InvokeMethod(Of T)(Nothing, _RefreshMethodName, params), T)
                 End Using
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, params)
                 Exit Sub
             End Try
 
@@ -280,14 +280,14 @@ Public Class CslaActionExtenderReportForm(Of T)
 
         If Not _ProgressControl.Exception Is Nothing Then
 
-            ShowError(_ProgressControl.Exception)
+            ShowError(_ProgressControl.Exception, Nothing)
 
         ElseIf Not _ProgressControl.Result Is Nothing Then
 
             Try
                 SetNewDataSource(DirectCast(_ProgressControl.Result, T))
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, Nothing)
             End Try
 
         Else

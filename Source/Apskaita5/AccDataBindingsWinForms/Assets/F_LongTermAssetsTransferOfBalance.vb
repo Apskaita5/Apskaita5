@@ -38,7 +38,7 @@ Friend Class F_LongTermAssetsTransferOfBalance
                 "GetLongTermAssetsTransferOfBalance", True, AddressOf OnDataSourceLoaded)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -59,7 +59,7 @@ Friend Class F_LongTermAssetsTransferOfBalance
                 (Me, LongTermAssetsTransferOfBalanceBindingSource, currentSource)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -77,7 +77,7 @@ Friend Class F_LongTermAssetsTransferOfBalance
 
         ElseIf source Is Nothing Then
 
-            ShowError(New Exception("Klaida. Nepavyko gauti ilgalaikio turto likučių perkėlimo duomenų."))
+            ShowError(New Exception("Klaida. Nepavyko gauti ilgalaikio turto likučių perkėlimo duomenų."), Nothing)
             DisableAllControls(Me)
             Exit Sub
 
@@ -97,7 +97,7 @@ Friend Class F_LongTermAssetsTransferOfBalance
             _FormManager.ManageDataListViewStates(ItemsDataListView)
 
         Catch ex As Exception
-            ShowError(New Exception("Klaida. Nepavyko gauti ilgalaikio turto likučių perkėlimo duomenų: " & ex.Message, ex))
+            ShowError(New Exception("Klaida. Nepavyko gauti ilgalaikio turto likučių perkėlimo duomenų: " & ex.Message, ex), Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -142,7 +142,7 @@ Friend Class F_LongTermAssetsTransferOfBalance
                 _FormManager.DataSource.ImportRange(data)
             End Using
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, New Object() {_FormManager.DataSource, data})
         End Try
 
     End Sub

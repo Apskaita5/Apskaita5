@@ -64,6 +64,7 @@ Namespace MessageBoxExLib
         Private _result As String = Nothing
         Private _Exception As Exception = Nothing
         Private _BaseException As Exception = Nothing
+        Private _BusinessObject As Object = Nothing
 
         ''' <summary>
         ''' Used to determine the alert sound to play
@@ -191,6 +192,12 @@ Namespace MessageBoxExLib
         Public WriteOnly Property BaseException() As Exception
             Set(ByVal value As Exception)
                 _BaseException = value
+            End Set
+        End Property
+
+        Public WriteOnly Property BusinessObject() As Object
+            Set(ByVal value As Object)
+                _BusinessObject = value
             End Set
         End Property
 
@@ -785,6 +792,7 @@ Namespace MessageBoxExLib
 #Region "Event Handlers"
 
         Private Sub OnButtonClicked(ByVal sender As Object, ByVal e As EventArgs)
+
             Dim btn As Button = TryCast(sender, Button)
             If btn Is Nothing OrElse btn.Tag Is Nothing Then
                 Exit Sub
@@ -793,13 +801,13 @@ Namespace MessageBoxExLib
             Dim result As String = TryCast(btn.Tag, String)
 
             If _Exception IsNot Nothing AndAlso result = "Detaliau" Then
-                Dim frm As New MessageBoxExDetails
-                frm._Exception = _Exception
+                Dim frm As New MessageBoxExDetails(_Exception, _BusinessObject)
                 frm.ShowDialog()
                 Exit Sub
             End If
 
             SetResultAndClose(result)
+
         End Sub
 
         Private Sub timerTimeout_Tick(ByVal sender As Object, ByVal e As EventArgs)

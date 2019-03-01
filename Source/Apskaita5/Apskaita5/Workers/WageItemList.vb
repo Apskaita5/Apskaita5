@@ -172,7 +172,7 @@ Namespace Workers
         Friend Function GetTotalGPMDeductions() As Double
             Dim result As Double = 0
             For Each i As WageItem In Me
-                If i.IsChecked Then result = CRound(result + i.DeductionGPM)
+                If i.IsChecked Then result = CRound(result + i.DeductionGPM + i.DeductedGpmSickLeave)
             Next
             Return result
         End Function

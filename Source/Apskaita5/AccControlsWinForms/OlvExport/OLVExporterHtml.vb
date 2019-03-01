@@ -41,7 +41,7 @@ Namespace OlvExport
                         System.Text.Encoding.Unicode)
                 End Using
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, Nothing)
                 Exit Sub
             End Try
 

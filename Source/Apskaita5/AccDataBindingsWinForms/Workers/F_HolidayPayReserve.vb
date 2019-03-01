@@ -91,7 +91,7 @@ Friend Class F_HolidayPayReserve
                 HolidayPayReserveBindingSource, _DocumentToEdit)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -112,7 +112,7 @@ Friend Class F_HolidayPayReserve
             _FormManager.ManageDataListViewStates(ItemsDataListView)
 
         Catch ex As Exception
-            ShowError(New Exception("Klaida. Nepavyko gauti atostogų rezervo pažymos duomenų.", ex))
+            ShowError(New Exception("Klaida. Nepavyko gauti atostogų rezervo pažymos duomenų.", ex), Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -127,7 +127,7 @@ Friend Class F_HolidayPayReserve
             DisableAllControls(Me)
             Exit Sub
         ElseIf result Is Nothing Then
-            ShowError(New Exception("Klaida. Nepavyko gauti naujos atostogų rezervo pažymos duomenų."))
+            ShowError(New Exception("Klaida. Nepavyko gauti naujos atostogų rezervo pažymos duomenų."), Nothing)
             DisableAllControls(Me)
             Exit Sub
         End If
@@ -216,7 +216,7 @@ Friend Class F_HolidayPayReserve
                 _ListViewManager.GetCurrentFilterDescription(), _
                 _ListViewManager.GetDisplayOrderIndexes())
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 
@@ -228,7 +228,7 @@ Friend Class F_HolidayPayReserve
                 _ListViewManager.GetCurrentFilterDescription(), _
                 _ListViewManager.GetDisplayOrderIndexes())
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 

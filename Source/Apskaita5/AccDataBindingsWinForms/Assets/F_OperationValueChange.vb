@@ -93,7 +93,7 @@ Friend Class F_OperationValueChange
                 BackgroundInfoPanel1.GetBindingSource(), _DocumentToEdit)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -109,7 +109,7 @@ Friend Class F_OperationValueChange
                 (Me, OperationValueChangeBindingSource, _DocumentToEdit, _
                 Nothing, nOkButton, ApplyButton, nCancelButton, Nothing, ProgressFiller1)
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -153,7 +153,7 @@ Friend Class F_OperationValueChange
         Try
             result = _FormManager.DataSource.NewJournalEntry()
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
         End Try
 
         If Not result Is Nothing Then
@@ -176,7 +176,7 @@ Friend Class F_OperationValueChange
             Try
                 _FormManager.DataSource.LoadAssociatedJournalEntry(dlg.SelectedEntries(0))
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, New Object() {_FormManager.DataSource, dlg.SelectedEntries})
             End Try
 
         End Using
@@ -216,7 +216,7 @@ Friend Class F_OperationValueChange
         Try
             PrintObject(_FormManager.DataSource, False, 0, "ITPervertinimas", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
 
     End Sub
@@ -229,7 +229,7 @@ Friend Class F_OperationValueChange
         Try
             PrintObject(_FormManager.DataSource, True, 0, "ITPervertinimas", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
 
     End Sub

@@ -74,7 +74,7 @@ Public Class F_DataImport
             Try
                 source = ParseString(sourceString)
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, sourceString)
                 Exit Sub
             End Try
 
@@ -83,7 +83,7 @@ Public Class F_DataImport
             Try
                 sourceString = System.IO.File.ReadAllText(_FilePath, _Encoding)
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, sourceString)
                 Exit Sub
             End Try
 
@@ -219,7 +219,7 @@ Public Class F_DataImport
             Next
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _RawData)
             Exit Sub
         End Try
 
@@ -264,29 +264,29 @@ Public Class F_DataImport
 
     Private Shared Function ValidateTemplate(ByVal template As DataTable) As Boolean
         If template Is Nothing Then
-            ShowError(New ArgumentNullException("template"))
+            ShowError(New ArgumentNullException("template"), Nothing)
             Return False
         ElseIf template.Columns.Count < 1 Then
-            ShowError(New ArgumentException("Template should contain at least 1 column.", "template"))
+            ShowError(New ArgumentException("Template should contain at least 1 column.", "template"), Nothing)
             Return False
         End If
 
         For Each col As DataColumn In template.Columns
             If col.Caption Is Nothing OrElse String.IsNullOrEmpty(col.Caption.Trim) Then
-                ShowError(New ArgumentException("All template columns should have a non empty Caption.", "template"))
+                ShowError(New ArgumentException("All template columns should have a non empty Caption.", "template"), template)
                 Return False
             ElseIf col.ColumnName Is Nothing OrElse String.IsNullOrEmpty(col.ColumnName.Trim) Then
-                ShowError(New ArgumentException("All template columns should have a non empty ColumnName.", "template"))
+                ShowError(New ArgumentException("All template columns should have a non empty ColumnName.", "template"), template)
                 Return False
             ElseIf col.DataType Is Nothing Then
-                ShowError(New ArgumentException("All template columns should have a DataType set.", "template"))
+                ShowError(New ArgumentException("All template columns should have a DataType set.", "template"), template)
                 Return False
             ElseIf Not col.DataType Is GetType(Double) AndAlso Not col.DataType Is GetType(Integer) _
                 AndAlso Not col.DataType Is GetType(Long) AndAlso Not col.DataType Is GetType(Byte) _
                 AndAlso Not col.DataType Is GetType(DateTime) AndAlso Not col.DataType Is GetType(Boolean) _
                 AndAlso Not col.DataType Is GetType(String) Then
                 ShowError(New ArgumentException(String.Format("Column DataType {0} is not supported.",
-                    col.DataType.ToString), "template"))
+                    col.DataType.ToString), "template"), template)
                 Return False
             End If
         Next
@@ -297,10 +297,10 @@ Public Class F_DataImport
 
     Private Shared Function ValidateFilePath(ByVal filePath As String) As Boolean
         If filePath Is Nothing OrElse String.IsNullOrEmpty(filePath) Then
-            ShowError(New ArgumentNullException("filePath"))
+            ShowError(New ArgumentNullException("filePath"), Nothing)
             Return False
         ElseIf Not System.IO.File.Exists(filePath) Then
-            ShowError(New System.IO.FileNotFoundException(String.Format("File {0} does not exist.", filePath), filePath))
+            ShowError(New System.IO.FileNotFoundException(String.Format("File {0} does not exist.", filePath), filePath), Nothing)
             Return False
         End If
         Return True

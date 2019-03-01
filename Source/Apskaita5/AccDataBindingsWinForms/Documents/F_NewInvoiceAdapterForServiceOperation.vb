@@ -42,7 +42,7 @@ Friend Class F_NewInvoiceAdapterForServiceOperation
             _QueryBrowser = New CslaActionExtenderQueryObject(Me, ProgressFiller1)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
         End Try
 
@@ -71,7 +71,7 @@ Friend Class F_NewInvoiceAdapterForServiceOperation
                 Not _ForInvoiceReceived)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
         End Try
 
     End Sub

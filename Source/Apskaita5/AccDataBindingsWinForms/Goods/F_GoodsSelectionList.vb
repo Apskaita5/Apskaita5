@@ -30,7 +30,7 @@ Friend Class F_GoodsSelectionList
             GoodsInfoListBindingSource.DataSource = GoodsInfoList.GetCachedFilteredList( _
                 False, False, TradedItemType.All, Nothing)
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -47,7 +47,7 @@ Friend Class F_GoodsSelectionList
         Try
             _Result = GetCheckedGoodsIds()
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             Exit Sub
         End Try
 

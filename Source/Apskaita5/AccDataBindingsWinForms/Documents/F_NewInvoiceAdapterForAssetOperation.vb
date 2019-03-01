@@ -38,7 +38,7 @@ Friend Class F_NewInvoiceAdapterForAssetOperation(Of T)
             _QueryBrowser = New CslaActionExtenderQueryObject(Me, ProgressFiller1)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
         End Try
 
@@ -72,7 +72,7 @@ Friend Class F_NewInvoiceAdapterForAssetOperation(Of T)
                 (LongTermAssetAccGridComboBox, DirectCast(result, LongTermAssetInfoList))
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -115,7 +115,7 @@ Friend Class F_NewInvoiceAdapterForAssetOperation(Of T)
             End If
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
         End Try
 
     End Sub

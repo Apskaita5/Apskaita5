@@ -66,7 +66,7 @@ Public Class F_SharesOperation
             _FormManager.ManageDataListViewStates(Me.AcquisitionsDataListView, Me.DiscardsDataListView)
 
         Catch ex As Exception
-            ShowError(New Exception("Klaida. Nepavyko gauti akcijų operacijos duomenų.", ex))
+            ShowError(New Exception("Klaida. Nepavyko gauti akcijų operacijos duomenų.", ex), Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -101,7 +101,7 @@ Public Class F_SharesOperation
                 SharesOperationBindingSource, _OperationToEdit)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -167,7 +167,7 @@ Public Class F_SharesOperation
         Try
             PrintObject(_FormManager.DataSource, False, 0, "AkcijuOperacija", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 
@@ -177,7 +177,7 @@ Public Class F_SharesOperation
         Try
             PrintObject(_FormManager.DataSource, True, 0, "AkcijuOperacija", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 

@@ -46,7 +46,7 @@ Friend Class F_NewInvoiceAdapterForGoodsOperation(Of T)
             _QueryBrowser = New CslaActionExtenderQueryObject(Me, ProgressFiller1)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
         End Try
 
@@ -135,7 +135,7 @@ Friend Class F_NewInvoiceAdapterForGoodsOperation(Of T)
             End If
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
         End Try
 
     End Sub

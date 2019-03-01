@@ -61,10 +61,10 @@ Namespace WebControls
                 If result = DialogResult.Cancel Then
                     Return Nothing
                 ElseIf frm.DownloadException IsNot Nothing Then
-                    ShowError(frm.DownloadException)
+                    ShowError(frm.DownloadException, Nothing)
                     Return Nothing
                 ElseIf frm.Result.Count < 1 Then
-                    ShowError(New Exception("Web request returned null."))
+                    ShowError(New Exception("Web request returned null."), Nothing)
                     Return Nothing
                 Else
                     Return frm.Result(0)
@@ -101,7 +101,7 @@ Namespace WebControls
                 If result = DialogResult.Cancel Then
                     Return Nothing
                 ElseIf frm.DownloadException IsNot Nothing Then
-                    ShowError(frm.DownloadException)
+                    ShowError(frm.DownloadException, Nothing)
                     Return Nothing
                 Else
                     Return frm.Result

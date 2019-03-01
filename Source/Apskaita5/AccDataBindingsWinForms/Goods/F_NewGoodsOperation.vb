@@ -83,7 +83,7 @@ Public Class F_NewGoodsOperation(Of T)
                 New WarehouseFieldAttribute(ValueRequiredLevel.Optional))
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try

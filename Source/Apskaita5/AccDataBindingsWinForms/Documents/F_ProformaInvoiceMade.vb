@@ -86,7 +86,7 @@ Public Class F_ProformaInvoiceMade
             _FormManager.ManageDataListViewStates(ItemsDataListView)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -129,7 +129,7 @@ Public Class F_ProformaInvoiceMade
             End If
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -173,7 +173,7 @@ Public Class F_ProformaInvoiceMade
         Try
             regionalDictionary = RegionalInfoDictionary.GetList()
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             Exit Sub
         End Try
 
@@ -182,7 +182,7 @@ Public Class F_ProformaInvoiceMade
                 _FormManager.DataSource.AddNewTradedItem(itemToAdd, regionalDictionary)
             End Using
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, New Object() {_FormManager.DataSource, itemToAdd, regionalDictionary})
             Exit Sub
         End Try
 
@@ -227,8 +227,8 @@ Public Class F_ProformaInvoiceMade
                 info = _FormManager.DataSource.GetInvoiceInfo(InstanceGuid.ToString)
             End Using
         Catch ex As Exception
-            ShowError(New Exception(String.Format("Klaida. Nepavyko generuoti InvoiceInfo objekto:{0}{1}", _
-                vbCrLf, ex.Message), ex))
+            ShowError(New Exception(String.Format("Klaida. Nepavyko generuoti InvoiceInfo objekto:{0}{1}",
+                vbCrLf, ex.Message), ex), _FormManager.DataSource)
             Exit Sub
         End Try
 
@@ -244,8 +244,8 @@ Public Class F_ProformaInvoiceMade
                     ToXmlString(Of InvoiceInfo.InvoiceInfo)(info), TextDataFormat.UnicodeText)
             End Using
         Catch ex As Exception
-            ShowError(New Exception(String.Format("Klaida. Nepavyko serializuoti InvoiceInfo objekto:{0}{1}", _
-                vbCrLf, ex.Message), ex))
+            ShowError(New Exception(String.Format("Klaida. Nepavyko serializuoti InvoiceInfo objekto:{0}{1}",
+                vbCrLf, ex.Message), ex), Nothing)
             Exit Sub
         End Try
 
@@ -274,7 +274,7 @@ Public Class F_ProformaInvoiceMade
         Catch ex As Exception
             ShowError(New Exception(String.Format("Klaida. Nepavyko atkurti sąskaitos objekto. " _
                 & "Teigtina, kad prieš tai į ClipBoard'ą buvo nukopijuota ne sąskaita, " _
-                & "o šiaip kažkoks tekstas.{0}Klaidos tekstas:{1}", vbCrLf, ex.Message), ex))
+                & "o šiaip kažkoks tekstas.{0}Klaidos tekstas:{1}", vbCrLf, ex.Message), ex), clipboardText)
             Exit Sub
         End Try
 
@@ -328,8 +328,8 @@ Public Class F_ProformaInvoiceMade
                     useExternalID, personList, newPerson)
             End Using
         Catch ex As Exception
-            ShowError(New Exception(String.Format("Klaida. Nepavyko įkrauti kopijuojamos sąskaitos duomenų:{0}{1}", _
-                vbCrLf, ex.Message), ex))
+            ShowError(New Exception(String.Format("Klaida. Nepavyko įkrauti kopijuojamos sąskaitos duomenų:{0}{1}",
+                vbCrLf, ex.Message), ex), info)
             Exit Sub
         End Try
 
@@ -349,7 +349,7 @@ Public Class F_ProformaInvoiceMade
                         newObj.ExternalID)
                 End Using
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, Nothing)
                 Exit Sub
             End Try
 
@@ -439,7 +439,7 @@ Public Class F_ProformaInvoiceMade
             PrintObject(_FormManager.DataSource, False, Convert.ToInt32(IIf(GetSenderText(sender).ToLower.Contains("lietuvių"), 1, 0)), _
                 _FormManager.DataSource.GetFileName(), Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 
@@ -451,7 +451,7 @@ Public Class F_ProformaInvoiceMade
             PrintObject(_FormManager.DataSource, True, Convert.ToInt32(IIf(GetSenderText(sender).ToLower.Contains("lietuvių"), 1, 0)), _
                 _FormManager.DataSource.GetFileName(), Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 

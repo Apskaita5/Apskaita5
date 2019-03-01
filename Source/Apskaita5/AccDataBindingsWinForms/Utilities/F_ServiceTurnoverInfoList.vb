@@ -31,7 +31,7 @@ Friend Class F_ServiceTurnoverInfoList
                 GetType(Documents.TradedItemType), False, ""))
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
         End Try
 
@@ -89,7 +89,7 @@ Friend Class F_ServiceTurnoverInfoList
                 _ListViewManager.GetCurrentFilterDescription(), _
                 _ListViewManager.GetDisplayOrderIndexes())
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 
@@ -101,7 +101,7 @@ Friend Class F_ServiceTurnoverInfoList
                 _ListViewManager.GetCurrentFilterDescription(), _
                 _ListViewManager.GetDisplayOrderIndexes())
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 

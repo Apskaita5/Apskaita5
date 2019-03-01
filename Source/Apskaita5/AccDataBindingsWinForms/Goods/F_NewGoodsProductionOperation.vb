@@ -58,7 +58,7 @@ Public Class F_NewGoodsProductionOperation
                 New ProductionCalculationFieldAttribute(ValueRequiredLevel.Optional))
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try

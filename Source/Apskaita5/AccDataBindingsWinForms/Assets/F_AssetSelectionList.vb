@@ -34,7 +34,7 @@ Friend Class F_AssetSelectionList
                 "GetLongTermAssetInfoList", True, AddressOf OnDataSourceFetched, Today, Today.AddYears(50), Nothing)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -56,7 +56,7 @@ Friend Class F_AssetSelectionList
         Try
             _LongTermAssetInfoListBindingSource.DataSource = DirectCast(result, LongTermAssetInfoList).GetFilteredList(False)
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, result)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -73,7 +73,7 @@ Friend Class F_AssetSelectionList
         Try
             _Result = GetCheckedAssetsIds()
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             Exit Sub
         End Try
 

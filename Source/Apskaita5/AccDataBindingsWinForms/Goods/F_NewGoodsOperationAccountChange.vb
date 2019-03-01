@@ -57,7 +57,7 @@ Public Class F_NewGoodsOperationAccountChange
                 GoodsOperationType.AccountValueReductionChange))
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try

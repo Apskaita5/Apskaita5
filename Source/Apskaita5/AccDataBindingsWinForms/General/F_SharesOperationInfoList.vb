@@ -56,7 +56,7 @@ Public Class F_SharesOperationInfoList
             DateBeginAccDatePicker.Value = Today.AddYears(-5)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -137,7 +137,7 @@ Public Class F_SharesOperationInfoList
             PrintObject(_FormManager.DataSource, False, 0, "OperacijosSuAkcijomis", Me,
                 _ListViewManager.GetCurrentFilterDescription(), _ListViewManager.GetDisplayOrderIndexes())
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 
@@ -148,7 +148,7 @@ Public Class F_SharesOperationInfoList
             PrintObject(_FormManager.DataSource, True, 0, "OperacijosSuAkcijomis", Me,
                 _ListViewManager.GetCurrentFilterDescription(), _ListViewManager.GetDisplayOrderIndexes())
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 

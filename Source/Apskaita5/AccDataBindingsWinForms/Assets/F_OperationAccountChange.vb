@@ -127,7 +127,7 @@ Friend Class F_OperationAccountChange
                 (Me, BackgroundInfoPanel1.GetBindingSource(), _DocumentToEdit)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -144,7 +144,7 @@ Friend Class F_OperationAccountChange
                 _RequiredCachedLists, nOkButton, ApplyButton, nCancelButton, _
                 Nothing, ProgressFiller1)
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -211,7 +211,7 @@ Friend Class F_OperationAccountChange
         Try
             PrintObject(_FormManager.DataSource, False, 0, "ITApskaitosSaskPakeitimas", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
 
     End Sub
@@ -224,7 +224,7 @@ Friend Class F_OperationAccountChange
         Try
             PrintObject(_FormManager.DataSource, True, 0, "ITApskaitosSaskPakeitimas", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
 
     End Sub

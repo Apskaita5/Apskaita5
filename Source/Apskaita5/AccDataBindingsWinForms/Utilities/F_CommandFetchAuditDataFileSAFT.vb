@@ -75,7 +75,7 @@ Public Class F_CommandFetchAuditDataFileSAFT
                         version.TargetNameSpace, errors, warnings)
                 End Using
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, Nothing)
                 Exit Sub
             End Try
 
@@ -130,7 +130,7 @@ Public Class F_CommandFetchAuditDataFileSAFT
             End Using
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             Exit Sub
         End Try
 

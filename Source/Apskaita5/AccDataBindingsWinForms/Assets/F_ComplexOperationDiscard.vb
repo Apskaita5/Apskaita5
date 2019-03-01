@@ -76,7 +76,7 @@ Friend Class F_ComplexOperationDiscard
             _FormManager.ManageDataListViewStates(ItemsDataListView)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -104,7 +104,7 @@ Friend Class F_ComplexOperationDiscard
                 New AccountFieldAttribute(ValueRequiredLevel.Optional, False, 6))
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -160,7 +160,7 @@ Friend Class F_ComplexOperationDiscard
         Try
             _FormManager.DataSource.AddRange(DirectCast(result, OperationDiscardList))
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, New Object() {_FormManager.DataSource, result})
             Exit Sub
         End Try
 
@@ -182,7 +182,7 @@ Friend Class F_ComplexOperationDiscard
         Try
             _FormManager.DataSource.SetCommonAccountCosts(selectedAccount)
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, New Object() {_FormManager.DataSource, selectedAccount})
         End Try
 
     End Sub
@@ -219,7 +219,7 @@ Friend Class F_ComplexOperationDiscard
         Try
             PrintObject(_FormManager.DataSource, False, 0, "ITNurasymas", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 
@@ -229,7 +229,7 @@ Friend Class F_ComplexOperationDiscard
         Try
             PrintObject(_FormManager.DataSource, True, 0, "ITNurasymas", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 

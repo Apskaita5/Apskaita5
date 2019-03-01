@@ -22,7 +22,7 @@ Public Class F_SharesClassList
                 True, AddressOf OnDataSourceLoaded)
 
         Catch ex As Exception
-            ShowError(New Exception("Klaida. Nepavyko gauti akcijų klasių duomenų.", ex))
+            ShowError(New Exception("Klaida. Nepavyko gauti akcijų klasių duomenų.", ex), Nothing)
             DisableAllControls(Me)
         End Try
 
@@ -37,7 +37,7 @@ Public Class F_SharesClassList
                  AddressOf AddNewItem, Nothing, Nothing)
 
         Catch ex As Exception
-            ShowError(New Exception("Klaida. Nepavyko gauti akcijų klasių duomenų.", ex))
+            ShowError(New Exception("Klaida. Nepavyko gauti akcijų klasių duomenų.", ex), Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -58,7 +58,7 @@ Public Class F_SharesClassList
 
         ElseIf source Is Nothing Then
 
-            ShowError(New Exception("Klaida. Nepavyko gauti akcijų klasių duomenų."))
+            ShowError(New Exception("Klaida. Nepavyko gauti akcijų klasių duomenų."), Nothing)
             DisableAllControls(Me)
             Exit Sub
 
@@ -73,7 +73,7 @@ Public Class F_SharesClassList
             _FormManager.ManageDataListViewStates(ItemsDataListView)
 
         Catch ex As Exception
-            ShowError(New Exception("Klaida. Nepavyko gauti akcijų klasių duomenų.", ex))
+            ShowError(New Exception("Klaida. Nepavyko gauti akcijų klasių duomenų.", ex), Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try

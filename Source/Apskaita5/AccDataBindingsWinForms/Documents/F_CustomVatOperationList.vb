@@ -31,7 +31,7 @@ Public Class F_CustomVatOperationList
             _FormManager.ManageDataListViewStates(Me.ItemsDataListView)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -65,7 +65,7 @@ Public Class F_CustomVatOperationList
             _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller2)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -109,7 +109,7 @@ Public Class F_CustomVatOperationList
         Try
             item.CalculateVat()
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, item)
         End Try
     End Sub
 
@@ -171,7 +171,7 @@ Public Class F_CustomVatOperationList
         Try
             _FormManager.DataSource.AddNewRange(DirectCast(result, CustomVatOperationList))
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, New Object() {_FormManager.DataSource, result})
         End Try
 
     End Sub

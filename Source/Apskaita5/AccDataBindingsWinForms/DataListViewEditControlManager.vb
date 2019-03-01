@@ -353,7 +353,7 @@ Public Class DataListViewEditControlManager(Of T)
         Try
             table = DataAggregator.AggregateSumList.GetObjectListViewDataTable(_CurrentListView, GetType(T))
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             Exit Sub
         End Try
 

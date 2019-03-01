@@ -90,7 +90,7 @@ Public Class F_GoodsOperationRedeemFromBuyer
                 Nothing, ProgressFiller1)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -111,7 +111,7 @@ Public Class F_GoodsOperationRedeemFromBuyer
                 GoodsOperationRedeemFromBuyerBindingSource, _DocumentToEdit)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -135,7 +135,7 @@ Public Class F_GoodsOperationRedeemFromBuyer
             Try
                 _FormManager.DataSource.LoadAssociatedJournalEntry(dlg.SelectedEntries(0))
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, New Object() {_FormManager.DataSource, dlg.SelectedEntries})
                 Exit Sub
             End Try
 

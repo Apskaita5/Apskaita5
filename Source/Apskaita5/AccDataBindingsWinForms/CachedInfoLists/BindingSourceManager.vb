@@ -154,7 +154,7 @@ Namespace CachedInfoLists
                     CacheObjectList.GetList(baseTypes)
                 End Using
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, Nothing)
                 If Not callingForm Is Nothing Then
                     DisableAllControls(CType(callingForm, Control))
                 End If

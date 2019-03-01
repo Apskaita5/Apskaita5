@@ -51,7 +51,7 @@ Public Class F_VatDeclaration
             _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller2)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -147,7 +147,7 @@ Public Class F_VatDeclaration
             End If
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
 
     End Sub

@@ -93,7 +93,7 @@ Friend Class F_OperationAmortizationPeriodChange
                 BackgroundInfoPanel1.GetBindingSource(), _DocumentToEdit)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -109,7 +109,7 @@ Friend Class F_OperationAmortizationPeriodChange
                 (Me, OperationAmortizationPeriodChangeBindingSource, _DocumentToEdit, _
                 Nothing, nOkButton, ApplyButton, nCancelButton, Nothing, ProgressFiller1)
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -169,7 +169,7 @@ Friend Class F_OperationAmortizationPeriodChange
         Try
             PrintObject(_FormManager.DataSource, False, 0, "ItAmortPeriodoPakeitimas", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
 
     End Sub
@@ -182,7 +182,7 @@ Friend Class F_OperationAmortizationPeriodChange
         Try
             PrintObject(_FormManager.DataSource, True, 0, "ItAmortPeriodoPakeitimas", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
 
     End Sub

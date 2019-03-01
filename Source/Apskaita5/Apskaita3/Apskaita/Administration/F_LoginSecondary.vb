@@ -28,7 +28,7 @@ Public Class F_LoginSecondary
                 Me.Close()
             End If
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
         End Try
 
     End Sub

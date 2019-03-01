@@ -31,7 +31,7 @@ Public Class F_PayOutNaturalPersonWithoutTaxesList
             _FormManager.ManageDataListViewStates(Me.ItemsDataListView)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -63,7 +63,7 @@ Public Class F_PayOutNaturalPersonWithoutTaxesList
                 ValueRequiredLevel.Optional, False, True, True))
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -153,7 +153,7 @@ Public Class F_PayOutNaturalPersonWithoutTaxesList
         Try
             _FormManager.DataSource.AddNewRange(DirectCast(result, PayOutNaturalPersonWithoutTaxesList))
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, New Object() {_FormManager.DataSource, result})
         End Try
 
     End Sub
@@ -205,7 +205,7 @@ Public Class F_PayOutNaturalPersonWithoutTaxesList
             End If
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
 
     End Sub

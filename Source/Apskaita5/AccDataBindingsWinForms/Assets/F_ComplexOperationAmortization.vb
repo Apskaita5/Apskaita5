@@ -76,7 +76,7 @@ Friend Class F_ComplexOperationAmortization
             _FormManager.ManageDataListViewStates(ItemsDataListView)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Exit Sub
         End Try
@@ -108,7 +108,7 @@ Friend Class F_ComplexOperationAmortization
                 New AccountFieldAttribute(ValueRequiredLevel.Optional, False, 2, 3, 6))
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -177,7 +177,7 @@ Friend Class F_ComplexOperationAmortization
                 _FormManager.DataSource.SetCalculations(DirectCast(result, LongTermAssetAmortizationCalculationList), warnings)
             End If
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, New Object() {_FormManager.DataSource, result})
             Exit Sub
         End Try
 
@@ -219,7 +219,7 @@ Friend Class F_ComplexOperationAmortization
         Try
             _FormManager.DataSource.AddRange(DirectCast(result, OperationAmortizationList))
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, New Object() {_FormManager.DataSource, result})
             Exit Sub
         End Try
 
@@ -241,7 +241,7 @@ Friend Class F_ComplexOperationAmortization
         Try
             _FormManager.DataSource.SetCommonAccountCosts(selectedAccount)
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, New Object() {_FormManager.DataSource, selectedAccount})
         End Try
 
     End Sub
@@ -278,7 +278,7 @@ Friend Class F_ComplexOperationAmortization
         Try
             PrintObject(_FormManager.DataSource, False, 0, "ITAmortizacija", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 
@@ -288,7 +288,7 @@ Friend Class F_ComplexOperationAmortization
         Try
             PrintObject(_FormManager.DataSource, True, 0, "ITAmortizacija", Me, "")
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, _FormManager.DataSource)
         End Try
     End Sub
 

@@ -54,7 +54,7 @@ Namespace OlvExport
                     End Using
                 End Using
             Catch ex As Exception
-                ShowError(ex)
+                ShowError(ex, Nothing)
                 If Not fileExisted AndAlso IO.File.Exists(filePath) Then
                     Try
                         IO.File.Delete(filePath)

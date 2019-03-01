@@ -135,9 +135,9 @@
                         dd.Rows(i).Item(0) = (i + 1).ToString
                         dd.Rows(i).Item(1) = GetLimitedLengthString(CStrSafe(dr.Item(0)).Trim, 11)
                         Dim SerialAndNumber As String = CStrSafe(dr.Item(1)).Trim.ToUpper
-                        If SerialAndNumber.Length > 1 Then
+                        If SerialAndNumber.Length > 2 Then
                             dd.Rows(i).Item(2) = SerialAndNumber.Substring(0, 2)
-                            dd.Rows(i).Item(3) = GetNumericPart(SerialAndNumber)
+                            dd.Rows(i).Item(3) = SerialAndNumber.Substring(2)
                         Else
                             dd.Rows(i).Item(2) = ""
                             dd.Rows(i).Item(3) = ""
@@ -257,6 +257,14 @@
                 p = 6 * (i - 1)
 
                 For j = 1 To Math.Min(6, detailsDataTable.Rows.Count - p)
+
+                    If formDataSet.Tables(8).Rows.Count <= (35 + 9 * (j - 1) + (i - 1) * 63) Then _
+                        Throw New IndexOutOfRangeException(String.Format("formDataSet index out of range for line: page {0}, line {1}, row {2}.",
+                            i.ToString(), j.ToString(), (35 + 9 * (j - 1) + (i - 1) * 63).ToString()))
+                    If detailsDataTable.Rows.Count <= (p + j - 1) Then Throw New IndexOutOfRangeException(
+                        String.Format("detailsDataTable index out of range: page {0}, line {1}, row {2}.",
+                            i.ToString(), j.ToString(), (p + j - 1).ToString()))
+
                     formDataSet.Tables(8).Rows(27 + 9 * (j - 1) + (i - 1) * 63).Item(1) = p + j
                     formDataSet.Tables(8).Rows(28 + 9 * (j - 1) + (i - 1) * 63).Item(1) =
                         detailsDataTable.Rows(p + j - 1).Item(1)
@@ -279,8 +287,13 @@
                     pagePayments = pagePayments + CDbl(detailsDataTable.Rows(p + j - 1).Item(6))
                 Next
 
+                If formDataSet.Tables(8).Rows.Count <= (82 + (i - 1) * 63) Then _
+                        Throw New IndexOutOfRangeException(String.Format("formDataSet index out of range for page subtotals: page {0}, row {1}.",
+                            i.ToString(), (82 + (i - 1) * 63).ToString()))
+
                 formDataSet.Tables(8).Rows(81 + (i - 1) * 63).Item(1) = GetNumberInFFDataFormat(pageIncome)
                 formDataSet.Tables(8).Rows(82 + (i - 1) * 63).Item(1) = GetNumberInFFDataFormat(pagePayments)
+
             Next
 
             Return formDataSet

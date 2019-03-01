@@ -48,7 +48,7 @@ Public Class F_UserReportInfoList
             _FormManager.ManageDataListViewStates(UserReportInfoListDataListView)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -101,7 +101,7 @@ Public Class F_UserReportInfoList
             IO.File.WriteAllText(fileName, DirectCast(result, String), _
                 System.Text.Encoding.UTF8)
         Catch ex As Exception
-            ShowError(New Exception(String.Format("Klaida. Nepavyko išsaugoti failo: {0}", ex.Message), ex))
+            ShowError(New Exception(String.Format("Klaida. Nepavyko išsaugoti failo: {0}", ex.Message), ex), Nothing)
             Exit Sub
         End Try
 

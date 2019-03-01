@@ -72,7 +72,7 @@ Public Class F_UserReport
             _QueryManager = New CslaActionExtenderQueryObject(Me, ProgressFiller1)
 
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, Nothing)
             DisableAllControls(Me)
             Return False
         End Try
@@ -123,6 +123,7 @@ Public Class F_UserReport
         End If
 
         _CurrentReport = DirectCast(result, UserReport)
+        Dim paramString As String = ""
 
         Try
             Using busy As New StatusBusy
@@ -133,7 +134,6 @@ Public Class F_UserReport
                     Me.RdlViewer1.Report.DataSets(table.TableName).SetData(table)
                 Next
 
-                Dim paramString As String = ""
                 For Each param As KeyValuePair(Of String, Object) In _CurrentReport.ReportParams
                     If param.Value Is Nothing Then
                         paramString = paramString & String.Format("&{0}={1}", _
@@ -149,7 +149,7 @@ Public Class F_UserReport
 
             End Using
         Catch ex As Exception
-            ShowError(ex)
+            ShowError(ex, New Object() {_CurrentReport, paramString})
         End Try
 
     End Sub
