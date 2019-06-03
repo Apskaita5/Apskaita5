@@ -137,7 +137,7 @@
                         Dim SerialAndNumber As String = CStrSafe(dr.Item(1)).Trim.ToUpper
                         If SerialAndNumber.Length > 2 Then
                             dd.Rows(i).Item(2) = SerialAndNumber.Substring(0, 2)
-                            dd.Rows(i).Item(3) = SerialAndNumber.Substring(2)
+                            dd.Rows(i).Item(3) = SerialAndNumber.Substring(2).Trim()
                         Else
                             dd.Rows(i).Item(2) = ""
                             dd.Rows(i).Item(3) = ""

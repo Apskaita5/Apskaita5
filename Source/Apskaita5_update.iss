@@ -4,7 +4,7 @@
 [Setup]
 AppName=Apskaita5 update
 AppID=Apskaita5MD
-AppVerName=Apskaita 5 v. 2019-03-01 update
+AppVerName=Apskaita 5 v. 2019-06-03 update
 AppPublisher=Marius Dagys
 AppPublisherURL=https://github.com/Apskaita5/Apskaita5/wiki
 AppSupportURL=http://www.tax.lt/temos/12748-nemokama-apskaitos-programa
@@ -81,6 +81,8 @@ Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Releas
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\FR0600(2).mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\GPM313.mxfd"; DestDir: "{app}\MXFD"; Flags: onlyifdoesntexist
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\isaf_1_2.xsd"; DestDir: "{app}\MXFD"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\SAFT_2_01.xsd"; DestDir: "{app}\MXFD"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\SAFT_2_01.xsd"; DestDir: "{app}\MXFD"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\FR0471(5).mxfd"; DestDir: "{app}\MXFD"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\GPM312(1).mxfd"; DestDir: "{app}\MXFD"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\SAM-v07.mxfd"; DestDir: "{app}\MXFD"; Flags: ignoreversion

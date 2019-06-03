@@ -623,6 +623,7 @@ Public Module CommonMethods
 
         _AvailableIAuditFileSAFTList = New List(Of ActiveReports.IAuditFileSAFT)
 
+        _AvailableIAuditFileSAFTList.Add(New ActiveReports.Declarations.AuditDataFileSAFT_2_01)
         _AvailableIAuditFileSAFTList.Add(New ActiveReports.Declarations.AuditDataFileSAFT_2_0)
 
     End Sub

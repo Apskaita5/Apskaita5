@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<MXFD Version="1.2" CreatedBy="ABBYY eFormDesigner 2.5 (build 190)" CreatedOn="2018-01-05">
-<FormDef Version="1" FormDefId="{EB03E9EF-39B0-457F-8264-79E86F053009}" CreatedBy="" CreatedOn="2018-01-05" URLUpdateForm="" FFDataCollectServer="" ServiceProvider="" FFDatabaseName="" FFKeepFormOrder="1">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MXFD Version="1.2" CreatedBy="ABBYY eFormDesigner 2.5 (build 186)" CreatedOn="2019-01-07">
+<FormDef Version="1" FormDefId="{EB03E9EF-39B0-457F-8264-79E86F053009}" CreatedBy="" CreatedOn="2019-01-07" URLUpdateForm="" FFDataCollectServer="" ServiceProvider="">
 <FormDescription></FormDescription>
 <FormResolution>300</FormResolution>
 <FormAttributes>0</FormAttributes>
 <FormDefsHistory>
+<FormDefsHistoryItem FormDefId="{EB03E9EF-39B0-457F-8264-79E86F053009}" CreatedOn="2018-01-05">
+</FormDefsHistoryItem>
 </FormDefsHistory>
 <GroupPages>
 <Group Name="Visa forma" DefOccur="1" MinOccur="1" MaxOccur="1">
@@ -1239,7 +1241,7 @@ PSDĮ – privalomojo sveikatos draudimo įmokos</TextValue>
 </PageLayoutDef>
 <PageDataDef Name="GPM313" IsBoundToXFD="true" ReferedXFD="5768472463475">
 <FieldDataDefs Count="14">
-<FieldDataDef FieldName="B_MM_ID" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF9011" DefaultValue="">
+<FieldDataDef FieldName="B_MM_ID" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF9011">
 <IsRequired>true</IsRequired>
 <IsReadOnly>false</IsReadOnly>
 <Rect l="609" t="329" r="1280" b="402"/>
@@ -1263,10 +1265,8 @@ PSDĮ – privalomojo sveikatos draudimo įmokos</TextValue>
 <ListItems>
 </ListItems>
 <UseListPropperties>DontUseList</UseListPropperties>
-<QueryText></QueryText>
-<AttachListFromDB>false</AttachListFromDB>
 </FieldDataDef>
-<FieldDataDef FieldName="B_MM_Pavadinimas" Comment="" SettingName="" DataType="Text" ReferedXFDItem="0x5CEF900E" DefaultValue="">
+<FieldDataDef FieldName="B_MM_Pavadinimas" Comment="" SettingName="" DataType="Text" ReferedXFDItem="0x5CEF900E">
 <IsRequired>true</IsRequired>
 <IsReadOnly>false</IsReadOnly>
 <Rect l="608" t="461" r="3334" b="615"/>
@@ -1286,10 +1286,8 @@ PSDĮ – privalomojo sveikatos draudimo įmokos</TextValue>
 <ListItems>
 </ListItems>
 <UseListPropperties>DontUseList</UseListPropperties>
-<QueryText></QueryText>
-<AttachListFromDB>false</AttachListFromDB>
 </FieldDataDef>
-<FieldDataDef FieldName="B_ML_Metai" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5D9E1039" DefaultValue="">
+<FieldDataDef FieldName="B_ML_Metai" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5D9E1039">
 <IsRequired>true</IsRequired>
 <IsReadOnly>false</IsReadOnly>
 <Rect l="610" t="683" r="854" b="756"/>
@@ -1312,12 +1310,11 @@ PSDĮ – privalomojo sveikatos draudimo įmokos</TextValue>
 <MaxValue></MaxValue>
 <ListItems>
 <ListItem DisplayName="">2018</ListItem>
+<ListItem DisplayName="">2019</ListItem>
 </ListItems>
 <UseListPropperties>UseListOnly</UseListPropperties>
-<QueryText></QueryText>
-<AttachListFromDB>false</AttachListFromDB>
 </FieldDataDef>
-<FieldDataDef FieldName="B_ML_Menuo" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5DA2503B" DefaultValue="">
+<FieldDataDef FieldName="B_ML_Menuo" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5DA2503B">
 <IsRequired>true</IsRequired>
 <IsReadOnly>false</IsReadOnly>
 <Rect l="1105" t="683" r="1227" b="756"/>
@@ -1353,10 +1350,8 @@ PSDĮ – privalomojo sveikatos draudimo įmokos</TextValue>
 <ListItem DisplayName="gruodis">12</ListItem>
 </ListItems>
 <UseListPropperties>UseListOnly</UseListPropperties>
-<QueryText></QueryText>
-<AttachListFromDB>false</AttachListFromDB>
 </FieldDataDef>
-<FieldDataDef FieldName="G5" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF9016" DefaultValue="">
+<FieldDataDef FieldName="G5" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF9016">
 <IsRequired>false</IsRequired>
 <IsReadOnly>false</IsReadOnly>
 <Rect l="172" t="1286" r="1026" b="1359"/>
@@ -1380,10 +1375,8 @@ PSDĮ – privalomojo sveikatos draudimo įmokos</TextValue>
 <ListItems>
 </ListItems>
 <UseListPropperties>DontUseList</UseListPropperties>
-<QueryText></QueryText>
-<AttachListFromDB>false</AttachListFromDB>
 </FieldDataDef>
-<FieldDataDef FieldName="G6" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF9019" DefaultValue="">
+<FieldDataDef FieldName="G6" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF9019">
 <IsRequired>false</IsRequired>
 <IsReadOnly>false</IsReadOnly>
 <Rect l="1330" t="1286" r="2184" b="1359"/>
@@ -1407,10 +1400,8 @@ PSDĮ – privalomojo sveikatos draudimo įmokos</TextValue>
 <ListItems>
 </ListItems>
 <UseListPropperties>DontUseList</UseListPropperties>
-<QueryText></QueryText>
-<AttachListFromDB>false</AttachListFromDB>
 </FieldDataDef>
-<FieldDataDef FieldName="G7" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF901C" DefaultValue="">
+<FieldDataDef FieldName="G7" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF901C">
 <IsRequired>false</IsRequired>
 <IsReadOnly>false</IsReadOnly>
 <Rect l="2476" t="1286" r="3330" b="1359"/>
@@ -1434,10 +1425,8 @@ PSDĮ – privalomojo sveikatos draudimo įmokos</TextValue>
 <ListItems>
 </ListItems>
 <UseListPropperties>DontUseList</UseListPropperties>
-<QueryText></QueryText>
-<AttachListFromDB>false</AttachListFromDB>
 </FieldDataDef>
-<FieldDataDef FieldName="G8" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF901F" DefaultValue="">
+<FieldDataDef FieldName="G8" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF901F">
 <IsRequired>false</IsRequired>
 <IsReadOnly>false</IsReadOnly>
 <Rect l="172" t="1640" r="1026" b="1713"/>
@@ -1461,10 +1450,8 @@ PSDĮ – privalomojo sveikatos draudimo įmokos</TextValue>
 <ListItems>
 </ListItems>
 <UseListPropperties>DontUseList</UseListPropperties>
-<QueryText></QueryText>
-<AttachListFromDB>false</AttachListFromDB>
 </FieldDataDef>
-<FieldDataDef FieldName="G9" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF9022" DefaultValue="">
+<FieldDataDef FieldName="G9" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF9022">
 <IsRequired>false</IsRequired>
 <IsReadOnly>false</IsReadOnly>
 <Rect l="1330" t="1640" r="2184" b="1713"/>
@@ -1488,10 +1475,8 @@ PSDĮ – privalomojo sveikatos draudimo įmokos</TextValue>
 <ListItems>
 </ListItems>
 <UseListPropperties>DontUseList</UseListPropperties>
-<QueryText></QueryText>
-<AttachListFromDB>false</AttachListFromDB>
 </FieldDataDef>
-<FieldDataDef FieldName="G10" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF9025" DefaultValue="">
+<FieldDataDef FieldName="G10" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF9025">
 <IsRequired>false</IsRequired>
 <IsReadOnly>false</IsReadOnly>
 <Rect l="2476" t="1640" r="3330" b="1713"/>
@@ -1515,10 +1500,8 @@ PSDĮ – privalomojo sveikatos draudimo įmokos</TextValue>
 <ListItems>
 </ListItems>
 <UseListPropperties>DontUseList</UseListPropperties>
-<QueryText></QueryText>
-<AttachListFromDB>false</AttachListFromDB>
 </FieldDataDef>
-<FieldDataDef FieldName="G11" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF902B" DefaultValue="">
+<FieldDataDef FieldName="G11" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF902B">
 <IsRequired>false</IsRequired>
 <IsReadOnly>false</IsReadOnly>
 <Rect l="172" t="1983" r="1026" b="2056"/>
@@ -1542,10 +1525,8 @@ PSDĮ – privalomojo sveikatos draudimo įmokos</TextValue>
 <ListItems>
 </ListItems>
 <UseListPropperties>DontUseList</UseListPropperties>
-<QueryText></QueryText>
-<AttachListFromDB>false</AttachListFromDB>
 </FieldDataDef>
-<FieldDataDef FieldName="G12" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF9028" DefaultValue="">
+<FieldDataDef FieldName="G12" Comment="" SettingName="" DataType="Decimal" ReferedXFDItem="0x5CEF9028">
 <IsRequired>false</IsRequired>
 <IsReadOnly>false</IsReadOnly>
 <Rect l="2476" t="1983" r="3330" b="2056"/>
@@ -1569,10 +1550,8 @@ PSDĮ – privalomojo sveikatos draudimo įmokos</TextValue>
 <ListItems>
 </ListItems>
 <UseListPropperties>DontUseList</UseListPropperties>
-<QueryText></QueryText>
-<AttachListFromDB>false</AttachListFromDB>
 </FieldDataDef>
-<FieldDataDef FieldName="B_FormNr" Comment="" SettingName="" DataType="Text" ReferedXFDItem="0x5CEF9007" DefaultValue="">
+<FieldDataDef FieldName="B_FormNr" Comment="" SettingName="" DataType="Text" ReferedXFDItem="0x5CEF9007">
 <IsRequired>false</IsRequired>
 <IsReadOnly>true</IsReadOnly>
 <Rect l="2428" t="128" r="2794" b="201"/>
@@ -1592,10 +1571,8 @@ PSDĮ – privalomojo sveikatos draudimo įmokos</TextValue>
 <ListItems>
 </ListItems>
 <UseListPropperties>DontUseList</UseListPropperties>
-<QueryText></QueryText>
-<AttachListFromDB>false</AttachListFromDB>
 </FieldDataDef>
-<FieldDataDef FieldName="B_FormVerNr" Comment="" SettingName="" DataType="Text" ReferedXFDItem="0x5CEF900A" DefaultValue="">
+<FieldDataDef FieldName="B_FormVerNr" Comment="" SettingName="" DataType="Text" ReferedXFDItem="0x5CEF900A">
 <IsRequired>false</IsRequired>
 <IsReadOnly>true</IsReadOnly>
 <Rect l="2948" t="128" r="3070" b="201"/>
@@ -1615,8 +1592,6 @@ PSDĮ – privalomojo sveikatos draudimo įmokos</TextValue>
 <ListItems>
 </ListItems>
 <UseListPropperties>DontUseList</UseListPropperties>
-<QueryText></QueryText>
-<AttachListFromDB>false</AttachListFromDB>
 </FieldDataDef>
 </FieldDataDefs>
 <NewFieldsFormat>
@@ -1661,7 +1636,7 @@ Sub GPM313
 		end if
 	end if
 	
-	fieldsGPM313.Itembyname(&quot;B_ML_Metai&quot;).setcheckvalue cstr(&quot;2018&quot;)
+	&apos;fieldsGPM313.Itembyname(&quot;B_ML_Metai&quot;).setcheckvalue cstr(&quot;2018&quot;)
 	
 	if not IsFilled(fieldsGPM313.Itembyname(&quot;B_ML_Metai&quot;)) then form.seterror&quot;3 laukelyje negalimi metai - deklaracija teikiam tik už 2018 ir vėlesnius metus&quot;, Array(fieldsGPM313.Itembyname(&quot;B_ML_Metai&quot;))
 	

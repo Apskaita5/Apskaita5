@@ -101,6 +101,7 @@
     <Compile Include="ActiveReports\DebtStatementItemList.vb" />
     <Compile Include="ActiveReports\DebtStatementItemType.vb" />
     <Compile Include="ActiveReports\DebtStatementPerson.vb" />
+    <Compile Include="ActiveReports\Declarations\AuditDataFileSAFT_2_01.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationGPM312_1.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationGPM313_1.vb" />
     <Compile Include="ActiveReports\Declarations\DeclarationSAM_6.vb" />
@@ -109,6 +110,7 @@
     <Compile Include="ActiveReports\Declarations\InvoiceRegisterISaf_1.vb" />
     <Compile Include="ActiveReports\Declarations\ISafTemplates\ISaf_1_2.vb" />
     <Compile Include="ActiveReports\Declarations\SafTTemplates\SAFT_2_0.vb" />
+    <Compile Include="ActiveReports\Declarations\SafTTemplates\SAFT_2_01.vb" />
     <Compile Include="ActiveReports\Declarations\XmlValidationErrorBuilder.vb" />
     <Compile Include="ActiveReports\IInvoiceRegisterSafT.vb" />
     <Compile Include="ActiveReports\IPayOutsNaturalPersonsWithoutTaxesDeclaration.vb" />
@@ -677,6 +679,7 @@
     <Content Include="Info\TestUpgradeSuccess.txt" />
     <Content Include="SqlDepositories\SQLite_Depository.sqld">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="WTClasses.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

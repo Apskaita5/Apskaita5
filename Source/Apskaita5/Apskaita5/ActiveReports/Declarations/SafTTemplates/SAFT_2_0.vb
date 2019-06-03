@@ -2574,11 +2574,11 @@ Namespace ActiveReports.Declarations.SafTTemplates.SAFT_2_0
 
         Private accountTypeField As AuditFileMasterFilesAccountAccountType
 
-        Private itemField As Decimal
+        Private itemField As System.Nullable(Of Decimal)
 
         Private itemElementNameField As ItemChoiceType1
 
-        Private item1Field As Decimal
+        Private item1Field As Decimal?
 
         Private item1ElementNameField As Item1ChoiceType
 
@@ -2809,11 +2809,11 @@ Namespace ActiveReports.Declarations.SafTTemplates.SAFT_2_0
 
         Private accountIDField() As String
 
-        Private itemField As Decimal
+        Private itemField As Decimal?
 
         Private itemElementNameField As ItemChoiceType2
 
-        Private item1Field As Decimal
+        Private item1Field As Decimal?
 
         Private item1ElementNameField As Item1ChoiceType1
 
@@ -3116,11 +3116,11 @@ Namespace ActiveReports.Declarations.SafTTemplates.SAFT_2_0
 
         Private accountIDField() As String
 
-        Private itemField As Decimal
+        Private itemField As Decimal?
 
         Private itemElementNameField As ItemChoiceType3
 
-        Private item1Field As Decimal
+        Private item1Field As Decimal?
 
         Private item1ElementNameField As Item1ChoiceType2
 
@@ -4516,7 +4516,7 @@ Namespace ActiveReports.Declarations.SafTTemplates.SAFT_2_0
 
         Private accountID1Field As String
 
-        Private itemField As Decimal
+        Private itemField As Decimal?
 
         Private itemElementNameField As ItemChoiceType4
 

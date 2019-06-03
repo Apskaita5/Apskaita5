@@ -8,7 +8,7 @@ Namespace ActiveReports.Declarations
 
     ''' <summary>
     ''' Represents an implementation of an <see cref="IAuditFileSAFT">IInvoiceRegisterSafT</see>
-    ''' for a state tax inspectorate (VMI) SAF-T report version 1.1.
+    ''' for a state tax inspectorate (VMI) SAF-T report version 2.0.
     ''' </summary>
     ''' <remarks>Object is responsible for exporting the <see cref="InvoiceInfoItemList">
     ''' invoice register report</see> data to XML format.</remarks>
@@ -713,6 +713,8 @@ Namespace ActiveReports.Declarations
 
             End Using
 
+            If result.Count < 1 Then Return Nothing
+
             Return result.ToArray
 
         End Function
@@ -1366,25 +1368,23 @@ Namespace ActiveReports.Declarations
                                 If CIntSafe(dd.Item(0), 0) = id Then
 
                                     Dim line As New AuditFileSourceDocumentsPaymentsPaymentLine
-                                    payment.Line(0).LineNumber = id.ToString & "-" & CIntSafe(dd.Item(1), 0).ToString
-                                    payment.Line(0).PaymentLineAmount = New AmountStructure
-                                    payment.Line(0).PaymentLineAmount.Amount = Convert.ToDecimal(
-                                        CDblSafe(dd.Item(2), 2, 0.0))
-                                    payment.Line(0).PaymentLineAmount.CurrencyAmount = Convert.ToDecimal(
-                                        CDblSafe(dd.Item(3), 2, 0.0))
-                                    payment.Line(0).PaymentLineAmount.CurrencyCode = CStrSafe(dd.Item(4))
-                                    payment.Line(0).AccountID = CLongSafe(dd.Item(5), 0).ToString
-                                    payment.Line(0).Description = CStrSafe(dd.Item(6))
+                                    line.LineNumber = id.ToString & "-" & CIntSafe(dd.Item(1), 0).ToString
+                                    line.PaymentLineAmount = New AmountStructure
+                                    line.PaymentLineAmount.Amount = Convert.ToDecimal(CDblSafe(dd.Item(2), 2, 0.0))
+                                    line.PaymentLineAmount.CurrencyAmount = Convert.ToDecimal(CDblSafe(dd.Item(3), 2, 0.0))
+                                    line.PaymentLineAmount.CurrencyCode = CStrSafe(dd.Item(4))
+                                    line.AccountID = CLongSafe(dd.Item(5), 0).ToString
+                                    line.Description = CStrSafe(dd.Item(6))
                                     Dim lineType As BookEntryType = ConvertDatabaseCharID(Of BookEntryType)(CStrSafe(dd.Item(7)))
                                     Dim personID As Integer = CIntSafe(dd.Item(8), 0)
                                     If lineType = BookEntryType.Debetas Then
-                                        payment.Line(0).DebitCreditIndicator = AuditFileSourceDocumentsPaymentsPaymentLineDebitCreditIndicator.D
-                                        If personID > 0 Then payment.Line(0).CustomerID = personID.ToString
-                                        debitSum = CRound(debitSum + Convert.ToDouble(payment.Line(0).PaymentLineAmount.Amount), 2)
+                                        line.DebitCreditIndicator = AuditFileSourceDocumentsPaymentsPaymentLineDebitCreditIndicator.D
+                                        If personID > 0 Then line.CustomerID = personID.ToString
+                                        debitSum = CRound(debitSum + Convert.ToDouble(line.PaymentLineAmount.Amount), 2)
                                     Else
-                                        payment.Line(0).DebitCreditIndicator = AuditFileSourceDocumentsPaymentsPaymentLineDebitCreditIndicator.K
-                                        If personID > 0 Then payment.Line(0).SupplierID = personID.ToString
-                                        creditSum = CRound(creditSum + Convert.ToDouble(payment.Line(0).PaymentLineAmount.Amount), 2)
+                                        line.DebitCreditIndicator = AuditFileSourceDocumentsPaymentsPaymentLineDebitCreditIndicator.K
+                                        If personID > 0 Then line.SupplierID = personID.ToString
+                                        creditSum = CRound(creditSum + Convert.ToDouble(line.PaymentLineAmount.Amount), 2)
                                     End If
 
                                     lines.Add(line)
