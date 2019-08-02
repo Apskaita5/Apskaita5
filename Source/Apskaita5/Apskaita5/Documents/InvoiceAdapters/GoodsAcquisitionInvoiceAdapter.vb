@@ -756,6 +756,10 @@ Namespace Documents.InvoiceAdapters
             Return True
         End Function
 
+        Public Function GetGoodsInfo() As GoodsInfo Implements IInvoiceAdapter.GetGoodsInfo
+            Return GoodsInfoList.GetList.GetItem(_GoodsAcquisition.GoodsInfo.ID)
+        End Function
+
 
         Protected Overrides Function GetIdValue() As Object
             Return _Guid

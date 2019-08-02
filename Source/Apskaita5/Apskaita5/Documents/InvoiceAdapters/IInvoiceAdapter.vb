@@ -348,6 +348,13 @@
         Function GetCopy() As IInvoiceAdapter
 
         ''' <summary>
+        ''' Gets goods value object if the invoice adapter performs goods sales or acquisitions.
+        ''' Can throw exceptions if failes to fetch GoodsInfo cache.
+        ''' </summary>
+        ''' <returns></returns>
+        Function GetGoodsInfo() As GoodsInfo
+
+        ''' <summary>
         ''' Checks if some other adapter is compatible with the current one.
         ''' </summary>
         ''' <param name="adapter">an IInvoiceAdapter to check for compatibility</param>

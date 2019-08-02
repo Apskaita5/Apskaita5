@@ -657,9 +657,9 @@ Namespace ActiveReports.Declarations
                     asset.Valuations(0).ValuationClass = GetLimitedLengthString(CStrSafe(dr.Item(16)), 18)
                     asset.Valuations(0).Item = CIntSafe(dr.Item(17), 1)
                     asset.Valuations(0).ItemElementName = ItemChoiceType4.AssetLifeYear
-                    asset.Valuations(0).AccumulatedDepreciation = Convert.ToDecimal(CDblSafe(dr.Item(18), 2, 0))
+                    asset.Valuations(0).AccumulatedDepreciation = Convert.ToDecimal(-CDblSafe(dr.Item(18), 2, 0))
                     asset.Valuations(0).AccumulatedDepreciationSpecified = True
-                    asset.Valuations(0).DepreciationForPeriod = Convert.ToDecimal(CDblSafe(dr.Item(19), 2, 0))
+                    asset.Valuations(0).DepreciationForPeriod = Convert.ToDecimal(-CDblSafe(dr.Item(19), 2, 0))
 
                     Dim startUpDate As Date = CDateSafe(dr.Item(20), Date.MaxValue)
                     If startUpDate <> Date.MaxValue Then
