@@ -527,6 +527,8 @@ Namespace ActiveReports.Declarations
                 Next
             End Using
 
+            If result.Count < 1 Then Return Nothing
+
             Return result.ToArray
 
         End Function
@@ -594,6 +596,8 @@ Namespace ActiveReports.Declarations
 
             End Using
 
+            If result.Count < 1 Then Return Nothing
+
             Return result.ToArray
 
         End Function
@@ -657,9 +661,9 @@ Namespace ActiveReports.Declarations
                     asset.Valuations(0).ValuationClass = GetLimitedLengthString(CStrSafe(dr.Item(16)), 18)
                     asset.Valuations(0).Item = CIntSafe(dr.Item(17), 1)
                     asset.Valuations(0).ItemElementName = ItemChoiceType4.AssetLifeYear
-                    asset.Valuations(0).AccumulatedDepreciation = Convert.ToDecimal(-CDblSafe(dr.Item(18), 2, 0))
+                    asset.Valuations(0).AccumulatedDepreciation = Convert.ToDecimal(CDblSafe(dr.Item(18), 2, 0))
                     asset.Valuations(0).AccumulatedDepreciationSpecified = True
-                    asset.Valuations(0).DepreciationForPeriod = Convert.ToDecimal(-CDblSafe(dr.Item(19), 2, 0))
+                    asset.Valuations(0).DepreciationForPeriod = Convert.ToDecimal(CDblSafe(dr.Item(19), 2, 0))
 
                     Dim startUpDate As Date = CDateSafe(dr.Item(20), Date.MaxValue)
                     If startUpDate <> Date.MaxValue Then
@@ -686,7 +690,7 @@ Namespace ActiveReports.Declarations
                     asset.Valuations(0).AccumulatedDepreciationOfAppreciationSpecified = True
 
                     Dim appreciationDate As Date = CDateSafe(dr.Item(26), Date.MaxValue)
-                    Dim appreciation As Double = CRound(CDblSafe(dr.Item(28), 2, 0) + CDblSafe(dr.Item(29), 2, 0))
+                    Dim appreciation As Double = CDblSafe(dr.Item(29), 2, 0)
                     If appreciationDate <> Date.MaxValue AndAlso appreciation > 0 Then
                         asset.Valuations(0).Appreciations = New AuditFileMasterFilesAssetValuationAppreciation() {New AuditFileMasterFilesAssetValuationAppreciation}
                         asset.Valuations(0).Appreciations(0).AccountID = CLongSafe(dr.Item(27), 0).ToString
@@ -701,7 +705,7 @@ Namespace ActiveReports.Declarations
                     End If
 
                     Dim impairmentDate As Date = CDateSafe(dr.Item(31), Date.MaxValue)
-                    Dim impairment As Double = CRound(CDblSafe(dr.Item(33), 2, 0) + CDblSafe(dr.Item(34), 2, 0))
+                    Dim impairment As Double = CDblSafe(dr.Item(34), 2, 0)
                     If impairmentDate <> Date.MaxValue AndAlso impairment > 0 Then
                         asset.Valuations(0).ImpairmentOfAssets = New AuditFileMasterFilesAssetValuationImpairmentOfAsset() {New AuditFileMasterFilesAssetValuationImpairmentOfAsset}
                         asset.Valuations(0).ImpairmentOfAssets(0).AccountID = CLongSafe(dr.Item(32), 0).ToString

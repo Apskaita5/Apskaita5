@@ -50,28 +50,25 @@
 
             For Each dr As DataRow In myData.Rows
                 If CIntSafe(dr.Item(6), 0) = personID Then
+
                     If Not actualDebt > 0 Then actualDebt = CDblSafe(dr.Item(14), 2, 0)
-                    Add(UnsettledDocumentInfo.GetUnsettledDocumentInfo(dr))
-                    totalDebt = CRound(totalDebt + Me.Item(Me.Count - 1).SumInDocument)
+
+                    Dim document As UnsettledDocumentInfo = UnsettledDocumentInfo.GetUnsettledDocumentInfo(dr)
+
+                    Add(document)
+
+                    totalDebt = CRound(totalDebt + document.SumInDocument)
+
+                    If totalDebt >= actualDebt Then
+                        document.AdjustDebt(CRound(totalDebt - actualDebt, 2))
+                        Exit For
+                    End If
+
                 End If
             Next
 
-            AdjustLastSumInDocument(actualDebt, totalDebt)
-
             IsReadOnly = True
             RaiseListChangedEvents = True
-
-        End Sub
-
-        Private Sub AdjustLastSumInDocument(ByVal actualDebt As Double, ByVal totalDebt As Double)
-
-            If Me.Count < 1 Then Exit Sub
-
-            If CRound(totalDebt - actualDebt, 2) = Me.Item(Me.Count - 1).SumInDocument Then
-                Me.RemoveAt(Me.Count - 1)
-            ElseIf CRound(totalDebt - actualDebt, 2) > 0 Then
-                Me.Item(Me.Count - 1).AdjustDebt(CRound(totalDebt - actualDebt, 2))
-            End If
 
         End Sub
 

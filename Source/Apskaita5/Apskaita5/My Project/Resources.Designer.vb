@@ -18577,6 +18577,69 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Negalima paskaičiuoti dengimų, kol nenurodyta pavedimo suma..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_Reconciliation_AmountNull() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_Reconciliation_AmountNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Negalima paskaičiuoti dengimų, kol nenurodytas valiutos kursas..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_Reconciliation_CurrencyRateNull() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_Reconciliation_CurrencyRateNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Dengimai galimi tik pavedimams užsienio valiuta..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_Reconciliation_InvalidCurrency() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_Reconciliation_InvalidCurrency", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Dengiamų sąskaitų valiuta turi sutapti su mokėjimo valiuta..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_Reconciliation_InvalidInvoiceCurrency() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_Reconciliation_InvalidInvoiceCurrency", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Nenurodytos dengiamos sąskaitos..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_Reconciliation_InvoicesNull() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_Reconciliation_InvoicesNull", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Neįmanoma padengti mokėtinos sumos su gauta įmoka..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_Reconciliation_NotesPayableInvalid() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_Reconciliation_NotesPayableInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Neįmanoma padengti gautinos sumos su atlikta įmoka..
+        '''</summary>
+        Friend ReadOnly Property Documents_BankOperation_Reconciliation_NotesReceivableInvalid() As String
+            Get
+                Return ResourceManager.GetString("Documents_BankOperation_Reconciliation_NotesReceivableInvalid", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to suma.
         '''</summary>
         Friend ReadOnly Property Documents_BankOperation_Sum() As String

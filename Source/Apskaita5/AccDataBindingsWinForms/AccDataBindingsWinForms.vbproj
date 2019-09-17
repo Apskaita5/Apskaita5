@@ -1919,6 +1919,18 @@
     <None Include="My Project\DataSources\ApskaitaObjects.Workers.WorkTimeSheet.datasource" />
     <None Include="Resources\Remove_Attachment_32x32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_new.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_edit.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

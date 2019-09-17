@@ -15599,4 +15599,25 @@
   <data name="Workers_WageItem_NpdSickLeave" xml:space="preserve">
     <value>pritaikyta NPD ligai</value>
   </data>
+  <data name="Documents_BankOperation_Reconciliation_AmountNull" xml:space="preserve">
+    <value>Negalima paskaičiuoti dengimų, kol nenurodyta pavedimo suma.</value>
+  </data>
+  <data name="Documents_BankOperation_Reconciliation_CurrencyRateNull" xml:space="preserve">
+    <value>Negalima paskaičiuoti dengimų, kol nenurodytas valiutos kursas.</value>
+  </data>
+  <data name="Documents_BankOperation_Reconciliation_InvalidCurrency" xml:space="preserve">
+    <value>Dengimai galimi tik pavedimams užsienio valiuta.</value>
+  </data>
+  <data name="Documents_BankOperation_Reconciliation_InvalidInvoiceCurrency" xml:space="preserve">
+    <value>Dengiamų sąskaitų valiuta turi sutapti su mokėjimo valiuta.</value>
+  </data>
+  <data name="Documents_BankOperation_Reconciliation_InvoicesNull" xml:space="preserve">
+    <value>Nenurodytos dengiamos sąskaitos.</value>
+  </data>
+  <data name="Documents_BankOperation_Reconciliation_NotesPayableInvalid" xml:space="preserve">
+    <value>Neįmanoma padengti mokėtinos sumos su gauta įmoka.</value>
+  </data>
+  <data name="Documents_BankOperation_Reconciliation_NotesReceivableInvalid" xml:space="preserve">
+    <value>Neįmanoma padengti gautinos sumos su atlikta įmoka.</value>
+  </data>
 </root>

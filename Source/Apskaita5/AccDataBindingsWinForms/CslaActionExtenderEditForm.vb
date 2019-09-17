@@ -192,6 +192,8 @@ Public Class CslaActionExtenderEditForm(Of T)
 
         parentBindingSource.DataSource = dataSource
 
+        SetIcon()
+
         MyCustomSettings.SetFormLayout(parentForm)
 
     End Sub
@@ -281,6 +283,8 @@ Public Class CslaActionExtenderEditForm(Of T)
         _DataSource = newDataSource
 
         _BindingSourceTree.Bind(_DataSource)
+
+        SetIcon()
 
         RaiseEvent DataSourceStateHasChanged(Me, New EventArgs)
 
@@ -476,6 +480,7 @@ Public Class CslaActionExtenderEditForm(Of T)
         End If
 
         _BindingSourceTree.Bind(_DataSource)
+        SetIcon()
 
         If _FetchingNewDataSource Then
             _FetchingNewDataSource = False
@@ -631,6 +636,7 @@ Public Class CslaActionExtenderEditForm(Of T)
         End If
 
         _BindingSourceTree.Bind(_DataSource)
+        SetIcon()
 
         RaiseEvent DataSourceStateHasChanged(Me, New EventArgs)
 
@@ -706,6 +712,7 @@ Public Class CslaActionExtenderEditForm(Of T)
             End Try
 
             BindNewDataSource(newDataSource)
+            SetIcon()
 
             RaiseEvent DataSourceStateHasChanged(Me, New EventArgs)
 
@@ -734,8 +741,8 @@ Public Class CslaActionExtenderEditForm(Of T)
             result = DirectCast(_DataSource, Object).IsChild
         Catch ex As Exception
             Try
-                result = DirectCast(GetType(T).GetProperty("IsChild", _
-                    BindingFlags.Instance Or BindingFlags.NonPublic). _
+                result = DirectCast(GetType(T).GetProperty("IsChild",
+                    BindingFlags.Instance Or BindingFlags.NonPublic).
                     GetValue(_DataSource, Nothing), Boolean)
             Catch e As Exception
             End Try
@@ -744,5 +751,23 @@ Public Class CslaActionExtenderEditForm(Of T)
         Return result
 
     End Function
+
+    Private Sub SetIcon()
+
+        If _DataSource Is Nothing OrElse _ParentForm Is Nothing Then Exit Sub
+
+        If _DataSource Is Nothing Then _ParentForm.Icon = My.Resources.document_new
+
+        Try
+            If DirectCast(_DataSource, Object).IsNew Then
+                _ParentForm.Icon = My.Resources.document_new
+            Else
+                _ParentForm.Icon = My.Resources.document_edit
+            End If
+        Catch ex As Exception
+            _ParentForm.Icon = My.Resources.document_new
+        End Try
+
+    End Sub
 
 End Class
