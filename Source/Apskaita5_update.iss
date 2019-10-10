@@ -4,7 +4,7 @@
 [Setup]
 AppName=Apskaita5 update
 AppID=Apskaita5MD
-AppVerName=Apskaita 5 v. 2019-09-18 update
+AppVerName=Apskaita 5 v. 2019-10-10 update
 AppPublisher=Marius Dagys
 AppPublisherURL=https://github.com/Apskaita5/Apskaita5/wiki
 AppSupportURL=http://www.tax.lt/temos/12748-nemokama-apskaitos-programa
