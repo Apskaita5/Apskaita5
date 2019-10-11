@@ -4,7 +4,7 @@
 [Setup]
 AppName=Apskaita5 update
 AppID=Apskaita5MD
-AppVerName=Apskaita 5 v. 2019-10-10 update
+AppVerName=Apskaita 5 v. 2019-10-11 update
 AppPublisher=Marius Dagys
 AppPublisherURL=https://github.com/Apskaita5/Apskaita5/wiki
 AppSupportURL=http://www.tax.lt/temos/12748-nemokama-apskaitos-programa
@@ -46,6 +46,7 @@ Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Releas
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ApskaitaObjects.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccCommon.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\InvoiceInfo.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MySql.Data.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\sqlite3.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\AccMigration\bin\x86\Release\AccMigration.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Reports\*"; DestDir: "{app}\Reports"; Flags: ignoreversion recursesubdirs createallsubdirs
