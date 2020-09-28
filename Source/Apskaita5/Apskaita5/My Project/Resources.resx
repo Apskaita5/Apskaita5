@@ -2079,46 +2079,46 @@
   <data name="Workers_PayOutNaturalPerson_CannotLoadEntry" xml:space="preserve">
     <value>Klaida. Susieta bendrojo žurnalo operacija gali būti nustatoma tik naujai išmokai.</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_CodeSODRA" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_CodeSODRA" xml:space="preserve">
     <value>SODRA kodas</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_CodeSODRANull" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_CodeSODRANull" xml:space="preserve">
     <value>Nenurodytas asmens socialinio draudimo kodas.</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_CodeVMI" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_CodeVMI" xml:space="preserve">
     <value>VMI kodas</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_Content" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_Content" xml:space="preserve">
     <value>turinys</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_ContributionPSD" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_ContributionPSD" xml:space="preserve">
     <value>priskaičiuota PSD</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_ContributionSODRA" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_ContributionSODRA" xml:space="preserve">
     <value>priskaičiuota SODRA</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_Date" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_Date" xml:space="preserve">
     <value>data</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_DeductionGPM" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_DeductionGPM" xml:space="preserve">
     <value>išskaičiuota GPM</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_DeductionPSD" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_DeductionPSD" xml:space="preserve">
     <value>išskaičiuota PSD</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_DeductionSODRA" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_DeductionSODRA" xml:space="preserve">
     <value>išskaičiuota SODRA</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_DocNumber" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_DocNumber" xml:space="preserve">
     <value>dok. Nr.</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_ID" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_ID" xml:space="preserve">
     <value>ID</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_InsertDate" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_InsertDate" xml:space="preserve">
     <value>įtraukta</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_JournalEntryID" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_JournalEntryID" xml:space="preserve">
     <value>BŽ ID (BŽ operacija)</value>
   </data>
   <data name="Workers_PayOutNaturalPerson_NewJournalEntryContent" xml:space="preserve">
@@ -2127,52 +2127,52 @@
   <data name="Workers_PayOutNaturalPerson_NewJournalEntryDocNumber" xml:space="preserve">
     <value>P-P Aktas</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_PersonCodeSODRA" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_PersonCodeSODRA" xml:space="preserve">
     <value>gavėjo SODRA kodas</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_PersonInfo" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_PersonInfo" xml:space="preserve">
     <value>gavėjas</value>
   </data>
   <data name="Workers_PayOutNaturalPerson_PersonNull" xml:space="preserve">
     <value>Klaida. Pasirinkta BŽ operacija neturi priskirto kontrahento (lėšų gavėjo).</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_RateGPM" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_RateGPM" xml:space="preserve">
     <value>GPM tarifas</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_RatePSDForCompany" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_RatePSDForCompany" xml:space="preserve">
     <value>PSD tarifas įmonei</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_RatePSDForPerson" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_RatePSDForPerson" xml:space="preserve">
     <value>PSD tarifas gyventojui</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_RateSODRAForCompany" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_RateSODRAForCompany" xml:space="preserve">
     <value>SODRA tarifas įmonei</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_RateSODRAForPerson" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_RateSODRAForPerson" xml:space="preserve">
     <value>SODRA tarifas gyventojui</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_SODRABase" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_SODRABase" xml:space="preserve">
     <value>SODRA bazė</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_SumBruto" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_SumBruto" xml:space="preserve">
     <value>suma "ant popieriaus"</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_SumNeto" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_SumNeto" xml:space="preserve">
     <value>suma neto</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_ToString" xml:space="preserve">
-    <value>{0} išmoka fiziniam asmeniui ({1}): {2}</value>
+  <data name="Workers_PayOutNaturalPersonWithTaxes_ToString" xml:space="preserve">
+    <value>{0} A klasės išmoka fiziniam asmeniui ({1}): {2}</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_TotalPSD" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_TotalPSD" xml:space="preserve">
     <value>viso PSD</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_TotalSODRA" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_TotalSODRA" xml:space="preserve">
     <value>viso SODRA</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_TypeName" xml:space="preserve">
-    <value>išmoka fiziniam asmeniui</value>
+  <data name="Workers_PayOutNaturalPersonWithTaxes_TypeName" xml:space="preserve">
+    <value>A klasės išmoka fiziniam asmeniui</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_UpdateDate" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_UpdateDate" xml:space="preserve">
     <value>pakeista</value>
   </data>
   <data name="ActiveReports_AccountTurnoverInfo_CreditBalanceCurrentPeriodEnd" xml:space="preserve">
@@ -2895,7 +2895,7 @@
   <data name="ActiveReports_WageSheetInfo_Year" xml:space="preserve">
     <value>metai</value>
   </data>
-  <data name="Workers_PayOutNaturalPerson_SumJournalEntry" xml:space="preserve">
+  <data name="Workers_PayOutNaturalPersonWithTaxes_SumJournalEntry" xml:space="preserve">
     <value>BŽ suma</value>
   </data>
   <data name="ActiveReports_SodraRateInfo_Month" xml:space="preserve">
@@ -15619,5 +15619,122 @@
   </data>
   <data name="Documents_BankOperation_Reconciliation_NotesReceivableInvalid" xml:space="preserve">
     <value>Neįmanoma padengti gautinos sumos su atlikta įmoka.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithTaxesList_DateFrom" xml:space="preserve">
+    <value>periodo pradžia</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithTaxesList_DateTo" xml:space="preserve">
+    <value>periodo pabaiga</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithTaxesList_JournalEntriesIdsNull" xml:space="preserve">
+    <value>Klaida. Nenurodytos bendrojo žurnalo operacijos, kurioms reikėtų registruoti A klasės išmokas.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithTaxesList_ListIsNotDirty" xml:space="preserve">
+    <value>Klaida. Nesukurta ir nepakeista nė viena A klasės išmoka.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithTaxesList_PersonFilter" xml:space="preserve">
+    <value>filtras pagal asmenį</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithTaxesList_RangeEmpty" xml:space="preserve">
+    <value>Bendrojo žurnalo operacijų sąraše nėra nei vienos operacijos.</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithTaxesList_ToString" xml:space="preserve">
+    <value>A klasės išmokos fiziniams asmenims</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithTaxesList_TypeName" xml:space="preserve">
+    <value>A klasės išmokos fiziniams asmenims</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithTaxesList_DocumentTypeInvalid" xml:space="preserve">
+    <value>Dokumentas, kurio tipas yra {0}, negali pagrįsti A klasės išmokos asmeniui. ({1} Nr. {2}: {3})</value>
+  </data>
+  <data name="Workers_PayOutNaturalPersonWithTaxesList_PersonCannotBeNullForDocument" xml:space="preserve">
+    <value>Dokumentas be susieto asmens negali pagrįsti A klasės išmokos asmeniui. ({0} Nr. {1}: {2})</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayment_PurposeDescriptionAndCodeNull" xml:space="preserve">
+    <value>Nenurodyta mokėjimo paskirtis arba kodas.</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayment_PurposeDescriptionAndCodeNotNull" xml:space="preserve">
+    <value>Gali būti nurodyta arba mokėjimo paskirtis arba kodas, bet ne abu iš karto.</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayment_CustomBankAccountRequired" xml:space="preserve">
+    <value>Asmeniui nėra nurodyta jo įprastinė banko sąskaita, todėl būtina nurodyti banko sąskaitą, į kurią pervesti lėšas.</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayment_CustomBankAccountSpecifiedWarning" xml:space="preserve">
+    <value>Nurodyta banko sąskaita pervedimui, nesutampanti su asmens įprastine banko sąskaita.</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayment_NullPersonToString" xml:space="preserve">
+    <value>nenurodytam asmeniui</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayment_NullPurposeToString" xml:space="preserve">
+    <value>paskirtis nenurodyta</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayment_PurposeCodeToString" xml:space="preserve">
+    <value>įmokos kodas - {0}</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayment_PurposeDescriptionToString" xml:space="preserve">
+    <value>paskirtis - {0}</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayment_ToString" xml:space="preserve">
+    <value>{0} {1} mokėjimas {2}, {3}</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayment_Amount" xml:space="preserve">
+    <value>suma</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayment_CustomBankAccount" xml:space="preserve">
+    <value>banko sąskaita šiam pervedimui</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayment_Description" xml:space="preserve">
+    <value>paskirtis (aprašymas)</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayment_PurposeCode" xml:space="preserve">
+    <value>įmokos kodas</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayment_Receiver" xml:space="preserve">
+    <value>gavėjas</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayment_ReceiverBankAccount" xml:space="preserve">
+    <value>įprastinė banko sąskaita</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayment_TypeName" xml:space="preserve">
+    <value>eksportuojamas mokėjimas</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayments_ToString" xml:space="preserve">
+    <value>eksportuojamų banko pavedimų duomenų rinkinys</value>
+  </data>
+  <data name="Documents_BankDataExchangeProviders_ExportedBankPayments_InvalidAccount" xml:space="preserve">
+    <value>Eksportas į banko sąskaitas užsienio valiuta nepalaikomas.</value>
+  </data>
+  <data name="ActiveReports_DebtInfoList_InvalidTypeForPaymentsExport" xml:space="preserve">
+    <value>Eksportuoti galima tik skolas pirkėjams.</value>
+  </data>
+  <data name="ActiveReports_DebtInfoList_ExportedBankPaymentPurpose" xml:space="preserve">
+    <value>Atsiskaitymas</value>
+  </data>
+  <data name="ActiveReports_DebtInfoList_NoPaymentsToExport" xml:space="preserve">
+    <value>Skolų tiekėjams nėra.</value>
+  </data>
+  <data name="ActiveReports_UnsettledDocumentInfo_DescriptionForExportedPayment" xml:space="preserve">
+    <value>{0:yyyy-MM-dd} Nr. {1}</value>
+  </data>
+  <data name="ActiveReports_UnsettledDocumentInfoList_DescriptionForExportedPayment" xml:space="preserve">
+    <value>Atsiskaitymas pagal {0}</value>
+  </data>
+  <data name="ActiveReports_UnsettledPersonInfoList_InvalidTypeForExportingBankPayments" xml:space="preserve">
+    <value>Eksportuoti galima tik mokėjimus tiekėjams.</value>
+  </data>
+  <data name="ActiveReports_UnsettledPersonInfoList_NoDebtsToExport" xml:space="preserve">
+    <value>Skolų tiekėjams nėra.</value>
+  </data>
+  <data name="Workers_ImprestSheet_DescriptionForExportedBankPayment" xml:space="preserve">
+    <value>Avansas už {0} m. {1} mėn.</value>
+  </data>
+  <data name="Workers_ImprestSheet_NoWorkersInSheetToExportBankPayments" xml:space="preserve">
+    <value>Žiniaraštyje nėra nei vieno (pasirinkto) darbuotojo.</value>
+  </data>
+  <data name="Workers_WageSheet_DescriptionForExportedBankPayment" xml:space="preserve">
+    <value>Darbo užmokestis už {0} m. {1} mėn.</value>
+  </data>
+  <data name="Workers_WageSheet_NoWageToPay" xml:space="preserve">
+    <value>Žiniaraštyje nėra (pasirinktų) darbuotojų, kuriems būtų neišmokėtas darbo užmokestis.</value>
   </data>
 </root>

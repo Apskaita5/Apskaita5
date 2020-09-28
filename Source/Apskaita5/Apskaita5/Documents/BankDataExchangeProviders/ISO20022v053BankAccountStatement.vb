@@ -40,8 +40,6 @@ Namespace Documents.BankDataExchangeProviders
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BkToCstmrStmt.Stmt.Acct.ID"))
             ElseIf data.BkToCstmrStmt.Stmt(0).Acct.Id.Item Is Nothing Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BkToCstmrStmt.Stmt.Acct.Id.Item"))
-            ElseIf data.BkToCstmrStmt.Stmt(0).FrToDt Is Nothing Then
-                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BkToCstmrStmt.Stmt.FrToDt"))
             ElseIf data.BkToCstmrStmt.Stmt(0).Bal Is Nothing Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BkToCstmrStmt.Stmt.Bal"))
             ElseIf data.BkToCstmrStmt.Stmt(0).Ntry Is Nothing OrElse data.BkToCstmrStmt.Stmt(0).Ntry.Length < 1 Then
@@ -50,8 +48,11 @@ Namespace Documents.BankDataExchangeProviders
 
             _AccountCurrency = data.BkToCstmrStmt.Stmt(0).Acct.Ccy
             _AccountIBAN = data.BkToCstmrStmt.Stmt(0).Acct.Id.Item.ToString
-            _PeriodStart = data.BkToCstmrStmt.Stmt(0).FrToDt.FrDtTm
-            _PeriodEnd = data.BkToCstmrStmt.Stmt(0).FrToDt.ToDtTm
+
+            If Not data.BkToCstmrStmt.Stmt(0).FrToDt Is Nothing Then
+                _PeriodStart = data.BkToCstmrStmt.Stmt(0).FrToDt.FrDtTm
+                _PeriodEnd = data.BkToCstmrStmt.Stmt(0).FrToDt.ToDtTm
+            End If
 
             For Each balance As camt_053_001_02.CashBalance3 In data.BkToCstmrStmt.Stmt(0).Bal
                 If Not balance.Tp Is Nothing AndAlso Not balance.Tp.CdOrPrtry Is Nothing _
@@ -93,8 +94,6 @@ Namespace Documents.BankDataExchangeProviders
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls"))
             ElseIf entry.NtryDtls(0).TxDtls Is Nothing OrElse entry.NtryDtls(0).TxDtls.Length < 1 Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls"))
-            ElseIf entry.NtryDtls(0).TxDtls(0).Refs Is Nothing Then
-                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.Refs (nėra operacijos numerio)"))
             ElseIf entry.BookgDt Is Nothing Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BookgDt (nėra operacijos datos)"))
                 ' workaround for paysera, they only provide amount in entry.Amt node
@@ -106,8 +105,10 @@ Namespace Documents.BankDataExchangeProviders
 
             result.DocumentNumber = ParseDocumentNumber(entry.NtryDtls(0).TxDtls(0).Refs)
 
-            result.UniqueCode = entry.NtryDtls(0).TxDtls(0).Refs.AcctSvcrRef
-            If StringIsNullOrEmpty(result.UniqueCode) Then result.UniqueCode = entry.NtryDtls(0).TxDtls(0).Refs.TxId
+            If Not entry.NtryDtls(0).TxDtls(0).Refs Is Nothing Then
+                result.UniqueCode = entry.NtryDtls(0).TxDtls(0).Refs.AcctSvcrRef
+                If StringIsNullOrEmpty(result.UniqueCode) Then result.UniqueCode = entry.NtryDtls(0).TxDtls(0).Refs.TxId
+            End If
 
             result.Date = entry.BookgDt.Item
             result.Content = ParseContent(entry.NtryDtls(0).TxDtls(0), bankName)

@@ -949,6 +949,12 @@
     <Compile Include="Utilities\F_CurrencyRateChangeImpactCalculator.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utilities\F_ExportedBankPayments.Designer.vb">
+      <DependentUpon>F_ExportedBankPayments.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\F_ExportedBankPayments.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Utilities\F_ServiceTurnoverInfoList.Designer.vb">
       <DependentUpon>F_ServiceTurnoverInfoList.vb</DependentUpon>
     </Compile>
@@ -1021,16 +1027,10 @@
     <Compile Include="Workers\F_NewWorkTimeSheet.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Workers\F_PayOutNaturalPerson.Designer.vb">
-      <DependentUpon>F_PayOutNaturalPerson.vb</DependentUpon>
+    <Compile Include="Workers\F_PayOutNaturalPersonWithTaxesList.Designer.vb">
+      <DependentUpon>F_PayOutNaturalPersonWithTaxesList.vb</DependentUpon>
     </Compile>
-    <Compile Include="Workers\F_PayOutNaturalPerson.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Workers\F_PayOutNaturalPersonInfoList.Designer.vb">
-      <DependentUpon>F_PayOutNaturalPersonInfoList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Workers\F_PayOutNaturalPersonInfoList.vb">
+    <Compile Include="Workers\F_PayOutNaturalPersonWithTaxesList.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Workers\F_PayOutNaturalPersonWithoutTaxesList.Designer.vb">
@@ -1479,6 +1479,9 @@
     <EmbeddedResource Include="Utilities\F_CurrencyRateChangeImpactCalculator.resx">
       <DependentUpon>F_CurrencyRateChangeImpactCalculator.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\F_ExportedBankPayments.resx">
+      <DependentUpon>F_ExportedBankPayments.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Utilities\F_ServiceTurnoverInfoList.resx">
       <DependentUpon>F_ServiceTurnoverInfoList.vb</DependentUpon>
     </EmbeddedResource>
@@ -1515,11 +1518,8 @@
     <EmbeddedResource Include="Workers\F_NewWorkTimeSheet.resx">
       <DependentUpon>F_NewWorkTimeSheet.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_PayOutNaturalPerson.resx">
-      <DependentUpon>F_PayOutNaturalPerson.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Workers\F_PayOutNaturalPersonInfoList.resx">
-      <DependentUpon>F_PayOutNaturalPersonInfoList.vb</DependentUpon>
+    <EmbeddedResource Include="Workers\F_PayOutNaturalPersonWithTaxesList.resx">
+      <DependentUpon>F_PayOutNaturalPersonWithTaxesList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Workers\F_PayOutNaturalPersonWithoutTaxesList.resx">
       <DependentUpon>F_PayOutNaturalPersonWithoutTaxesList.vb</DependentUpon>
@@ -1557,6 +1557,7 @@
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.ShareHolderInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.SharesAccountEntryList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.SharesOperationInfoList.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Documents.BankDataExchangeProviders.ExportedBankPayments.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.General.SharesClassList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.General.SharesOperation.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Workers.WageItem.datasource" />
@@ -1914,7 +1915,6 @@
     <None Include="My Project\DataSources\ApskaitaObjects.Workers.Contract.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Workers.ContractUpdate.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Workers.HolidayPayReserve.datasource" />
-    <None Include="My Project\DataSources\ApskaitaObjects.Workers.PayOutNaturalPerson.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Workers.WageSheet.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Workers.WorkTimeSheet.datasource" />
     <None Include="Resources\Remove_Attachment_32x32.png" />
@@ -1930,6 +1930,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\document_edit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\credit_card_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\credit_card_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\credit_card_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,6 +1,7 @@
 ﻿Imports System.Windows.Forms
 Imports System.Reflection
 Imports ApskaitaObjects.Attributes
+Imports ApskaitaObjects.Documents.BankDataExchangeProviders
 
 Public Module CommonMethods
 
@@ -64,7 +65,6 @@ Public Module CommonMethods
         _BusinessObjectsViews.Add(GetType(ActiveReports.Declaration), GetType(F_Declaration))
         _BusinessObjectsViews.Add(GetType(ActiveReports.ImprestSheetInfoList), GetType(F_ImprestSheetInfoList))
         _BusinessObjectsViews.Add(GetType(ActiveReports.ContractInfoList), GetType(F_ContractInfoList))
-        _BusinessObjectsViews.Add(GetType(ActiveReports.PayOutNaturalPersonInfoList), GetType(F_PayOutNaturalPersonInfoList))
         _BusinessObjectsViews.Add(GetType(ActiveReports.WageSheetInfoList), GetType(F_WageSheetInfoList))
         _BusinessObjectsViews.Add(GetType(ActiveReports.WorkerHolidayInfo), GetType(F_WorkerHolidayInfo))
         _BusinessObjectsViews.Add(GetType(ActiveReports.WorkerWageInfoReport), GetType(F_WorkerWageInfoReport))
@@ -97,7 +97,7 @@ Public Module CommonMethods
         _BusinessObjectsViews.Add(GetType(Workers.HolidayPayReserve), GetType(F_HolidayPayReserve))
         _BusinessObjectsViews.Add(GetType(Workers.Contract), GetType(F_Contract))
         _BusinessObjectsViews.Add(GetType(Workers.ContractUpdate), GetType(F_ContractUpdate))
-        _BusinessObjectsViews.Add(GetType(Workers.PayOutNaturalPerson), GetType(F_PayOutNaturalPerson))
+        _BusinessObjectsViews.Add(GetType(Workers.PayOutNaturalPersonWithTaxesList), GetType(F_PayOutNaturalPersonWithTaxesList))
         _BusinessObjectsViews.Add(GetType(Workers.PayOutNaturalPersonWithoutTaxesList), GetType(F_PayOutNaturalPersonWithoutTaxesList))
         _BusinessObjectsViews.Add(GetType(Workers.WageSheet), GetType(F_WageSheet))
         _BusinessObjectsViews.Add(GetType(Workers.WorkTimeClassList), GetType(F_WorkTimeClassList))
@@ -676,6 +676,28 @@ Public Module CommonMethods
         Dim frm As Form = GetFormForBusinessType(GetType(ActiveReports.BookEntryInfoListParent), _
             accountNumber, dateFrom, dateTo, personID)
         OpenForm(frm)
+    End Sub
+
+    ''' <summary>
+    ''' Opens current bank payment data export form and merges new payment data.
+    ''' </summary>
+    Public Sub ExportBankPayments(list As ExportedBankPaymentList, invoker As Form)
+        If list Is Nothing OrElse list.Count < 1 Then Throw new ArgumentNullException("list")
+        If invoker Is Nothing Then Throw new ArgumentNullException("invoker")
+
+        If Not invoker.MdiParent Is Nothing Then
+            For Each f As Form In invoker.MdiParent.MdiChildren
+                If f.GetType() Is GetType(F_ExportedBankPayments) Then
+                    DirectCast(f, F_ExportedBankPayments).Merge(list)
+                    f.Activate()
+                    Exit Sub
+                End If
+            Next 
+        End If
+
+        Dim frm As New F_ExportedBankPayments(list)
+        frm.MdiParent = invoker.MdiParent
+        frm.Show()
     End Sub
 
 #End Region

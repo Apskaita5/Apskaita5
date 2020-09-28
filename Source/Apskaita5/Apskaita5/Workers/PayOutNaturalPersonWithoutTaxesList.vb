@@ -282,22 +282,23 @@ Namespace Workers
 
         Protected Overrides Sub DataPortal_Update()
 
-            Dim potentialUpdatespending As Boolean = False
-
             If Not CanEditObject() Then
                 For Each i As PayOutNaturalPersonWithoutTaxes In Me
                     If Not i.IsNew AndAlso i.IsDirty Then
-                        If Not CanEditObject() Then Throw New System.Security.SecurityException( _
-                            My.Resources.Common_SecurityUpdateDenied)
+                        Throw New System.Security.SecurityException(My.Resources.Common_SecurityUpdateDenied)
                     End If
                 Next
                 For Each i As PayOutNaturalPersonWithoutTaxes In Me.DeletedList
                     If Not i.IsNew Then
-                        If Not CanEditObject() Then Throw New System.Security.SecurityException( _
-                            My.Resources.Common_SecurityUpdateDenied)
+                        Throw New System.Security.SecurityException(My.Resources.Common_SecurityUpdateDenied)
                     End If
                 Next
             End If
+            If Not CanAddObject() Then
+                Throw New System.Security.SecurityException(My.Resources.Common_SecurityInsertDenied)
+            End If
+
+            Dim potentialUpdatespending As Boolean = False
 
             For Each i As PayOutNaturalPersonWithoutTaxes In Me
                 If i.IsNew OrElse i.IsDirty Then

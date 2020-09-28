@@ -160,8 +160,6 @@
     <Compile Include="ActiveReports\InvoiceSubtotalItemList.vb" />
     <Compile Include="ActiveReports\LabourContractUpdateInfo.vb" />
     <Compile Include="ActiveReports\LabourContractUpdateInfoList.vb" />
-    <Compile Include="ActiveReports\PayOutNaturalPersonInfo.vb" />
-    <Compile Include="ActiveReports\PayOutNaturalPersonInfoList.vb" />
     <Compile Include="ActiveReports\PersonInfoItem.vb" />
     <Compile Include="ActiveReports\PersonInfoItemList.vb" />
     <Compile Include="ActiveReports\ProductionCalculationItem.vb" />
@@ -263,6 +261,12 @@
     <Compile Include="CommonValidation\IChronologicValidator.vb" />
     <Compile Include="Documents\BankDataExchangeProviders\camt_052_001_02.vb" />
     <Compile Include="Documents\BankDataExchangeProviders\camt_053_001_02.vb" />
+    <Compile Include="Documents\BankDataExchangeProviders\ExportedBankPayment.vb" />
+    <Compile Include="Documents\BankDataExchangeProviders\ExportedBankPaymentList.vb" />
+    <Compile Include="Documents\BankDataExchangeProviders\ExportedBankPayments.vb" />
+    <Compile Include="Documents\BankDataExchangeProviders\IBankPaymentExporter.vb" />
+    <Compile Include="Documents\BankDataExchangeProviders\pain_001_001_03.vb" />
+    <Compile Include="Documents\BankDataExchangeProviders\pain_001_001_03BankPaymentExporter.vb" />
     <Compile Include="Documents\CommandImportVatDeclarationSchemas.vb" />
     <Compile Include="Documents\CustomVatOperation.vb" />
     <Compile Include="Documents\CustomVatOperationList.vb" />
@@ -594,6 +598,8 @@
     <Compile Include="Workers\HolidayPayReserveItemList.vb" />
     <Compile Include="Workers\PayOutNaturalPersonWithoutTaxes.vb" />
     <Compile Include="Workers\PayOutNaturalPersonWithoutTaxesList.vb" />
+    <Compile Include="Workers\PayOutNaturalPersonWithTaxes.vb" />
+    <Compile Include="Workers\PayOutNaturalPersonWithTaxesList.vb" />
     <Compile Include="Workers\SheetChronologicValidator.vb" />
     <Compile Include="ActiveReports\SodraRateInfo.vb" />
     <Compile Include="Workers\SpecialWorkTimeItem.vb" />
@@ -609,7 +615,6 @@
     <Compile Include="Workers\ImprestSheet.vb" />
     <Compile Include="ActiveReports\ImprestSheetInfo.vb" />
     <Compile Include="ActiveReports\ImprestSheetInfoList.vb" />
-    <Compile Include="Workers\PayOutNaturalPerson.vb" />
     <Compile Include="HelperLists\ShortLabourContract.vb" />
     <Compile Include="HelperLists\ShortLabourContractList.vb" />
     <Compile Include="ActiveReports\WorkerHolidayInfo.vb" />
@@ -674,7 +679,6 @@
     </Content>
     <Content Include="Goods\GoodsDiscardBalancerItem.txt" />
     <Content Include="Info\HowToAddNewRole.txt" />
-    <Content Include="Info\KnownBugz.txt" />
     <Content Include="Info\SQLServerTypeUnsafeObjects.txt" />
     <Content Include="Info\TestUpgradeSuccess.txt" />
     <Content Include="SqlDepositories\SQLite_Depository.sqld">

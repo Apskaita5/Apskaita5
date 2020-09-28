@@ -1,4 +1,6 @@
-﻿Namespace ActiveReports
+﻿Imports ApskaitaObjects.My.Resources
+
+Namespace ActiveReports
 
     ''' <summary>
     ''' Represents a list of the unsettled documents for <see cref="UnsettledPersonInfo">UnsettledPersonInfo</see>
@@ -10,6 +12,15 @@
         Inherits ReadOnlyListBase(Of UnsettledDocumentInfoList, UnsettledDocumentInfo)
 
 #Region " Business Methods "
+
+        Friend Function GetDescriptionForExportedPayment() As String
+            Dim docs As New List(Of String)
+            For Each doc As UnsettledDocumentInfo In Me
+                docs.Add(doc.GetDescriptionForPayment())
+            Next
+            Return string.Format(ActiveReports_UnsettledDocumentInfoList_DescriptionForExportedPayment, _
+                                 String.Join(", ", docs.ToArray()))
+        End Function
 
 #End Region
 

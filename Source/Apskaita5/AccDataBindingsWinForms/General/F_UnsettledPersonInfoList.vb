@@ -101,6 +101,7 @@ Friend Class F_UnsettledPersonInfoList
             AccountAccGridComboBox.SelectedValue = GetCurrentCompany.GetDefaultAccount( _
                 General.DefaultAccountType.Suppliers)
         End If
+        ExportPaymentsButton.Enabled = Not ForBuyersRadioButton.Checked
     End Sub
 
     Private Sub UnsettledPersonInfoListDataTreeView_CellClick(ByVal sender As Object, _
@@ -135,6 +136,19 @@ Friend Class F_UnsettledPersonInfoList
             End Try
         End If
     End Sub
+
+    Private Sub ExportPaymentsButton_Click(sender As Object, e As EventArgs) Handles ExportPaymentsButton.Click
+
+        If _FormManager.DataSource Is Nothing Then Exit Sub
+
+        Try
+            ExportBankPayments(_FormManager.DataSource.ExportBankPayments(), Me)
+        Catch ex As Exception
+            ShowError(ex)
+        End Try
+
+    End Sub
+
 
 
     Public Function GetMailDropDownItems() As System.Windows.Forms.ToolStripDropDown _

@@ -13,6 +13,22 @@ Public Class F_PayOutNaturalPersonWithoutTaxesList
     Private WithEvents _FormManager As CslaActionExtenderEditForm(Of PayOutNaturalPersonWithoutTaxesList)
     Private _ListViewManager As DataListViewEditControlManager(Of PayOutNaturalPersonWithoutTaxes)
     Private _QueryManager As CslaActionExtenderQueryObject
+    Private _ForItem As IndirectRelationInfo = Nothing
+
+    Public Sub New()
+        ' This call is required by the Windows Form Designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+    End Sub
+
+    Public Sub New(forItem As IndirectRelationInfo)
+        ' This call is required by the Windows Form Designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+        _ForItem = forItem
+    End Sub
 
 
     Private Sub F_PayOutNaturalPersonWithoutTaxesList_Load(ByVal sender As System.Object, _
@@ -23,9 +39,9 @@ Public Class F_PayOutNaturalPersonWithoutTaxesList
         Try
 
             _FormManager = New CslaActionExtenderEditForm(Of PayOutNaturalPersonWithoutTaxesList) _
-                (Me, Me.PayOutNaturalPersonWithoutTaxesListBindingSource, _
-                 PayOutNaturalPersonWithoutTaxesList.NewPayOutNaturalPersonWithoutTaxesList(), _
-                _RequiredCachedLists, IOkButton, IApplyButton, ICancelButton, _
+                (Me, Me.PayOutNaturalPersonWithoutTaxesListBindingSource,
+                 PayOutNaturalPersonWithoutTaxesList.NewPayOutNaturalPersonWithoutTaxesList(),
+                _RequiredCachedLists, IOkButton, IApplyButton, ICancelButton,
                 Nothing, ProgressFiller1)
 
             _FormManager.ManageDataListViewStates(Me.ItemsDataListView)
@@ -35,6 +51,12 @@ Public Class F_PayOutNaturalPersonWithoutTaxesList
             DisableAllControls(Me)
             Exit Sub
         End Try
+
+        If Not _ForItem Is Nothing Then
+            DateFromAccDatePicker.Value = _ForItem.Date
+            DateToAccDatePicker.Value = _ForItem.Date
+            RefreshButton.PerformClick()
+        End If
 
     End Sub
 

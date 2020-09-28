@@ -160,7 +160,13 @@ Public Class F_UserReportParamsDialog
 
         For Each param As UserReportParamInfo In _Info.Params
 
-            If param.Name.Trim.ToLower.EndsWith("AccountInfo".ToLower) Then
+            If param.Name.Trim.ToLower.EndsWith("CashAccountInfo".ToLower) Then
+
+                If Not result.Contains(GetType(CashAccountInfoList)) Then
+                    result.Add(GetType(CashAccountInfoList))
+                End If
+
+            ElseIf param.Name.Trim.ToLower.EndsWith("AccountInfo".ToLower) Then
 
                 If Not result.Contains(GetType(AccountInfoList)) Then
                     result.Add(GetType(AccountInfoList))
@@ -170,12 +176,6 @@ Public Class F_UserReportParamsDialog
 
                 If Not result.Contains(GetType(AssignableCRItemList)) Then
                     result.Add(GetType(AssignableCRItemList))
-                End If
-
-            ElseIf param.Name.Trim.ToLower.EndsWith("CashAccountInfo".ToLower) Then
-
-                If Not result.Contains(GetType(CashAccountInfoList)) Then
-                    result.Add(GetType(CashAccountInfoList))
                 End If
 
             ElseIf param.Name.Trim.ToLower.EndsWith("GoodsGroupInfo".ToLower) Then

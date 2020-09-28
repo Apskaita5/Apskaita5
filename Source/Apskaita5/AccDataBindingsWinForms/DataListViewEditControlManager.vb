@@ -7,6 +7,7 @@ Imports Csla.Core
 Imports Csla.Validation
 Imports System.Windows.Forms
 Imports System.Drawing
+Imports System.Runtime.Remoting.Messaging
 Imports AccDataBindingsWinForms.CachedInfoLists
 
 ''' <summary>
@@ -58,9 +59,9 @@ Public Class DataListViewEditControlManager(Of T)
     ''' to be displayed in the DataListView, is used to find obsolete value 
     ''' objects that need to be included in the datasource lists</param>
     ''' <remarks></remarks>
-    Public Sub New(ByVal listView As ObjectListView, ByVal contextMenuStrip As ContextMenuStrip, _
-        ByVal itemsDeleteHandler As ItemsDelete, ByVal itemAddHandler As ItemAdd, _
-        ByVal itemActionIsAvailable As ItemActionIsAvailable, _
+    Public Sub New(ByVal listView As ObjectListView, ByVal contextMenuStrip As ContextMenuStrip,
+        ByVal itemsDeleteHandler As ItemsDelete, ByVal itemAddHandler As ItemAdd,
+        ByVal itemActionIsAvailable As ItemActionIsAvailable,
         ByVal currentBusinessObject As Object)
 
         If listView Is Nothing Then
@@ -187,7 +188,7 @@ Public Class DataListViewEditControlManager(Of T)
             AndAlso Not DirectCast(_CurrentListView.AdditionalFilter, TextMatchFilter).ContainsStrings Is Nothing _
             AndAlso DirectCast(_CurrentListView.AdditionalFilter, TextMatchFilter).ContainsStrings.Count > 0 Then
 
-            result = AccCommon.AddWithNewLine(result, String.Format("Bendras tekstinis filtras: *{0}*", _
+            result = AccCommon.AddWithNewLine(result, String.Format("Bendras tekstinis filtras: *{0}*",
                 DirectCast(_CurrentListView.AdditionalFilter, TextMatchFilter).ContainsStrings(0)), False)
 
         End If
@@ -200,7 +201,7 @@ Public Class DataListViewEditControlManager(Of T)
                 If Not column.ValuesChosenForFiltering Is Nothing _
                     AndAlso column.ValuesChosenForFiltering.Count > 0 Then
 
-                    result = AccCommon.AddWithNewLine(result, String.Format("Filtro vertės stulpeliui ""{0}"": {1}", _
+                    result = AccCommon.AddWithNewLine(result, String.Format("Filtro vertės stulpeliui ""{0}"": {1}",
                         column.AspectName, FilterValueListToString(column.ValuesChosenForFiltering)), False)
 
                 End If
@@ -310,9 +311,9 @@ Public Class DataListViewEditControlManager(Of T)
 
         End If
 
-        Dim printMenuItem As New ToolStripMenuItem("Spausdinti lentelę", Nothing, _
+        Dim printMenuItem As New ToolStripMenuItem("Spausdinti lentelę", Nothing,
             AddressOf PrintTableMenuItem_Clicked)
-        Dim aggregatesMenuItem As New ToolStripMenuItem("Rodyti agreguotas sumas", Nothing, _
+        Dim aggregatesMenuItem As New ToolStripMenuItem("Rodyti agreguotas sumas", Nothing,
             AddressOf ShowAggregatesMenuItem_Clicked)
         Dim exportMenuItem As New ToolStripMenuItem("Eksportuoti")
         exportMenuItem.DropDownItems.Add(OlvExport.OLVExporterExcel.GetToolStripItem(AddressOf ExportMenuItem_Clicked))
@@ -408,7 +409,7 @@ Public Class DataListViewEditControlManager(Of T)
     ''' <param name="actionName">a name of the business method in the parent form
     ''' that handles a ContextMenuStrip menu item or a dialog button</param>
     ''' <remarks></remarks>
-    Public Delegate Function ItemActionIsAvailable(ByVal selectedItem As T, _
+    Public Delegate Function ItemActionIsAvailable(ByVal selectedItem As T,
         ByVal actionName As String) As Boolean
 
 
@@ -456,7 +457,7 @@ Public Class DataListViewEditControlManager(Of T)
     ''' <param name="itemActionHandler">an action (method) to invoke when 
     ''' the menu item is clicked</param>
     ''' <remarks></remarks>
-    Public Sub AddMenuItemHandler(ByVal menuItem As ToolStripMenuItem, _
+    Public Sub AddMenuItemHandler(ByVal menuItem As ToolStripMenuItem,
         ByVal itemActionHandler As ItemAction)
 
         If menuItem Is Nothing Then Throw New ArgumentNullException("menuItem")
@@ -477,7 +478,7 @@ Public Class DataListViewEditControlManager(Of T)
     ''' the button is clicked</param>
     ''' <remarks>if only one button binding is added and <see cref="AddCancelButton">AddCancelButton</see>
     ''' is set to FALSE, the action is invoked without showing a dialog</remarks>
-    Public Sub AddButtonHandler(ByVal caption As String, ByVal toolTip As String, _
+    Public Sub AddButtonHandler(ByVal caption As String, ByVal toolTip As String,
         ByVal itemActionHandler As ItemAction)
 
         If Not _Handledbuttons.ContainsKey(caption.Trim) Then
@@ -488,7 +489,7 @@ Public Class DataListViewEditControlManager(Of T)
     End Sub
 
 
-    Private Sub DataListView_CellRightClick(ByVal sender As Object, _
+    Private Sub DataListView_CellRightClick(ByVal sender As Object,
             ByVal e As CellRightClickEventArgs)
 
         If _ContextMenuStrip Is Nothing Then Exit Sub
@@ -525,12 +526,12 @@ Public Class DataListViewEditControlManager(Of T)
         If currentItem Is Nothing Then Exit Sub
 
         ' no point in showing dialog with a single button
-        If MyCustomSettings.DefaultActionByDoubleClick OrElse _
+        If MyCustomSettings.DefaultActionByDoubleClick OrElse
             (_Handledbuttons.Count = 1 AndAlso Not _AddCancelButton) Then
 
             Dim singleAction As ItemAction = _Handledbuttons.Values(0).Value
 
-            If singleAction Is Nothing OrElse (Not _ItemActionIsAvailable Is Nothing AndAlso _
+            If singleAction Is Nothing OrElse (Not _ItemActionIsAvailable Is Nothing AndAlso
                 Not _ItemActionIsAvailable.Invoke(currentItem, singleAction.Method.Name)) Then
 
                 Exit Sub
@@ -549,7 +550,7 @@ Public Class DataListViewEditControlManager(Of T)
 
         Dim answer As String = Ask(_DialogText, buttons)
 
-        If Not _Handledbuttons.ContainsKey(answer.Trim) OrElse _
+        If Not _Handledbuttons.ContainsKey(answer.Trim) OrElse
             _Handledbuttons(answer.Trim).Value Is Nothing Then Exit Sub
 
         _Handledbuttons(answer.Trim).Value.Invoke(currentItem)
@@ -596,13 +597,13 @@ Public Class DataListViewEditControlManager(Of T)
 
     End Function
 
-    Private Sub ConfigureContextMenuStrip(ByVal item As T, ByRef menuItem As ToolStripMenuItem, _
+    Private Sub ConfigureContextMenuStrip(ByVal item As T, ByRef menuItem As ToolStripMenuItem,
         ByRef anyActionAvailable As Boolean)
 
         If Not menuItem.Tag Is Nothing AndAlso TypeOf menuItem.Tag Is ItemAction Then
 
             If Not _ItemActionIsAvailable Is Nothing Then
-                menuItem.Available = _ItemActionIsAvailable.Invoke(item, _
+                menuItem.Available = _ItemActionIsAvailable.Invoke(item,
                     DirectCast(menuItem.Tag, ItemAction).Method.Name)
             Else
                 menuItem.Available = True
@@ -628,7 +629,7 @@ Public Class DataListViewEditControlManager(Of T)
 
             If Not k.Value.Value Is Nothing Then
 
-                If _ItemActionIsAvailable Is Nothing OrElse _
+                If _ItemActionIsAvailable Is Nothing OrElse
                     _ItemActionIsAvailable.Invoke(item, k.Value.Value.Method.Name) Then
 
                     result.Add(New ButtonStructure(k.Key, k.Value.Key))
@@ -641,7 +642,7 @@ Public Class DataListViewEditControlManager(Of T)
 
         If result.Count < 1 Then Return Nothing
 
-        If _AddCancelButton Then result.Add(New ButtonStructure( _
+        If _AddCancelButton Then result.Add(New ButtonStructure(
             "Atšaukti", "Nieko nedaryti."))
 
         Return result.ToArray
@@ -668,7 +669,7 @@ Public Class DataListViewEditControlManager(Of T)
         ElseIf cntr Is Nothing Then
             Throw New ArgumentNullException("cntr")
         ElseIf GetType(T).GetProperty(propName) Is Nothing Then
-            Throw New ArgumentException(String.Format("Property {0} does not exists on type {1}.", _
+            Throw New ArgumentException(String.Format("Property {0} does not exists on type {1}.",
                 propName, GetType(T).FullName), "propName")
         End If
 
@@ -744,14 +745,14 @@ Public Class DataListViewEditControlManager(Of T)
         column.Sortable = True
         column.UseFiltering = True
 
-        If Not column.AspectToStringFormat Is Nothing AndAlso _
+        If Not column.AspectToStringFormat Is Nothing AndAlso
             Not String.IsNullOrEmpty(column.AspectToStringFormat.Trim) Then Exit Sub
 
-        If propInfo.PropertyType Is GetType(Double) OrElse _
-            propInfo.PropertyType Is GetType(Decimal) OrElse _
+        If propInfo.PropertyType Is GetType(Double) OrElse
+            propInfo.PropertyType Is GetType(Decimal) OrElse
             propInfo.PropertyType Is GetType(Single) Then
 
-            Dim curAttribute As DoubleFieldAttribute = _
+            Dim curAttribute As DoubleFieldAttribute =
                 GetAttribute(Of DoubleFieldAttribute)(propInfo)
 
             If curAttribute Is Nothing Then
@@ -769,15 +770,15 @@ Public Class DataListViewEditControlManager(Of T)
             column.AspectToStringFormat = "{0:yyyy-MM-dd}"
             column.TextAlign = HorizontalAlignment.Center
 
-        ElseIf propInfo.PropertyType Is GetType(Integer) OrElse _
-            propInfo.PropertyType Is GetType(Short) OrElse _
+        ElseIf propInfo.PropertyType Is GetType(Integer) OrElse
+            propInfo.PropertyType Is GetType(Short) OrElse
             propInfo.PropertyType Is GetType(Byte) Then
 
             column.TextAlign = HorizontalAlignment.Center
 
         ElseIf propInfo.PropertyType Is GetType(Long) Then
 
-            Dim curAttribute As AccountFieldAttribute = _
+            Dim curAttribute As AccountFieldAttribute =
                 GetAttribute(Of AccountFieldAttribute)(propInfo)
 
             If Not curAttribute Is Nothing Then
@@ -791,18 +792,18 @@ Public Class DataListViewEditControlManager(Of T)
     End Sub
 
 
-    Private Sub AddListControl(ByVal curProp As PropertyInfo, _
+    Private Sub AddListControl(ByVal curProp As PropertyInfo,
         ByVal usedValueObjectIds As Dictionary(Of Type, List(Of String)))
 
         Dim dsProvider As IDataSourceProvider = GetDataSourceProvider(curProp)
         If dsProvider Is Nothing Then Exit Sub
 
-        If TypeOf dsProvider Is CurrencyFieldAttribute OrElse _
-            TypeOf dsProvider Is DocumentSerialFieldAttribute OrElse _
-            TypeOf dsProvider Is LanguageCodeFieldAttribute OrElse _
-            TypeOf dsProvider Is LanguageNameFieldAttribute OrElse _
-            TypeOf dsProvider Is LocalizedEnumFieldAttribute OrElse _
-            TypeOf dsProvider Is NameFieldAttribute OrElse _
+        If TypeOf dsProvider Is CurrencyFieldAttribute OrElse
+            TypeOf dsProvider Is DocumentSerialFieldAttribute OrElse
+            TypeOf dsProvider Is LanguageCodeFieldAttribute OrElse
+            TypeOf dsProvider Is LanguageNameFieldAttribute OrElse
+            TypeOf dsProvider Is LocalizedEnumFieldAttribute OrElse
+            TypeOf dsProvider Is NameFieldAttribute OrElse
             TypeOf dsProvider Is TaxRateFieldAttribute Then
 
             Dim control As New ComboBox
@@ -825,7 +826,7 @@ Public Class DataListViewEditControlManager(Of T)
             Throw New ArgumentNullException("curProp")
         End If
 
-        Dim curAttribute As DoubleFieldAttribute = _
+        Dim curAttribute As DoubleFieldAttribute =
             GetAttribute(Of DoubleFieldAttribute)(curProp)
 
         Dim control As New AccTextBox
@@ -853,12 +854,12 @@ Public Class DataListViewEditControlManager(Of T)
             Throw New ArgumentNullException("curProp")
         End If
 
-        Dim correctionAttribute As CorrectionFieldAttribute = _
+        Dim correctionAttribute As CorrectionFieldAttribute =
             GetAttribute(Of CorrectionFieldAttribute)(curProp)
 
         If correctionAttribute Is Nothing Then
 
-            Dim curAttribute As IntegerFieldAttribute = _
+            Dim curAttribute As IntegerFieldAttribute =
                 GetAttribute(Of IntegerFieldAttribute)(curProp)
 
             If curAttribute Is Nothing Then
@@ -902,7 +903,7 @@ Public Class DataListViewEditControlManager(Of T)
             Throw New ArgumentNullException("curProp")
         End If
 
-        Dim curAttribute As StringFieldAttribute = _
+        Dim curAttribute As StringFieldAttribute =
             GetAttribute(Of StringFieldAttribute)(curProp)
 
         Dim control As New TextBox
@@ -1006,13 +1007,13 @@ Public Class DataListViewEditControlManager(Of T)
                 e.NewValue = DirectCast(currentControl, ComboBox).SelectedValue
             End If
         Else
-            Throw New NotImplementedException(String.Format("Control of type {0} is not implemented.", _
+            Throw New NotImplementedException(String.Format("Control of type {0} is not implemented.",
                 currentControl.GetType.FullName))
         End If
 
     End Sub
 
-    Private Sub DataListView_CellEditStarting(ByVal sender As Object, _
+    Private Sub DataListView_CellEditStarting(ByVal sender As Object,
         ByVal e As CellEditEventArgs)
 
         Try
@@ -1042,7 +1043,7 @@ Public Class DataListViewEditControlManager(Of T)
             ElseIf TypeOf currentControl Is DateTimePicker Then
                 DirectCast(currentControl, DateTimePicker).Value = e.Value
             Else
-                Throw New NotImplementedException(String.Format("Control of type {0} is not implemented.", _
+                Throw New NotImplementedException(String.Format("Control of type {0} is not implemented.",
                     currentControl.GetType.FullName))
             End If
 
@@ -1061,15 +1062,19 @@ Public Class DataListViewEditControlManager(Of T)
         If item Is Nothing OrElse aspectName Is Nothing _
             OrElse String.IsNullOrEmpty(aspectName.Trim) Then Return False
 
-        Dim result As Boolean = False
-
         Try
-            result = DirectCast(GetType(T).GetProperty(aspectName _
-                & "IsReadOnly").GetValue(item, Nothing), Boolean)
+            Dim aspectProp = GetType(T).GetProperty(aspectName)
+            If aspectProp Is Nothing Then Return False
+            If Not aspectProp.CanWrite Then Return True
+
+            Dim readonlyProp = GetType(T).GetProperty(String.Format("{0}IsReadOnly", aspectName))
+            If readonlyProp Is Nothing Then Return False
+
+            Return DirectCast(readonlyProp.GetValue(item, Nothing), Boolean)
         Catch ex As Exception
         End Try
 
-        Return result
+        Return False
 
     End Function
 

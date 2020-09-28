@@ -4,7 +4,7 @@
 [Setup]
 AppName=Apskaita5
 AppID=Apskaita5MD
-AppVerName=Apskaita5 v. 2019-10-11
+AppVerName=Apskaita5 v. 2020-09-28
 AppPublisher=Marius Dagys
 AppPublisherURL=https://github.com/Apskaita5/Apskaita5/wiki
 AppSupportURL=http://www.tax.lt/temos/12748-nemokama-apskaitos-programa
@@ -13,9 +13,9 @@ DefaultDirName={pf}\Apskaita5
 DisableDirPage=yes
 DefaultGroupName=Apskaita5
 DisableProgramGroupPage=yes
-OutputDir=D:\My Documents\Inno Output
+OutputDir=C:\D\My Documents\Inno Output
 OutputBaseFilename=Apskaita5_setup_full
-MinVersion=0,5.0
+MinVersion=0,6.0
 Compression=lzma
 SolidCompression=yes
 
@@ -27,47 +27,47 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Apskaita5.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccDataAccessLayer.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccControlsWinForms.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccDataBindingsWinForms.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccPluginManager.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccIPlugin.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccDataProvider.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\DataProviders.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\itextsharp.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlDesign.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlViewer.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlEngine.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlCri.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ObjectListView.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\System.Data.SQLite.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ApskaitaObjects.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccCommon.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Csla.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Microsoft.ReportViewer.Common.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Microsoft.ReportViewer.ProcessingObjectModel.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Microsoft.ReportViewer.WinForms.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MySql.Data.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\EPPlus.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ListViewPrinter.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\InvoiceInfo.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\sqlite3.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\AccMigration\bin\x86\Release\AccMigration.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\*"; DestDir: "{app}\FFData"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\*"; DestDir: "{app}\MXFD"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Reports\*"; DestDir: "{app}\Reports"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\SqlDepositories\*"; DestDir: "{app}\SqlDepositories"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\DbStructure\*"; DestDir: "{app}\DbStructure"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\zalsva.ico"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\CommonSettings.xmls"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\SaskaituPlanai.zip"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\WTClasses.dat"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\LastUpdateA5.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MySQL_accsecurity.sql"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\HelpNDoc\Output\Build chm documentation\Apskaita5 vartotojo vadovas.chm"; DestDir: "{app}"; DestName:"Apskaita5Help.chm"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlEngineConfig.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\UserReportExample.rdl"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Apskaita5.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccDataAccessLayer.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccControlsWinForms.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccDataBindingsWinForms.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccPluginManager.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccIPlugin.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccDataProvider.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\DataProviders.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\itextsharp.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlDesign.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlViewer.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlEngine.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlCri.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ObjectListView.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\System.Data.SQLite.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ApskaitaObjects.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\AccCommon.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Csla.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Microsoft.ReportViewer.Common.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Microsoft.ReportViewer.ProcessingObjectModel.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Microsoft.ReportViewer.WinForms.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MySql.Data.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\EPPlus.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\ListViewPrinter.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\InvoiceInfo.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\sqlite3.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\AccMigration\bin\x86\Release\AccMigration.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\FFData\*"; DestDir: "{app}\FFData"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\*"; DestDir: "{app}\MXFD"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Reports\*"; DestDir: "{app}\Reports"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\SqlDepositories\*"; DestDir: "{app}\SqlDepositories"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\DbStructure\*"; DestDir: "{app}\DbStructure"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\zalsva.ico"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\CommonSettings.xmls"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\SaskaituPlanai.zip"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\WTClasses.dat"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\LastUpdateA5.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MySQL_accsecurity.sql"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\HelpNDoc\Output\Build chm documentation\Apskaita5 vartotojo vadovas.chm"; DestDir: "{app}"; DestName:"Apskaita5Help.chm"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlEngineConfig.xml"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\UserReportExample.rdl"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Dirs]

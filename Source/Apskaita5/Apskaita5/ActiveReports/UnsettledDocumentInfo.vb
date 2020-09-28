@@ -1,4 +1,5 @@
 ﻿Imports ApskaitaObjects.Attributes
+Imports ApskaitaObjects.My.Resources
 
 Namespace ActiveReports
 
@@ -106,6 +107,11 @@ Namespace ActiveReports
                 Return CRound(_Debt)
             End Get
         End Property
+
+
+        Friend Function GetDescriptionForPayment() As String
+            Return String.Format(ActiveReports_UnsettledDocumentInfo_DescriptionForExportedPayment, _Date, _DocNo)
+        End Function
 
 
         Protected Overrides Function GetIdValue() As Object

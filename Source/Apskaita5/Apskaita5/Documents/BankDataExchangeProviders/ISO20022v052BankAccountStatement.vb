@@ -288,8 +288,6 @@ Namespace Documents.BankDataExchangeProviders
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BkToCstmrAcctRpt.Rpt(0).Acct.Id"))
             ElseIf data.BkToCstmrAcctRpt.Rpt(0).Acct.Id.Item Is Nothing Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BkToCstmrAcctRpt.Rpt(0).Acct.Id.Item"))
-            ElseIf data.BkToCstmrAcctRpt.Rpt(0).FrToDt Is Nothing Then
-                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BkToCstmrAcctRpt.Rpt(0).FrToDt"))
             ElseIf data.BkToCstmrAcctRpt.Rpt(0).Bal Is Nothing Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BkToCstmrAcctRpt.Rpt(0).Bal"))
             ElseIf data.BkToCstmrAcctRpt.Rpt(0).Ntry Is Nothing OrElse data.BkToCstmrAcctRpt.Rpt(0).Ntry.Length < 1 Then
@@ -298,8 +296,11 @@ Namespace Documents.BankDataExchangeProviders
 
             _AccountCurrency = data.BkToCstmrAcctRpt.Rpt(0).Acct.Ccy
             _AccountIBAN = data.BkToCstmrAcctRpt.Rpt(0).Acct.Id.Item.ToString.Trim.ToUpper()
-            _PeriodStart = data.BkToCstmrAcctRpt.Rpt(0).FrToDt.FrDtTm
-            _PeriodEnd = data.BkToCstmrAcctRpt.Rpt(0).FrToDt.ToDtTm
+
+            If Not data.BkToCstmrAcctRpt.Rpt(0).FrToDt Is Nothing Then
+                _PeriodStart = data.BkToCstmrAcctRpt.Rpt(0).FrToDt.FrDtTm
+                _PeriodEnd = data.BkToCstmrAcctRpt.Rpt(0).FrToDt.ToDtTm
+            End If
 
             For Each balance As camt_052_001_02.CashBalance3 In data.BkToCstmrAcctRpt.Rpt(0).Bal
                 If Not balance.Tp Is Nothing AndAlso Not balance.Tp.CdOrPrtry Is Nothing _
@@ -340,8 +341,6 @@ Namespace Documents.BankDataExchangeProviders
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls"))
             ElseIf entry.NtryDtls(0).TxDtls Is Nothing OrElse entry.NtryDtls(0).TxDtls.Length < 1 Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls"))
-            ElseIf entry.NtryDtls(0).TxDtls(0).Refs Is Nothing Then
-                Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "NtryDtls.TxDtls.Refs"))
             ElseIf entry.BookgDt Is Nothing Then
                 Throw New Exception(String.Format(My.Resources.Documents_BankDataExchangeProviders_ISO20022v052BankAccountStatement_InvalidFileFormatNodeMissing, "BookgDt"))
             ElseIf entry.NtryDtls(0).TxDtls(0).AmtDtls Is Nothing AndAlso entry.Amt Is Nothing Then
@@ -351,12 +350,13 @@ Namespace Documents.BankDataExchangeProviders
             Dim result As New BankAccountStatementItem
 
             result.DocumentNumber = ParseDocumentNumber(entry.NtryDtls(0).TxDtls(0).Refs)
-            result.UniqueCode = entry.NtryDtls(0).TxDtls(0).Refs.AcctSvcrRef
-            If StringIsNullOrEmpty(result.UniqueCode) Then result.UniqueCode = entry.NtryDtls(0).TxDtls(0).Refs.TxId
             result.Date = entry.BookgDt.Item
             result.Content = ParseContent(entry.NtryDtls(0).TxDtls(0), bankName)
             result.Inflow = (entry.CdtDbtInd = camt_052_001_02.CreditDebitCode.CRDT)
-
+            If Not entry.NtryDtls(0).TxDtls(0).Refs Is Nothing Then
+                result.UniqueCode = entry.NtryDtls(0).TxDtls(0).Refs.AcctSvcrRef
+                If StringIsNullOrEmpty(result.UniqueCode) Then result.UniqueCode = entry.NtryDtls(0).TxDtls(0).Refs.TxId
+            End If
             ParseSum(entry.NtryDtls(0).TxDtls(0).AmtDtls, entry.Amt, result)
             ResolveSumBase(result)
 

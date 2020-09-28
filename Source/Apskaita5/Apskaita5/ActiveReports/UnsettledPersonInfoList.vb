@@ -1,4 +1,7 @@
-﻿Namespace ActiveReports
+﻿Imports ApskaitaObjects.Documents.BankDataExchangeProviders
+Imports ApskaitaObjects.My.Resources
+
+Namespace ActiveReports
 
     ''' <summary>
     ''' Represents an unsetled claims report, a list of documents (usualy invoices), that were not settled, grouped by a person.
@@ -85,6 +88,25 @@
                 _SortedList = New Csla.SortedBindingList(Of UnsettledPersonInfo)(Me)
             End If
             Return _SortedList
+        End Function
+
+        Public Function ExportBankPayments() As ExportedBankPaymentList
+            If _ForBuyers Then Throw New Exception(ActiveReports_UnsettledPersonInfoList_InvalidTypeForExportingBankPayments)
+
+            Dim personLookup As PersonInfoList = PersonInfoList.GetList()
+
+            Dim result As ExportedBankPaymentList = ExportedBankPaymentList.NewExportedBankPaymentList()
+            For Each debt As UnsettledPersonInfo In Me
+                if debt.Debt > 0.0 Then
+                    result.Add(ExportedBankPayment.NewExportedBankPayment(debt.ID, _
+                        debt.Debt, debt.Items.GetDescriptionForExportedPayment(), personLookup)) 
+                End If
+            Next
+
+            If result.Count < 1 Then Throw New Exception(ActiveReports_UnsettledPersonInfoList_NoDebtsToExport)
+
+            Return result
+
         End Function
 
 #End Region
