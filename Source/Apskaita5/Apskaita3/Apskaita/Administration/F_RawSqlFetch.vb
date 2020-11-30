@@ -45,11 +45,21 @@ Public Class F_RawSqlFetch
     Private Sub ExecuteButton_Click(ByVal sender As System.Object, _
         ByVal e As System.EventArgs) Handles ExecuteButton.Click
 
+        ExecutedInLabel.Text = ""
+
         Try
 
             Using busy As New StatusBusy
 
+                dim watch as new System.Diagnostics.Stopwatch()
+                watch.Start()
+
                 Dim result As RawSQLFetch = RawSQLFetch.GetRawSQLFetch(SqlQueryTextBox.Text.Trim)
+
+                watch.Stop()
+
+                ExecutedInLabel.Text = String.Format("Executed in {0} sec. ({1} ms)", _
+                 watch.Elapsed.Seconds, watch.ElapsedMilliseconds)
 
                 If Not ResultDataGridView.DataSource Is Nothing Then
                     CType(ResultDataGridView.DataSource, DataTable).Dispose()

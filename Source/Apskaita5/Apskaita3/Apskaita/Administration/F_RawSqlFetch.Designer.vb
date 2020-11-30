@@ -19,71 +19,75 @@ Partial Class F_RawSqlFetch
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_RawSqlFetch))
-        Me.ExecuteButton = New System.Windows.Forms.Button
-        Me.SqlQueryTextBox = New System.Windows.Forms.TextBox
-        Me.DatabaseGaugeTreeView = New System.Windows.Forms.TreeView
-        Me.ResultDataGridView = New System.Windows.Forms.DataGridView
-        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer
-        Me.SplitContainer3 = New System.Windows.Forms.SplitContainer
-        CType(Me.ResultDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer2.Panel1.SuspendLayout()
-        Me.SplitContainer2.Panel2.SuspendLayout()
-        Me.SplitContainer2.SuspendLayout()
-        Me.SplitContainer3.Panel1.SuspendLayout()
-        Me.SplitContainer3.Panel2.SuspendLayout()
-        Me.SplitContainer3.SuspendLayout()
-        Me.SuspendLayout()
+        Me.ExecuteButton = New System.Windows.Forms.Button()
+        Me.SqlQueryTextBox = New System.Windows.Forms.TextBox()
+        Me.DatabaseGaugeTreeView = New System.Windows.Forms.TreeView()
+        Me.ResultDataGridView = New System.Windows.Forms.DataGridView()
+        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
+        Me.ExecutedInLabel = New System.Windows.Forms.Label()
+        CType(Me.ResultDataGridView,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SplitContainer2.Panel1.SuspendLayout
+        Me.SplitContainer2.Panel2.SuspendLayout
+        Me.SplitContainer2.SuspendLayout
+        Me.SplitContainer3.Panel1.SuspendLayout
+        Me.SplitContainer3.Panel2.SuspendLayout
+        Me.SplitContainer3.SuspendLayout
+        Me.SuspendLayout
         '
         'ExecuteButton
         '
-        Me.ExecuteButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ExecuteButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ExecuteButton.Location = New System.Drawing.Point(587, 148)
+        Me.ExecuteButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.ExecuteButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.ExecuteButton.Location = New System.Drawing.Point(583, 141)
+        Me.ExecuteButton.Margin = New System.Windows.Forms.Padding(4)
         Me.ExecuteButton.Name = "ExecuteButton"
-        Me.ExecuteButton.Size = New System.Drawing.Size(75, 23)
+        Me.ExecuteButton.Size = New System.Drawing.Size(100, 28)
         Me.ExecuteButton.TabIndex = 1
         Me.ExecuteButton.Text = "Execute"
-        Me.ExecuteButton.UseVisualStyleBackColor = True
+        Me.ExecuteButton.UseVisualStyleBackColor = true
         '
         'SqlQueryTextBox
         '
-        Me.SqlQueryTextBox.AllowDrop = True
-        Me.SqlQueryTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SqlQueryTextBox.Location = New System.Drawing.Point(4, 3)
+        Me.SqlQueryTextBox.AllowDrop = true
+        Me.SqlQueryTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom)  _
+            Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.SqlQueryTextBox.Location = New System.Drawing.Point(5, 4)
+        Me.SqlQueryTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.SqlQueryTextBox.MaxLength = 15000
-        Me.SqlQueryTextBox.Multiline = True
+        Me.SqlQueryTextBox.Multiline = true
         Me.SqlQueryTextBox.Name = "SqlQueryTextBox"
         Me.SqlQueryTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.SqlQueryTextBox.Size = New System.Drawing.Size(659, 139)
+        Me.SqlQueryTextBox.Size = New System.Drawing.Size(677, 129)
         Me.SqlQueryTextBox.TabIndex = 0
         '
         'DatabaseGaugeTreeView
         '
-        Me.DatabaseGaugeTreeView.CausesValidation = False
+        Me.DatabaseGaugeTreeView.CausesValidation = false
         Me.DatabaseGaugeTreeView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DatabaseGaugeTreeView.HotTracking = True
+        Me.DatabaseGaugeTreeView.HotTracking = true
         Me.DatabaseGaugeTreeView.Location = New System.Drawing.Point(0, 0)
+        Me.DatabaseGaugeTreeView.Margin = New System.Windows.Forms.Padding(4)
         Me.DatabaseGaugeTreeView.Name = "DatabaseGaugeTreeView"
-        Me.DatabaseGaugeTreeView.ShowNodeToolTips = True
-        Me.DatabaseGaugeTreeView.Size = New System.Drawing.Size(207, 179)
+        Me.DatabaseGaugeTreeView.ShowNodeToolTips = true
+        Me.DatabaseGaugeTreeView.Size = New System.Drawing.Size(208, 179)
         Me.DatabaseGaugeTreeView.TabIndex = 0
         '
         'ResultDataGridView
         '
-        Me.ResultDataGridView.AllowUserToAddRows = False
-        Me.ResultDataGridView.AllowUserToDeleteRows = False
-        Me.ResultDataGridView.AllowUserToOrderColumns = True
+        Me.ResultDataGridView.AllowUserToAddRows = false
+        Me.ResultDataGridView.AllowUserToDeleteRows = false
+        Me.ResultDataGridView.AllowUserToOrderColumns = true
         Me.ResultDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.ResultDataGridView.CausesValidation = False
+        Me.ResultDataGridView.CausesValidation = false
         Me.ResultDataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText
         Me.ResultDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -92,10 +96,11 @@ Partial Class F_RawSqlFetch
         Me.ResultDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ResultDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.ResultDataGridView.Location = New System.Drawing.Point(0, 0)
+        Me.ResultDataGridView.Margin = New System.Windows.Forms.Padding(4)
         Me.ResultDataGridView.Name = "ResultDataGridView"
-        Me.ResultDataGridView.ReadOnly = True
-        Me.ResultDataGridView.RowHeadersVisible = False
-        Me.ResultDataGridView.Size = New System.Drawing.Size(876, 372)
+        Me.ResultDataGridView.ReadOnly = true
+        Me.ResultDataGridView.RowHeadersVisible = false
+        Me.ResultDataGridView.Size = New System.Drawing.Size(900, 364)
         Me.ResultDataGridView.TabIndex = 1
         '
         'SplitContainer2
@@ -103,6 +108,7 @@ Partial Class F_RawSqlFetch
         Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
         Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(4)
         Me.SplitContainer2.Name = "SplitContainer2"
         Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -113,8 +119,9 @@ Partial Class F_RawSqlFetch
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.ResultDataGridView)
-        Me.SplitContainer2.Size = New System.Drawing.Size(876, 555)
+        Me.SplitContainer2.Size = New System.Drawing.Size(900, 548)
         Me.SplitContainer2.SplitterDistance = 179
+        Me.SplitContainer2.SplitterWidth = 5
         Me.SplitContainer2.TabIndex = 2
         '
         'SplitContainer3
@@ -122,44 +129,58 @@ Partial Class F_RawSqlFetch
         Me.SplitContainer3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
         Me.SplitContainer3.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer3.Margin = New System.Windows.Forms.Padding(4)
         Me.SplitContainer3.Name = "SplitContainer3"
         '
         'SplitContainer3.Panel1
         '
+        Me.SplitContainer3.Panel1.Controls.Add(Me.ExecutedInLabel)
         Me.SplitContainer3.Panel1.Controls.Add(Me.SqlQueryTextBox)
         Me.SplitContainer3.Panel1.Controls.Add(Me.ExecuteButton)
         '
         'SplitContainer3.Panel2
         '
         Me.SplitContainer3.Panel2.Controls.Add(Me.DatabaseGaugeTreeView)
-        Me.SplitContainer3.Size = New System.Drawing.Size(876, 179)
-        Me.SplitContainer3.SplitterDistance = 665
+        Me.SplitContainer3.Size = New System.Drawing.Size(900, 179)
+        Me.SplitContainer3.SplitterDistance = 687
+        Me.SplitContainer3.SplitterWidth = 5
         Me.SplitContainer3.TabIndex = 0
+        '
+        'ExecutedInLabel
+        '
+        Me.ExecutedInLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left),System.Windows.Forms.AnchorStyles)
+        Me.ExecutedInLabel.AutoSize = true
+        Me.ExecutedInLabel.Location = New System.Drawing.Point(12, 147)
+        Me.ExecutedInLabel.Name = "ExecutedInLabel"
+        Me.ExecutedInLabel.Size = New System.Drawing.Size(0, 16)
+        Me.ExecutedInLabel.TabIndex = 2
         '
         'F_RawSqlFetch
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8!, 16!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(876, 555)
+        Me.ClientSize = New System.Drawing.Size(900, 548)
         Me.Controls.Add(Me.SplitContainer2)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F_RawSqlFetch"
         Me.Text = "SQL užklausos"
-        CType(Me.ResultDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SplitContainer2.Panel1.ResumeLayout(False)
-        Me.SplitContainer2.Panel2.ResumeLayout(False)
-        Me.SplitContainer2.ResumeLayout(False)
-        Me.SplitContainer3.Panel1.ResumeLayout(False)
-        Me.SplitContainer3.Panel1.PerformLayout()
-        Me.SplitContainer3.Panel2.ResumeLayout(False)
-        Me.SplitContainer3.ResumeLayout(False)
-        Me.ResumeLayout(False)
+        CType(Me.ResultDataGridView,System.ComponentModel.ISupportInitialize).EndInit
+        Me.SplitContainer2.Panel1.ResumeLayout(false)
+        Me.SplitContainer2.Panel2.ResumeLayout(false)
+        Me.SplitContainer2.ResumeLayout(false)
+        Me.SplitContainer3.Panel1.ResumeLayout(false)
+        Me.SplitContainer3.Panel1.PerformLayout
+        Me.SplitContainer3.Panel2.ResumeLayout(false)
+        Me.SplitContainer3.ResumeLayout(false)
+        Me.ResumeLayout(false)
 
-    End Sub
+End Sub
     Friend WithEvents ExecuteButton As System.Windows.Forms.Button
     Friend WithEvents SqlQueryTextBox As System.Windows.Forms.TextBox
     Friend WithEvents DatabaseGaugeTreeView As System.Windows.Forms.TreeView
     Friend WithEvents ResultDataGridView As System.Windows.Forms.DataGridView
     Friend WithEvents SplitContainer2 As System.Windows.Forms.SplitContainer
     Friend WithEvents SplitContainer3 As System.Windows.Forms.SplitContainer
+    Friend WithEvents ExecutedInLabel As Label
 End Class
