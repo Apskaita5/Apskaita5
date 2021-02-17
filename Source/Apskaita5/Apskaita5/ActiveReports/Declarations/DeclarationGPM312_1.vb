@@ -121,10 +121,13 @@
 
             Try
 
-                Dim myComm As New SQLCommand("FetchDeclarationGPM312_1AppendixL")
+                Dim myComm As New SQLCommand(IIf(criteria.Year >= 2019, _
+                    "FetchDeclarationGPM312_2AppendixL", _
+                    "FetchDeclarationGPM312_1AppendixL").ToString())
                 myComm.AddParam("?YR", criteria.Year)
                 myComm.AddParam("?DS", gpmCode)
                 myComm.AddParam("?LT", StateCodeLith.ToUpper())
+                If criteria.Year >= 2019 Then myComm.AddParam("?LG", "03")
 
                 Using myData As DataTable = myComm.Fetch()
                     For Each dr As DataRow In myData.Rows
@@ -146,10 +149,13 @@
                     Next
                 End Using
 
-                myComm = New SQLCommand("FetchDeclarationGPM312_1AppendixU")
+                myComm = New SQLCommand(IIf(criteria.Year >= 2019, _
+                    "FetchDeclarationGPM312_2AppendixU", _
+                    "FetchDeclarationGPM312_1AppendixU").ToString())
                 myComm.AddParam("?YR", criteria.Year)
                 myComm.AddParam("?DS", gpmCode)
                 myComm.AddParam("?LT", StateCodeLith.ToUpper())
+                If criteria.Year >= 2019 Then myComm.AddParam("?LG", "03")
 
                 Using myData As DataTable = myComm.Fetch()
                     For Each dr As DataRow In myData.Rows
