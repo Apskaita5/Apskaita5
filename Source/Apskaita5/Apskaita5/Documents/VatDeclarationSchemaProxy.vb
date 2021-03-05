@@ -16,6 +16,7 @@
         Private _TradedType As TradedItemType = TradedItemType.All
         Private _ExternalCode As String = ""
         Private _ExternalCodeInt As String = ""
+        Private _VatIsVirtual As Boolean = False
         Private _DeclarationEntries As New List(Of VatDeclarationEntryProxy)
 
 
@@ -81,6 +82,22 @@
             Set(ByVal value As Boolean)
                 If _VatRateIsNull <> value Then
                     _VatRateIsNull = value
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
+        ''' Value corresponds to <see cref="VatDeclarationSchema.VatIsVirtual">VatDeclarationSchema.VatIsVirtual</see>
+        ''' property.
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Property VatIsVirtual() As Boolean
+            Get
+                Return _VatIsVirtual
+            End Get
+            Set(ByVal value As Boolean)
+                If _VatIsVirtual <> value Then
+                    _VatIsVirtual = value
                 End If
             End Set
         End Property

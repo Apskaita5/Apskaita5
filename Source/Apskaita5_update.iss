@@ -4,7 +4,7 @@
 [Setup]
 AppName=Apskaita5 update
 AppID=Apskaita5MD
-AppVerName=Apskaita 5 v. 2021-02-17 update
+AppVerName=Apskaita 5 v. 2021-03-05 update
 AppPublisher=Marius Dagys
 AppPublisherURL=https://github.com/Apskaita5/Apskaita5/wiki
 AppSupportURL=http://www.tax.lt/temos/12748-nemokama-apskaitos-programa
@@ -86,10 +86,11 @@ Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Rele
 Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\FR0471(5).mxfd"; DestDir: "{app}\MXFD"; Flags: ignoreversion
 Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\GPM312(1).mxfd"; DestDir: "{app}\MXFD"; Flags: ignoreversion
 Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\MXFD\SAM-v07.mxfd"; DestDir: "{app}\MXFD"; Flags: ignoreversion
-Source: "C:\D\My Documents\HelpNDoc\Output\chm\Apskaita5 vartotojo vadovas.chm"; DestDir: "{app}"; DestName:"Apskaita5Help.chm"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\Apskaita5Help.chm"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\CommonSettings.xmls"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\RdlEngineConfig.xml"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\D\My Documents\My Projects\Apskaita5\Apskaita3\Apskaita\bin\x86\Release\UserReportExample.rdl"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\D\My Documents\My Projects\Apskaita5Plugins\A5P_ivesk_lt\bin\Release\A5Plugin.dll"; DestDir: "{app}\InvoiceAdapters\ivesk_lt"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Dirs]

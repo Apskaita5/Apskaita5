@@ -27,6 +27,7 @@ Namespace Documents
         Private _ExternalCode As String = ""
         Private _TaxCode As String = ""
         Private _VatRateIsNull As Boolean = False
+        Private _VatIsVirtual As Boolean = False
         Private _DeclarationEntries As VatDeclarationEntryList
 
 
@@ -141,6 +142,25 @@ Namespace Documents
                     _VatRateIsNull = value
                     PropertyHasChanged()
                     If _VatRateIsNull Then VatRate = 0
+                End If
+            End Set
+        End Property
+
+        ''' <summary>
+        ''' Gets or sets whether the VAT is virtual (indirect).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field VatDeclarationSchemas.VatIsVirtual.</remarks>
+        Public Property VatIsVirtual() As Boolean
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _VatIsVirtual
+            End Get
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Set(ByVal value As Boolean)
+                CanWriteProperty(True)
+                If _VatIsVirtual <> value Then
+                    _VatIsVirtual = value
+                    PropertyHasChanged()
                 End If
             End Set
         End Property
@@ -336,6 +356,8 @@ Namespace Documents
             result.Name = _Name
             result.TradedType = _TradedType
             result.VatRate = _VatRate
+            result.VatIsVirtual = _VatIsVirtual
+            result.VatRateIsNull = _VatRateIsNull
 
             For Each entry As VatDeclarationEntry In _DeclarationEntries
                 result.DeclarationEntries.Add(entry.GetXmlProxy())
@@ -587,6 +609,7 @@ Namespace Documents
             _TradedTypeHumanReadable = ConvertLocalizedName(_TradedType)
             _VatRate = xmlProxy.VatRate
             _VatRateIsNull = xmlProxy.VatRateIsNull
+            _VatIsVirtual = xmlProxy.VatIsVirtual
 
             _DeclarationEntries = VatDeclarationEntryList.NewVatDeclarationEntryList()
             If Not xmlProxy.DeclarationEntries Is Nothing Then
@@ -634,6 +657,7 @@ Namespace Documents
                 _VatRateIsNull = ConvertDbBoolean(CIntSafe(dr.Item(8), 0))
                 _InsertDate = CTimeStampSafe(dr.Item(9))
                 _UpdateDate = CTimeStampSafe(dr.Item(10))
+                _VatIsVirtual = ConvertDbBoolean(CIntSafe(dr.Item(11), 0))
 
                 _DeclarationEntries = VatDeclarationEntryList.GetVatDeclarationEntryList(_ID)
 
@@ -811,6 +835,7 @@ Namespace Documents
             myComm.AddParam("?AF", _TaxCode.Trim)
             myComm.AddParam("?AG", _ExternalCode.Trim)
             myComm.AddParam("?AH", ConvertDbBoolean(_VatRateIsNull))
+            myComm.AddParam("?AJ", ConvertDbBoolean(_VatIsVirtual))
 
             _UpdateDate = GetCurrentTimeStamp()
             If Me.IsNew Then _InsertDate = _UpdateDate

@@ -482,6 +482,12 @@
     <Compile Include="Documents\F_DebtStatementPersonDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Documents\F_ImportInvoices.Designer.vb">
+      <DependentUpon>F_ImportInvoices.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Documents\F_ImportInvoices.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Documents\F_InvoiceInfoList.Designer.vb">
       <DependentUpon>F_InvoiceInfoList.vb</DependentUpon>
     </Compile>
@@ -573,6 +579,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Documents\ImportedBankOperation.vb" />
+    <Compile Include="Documents\InvoiceImportPluginManager.vb" />
     <Compile Include="FyiPrint.Designer.vb">
       <DependentUpon>FyiPrint.vb</DependentUpon>
     </Compile>
@@ -1254,6 +1261,9 @@
     <EmbeddedResource Include="Documents\F_DebtStatementPersonDialog.resx">
       <DependentUpon>F_DebtStatementPersonDialog.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Documents\F_ImportInvoices.resx">
+      <DependentUpon>F_ImportInvoices.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Documents\F_InvoiceInfoList.resx">
       <DependentUpon>F_InvoiceInfoList.vb</DependentUpon>
     </EmbeddedResource>
@@ -1558,6 +1568,7 @@
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.SharesAccountEntryList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.ActiveReports.SharesOperationInfoList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Documents.BankDataExchangeProviders.ExportedBankPayments.datasource" />
+    <None Include="My Project\DataSources\ApskaitaObjects.Extensibility.InvoiceImportOptions.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.General.SharesClassList.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.General.SharesOperation.datasource" />
     <None Include="My Project\DataSources\ApskaitaObjects.Workers.WageItem.datasource" />

@@ -25989,6 +25989,96 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to formato adapteris.
+        '''</summary>
+        Friend ReadOnly Property Extensibility_InvoiceImportOptions_Adapter() As String
+            Get
+                Return ResourceManager.GetString("Extensibility_InvoiceImportOptions_Adapter", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to pajamų/sąnaudų sąskaita pagal nutylėjimą (jei jos nėra originaliuose duomenyse).
+        '''</summary>
+        Friend ReadOnly Property Extensibility_InvoiceImportOptions_DefaultAccount() As String
+            Get
+                Return ResourceManager.GetString("Extensibility_InvoiceImportOptions_DefaultAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sąskaitos pavadinimas/aprašymas pagal nutylėjimą (jei jo nėra originaliuose duomenyse).
+        '''</summary>
+        Friend ReadOnly Property Extensibility_InvoiceImportOptions_DefaultContent() As String
+            Get
+                Return ResourceManager.GetString("Extensibility_InvoiceImportOptions_DefaultContent", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sąskaitos eilutės tekstas pagal nutylėjimą (jei jo nėra originaliuose duomenyse).
+        '''</summary>
+        Friend ReadOnly Property Extensibility_InvoiceImportOptions_DefaultLineContent() As String
+            Get
+                Return ResourceManager.GetString("Extensibility_InvoiceImportOptions_DefaultLineContent", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to mato vnt. pagal nutylėjimą (jei jo nėra originaliuose duomenyse).
+        '''</summary>
+        Friend ReadOnly Property Extensibility_InvoiceImportOptions_DefaultMeasureUnit() As String
+            Get
+                Return ResourceManager.GetString("Extensibility_InvoiceImportOptions_DefaultMeasureUnit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM sąskaita pagal nutylėjimą (jei jos nėra originaliuose duomenyse).
+        '''</summary>
+        Friend ReadOnly Property Extensibility_InvoiceImportOptions_DefaultVatAccount() As String
+            Get
+                Return ResourceManager.GetString("Extensibility_InvoiceImportOptions_DefaultVatAccount", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to PVM schema pagal nutylėjimą (jei jos nėra originaliuose duomenyse).
+        '''</summary>
+        Friend ReadOnly Property Extensibility_InvoiceImportOptions_DefaultVatSchema() As String
+            Get
+                Return ResourceManager.GetString("Extensibility_InvoiceImportOptions_DefaultVatSchema", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to importuoti išrašytas sąskaitas (priešingu atveju - gautas).
+        '''</summary>
+        Friend ReadOnly Property Extensibility_InvoiceImportOptions_ForInvoicesMade() As String
+            Get
+                Return ResourceManager.GetString("Extensibility_InvoiceImportOptions_ForInvoicesMade", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to išorinės sistemos id (siekiant atskirti sąskaitas, importuotas iš skirtingų šaltinių/sistemų).
+        '''</summary>
+        Friend ReadOnly Property Extensibility_InvoiceImportOptions_InvoiceIdPrefix() As String
+            Get
+                Return ResourceManager.GetString("Extensibility_InvoiceImportOptions_InvoiceIdPrefix", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to sąskaitų faktūrų importas.
+        '''</summary>
+        Friend ReadOnly Property Extensibility_InvoiceImportOptions_TypeName() As String
+            Get
+                Return ResourceManager.GetString("Extensibility_InvoiceImportOptions_TypeName", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to susieta finansinės atskaitomybės eilutė.
         '''</summary>
         Friend ReadOnly Property General_Account_AssociatedReportItem() As String

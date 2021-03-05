@@ -17,11 +17,13 @@ Namespace HelperLists
         Private _ID As Integer = 0
         Private _Name As String = ""
         Private _Description As String = ""
-        Private _VatRate As Double = 0
+        Private _VatRate As Double = 0.0
         Private _IsObsolete As Boolean = False
         Private _TradedType As TradedItemType = Nothing
         Private _TradedTypeHumanReadable As String = ""
         Private _ExternalCode As String = ""
+        Private _TaxCode As String = ""
+        Private _VatIsVirtual As Boolean = False
 
 
         ''' <summary>
@@ -80,6 +82,30 @@ Namespace HelperLists
                 Return CRound(_VatRate)
             End Get
         End Property
+
+        ''' <summary>
+        ''' Gets a value indicating whether the VAT is virtual (indirect).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field VatDeclarationSchemas.VatIsVirtual.</remarks>
+        Public ReadOnly Property VatIsVirtual() As Boolean
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _VatIsVirtual
+            End Get
+        End Property
+
+        ''' <summary>
+        ''' Gets a code of the VAT declaration schema as defined by the tax inspectorate.
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field VatDeclarationSchemas.ExternalCode.</remarks>
+        <CodeField(ValueRequiredLevel.Mandatory, ApskaitaObjects.Settings.CodeType.VmiVatType)> _
+        Public ReadOnly Property TaxCode() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _TaxCode.Trim
+            End Get
+        End Property
+
 
         ''' <summary>
         ''' Gets whether the declaration schema is obsolete, no longer in use.
@@ -253,6 +279,8 @@ Namespace HelperLists
             _TradedType = ConvertDatabaseID(Of TradedItemType)(CIntSafe(dr.Item(5 + offset), 0))
             _TradedTypeHumanReadable = ConvertLocalizedName(_TradedType)
             _ExternalCode = CStrSafe(dr.Item(6 + offset)).Trim
+            _TaxCode = CStrSafe(dr.Item(7 + offset)).Trim
+            _VatIsVirtual = ConvertDbBoolean(CIntSafe(dr.Item(8 + offset), 0))
 
         End Sub
 

@@ -54,8 +54,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ExternalReferencedLibraries\Csla.dll</HintPath>
     </Reference>
-    <Reference Include="InvoiceInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="InvoiceInfo">
       <HintPath>..\..\InvoiceInfo\InvoiceInfo\bin\Release\InvoiceInfo.dll</HintPath>
     </Reference>
     <Reference Include="System">
@@ -270,6 +269,8 @@
     <Compile Include="Documents\CommandImportVatDeclarationSchemas.vb" />
     <Compile Include="Documents\CustomVatOperation.vb" />
     <Compile Include="Documents\CustomVatOperationList.vb" />
+    <Compile Include="Documents\ImportInvoicesMadeCommand.vb" />
+    <Compile Include="Documents\ImportInvoicesReceivedCommand.vb" />
     <Compile Include="Documents\ProformaInvoiceMade.vb" />
     <Compile Include="Documents\ProformaInvoiceMadeItemList.vb" />
     <Compile Include="Documents\ProformaInvoiceMadeItem.vb" />
@@ -287,6 +288,8 @@
     <Compile Include="ActiveReports\VatDeclarationSubtotalList.vb" />
     <Compile Include="Extensibility\Extensibility.vb" />
     <Compile Include="Extensibility\General\Extensibility.vb" />
+    <Compile Include="Extensibility\IInvoiceAdapter.vb" />
+    <Compile Include="Extensibility\InvoiceImportOptions.vb" />
     <Compile Include="Extensibility\RestCredentials.vb" />
     <Compile Include="Extensibility\RestCredentialsList.vb" />
     <Compile Include="Extensibility\RestHandle.vb" />

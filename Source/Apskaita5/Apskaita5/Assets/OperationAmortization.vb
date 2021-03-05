@@ -1381,6 +1381,13 @@ Namespace Assets
             _RevaluedPortionUnitValueChange = calculation.AmortizationValuePerUnitRevaluedPortion
             _AmortizationCalculatedForMonths = calculation.AmortizationCalculatedForMonths
             _AmortizationCalculations = calculation.CalculationDescription
+            If _UnitValueChange < 0 Then _UnitValueChange = 0.0
+            If _TotalValueChange < 0 Then _TotalValueChange = 0.0
+            If _RevaluedPortionTotalValueChange < 0 Then _RevaluedPortionTotalValueChange = 0.0
+            If _RevaluedPortionUnitValueChange < 0 Then _RevaluedPortionUnitValueChange = 0.0
+            _TotalValueChange = CRound(_TotalValueChange + _RevaluedPortionTotalValueChange)
+            _UnitValueChange = CRound(_UnitValueChange + _RevaluedPortionUnitValueChange, ROUNDUNITASSET)
+
 
             PropertyHasChanged("UnitValueChange")
             PropertyHasChanged("TotalValueChange")
@@ -2016,9 +2023,12 @@ Namespace Assets
 
             result.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Debetas, _
                 _AccountCosts, CRound(_TotalValueChange, 2), Nothing))
-            result.Add(BookEntryInternal.NewBookEntryInternal(BookEntryType.Kreditas, _
-                _Background.CurrentAssetContraryAccount, CRound(_TotalValueChange _
-                - _RevaluedPortionTotalValueChange, 2), Nothing))
+            
+            Dim amortizationAmount As Double = CRound(_TotalValueChange _
+                - _RevaluedPortionTotalValueChange, 2)
+            if amortizationAmount > 0.0 Then result.Add( _
+                BookEntryInternal.NewBookEntryInternal(BookEntryType.Kreditas, _
+                _Background.CurrentAssetContraryAccount, amortizationAmount, Nothing))
 
 
             If CRound(_RevaluedPortionTotalValueChange) > 0 Then

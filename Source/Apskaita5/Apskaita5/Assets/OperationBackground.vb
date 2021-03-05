@@ -1775,7 +1775,7 @@ Namespace Assets
                 < CRound(valObj._AssetLiquidationValue, 2) Then
 
                 e.Description = My.Resources.Assets_OperationBackground_AcquisitionValueInvalid
-                e.Severity = Validation.RuleSeverity.Error
+                e.Severity = Validation.RuleSeverity.Warning
                 Return False
 
             End If

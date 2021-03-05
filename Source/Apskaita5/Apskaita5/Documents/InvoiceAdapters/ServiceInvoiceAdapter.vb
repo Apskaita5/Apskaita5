@@ -203,6 +203,13 @@
             End Get
         End Property
 
+        Public ReadOnly Property ServiceCode() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return Me._Service.Code
+            End Get
+        End Property
+
         ''' <summary>
         ''' Gets a value of the attached operation property that provides a default (initial) value for the 
         ''' <see cref="InvoiceMadeItem.NameInvoice">InvoiceMadeItem.NameInvoice</see>

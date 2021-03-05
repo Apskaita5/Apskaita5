@@ -15737,4 +15737,34 @@
   <data name="Workers_WageSheet_NoWageToPay" xml:space="preserve">
     <value>Žiniaraštyje nėra (pasirinktų) darbuotojų, kuriems būtų neišmokėtas darbo užmokestis.</value>
   </data>
+  <data name="Extensibility_InvoiceImportOptions_Adapter" xml:space="preserve">
+    <value>formato adapteris</value>
+  </data>
+  <data name="Extensibility_InvoiceImportOptions_DefaultAccount" xml:space="preserve">
+    <value>pajamų/sąnaudų sąskaita pagal nutylėjimą (jei jos nėra originaliuose duomenyse)</value>
+  </data>
+  <data name="Extensibility_InvoiceImportOptions_DefaultContent" xml:space="preserve">
+    <value>sąskaitos pavadinimas/aprašymas pagal nutylėjimą (jei jo nėra originaliuose duomenyse)</value>
+  </data>
+  <data name="Extensibility_InvoiceImportOptions_DefaultLineContent" xml:space="preserve">
+    <value>sąskaitos eilutės tekstas pagal nutylėjimą (jei jo nėra originaliuose duomenyse)</value>
+  </data>
+  <data name="Extensibility_InvoiceImportOptions_DefaultMeasureUnit" xml:space="preserve">
+    <value>mato vnt. pagal nutylėjimą (jei jo nėra originaliuose duomenyse)</value>
+  </data>
+  <data name="Extensibility_InvoiceImportOptions_DefaultVatAccount" xml:space="preserve">
+    <value>PVM sąskaita pagal nutylėjimą (jei jos nėra originaliuose duomenyse)</value>
+  </data>
+  <data name="Extensibility_InvoiceImportOptions_DefaultVatSchema" xml:space="preserve">
+    <value>PVM schema pagal nutylėjimą (jei jos nėra originaliuose duomenyse)</value>
+  </data>
+  <data name="Extensibility_InvoiceImportOptions_ForInvoicesMade" xml:space="preserve">
+    <value>importuoti išrašytas sąskaitas (priešingu atveju - gautas)</value>
+  </data>
+  <data name="Extensibility_InvoiceImportOptions_InvoiceIdPrefix" xml:space="preserve">
+    <value>išorinės sistemos id (siekiant atskirti sąskaitas, importuotas iš skirtingų šaltinių/sistemų)</value>
+  </data>
+  <data name="Extensibility_InvoiceImportOptions_TypeName" xml:space="preserve">
+    <value>sąskaitų faktūrų importas</value>
+  </data>
 </root>

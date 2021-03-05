@@ -17,7 +17,7 @@ Namespace HelperLists
         Private _ID As Integer = 0
         Private _Type As Documents.TradedItemType = Documents.TradedItemType.All
         Private _TypeHumanReadable As String = Utilities.ConvertLocalizedName(Documents.TradedItemType.All)
-        Private _NameShort As String = ""
+        Private _NameShort As String = String.Empty
         Private _Amount As Double = 0
         Private _AccountSales As Long = 0
         Private _RateVatSales As Double = 0
@@ -28,8 +28,9 @@ Namespace HelperLists
         Private _DeclarationSchemaPurchase As VatDeclarationSchemaInfo = Nothing
         Private _AccountVatPurchase As Long = 0
         Private _IsObsolete As Boolean = False
-        Private _NameInvoice As String = ""
-        Private _MeasureUnit As String = ""
+        Private _NameInvoice As String = String.Empty
+        Private _MeasureUnit As String = String.Empty
+        Private _Code As String = String.Empty
 
 
         ''' <summary>
@@ -239,6 +240,17 @@ Namespace HelperLists
             End Get
         End Property
 
+        ''' <summary>
+        ''' Gets a code of the service (used for integrations or other internal purposes).
+        ''' </summary>
+        ''' <remarks>Value is stored in the database field paslaugos.ServiceCode.</remarks>
+        Public ReadOnly Property Code() As String
+            <System.Runtime.CompilerServices.MethodImpl(Runtime.CompilerServices.MethodImplOptions.NoInlining)> _
+            Get
+                Return _Code.Trim
+            End Get
+        End Property
+
 
         Public Shared Operator =(ByVal a As ServiceInfo, ByVal b As ServiceInfo) As Boolean
 
@@ -375,10 +387,11 @@ Namespace HelperLists
             _AccountVatSales = CLongSafe(dr.Item(8), 0)
             _AccountPurchase = CLongSafe(dr.Item(9), 0)
             _AccountVatPurchase = CLongSafe(dr.Item(10), 0)
-            _NameInvoice = CStrSafe(dr.Item(11)).Trim
-            _MeasureUnit = CStrSafe(dr.Item(12)).Trim
-            _DeclarationSchemaSales = VatDeclarationSchemaInfo.GetVatDeclarationSchemaInfo(dr, 14)
-            _DeclarationSchemaPurchase = VatDeclarationSchemaInfo.GetVatDeclarationSchemaInfo(dr, 21)
+            _Code = CStrSafe(dr.Item(11)).Trim  
+            _NameInvoice = CStrSafe(dr.Item(12)).Trim
+            _MeasureUnit = CStrSafe(dr.Item(13)).Trim
+            _DeclarationSchemaSales = VatDeclarationSchemaInfo.GetVatDeclarationSchemaInfo(dr, 15)
+            _DeclarationSchemaPurchase = VatDeclarationSchemaInfo.GetVatDeclarationSchemaInfo(dr, 24)
 
         End Sub
 
