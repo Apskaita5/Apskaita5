@@ -1321,7 +1321,7 @@ Namespace Assets
             _CurrentAssetContraryAccount = _InitialAssetContraryAccount
             _CurrentAssetValueDecreaseAccount = _InitialAssetValueDecreaseAccount
             _CurrentAssetValueIncreaseAccount = _InitialAssetValueIncreaseAccount
-            _CurrentAssetValueIncreaseAmortizationAccount = _InitialAssetValueIncreaseAccount
+            _CurrentAssetValueIncreaseAmortizationAccount = _InitialAssetValueIncreaseAmortizationAccount
             _CurrentUsageStatus = _InitialUsageStatus
             _CurrentAmortizationPeriod = _InitialAmortizationPeriod
             _CurrentUsageTermMonths = _InitialUsageTermMonths
