@@ -285,74 +285,67 @@ Namespace ActiveReports.Declarations
             Dim result As New List(Of AuditFileMasterFilesCustomer)
 
             For Each dr As DataRow In myData.Rows
-                If CIntSafe(dr.Item(12), 0) > 0 Then
+                
+                Dim prs As New AuditFileMasterFilesCustomer
 
-                    Dim prs As New AuditFileMasterFilesCustomer
-                    prs.CustomerID = CIntSafe(dr.Item(0), 0).ToString
-                    prs.Name = CStrSafe(dr.Item(1))
-                    If Not ConvertDbBoolean(CIntSafe(dr.Item(3), 0)) Then
-                        prs.RegistrationNumber = CStrSafe(dr.Item(2))
-                    End If
-                    prs.Address = New AddressStructure() {New AddressStructure}
-                    prs.Address(0).AddressType = AddressStructureAddressType.BA
-                    prs.Address(0).Country = CStrSafe(dr.Item(4)).ToUpper
-                    If String.IsNullOrEmpty(prs.Address(0).Country.Trim) Then _
-                        prs.Address(0).Country = StateCodeLith
-                    prs.Address(0).FullAddress = CStrSafe(dr.Item(5))
-                    prs.Address(0).City = _NotSpecifiedPlaceHolder
-                    prs.Address(0).Number = _NotSpecifiedPlaceHolder
-                    prs.Address(0).PostalCode = _NotSpecifiedPlaceHolder
-                    prs.Address(0).StreetName = _NotSpecifiedPlaceHolder
-                    If Not String.IsNullOrEmpty(CStrSafe(dr.Item(7)).Trim) Then
-                        prs.BankAccount = New BankAccountStructure() {New BankAccountStructure}
-                        prs.BankAccount(0).Item = CStrSafe(dr.Item(7))
-                        prs.BankAccount(0).ItemElementName = ItemChoiceType.IBANNumber
-                    End If
-
-                    If Not ConvertDbBoolean(CIntSafe(dr.Item(3), 0)) Then
-
-                        If String.IsNullOrEmpty(CStrSafe(dr.Item(6)).Trim) Then
-                            prs.TaxRegistration = New TaxRegistrationStructure() {New TaxRegistrationStructure}
-                        Else
-                            prs.TaxRegistration = New TaxRegistrationStructure() {New TaxRegistrationStructure, New TaxRegistrationStructure}
-                            prs.TaxRegistration(1).TaxRegistrationNumber = CStrSafe(dr.Item(6))
-                            prs.TaxRegistration(1).TaxType = TaxRegistrationStructureTaxType.PVM
-                        End If
-                        prs.TaxRegistration(0).TaxRegistrationNumber = CStrSafe(dr.Item(2))
-                        prs.TaxRegistration(0).TaxType = TaxRegistrationStructureTaxType.MMR
-
-                    ElseIf Not String.IsNullOrEmpty(CStrSafe(dr.Item(6)).Trim) Then
-
-                        prs.TaxRegistration = New TaxRegistrationStructure() {New TaxRegistrationStructure}
-                        prs.TaxRegistration(0).TaxRegistrationNumber = CStrSafe(dr.Item(6))
-                        prs.TaxRegistration(0).TaxType = TaxRegistrationStructureTaxType.PVM
-
-                    End If
-
-                    prs.Accounts = New AuditFileMasterFilesCustomerAccounts() {New AuditFileMasterFilesCustomerAccounts()}
-
-                    prs.SelfBillingIndicator = ""
-
-                    prs.Accounts(0).AccountID = CLongSafe(dr.Item(8), 0).ToString
-
-                    If CDblSafe(dr.Item(10), 2, 0.0) > 0 Then
-                        prs.Accounts(0).Item = Convert.ToDecimal(CDblSafe(dr.Item(10), 2, 0.0))
-                        prs.Accounts(0).ItemElementName = ItemChoiceType2.OpeningDebitBalance
-                    Else
-                        prs.Accounts(0).Item = Convert.ToDecimal(-CDblSafe(dr.Item(10), 2, 0.0))
-                        prs.Accounts(0).ItemElementName = ItemChoiceType2.OpeningCreditBalance
-                    End If
-                    If CDblSafe(dr.Item(11), 2, 0.0) > 0 Then
-                        prs.Accounts(0).Item1 = Convert.ToDecimal(CDblSafe(dr.Item(11), 2, 0.0))
-                        prs.Accounts(0).Item1ElementName = Item1ChoiceType1.ClosingDebitBalance
-                    Else
-                        prs.Accounts(0).Item1 = Convert.ToDecimal(-CDblSafe(dr.Item(11), 2, 0.0))
-                        prs.Accounts(0).Item1ElementName = Item1ChoiceType1.ClosingCreditBalance
-                    End If
-
-                    result.Add(prs)
-
+                prs.CustomerID = CIntSafe(dr.Item(0), 0).ToString 
+                prs.Name = CStrSafe(dr.Item(1))
+                If Not ConvertDbBoolean(CIntSafe(dr.Item(3), 0)) Then
+                    prs.RegistrationNumber = CStrSafe(dr.Item(2))
                 End If
+                prs.Address = New AddressStructure() {New AddressStructure}
+                prs.Address(0).AddressType = AddressStructureAddressType.BA
+                prs.Address(0).Country = CStrSafe(dr.Item(4)).ToUpper
+                If String.IsNullOrEmpty(prs.Address(0).Country.Trim) Then _
+                    prs.Address(0).Country = StateCodeLith
+                prs.Address(0).FullAddress = CStrSafe(dr.Item(5))
+                prs.Address(0).City = _NotSpecifiedPlaceHolder
+                prs.Address(0).Number = _NotSpecifiedPlaceHolder
+                prs.Address(0).PostalCode = _NotSpecifiedPlaceHolder
+                prs.Address(0).StreetName = _NotSpecifiedPlaceHolder
+                If Not String.IsNullOrEmpty(CStrSafe(dr.Item(7)).Trim) Then
+                    prs.BankAccount = New BankAccountStructure() {New BankAccountStructure}
+                    prs.BankAccount(0).Item = CStrSafe(dr.Item(7))
+                    prs.BankAccount(0).ItemElementName = ItemChoiceType.IBANNumber
+                End If
+
+                If Not ConvertDbBoolean(CIntSafe(dr.Item(3), 0)) Then
+                    If String.IsNullOrEmpty(CStrSafe(dr.Item(6)).Trim) Then
+                        prs.TaxRegistration = New TaxRegistrationStructure() {New TaxRegistrationStructure}
+                    Else
+                        prs.TaxRegistration = New TaxRegistrationStructure() {New TaxRegistrationStructure, New TaxRegistrationStructure}
+                        prs.TaxRegistration(1).TaxRegistrationNumber = CStrSafe(dr.Item(6))
+                        prs.TaxRegistration(1).TaxType = TaxRegistrationStructureTaxType.PVM
+                    End If
+                    prs.TaxRegistration(0).TaxRegistrationNumber = CStrSafe(dr.Item(2))
+                    prs.TaxRegistration(0).TaxType = TaxRegistrationStructureTaxType.MMR
+
+                ElseIf Not String.IsNullOrEmpty(CStrSafe(dr.Item(6)).Trim) Then
+                    prs.TaxRegistration = New TaxRegistrationStructure() {New TaxRegistrationStructure}
+                    prs.TaxRegistration(0).TaxRegistrationNumber = CStrSafe(dr.Item(6))
+                     prs.TaxRegistration(0).TaxType = TaxRegistrationStructureTaxType.PVM
+                End If
+
+                prs.Accounts = New AuditFileMasterFilesCustomerAccounts() {New AuditFileMasterFilesCustomerAccounts()}
+                prs.SelfBillingIndicator = ""
+                prs.Accounts(0).AccountID = CLongSafe(dr.Item(8), 0).ToString
+
+                If CDblSafe(dr.Item(10), 2, 0.0) > 0 Then
+                    prs.Accounts(0).Item = Convert.ToDecimal(CDblSafe(dr.Item(10), 2, 0.0))
+                    prs.Accounts(0).ItemElementName = ItemChoiceType2.OpeningDebitBalance
+                Else
+                    prs.Accounts(0).Item = Convert.ToDecimal(-CDblSafe(dr.Item(10), 2, 0.0))
+                    prs.Accounts(0).ItemElementName = ItemChoiceType2.OpeningCreditBalance
+                End If
+                If CDblSafe(dr.Item(11), 2, 0.0) > 0 Then
+                    prs.Accounts(0).Item1 = Convert.ToDecimal(CDblSafe(dr.Item(11), 2, 0.0))
+                    prs.Accounts(0).Item1ElementName = Item1ChoiceType1.ClosingDebitBalance
+                Else
+                    prs.Accounts(0).Item1 = Convert.ToDecimal(-CDblSafe(dr.Item(11), 2, 0.0))
+                    prs.Accounts(0).Item1ElementName = Item1ChoiceType1.ClosingCreditBalance
+                End If
+                
+                result.Add(prs)
             Next
 
             Return result.ToArray
@@ -364,9 +357,7 @@ Namespace ActiveReports.Declarations
             Dim result As New List(Of AuditFileMasterFilesSupplier)
 
             For Each dr As DataRow In myData.Rows
-                If CIntSafe(dr.Item(13), 0) > 0 Then
-
-                    Dim prs As New AuditFileMasterFilesSupplier
+                Dim prs As New AuditFileMasterFilesSupplier
                     prs.SupplierID = CIntSafe(dr.Item(0), 0).ToString
                     prs.Name = CStrSafe(dr.Item(1))
                     If Not ConvertDbBoolean(CIntSafe(dr.Item(3), 0)) Then
@@ -428,8 +419,6 @@ Namespace ActiveReports.Declarations
                     End If
 
                     result.Add(prs)
-
-                End If
             Next
 
             Return result.ToArray
