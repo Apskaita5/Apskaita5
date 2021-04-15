@@ -1,4 +1,4 @@
-Imports System.Windows.Forms
+﻿Imports System.Windows.Forms
 
 ''' <summary>
 ''' Represents a helper object to switch cursor to the <see cref="Cursors.WaitCursor">Cursors.WaitCursor</see>

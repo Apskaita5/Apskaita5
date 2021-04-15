@@ -1,4 +1,4 @@
-Namespace Documents
+﻿Namespace Documents
 
     ''' <summary>
     ''' Represents a collection of offset items (accounting entries that needs to be canceled 

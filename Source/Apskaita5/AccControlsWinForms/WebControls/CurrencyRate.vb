@@ -1,4 +1,4 @@
-Namespace WebControls
+﻿Namespace WebControls
 
     ''' <summary>
     ''' Represents an abstract currency rate data that is downloaded from a web service

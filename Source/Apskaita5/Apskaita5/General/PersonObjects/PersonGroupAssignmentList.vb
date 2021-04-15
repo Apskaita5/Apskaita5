@@ -1,4 +1,4 @@
-Namespace General
+﻿Namespace General
 
     ''' <summary>
     ''' Represents a list of <see cref="Person">person's</see> assignments to <see cref="PersonGroup">PersonGroups</see>. (many to many relation)

@@ -1,4 +1,4 @@
-
+﻿
 Imports ApskaitaObjects.Attributes
 
 Namespace Documents.InvoiceAdapters

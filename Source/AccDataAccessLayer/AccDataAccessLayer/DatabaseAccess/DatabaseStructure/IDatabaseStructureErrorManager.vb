@@ -1,4 +1,4 @@
-Namespace DatabaseAccess.DatabaseStructure
+﻿Namespace DatabaseAccess.DatabaseStructure
 
     ''' <summary>
     ''' Interface for creating a custom DB error monitoring class.

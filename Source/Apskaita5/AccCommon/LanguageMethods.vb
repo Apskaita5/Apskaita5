@@ -1,4 +1,4 @@
-Public Module LanguageMethods
+﻿Public Module LanguageMethods
 
     ''' <summary>
     ''' An array of all the legal ISO 639-1 language codes.

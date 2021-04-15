@@ -1,4 +1,4 @@
-''' <summary>
+﻿''' <summary>
 ''' Used to desvribe a form as a business object edit form.
 ''' </summary>
 ''' <remarks></remarks>

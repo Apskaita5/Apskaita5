@@ -1,4 +1,4 @@
-Namespace Settings
+﻿Namespace Settings
 
     ''' <summary>
     ''' Represents a collection of <see cref="General.CompanyAccount">company's account</see> value objects.

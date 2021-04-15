@@ -1,4 +1,4 @@
-Namespace HelperLists
+﻿Namespace HelperLists
 
     ''' <summary>
     ''' Represents a <see cref="ApskaitaObjects.Settings.DocumentSerial">document serial</see> value object.

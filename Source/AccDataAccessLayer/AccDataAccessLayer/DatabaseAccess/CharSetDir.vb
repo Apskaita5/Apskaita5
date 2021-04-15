@@ -1,4 +1,4 @@
-Namespace DatabaseAccess
+﻿Namespace DatabaseAccess
 
     ''' <summary>
     ''' ReadOnly object to get CharSetDirectory, which is needed to 

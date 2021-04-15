@@ -1,4 +1,4 @@
-Imports System.Data.SQLite
+﻿Imports System.Data.SQLite
 <SQLiteFunction(Name:="DAY", Arguments:=1, FuncType:=FunctionType.Scalar)> _
 Public Class SQLiteDay
     Inherits SQLite.SQLiteFunction

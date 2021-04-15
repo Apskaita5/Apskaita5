@@ -1,4 +1,4 @@
-Namespace Documents
+﻿Namespace Documents
 
     ''' <summary>
     ''' Represents a collection of an advance report document items. Contains info about documents:  

@@ -1,4 +1,4 @@
-'---------------------------------------------------------------------
+﻿'---------------------------------------------------------------------
 '  Copyright (C) Microsoft Corporation.  All rights reserved.
 ' 
 'THIS CODE AND INFORMATION ARE PROVIDED AS IS WITHOUT WARRANTY OF ANY

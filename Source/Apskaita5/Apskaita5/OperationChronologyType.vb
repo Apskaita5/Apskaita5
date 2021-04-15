@@ -1,4 +1,4 @@
-Imports ApskaitaObjects.Attributes
+﻿Imports ApskaitaObjects.Attributes
 
 ''' <summary>
 ''' Represents a type of chronologic relation between operations.

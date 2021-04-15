@@ -1,4 +1,4 @@
-Namespace ActiveReports
+﻿Namespace ActiveReports
 
     ''' <summary>
     ''' Represents a collection of items in a <see cref="WorkerWageInfoReport">worker wage report</see>.

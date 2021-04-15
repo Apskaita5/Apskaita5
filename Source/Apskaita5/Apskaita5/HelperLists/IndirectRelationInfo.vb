@@ -1,4 +1,4 @@
-Namespace HelperLists
+﻿Namespace HelperLists
 
     ''' <summary>
     ''' Represents an item of <see cref="IndirectRelationInfoList">IndirectRelationInfoList</see>.

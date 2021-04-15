@@ -1,4 +1,4 @@
-''' <summary>
+﻿''' <summary>
 ''' An interface required by CSLA framework async operations
 ''' in order to transfer Principal and context data between threads.
 ''' </summary>

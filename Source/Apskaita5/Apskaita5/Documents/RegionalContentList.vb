@@ -1,4 +1,4 @@
-Namespace Documents
+﻿Namespace Documents
 
     ''' <summary>
     ''' Represents a list of description info for a particular <see cref="IRegionalDataObject">

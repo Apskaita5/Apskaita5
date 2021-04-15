@@ -1,4 +1,4 @@
-''' <summary>
+﻿''' <summary>
 ''' An interface used to implement "save object before closing" pattern in GUI.
 ''' </summary>
 ''' <remarks><see cref="Csla.BusinessBase.IsDirty">IsDirty</see> property is not sufficient 

@@ -1,4 +1,4 @@
-Namespace Goods
+﻿Namespace Goods
 
     ''' <summary>
     ''' Represents a collection of parameters that are used to fetch goods 

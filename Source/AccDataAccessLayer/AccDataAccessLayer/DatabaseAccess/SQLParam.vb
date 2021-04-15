@@ -1,4 +1,4 @@
-Namespace DatabaseAccess
+﻿Namespace DatabaseAccess
 
     ''' <summary>
     ''' Provides an abstract parameter name/value/valuetype for a SQL command.

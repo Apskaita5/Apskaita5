@@ -1,4 +1,4 @@
-Namespace DatabaseAccess
+﻿Namespace DatabaseAccess
 
     ''' <summary>
     ''' Describes the type of an SQL command.

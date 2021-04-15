@@ -1,4 +1,4 @@
-Public Interface ICustomXmlSerialized
+﻿Public Interface ICustomXmlSerialized
 
     Sub Serialize(ByRef node As System.Xml.XmlNode)
 
