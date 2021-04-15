@@ -1,4 +1,4 @@
-Imports System.Xml.Serialization
+﻿Imports System.Xml.Serialization
 Imports System.Xml
 Imports System.Text
 Public Module Factory

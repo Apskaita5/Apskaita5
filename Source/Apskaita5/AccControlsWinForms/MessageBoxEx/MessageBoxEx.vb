@@ -1,4 +1,4 @@
-Imports System
+﻿Imports System
 Imports System.Drawing
 Imports System.Windows.Forms
 Namespace MessageBoxExLib
@@ -256,7 +256,7 @@ Namespace MessageBoxExLib
                 Case MessageBoxExButtons.Abort
                     buttonText = "Abort"
                 Case MessageBoxExButtons.Cancel
-                    buttonText = "At�aukti"
+                    buttonText = "Ataukti"
                 Case MessageBoxExButtons.Ignore
                     buttonText = "Ignore"
                 Case MessageBoxExButtons.Yes

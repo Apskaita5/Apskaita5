@@ -1,4 +1,4 @@
-Namespace Security.UserAdministration
+﻿Namespace Security.UserAdministration
 
     <Serializable()> _
 Public Class UserInfo

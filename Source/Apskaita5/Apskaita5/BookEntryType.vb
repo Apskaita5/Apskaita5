@@ -1,4 +1,4 @@
-Imports ApskaitaObjects.Attributes
+﻿Imports ApskaitaObjects.Attributes
 
 ''' <summary>
 ''' Represents <see cref="General.BookEntry">a single ledger transaction</see> type, 

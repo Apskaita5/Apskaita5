@@ -1,4 +1,4 @@
-Imports AccDataAccessLayer.DatabaseAccess.DatabaseStructure
+﻿Imports AccDataAccessLayer.DatabaseAccess.DatabaseStructure
 Imports AccDataAccessLayer
 Public Class F_RawSqlFetch
     Dim Obj As DatabaseStructure

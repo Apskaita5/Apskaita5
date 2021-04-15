@@ -1,4 +1,4 @@
-Namespace ActiveReports
+﻿Namespace ActiveReports
 
     ''' <summary>
     ''' Represents a person report item. Contains information about a person that the company operates with (clients, suppliers, workers, etc.).
@@ -197,7 +197,7 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' Gets a state of the origin of the person (ISO 3166�1 alpha 2 code).
+        ''' Gets a state of the origin of the person (ISO 3166–1 alpha 2 code).
         ''' </summary>
         ''' <remarks>Value is stored in the database field asmenys.StateCode.</remarks>
         <StringField(ValueRequiredLevel.Mandatory, 10, False)> _

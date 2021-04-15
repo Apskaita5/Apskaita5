@@ -1,4 +1,4 @@
-Namespace Workers
+﻿Namespace Workers
 
     ''' <summary>
     ''' Represents a collection of imprest calculation for particular labour contracts for a particular month.

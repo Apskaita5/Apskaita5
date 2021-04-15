@@ -1,4 +1,4 @@
-Namespace Printing
+﻿Namespace Printing
 
     ''' <summary>
     ''' Represents a print preview form.

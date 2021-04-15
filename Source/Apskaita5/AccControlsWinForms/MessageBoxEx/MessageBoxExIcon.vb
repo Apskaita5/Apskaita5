@@ -1,4 +1,4 @@
-Imports System
+﻿Imports System
 Namespace MessageBoxExLib
     ''' <summary>
     ''' Standard MessageBoxEx icons

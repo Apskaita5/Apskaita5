@@ -1,4 +1,4 @@
-Namespace ActiveReports
+﻿Namespace ActiveReports
 
     ''' <summary>
     ''' Represents a list of <see cref="Workers.Contract">labour contract's updates</see>.

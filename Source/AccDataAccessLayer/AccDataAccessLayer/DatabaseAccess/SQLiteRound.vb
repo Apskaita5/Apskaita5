@@ -1,4 +1,4 @@
-Imports System.Data.SQLite
+﻿Imports System.Data.SQLite
 <SQLiteFunction(Name:="CROUND", Arguments:=2, FuncType:=FunctionType.Scalar)> _
 Public Class SQLiteRound
     Inherits SQLite.SQLiteFunction

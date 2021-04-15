@@ -1,4 +1,4 @@
-Imports System
+﻿Imports System
 Imports System.IO
 Imports System.Collections
 Imports System.Resources
@@ -22,7 +22,7 @@ Namespace MessageBoxExLib
 #Region "Static ctor"
         Shared Sub New()
             _standardButtonsText(MessageBoxExButtons.Ok.ToString()) = "Ok"
-            _standardButtonsText(MessageBoxExButtons.Cancel.ToString()) = "At�aukti"
+            _standardButtonsText(MessageBoxExButtons.Cancel.ToString()) = "Ataukti"
             _standardButtonsText(MessageBoxExButtons.Yes.ToString()) = "Taip"
             _standardButtonsText(MessageBoxExButtons.No.ToString()) = "Ne"
             _standardButtonsText(MessageBoxExButtons.Abort.ToString()) = "Abort"

@@ -1,4 +1,4 @@
-Public Module ProjectConstants
+﻿Public Module ProjectConstants
 
     ''' <summary>
     ''' Provides LocalContext key name for a transaction object. 

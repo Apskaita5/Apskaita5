@@ -1,4 +1,4 @@
-Imports AccDataAccessLayer.DatabaseAccess
+﻿Imports AccDataAccessLayer.DatabaseAccess
 
 <Serializable()> _
 Public Class RawSQLFetch
@@ -104,7 +104,7 @@ Public Class RawSQLFetch
     Private Overloads Sub DataPortal_Fetch(ByVal criteria As Criteria)
 
         If Not CanGetObject() Then
-            Throw New Exception("Klaida. Vykdyti tiesiogines SQL u�klausas gali tik administratorius.")
+            Throw New Exception("Klaida. Vykdyti tiesiogines SQL u˛klausas gali tik administratorius.")
         End If
 
         Dim myComm As New SQLCommand("RawSQL", criteria.RawSQLStatement)

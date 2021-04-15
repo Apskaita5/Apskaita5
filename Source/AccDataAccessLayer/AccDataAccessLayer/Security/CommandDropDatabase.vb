@@ -1,4 +1,4 @@
-Imports AccDataAccessLayer.DatabaseAccess
+﻿Imports AccDataAccessLayer.DatabaseAccess
 Namespace Security
 
     <Serializable()> _

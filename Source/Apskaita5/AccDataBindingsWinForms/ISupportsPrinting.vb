@@ -1,4 +1,4 @@
-Public Interface ISupportsPrinting
+﻿Public Interface ISupportsPrinting
 
     Function GetPrintDropDownItems() As Windows.Forms.ToolStripDropDown
     Function GetMailDropDownItems() As Windows.Forms.ToolStripDropDown

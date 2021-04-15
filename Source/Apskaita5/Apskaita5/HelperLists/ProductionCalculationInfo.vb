@@ -1,4 +1,4 @@
-Namespace HelperLists
+﻿Namespace HelperLists
 
     ''' <summary>
     ''' Represents a <see cref="Goods.ProductionCalculation">goods production 

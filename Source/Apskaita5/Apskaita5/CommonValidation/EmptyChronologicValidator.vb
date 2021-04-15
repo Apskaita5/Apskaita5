@@ -1,4 +1,4 @@
-''' <summary>
+﻿''' <summary>
 ''' Represents an <see cref="IChronologicValidator">IChronologicValidator</see> instance that is used 
 ''' as a placeholder, i.e. does not contain any business restrictions.
 ''' </summary>

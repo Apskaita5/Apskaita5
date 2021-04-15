@@ -1,4 +1,4 @@
-Namespace HelperLists
+﻿Namespace HelperLists
 
     ''' <summary>
     ''' Represents a <see cref="General.TemplateJournalEntry">journal entry template</see> value object.

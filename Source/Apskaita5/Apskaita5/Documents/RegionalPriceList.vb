@@ -1,4 +1,4 @@
-Namespace Documents
+﻿Namespace Documents
 
     ''' <summary>
     ''' Represents list of price info for a particular regionalized object for particular currencies.

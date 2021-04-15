@@ -1,4 +1,4 @@
-
+﻿
 Imports ApskaitaObjects.Attributes
 
 Namespace ActiveReports
@@ -167,7 +167,7 @@ Namespace ActiveReports
         End Property
 
         ''' <summary>
-        ''' Gets a state of the origin of the person (ISO 3166�1 alpha 2 code).
+        ''' Gets a state of the origin of the person (ISO 3166–1 alpha 2 code).
         ''' </summary>
         ''' <remarks>Value is stored in the database field asmenys.StateCode.</remarks>
         <StringField(ValueRequiredLevel.Mandatory, 10, False)> _

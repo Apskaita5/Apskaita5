@@ -1,4 +1,4 @@
-Imports AccControlsWinForms
+﻿Imports AccControlsWinForms
 Imports ApskaitaObjects.General
 Imports ApskaitaObjects.HelperLists
 Imports AccDataBindingsWinForms.CachedInfoLists
@@ -143,19 +143,19 @@ Friend Class F_Person
         ByVal e As System.EventArgs) Handles FetchFromWebButton.Click
 
         If Not My.Computer.Network.IsAvailable Then
-            MsgBox("Klaida. Nėra ryšio su tinklu.", MsgBoxStyle.Exclamation, "Klaida.")
+            MsgBox("Klaida. NÄ—ra ryÅio su tinklu.", MsgBoxStyle.Exclamation, "Klaida.")
             Exit Sub
         End If
 
         If String.IsNullOrEmpty(_FormManager.DataSource.Code.Trim) AndAlso _
             String.IsNullOrEmpty(_FormManager.DataSource.Name.Trim) Then
-            MsgBox("Klaida. Neįvestas nei asmens/įmonės kodas, nei pavadinimo fragmentas.", MsgBoxStyle.Exclamation, "Klaida.")
+            MsgBox("Klaida. NeÄÆvestas nei asmens/ÄÆmonÄ—s kodas, nei pavadinimo fragmentas.", MsgBoxStyle.Exclamation, "Klaida.")
             Exit Sub
         End If
 
         If Not _FormManager.DataSource.IsNew Then
-            If Not YesOrNo("DĖMESIO!!!. Šio asmens duomenys jau yra įtraukti į įmonės duomenų " & _
-                "bazę. Ar tikrai norite įkrauti naujus duomenis iš JAR ir VMI?") Then Exit Sub
+            If Not YesOrNo("DÄ–MESIO!!!. Å io asmens duomenys jau yra ÄÆtraukti ÄÆ ÄÆmonÄ—s duomenÅ³ " & _
+                "bazÄ™. Ar tikrai norite ÄÆkrauti naujus duomenis iÅ JAR ir VMI?") Then Exit Sub
         End If
 
         If String.IsNullOrEmpty(_FormManager.DataSource.Code.Trim) Then
@@ -183,7 +183,7 @@ Friend Class F_Person
 
             Dim resultList As WebControls.PersonInfo() = DirectCast(result, WebControls.PersonInfo())
             If resultList.Length < 1 Then
-                MsgBox("Paieška pagal pavadinimo fragmentą negrąžino nė vieno rezultato.", MsgBoxStyle.Exclamation, "Klaida")
+                MsgBox("PaieÅka pagal pavadinimo fragmentÄ… negrÄ…Å¾ino nÄ— vieno rezultato.", MsgBoxStyle.Exclamation, "Klaida")
                 Exit Sub
             ElseIf resultList.Length = 1 Then
                 info = resultList(0)
@@ -223,7 +223,7 @@ Friend Class F_Person
         End Try
 
         If info Is Nothing Then
-            MsgBox("Klaida. Dėl nežinomų priežasčių nepavyko generuoti ClientInfo objekto.", _
+            MsgBox("Klaida. DÄ—l neÅ¾inomÅ³ prieÅ¾asÄ¨iÅ³ nepavyko generuoti ClientInfo objekto.", _
                 MsgBoxStyle.Exclamation, "Klaida")
             Exit Sub
         End If
@@ -239,7 +239,7 @@ Friend Class F_Person
             Exit Sub
         End Try
 
-        MsgBox("Asmens duomenys sėkmingai nukopijuoti į ClipBoard'ą.", MsgBoxStyle.Information, "Info")
+        MsgBox("Asmens duomenys sÄ—kmingai nukopijuoti ÄÆ ClipBoard'Ä….", MsgBoxStyle.Information, "Info")
 
     End Sub
 
@@ -251,7 +251,7 @@ Friend Class F_Person
 
         If StringIsNullOrEmpty(clipboardText) Then
 
-            MsgBox("Klaida. ClipBoard'as tuščias, t.y. nebuvo nukopijuoti jokie asmens duomenys.", _
+            MsgBox("Klaida. ClipBoard'as tuÅÄ¨ias, t.y. nebuvo nukopijuoti jokie asmens duomenys.", _
                 MsgBoxStyle.Exclamation, "Klaida")
             Exit Sub
 
@@ -263,14 +263,14 @@ Friend Class F_Person
                 info = InvoiceInfo.Factory.FromXmlString(Of InvoiceInfo.ClientInfo)(clipboardText)
             End Using
         Catch ex As Exception
-            ShowError(New Exception(String.Format("Klaida. Nepavyko atkurti asmens duomenų objekto. " _
-                & "Teigtina, kad prieš tai į ClipBoard'ą buvo nukopijuota ne asmens duomenys, " _
-                & "o šiaip kažkoks tekstas.{0}Klaidos tekstas: {1}", vbCrLf, ex.Message), ex), clipboardText)
+            ShowError(New Exception(String.Format("Klaida. Nepavyko atkurti asmens duomenÅ³ objekto. " _
+                & "Teigtina, kad prieÅ tai ÄÆ ClipBoard'Ä… buvo nukopijuota ne asmens duomenys, " _
+                & "o Åiaip kaÅ¾koks tekstas.{0}Klaidos tekstas: {1}", vbCrLf, ex.Message), ex), clipboardText)
             Exit Sub
         End Try
 
         If info Is Nothing Then
-            MsgBox("Klaida. Dėl nežinomų priežasčių nepavyko atkurti asmens duomenų objekto.", _
+            MsgBox("Klaida. DÄ—l neÅ¾inomÅ³ prieÅ¾asÄ¨iÅ³ nepavyko atkurti asmens duomenÅ³ objekto.", _
                 MsgBoxStyle.Exclamation, "Klaida")
             Exit Sub
         End If
@@ -278,7 +278,7 @@ Friend Class F_Person
         If Not PrepareCache(Me, GetType(HelperLists.PersonInfoList)) Then Exit Sub
         Dim persons As HelperLists.PersonInfoList = HelperLists.PersonInfoList.GetList
         If Not persons.GetPersonInfo(info.Code) Is Nothing Then
-            MsgBox(String.Format("Klaida. Toks asmuo jau yra registruotas: {0}, įmonės kodas {1}.", _
+            MsgBox(String.Format("Klaida. Toks asmuo jau yra registruotas: {0}, ÄÆmonÄ—s kodas {1}.", _
                 info.Name, info.Code), MsgBoxStyle.Exclamation, "Klaida")
             Exit Sub
         End If
@@ -308,7 +308,7 @@ Friend Class F_Person
         End Using
 
         If StringIsNullOrEmpty(clipboardText) Then
-            MsgBox("Klaida. Failas tuščias.", MsgBoxStyle.Exclamation, "Klaida")
+            MsgBox("Klaida. Failas tuÅÄ¨ias.", MsgBoxStyle.Exclamation, "Klaida")
             Exit Sub
         End If
 
@@ -318,14 +318,14 @@ Friend Class F_Person
                 info = InvoiceInfo.Factory.FromXmlString(Of InvoiceInfo.ClientInfo)(clipboardText)
             End Using
         Catch ex As Exception
-            ShowError(New Exception("Klaida. Nepavyko atkurti asmens duomenų objekto. " _
+            ShowError(New Exception("Klaida. Nepavyko atkurti asmens duomenÅ³ objekto. " _
                 & "Teigtina, kad faile saugomi ne asmens duomenys." & vbCrLf _
                 & "Klaidos tekstas: " & ex.Message, ex), clipboardText)
             Exit Sub
         End Try
 
         If info Is Nothing Then
-            MsgBox("Klaida. Dėl nežinomų priežasčių nepavyko atkurti asmens duomenų objekto.", _
+            MsgBox("Klaida. DÄ—l neÅ¾inomÅ³ prieÅ¾asÄ¨iÅ³ nepavyko atkurti asmens duomenÅ³ objekto.", _
                 MsgBoxStyle.Exclamation, "Klaida")
             Exit Sub
         End If
@@ -333,7 +333,7 @@ Friend Class F_Person
         If Not PrepareCache(Me, GetType(HelperLists.PersonInfoList)) Then Exit Sub
         Dim persons As HelperLists.PersonInfoList = HelperLists.PersonInfoList.GetList
         If Not persons.GetPersonInfo(info.Code) Is Nothing Then
-            MsgBox(String.Format("Klaida. Toks asmuo jau yra registruotas: {0}, įmonės kodas {1}.", _
+            MsgBox(String.Format("Klaida. Toks asmuo jau yra registruotas: {0}, ÄÆmonÄ—s kodas {1}.", _
                 info.Name, info.Code), MsgBoxStyle.Exclamation, "Klaida")
             Exit Sub
         End If
@@ -378,7 +378,7 @@ Friend Class F_Person
         End Try
 
         If info Is Nothing Then
-            MsgBox("Klaida. Dėl nežinomų priežasčių nepavyko generuoti ClientInfo objekto.", _
+            MsgBox("Klaida. DÄ—l neÅ¾inomÅ³ prieÅ¾asÄ¨iÅ³ nepavyko generuoti ClientInfo objekto.", _
                 MsgBoxStyle.Exclamation, "Klaida")
             Exit Sub
         End If
@@ -398,12 +398,12 @@ Friend Class F_Person
                     (Of InvoiceInfo.ClientInfo)(info), New System.Text.UnicodeEncoding)
             End Using
         Catch ex As Exception
-            ShowError(New Exception("Klaida. Nepavyko serializuoti ir išsaugoti ClientInfo objekto: " _
+            ShowError(New Exception("Klaida. Nepavyko serializuoti ir iÅsaugoti ClientInfo objekto: " _
                 & ex.Message, ex), Nothing)
             Exit Sub
         End Try
 
-        MsgBox("Asmens duomenys sėkmingai nukopijuoti į failą.", MsgBoxStyle.Information, "Info")
+        MsgBox("Asmens duomenys sÄ—kmingai nukopijuoti ÄÆ failÄ….", MsgBoxStyle.Information, "Info")
 
     End Sub
 

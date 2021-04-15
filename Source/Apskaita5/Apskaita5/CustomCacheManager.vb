@@ -1,4 +1,4 @@
-''' <summary>
+﻿''' <summary>
 ''' A class that manages login to a company database and cache.
 ''' </summary>
 ''' <remarks></remarks>

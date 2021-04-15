@@ -1,4 +1,4 @@
-Friend Class AsyncResult
+﻿Friend Class AsyncResult
     Inherits System.EventArgs
     Implements IAsyncContext
 

@@ -1,4 +1,4 @@
-Imports AccDataAccessLayer.Security
+﻿Imports AccDataAccessLayer.Security
 Public Class F_LoginSecondary
 
     Private _Database As DatabaseInfo

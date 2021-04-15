@@ -1,4 +1,4 @@
-Namespace Workers
+﻿Namespace Workers
 
     ''' <summary>
     ''' Represents a general (standard/normal) type of work hours for specific workers for a specific month.

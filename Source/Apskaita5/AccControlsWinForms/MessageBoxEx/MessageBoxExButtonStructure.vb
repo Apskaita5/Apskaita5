@@ -1,4 +1,4 @@
-''' <summary>
+﻿''' <summary>
 ''' Describes a button to be used in Ask dialog (module AccControls).
 ''' (c) http://www.codeproject.com/Articles/9656/Dissecting-the-MessageBox
 ''' </summary>

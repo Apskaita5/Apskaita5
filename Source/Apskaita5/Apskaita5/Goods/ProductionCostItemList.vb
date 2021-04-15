@@ -1,4 +1,4 @@
-Namespace Goods
+﻿Namespace Goods
 
     ''' <summary>
     ''' Represents a list of production template (""recipe"") costs items 

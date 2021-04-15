@@ -1,4 +1,4 @@
-Namespace Goods
+﻿Namespace Goods
 
     ''' <summary>
     ''' Represents a goods operation chronology value (overall, last before, first after).

@@ -1,4 +1,4 @@
-<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class F_RawSqlFetch
     Inherits System.Windows.Forms.Form
 
@@ -164,7 +164,7 @@ Partial Class F_RawSqlFetch
         Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F_RawSqlFetch"
-        Me.Text = "SQL u�klausos"
+        Me.Text = "SQL u˛klausos"
         CType(Me.ResultDataGridView,System.ComponentModel.ISupportInitialize).EndInit
         Me.SplitContainer2.Panel1.ResumeLayout(false)
         Me.SplitContainer2.Panel2.ResumeLayout(false)

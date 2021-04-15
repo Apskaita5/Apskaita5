@@ -1,4 +1,4 @@
-Namespace Documents
+﻿Namespace Documents
 
     ''' <summary>
     ''' Provides a common interface to work with regionalizable (localizable) objects,

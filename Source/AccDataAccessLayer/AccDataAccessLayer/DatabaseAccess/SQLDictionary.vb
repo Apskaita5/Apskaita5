@@ -1,4 +1,4 @@
-Namespace DatabaseAccess
+﻿Namespace DatabaseAccess
 
     ''' <summary>
     ''' Provides an abstract layer for getting raw SQL statements by key.
@@ -14,7 +14,7 @@ Namespace DatabaseAccess
             Get
                 GetSQLDepository()
                 If _SQLdictionary.ContainsKey(key) Then Return _SQLdictionary.Item(key)
-                Throw New Exception("Klaida. Ne�inomas SQL sakinys (statement), kurio kodas '" & key & "'.")
+                Throw New Exception("Klaida. Ne˛inomas SQL sakinys (statement), kurio kodas '" & key & "'.")
             End Get
         End Property
 

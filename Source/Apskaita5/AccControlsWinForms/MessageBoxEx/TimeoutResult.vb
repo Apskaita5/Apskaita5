@@ -1,4 +1,4 @@
-Imports System
+﻿Imports System
 Namespace MessageBoxExLib
     ''' <summary>
     ''' Enumerates the kind of results that can be returned when a

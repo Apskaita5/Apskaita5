@@ -1,4 +1,4 @@
-Imports System.Reflection
+﻿Imports System.Reflection
 Imports System.Windows.Forms
 
 ''' <summary>
@@ -129,7 +129,7 @@ Friend Class MethodInvoker(Of T)
         _Worker = Nothing
 
         OnFetchCompleted(New AsyncResult(Nothing, GetType(T), Nothing, _
-            New Exception("Operacija buvo at�aukta vartotojo.")))
+            New Exception("Operacija buvo ataukta vartotojo.")))
 
         Return True
 

@@ -1,4 +1,4 @@
-''' <summary>
+﻿''' <summary>
 ''' Represents a common interface to validate business objects' dates where there are 
 ''' chronology related business rules.
 ''' </summary>

@@ -1,4 +1,4 @@
-Namespace HelperLists
+﻿Namespace HelperLists
 
     ''' <summary>
     ''' Represents a value object for <see cref="General.CompanyRegionalData">general company data for a certain language</see>.

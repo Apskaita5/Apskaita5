@@ -1,4 +1,4 @@
-Namespace DatabaseAccess.DatabaseStructure
+﻿Namespace DatabaseAccess.DatabaseStructure
 
     <Serializable()> _
 Public Class DatabaseStructureError

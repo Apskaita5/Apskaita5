@@ -1,4 +1,4 @@
-Namespace Workers
+﻿Namespace Workers
 
     ''' <summary>
     ''' Represents a collection of wage calculations for particular labour contracts for a particular month.

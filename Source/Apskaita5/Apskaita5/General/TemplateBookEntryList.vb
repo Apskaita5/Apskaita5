@@ -1,4 +1,4 @@
-Namespace General
+﻿Namespace General
 
     ''' <summary>
     ''' Represents a ledger transaction template list grouped by <see cref="General.BookEntryList.Type">transaction type</see>.

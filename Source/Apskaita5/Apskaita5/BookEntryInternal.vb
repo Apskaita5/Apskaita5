@@ -1,4 +1,4 @@
-''' <summary>
+﻿''' <summary>
 ''' Represents a helper class that is used by various parent objects to create <see cref="General.BookEntry">BookEntry</see> lists.
 ''' </summary>
 ''' <remarks></remarks>

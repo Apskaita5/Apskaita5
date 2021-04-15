@@ -1,4 +1,4 @@
-Namespace Printing
+﻿Namespace Printing
     <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
     Partial Class F_PrintReport
         Inherits System.Windows.Forms.Form

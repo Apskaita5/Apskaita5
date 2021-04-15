@@ -1,4 +1,4 @@
-Imports AccDataAccessLayer.Security
+﻿Imports AccDataAccessLayer.Security
 Imports AccDataAccessLayer.DatabaseAccess
 Public Module CacheManager
 

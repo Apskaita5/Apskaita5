@@ -1,4 +1,4 @@
-Imports AccDataAccessLayer.DatabaseAccess
+﻿Imports AccDataAccessLayer.DatabaseAccess
 Imports AccDataAccessLayer.Security
 Friend Class ChangedDatabase
     Implements IDisposable

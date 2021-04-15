@@ -1,4 +1,4 @@
-Imports ApskaitaObjects.Settings.XmlProxies
+﻿Imports ApskaitaObjects.Settings.XmlProxies
 
 Namespace Settings
 

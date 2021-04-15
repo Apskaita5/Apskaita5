@@ -1,4 +1,4 @@
-Imports AccDataAccessLayer.Security.DatabaseTableAccess
+ï»¿Imports AccDataAccessLayer.Security.DatabaseTableAccess
 Imports AccDataAccessLayer.DatabaseAccess
 Namespace Security.UserAdministration
 
@@ -253,7 +253,7 @@ Public Class Role
                     Return RoleAccessType.Update
                 Case Else
                     Throw New NotSupportedException("Privilegijos tipas '" & _
-                        TargetPrivilege.ToString & "' nežinomas. Metodas - " & _
+                        TargetPrivilege.ToString & "' neË›inomas. Metodas - " & _
                         "Role.GetPrivilegeForTable.")
             End Select
         End Function
@@ -276,7 +276,7 @@ Public Class Role
                     Return RoleAccessType.Update
                 Case Else
                     Throw New NotSupportedException("Privilegijos tipas '" & _
-                        _RoleLevel.ToString & "' nežinomas. Metodas - " & _
+                        _RoleLevel.ToString & "' neË›inomas. Metodas - " & _
                         "Role.GetPrivilegeForTable.")
             End Select
         End Function
@@ -293,7 +293,7 @@ Public Class Role
                     Return 3
                 Case Else
                     Throw New NotSupportedException("Privilegijos tipas '" & _
-                        cRoleLevel.ToString & "' nežinomas. Metodas - " & _
+                        cRoleLevel.ToString & "' neË›inomas. Metodas - " & _
                         "Role.GetPrivilegeLevelDbInt.")
             End Select
         End Function

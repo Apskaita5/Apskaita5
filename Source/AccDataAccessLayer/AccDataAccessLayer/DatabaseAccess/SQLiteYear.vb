@@ -1,4 +1,4 @@
-Imports System.Data.SQLite
+﻿Imports System.Data.SQLite
 <SQLiteFunction(Name:="YEAR", Arguments:=1, FuncType:=FunctionType.Scalar)> _
 Public Class SQLiteYear
     Inherits SQLite.SQLiteFunction

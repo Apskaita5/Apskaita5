@@ -1,4 +1,4 @@
-Namespace DatabaseAccess
+﻿Namespace DatabaseAccess
 
     <Serializable()> _
     Public Class SqlTransaction
@@ -46,7 +46,7 @@ Namespace DatabaseAccess
                 If disposing Then
                     ' TODO: free unmanaged resources when explicitly called
                     If _IsTransactionOwner AndAlso TransactionExists() Then
-                        TransactionRollBack(New Exception("Klaida. Neu�baigta SQL transakcija."))
+                        TransactionRollBack(New Exception("Klaida. Neu˛baigta SQL transakcija."))
                     End If
                 End If
                 ' TODO: free shared unmanaged resources

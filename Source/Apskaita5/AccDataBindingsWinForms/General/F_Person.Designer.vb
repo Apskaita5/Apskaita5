@@ -1,4 +1,4 @@
-<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Friend Class F_Person
     Inherits System.Windows.Forms.Form
 
@@ -136,7 +136,7 @@ Partial Friend Class F_Person
         AccountAgainstBankBuyerLabel.Padding = New System.Windows.Forms.Padding(0, 6, 0, 0)
         AccountAgainstBankBuyerLabel.Size = New System.Drawing.Size(50, 28)
         AccountAgainstBankBuyerLabel.TabIndex = 0
-        AccountAgainstBankBuyerLabel.Text = "Pirkėjų:"
+        AccountAgainstBankBuyerLabel.Text = "PirkÄ—jÅ³:"
         AccountAgainstBankBuyerLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'AccountAgainstBankSupplyerLabel
@@ -148,7 +148,7 @@ Partial Friend Class F_Person
         AccountAgainstBankSupplyerLabel.Padding = New System.Windows.Forms.Padding(0, 6, 0, 0)
         AccountAgainstBankSupplyerLabel.Size = New System.Drawing.Size(53, 19)
         AccountAgainstBankSupplyerLabel.TabIndex = 2
-        AccountAgainstBankSupplyerLabel.Text = "Tiekėjų:"
+        AccountAgainstBankSupplyerLabel.Text = "TiekÄ—jÅ³:"
         AccountAgainstBankSupplyerLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'AddressLabel
@@ -187,7 +187,7 @@ Partial Friend Class F_Person
         BankAccountLabel.Name = "BankAccountLabel"
         BankAccountLabel.Size = New System.Drawing.Size(98, 20)
         BankAccountLabel.TabIndex = 8
-        BankAccountLabel.Text = "Banko sąskaita:"
+        BankAccountLabel.Text = "Banko sÄ…skaita:"
         BankAccountLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'CodeLabel
@@ -200,7 +200,7 @@ Partial Friend Class F_Person
         CodeLabel.Padding = New System.Windows.Forms.Padding(0, 6, 0, 0)
         CodeLabel.Size = New System.Drawing.Size(107, 26)
         CodeLabel.TabIndex = 10
-        CodeLabel.Text = "Įmonės/asmens:"
+        CodeLabel.Text = "Ä®monÄ—s/asmens:"
         CodeLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'CodeSODRALabel
@@ -226,7 +226,7 @@ Partial Friend Class F_Person
         CodeVATLabel.Padding = New System.Windows.Forms.Padding(0, 6, 0, 0)
         CodeVATLabel.Size = New System.Drawing.Size(107, 26)
         CodeVATLabel.TabIndex = 14
-        CodeVATLabel.Text = "PVM mokėtojo:"
+        CodeVATLabel.Text = "PVM mokÄ—tojo:"
         CodeVATLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'ContactInfoLabel
@@ -239,7 +239,7 @@ Partial Friend Class F_Person
         ContactInfoLabel.Name = "ContactInfoLabel"
         ContactInfoLabel.Size = New System.Drawing.Size(98, 20)
         ContactInfoLabel.TabIndex = 16
-        ContactInfoLabel.Text = "Kontaktinė info:"
+        ContactInfoLabel.Text = "KontaktinÄ— info:"
         ContactInfoLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'EmailLabel
@@ -252,7 +252,7 @@ Partial Friend Class F_Person
         EmailLabel.Name = "EmailLabel"
         EmailLabel.Size = New System.Drawing.Size(98, 20)
         EmailLabel.TabIndex = 18
-        EmailLabel.Text = "E-paštas:"
+        EmailLabel.Text = "E-paÅtas:"
         EmailLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'IDLabel
@@ -278,7 +278,7 @@ Partial Friend Class F_Person
         InternalCodeLabel.Padding = New System.Windows.Forms.Padding(0, 6, 0, 0)
         InternalCodeLabel.Size = New System.Drawing.Size(91, 26)
         InternalCodeLabel.TabIndex = 22
-        InternalCodeLabel.Text = "Įmonės vidinis:"
+        InternalCodeLabel.Text = "Ä®monÄ—s vidinis:"
         InternalCodeLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'NameLabel
@@ -330,7 +330,7 @@ Partial Friend Class F_Person
         InsertDateLabel.Name = "InsertDateLabel"
         InsertDateLabel.Size = New System.Drawing.Size(55, 20)
         InsertDateLabel.TabIndex = 37
-        InsertDateLabel.Text = "Įtraukta:"
+        InsertDateLabel.Text = "Ä®traukta:"
         InsertDateLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'UpdateDateLabel
@@ -356,7 +356,7 @@ Partial Friend Class F_Person
         StateCodeLabel.Name = "StateCodeLabel"
         StateCodeLabel.Size = New System.Drawing.Size(60, 20)
         StateCodeLabel.TabIndex = 37
-        StateCodeLabel.Text = "Šalis:"
+        StateCodeLabel.Text = "Å alis:"
         StateCodeLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Panel2
@@ -463,7 +463,7 @@ Partial Friend Class F_Person
         Me.ICancelButton.Name = "ICancelButton"
         Me.ICancelButton.Size = New System.Drawing.Size(89, 23)
         Me.ICancelButton.TabIndex = 3
-        Me.ICancelButton.Text = "Atšaukti"
+        Me.ICancelButton.Text = "AtÅaukti"
         Me.ICancelButton.UseVisualStyleBackColor = True
         '
         'IOkButton
@@ -485,7 +485,7 @@ Partial Friend Class F_Person
         Me.IApplyButton.Name = "IApplyButton"
         Me.IApplyButton.Size = New System.Drawing.Size(89, 23)
         Me.IApplyButton.TabIndex = 2
-        Me.IApplyButton.Text = "Išsaugoti"
+        Me.IApplyButton.Text = "IÅsaugoti"
         Me.IApplyButton.UseVisualStyleBackColor = True
         '
         'SplitContainer1
@@ -720,7 +720,7 @@ Partial Friend Class F_Person
         Me.IsClientCheckBox.Name = "IsClientCheckBox"
         Me.IsClientCheckBox.Size = New System.Drawing.Size(71, 17)
         Me.IsClientCheckBox.TabIndex = 0
-        Me.IsClientCheckBox.Text = "Pirkėjas"
+        Me.IsClientCheckBox.Text = "PirkÄ—jas"
         '
         'IsWorkerCheckBox
         '
@@ -742,7 +742,7 @@ Partial Friend Class F_Person
         Me.IsSupplierCheckBox.Name = "IsSupplierCheckBox"
         Me.IsSupplierCheckBox.Size = New System.Drawing.Size(74, 17)
         Me.IsSupplierCheckBox.TabIndex = 1
-        Me.IsSupplierCheckBox.Text = "Tiekėjas"
+        Me.IsSupplierCheckBox.Text = "TiekÄ—jas"
         '
         'IsObsoleteCheckBox
         '
@@ -766,7 +766,7 @@ Partial Friend Class F_Person
         Me.GroupBox1.Size = New System.Drawing.Size(648, 47)
         Me.GroupBox1.TabIndex = 10
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Koresponduojančio banko operacijų sąsk."
+        Me.GroupBox1.Text = "KoresponduojanÄ¨io banko operacijÅ³ sÄ…sk."
         '
         'TableLayoutPanel2
         '
@@ -933,7 +933,7 @@ Partial Friend Class F_Person
         Me.GroupBox2.Size = New System.Drawing.Size(259, 402)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Kontrahentų grupės"
+        Me.GroupBox2.Text = "KontrahentÅ³ grupÄ—s"
         '
         'AssignedToGroupsDataGridView
         '

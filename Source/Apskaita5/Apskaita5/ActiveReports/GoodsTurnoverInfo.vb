@@ -1,4 +1,4 @@
-Imports ApskaitaObjects.Goods
+﻿Imports ApskaitaObjects.Goods
 Namespace ActiveReports
 
     ''' <summary>
