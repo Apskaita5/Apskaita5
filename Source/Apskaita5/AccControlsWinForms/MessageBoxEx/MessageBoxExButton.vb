@@ -1,4 +1,4 @@
-Imports System
+﻿Imports System
 Namespace MessageBoxExLib
     ''' <summary>
     ''' Internal DataStructure used to represent a button

@@ -1,4 +1,4 @@
-Imports System.Windows.Forms
+﻿Imports System.Windows.Forms
 
 ''' <summary>
 ''' Represents <see cref="Form">Form</see> properties that are managed by

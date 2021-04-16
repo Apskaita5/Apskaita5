@@ -1,4 +1,4 @@
-Imports System.Runtime.Serialization
+﻿Imports System.Runtime.Serialization
 Imports System.Runtime.Serialization.Formatters.Binary
 Imports System.IO
 Imports System.Text

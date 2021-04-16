@@ -1,4 +1,4 @@
-Namespace ActiveReports
+﻿Namespace ActiveReports
 
     ''' <summary>
     ''' Represents a balance sheet report (part of <see cref="ActiveReports.FinancialStatementsInfo">FinancialStatementsInfo</see> report).

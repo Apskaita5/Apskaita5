@@ -1,4 +1,4 @@
-Imports System.Reflection
+﻿Imports System.Reflection
 Public Class CacheItem
     Implements IComparable
 

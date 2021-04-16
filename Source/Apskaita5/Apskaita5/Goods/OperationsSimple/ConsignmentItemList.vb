@@ -1,4 +1,4 @@
-Namespace Goods
+﻿Namespace Goods
 
     ''' <summary>
     ''' Represents a collection of consignments value modification operations, 

@@ -1,4 +1,4 @@
-''' <summary>
+﻿''' <summary>
 ''' An interface used by <see cref="Utilities.GetAllBrokenRulesForList">GetAllBrokenRulesForList</see> 
 ''' and <see cref="Utilities.GetAllWarningsForList">GetAllWarningsForList</see> methods 
 ''' to genericaly aggregate all the error/warning messages in <see cref="Csla.BusinessListBase(Of T, C)">BusinessListBase(Of T, C)</see>.

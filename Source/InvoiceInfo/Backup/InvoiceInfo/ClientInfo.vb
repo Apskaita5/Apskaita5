@@ -1,4 +1,4 @@
-<Serializable()> _
+﻿<Serializable()> _
 Public Class ClientInfo
 
     Private _ID As String = ""

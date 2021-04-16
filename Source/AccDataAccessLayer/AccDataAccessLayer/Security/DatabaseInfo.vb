@@ -1,4 +1,4 @@
-Namespace Security
+﻿Namespace Security
 
     <Serializable()> _
     Public Class DatabaseInfo

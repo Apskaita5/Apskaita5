@@ -1,4 +1,4 @@
-Imports ApskaitaObjects.General
+﻿Imports ApskaitaObjects.General
 Imports ApskaitaObjects.Attributes
 
 Namespace ActiveReports

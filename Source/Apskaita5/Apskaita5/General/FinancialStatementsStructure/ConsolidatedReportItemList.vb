@@ -1,4 +1,4 @@
-Namespace General
+﻿Namespace General
 
     ''' <summary>
     ''' Represents a collection of child items of a hierarchical consolidated 

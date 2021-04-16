@@ -1,4 +1,4 @@
-Public NotInheritable Class Apie
+﻿Public NotInheritable Class Apie
 
     Private Sub AboutBox1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ' Set the title of the form.

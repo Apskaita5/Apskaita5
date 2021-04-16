@@ -1,4 +1,4 @@
-Public Class CacheChangedEventArgs
+﻿Public Class CacheChangedEventArgs
     Inherits EventArgs
 
     Private _Type As Type

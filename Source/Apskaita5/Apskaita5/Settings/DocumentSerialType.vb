@@ -1,4 +1,4 @@
-Imports ApskaitaObjects.Attributes
+﻿Imports ApskaitaObjects.Attributes
 
 Namespace Settings
 

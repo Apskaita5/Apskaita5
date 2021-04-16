@@ -1,4 +1,4 @@
-Public Module CurrencyMethods
+﻿Public Module CurrencyMethods
 
     ''' <summary>
     ''' An array of all the legal ISO 4217 currency codes.

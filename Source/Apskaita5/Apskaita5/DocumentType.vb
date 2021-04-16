@@ -1,4 +1,4 @@
-Imports ApskaitaObjects.Attributes
+﻿Imports ApskaitaObjects.Attributes
 
 ''' <summary>
 ''' Represents a type of a document that encapsulates a <see cref="General.JournalEntry">JournalEntry</see>.

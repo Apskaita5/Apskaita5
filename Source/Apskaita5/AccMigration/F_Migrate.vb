@@ -1,4 +1,4 @@
-Imports AccDataAccessLayer.DatabaseAccess.DatabaseStructure
+﻿Imports AccDataAccessLayer.DatabaseAccess.DatabaseStructure
 Imports System.ComponentModel
 Public Class F_Migrate
 

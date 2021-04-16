@@ -1,4 +1,4 @@
-Namespace General
+﻿Namespace General
 
     ''' <summary>
     ''' Represents a list of company specific default rates (tax, wage, etc.), 

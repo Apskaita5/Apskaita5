@@ -1,4 +1,4 @@
-Imports System.Configuration
+﻿Imports System.Configuration
 Namespace Security
 
     Public Module SecurityMethods

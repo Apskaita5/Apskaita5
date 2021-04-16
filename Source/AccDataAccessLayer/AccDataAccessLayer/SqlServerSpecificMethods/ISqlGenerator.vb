@@ -1,4 +1,4 @@
-Namespace SqlServerSpecificMethods
+﻿Namespace SqlServerSpecificMethods
 
     Public Interface ISqlGenerator
 

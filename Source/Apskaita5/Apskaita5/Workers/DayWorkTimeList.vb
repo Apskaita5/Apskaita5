@@ -1,4 +1,4 @@
-Namespace Workers
+﻿Namespace Workers
 
     ''' <summary>
     ''' Represents normal work time duration or rest time for a certain labour contract for a certain month.
