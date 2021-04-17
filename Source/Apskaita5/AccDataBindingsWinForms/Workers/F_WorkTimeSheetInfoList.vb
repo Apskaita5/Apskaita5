@@ -55,6 +55,9 @@ Friend Class F_WorkTimeSheetInfoList
         NewButton.Enabled = Workers.WorkTimeSheet.CanAddObject
 
         DateFromAccDatePicker.Value = Today.AddMonths(-3)
+        Dim dateTo As Date = Today.AddMonths(-1)
+        dateTo = New Date(dateTo.Year, dateTo.Month, Date.DaysInMonth(dateTo.Year, dateTo.Month))
+        DateToAccDatePicker.Value = dateTo
 
         Return True
 
