@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Friend Class F_Person
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,9 +17,9 @@ Partial Friend Class F_Person
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim AccountAgainstBankBuyerLabel As System.Windows.Forms.Label
         Dim AccountAgainstBankSupplyerLabel As System.Windows.Forms.Label
         Dim AddressLabel As System.Windows.Forms.Label
@@ -39,74 +39,75 @@ Partial Friend Class F_Person
         Dim UpdateDateLabel As System.Windows.Forms.Label
         Dim StateCodeLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_Person))
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Me.Panel2 = New System.Windows.Forms.Panel
-        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel
-        Me.CopyPersonButton = New System.Windows.Forms.Button
-        Me.FetchFromWebButton = New System.Windows.Forms.Button
-        Me.PastePersonButton = New System.Windows.Forms.Button
-        Me.SavePersonFileButton = New System.Windows.Forms.Button
-        Me.OpenPersonFileButton = New System.Windows.Forms.Button
-        Me.ICancelButton = New System.Windows.Forms.Button
-        Me.IOkButton = New System.Windows.Forms.Button
-        Me.IApplyButton = New System.Windows.Forms.Button
-        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
-        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel
-        Me.StateCodeAccListComboBox = New AccControlsWinForms.AccListComboBox
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.CopyPersonButton = New System.Windows.Forms.Button()
+        Me.FetchFromWebButton = New System.Windows.Forms.Button()
+        Me.PastePersonButton = New System.Windows.Forms.Button()
+        Me.SavePersonFileButton = New System.Windows.Forms.Button()
+        Me.OpenPersonFileButton = New System.Windows.Forms.Button()
+        Me.ICancelButton = New System.Windows.Forms.Button()
+        Me.IOkButton = New System.Windows.Forms.Button()
+        Me.IApplyButton = New System.Windows.Forms.Button()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+        Me.StateCodeAccListComboBox = New AccControlsWinForms.AccListComboBox()
         Me.PersonBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox
-        Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel
-        Me.CodeSODRATextBox = New System.Windows.Forms.TextBox
-        Me.CodeVATTextBox = New System.Windows.Forms.TextBox
-        Me.InternalCodeTextBox = New System.Windows.Forms.TextBox
-        Me.CodeIsNotRealCheckBox = New System.Windows.Forms.CheckBox
-        Me.CodeTextBox = New System.Windows.Forms.TextBox
-        Me.IsNaturalPersonCheckBox = New System.Windows.Forms.CheckBox
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel
-        Me.IsClientCheckBox = New System.Windows.Forms.CheckBox
-        Me.IsWorkerCheckBox = New System.Windows.Forms.CheckBox
-        Me.IsSupplierCheckBox = New System.Windows.Forms.CheckBox
-        Me.IsObsoleteCheckBox = New System.Windows.Forms.CheckBox
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
-        Me.AccountAgainstBankBuyerAccGridComboBox = New AccControlsWinForms.AccListComboBox
-        Me.AccountAgainstBankSupplyerAccGridComboBox = New AccControlsWinForms.AccListComboBox
-        Me.InsertDateTextBox = New System.Windows.Forms.TextBox
-        Me.LanguageNameComboBox = New System.Windows.Forms.ComboBox
-        Me.IDTextBox = New System.Windows.Forms.TextBox
-        Me.EmailTextBox = New System.Windows.Forms.TextBox
-        Me.ContactInfoTextBox = New System.Windows.Forms.TextBox
-        Me.BankTextBox = New System.Windows.Forms.TextBox
-        Me.UpdateDateTextBox = New System.Windows.Forms.TextBox
-        Me.BankAccountTextBox = New System.Windows.Forms.TextBox
-        Me.AddressTextBox = New System.Windows.Forms.TextBox
-        Me.NameTextBox = New System.Windows.Forms.TextBox
-        Me.CurrencyCodeComboBox = New System.Windows.Forms.ComboBox
-        Me.AssignedToGroupsDataGridView = New System.Windows.Forms.DataGridView
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
+        Me.CodeSODRATextBox = New System.Windows.Forms.TextBox()
+        Me.CodeVATTextBox = New System.Windows.Forms.TextBox()
+        Me.InternalCodeTextBox = New System.Windows.Forms.TextBox()
+        Me.CodeIsNotRealCheckBox = New System.Windows.Forms.CheckBox()
+        Me.CodeTextBox = New System.Windows.Forms.TextBox()
+        Me.IsNaturalPersonCheckBox = New System.Windows.Forms.CheckBox()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.IsClientCheckBox = New System.Windows.Forms.CheckBox()
+        Me.IsWorkerCheckBox = New System.Windows.Forms.CheckBox()
+        Me.IsSupplierCheckBox = New System.Windows.Forms.CheckBox()
+        Me.IsObsoleteCheckBox = New System.Windows.Forms.CheckBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.AccountAgainstBankBuyerAccGridComboBox = New AccControlsWinForms.AccListComboBox()
+        Me.AccountAgainstBankSupplyerAccGridComboBox = New AccControlsWinForms.AccListComboBox()
+        Me.InsertDateTextBox = New System.Windows.Forms.TextBox()
+        Me.LanguageNameComboBox = New System.Windows.Forms.ComboBox()
+        Me.IDTextBox = New System.Windows.Forms.TextBox()
+        Me.EmailTextBox = New System.Windows.Forms.TextBox()
+        Me.ContactInfoTextBox = New System.Windows.Forms.TextBox()
+        Me.BankTextBox = New System.Windows.Forms.TextBox()
+        Me.UpdateDateTextBox = New System.Windows.Forms.TextBox()
+        Me.BankAccountTextBox = New System.Windows.Forms.TextBox()
+        Me.AddressTextBox = New System.Windows.Forms.TextBox()
+        Me.NameTextBox = New System.Windows.Forms.TextBox()
+        Me.CurrencyCodeComboBox = New System.Windows.Forms.ComboBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.AssignedToGroupsDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.AssignedToGroupsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller
-        Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller
+        Me.ProgressFiller1 = New AccControlsWinForms.ProgressFiller()
+        Me.ProgressFiller2 = New AccControlsWinForms.ProgressFiller()
         Me.ErrorWarnInfoProvider1 = New AccControlsWinForms.ErrorWarnInfoProvider(Me.components)
-        AccountAgainstBankBuyerLabel = New System.Windows.Forms.Label
-        AccountAgainstBankSupplyerLabel = New System.Windows.Forms.Label
-        AddressLabel = New System.Windows.Forms.Label
-        BankLabel = New System.Windows.Forms.Label
-        BankAccountLabel = New System.Windows.Forms.Label
-        CodeLabel = New System.Windows.Forms.Label
-        CodeSODRALabel = New System.Windows.Forms.Label
-        CodeVATLabel = New System.Windows.Forms.Label
-        ContactInfoLabel = New System.Windows.Forms.Label
-        EmailLabel = New System.Windows.Forms.Label
-        IDLabel = New System.Windows.Forms.Label
-        InternalCodeLabel = New System.Windows.Forms.Label
-        NameLabel = New System.Windows.Forms.Label
-        LanguageNameLabel = New System.Windows.Forms.Label
-        CurrencyCodeLabel = New System.Windows.Forms.Label
-        InsertDateLabel = New System.Windows.Forms.Label
-        UpdateDateLabel = New System.Windows.Forms.Label
-        StateCodeLabel = New System.Windows.Forms.Label
+        AccountAgainstBankBuyerLabel = New System.Windows.Forms.Label()
+        AccountAgainstBankSupplyerLabel = New System.Windows.Forms.Label()
+        AddressLabel = New System.Windows.Forms.Label()
+        BankLabel = New System.Windows.Forms.Label()
+        BankAccountLabel = New System.Windows.Forms.Label()
+        CodeLabel = New System.Windows.Forms.Label()
+        CodeSODRALabel = New System.Windows.Forms.Label()
+        CodeVATLabel = New System.Windows.Forms.Label()
+        ContactInfoLabel = New System.Windows.Forms.Label()
+        EmailLabel = New System.Windows.Forms.Label()
+        IDLabel = New System.Windows.Forms.Label()
+        InternalCodeLabel = New System.Windows.Forms.Label()
+        NameLabel = New System.Windows.Forms.Label()
+        LanguageNameLabel = New System.Windows.Forms.Label()
+        CurrencyCodeLabel = New System.Windows.Forms.Label()
+        InsertDateLabel = New System.Windows.Forms.Label()
+        UpdateDateLabel = New System.Windows.Forms.Label()
+        StateCodeLabel = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -119,6 +120,7 @@ Partial Friend Class F_Person
         Me.TableLayoutPanel3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         CType(Me.AssignedToGroupsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AssignedToGroupsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorWarnInfoProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -248,7 +250,7 @@ Partial Friend Class F_Person
         EmailLabel.Location = New System.Drawing.Point(3, 268)
         EmailLabel.Margin = New System.Windows.Forms.Padding(3, 6, 3, 0)
         EmailLabel.Name = "EmailLabel"
-        EmailLabel.Size = New System.Drawing.Size(98, 21)
+        EmailLabel.Size = New System.Drawing.Size(98, 20)
         EmailLabel.TabIndex = 18
         EmailLabel.Text = "E-paštas:"
         EmailLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -297,7 +299,7 @@ Partial Friend Class F_Person
         LanguageNameLabel.AutoSize = True
         LanguageNameLabel.Dock = System.Windows.Forms.DockStyle.Fill
         LanguageNameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        LanguageNameLabel.Location = New System.Drawing.Point(3, 295)
+        LanguageNameLabel.Location = New System.Drawing.Point(3, 294)
         LanguageNameLabel.Margin = New System.Windows.Forms.Padding(3, 6, 3, 0)
         LanguageNameLabel.Name = "LanguageNameLabel"
         LanguageNameLabel.Size = New System.Drawing.Size(98, 21)
@@ -310,7 +312,7 @@ Partial Friend Class F_Person
         CurrencyCodeLabel.AutoSize = True
         CurrencyCodeLabel.Dock = System.Windows.Forms.DockStyle.Fill
         CurrencyCodeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        CurrencyCodeLabel.Location = New System.Drawing.Point(446, 295)
+        CurrencyCodeLabel.Location = New System.Drawing.Point(446, 294)
         CurrencyCodeLabel.Margin = New System.Windows.Forms.Padding(3, 6, 3, 0)
         CurrencyCodeLabel.Name = "CurrencyCodeLabel"
         CurrencyCodeLabel.Size = New System.Drawing.Size(60, 21)
@@ -352,7 +354,7 @@ Partial Friend Class F_Person
         StateCodeLabel.Location = New System.Drawing.Point(446, 268)
         StateCodeLabel.Margin = New System.Windows.Forms.Padding(3, 6, 3, 0)
         StateCodeLabel.Name = "StateCodeLabel"
-        StateCodeLabel.Size = New System.Drawing.Size(60, 21)
+        StateCodeLabel.Size = New System.Drawing.Size(60, 20)
         StateCodeLabel.TabIndex = 37
         StateCodeLabel.Text = "Šalis:"
         StateCodeLabel.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -374,15 +376,15 @@ Partial Friend Class F_Person
         'TableLayoutPanel4
         '
         Me.TableLayoutPanel4.ColumnCount = 9
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel4.Controls.Add(Me.CopyPersonButton, 2, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.FetchFromWebButton, 0, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.PastePersonButton, 4, 0)
@@ -391,7 +393,7 @@ Partial Friend Class F_Person
         Me.TableLayoutPanel4.Location = New System.Drawing.Point(10, 3)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 1
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle)
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel4.Size = New System.Drawing.Size(273, 31)
         Me.TableLayoutPanel4.TabIndex = 0
         '
@@ -500,7 +502,7 @@ Partial Friend Class F_Person
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.AutoScroll = True
-        Me.SplitContainer1.Panel2.Controls.Add(Me.AssignedToGroupsDataGridView)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox2)
         Me.SplitContainer1.Size = New System.Drawing.Size(917, 402)
         Me.SplitContainer1.SplitterDistance = 654
         Me.SplitContainer1.TabIndex = 0
@@ -509,13 +511,13 @@ Partial Friend Class F_Person
         'TableLayoutPanel5
         '
         Me.TableLayoutPanel5.ColumnCount = 9
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
         Me.TableLayoutPanel5.Controls.Add(Me.StateCodeAccListComboBox, 7, 7)
@@ -549,17 +551,17 @@ Partial Friend Class F_Person
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 12
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle)
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel5.Size = New System.Drawing.Size(654, 402)
         Me.TableLayoutPanel5.TabIndex = 0
@@ -569,10 +571,9 @@ Partial Friend Class F_Person
         Me.StateCodeAccListComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.PersonBindingSource, "StateCode", True))
         Me.StateCodeAccListComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.StateCodeAccListComboBox.EmptyValueString = ""
-        Me.StateCodeAccListComboBox.InstantBinding = True
         Me.StateCodeAccListComboBox.Location = New System.Drawing.Point(512, 265)
         Me.StateCodeAccListComboBox.Name = "StateCodeAccListComboBox"
-        Me.StateCodeAccListComboBox.Size = New System.Drawing.Size(113, 21)
+        Me.StateCodeAccListComboBox.Size = New System.Drawing.Size(113, 20)
         Me.StateCodeAccListComboBox.TabIndex = 7
         '
         'PersonBindingSource
@@ -594,10 +595,10 @@ Partial Friend Class F_Person
         'TableLayoutPanel6
         '
         Me.TableLayoutPanel6.ColumnCount = 6
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
         Me.TableLayoutPanel6.Controls.Add(Me.CodeSODRATextBox, 1, 2)
@@ -615,8 +616,8 @@ Partial Friend Class F_Person
         Me.TableLayoutPanel6.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
         Me.TableLayoutPanel6.RowCount = 3
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle)
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle)
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel6.Size = New System.Drawing.Size(642, 81)
         Me.TableLayoutPanel6.TabIndex = 0
@@ -624,7 +625,7 @@ Partial Friend Class F_Person
         'CodeSODRATextBox
         '
         Me.CodeSODRATextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CodeSODRATextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonBindingSource, "CodeSODRA", True))
         Me.CodeSODRATextBox.Location = New System.Drawing.Point(116, 55)
         Me.CodeSODRATextBox.Name = "CodeSODRATextBox"
@@ -664,7 +665,7 @@ Partial Friend Class F_Person
         'CodeTextBox
         '
         Me.CodeTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CodeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonBindingSource, "Code", True))
         Me.CodeTextBox.Location = New System.Drawing.Point(116, 3)
         Me.CodeTextBox.Name = "CodeTextBox"
@@ -688,13 +689,13 @@ Partial Friend Class F_Person
         '
         Me.TableLayoutPanel3.ColumnCount = 8
         Me.TableLayoutPanel5.SetColumnSpan(Me.TableLayoutPanel3, 9)
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.IsClientCheckBox, 0, 0)
@@ -702,7 +703,7 @@ Partial Friend Class F_Person
         Me.TableLayoutPanel3.Controls.Add(Me.IsSupplierCheckBox, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.IsObsoleteCheckBox, 7, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(0, 369)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(0, 368)
         Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
@@ -760,7 +761,7 @@ Partial Friend Class F_Person
         Me.TableLayoutPanel5.SetColumnSpan(Me.GroupBox1, 9)
         Me.GroupBox1.Controls.Add(Me.TableLayoutPanel2)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 319)
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 318)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(648, 47)
         Me.GroupBox1.TabIndex = 10
@@ -770,10 +771,10 @@ Partial Friend Class F_Person
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.ColumnCount = 6
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle)
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.AccountAgainstBankBuyerAccGridComboBox, 1, 0)
@@ -793,10 +794,9 @@ Partial Friend Class F_Person
         Me.AccountAgainstBankBuyerAccGridComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.PersonBindingSource, "AccountAgainstBankBuyer", True))
         Me.AccountAgainstBankBuyerAccGridComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountAgainstBankBuyerAccGridComboBox.EmptyValueString = ""
-        Me.AccountAgainstBankBuyerAccGridComboBox.InstantBinding = True
         Me.AccountAgainstBankBuyerAccGridComboBox.Location = New System.Drawing.Point(59, 3)
         Me.AccountAgainstBankBuyerAccGridComboBox.Name = "AccountAgainstBankBuyerAccGridComboBox"
-        Me.AccountAgainstBankBuyerAccGridComboBox.Size = New System.Drawing.Size(236, 21)
+        Me.AccountAgainstBankBuyerAccGridComboBox.Size = New System.Drawing.Size(236, 20)
         Me.AccountAgainstBankBuyerAccGridComboBox.TabIndex = 0
         '
         'AccountAgainstBankSupplyerAccGridComboBox
@@ -804,10 +804,9 @@ Partial Friend Class F_Person
         Me.AccountAgainstBankSupplyerAccGridComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.PersonBindingSource, "AccountAgainstBankSupplyer", True))
         Me.AccountAgainstBankSupplyerAccGridComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountAgainstBankSupplyerAccGridComboBox.EmptyValueString = ""
-        Me.AccountAgainstBankSupplyerAccGridComboBox.InstantBinding = True
         Me.AccountAgainstBankSupplyerAccGridComboBox.Location = New System.Drawing.Point(380, 3)
         Me.AccountAgainstBankSupplyerAccGridComboBox.Name = "AccountAgainstBankSupplyerAccGridComboBox"
-        Me.AccountAgainstBankSupplyerAccGridComboBox.Size = New System.Drawing.Size(236, 21)
+        Me.AccountAgainstBankSupplyerAccGridComboBox.Size = New System.Drawing.Size(236, 20)
         Me.AccountAgainstBankSupplyerAccGridComboBox.TabIndex = 1
         '
         'InsertDateTextBox
@@ -827,7 +826,7 @@ Partial Friend Class F_Person
         Me.LanguageNameComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonBindingSource, "LanguageName", True))
         Me.LanguageNameComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LanguageNameComboBox.FormattingEnabled = True
-        Me.LanguageNameComboBox.Location = New System.Drawing.Point(107, 292)
+        Me.LanguageNameComboBox.Location = New System.Drawing.Point(107, 291)
         Me.LanguageNameComboBox.Name = "LanguageNameComboBox"
         Me.LanguageNameComboBox.Size = New System.Drawing.Size(313, 21)
         Me.LanguageNameComboBox.TabIndex = 8
@@ -920,10 +919,21 @@ Partial Friend Class F_Person
         Me.CurrencyCodeComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonBindingSource, "CurrencyCode", True))
         Me.CurrencyCodeComboBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CurrencyCodeComboBox.FormattingEnabled = True
-        Me.CurrencyCodeComboBox.Location = New System.Drawing.Point(512, 292)
+        Me.CurrencyCodeComboBox.Location = New System.Drawing.Point(512, 291)
         Me.CurrencyCodeComboBox.Name = "CurrencyCodeComboBox"
         Me.CurrencyCodeComboBox.Size = New System.Drawing.Size(113, 21)
         Me.CurrencyCodeComboBox.TabIndex = 9
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.AssignedToGroupsDataGridView)
+        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(259, 402)
+        Me.GroupBox2.TabIndex = 1
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Kontrahentų grupės"
         '
         'AssignedToGroupsDataGridView
         '
@@ -937,21 +947,22 @@ Partial Friend Class F_Person
         Me.AssignedToGroupsDataGridView.ColumnHeadersVisible = False
         Me.AssignedToGroupsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewCheckBoxColumn1})
         Me.AssignedToGroupsDataGridView.DataSource = Me.AssignedToGroupsBindingSource
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonFace
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.AssignedToGroupsDataGridView.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.AssignedToGroupsDataGridView.DefaultCellStyle = DataGridViewCellStyle1
         Me.AssignedToGroupsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AssignedToGroupsDataGridView.Location = New System.Drawing.Point(0, 0)
+        Me.AssignedToGroupsDataGridView.Location = New System.Drawing.Point(3, 16)
+        Me.AssignedToGroupsDataGridView.Margin = New System.Windows.Forms.Padding(3, 20, 3, 3)
         Me.AssignedToGroupsDataGridView.MultiSelect = False
         Me.AssignedToGroupsDataGridView.Name = "AssignedToGroupsDataGridView"
         Me.AssignedToGroupsDataGridView.RowHeadersVisible = False
-        Me.AssignedToGroupsDataGridView.Size = New System.Drawing.Size(259, 402)
-        Me.AssignedToGroupsDataGridView.TabIndex = 0
+        Me.AssignedToGroupsDataGridView.Size = New System.Drawing.Size(253, 383)
+        Me.AssignedToGroupsDataGridView.TabIndex = 1
         '
         'DataGridViewTextBoxColumn3
         '
@@ -991,9 +1002,6 @@ Partial Friend Class F_Person
         '
         'ErrorWarnInfoProvider1
         '
-        Me.ErrorWarnInfoProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
-        Me.ErrorWarnInfoProvider1.BlinkStyleInformation = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
-        Me.ErrorWarnInfoProvider1.BlinkStyleWarning = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.ErrorWarnInfoProvider1.ContainerControl = Me
         Me.ErrorWarnInfoProvider1.DataSource = Me.PersonBindingSource
         '
@@ -1025,6 +1033,7 @@ Partial Friend Class F_Person
         Me.GroupBox1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
         CType(Me.AssignedToGroupsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AssignedToGroupsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorWarnInfoProvider1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1052,10 +1061,7 @@ Partial Friend Class F_Person
     Friend WithEvents NameTextBox As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents AssignedToGroupsDataGridView As System.Windows.Forms.DataGridView
     Friend WithEvents AssignedToGroupsBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewCheckBoxColumn1 As System.Windows.Forms.DataGridViewCheckBoxColumn
     Friend WithEvents LanguageNameComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents AccountAgainstBankSupplyerAccGridComboBox As AccControlsWinForms.AccListComboBox
     Friend WithEvents AccountAgainstBankBuyerAccGridComboBox As AccControlsWinForms.AccListComboBox
@@ -1081,4 +1087,8 @@ Partial Friend Class F_Person
     Friend WithEvents IsObsoleteCheckBox As System.Windows.Forms.CheckBox
     Friend WithEvents CurrencyCodeComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents StateCodeAccListComboBox As AccControlsWinForms.AccListComboBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents AssignedToGroupsDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewCheckBoxColumn1 As DataGridViewCheckBoxColumn
 End Class
